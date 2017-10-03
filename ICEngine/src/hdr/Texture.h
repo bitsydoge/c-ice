@@ -4,9 +4,12 @@
 
 typedef struct
 {
+	unsigned short exist;
+	char *path;
 	SDL_Texture* handle;
 	unsigned int w;
 	unsigned int h;
+
 } ICE_Texture;
 
 /// Load a PNG with lodepng to a Texture with Error handling

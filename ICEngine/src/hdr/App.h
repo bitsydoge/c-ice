@@ -1,5 +1,6 @@
 #ifndef DEF_ICE_APP
 #define DEF_ICE_APP
+#include "Input.h"
 
 typedef struct
 {
@@ -9,5 +10,7 @@ typedef struct
     unsigned int w, h;
 
 } ICE_App;
+
+ICE_App ICE_CreateApp(char *window_title, unsigned int width_window, unsigned int height_window);
 
 #endif

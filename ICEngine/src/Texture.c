@@ -69,7 +69,7 @@ ICE_Texture* ICE_LoadBMP(SDL_Renderer *render, char *path)
 	return text;
 }
 
-ICE_Texture* ICE_LoadBMPAlpha(SDL_Renderer *render, char *path,const Uint32 rgba_hex)
+ICE_Texture* ICE_LoadBMPAlpha(SDL_Renderer *render, char *path, const Uint32 rgba_hex)
 {
 	const int r = rgba_hex >> 24 & 255;
 	const int g = rgba_hex >> 16 & 255;
