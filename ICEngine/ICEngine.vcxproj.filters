@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="external">
       <UniqueIdentifier>{ea8a1cdc-8591-49a9-8e42-774896eac324}</UniqueIdentifier>
     </Filter>
@@ -12,7 +8,7 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="src/hdr">
+    <Filter Include="hdr">
       <UniqueIdentifier>{98a459bf-b5f8-497d-9142-12024999c7af}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -29,6 +25,18 @@
     <ClCompile Include="src\Input.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\App.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Render.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Init.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Time.c">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\external\tinyfiles.h">
@@ -41,10 +49,22 @@
       <Filter>external</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Texture.h">
-      <Filter>src/hdr</Filter>
+      <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Input.h">
-      <Filter>src/hdr</Filter>
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\App.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Render.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Init.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Time.h">
+      <Filter>hdr</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
