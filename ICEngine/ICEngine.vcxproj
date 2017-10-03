@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\external\lodepng.c" />
+    <ClCompile Include="src\Input.c" />
     <ClCompile Include="src\main.c" />
     <ClCompile Include="src\Texture.c" />
   </ItemGroup>
@@ -27,6 +28,7 @@
     <ClInclude Include="src\external\lodepng.h" />
     <ClInclude Include="src\external\rlutil.h" />
     <ClInclude Include="src\external\tinyfiles.h" />
+    <ClInclude Include="src\hdr\Input.h" />
     <ClInclude Include="src\hdr\Texture.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

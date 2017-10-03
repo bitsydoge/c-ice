@@ -26,6 +26,9 @@
     <ClCompile Include="src\Texture.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Input.c">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\external\tinyfiles.h">
@@ -38,6 +41,9 @@
       <Filter>external</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Texture.h">
+      <Filter>src/hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Input.h">
       <Filter>src/hdr</Filter>
     </ClInclude>
   </ItemGroup>
