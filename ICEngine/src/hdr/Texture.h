@@ -18,7 +18,7 @@ ICE_Texture* ICE_LoadBMPAlpha(SDL_Renderer *render, char *path, const Uint32 rgb
 /// Render a ICE_Texture to the renderer
 int ICE_TextureRender(SDL_Renderer* renderer, ICE_Texture* tex, SDL_Rect* source, SDL_Rect* destination);
 /// Render a ICE_Texture to the renderer with a rotation
-int ICE_TextureRenderEx(SDL_Renderer* renderer, ICE_Texture* tex, SDL_Rect* source, SDL_Rect* destination, const double angle);
+int ICE_TextureRenderEx(SDL_Renderer* renderer, const ICE_Texture *tex, SDL_Rect* source, SDL_Rect* destination, const double angle);
 /// Convert ARGB to a Uint32 (Hex color)
 Uint32 ICE_Rgba(const unsigned int r, const unsigned int g, const unsigned int b, const unsigned int a);
 

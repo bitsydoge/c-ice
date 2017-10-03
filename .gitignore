@@ -1,4 +1,24 @@
 
 Debug/
 
+ICEngine/CMakeFiles/
+
 \.vs/ICEngine/v15/
+
+ICEngine/Makefile
+
+ICEngine/\.vscode/
+
+ICEngine/2inside
+
+ICEngine/CMakeCache\.txt
+
+*.includecache
+
+*.cmake
+
+*.make
+
+ICEngine/CMakeFiles/2inside\.dir/
+
+*.bin
