@@ -1,14 +1,15 @@
 #ifndef DEF_ICE_TEXTURE
 #define DEF_ICE_TEXTURE
+
 #include <SDL2/SDL.h>
 
 typedef struct
 {
 	unsigned short exist;
 	char *path;
-	SDL_Texture* handle;
 	unsigned int w;
 	unsigned int h;
+	SDL_Texture* handle;
 
 } ICE_Texture;
 

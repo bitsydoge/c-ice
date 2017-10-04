@@ -1,5 +1,6 @@
 #ifndef DEF_ICE_INPUT
 #define DEF_ICE_INPUT
+
 #include <SDL2/SDL.h>
 
 typedef struct
