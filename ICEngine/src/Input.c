@@ -4,7 +4,7 @@
 #include "hdr/Input.h"
 
 
-void ICE_InputReturn(ICE_Input *input)
+int ICE_InputReturn(ICE_Input *input)
 {
 	SDL_Event event;
 	while (SDL_PollEvent(&event))
@@ -94,6 +94,7 @@ void ICE_InputReturn(ICE_Input *input)
 		}
 
 	}
+	return 0;
 }
 
 void ICE_InputReset(ICE_Input *input)

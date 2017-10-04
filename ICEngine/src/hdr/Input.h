@@ -29,7 +29,7 @@ typedef struct
 
 } ICE_Input;
 
-void ICE_InputReturn(ICE_Input *input);
+int ICE_InputReturn(ICE_Input *input);
 void ICE_InputReset(ICE_Input *input);
 
 #endif
