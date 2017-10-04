@@ -12,5 +12,7 @@ typedef struct
 } ICE_App;
 
 ICE_App ICE_CreateApp(char *window_title, unsigned int width_window, unsigned int height_window);
+void ICE_DestroyApp(ICE_App *app);
+
 
 #endif

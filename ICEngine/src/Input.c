@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "hdr/Input.h"
-
+#include "external/rlutil.h"
 
 int ICE_InputReturn(ICE_Input *input)
 {

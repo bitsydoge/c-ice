@@ -8,3 +8,11 @@ int ICE_InitGameEngine()
 
 	return 0;
 }
+
+int ICE_CloseGameEngine()
+{
+	
+	SDL_Quit();
+	
+	return 0;
+}
