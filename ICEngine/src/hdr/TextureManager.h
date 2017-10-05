@@ -1,3 +1,6 @@
+#ifndef TEXTUREMANAGER_H
+#define TEXTUREMANAGER_H
+
 #include "Texture.h"
 #include "App.h"
 
@@ -9,5 +12,7 @@ typedef struct
 
 } ICE_TextureManager;
 
-const char *_get_filename_ext(const char *filename);
+ICE_TextureManager ICE_CreateTextureManager();
 void ICE_CreateTexture(ICE_App *app, ICE_TextureManager texturemanager, char* path, Uint32 color_hex);
+
+#endif // TEXTUREMANAGER_H

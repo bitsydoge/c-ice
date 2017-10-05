@@ -1,7 +1,7 @@
 #include "hdr/App.h"
 #include "hdr/Render.h"
 
-ICE_App ICE_CreateApp(char *window_title, unsigned int width_window, unsigned int height_window)
+ICE_App ICE_CreateApp(char *window_title, const unsigned int width_window, const unsigned int height_window)
 {
     ICE_App app = {0};
 

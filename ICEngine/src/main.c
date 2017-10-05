@@ -8,7 +8,7 @@ int main(int argc, char* args[])
 {
 	ICE_InitGameEngine();
 	ICE_App app = ICE_CreateApp("ICE", 500, 500);
-	ICE_Texture *texture = ICE_LoadPNG(app.render, "res/img/test.png");
+	ICE_Texture *texture = ICE_LoadPNG(app.render, "res/img/logo.png");
 	ICE_Texture *texture2 = ICE_LoadBMPAlpha(app.render, "res/img/error.bmp", ICE_Rgba(0, 200, 255, 105));
 	ICE_TextureManager text = {0};
 	
