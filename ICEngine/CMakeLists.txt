@@ -16,13 +16,17 @@ add_executable(ICE.bin
         src/Render.c
         src/App.c
         src/Init.c
+        src/TerminalColor.c
         src/TextureManager.c
         src/hdr/Input.h
         src/hdr/Texture.h
         src/hdr/Render.h
         src/hdr/App.h
         src/hdr/Init.h
+        src/hdr/TerminalColor.h
         src/hdr/TextureManager.h
+        src/external/icestd.c
+        src/external/icestd.h
         src/external/lodepng.c
         src/external/lodepng.h
         src/external/rlutil.h
