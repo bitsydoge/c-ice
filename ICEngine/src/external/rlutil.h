@@ -1,4 +1,5 @@
 #pragma once
+
 /**
  * File: rlutil.h
  *
@@ -220,6 +221,7 @@ enum {
  * ANSI_BACKGROUND_CYAN    - Cyan background
  * ANSI_BACKGROUND_WHITE   - White background
  */
+ 
 const RLUTIL_STRING_T ANSI_CLS                = "\033[2J\033[3J";
 const RLUTIL_STRING_T ANSI_CONSOLE_TITLE_PRE  = "\033]0;";
 const RLUTIL_STRING_T ANSI_CONSOLE_TITLE_POST = "\007";

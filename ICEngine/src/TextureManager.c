@@ -13,11 +13,12 @@ ICE_TextureManager ICE_CreateTextureManager()
 void ICE_CreateTexture(ICE_App *app, ICE_TextureManager texturemanager, char* path, const Uint32 color_hex)
 {
     char* ext = icestd_ext(path);
-	//icestd_sup(ext);
-	printf("%s\n", ext);
+    char* test = icestd_ext("tester.gif");
+    //icestd_sup(test);
+	printf("%s\n", test);
     ICE_Texture *text;
 
-    if(!strcmp("png")
+    if(!strcmp(ext, "png"))
     {
         text = ICE_LoadPNG(app->render, path);
         printf("It's a PNG\n");
