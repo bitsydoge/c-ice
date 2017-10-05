@@ -37,6 +37,12 @@
     <ClCompile Include="src\Time.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\TextureManager.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\external\icestd.c">
+      <Filter>external</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\external\tinyfiles.h">
@@ -65,6 +71,12 @@
     </ClInclude>
     <ClInclude Include="src\hdr\Time.h">
       <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\TextureManager.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\external\icestd.h">
+      <Filter>external</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

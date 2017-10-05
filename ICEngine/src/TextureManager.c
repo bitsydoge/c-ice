@@ -1,25 +1,23 @@
-#include "hdr/TextureManager.h"
 #include <stdio.h>
 #include <string.h>
-
-const char* _get_filename_ext(const char *filename)
-{
-    const char *dot = strrchr(filename, '.');
-    if(!dot || dot == filename) return "";
-    return dot+1;
-}
+#include "hdr/TextureManager.h"
+#include "external/icestd.h"
 
 ICE_TextureManager ICE_CreateTextureManager()
 {
-    
+	ICE_TextureManager texture_manager = {0};
+
+	return texture_manager;
 }
 
-void ICE_CreateTexture(ICE_App *app, ICE_TextureManager texturemanager, char* path, Uint32 color_hex)
+void ICE_CreateTexture(ICE_App *app, ICE_TextureManager texturemanager, char* path, const Uint32 color_hex)
 {
-    const char* ext = _get_filename_ext(path);
-    ICE_Texture *text = {0};
+    char* ext = icestd_ext(path);
+	//icestd_sup(ext);
+	printf("%s\n", ext);
+    ICE_Texture *text;
 
-    if(ext == "png")
+    if(!strcmp("png")
     {
         text = ICE_LoadPNG(app->render, path);
         printf("It's a PNG\n");

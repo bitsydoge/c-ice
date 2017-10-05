@@ -1,7 +1,6 @@
 #include "hdr/Render.h"
-#include <stdio.h>
 
-int ICE_SetRenderClearColor(SDL_Renderer *render, Uint32 rgba_hex)
+int ICE_SetRenderClearColor(SDL_Renderer *render, const Uint32 rgba_hex)
 {
     const int r = rgba_hex >> 24 & 255;
 	const int g = rgba_hex >> 16 & 255;
