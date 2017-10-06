@@ -4,6 +4,9 @@
 
 int ICE_InitGameEngine()
 {
+	ICE_TC_SetBackgroundColor(GREY);
+	cls();
+	ICE_TC_SetColor(BLACK);
 	ICE_TC_SaveColor();
 	SDL_Init(SDL_INIT_VIDEO);
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "2");
@@ -12,8 +15,6 @@ int ICE_InitGameEngine()
 
 int ICE_CloseGameEngine()
 {
-	
-	SDL_Quit();
-	
+	SDL_Quit();	
 	return 0;
 }

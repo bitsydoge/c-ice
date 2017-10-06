@@ -9,4 +9,6 @@ void ICE_TC_ResetColor();
 
 void ICE_TC_SetColor(int c);
 
+void ICE_TC_SetBackgroundColor(int c);
+
 #endif

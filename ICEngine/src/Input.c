@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "hdr/Input.h"
+#include "hdr/TerminalColor.h"
 
 int ICE_InputReturn(ICE_Input *input)
 {
@@ -101,5 +102,8 @@ void ICE_InputReset(ICE_Input *input)
 	int temp = input->focus;
 	memset(input, 0, sizeof(ICE_Input));
 	input->focus = temp;
-	printf("	Initialize Input : OK \n");
+	printf("Initialize Input : ");
+	ICE_TC_SetColor(GREEN);
+	printf("OK\n");
+	ICE_TC_ResetColor();
 }
