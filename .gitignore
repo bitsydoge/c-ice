@@ -22,3 +22,5 @@ ICEngine/CMakeCache\.txt
 ICEngine/CMakeFiles/2inside\.dir/
 
 *.bin
+
+ICEngine/build/
