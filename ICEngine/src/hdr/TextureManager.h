@@ -13,6 +13,6 @@ typedef struct
 } ICE_TextureManager;
 
 ICE_TextureManager ICE_CreateTextureManager();
-void ICE_CreateTexture(ICE_App *app, ICE_TextureManager texturemanager, char* path, Uint32 color_hex);
+void ICE_CreateTexture(ICE_App *app, ICE_TextureManager *texturemanager, char* path, Uint32 color_hex);
 
 #endif // TEXTUREMANAGER_H

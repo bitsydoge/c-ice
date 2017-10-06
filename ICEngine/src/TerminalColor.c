@@ -7,7 +7,7 @@ void ICE_TC_SaveColor()
 
 void ICE_TC_ResetColor()
 {
-    resetColor();    
+    resetColor(); 
 }
 
 void ICE_TC_SetColor(int c)
@@ -17,5 +17,5 @@ void ICE_TC_SetColor(int c)
 
 void ICE_TC_SetBackgroundColor(int c)
 {
-	setBackgroundColor(c);
+    setBackgroundColor(c);
 }

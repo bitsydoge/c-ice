@@ -30,6 +30,7 @@ add_executable(ICE.bin
         src/external/lodepng.c
         src/external/lodepng.h
         src/external/rlutil.h
+        src/external/rlutil.c
         src/external/tinyfiles.h)
 
 target_link_libraries(ICE.bin
