@@ -22,10 +22,12 @@
     <ClCompile Include="src\App.c" />
     <ClCompile Include="src\external\icestd.c" />
     <ClCompile Include="src\external\lodepng.c" />
+    <ClCompile Include="src\external\rlutil.c" />
     <ClCompile Include="src\Init.c" />
     <ClCompile Include="src\Input.c" />
     <ClCompile Include="src\main.c" />
     <ClCompile Include="src\Render.c" />
+    <ClCompile Include="src\TerminalColor.c" />
     <ClCompile Include="src\Texture.c" />
     <ClCompile Include="src\TextureManager.c" />
     <ClCompile Include="src\Time.c" />
@@ -39,6 +41,7 @@
     <ClInclude Include="src\hdr\Init.h" />
     <ClInclude Include="src\hdr\Input.h" />
     <ClInclude Include="src\hdr\Render.h" />
+    <ClInclude Include="src\hdr\TerminalColor.h" />
     <ClInclude Include="src\hdr\Texture.h" />
     <ClInclude Include="src\hdr\TextureManager.h" />
     <ClInclude Include="src\hdr\Time.h" />

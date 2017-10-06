@@ -6,12 +6,10 @@
 /// String (char array) to upper
 void icestd_sup(char* temp)
 {
-	const int nb_char = strlen(temp);
-	printf("taille : %d\n", nb_char);
-	for(int i = 0;i<nb_char;i++)
+	while (*temp != '\0')     // until we reach the end of the string
 	{
-		temp[i] = toupper(temp[i]);	
-		printf("%d", i);
+		*temp = toupper(*temp);  // upcase the character currently pointed to by 'p'
+		temp++;               // advance to the next character
 	}
 }
 
