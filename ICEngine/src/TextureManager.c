@@ -2,18 +2,23 @@
 #include <string.h>
 #include "hdr/Game.h"
 #include "hdr/TextureManager.h"
-#include "external/icestd.h"
 #include "hdr/TerminalColor.h"
+#include "external/icestd.h"
+#include "external/rlutil.h"
 
-ICE_TextureManager ICE_CreateTextureManager(ICE_Game *game)
+void ICE_CreateTextureManager(ICE_Game *game)
 {
 	ICE_TextureManager texture_manager = {0};
 	texture_manager.array_size = 4;
 	texture_manager.texturepack = calloc(texture_manager.array_size, sizeof(ICE_Texture));
-	return texture_manager;
+	
+	game->texturemanager_size++;
+	game->tex_man = realloc(game->tex_man, game->texturemanager_size*sizeof(ICE_TextureManager));
+	game->tex_man[game->texturemanager_size-1] = texture_manager;
+	printf("TextureManager number %d created \n", game->texturemanager_size - 1);
 }
 
-void ICE_CreateTexture(ICE_Game *app, ICE_TextureManager* texturemanager, char* path, Uint32 color_hex)
+void ICE_CreateTexture(ICE_Game *game, ICE_TextureManager *texturemanager, char* path, Uint32 color_hex)
 {
 	char path2[500]; strcpy(path2, path);
 	char* ext = icestd_ext(path2);
@@ -22,7 +27,7 @@ void ICE_CreateTexture(ICE_Game *app, ICE_TextureManager* texturemanager, char* 
 	ICE_Texture *text;
 	if(!strcmp(ext, "PNG"))
 	{
-		text = ICE_LoadPNG(app->render, path);
+		text = ICE_LoadPNG(game->render, path);
 		printf("Texture number %d created from : \"", texturemanager->nb_existing_texture);
 		ICE_TC_SetColor(YELLOW);
 		printf("%s", path);
@@ -33,7 +38,7 @@ void ICE_CreateTexture(ICE_Game *app, ICE_TextureManager* texturemanager, char* 
 	{
 		if(color_hex != 0)
 		{
-			text = ICE_LoadBMPAlpha(app->render, path, color_hex); 
+			text = ICE_LoadBMPAlpha(game->render, path, color_hex); 
 			printf("Texture number %d created from : \"", texturemanager->nb_existing_texture);
 			ICE_TC_SetColor(YELLOW);
 			printf("%s", path);
@@ -42,7 +47,7 @@ void ICE_CreateTexture(ICE_Game *app, ICE_TextureManager* texturemanager, char* 
 		}
 		else
 		{
-			text = ICE_LoadBMP(app->render, path);   
+			text = ICE_LoadBMP(game->render, path);   
 			printf("Texture number %d created from : \"", texturemanager->nb_existing_texture);
 			ICE_TC_SetColor(YELLOW);
 			printf("%s", path);
@@ -52,7 +57,7 @@ void ICE_CreateTexture(ICE_Game *app, ICE_TextureManager* texturemanager, char* 
 	}
 	else
 	{
-		text = ICE_LoadBMP(app->render, "res/img/error");   
+		text = ICE_LoadBMP(game->render, "res/img/error");   
 		ICE_TC_SetColor(LIGHTRED);
 		printf("ERROR ");
 		ICE_TC_ResetColor();

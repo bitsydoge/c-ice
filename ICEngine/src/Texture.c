@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "external/lodepng.h"
 #include "hdr/TerminalColor.h"
+#include "external/rlutil.h"
 
 ICE_Texture* ICE_LoadPNG(SDL_Renderer *render, char *path)
 {

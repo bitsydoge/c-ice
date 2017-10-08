@@ -13,9 +13,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.c">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\external\lodepng.c">
       <Filter>external</Filter>
     </ClCompile>

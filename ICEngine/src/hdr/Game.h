@@ -12,13 +12,13 @@ struct ICE_Game
 	ICE_Input *input;
 	unsigned int w, h;
 	unsigned short texturemanager_size;
-	ICE_TextureManager *texture_manager;
+	ICE_TextureManager *tex_man;
 
 };
 
 
 ICE_Game ICE_CreateApp(char *window_title, const unsigned int width_window, const unsigned int height_window);
-void ICE_DestroyApp(ICE_Game *app);
+void ICE_DestroyGame(ICE_Game *app);
 
 
 #endif
