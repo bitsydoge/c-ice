@@ -19,14 +19,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\App.c" />
+    <ClCompile Include="src\Game.c" />
+    <ClCompile Include="src\Camera.c" />
+    <ClCompile Include="src\Core.c" />
     <ClCompile Include="src\external\icestd.c" />
     <ClCompile Include="src\external\lodepng.c" />
     <ClCompile Include="src\external\rlutil.c" />
-    <ClCompile Include="src\Init.c" />
+    <ClCompile Include="src\Gui.c" />
     <ClCompile Include="src\Input.c" />
     <ClCompile Include="src\main.c" />
+    <ClCompile Include="src\Map.c" />
+    <ClCompile Include="src\Math.c" />
+    <ClCompile Include="src\Physics.c" />
+    <ClCompile Include="src\Primitive.c" />
     <ClCompile Include="src\Render.c" />
+    <ClCompile Include="src\Sound.c" />
     <ClCompile Include="src\TerminalColor.c" />
     <ClCompile Include="src\Texture.c" />
     <ClCompile Include="src\TextureManager.c" />
@@ -37,14 +44,22 @@
     <ClInclude Include="src\external\lodepng.h" />
     <ClInclude Include="src\external\rlutil.h" />
     <ClInclude Include="src\external\tinyfiles.h" />
-    <ClInclude Include="src\hdr\App.h" />
-    <ClInclude Include="src\hdr\Init.h" />
+    <ClInclude Include="src\hdr\Game.h" />
+    <ClInclude Include="src\hdr\Camera.h" />
+    <ClInclude Include="src\hdr\Core.h" />
+    <ClInclude Include="src\hdr\Gui.h" />
     <ClInclude Include="src\hdr\Input.h" />
+    <ClInclude Include="src\hdr\Map.h" />
+    <ClInclude Include="src\hdr\Math.h" />
+    <ClInclude Include="src\hdr\Physics.h" />
+    <ClInclude Include="src\hdr\Primitive.h" />
     <ClInclude Include="src\hdr\Render.h" />
+    <ClInclude Include="src\hdr\Sound.h" />
     <ClInclude Include="src\hdr\TerminalColor.h" />
     <ClInclude Include="src\hdr\Texture.h" />
     <ClInclude Include="src\hdr\TextureManager.h" />
     <ClInclude Include="src\hdr\Time.h" />
+    <ClInclude Include="src\hdr\Type.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -106,7 +121,7 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2main.lib;SDL2.lib;SDL2_mixer.lib;SDL2_ttf.lib;chipmunk.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -117,6 +132,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>SDL2main.lib;SDL2.lib;SDL2_mixer.lib;SDL2_ttf.lib;chipmunk.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -130,6 +149,8 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>SDL2main.lib;SDL2.lib;SDL2_mixer.lib;SDL2_ttf.lib;chipmunk.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -144,6 +165,8 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>SDL2main.lib;SDL2.lib;SDL2_mixer.lib;SDL2_ttf.lib;chipmunk.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

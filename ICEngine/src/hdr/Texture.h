@@ -6,7 +6,6 @@
 typedef struct
 {
 	unsigned short exist;
-	char *path;
 	unsigned int w;
 	unsigned int h;
 	SDL_Texture* handle;

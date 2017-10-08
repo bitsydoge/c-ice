@@ -25,13 +25,7 @@
     <ClCompile Include="src\Input.c">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\App.c">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\Render.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Init.c">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Time.c">
@@ -48,6 +42,33 @@
     </ClCompile>
     <ClCompile Include="src\external\rlutil.c">
       <Filter>external</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Map.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gui.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Math.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Primitive.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sound.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Physics.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game.c">
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -66,13 +87,7 @@
     <ClInclude Include="src\hdr\Input.h">
       <Filter>hdr</Filter>
     </ClInclude>
-    <ClInclude Include="src\hdr\App.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
     <ClInclude Include="src\hdr\Render.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Init.h">
       <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Time.h">
@@ -85,6 +100,36 @@
       <Filter>external</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\TerminalColor.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Map.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Camera.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Gui.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Math.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Primitive.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Sound.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Core.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Physics.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Game.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Type.h">
       <Filter>hdr</Filter>
     </ClInclude>
   </ItemGroup>

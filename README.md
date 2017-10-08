@@ -5,13 +5,14 @@ The engine will be based on the engine of 2inside with a better and more modular
 
 The engine will support BMP and PNG for texture.
 
-Made with Visual Studio Community 2017
+Made with Visual Studio Community 2017 and Visual Studio Code on linux
 a CMakeLists.txt is avaible for compiling on other os or compiler.
 
 It use :   
 -SDL2 (Main lib for the engine)  
 -SDL2 mixer (for the sound)   
 -SDL2 ttf (for the text)   
+-chipmunk2d (for physics)
 -lodepng (for png decode)   
 -tinyfiles (for directory listing)   
--rlutil.h (for coloring console)    
+-rlutil.h (for console color)    

@@ -1,6 +1,7 @@
 #include "hdr/Texture.h"
 #include <stdio.h>
 #include "external/lodepng.h"
+#include "hdr/TerminalColor.h"
 
 ICE_Texture* ICE_LoadPNG(SDL_Renderer *render, char *path)
 {
@@ -97,7 +98,10 @@ ICE_Texture* ICE_LoadBMPAlpha(SDL_Renderer *render, char *path, const Uint32 rgb
 
 	if (text->handle == NULL)
 	{
-		printf("CRITICAL : Can't create Texture from Surface \"%s\" : %s \n", path, SDL_GetError());
+		ICE_TC_SetColor(LIGHTRED);
+		printf("CRITICAL");
+		ICE_TC_ResetColor();
+		printf(" : Can't create Texture from Surface \"%s\" : %s \n", path, SDL_GetError());
 	}
 
 	text->w = surf->w; text->h = surf->h;

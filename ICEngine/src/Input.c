@@ -102,7 +102,7 @@ void ICE_InputReset(ICE_Input *input)
 	int temp = input->focus;
 	memset(input, 0, sizeof(ICE_Input));
 	input->focus = temp;
-	printf("Initialize Input : ");
+	printf("Input Reset : ");
 	ICE_TC_SetColor(GREEN);
 	printf("OK\n");
 	ICE_TC_ResetColor();
