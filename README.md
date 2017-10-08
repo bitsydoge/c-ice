@@ -37,9 +37,8 @@ a CMakeLists.txt is avaible for compiling on other os or compiler.
 	
 	-chipmunk2d (for physics)
 	
-	-lodepng (for png decode)   
+	-lodepng (for png decode) (included)   
 	
-	-tinyfiles (for directory listing)   
+	-tinyfiles (for directory listing) (included) 
 	
-	-rlutil.h (for console color)    
-	
+	-rlutil.h (for console color) (included)
