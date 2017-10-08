@@ -6,10 +6,10 @@
 /// String (char array) to upper
 void icestd_sup(char* temp)
 {
-	while (*temp != '\0')     // until we reach the end of the string
+	while (*temp != '\0')     
 	{
-		*temp = toupper(*temp);  // upcase the character currently pointed to by 'p'
-		temp++;               // advance to the next character
+		*temp = toupper(*temp);  
+		temp++;
 	}
 }
 
@@ -19,5 +19,15 @@ char* icestd_ext(char *filename)
 	char *ex = strrchr(filename, '.');
 	if (!ex || ex == filename) return "";
 	return ex + 1;
+}
+
+/// Move cursor to the next character type
+void icestd_mtnct(FILE* fichier, int character)
+{
+	int charactuel = 0;
+	do
+	{
+		charactuel = fgetc(fichier);
+	} while (charactuel != character);
 }
 
