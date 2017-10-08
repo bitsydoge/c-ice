@@ -1,4 +1,5 @@
 #include "hdr/TerminalColor.h"
+#include "external/rlutil.h"
 
 void ICE_TC_SaveColor()
 {

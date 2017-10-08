@@ -1,11 +1,11 @@
 #ifndef DEF_ICE_INPUT
 #define DEF_ICE_INPUT
 
-#include <SDL2/SDL.h>
+#include "Type.h"
 
-typedef struct
+struct ICE_Input
 {
-	char key[SDL_NUM_SCANCODES];
+	char key[512];
 	int wheelup;
 	int wheeldown;
 	int quit;
@@ -24,11 +24,9 @@ typedef struct
 	int mousex;
 	int mousey;
 	int focus;
-	int window_maximize;
-	SDL_Rect window_maximize_old;
 	char *filedrop;
 
-} ICE_Input;
+};
 
 int ICE_InputReturn(ICE_Input *input);
 void ICE_InputReset(ICE_Input *input);
