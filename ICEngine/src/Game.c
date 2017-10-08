@@ -26,6 +26,8 @@ ICE_Game ICE_CreateApp(char *window_title, const unsigned int width_window, cons
 	printf("Graphic API : %s \n", info.name);
 	//
 
+	SDL_SetWindowIcon(game.window, SDL_LoadBMP("res/img/error.bmp"));
+
 	return game;    
 }
 
