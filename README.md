@@ -1,5 +1,5 @@
 
-# ICE : Indie "C" Engine - A basic SDL2 and C game engine.
+# ICE : Indie "C" Engine
 <img alt="ICE Logo" src="Test/res/img/ice_logo.png" width=20% height=20%> 
 
 _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
