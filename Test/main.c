@@ -1,6 +1,4 @@
 #include <Core.h>
-#include <Game.h>
-#include <Render.h>
 
 ICE_Game GameCreate()
 {
