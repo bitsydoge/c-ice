@@ -1,14 +1,25 @@
 # ICE
-ICE : Indie "C" Engine - A basic SDL2 and C game engine.
+##### ICE : Indie "C" Engine - A basic SDL2 and C game engine.
+_A simple Game Engine with basic Camera, Entity, Texture, Audio, Map etc ..._
 
-The engine will be based on the engine of 2inside with a better and more modular code, the "2inside" engine was made in 48h for a gamejam and is toomuch hardcoded.
+##### **STATUS : WIP [▓▓▓▓----------------------------------------------] 8%**
+### Feature :
 
-The engine will support BMP and PNG for texture.
+**Supported Format :** 
+	- Image : PNG and BMP (Probably JPEF in the futur)
+	- Sound : OGG and WAV (And basicaly everything SDL_mixer support, but my function will focus on those)
+	- Text : TTF (And basicaly everything SDL_ttf support)
+	- Map : JSON from Tiled (I'll focus with the compatibility of it)
+
+**Tools** :
+	- Terminal Color : with rlutil, providing cross platform for terminal color; it will be usefull for debugging.
+	- File exploring : with tinyfiles, providing cross platform for file listing
+
 
 Made with Visual Studio Community 2017 and Visual Studio Code on linux
 a CMakeLists.txt is avaible for compiling on other os or compiler.
 
-It use :   
+Dependancy :   
 -SDL2 (Main lib for the engine)  
 -SDL2 mixer (for the sound)   
 -SDL2 ttf (for the text)   
