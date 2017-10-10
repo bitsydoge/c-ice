@@ -3,6 +3,11 @@
 #include "hdr/Type.h"
 #include <stdio.h>
 
+void ICE_SetWindowIcon(ICE_Window *window, char * path)
+{
+	SDL_SetWindowIcon(window, SDL_LoadBMP(path));
+}
+
 ICE_Game ICE_CreateApp(char *window_title, const unsigned int width_window, const unsigned int height_window)
 {
 	ICE_Game game = {0};
@@ -26,7 +31,8 @@ ICE_Game ICE_CreateApp(char *window_title, const unsigned int width_window, cons
 	printf("Graphic API : %s \n", info.name);
 	//
 
-	SDL_SetWindowIcon(game.window, SDL_LoadBMP("res/img/error.bmp"));
+	ICE_SetWindowIcon(game.window, "res/img/error.bmp");
+
 
 	return game;    
 }

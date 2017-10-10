@@ -28,7 +28,7 @@ void ICE_CreateTexture(ICE_Game *game, ICE_TextureManager *texturemanager, char*
 	if(!strcmp(ext, "PNG"))
 	{
 		text = ICE_LoadPNG(game->render, path);
-		printf("Texture number %d created from : \"", texturemanager->nb_existing_texture);
+		printf("Texture number %d created on from : \"", texturemanager->nb_existing_texture);
 		ICE_TC_SetColor(YELLOW);
 		printf("%s", path);
 		ICE_TC_ResetColor();

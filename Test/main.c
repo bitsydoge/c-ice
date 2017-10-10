@@ -1,16 +1,18 @@
-#include <Core.h>
+#include <ICE.h>
 
-ICE_Game GameCreate()
+ICE_Game GameCreate(void)
 {
-	ICE_Game game = ICE_CreateApp("ICE : Indie \"C\" Engine", 512, 512);
+	ICE_Game game = ICE_CreateApp("ICE : Indie \"C\" Engine", 768, 768);
 	ICE_CreateTextureManager(&game);
-	ICE_CreateTexture(&game, &game.tex_man[0], "res/img/logo.png", 0);
+	for(int i = 0; i < 100; i++)
+		ICE_CreateTexture(&game, &game.tex_man[0], "res/img/logo.png", 0);
 	return game;
 }
 
 void GameUpdate(ICE_Game *game)
 {
-	ICE_TextureRender(game->render, &game->tex_man[0].texturepack[0], NULL, NULL);
+	for (int i = 0; i < 100; i++)
+			ICE_TextureRender(game->render, &game->tex_man[0].texturepack[i], NULL, NULL);
 }
 
 void GameDestroy(ICE_Game *game)

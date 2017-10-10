@@ -47,6 +47,7 @@
     <ClInclude Include="src\hdr\Camera.h" />
     <ClInclude Include="src\hdr\Core.h" />
     <ClInclude Include="src\hdr\Gui.h" />
+    <ClInclude Include="src\hdr\ICE.h" />
     <ClInclude Include="src\hdr\Input.h" />
     <ClInclude Include="src\hdr\Map.h" />
     <ClInclude Include="src\hdr\Math.h" />
