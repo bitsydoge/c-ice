@@ -1,8 +1,9 @@
 #ifndef DEF_ICE_GAME
 #define DEF_ICE_GAME
 
-#include "Input.h"
 #include "Type.h"
+#include "Input.h"
+#include "Sound.h"
 #include "TextureManager.h"
 
 struct ICE_Game
@@ -13,7 +14,7 @@ struct ICE_Game
 	unsigned int w, h;
 	unsigned short texturemanager_size;
 	ICE_TextureManager *tex_man;
-
+	ICE_SoundSystem sound_system;
 };
 
 void ICE_SetWindowIcon(ICE_Window *window, char * path);

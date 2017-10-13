@@ -19,6 +19,8 @@ ICE_Texture* ICE_LoadPNG(SDL_Renderer *render, char *path);
 ICE_Texture* ICE_LoadBMP(SDL_Renderer *render, char *path);
 /// Load a BMP with SDL_LoadBMP to a Texture with Mono Alpha handle from a hex color
 ICE_Texture* ICE_LoadBMPAlpha(SDL_Renderer *render, char *path, const Uint32 rgba_hex);
+/// Destroy the texture and free pointer
+void ICE_DestroyTexture(ICE_Texture *tex);
 /// Render a ICE_Texture to the renderer
 int ICE_TextureRender(SDL_Renderer* renderer, ICE_Texture* tex, SDL_Rect* source, SDL_Rect* destination);
 /// Render a ICE_Texture to the renderer with a rotation
