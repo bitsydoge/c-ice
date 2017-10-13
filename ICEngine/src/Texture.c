@@ -110,6 +110,12 @@ ICE_Texture* ICE_LoadBMPAlpha(SDL_Renderer *render, char *path, const Uint32 rgb
 	return text;
 }
 
+void ICE_DestroyTexture(ICE_Texture *tex)
+{
+	SDL_DestroyTexture(tex->handle);
+	free(tex);
+}
+
 int ICE_TextureRender(SDL_Renderer* renderer, ICE_Texture *tex, SDL_Rect* source, SDL_Rect* destination)
 {
 	return SDL_RenderCopy(renderer, tex->handle, source, destination);

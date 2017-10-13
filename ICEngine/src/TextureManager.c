@@ -75,4 +75,5 @@ void ICE_CreateTexture(ICE_Game *game, ICE_TextureManager *texturemanager, char*
 		texturemanager->texturepack = realloc(texturemanager->texturepack, sizeof(ICE_Texture)*(texturemanager->array_size*2));
 		texturemanager->array_size*=2; 
 	}
+	free(text);
 }
