@@ -1,6 +1,7 @@
 ﻿#ifndef DEF_ICE_CORE
 #define DEF_ICE_CORE
 #include "Game.h"
+#include "Struct.h"
 
 int ICE_InitGameEngine();
 int ICE_CloseGameEngine();

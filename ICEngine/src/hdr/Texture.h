@@ -2,16 +2,7 @@
 #define DEF_ICE_TEXTURE
 
 #include <SDL2/SDL.h>
-#include "Type.h"
-
-struct ICE_Texture
-{
-	unsigned short exist;
-	unsigned int w;
-	unsigned int h;
-	SDL_Texture* handle;
-
-};
+#include "Struct.h"
 
 /// Load a PNG with lodepng to a Texture with Error handling
 ICE_Texture* ICE_LoadPNG(SDL_Renderer *render, char *path);

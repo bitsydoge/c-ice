@@ -126,10 +126,7 @@
     <ClInclude Include="src\hdr\Game.h">
       <Filter>hdr</Filter>
     </ClInclude>
-    <ClInclude Include="src\hdr\Type.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\ICE.h">
+    <ClInclude Include="src\hdr\Struct.h">
       <Filter>hdr</Filter>
     </ClInclude>
   </ItemGroup>

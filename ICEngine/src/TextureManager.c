@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include "hdr/Game.h"
 #include "hdr/TextureManager.h"
 #include "hdr/TerminalColor.h"
 #include "external/icestd.h"

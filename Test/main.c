@@ -1,4 +1,4 @@
-#include <ICE.h>
+#include <Core.h>
 
 ICE_Game GameCreate(void)
 {

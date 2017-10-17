@@ -3,6 +3,7 @@
 #include "hdr/TerminalColor.h"
 #include "hdr/Game.h"
 #include "hdr/Render.h"
+#include "hdr/Input.h"
 
 int ICE_InitGameEngine()
 {

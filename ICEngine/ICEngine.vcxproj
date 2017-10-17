@@ -47,7 +47,6 @@
     <ClInclude Include="src\hdr\Camera.h" />
     <ClInclude Include="src\hdr\Core.h" />
     <ClInclude Include="src\hdr\Gui.h" />
-    <ClInclude Include="src\hdr\ICE.h" />
     <ClInclude Include="src\hdr\Input.h" />
     <ClInclude Include="src\hdr\Map.h" />
     <ClInclude Include="src\hdr\Math.h" />
@@ -55,11 +54,11 @@
     <ClInclude Include="src\hdr\Primitive.h" />
     <ClInclude Include="src\hdr\Render.h" />
     <ClInclude Include="src\hdr\Sound.h" />
+    <ClInclude Include="src\hdr\Struct.h" />
     <ClInclude Include="src\hdr\TerminalColor.h" />
     <ClInclude Include="src\hdr\Texture.h" />
     <ClInclude Include="src\hdr\TextureManager.h" />
     <ClInclude Include="src\hdr\Time.h" />
-    <ClInclude Include="src\hdr\Type.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

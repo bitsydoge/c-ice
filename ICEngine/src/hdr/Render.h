@@ -1,5 +1,6 @@
 #ifndef DEF_ICE_RENDER
 #define DEF_ICE_RENDER 
+
 #include <SDL2/SDL.h>
 
 int ICE_SetRenderClearColor(SDL_Renderer *render,const Uint32 rgba_hex);

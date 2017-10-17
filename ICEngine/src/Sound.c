@@ -2,7 +2,7 @@
 
 void ICE_CreateSoundSystem(ICE_Game *game)
 {
-	ICE_SoundSystem soundsystem = { 0 };
+	ICE_SoundManager soundsystem = { 0 };
 
 
 }

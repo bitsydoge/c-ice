@@ -1,14 +1,8 @@
-#ifndef TEXTUREMANAGER_H
-#define TEXTUREMANAGER_H
+#ifndef DEF_ICE_TEXTUREMANAGER
+#define DEF_ICE_TEXTUREMANAGER
 
 #include "Texture.h"
-
-struct ICE_TextureManager
-{
-    unsigned short array_size;
-    unsigned short nb_existing_texture;
-    ICE_Texture* texturepack;
-};
+#include "Struct.h"
 
 // Create the texture manager with a default number of texture, everytime the number of texture is too high, it will double
 void ICE_CreateTextureManager(ICE_Game *game);
