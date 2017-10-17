@@ -1,21 +1,8 @@
 #ifndef DEF_ICE_GAME
 #define DEF_ICE_GAME
 
-#include "Type.h"
-#include "Input.h"
-#include "Sound.h"
-#include "TextureManager.h"
+#include "Struct.h"
 
-struct ICE_Game
-{
-	SDL_Window *window;
-	SDL_Renderer *render;
-	ICE_Input *input;
-	unsigned int w, h;
-	unsigned short texturemanager_size;
-	ICE_TextureManager *tex_man;
-	ICE_SoundSystem sound_system;
-};
 
 void ICE_SetWindowIcon(ICE_Window *window, char * path);
 ICE_Game ICE_CreateApp(char *window_title, const unsigned int width_window, const unsigned int height_window);

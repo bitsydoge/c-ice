@@ -1,4 +1,4 @@
-﻿#ifndef DEF_ICE_APP
-#define DEF_ICE_APP
+﻿#ifndef DEF_ICE_PRIMITIVE
+#define DEF_ICE_PRIMITIVE
 
 #endif
