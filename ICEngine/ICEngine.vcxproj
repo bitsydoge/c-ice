@@ -31,6 +31,8 @@
     <ClCompile Include="src\Math.c" />
     <ClCompile Include="src\Physics.c" />
     <ClCompile Include="src\Primitive.c" />
+    <ClCompile Include="src\RawImg_error.c" />
+    <ClCompile Include="src\RawImg_icon.c" />
     <ClCompile Include="src\Render.c" />
     <ClCompile Include="src\Sound.c" />
     <ClCompile Include="src\TerminalColor.c" />

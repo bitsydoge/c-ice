@@ -26,3 +26,5 @@ ICEngine/CMakeFiles/2inside\.dir/
 ICEngine/build/
 
 Release/
+
+*.TMP
