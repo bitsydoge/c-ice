@@ -29,11 +29,10 @@ ICE_Texture* ICE_LoadPNG(SDL_Renderer *render, char *path)
 	SDL_Surface *surf = SDL_CreateRGBSurfaceFrom(raw_img, w, h, 32, 4 * w, rmask, gmask, bmask, amask);
 	if (error)
 	{
-		surf = SDL_LoadBMP("res/img/error.bmp");
-		if (surf == NULL)
-		{
-			printf("CRITICAL : Can't load image \"%s\" : %s \n", "res/img/error.bmp", SDL_GetError());
-		}
+		#include "RawImg_error.c"
+		surf = SDL_CreateRGBSurfaceFrom((void*)ice_raw_img_error.pixel_data, ice_raw_img_error.width,
+			ice_raw_img_error.height, ice_raw_img_error.bytes_per_pixel * 8, ice_raw_img_error.bytes_per_pixel*ice_raw_img_error.width,
+			rmask, gmask, bmask, amask);
 	}
 	ICE_Texture *text = (ICE_Texture*)malloc(sizeof(ICE_Texture));
 	text->handle = SDL_CreateTextureFromSurface(render, surf);
@@ -52,11 +51,21 @@ ICE_Texture* ICE_LoadBMP(SDL_Renderer *render, char *path)
 	SDL_Surface *surf = SDL_LoadBMP(path);
 	if (surf == NULL)
 	{
-		surf = SDL_LoadBMP("res/img/error.bmp");
-		if (surf == NULL)
-		{
-			printf("CRITICAL : Can't load image \"%s\" : %s \n", "res/img/error.bmp", SDL_GetError());
-		}
+#if SDL_BYTEORDER == SDL_BIG_ENDIAN
+		Uint32 static const rmask = 0xff000000;
+		Uint32 static const gmask = 0x00ff0000;
+		Uint32 static const bmask = 0x0000ff00;
+		Uint32 static const amask = 0x000000ff;
+#else
+		Uint32 static const rmask = 0x000000ff;
+		Uint32 static const gmask = 0x0000ff00;
+		Uint32 static const bmask = 0x00ff0000;
+		Uint32 static const amask = 0xff000000;
+#endif
+		#include "RawImg_error.c"
+		surf = SDL_CreateRGBSurfaceFrom((void*)ice_raw_img_error.pixel_data, ice_raw_img_error.width,
+			ice_raw_img_error.height, ice_raw_img_error.bytes_per_pixel * 8, ice_raw_img_error.bytes_per_pixel*ice_raw_img_error.width,
+			rmask, gmask, bmask, amask);
 	}
 
 
@@ -81,11 +90,21 @@ ICE_Texture* ICE_LoadBMPAlpha(SDL_Renderer *render, char *path, const Uint32 rgb
 	SDL_Surface *surf = SDL_LoadBMP(path);
 	if (surf == NULL)
 	{
-		surf = SDL_LoadBMP("res/img/error.bmp");
-		if (surf == NULL)
-		{
-			printf("CRITICAL : Can't load image \"%s\" : %s \n", "res/img/error.bmp", SDL_GetError());
-		}
+#if SDL_BYTEORDER == SDL_BIG_ENDIAN
+		Uint32 static const rmask = 0xff000000;
+		Uint32 static const gmask = 0x00ff0000;
+		Uint32 static const bmask = 0x0000ff00;
+		Uint32 static const amask = 0x000000ff;
+#else
+		Uint32 static const rmask = 0x000000ff;
+		Uint32 static const gmask = 0x0000ff00;
+		Uint32 static const bmask = 0x00ff0000;
+		Uint32 static const amask = 0xff000000;
+#endif
+#include "RawImg_error.c"
+		surf = SDL_CreateRGBSurfaceFrom((void*)ice_raw_img_error.pixel_data, ice_raw_img_error.width,
+			ice_raw_img_error.height, ice_raw_img_error.bytes_per_pixel * 8, ice_raw_img_error.bytes_per_pixel*ice_raw_img_error.width,
+			rmask, gmask, bmask, amask);
 	}
 	else if (r >= 0 && g >= 0 && b >= 0)
 	{

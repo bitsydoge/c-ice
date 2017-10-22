@@ -67,6 +67,12 @@
     <ClCompile Include="src\Game.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\RawImg_icon.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RawImg_error.c">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\external\tinyfiles.h">
