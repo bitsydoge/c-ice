@@ -53,14 +53,32 @@ typedef struct
 
 } ICE_TextureManager;
 
+
 typedef struct
 {
-	unsigned short size_music;
-	Mix_Music *music;
+
+	Mix_Music* music;
+	char *filename;
+
+} ICE_Music;
+
+typedef struct
+{
+
+	Mix_Chunk* sound;
+	char *filename;
+
+} ICE_Sound;
+
+
+typedef struct
+{
+	unsigned short size_musicpack;
+	ICE_Music* musicpack;
 	unsigned short tofill_music;
 
 	unsigned short size_sound;
-	Mix_Chunk *sound;
+	ICE_Sound* sound;
 	unsigned short tofill_sound;
 
 } ICE_SoundManager;
@@ -89,7 +107,7 @@ typedef struct
 	unsigned short texturemanager_size;
 	ICE_TextureManager *tex_man;
 
-	ICE_SoundManager sound_system;
+	ICE_SoundManager soundmanager;
 	ICE_Time time;
 
 } ICE_Game;

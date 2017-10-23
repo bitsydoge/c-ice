@@ -1,11 +1,17 @@
 #include <Core.h>
 #include <TextureManager.h>
+#include <Sound.h>
 
 ICE_Game GameCreate(void)
 {
 	ICE_Game game = ICE_CreateApp("ICE : Indie \"C\" Engine", 768, 768); // Create the Game Manager
 	ICE_CreateTextureManager(&game); // Create a Texture Manager
 	ICE_CreateTexture(&game, &game.tex_man[0], "res/img/logo.png", 0); // Create a Texture in the First Manager
+	
+	ICE_CreateSoundSystem(&game); // Create the Sound Manager
+	ICE_CreateMusic(&game.soundmanager, "res/snd/music.wav"); // Create a Music
+	ICE_PlayMusic(&game.soundmanager, 0); 	Mix_VolumeMusic(5); // Play Music (Temporary low down music with the sdl function)
+
 	return game;
 }
 

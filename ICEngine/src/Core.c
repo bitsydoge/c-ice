@@ -1,15 +1,17 @@
 ﻿#include <SDL2/SDL.h>
-#include <stdio.h>
 #include "hdr/Core.h"
 #include "hdr/TerminalColor.h"
 #include "hdr/Render.h"
 #include "hdr/Input.h"
+#include "hdr/Sound.h"
 
 int ICE_InitGameEngine()
 {
 	ICE_TC_SaveColor();
 	SDL_Init(SDL_INIT_VIDEO);
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
+	Mix_Init(MIX_INIT_MP3 | MIX_INIT_OGG);
+	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024);
 	return 0;
 }
 
@@ -23,6 +25,7 @@ int ICE_GameLoop(ICE_Game(*call_create)(void), void(*call_update)(ICE_Game*), vo
 {
 	ICE_InitGameEngine();
 	ICE_Game game = call_create();
+
 	while (!game.input->quit)
 	{
 		game.time.actual = SDL_GetTicks(); // ticks since start of software at the start of loop
