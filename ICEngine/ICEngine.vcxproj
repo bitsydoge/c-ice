@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Entity.c" />
     <ClCompile Include="src\Game.c" />
     <ClCompile Include="src\Camera.c" />
     <ClCompile Include="src\Core.c" />
@@ -37,7 +38,6 @@
     <ClCompile Include="src\Sound.c" />
     <ClCompile Include="src\TerminalColor.c" />
     <ClCompile Include="src\Texture.c" />
-    <ClCompile Include="src\TextureManager.c" />
     <ClCompile Include="src\Time.c" />
   </ItemGroup>
   <ItemGroup>
@@ -45,6 +45,7 @@
     <ClInclude Include="src\external\lodepng.h" />
     <ClInclude Include="src\external\rlutil.h" />
     <ClInclude Include="src\external\tinyfiles.h" />
+    <ClInclude Include="src\hdr\Entity.h" />
     <ClInclude Include="src\hdr\Game.h" />
     <ClInclude Include="src\hdr\Camera.h" />
     <ClInclude Include="src\hdr\Core.h" />
@@ -59,7 +60,6 @@
     <ClInclude Include="src\hdr\Struct.h" />
     <ClInclude Include="src\hdr\TerminalColor.h" />
     <ClInclude Include="src\hdr\Texture.h" />
-    <ClInclude Include="src\hdr\TextureManager.h" />
     <ClInclude Include="src\hdr\Time.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

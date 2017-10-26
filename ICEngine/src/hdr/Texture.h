@@ -13,10 +13,14 @@ ICE_Texture* ICE_LoadBMPAlpha(SDL_Renderer *render, char *path, const Uint32 rgb
 /// Destroy the texture and free pointer
 void ICE_DestroyTexture(ICE_Texture *tex);
 /// Render a ICE_Texture to the renderer
-int ICE_TextureRender(SDL_Renderer* renderer, ICE_Texture* tex, SDL_Rect* source, SDL_Rect* destination);
+int ICE_TextureRender(ICE_Game *game, int man, int text, SDL_Rect* source, SDL_Rect* destination);
 /// Render a ICE_Texture to the renderer with a rotation
 int ICE_TextureRenderEx(SDL_Renderer* renderer, const ICE_Texture *tex, SDL_Rect* source, SDL_Rect* destination, const double angle);
 /// Convert ARGB to a Uint32 (Hex color)
 Uint32 ICE_Rgba(const unsigned int r, const unsigned int g, const unsigned int b, const unsigned int a);
+/// Create the texture manager with a default number of texture, everytime the number of texture is too high, it will double
+void ICE_CreateTextureManager(ICE_Game *game);
+/// Create a Texture
+void ICE_CreateTexture(ICE_Game *game, int manager, char* path);
 
 #endif

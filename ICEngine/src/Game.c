@@ -2,6 +2,8 @@
 #include "hdr/Render.h"
 #include <stdio.h>
 #include <string.h>
+#include "hdr/TextureManager.h"
+#include "hdr/Sound.h"
 
 void ICE_SetWindowIcon(ICE_Window *window, char * path)
 {
@@ -11,7 +13,7 @@ void ICE_SetWindowIcon(ICE_Window *window, char * path)
 
 		Uint32 rmask, gmask, bmask, amask;
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN
-		int shift = (my_icon.bytes_per_pixel == 3) ? 8 : 0;
+		int shift = (ice_raw_img_icon.bytes_per_pixel == 3) ? 8 : 0;
 		rmask = 0xff000000 >> shift;
 		gmask = 0x00ff0000 >> shift;
 		bmask = 0x0000ff00 >> shift;
@@ -39,7 +41,7 @@ void ICE_SetWindowIcon(ICE_Window *window, char * path)
 	}
 }
 
-ICE_Game ICE_CreateApp(char *window_title, const unsigned int width_window, const unsigned int height_window)
+ICE_Game ICE_CreateGame(char *window_title, const unsigned int width_window, const unsigned int height_window)
 {
 	ICE_Game game = {0};
 
@@ -55,6 +57,7 @@ ICE_Game ICE_CreateApp(char *window_title, const unsigned int width_window, cons
 
 	// TextureManager
 	game.texturemanager_size = 0;
+	ICE_CreateTextureManager(&game);
 
 	// Render Info
 	SDL_RendererInfo info;
@@ -63,7 +66,11 @@ ICE_Game ICE_CreateApp(char *window_title, const unsigned int width_window, cons
 	
 	// Time
 	memset(&game.time, 0, sizeof(ICE_Time));
-	game.time.fps = 120;	game.time.ticks = 1000 / game.time.fps;
+	game.time.fps = 120; game.time.ticks = 1000 / game.time.fps;
+
+	// Sound
+	ICE_CreateSoundManager(&game); // Create the Sound Manager
+
 
 	ICE_SetWindowIcon(game.window, 0);
 

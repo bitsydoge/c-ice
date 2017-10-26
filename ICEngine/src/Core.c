@@ -3,7 +3,6 @@
 #include "hdr/TerminalColor.h"
 #include "hdr/Render.h"
 #include "hdr/Input.h"
-#include "hdr/Sound.h"
 
 int ICE_InitGameEngine()
 {
@@ -12,6 +11,9 @@ int ICE_InitGameEngine()
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
 	Mix_Init(MIX_INIT_MP3 | MIX_INIT_OGG);
 	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024);
+	Mix_AllocateChannels(20);
+	Mix_VolumeMusic(5);
+
 	return 0;
 }
 

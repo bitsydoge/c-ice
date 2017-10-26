@@ -28,9 +28,6 @@
     <ClCompile Include="src\Time.c">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\TextureManager.c">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\external\icestd.c">
       <Filter>external</Filter>
     </ClCompile>
@@ -73,6 +70,9 @@
     <ClCompile Include="src\RawImg_error.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Entity.c">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\external\tinyfiles.h">
@@ -94,9 +94,6 @@
       <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Time.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\TextureManager.h">
       <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\external\icestd.h">
@@ -133,6 +130,9 @@
       <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Struct.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Entity.h">
       <Filter>hdr</Filter>
     </ClInclude>
   </ItemGroup>
