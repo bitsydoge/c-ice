@@ -49,7 +49,8 @@ typedef struct
 {
 	unsigned short array_size;
 	unsigned short nb_existing_texture;
-	ICE_Texture* texturepack;
+	ICE_Texture* texture;
+	SDL_Renderer *ren;
 
 } ICE_TextureManager;
 
@@ -77,9 +78,9 @@ typedef struct
 	ICE_Music* musicpack;
 	unsigned short tofill_music;
 
-	unsigned short size_sound;
-	ICE_Sound* sound;
-	unsigned short tofill_sound;
+	unsigned short size_soundpack;
+	ICE_Sound* soundpack;
+	unsigned short tofill_soundpack;
 
 } ICE_SoundManager;
 
@@ -105,7 +106,7 @@ typedef struct
 
 	// Texture Manager Array and Size of the Array (Number of texture manager)
 	unsigned short texturemanager_size;
-	ICE_TextureManager *tex_man;
+	ICE_TextureManager *texturemanager;
 
 	ICE_SoundManager soundmanager;
 	ICE_Time time;

@@ -1,9 +1,8 @@
 ﻿#include "hdr/Sound.h"
-#include "hdr/TerminalColor.h"
 #include "external/rlutil.h"
 #include <SDL2/SDL_mixer.h>
 
-void ICE_CreateSoundSystem(ICE_Game *game)
+void ICE_CreateSoundManager(ICE_Game *game)
 {
 	ICE_SoundManager soundmanager = { 0 };
 	game->soundmanager = soundmanager;
@@ -15,29 +14,36 @@ void ICE_CreateSoundSystem(ICE_Game *game)
 	game->soundmanager.musicpack[game->soundmanager.tofill_music].music = calloc(1, sizeof(Mix_Music*));
 
 	// Sound
-	game->soundmanager.size_sound = 4;
-	game->soundmanager.tofill_sound = 0;
-	game->soundmanager.sound = calloc(game->soundmanager.size_sound, sizeof(ICE_Sound*));
+	game->soundmanager.size_soundpack = 4;
+	game->soundmanager.tofill_soundpack = 0;
+	game->soundmanager.soundpack = calloc(game->soundmanager.size_soundpack, sizeof(ICE_Sound*));
 }
 
-void ICE_CreateMusic(ICE_SoundManager *manager, char *path)
+void ICE_CreateMusic(ICE_Game *game, char *path)
 {
-	manager->musicpack[manager->tofill_music].music = Mix_LoadMUS(path);
-	manager->tofill_music++;
-	manager->size_musicpack++;
-	manager->musicpack = realloc(manager->musicpack, sizeof(ICE_Music*)*(manager->size_musicpack));
+	game->soundmanager.musicpack[game->soundmanager.tofill_music].music = Mix_LoadMUS(path);
+	game->soundmanager.tofill_music++;
+	game->soundmanager.size_musicpack++;
+	game->soundmanager.musicpack = realloc(game->soundmanager.musicpack, sizeof(ICE_Music*)*(game->soundmanager.size_musicpack));
 }
 
-void ICE_CreateSound(ICE_SoundManager *manager, char *path)
+void ICE_CreateSound(ICE_Game *game, char *path)
 {
-	
+	game->soundmanager.soundpack[game->soundmanager.tofill_soundpack].sound = Mix_LoadWAV(path);
+	game->soundmanager.tofill_soundpack++;
+	game->soundmanager.size_soundpack++;
+	game->soundmanager.soundpack = realloc(game->soundmanager.soundpack, sizeof(ICE_Music*)*(game->soundmanager.size_soundpack));
 }
 
-void ICE_PlayMusic(ICE_SoundManager *manager, const int nb)
+void ICE_PlayMusic(ICE_Game *game, const int nb)
 {
-	Mix_PlayMusic(manager->musicpack[nb].music, -1);
+	Mix_PlayMusic(game->soundmanager.musicpack[nb].music, -1);
 }
 
+void ICE_PlaySound(ICE_Game *game, const int chunk, const int volume)
+{
+	Mix_Volume(Mix_PlayChannel(-1, game->soundmanager.soundpack[chunk].sound, 0), volume);
+}
 
 
 

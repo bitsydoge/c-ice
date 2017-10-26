@@ -3,20 +3,23 @@
 #include "external/lodepng.h"
 #include "hdr/TerminalColor.h"
 #include "external/rlutil.h"
+#include "external/icestd.h"
+
+#if SDL_BYTEORDER == SDL_BIG_ENDIAN
+Uint32 static const rmask = 0xff000000;
+Uint32 static const gmask = 0x00ff0000;
+Uint32 static const bmask = 0x0000ff00;
+Uint32 static const amask = 0x000000ff;
+#else
+Uint32 static const rmask = 0x000000ff;
+Uint32 static const gmask = 0x0000ff00;
+Uint32 static const bmask = 0x00ff0000;
+Uint32 static const amask = 0xff000000;
+#endif
 
 ICE_Texture* ICE_LoadPNG(SDL_Renderer *render, char *path)
 {
-#if SDL_BYTEORDER == SDL_BIG_ENDIAN
-	Uint32 static const rmask = 0xff000000;
-	Uint32 static const gmask = 0x00ff0000;
-	Uint32 static const bmask = 0x0000ff00;
-	Uint32 static const amask = 0x000000ff;
-#else
-	Uint32 static const rmask = 0x000000ff;
-	Uint32 static const gmask = 0x0000ff00;
-	Uint32 static const bmask = 0x00ff0000;
-	Uint32 static const amask = 0xff000000;
-#endif
+
 
 	unsigned char* raw_img;
 	unsigned w, h;
@@ -51,17 +54,6 @@ ICE_Texture* ICE_LoadBMP(SDL_Renderer *render, char *path)
 	SDL_Surface *surf = SDL_LoadBMP(path);
 	if (surf == NULL)
 	{
-#if SDL_BYTEORDER == SDL_BIG_ENDIAN
-		Uint32 static const rmask = 0xff000000;
-		Uint32 static const gmask = 0x00ff0000;
-		Uint32 static const bmask = 0x0000ff00;
-		Uint32 static const amask = 0x000000ff;
-#else
-		Uint32 static const rmask = 0x000000ff;
-		Uint32 static const gmask = 0x0000ff00;
-		Uint32 static const bmask = 0x00ff0000;
-		Uint32 static const amask = 0xff000000;
-#endif
 		#include "RawImg_error.c"
 		surf = SDL_CreateRGBSurfaceFrom((void*)ice_raw_img_error.pixel_data, ice_raw_img_error.width,
 			ice_raw_img_error.height, ice_raw_img_error.bytes_per_pixel * 8, ice_raw_img_error.bytes_per_pixel*ice_raw_img_error.width,
@@ -90,17 +82,6 @@ ICE_Texture* ICE_LoadBMPAlpha(SDL_Renderer *render, char *path, const Uint32 rgb
 	SDL_Surface *surf = SDL_LoadBMP(path);
 	if (surf == NULL)
 	{
-#if SDL_BYTEORDER == SDL_BIG_ENDIAN
-		Uint32 static const rmask = 0xff000000;
-		Uint32 static const gmask = 0x00ff0000;
-		Uint32 static const bmask = 0x0000ff00;
-		Uint32 static const amask = 0x000000ff;
-#else
-		Uint32 static const rmask = 0x000000ff;
-		Uint32 static const gmask = 0x0000ff00;
-		Uint32 static const bmask = 0x00ff0000;
-		Uint32 static const amask = 0xff000000;
-#endif
 #include "RawImg_error.c"
 		surf = SDL_CreateRGBSurfaceFrom((void*)ice_raw_img_error.pixel_data, ice_raw_img_error.width,
 			ice_raw_img_error.height, ice_raw_img_error.bytes_per_pixel * 8, ice_raw_img_error.bytes_per_pixel*ice_raw_img_error.width,
@@ -135,9 +116,9 @@ void ICE_DestroyTexture(ICE_Texture *tex)
 	free(tex);
 }
 
-int ICE_TextureRender(SDL_Renderer* renderer, ICE_Texture *tex, SDL_Rect* source, SDL_Rect* destination)
+int ICE_TextureRender(ICE_Game *game, int man, int text, SDL_Rect* source, SDL_Rect* destination)
 {
-	return SDL_RenderCopy(renderer, tex->handle, source, destination);
+	return SDL_RenderCopy(game->render, game->texturemanager[man].texture[text].handle, source, destination);
 }
 
 int ICE_TextureRenderEx(SDL_Renderer* renderer, const ICE_Texture *tex, SDL_Rect* source, SDL_Rect* destination, const double angle)
@@ -149,4 +130,77 @@ Uint32 ICE_Rgba(const unsigned int r, const unsigned int g,const unsigned int b,
 {
 	return (r << 24) + (g << 16) + (b << 8) + a;
 
+}
+
+void ICE_CreateTextureManager(ICE_Game *game)
+{
+	ICE_TextureManager texture_manager = { 0 };
+	texture_manager.array_size = 4;
+	texture_manager.texture = calloc(texture_manager.array_size, sizeof(ICE_Texture));
+	texture_manager.ren = game->render;
+	game->texturemanager_size++;
+	game->texturemanager = realloc(game->texturemanager, game->texturemanager_size * sizeof(ICE_TextureManager));
+	game->texturemanager[game->texturemanager_size - 1] = texture_manager;
+	printf("TextureManager number %d created \n", game->texturemanager_size - 1);
+}
+
+void ICE_CreateTexture(ICE_Game *game, int manager, char* path)
+{
+	Uint32 color_hex = 0xFF00FFFF;
+	char path2[500]; strcpy(path2, path);
+	char* ext = icestd_ext(path2);
+	icestd_sup(ext);
+
+	ICE_Texture *text;
+	if (!strcmp(ext, "PNG"))
+	{
+		text = ICE_LoadPNG(game->texturemanager[manager].ren, path);
+		printf("Texture number %d created on from : \"", game->texturemanager[manager].nb_existing_texture);
+		ICE_TC_SetColor(YELLOW);
+		printf("%s", path);
+		ICE_TC_ResetColor();
+		printf("\"\n");
+	}
+	else if (!strcmp(ext, "BMP"))
+	{
+		if (color_hex != 0)
+		{
+			text = ICE_LoadBMPAlpha(game->texturemanager[manager].ren, path, color_hex);
+			printf("Texture number %d created from : \"", game->texturemanager[manager].nb_existing_texture);
+			ICE_TC_SetColor(YELLOW);
+			printf("%s", path);
+			ICE_TC_ResetColor();
+			printf("\"\n");
+		}
+		else
+		{
+			text = ICE_LoadBMP(game->texturemanager[manager].ren, path);
+			printf("Texture number %d created from : \"", game->texturemanager[manager].nb_existing_texture);
+			ICE_TC_SetColor(YELLOW);
+			printf("%s", path);
+			ICE_TC_ResetColor();
+			printf("\"\n");
+		}
+	}
+	else
+	{
+		text = ICE_LoadBMP(game->texturemanager[manager].ren, "res/img/error");
+		ICE_TC_SetColor(LIGHTRED);
+		printf("ERROR ");
+		ICE_TC_ResetColor();
+		printf(": %s is not a valid filetype for loading texture.\n", ext);
+
+	}
+	text->exist = 1;
+	game->texturemanager[manager].texture[game->texturemanager[manager].nb_existing_texture] = *text;
+	game->texturemanager[manager].nb_existing_texture++;
+	if (game->texturemanager[manager].array_size <= game->texturemanager[manager].nb_existing_texture)
+	{
+		ICE_TC_SetColor(LIGHTCYAN);
+		printf("Extending texture size to %d \n", game->texturemanager[manager].array_size * 2);
+		ICE_TC_ResetColor();
+		game->texturemanager[manager].texture = realloc(game->texturemanager[manager].texture, sizeof(ICE_Texture)*(game->texturemanager[manager].array_size * 2));
+		game->texturemanager[manager].array_size *= 2;
+	}
+	free(text);
 }
