@@ -32,7 +32,7 @@ void ICE_CreateSound(ICE_Game *game, char *path)
 	game->soundmanager.soundpack[game->soundmanager.tofill_soundpack].sound = Mix_LoadWAV(path);
 	game->soundmanager.tofill_soundpack++;
 	game->soundmanager.size_soundpack++;
-	game->soundmanager.soundpack = realloc(game->soundmanager.soundpack, sizeof(ICE_Music*)*(game->soundmanager.size_soundpack));
+	game->soundmanager.soundpack = realloc(game->soundmanager.soundpack, sizeof(ICE_Sound*)*(game->soundmanager.size_soundpack));
 }
 
 void ICE_PlayMusic(ICE_Game *game, const int nb)
@@ -44,6 +44,3 @@ void ICE_PlaySound(ICE_Game *game, const int chunk, const int volume)
 {
 	Mix_Volume(Mix_PlayChannel(-1, game->soundmanager.soundpack[chunk].sound, 0), volume);
 }
-
-
-

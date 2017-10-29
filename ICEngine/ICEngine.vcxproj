@@ -66,7 +66,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{ED38831D-3D0B-4A4C-88A2-4B3EBC514526}</ProjectGuid>
     <RootNamespace>ICEngine</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
