@@ -118,7 +118,13 @@ void ICE_DestroyTexture(ICE_Texture *tex)
 
 int ICE_TextureRender(ICE_Game *game, int man, int text, SDL_Rect* source, SDL_Rect* destination)
 {
-	return SDL_RenderCopy(game->render, game->texturemanager[man].texture[text].handle, source, destination);
+	if (destination)
+	{
+		SDL_Rect dst = { destination->x - (destination->w / 2), destination->y - (destination->h / 2), destination->w, destination->h };
+		return SDL_RenderCopy(game->render, game->texturemanager[man].texture[text].handle, source, &dst);
+	}
+	else
+		return SDL_RenderCopy(game->render, game->texturemanager[man].texture[text].handle, source, NULL);
 }
 
 int ICE_TextureRenderEx(SDL_Renderer* renderer, const ICE_Texture *tex, SDL_Rect* source, SDL_Rect* destination, const double angle)
