@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Entity.c" />
+    <ClCompile Include="src\Font.c" />
     <ClCompile Include="src\Game.c" />
     <ClCompile Include="src\Camera.c" />
     <ClCompile Include="src\Core.c" />
@@ -32,8 +33,8 @@
     <ClCompile Include="src\Math.c" />
     <ClCompile Include="src\Physics.c" />
     <ClCompile Include="src\Primitive.c" />
-    <ClCompile Include="src\RawImg_error.c" />
-    <ClCompile Include="src\RawImg_icon.c" />
+    <ClCompile Include="src\raw\Raw_error.c" />
+    <ClCompile Include="src\raw\Raw_icon.c" />
     <ClCompile Include="src\Render.c" />
     <ClCompile Include="src\Sound.c" />
     <ClCompile Include="src\TerminalColor.c" />
@@ -46,6 +47,7 @@
     <ClInclude Include="src\external\rlutil.h" />
     <ClInclude Include="src\external\tinyfiles.h" />
     <ClInclude Include="src\hdr\Entity.h" />
+    <ClInclude Include="src\hdr\Font.h" />
     <ClInclude Include="src\hdr\Game.h" />
     <ClInclude Include="src\hdr\Camera.h" />
     <ClInclude Include="src\hdr\Core.h" />
