@@ -9,7 +9,7 @@ void ICE_SetWindowIcon(ICE_Window *window, char * path)
 {
 	if (!path)
 	{
-		#include "RawImg_icon.c"
+		#include "raw/Raw_icon.c"
 
 		Uint32 rmask, gmask, bmask, amask;
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN

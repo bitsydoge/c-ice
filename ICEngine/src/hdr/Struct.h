@@ -9,6 +9,7 @@ typedef struct SDL_Rect ICE_Rect;
 typedef struct SDL_Point ICE_Point;
 typedef SDL_Window ICE_Window;
 typedef SDL_Renderer ICE_Renderer;
+typedef Uint32 ICE_Color;
 
 
 typedef struct

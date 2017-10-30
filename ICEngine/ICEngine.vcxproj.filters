@@ -11,6 +11,9 @@
     <Filter Include="hdr">
       <UniqueIdentifier>{98a459bf-b5f8-497d-9142-12024999c7af}</UniqueIdentifier>
     </Filter>
+    <Filter Include="raw">
+      <UniqueIdentifier>{9eaec265-474b-4b5f-87b5-8bdd5c8e55d4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\external\lodepng.c">
@@ -64,13 +67,16 @@
     <ClCompile Include="src\Game.c">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\RawImg_icon.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\RawImg_error.c">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\Entity.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\raw\Raw_error.c">
+      <Filter>raw</Filter>
+    </ClCompile>
+    <ClCompile Include="src\raw\Raw_icon.c">
+      <Filter>raw</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Font.c">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -133,6 +139,9 @@
       <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Entity.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Font.h">
       <Filter>hdr</Filter>
     </ClInclude>
   </ItemGroup>
