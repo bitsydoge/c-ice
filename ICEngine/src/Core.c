@@ -29,7 +29,7 @@ int ICE_GameLoop(ICE_Game(*call_create)(void), void(*call_update)(ICE_Game*), vo
 		game.time.delta = (float)game.time.ticksEllapsed / 1000; // update the time.delta
 		if (game.time.ticksEllapsed > game.time.ticks) {// if the ticks ellapsed is superiore to the ticks for a frame it run the loop
 			game.time.fps = (float)(1000 / game.time.ticksEllapsed); // calculate fps
-			ICE_InputReturn(game.input);
+			ICE_InputReturn(&game, game.input);
 			ICE_RenderClear(game.render);
 			call_update(&game); // Call Update
 			ICE_RenderPresent(game.render);

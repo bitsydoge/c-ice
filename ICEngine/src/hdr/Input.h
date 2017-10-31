@@ -3,7 +3,7 @@
 
 #include "Struct.h"
 
-int ICE_InputReturn(ICE_Input *input);
+int ICE_InputReturn(ICE_Game *game, ICE_Input *input);
 void ICE_InputReset(ICE_Input *input);
 
 #endif

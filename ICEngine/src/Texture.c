@@ -133,7 +133,7 @@ void ICE_CreateTextureManager(ICE_Game *game){
 	printf("TextureManager number %d created \n", game->texturemanager_size - 1);
 }
 
-void ICE_CreateTexture(ICE_Game *game, int manager, char* path){
+int ICE_CreateTexture(ICE_Game *game, int manager, char* path){
 	Uint32 color_hex = 0xFF00FFFF;
 	char path2[500]; strcpy(path2, path);
 	char* ext = icestd_ext(path2);
@@ -184,4 +184,5 @@ void ICE_CreateTexture(ICE_Game *game, int manager, char* path){
 		game->texturemanager[manager].array_size *= 2;
 	}
 	free(text);
+	return game->texturemanager->nb_existing_texture - 1;
 }
