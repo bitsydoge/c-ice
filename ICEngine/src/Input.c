@@ -5,9 +5,9 @@
 #include "hdr/TerminalColor.h"
 #include "external/rlutil.h"
 
-int ICE_InputReturn(ICE_Input *input)
+int ICE_InputReturn(ICE_Game *game, ICE_Input *input)
 {
-	SDL_Event event;
+	static SDL_Event event;
 	while (SDL_PollEvent(&event))
 	{
 		switch (event.type)
@@ -68,7 +68,7 @@ int ICE_InputReturn(ICE_Input *input)
 				input->focus = 0;
 				break;
 			case SDL_WINDOWEVENT_RESIZED:
-				//Windows resizer
+				SDL_GetWindowSize(game->window, &game->camera.w, &game->camera.h);
 				break;
 			default:
 				break;

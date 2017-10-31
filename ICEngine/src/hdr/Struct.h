@@ -5,12 +5,19 @@
 #include <SDL2/SDL.h>
 
 //SDL typedef layer
-typedef struct SDL_Rect ICE_Rect;
-typedef struct SDL_Point ICE_Point;
+typedef SDL_Rect ICE_Rect;
+typedef SDL_Point ICE_Point;
 typedef SDL_Window ICE_Window;
 typedef SDL_Renderer ICE_Renderer;
 typedef Uint32 ICE_Color;
 
+typedef struct
+{
+	float x, y;
+	int w, h;
+	float speed;
+
+} ICE_Camera;
 
 typedef struct
 {
@@ -111,6 +118,7 @@ typedef struct
 
 	ICE_SoundManager soundmanager;
 	ICE_Time time;
+	ICE_Camera camera;
 
 } ICE_Game;
 

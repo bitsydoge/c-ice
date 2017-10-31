@@ -20,7 +20,7 @@ int ICE_TextureRenderEx(SDL_Renderer* renderer, const ICE_Texture *tex, SDL_Rect
 ICE_Color NewColor(const unsigned int r, const unsigned int g, const unsigned int b);
 /// Create the texture manager with a default number of texture, everytime the number of texture is too high, it will double
 void ICE_CreateTextureManager(ICE_Game *game);
-/// Create a Texture
-void ICE_CreateTexture(ICE_Game *game, int manager, char* path);
+/// Create a Texture in the choosed manager; Return the texture number
+int ICE_CreateTexture(ICE_Game *game, int manager, char* path);
 
 #endif
