@@ -3,6 +3,7 @@
 #include <Texture.h>
 #include <Primitive.h>
 #include <Camera.h>
+#include "hdr/menu.h"
 
 ICE_Game GameCreate(void){
 	ICE_Game game = ICE_CreateGame("ICE : Indie \"C\" Engine", 500, 500); 
@@ -26,11 +27,13 @@ void MovementCamera(ICE_Game *game){
 }
 
 void GameUpdate(ICE_Game *game){
+	if (game->input->key[SDL_SCANCODE_ESCAPE])
+		ICE_SubstateLoop(game, menu_create, menu_update, menu_destroy);
 	MovementCamera(game);
 	ICE_TextureRender(game, 0, 0, NULL, NULL); // Render background
 	ICE_DrawRectangleFill(game, NewRect(10, 10, 200, 200), NewColor(100, 40, 180));
 	ICE_Rect rect = {game->input->mousex, game->input->mousey, 100, 100};
-	ICE_TextureRender(game, 0, 1, NULL, &rect); // Render image on mouse
+	ICE_TextureRender(game, 0, 1, NULL, &rect); // Render² image on mouse
 	if (game->input->leftclic) {
 		ICE_PlaySound(game, 0, 1);
 		ICE_PlayMusic(game, 0);

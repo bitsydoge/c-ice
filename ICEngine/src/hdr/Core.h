@@ -6,5 +6,6 @@
 int ICE_InitGameEngine();
 int ICE_CloseGameEngine();
 int ICE_GameLoop(ICE_Game(*call_create)(void), void(*call_update)(ICE_Game*), void(*call_destroy)(ICE_Game*));
+int ICE_SubstateLoop(ICE_Game* game, void(*call_create)(ICE_Game*), void(*call_update)(ICE_Game*), void(*call_destroy)(ICE_Game*));
 
 #endif
