@@ -41,6 +41,7 @@ typedef struct
 	int mousey;
 	int focus;
 	char *filedrop;
+	int substate_quit;
 
 } ICE_Input;
 

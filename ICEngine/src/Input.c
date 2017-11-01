@@ -101,8 +101,10 @@ int ICE_InputReturn(ICE_Game *game, ICE_Input *input)
 void ICE_InputReset(ICE_Input *input)
 {
 	int temp = input->focus;
+	int temp2 = input->quit;
 	memset(input, 0, sizeof(ICE_Input));
 	input->focus = temp;
+	input->quit = temp2;
 	printf("Input Reset : ");
 	ICE_TC_SetColor(GREEN);
 	printf("OK\n");
