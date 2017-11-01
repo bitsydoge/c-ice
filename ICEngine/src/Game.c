@@ -63,6 +63,7 @@ ICE_Game ICE_CreateGame(char *window_title, const unsigned int width_window, con
 	SDL_RendererInfo info;
 	SDL_GetRendererInfo(game.render, &info);
 	printf("Graphic API : %s \n", info.name);
+	SDL_SetRenderDrawBlendMode(game.render, SDL_BLENDMODE_BLEND);
 	
 	// Time
 	memset(&game.time, 0, sizeof(ICE_Time));

@@ -16,7 +16,6 @@ typedef struct
 	float x, y;
 	int w, h;
 	float speed;
-
 } ICE_Camera;
 
 typedef struct
@@ -42,7 +41,6 @@ typedef struct
 	int focus;
 	char *filedrop;
 	int substate_quit;
-
 } ICE_Input;
 
 typedef struct
@@ -51,7 +49,6 @@ typedef struct
 	unsigned int w;
 	unsigned int h;
 	SDL_Texture* handle;
-
 } ICE_Texture;
 
 typedef struct
@@ -60,24 +57,19 @@ typedef struct
 	unsigned short nb_existing_texture;
 	ICE_Texture* texture;
 	SDL_Renderer *ren;
-
 } ICE_TextureManager;
 
 
 typedef struct
 {
-
 	Mix_Music* music;
 	char *filename;
-
 } ICE_Music;
 
 typedef struct
 {
-
 	Mix_Chunk* sound;
 	char *filename;
-
 } ICE_Sound;
 
 
@@ -86,11 +78,9 @@ typedef struct
 	unsigned short size_musicpack;
 	ICE_Music* musicpack;
 	unsigned short tofill_music;
-
 	unsigned short size_soundpack;
 	ICE_Sound* soundpack;
 	unsigned short tofill_soundpack;
-
 } ICE_SoundManager;
 
 typedef struct
@@ -101,26 +91,19 @@ typedef struct
 	unsigned int ticksEllapsed;
 	float fps;
 	float delta;
-
 } ICE_Time;
 
 typedef struct 
 {
-	unsigned int w, h;
-
-
 	ICE_Window *window;
 	ICE_Renderer *render;
 	ICE_Input *input;
-
 	// Texture Manager Array and Size of the Array (Number of texture manager)
 	unsigned short texturemanager_size;
 	ICE_TextureManager *texturemanager;
-
 	ICE_SoundManager soundmanager;
 	ICE_Time time;
 	ICE_Camera camera;
-
 } ICE_Game;
 
 #endif
