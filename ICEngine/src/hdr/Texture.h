@@ -16,8 +16,10 @@ void ICE_DestroyTexture(ICE_Texture *tex);
 int ICE_TextureRender(ICE_Game *game, int man, int text, SDL_Rect* source, SDL_Rect* destination);
 /// Render a ICE_Texture to the renderer with a rotation
 int ICE_TextureRenderEx(SDL_Renderer* renderer, const ICE_Texture *tex, SDL_Rect* source, SDL_Rect* destination, const double angle);
-/// Convert ARGB to a Uint32 (Hex color)
+/// Create a new ICE_Color from a R G and B int; The A is 255, use NewColorA to set the transparancy
 ICE_Color NewColor(const unsigned int r, const unsigned int g, const unsigned int b);
+/// Create a new ICE_Color from a R G B and A int
+ICE_Color NewColorA(const unsigned int r, const unsigned int g, const unsigned int b, const unsigned int a);
 /// Create the texture manager with a default number of texture, everytime the number of texture is too high, it will double
 void ICE_CreateTextureManager(ICE_Game *game);
 /// Create a Texture in the choosed manager; Return the texture number

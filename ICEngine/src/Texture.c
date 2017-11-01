@@ -110,6 +110,10 @@ ICE_Color NewColor(const unsigned int r, const unsigned int g,const unsigned int
 	return (r << 24) + (g << 16) + (b << 8) + 255;
 }
 
+ICE_Color NewColorA(const unsigned int r, const unsigned int g, const unsigned int b, const unsigned int a) {
+	return (r << 24) + (g << 16) + (b << 8) + a;
+}
+
 
 //////////////////////// TEXTURE MANAGER /////////////////////////////////
 //                                                                      //

@@ -17,27 +17,43 @@ ICE_Game GameCreate(void){
 
 void MovementCamera(ICE_Game *game){
 	if (game->input->key[SDL_SCANCODE_D])
-		ICE_MoveCamera(game, -50, 0);
+		ICE_ShiftCamera(game, 50, 0);
 	if (game->input->key[SDL_SCANCODE_A])
-		ICE_MoveCamera(game, 50, 0);
+		ICE_ShiftCamera(game, -50, 0);
 	if (game->input->key[SDL_SCANCODE_S])
-		ICE_MoveCamera(game, 0, -50);
+		ICE_ShiftCamera(game, 0, 50);
 	if (game->input->key[SDL_SCANCODE_W])
-		ICE_MoveCamera(game, 0, 50);
+		ICE_ShiftCamera(game, 0, -50);
 }
 
 void GameUpdate(ICE_Game *game){
+	// Substate menu test
 	if (game->input->key[SDL_SCANCODE_ESCAPE])
 		ICE_SubstateLoop(game, menu_create, menu_update, menu_destroy);
+
+	// Camera Move
 	MovementCamera(game);
-	ICE_TextureRender(game, 0, 0, NULL, NULL); // Render background
-	ICE_DrawRectangleFill(game, NewRect(10, 10, 200, 200), NewColor(100, 40, 180));
-	ICE_Rect rect = {game->input->mousex, game->input->mousey, 100, 100};
-	ICE_TextureRender(game, 0, 1, NULL, &rect); // Render² image on mouse
+
+	// Song / Sound test
 	if (game->input->leftclic) {
 		ICE_PlaySound(game, 0, 1);
 		ICE_PlayMusic(game, 0);
 	}
+
+	// Background render
+	ICE_Rect back = position_to_screen(NewRect(0, 0, 500, 500), &game->camera);
+	ICE_TextureRender(game, 0, 0, NULL, &back);
+
+	// Raw primitive test
+	ICE_DrawRectangleFill(game, 
+		position_to_screen(NewRect(0, 0, 200, 200), &game->camera), 
+		NewColorA(100, 40, 180, 100));
+	
+	// Draw icon on the mouse
+	ICE_Rect rect = {game->input->mousex, game->input->mousey, 100, 100};
+	ICE_TextureRender(game, 0, 1, NULL, &rect);
+
+	// Show icon on the center
 	ICE_Rect rect2 = position_to_screen(NewRect(0, 0, 100, 100), &game->camera);
 	ICE_TextureRender(game, 0, 1, NULL, &rect2);
 }

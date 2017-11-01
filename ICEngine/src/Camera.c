@@ -1,10 +1,15 @@
 ﻿#include "hdr/Camera.h"
 
-void ICE_SetCamera(ICE_Game *game, int x, int y){
+void ICE_SetCamera(ICE_Game *game, const float x, const float y){
 	game->camera.x = x; game->camera.y = y;
 }
 
-void ICE_MoveCamera(ICE_Game *game, int dx, int dy){
+void ICE_MoveCamera(ICE_Game *game, const float x, const float y, const float r)
+{
+	// To do with all the angle shit to do
+}
+
+void ICE_ShiftCamera(ICE_Game *game, const float dx, const float dy){
 	game->camera.x += dx * game->time.delta; game->camera.y += dy * game->time.delta;
 }
 
