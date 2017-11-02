@@ -48,7 +48,7 @@ ICE_Game ICE_CreateGame(char *window_title, const unsigned int width_window, con
 	// Window and Render
 	game.window = SDL_CreateWindow(window_title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width_window, height_window, SDL_RENDERER_PRESENTVSYNC | SDL_WINDOW_RESIZABLE);
 	game.render = SDL_CreateRenderer(game.window, -1, SDL_RENDERER_ACCELERATED);
-	ICE_SetRenderClearColor(game.render, 0x2bccf4ff);    
+	ICE_SetRenderClearColor(game.render, NewColor(100, 25, 12));    
 	// 
 
 	// Input
@@ -72,7 +72,7 @@ ICE_Game ICE_CreateGame(char *window_title, const unsigned int width_window, con
 	// Sound
 	ICE_CreateSoundManager(&game); // Create the Sound Manager
 
-
+	game.camera.x = 0; game.camera.y = 0; game.camera.w = width_window; game.camera.h = height_window;
 	ICE_SetWindowIcon(game.window, 0);
 
 

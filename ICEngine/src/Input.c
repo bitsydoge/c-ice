@@ -98,13 +98,18 @@ int ICE_InputReturn(ICE_Game *game, ICE_Input *input)
 	return 0;
 }
 
-void ICE_InputReset(ICE_Input *input)
-{
+void ICE_InputReset(ICE_Input *input){
 	int temp = input->focus;
 	int temp2 = input->quit;
+	int mousex = input->mousex;
+	int mousey = input->mousey;
 	memset(input, 0, sizeof(ICE_Input));
 	input->focus = temp;
 	input->quit = temp2;
+	input->mousex = mousex;
+	input->mousey = mousey;
+
+	
 	printf("Input Reset : ");
 	ICE_TC_SetColor(GREEN);
 	printf("OK\n");
