@@ -6,7 +6,15 @@ void ICE_SetCamera(ICE_Game *game, const float x, const float y){
 
 void ICE_MoveCamera(ICE_Game *game, const float x, const float y, const float r)
 {
-	// To do with all the angle shit to do
+	float xdif = x - game->camera.x; float ydif = y - game->camera.y;
+	float angle = atan2(ydif, xdif);
+	float distance_r_r = xdif*xdif + ydif*ydif;
+	game->camera.x += r * cos(angle) * game->time.delta; game->camera.y += r * sin(angle) * game->time.delta;
+	if (distance_r_r < r*game->time.delta)
+	{
+		game->camera.x = x;
+		game->camera.y = y;
+	}
 }
 
 void ICE_ShiftCamera(ICE_Game *game, const float dx, const float dy){
