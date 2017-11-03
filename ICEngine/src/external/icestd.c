@@ -21,8 +21,8 @@ char* icestd_ext(char *filename)
 	return ex + 1;
 }
 
-/// Move cursor to the next character type
-void icestd_mtnct(FILE* fichier, int character)
+/// Move cursor to the next character
+void icestd_tnc(FILE* fichier, int character)
 {
 	int charactuel = 0;
 	do

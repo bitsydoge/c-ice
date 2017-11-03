@@ -2,7 +2,7 @@
 #include "hdr/Render.h"
 #include <stdio.h>
 #include <string.h>
-#include "hdr/TextureManager.h"
+#include "hdr/Texture.h"
 #include "hdr/Sound.h"
 
 void ICE_SetWindowIcon(ICE_Window *window, char * path)
