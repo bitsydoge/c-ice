@@ -13,6 +13,13 @@ typedef Uint32 ICE_Color;
 
 typedef struct
 {
+	
+	int j;
+
+} ICE_Map;
+
+typedef struct
+{
 	float x, y;
 	int w, h;
 	float speed;
@@ -46,8 +53,8 @@ typedef struct
 typedef struct
 {
 	unsigned short exist;
-	unsigned int w;
-	unsigned int h;
+	int w;
+	int h;
 	SDL_Texture* handle;
 } ICE_Texture;
 

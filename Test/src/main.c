@@ -3,18 +3,23 @@
 #include <Texture.h>
 #include <Primitive.h>
 #include <Camera.h>
+#include <Gui.h>
+
 #include "hdr/menu.h"
 
 ICE_Game GameCreate(void){
 	ICE_Game game = ICE_CreateGame("ICE : Indie \"C\" Engine", 500, 500); 
 	ICE_CreateTexture(&game, 0, "res/img/logo.png");
+	for(int i = 0; i < 20; i++)
+		ICE_CreateTexture(&game, 0, "res/img/gui.png");
 	ICE_CreateMusic(&game, "res/snd/music.ogg"); 
 	ICE_CreateSound(&game, "res/snd/laser.wav");
+	ICE_PlayMusic(&game, 0);
 	return game;
 }
 
 void Command(ICE_Game *game){
-	static const int speed = 200;
+	static const int speed = 100;
 	if (game->input->key[SDL_SCANCODE_D] || game->input->key[SDL_SCANCODE_RIGHT])
 		ICE_ShiftCamera(game, speed, 0);
 	if (game->input->key[SDL_SCANCODE_A] || game->input->key[SDL_SCANCODE_LEFT])
@@ -34,11 +39,12 @@ void GameUpdate(ICE_Game *game){
 
 	if (game->input->leftclic) {
 		ICE_PlaySound(game, 0, 1);
-		ICE_PlayMusic(game, 0);
 	}
-
 	ICE_Rect back = position_to_screen(NewRect(0, 0, 500, 500), &game->camera);
 	ICE_TextureRender(game, 0, 0, NULL, &back);
+
+	ICE_GuiRect(game, 0, 1, NewRect(0, 0, game->camera.w, 32));
+
 
 	/* Raw primitive test
 	ICE_DrawRectangleFill(

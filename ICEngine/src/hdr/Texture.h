@@ -14,6 +14,8 @@ ICE_Texture* ICE_LoadBMPAlpha(SDL_Renderer *render, char *path, const ICE_Color 
 void ICE_DestroyTexture(ICE_Texture *tex);
 /// Render a ICE_Texture to the renderer. The X, Y of the Source is the top left but the X, Y of the Destination is the center
 int ICE_TextureRender(ICE_Game *game, int man, int text, SDL_Rect* source, SDL_Rect* destination);
+/// NO CENTER
+int ICE_TextureRenderNC(ICE_Game *game, int man, int text, SDL_Rect* source, SDL_Rect* destination);
 /// Render a ICE_Texture to the renderer with a rotation
 int ICE_TextureRenderEx(SDL_Renderer* renderer, const ICE_Texture *tex, SDL_Rect* source, SDL_Rect* destination, const double angle);
 /// Create a new ICE_Color from a R G and B int; The A is 255, use NewColorA to set the transparancy

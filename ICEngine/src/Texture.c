@@ -102,6 +102,13 @@ int ICE_TextureRender(ICE_Game *game, int man, int text, SDL_Rect* source, SDL_R
 		return SDL_RenderCopy(game->render, game->texturemanager[man].texture[text].handle, source, NULL);
 }
 
+int ICE_TextureRenderNC(ICE_Game *game, int man, int text, SDL_Rect* source, SDL_Rect* destination) {
+	if (destination) {
+		return SDL_RenderCopy(game->render, game->texturemanager[man].texture[text].handle, source, destination);
+	}
+	return SDL_RenderCopy(game->render, game->texturemanager[man].texture[text].handle, source, NULL);
+}
+
 int ICE_TextureRenderEx(SDL_Renderer* renderer, const ICE_Texture *tex, SDL_Rect* source, SDL_Rect* destination, const double angle){
 	return SDL_RenderCopyEx(renderer, tex->handle, source, destination, angle, NULL, SDL_FLIP_NONE);
 }
@@ -178,8 +185,10 @@ int ICE_CreateTexture(ICE_Game *game, int manager, char* path){
 		printf(": %s is not a valid filetype for loading texture.\n", ext);
 	}
 	text->exist = 1;
+	SDL_QueryTexture(text->handle, NULL, NULL, &text->w, &text->h);
 	game->texturemanager[manager].texture[game->texturemanager[manager].nb_existing_texture] = *text;
 	game->texturemanager[manager].nb_existing_texture++;
+	
 	if (game->texturemanager[manager].array_size <= game->texturemanager[manager].nb_existing_texture){
 		ICE_TC_SetColor(LIGHTCYAN);
 		printf("Extending texture size to %d \n", game->texturemanager[manager].array_size * 2);

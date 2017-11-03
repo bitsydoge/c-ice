@@ -2,7 +2,8 @@
 #define DEF_TEST_MENU
 #include <Game.h>
 #include <Render.h>
-
+#include <Gui.h>
+#include <Primitive.h>
 void menu_create(ICE_Game* game);
 void menu_update(ICE_Game* game);
 void menu_destroy(ICE_Game* game);
