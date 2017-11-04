@@ -81,9 +81,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\external\tinyfiles.h">
-      <Filter>external</Filter>
-    </ClInclude>
     <ClInclude Include="src\external\lodepng.h">
       <Filter>external</Filter>
     </ClInclude>
