@@ -1,64 +1,36 @@
 #include <Core.h>
-#include <Sound.h>
-#include <Texture.h>
-#include <Primitive.h>
-#include <Camera.h>
-#include <Gui.h>
 
 #include "hdr/menu.h"
+#include "hdr/data.h"
 
 ICE_Game GameCreate(void){
 	ICE_Game game = ICE_CreateGame("ICE : Indie \"C\" Engine", 500, 500); 
+	DATA0 *data = ICE_AddData(&game, sizeof(DATA0)); // Add DATA0
+	ICE_AddData(&game, sizeof(DATA1)); // Add DATA1
+	data->speed_camera = 250;
 	ICE_CreateTexture(&game, 0, "res/img/logo.png");
-	for(int i = 0; i < 20; i++)
-		ICE_CreateTexture(&game, 0, "res/img/gui.png");
+	ICE_CreateTexture(&game, 0, "res/img/gui.png");
 	ICE_CreateMusic(&game, "res/snd/music.ogg"); 
 	ICE_CreateSound(&game, "res/snd/laser.wav");
-	ICE_PlayMusic(&game, 0);
+	ICE_PlayMusic(&game, 0, 1);
 	return game;
 }
 
-void Command(ICE_Game *game){
-	static const int speed = 100;
-	if (game->input->key[SDL_SCANCODE_D] || game->input->key[SDL_SCANCODE_RIGHT])
-		ICE_ShiftCamera(game, speed, 0);
-	if (game->input->key[SDL_SCANCODE_A] || game->input->key[SDL_SCANCODE_LEFT])
-		ICE_ShiftCamera(game, -speed, 0);
-	if (game->input->key[SDL_SCANCODE_S] || game->input->key[SDL_SCANCODE_DOWN])
-		ICE_ShiftCamera(game, 0, speed);
-	if (game->input->key[SDL_SCANCODE_W] || game->input->key[SDL_SCANCODE_UP])
-		ICE_ShiftCamera(game, 0, -speed);
-	if (game->input->key[SDL_SCANCODE_SPACE])
-		ICE_MoveCamera(game, 0, 0, speed);
-	if (game->input->key[SDL_SCANCODE_ESCAPE])
-		ICE_SubstateLoop(game, menu_create, menu_update, menu_destroy);
+void Control(ICE_Game *game){
+	DATA0 *data = ICE_GetData(game, 0); // Make DATA0 avaible in the scope
+	if (game->input->key[SDL_SCANCODE_D] || game->input->key[SDL_SCANCODE_RIGHT]) ICE_ShiftCamera(game, data->speed_camera, 0);
+	if (game->input->key[SDL_SCANCODE_A] || game->input->key[SDL_SCANCODE_LEFT]) ICE_ShiftCamera(game, -data->speed_camera, 0);
+	if (game->input->key[SDL_SCANCODE_S] || game->input->key[SDL_SCANCODE_DOWN]) ICE_ShiftCamera(game, 0, data->speed_camera);
+	if (game->input->key[SDL_SCANCODE_W] || game->input->key[SDL_SCANCODE_UP]) ICE_ShiftCamera(game, 0, -data->speed_camera);
+	if (game->input->key[SDL_SCANCODE_SPACE]) ICE_MoveCamera(game, 0, 0, data->speed_camera);
+	if (game->input->key[SDL_SCANCODE_ESCAPE]) ICE_SubstateLoop(game, menu_create, menu_update, menu_destroy);
 }
 
 void GameUpdate(ICE_Game *game){
-	Command(game);
-
-	if (game->input->leftclic) {
-		ICE_PlaySound(game, 0, 1);
-	}
+	Control(game);
 	ICE_Rect back = position_to_screen(NewRect(0, 0, 500, 500), &game->camera);
 	ICE_TextureRender(game, 0, 0, NULL, &back);
-
 	ICE_GuiRect(game, 0, 1, NewRect(0, 0, game->camera.w, 32));
-
-
-	/* Raw primitive test
-	ICE_DrawRectangleFill(
-		game, 
-		position_to_screen(NewRect(-100, -100, 200, 200), &game->camera), 
-		NewColorA(100, 40, 180, 100)); 
-	
-	// Draw icon on the mouse
-	ICE_Rect rect = {game->input->mousex, game->input->mousey, 100, 100};
-	ICE_TextureRender(game, 0, 1, NULL, &rect);
-
-	//Show icon on the center
-	ICE_Rect rect2 = position_to_screen(NewRect(0, 0, 100, 100), &game->camera);
-	ICE_TextureRender(game, 0, 1, NULL, &rect2); */
 }
 
 void GameDestroy(ICE_Game *game){

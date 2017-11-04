@@ -142,6 +142,7 @@
     <ClCompile Include="src\menu.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\hdr\data.h" />
     <ClInclude Include="src\hdr\menu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -102,15 +102,30 @@ typedef struct
 
 typedef struct 
 {
+	// Window
 	ICE_Window *window;
 	ICE_Renderer *render;
+	
+	// Input
 	ICE_Input *input;
-	// Texture Manager Array and Size of the Array (Number of texture manager)
+
+	// Time
+	ICE_Time time;
+
+	// Camera
+	ICE_Camera camera;
+
+	// // Manager // //
+	// Texture
 	unsigned short texturemanager_size;
 	ICE_TextureManager *texturemanager;
+
+	// Sound
 	ICE_SoundManager soundmanager;
-	ICE_Time time;
-	ICE_Camera camera;
+
+	// Data
+	int nb_data;
+	void** data;
 } ICE_Game;
 
 #endif

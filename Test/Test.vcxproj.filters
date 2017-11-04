@@ -21,5 +21,8 @@
     <ClInclude Include="src\hdr\menu.h">
       <Filter>hdr</Filter>
     </ClInclude>
+    <ClInclude Include="src\hdr\data.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
