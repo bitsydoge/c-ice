@@ -3,7 +3,7 @@
 <img alt="ICE Logo" src="Test/res/img/ice_logo.png" width=20% height=20%> 
 
 _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
-> ##### **STATUS : WIP [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓..................] 64% => Alpha**
+> ##### **STATUS : WIP [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓------------------] 64% => Alpha**
 	
 ## Feature :
 
