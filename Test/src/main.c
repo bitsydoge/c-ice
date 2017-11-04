@@ -5,14 +5,19 @@
 
 ICE_Game GameCreate(void){
 	ICE_Game game = ICE_CreateGame("ICE : Indie \"C\" Engine", 500, 500); 
-	DATA0 *data = ICE_AddData(&game, sizeof(DATA0)); // Add DATA0
-	ICE_AddData(&game, sizeof(DATA1)); // Add DATA1
-	data->speed_camera = 250;
+	
+	// Load Assets
 	ICE_CreateTexture(&game, 0, "res/img/logo.png");
 	ICE_CreateTexture(&game, 0, "res/img/gui.png");
 	ICE_CreateMusic(&game, "res/snd/music.ogg"); 
 	ICE_CreateSound(&game, "res/snd/laser.wav");
 	ICE_PlayMusic(&game, 0, 1);
+
+	// Load Data and Variables
+	DATA0 *data = ICE_AddData(&game, sizeof(DATA0)); // Add DATA0
+	ICE_AddData(&game, sizeof(DATA1)); // Add DATA1
+	data->speed_camera = 250;
+
 	return game;
 }
 
@@ -28,8 +33,7 @@ void Control(ICE_Game *game){
 
 void GameUpdate(ICE_Game *game){
 	Control(game);
-	ICE_Rect back = position_to_screen(NewRect(0, 0, 500, 500), &game->camera);
-	ICE_TextureRender(game, 0, 0, NULL, &back);
+	ICE_TextureRender(game, 0, 0, NULL,(ICE_Rect[]){position_to_screen(NewRect(0, 0, 500, 500), &game->camera)});
 	ICE_GuiRect(game, 0, 1, NewRect(0, 0, game->camera.w, 32));
 }
 
