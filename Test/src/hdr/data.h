@@ -9,7 +9,7 @@ typedef struct
 
 typedef struct
 {
-	double hello_world;
+	ICE_Rect menu_escape;
 
 } DATA1;
 
