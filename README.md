@@ -3,13 +3,13 @@
 <img alt="ICE Logo" src="Test/res/img/ice_logo.png" width=20% height=20%> 
 
 _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
-> ##### **STATUS : WIP [▓▓▓▓----------------------------------------------] 8%**
+> ##### **STATUS : WIP [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓..................] 64% => Alpha**
 	
 ## Feature :
 
 **Supported Format :** 
 
-	- Image : PNG and BMP (Probably JPEF in the futur)
+	- Image : PNG and BMP (Probably JPEG in the futur)
 	
 	- Sound : OGG and WAV (And basicaly everything SDL_mixer support, but my function will focus on those)
 	
@@ -25,7 +25,7 @@ _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
 
 
 Made with Visual Studio Community 2017 and Visual Studio Code on linux
-a CMakeLists.txt is avaible for compiling on other os or compiler.
+a CMakeLists.txt will be avaible for compiling outside visual studio.
 
 ## Dependancy : 
 
@@ -38,7 +38,5 @@ a CMakeLists.txt is avaible for compiling on other os or compiler.
 	-chipmunk2d (for physics)
 	
 	-lodepng (for png decode) (included)   
-	
-	-tinyfiles (for directory listing) (included) 
 	
 	-rlutil.h (for console color) (included)

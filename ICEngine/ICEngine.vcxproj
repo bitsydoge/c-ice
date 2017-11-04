@@ -45,7 +45,6 @@
     <ClInclude Include="src\external\icestd.h" />
     <ClInclude Include="src\external\lodepng.h" />
     <ClInclude Include="src\external\rlutil.h" />
-    <ClInclude Include="src\external\tinyfiles.h" />
     <ClInclude Include="src\hdr\Entity.h" />
     <ClInclude Include="src\hdr\Font.h" />
     <ClInclude Include="src\hdr\Game.h" />
