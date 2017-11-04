@@ -48,13 +48,13 @@ void ICE_CreateSound(ICE_Game *game, char *path){
 		printf("ERROR : Can't load sound from %s \n", path);
 }
 
-int ICE_PlayMusic(ICE_Game *game, const int nb){
+int ICE_PlayMusic(ICE_Game *game, const int nb, const int volume){
 	if (game->soundmanager.musicpack[nb].music != NULL){
 		Mix_PlayMusic(game->soundmanager.musicpack[nb].music, -1);
+		Mix_VolumeMusic(volume);
 		return 1;
 	}
-	else
-		return -1;
+return -1;
 
 }
 
@@ -64,8 +64,6 @@ int ICE_PlaySound(ICE_Game *game, const int chunk, const int volume){
 			Mix_Volume(Mix_PlayChannel(-1, game->soundmanager.soundpack[chunk].sound, 0), volume);
 			return 1;
 		}
-		else
-			return -1;
 	}
-
+	return -1;
 }

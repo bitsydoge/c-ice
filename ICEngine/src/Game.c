@@ -75,8 +75,30 @@ ICE_Game ICE_CreateGame(char *window_title, const unsigned int width_window, con
 	game.camera.x = 0; game.camera.y = 0; game.camera.w = width_window; game.camera.h = height_window;
 	ICE_SetWindowIcon(game.window, 0);
 
-
+	game.data = malloc(0);
+	game.nb_data = 0;
 	return game;    
+}
+
+// Make the
+void* ICE_AddData(ICE_Game *game, size_t _size)
+{
+	game->nb_data++;
+	game->data = realloc(game->data, sizeof(void*)*game->nb_data);
+	game->data[game->nb_data-1] = calloc(1, _size);
+	void * _pointer = game->data[game->nb_data - 1];
+	return _pointer;
+}
+
+// Return pointer to the data
+void* ICE_GetData(ICE_Game *game, int nb_data)
+{
+	void * _pointer;
+	if (nb_data <= game->nb_data)
+		_pointer = game->data[nb_data];
+	else
+		_pointer = NULL;
+	return _pointer;
 }
 
 void ICE_DestroyGame(ICE_Game *app)
