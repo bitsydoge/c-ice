@@ -87,7 +87,7 @@ void ICE_DestroyGame(ICE_Game *app)
 	free(app->input);
 }
 
-// Make the
+// Make a Data
 void* ICE_AddData(ICE_Game *game, size_t _size)
 {
 	game->nb_data++;
@@ -97,7 +97,7 @@ void* ICE_AddData(ICE_Game *game, size_t _size)
 	return _pointer;
 }
 
-// Return pointer to the data
+// Return pointer to a Data
 void* ICE_GetData(ICE_Game *game, int nb_data)
 {
 	void * _pointer;
@@ -108,6 +108,7 @@ void* ICE_GetData(ICE_Game *game, int nb_data)
 	return _pointer;
 }
 
+// Destroy a Data
 void ICE_DestroyData(ICE_Game *game, int nb_data)
 {
 	void * _pointer;
