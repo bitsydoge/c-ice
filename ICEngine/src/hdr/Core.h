@@ -17,6 +17,7 @@
 #include "TerminalColor.h"
 #include "Texture.h"
 #include "Time.h"
+#include "Debug.h"
 
 int ICE_InitGameEngine();
 int ICE_CloseGameEngine();

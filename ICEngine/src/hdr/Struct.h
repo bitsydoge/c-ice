@@ -14,19 +14,6 @@ typedef Uint32 ICE_Color;
 
 typedef struct
 {
-	float x, y;
-	void **data;
-
-}ICE_Entity;
-
-typedef struct
-{
-	ICE_Entity *entity;
-
-}ICE_EntityManager;
-
-typedef struct
-{
 	
 	int j;
 
@@ -119,6 +106,27 @@ typedef struct
 	TTF_Font* size[256];
 
 }ICE_FontManager;
+
+typedef struct
+{
+	int exist;
+	float x, y;
+	float w, h;
+	void **data;
+	
+	// Texture
+	int man;
+	int text;
+
+}ICE_Entity;
+
+typedef struct
+{
+	ICE_Entity *entity;
+	unsigned short array_size;
+	unsigned short nb_existing;
+
+}ICE_EntityManager;
 
 typedef struct 
 {

@@ -49,7 +49,12 @@ ICE_Game ICE_CreateGame(char *window_title, const unsigned int width_window, con
 	game.window = SDL_CreateWindow(window_title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width_window, height_window, SDL_RENDERER_PRESENTVSYNC | SDL_WINDOW_RESIZABLE);
 	game.render = SDL_CreateRenderer(game.window, -1, SDL_RENDERER_ACCELERATED);
 	ICE_SetRenderClearColor(game.render, NewColor(100, 25, 12));    
-	// 
+	
+	// Render Info
+	SDL_RendererInfo info;
+	SDL_GetRendererInfo(game.render, &info);
+	printf("Graphic API : %s \n", info.name);
+	SDL_SetRenderDrawBlendMode(game.render, SDL_BLENDMODE_BLEND);
 
 	// Input
 	game.input = (ICE_Input*)calloc(1, sizeof(ICE_Input));
@@ -58,12 +63,6 @@ ICE_Game ICE_CreateGame(char *window_title, const unsigned int width_window, con
 	// TextureManager
 	game.texturemanager_size = 0;
 	ICE_CreateTextureManager(&game);
-
-	// Render Info
-	SDL_RendererInfo info;
-	SDL_GetRendererInfo(game.render, &info);
-	printf("Graphic API : %s \n", info.name);
-	SDL_SetRenderDrawBlendMode(game.render, SDL_BLENDMODE_BLEND);
 	
 	// Time
 	memset(&game.time, 0, sizeof(ICE_Time));

@@ -4,8 +4,7 @@ void ICE_SetCamera(ICE_Game *game, const float x, const float y){
 	game->camera.x = x; game->camera.y = y;
 }
 
-void ICE_MoveCamera(ICE_Game *game, const float x, const float y, const float r)
-{
+void ICE_MoveCamera(ICE_Game *game, const float x, const float y, const float r){
 	float xdif = x - game->camera.x; float ydif = y - game->camera.y;
 	float angle = atan2(ydif, xdif);
 	float distance_r_r = xdif*xdif + ydif*ydif;
