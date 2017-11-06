@@ -79,6 +79,9 @@
     <ClCompile Include="src\Font.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Debug.c">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\external\lodepng.h">
@@ -141,5 +144,10 @@
     <ClInclude Include="src\hdr\Font.h">
       <Filter>hdr</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\hdr\Debug.h">
+      <Filter>hdr</Filter>
+    </None>
   </ItemGroup>
 </Project>

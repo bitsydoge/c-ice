@@ -2,6 +2,7 @@
 
 #include "hdr/menu.h"
 #include "hdr/data.h"
+#include "Debug.h"
 
 ICE_Game GameCreate(void){
 	ICE_Game game = ICE_CreateGame("ICE : Indie \"C\" Engine", 500, 500); 
@@ -12,12 +13,13 @@ ICE_Game GameCreate(void){
 	ICE_CreateMusic(&game, "res/snd/music.ogg"); 
 	ICE_CreateSound(&game, "res/snd/laser.wav");
 	ICE_PlayMusic(&game, 0, 1);
+	ICE_FontLoad(&game, "res/ttf/FiraMono-Medium.ttf");
 
 	// Load Data and Variables
 	DATA0 *data = ICE_AddData(&game, sizeof(DATA0)); // Add DATA0
 	ICE_AddData(&game, sizeof(DATA1)); // Add DATA1
 	data->speed_camera = 250;
-
+	int speed_camera = 200;
 	return game;
 }
 
@@ -34,7 +36,9 @@ void Control(ICE_Game *game){
 void GameUpdate(ICE_Game *game){
 	Control(game);
 	ICE_TextureRender(game, 0, 0, NULL,(ICE_Rect[]){position_to_screen(NewRect(0, 0, 500, 500), &game->camera)});
+	ICE_FontDraw(game, "******", 20, position_to_screen(NewRect(-500, -750, 0, 0), &game->camera));
 	ICE_GuiRect(game, 0, 1, NewRect(0, 0, game->camera.w, 32));
+	ICE_DebugMouseCoordinate(game);
 }
 
 void GameDestroy(ICE_Game *game){
