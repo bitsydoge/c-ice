@@ -3,6 +3,7 @@
 #include "hdr/TerminalColor.h"
 #include "hdr/Render.h"
 #include "hdr/Input.h"
+#include "hdr/Entity.h"
 
 int ICE_InitGameEngine(){
 	ICE_TC_SaveColor();
@@ -33,6 +34,7 @@ int ICE_GameLoop(ICE_Game(*call_create)(void), void(*call_update)(ICE_Game*), vo
 			ICE_InputReturn(&game, game.input);
 			ICE_RenderClear(game.render);
 			call_update(&game); // Call Update
+			ICE_DrawEntity(&game);
 			ICE_RenderPresent(game.render);
 			game.time.last = game.time.actual; // restart counter
 		}
