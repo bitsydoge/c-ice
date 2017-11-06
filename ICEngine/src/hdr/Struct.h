@@ -3,6 +3,7 @@
 
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 
 //SDL typedef layer
 typedef SDL_Rect ICE_Rect;
@@ -10,6 +11,19 @@ typedef SDL_Point ICE_Point;
 typedef SDL_Window ICE_Window;
 typedef SDL_Renderer ICE_Renderer;
 typedef Uint32 ICE_Color;
+
+typedef struct
+{
+	float x, y;
+	void **data;
+
+}ICE_Entity;
+
+typedef struct
+{
+	ICE_Entity *entity;
+
+}ICE_EntityManager;
 
 typedef struct
 {
@@ -100,6 +114,12 @@ typedef struct
 	float delta;
 } ICE_Time;
 
+typedef struct
+{
+	TTF_Font* size[256];
+
+}ICE_FontManager;
+
 typedef struct 
 {
 	// Window
@@ -115,15 +135,23 @@ typedef struct
 	// Camera
 	ICE_Camera camera;
 
-	// // Manager // //
-	// Texture
+	//// Manager ////
+	// Texture //
+	
 	unsigned short texturemanager_size;
 	ICE_TextureManager *texturemanager;
 
-	// Sound
+	// Sound // Only One soundmanager at a time
 	ICE_SoundManager soundmanager;
 
-	// Data
+	// Font // Only one for now
+	ICE_FontManager fontmanager;
+
+	// Entity // Multiple
+	unsigned short entitymanager_size;
+	ICE_EntityManager *entitymanager;
+
+	// Data // 
 	int nb_data;
 	void** data;
 } ICE_Game;

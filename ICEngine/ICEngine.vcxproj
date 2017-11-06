@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Debug.c" />
     <ClCompile Include="src\Entity.c" />
     <ClCompile Include="src\Font.c" />
     <ClCompile Include="src\Game.c" />
@@ -62,6 +63,9 @@
     <ClInclude Include="src\hdr\TerminalColor.h" />
     <ClInclude Include="src\hdr\Texture.h" />
     <ClInclude Include="src\hdr\Time.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\hdr\Debug.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

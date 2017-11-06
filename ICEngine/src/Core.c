@@ -8,6 +8,7 @@ int ICE_InitGameEngine(){
 	ICE_TC_SaveColor();
 	SDL_Init(SDL_INIT_VIDEO);
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
+	TTF_Init();
 	Mix_Init(MIX_INIT_MP3 | MIX_INIT_OGG);
 	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024);
 	Mix_AllocateChannels(20);
