@@ -1,6 +1,7 @@
 ﻿#ifndef DEF_ICE_SOUND
 #define DEF_ICE_SOUND 
 #include "Struct.h"
+#include "../external/rlutil.h"
 
 void ICE_CreateSoundManager(ICE_Game *game);
 void ICE_CreateMusic(ICE_Game *game, char *path);

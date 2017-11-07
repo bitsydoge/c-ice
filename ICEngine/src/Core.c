@@ -1,9 +1,5 @@
 ﻿#include <SDL2/SDL.h>
 #include "hdr/Core.h"
-#include "hdr/TerminalColor.h"
-#include "hdr/Render.h"
-#include "hdr/Input.h"
-#include "hdr/Entity.h"
 
 int ICE_InitGameEngine(){
 	ICE_TC_SaveColor();

@@ -1,9 +1,4 @@
 #include "hdr/Texture.h"
-#include <stdio.h>
-#include "external/lodepng.h"
-#include "hdr/TerminalColor.h"
-#include "external/rlutil.h"
-#include "external/icestd.h"
 
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN
 Uint32 static const rmask = 0xff000000;

@@ -1,5 +1,4 @@
 ﻿#include "hdr/Sound.h"
-#include "external/rlutil.h"
 #include <SDL2/SDL_mixer.h>
 
 void ICE_CreateSoundManager(ICE_Game *game) {

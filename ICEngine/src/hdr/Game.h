@@ -1,6 +1,11 @@
 #ifndef DEF_ICE_GAME
 #define DEF_ICE_GAME
 #include "Struct.h"
+#include "Render.h"
+#include <stdio.h>
+#include <string.h>
+#include "Texture.h"
+#include "Sound.h"
 
 void ICE_SetWindowIcon(ICE_Window *window, char * path);
 ICE_Game ICE_CreateGame(char *window_title, const unsigned int width_window, const unsigned int height_window);
