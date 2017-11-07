@@ -5,5 +5,4 @@
 
 int ICE_Random(int min, int max);
 
-
 #endif
