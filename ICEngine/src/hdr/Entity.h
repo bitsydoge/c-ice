@@ -2,6 +2,12 @@
 #define DEF_ICE_ENTITY
 
 #include "Game.h"
+#include <stdio.h>
+#include "TerminalColor.h"
+#include "../external/rlutil.h"
+#include "Primitive.h"
+#include "Texture.h"
+#include "Camera.h"
 
 /// Create a Entity Manager and return it's number
 int ICE_CreateEntityManager(ICE_Game *game);

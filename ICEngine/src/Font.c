@@ -1,5 +1,4 @@
 #include "hdr/Font.h"
-#include <stdio.h>
 
 void ICE_FontLoad(ICE_Game* game, char *path)
 {

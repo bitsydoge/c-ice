@@ -1,10 +1,4 @@
 ﻿#include "hdr/Entity.h"
-#include <stdio.h>
-#include "hdr/TerminalColor.h"
-#include "external/rlutil.h"
-#include "hdr/Primitive.h"
-#include "hdr/Texture.h"
-#include "hdr/Camera.h"
 
 
 int ICE_CreateEntityManager(ICE_Game *game){
