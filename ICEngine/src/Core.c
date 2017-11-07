@@ -1,7 +1,9 @@
 ﻿#include <SDL2/SDL.h>
 #include "hdr/Core.h"
 
+
 int ICE_InitGameEngine(){
+	srand(time(NULL));
 	ICE_TC_SaveColor();
 	SDL_Init(SDL_INIT_VIDEO);
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
@@ -30,7 +32,6 @@ int ICE_GameLoop(ICE_Game(*call_create)(void), void(*call_update)(ICE_Game*), vo
 			ICE_InputReturn(&game, game.input);
 			ICE_RenderClear(game.render);
 			call_update(&game); // Call Update
-			ICE_DrawEntity(&game);
 			ICE_RenderPresent(game.render);
 			game.time.last = game.time.actual; // restart counter
 		}

@@ -123,8 +123,8 @@ typedef struct
 typedef struct
 {
 	ICE_Entity *entity;
-	unsigned short array_size;
-	unsigned short nb_existing;
+	unsigned long array_size;
+	unsigned long nb_existing;
 
 }ICE_EntityManager;
 

@@ -1,5 +1,6 @@
 ﻿#ifndef DEF_ICE_CORE
 #define DEF_ICE_CORE
+#include <time.h>
 
 #include "Camera.h"
 #include "Entity.h"
