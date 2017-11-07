@@ -12,22 +12,19 @@ typedef SDL_Window ICE_Window;
 typedef SDL_Renderer ICE_Renderer;
 typedef Uint32 ICE_Color;
 
-typedef struct
-{
-	
+typedef struct{
 	int j;
 
 } ICE_Map;
 
-typedef struct
-{
+typedef struct{
 	float x, y;
 	int w, h;
 	float speed;
+
 } ICE_Camera;
 
-typedef struct
-{
+typedef struct{
 	char key[512];
 	int wheelup;
 	int wheeldown;
@@ -49,66 +46,65 @@ typedef struct
 	int focus;
 	char *filedrop;
 	int substate_quit;
+
 } ICE_Input;
 
-typedef struct
-{
+typedef struct{
 	unsigned short exist;
 	int w;
 	int h;
 	SDL_Texture* handle;
+
 } ICE_Texture;
 
-typedef struct
-{
+typedef struct{
 	unsigned short array_size;
 	unsigned short nb_existing_texture;
 	ICE_Texture* texture;
 	SDL_Renderer *ren;
+
 } ICE_TextureManager;
 
 
-typedef struct
-{
+typedef struct{
 	Mix_Music* music;
 	char *filename;
+
 } ICE_Music;
 
-typedef struct
-{
+typedef struct{
 	Mix_Chunk* sound;
 	char *filename;
+
 } ICE_Sound;
 
 
-typedef struct
-{
+typedef struct{
 	unsigned short size_musicpack;
 	ICE_Music* musicpack;
 	unsigned short tofill_music;
 	unsigned short size_soundpack;
 	ICE_Sound* soundpack;
 	unsigned short tofill_soundpack;
+
 } ICE_SoundManager;
 
-typedef struct
-{
+typedef struct{
 	unsigned long actual;
 	unsigned long last;
 	float ticks;
 	unsigned int ticksEllapsed;
 	float fps;
 	float delta;
+
 } ICE_Time;
 
-typedef struct
-{
+typedef struct{
 	TTF_Font* size[256];
 
 }ICE_FontManager;
 
-typedef struct
-{
+typedef struct{
 	int exist;
 	float x, y;
 	float w, h;
@@ -120,16 +116,14 @@ typedef struct
 
 }ICE_Entity;
 
-typedef struct
-{
+typedef struct{
 	ICE_Entity *entity;
 	unsigned long array_size;
 	unsigned long nb_existing;
 
 }ICE_EntityManager;
 
-typedef struct 
-{
+typedef struct {
 	// Window
 	ICE_Window *window;
 	ICE_Renderer *render;

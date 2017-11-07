@@ -10,7 +10,7 @@ ICE_Game GameCreate(void){
 	// Load Assets
 	ICE_CreateTexture(&game, 0, "res/img/logo.png");
 	ICE_CreateTexture(&game, 0, "res/img/gui.png");
-	ICE_CreateTexture(&game, 0, "res/img/ice_logo.png");
+	ICE_CreateTexture(&game, 0, "res/img/sprite.png");
 	ICE_CreateMusic(&game, "res/snd/music.ogg"); 
 	ICE_CreateSound(&game, "res/snd/laser.wav");
 	ICE_PlayMusic(&game, 0, 1);
@@ -23,12 +23,12 @@ ICE_Game GameCreate(void){
 
 	// Creating Entity
 	int manager_nb = ICE_CreateEntityManager(&game);
-	for(int i = 0; i<5000; i++)
-	{
+	for(int i = 0; i<20000; i++){
 		int entity_nb = ICE_CreateEntity(&game, 0);
 		ICE_SetTextureEntity(&game, manager_nb, entity_nb, 0, 2);
-		ICE_SetEntityPosition(&game, manager_nb, entity_nb, ICE_Random(-10000, 10000), ICE_Random(-10000, 10000));
-		ICE_SetEntitySize(&game, manager_nb, entity_nb, ICE_Random(20, 100), ICE_Random(20, 100));
+		ICE_SetEntityPosition(&game, manager_nb, entity_nb, ICE_Random(-5000, 5000), ICE_Random(-5000, 5000));
+		int nb = ICE_Random(20, 100);
+		ICE_SetEntitySize(&game, manager_nb, entity_nb, nb, nb);
 	}
 
 	// End
@@ -53,12 +53,15 @@ void GameUpdate(ICE_Game *game){
 	ICE_DrawEntity(game);
 	
 	ICE_GuiRect(game, 0, 1, NewRect(0, 0, game->camera.w, 32));
-	
+	char gh[100];
+	sprintf(gh, "%f", game->time.fps);
+	ICE_FontDraw(game, gh, 20, NewRect(100, 50, 0, 0));
+
 
 	for (int i = 0; i < game->entitymanager_size; i++)
 		for (int j = 0; j < game->entitymanager[i].nb_existing; j++)
 		{
-			ICE_MoveEntityPosition(game, i, j, 0, 0, 200);
+			ICE_MoveEntityPosition(game, i, j, 0, 0, 70);
 		}
 }
 
