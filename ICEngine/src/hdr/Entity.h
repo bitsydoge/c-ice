@@ -30,6 +30,12 @@ void ICE_ShiftEntityPosition(ICE_Game *game, int manager, int entity, int x, int
 /// Move to a position using Polar coordinate
 void ICE_MoveEntityPosition(ICE_Game *game, int manager, int entity, int x, int y, int r);
 
+/// Set the entity Angle
+void ICE_SetEntityAngle(ICE_Game *game, int manager, int entity, float angle);
+
+/// Add to the entity Angle
+void ICE_AddEntityAngle(ICE_Game *game, int manager, int entity, float angle);
+
 /// Link a Data struct to a Entity
 void ICE_DataToEntity(ICE_Game *game, int manager, int entity, size_t size);
 

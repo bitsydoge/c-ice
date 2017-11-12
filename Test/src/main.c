@@ -1,10 +1,8 @@
 #include <Core.h>
-
 #include "hdr/menu.h"
 #include "hdr/data.h"
 
-
-ICE_Game GameCreate(void){
+ICE_CREATE {
 	ICE_Game game = ICE_CreateGame("ICE : Indie \"C\" Engine", 500, 500); 
 	
 	// Load Assets
@@ -20,22 +18,19 @@ ICE_Game GameCreate(void){
 	DATA0 *data = ICE_AddData(&game, sizeof(DATA0)); // Add DATA0
 	ICE_AddData(&game, sizeof(DATA1)); // Add DATA1
 	data->speed_camera = 250;
-
 	// Creating Entity
 	int manager_nb = ICE_CreateEntityManager(&game);
-	for(int i = 0; i<20000; i++){
+	for(int i = 0; i<100; i++){
 		int entity_nb = ICE_CreateEntity(&game, 0);
 		ICE_SetTextureEntity(&game, manager_nb, entity_nb, 0, 2);
-		ICE_SetEntityPosition(&game, manager_nb, entity_nb, ICE_Random(-5000, 5000), ICE_Random(-5000, 5000));
+		ICE_SetEntityPosition(&game, manager_nb, entity_nb, ICE_Random(-500, 500), ICE_Random(-500, 500));
 		int nb = ICE_Random(20, 100);
 		ICE_SetEntitySize(&game, manager_nb, entity_nb, nb, nb);
 	}
-
-	// End
 	return game;
 }
 
-void Control(ICE_Game *game){
+void Control(ICE_Game *game) {
 	DATA0 *data = ICE_GetData(game, 0); // Make DATA0 avaible in the scope
 	if (game->input->key[SDL_SCANCODE_D] || game->input->key[SDL_SCANCODE_RIGHT]) ICE_ShiftCamera(game, data->speed_camera, 0);
 	if (game->input->key[SDL_SCANCODE_A] || game->input->key[SDL_SCANCODE_LEFT]) ICE_ShiftCamera(game, -data->speed_camera, 0);
@@ -45,30 +40,26 @@ void Control(ICE_Game *game){
 	if (game->input->key[SDL_SCANCODE_ESCAPE]) ICE_SubstateLoop(game, menu_create, menu_update, menu_destroy);
 }
 
-void GameUpdate(ICE_Game *game){
+ICE_UPDATE {
+	// Logical
 	Control(game);
-	ICE_TextureRender(game, 0, 0, NULL,(ICE_Rect[]){position_to_screen(NewRect(0, 0, 500, 500), &game->camera)});
-	ICE_FontDraw(game, "*", 20, position_to_screen(NewRect(-500, -750, 0, 0), &game->camera));
-	
-	ICE_DrawEntity(game);
-	
-	ICE_GuiRect(game, 0, 1, NewRect(0, 0, game->camera.w, 32));
-	char gh[100];
-	sprintf(gh, "%f", game->time.fps);
-	ICE_FontDraw(game, gh, 20, NewRect(100, 50, 0, 0));
-
-
-	for (int i = 0; i < game->entitymanager_size; i++)
-		for (int j = 0; j < game->entitymanager[i].nb_existing; j++)
-		{
+	for (int i = 0; i < game->entitymanager_size; i++) // Move every entity from every manager
+		for (int j = 0; j < game->entitymanager[i].nb_existing; j++) // the center of the map
 			ICE_MoveEntityPosition(game, i, j, 0, 0, 70);
-		}
+	
+	
+
+	// Graphical
+	ICE_TextureRender(game, 0, 0, NULL,(ICE_Rect[]){position_to_screen(NewRect(0, 0, 500, 500), &game->camera)});
+	ICE_DrawEntity(game); // Draw every Entity
+	ICE_GuiRect(game, 0, 1, NewRect(0, 0, game->camera.w, 32));
+	ICE_DebugShowFps(game);
 }
 
-void GameDestroy(ICE_Game *game){
+ICE_DESTROY {
 	ICE_DestroyGame(game);
 }
 
-int main(int argc, char* args[]){
-	return ICE_GameLoop(GameCreate, GameUpdate, GameDestroy);
+int main(){
+	return ICE_GAME_RUN;
 }

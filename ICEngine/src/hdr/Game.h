@@ -4,8 +4,11 @@
 #include "Render.h"
 #include <stdio.h>
 #include <string.h>
+#include <assert.h>
 #include "Texture.h"
 #include "Sound.h"
+#include "Debug.h"
+
 
 void ICE_SetWindowIcon(ICE_Window *window, char * path);
 ICE_Game ICE_CreateGame(char *window_title, const unsigned int width_window, const unsigned int height_window);

@@ -12,12 +12,27 @@ typedef SDL_Window ICE_Window;
 typedef SDL_Renderer ICE_Renderer;
 typedef Uint32 ICE_Color;
 
+typedef struct
+{
+	
+	int *tile;
+
+} ICE_Layer;
+
 typedef struct{
-	int j;
+
+	// Map Size
+	int w, h;
+	int tile_w, tile_h;
+
+	// Layer
+	int nb_layer;
+	ICE_Layer *layer;
 
 } ICE_Map;
 
 typedef struct{
+
 	float x, y;
 	int w, h;
 	float speed;
@@ -25,6 +40,7 @@ typedef struct{
 } ICE_Camera;
 
 typedef struct{
+
 	char key[512];
 	int wheelup;
 	int wheeldown;
@@ -50,7 +66,8 @@ typedef struct{
 } ICE_Input;
 
 typedef struct{
-	unsigned short exist;
+
+	int exist;
 	int w;
 	int h;
 	SDL_Texture* handle;
@@ -58,21 +75,23 @@ typedef struct{
 } ICE_Texture;
 
 typedef struct{
-	unsigned short array_size;
-	unsigned short nb_existing_texture;
+
+	int array_size;
+	int nb_existing_texture;
 	ICE_Texture* texture;
 	SDL_Renderer *ren;
 
 } ICE_TextureManager;
 
-
 typedef struct{
+
 	Mix_Music* music;
 	char *filename;
 
 } ICE_Music;
 
 typedef struct{
+
 	Mix_Chunk* sound;
 	char *filename;
 
@@ -80,6 +99,7 @@ typedef struct{
 
 
 typedef struct{
+
 	unsigned short size_musicpack;
 	ICE_Music* musicpack;
 	unsigned short tofill_music;
@@ -90,33 +110,50 @@ typedef struct{
 } ICE_SoundManager;
 
 typedef struct{
+
 	unsigned long actual;
 	unsigned long last;
-	float ticks;
-	unsigned int ticksEllapsed;
-	float fps;
-	float delta;
+	double ticks;
+	unsigned int ticksEllapsed;                                                                    
+	double fps;
+	double delta;
 
 } ICE_Time;
 
+
+////
+//
+//  I need to make a ICE_Font struct where
+//
+////
 typedef struct{
+
 	TTF_Font* size[256];
 
 }ICE_FontManager;
 
 typedef struct{
+
 	int exist;
+	
+	// Position
 	float x, y;
+	float angle;
+
+	// Size
 	float w, h;
+	
+	// Data Array
 	void **data;
 	
-	// Texture
+	// Texture location
 	int man;
 	int text;
 
 }ICE_Entity;
 
 typedef struct{
+
 	ICE_Entity *entity;
 	unsigned long array_size;
 	unsigned long nb_existing;
@@ -124,6 +161,7 @@ typedef struct{
 }ICE_EntityManager;
 
 typedef struct {
+
 	// Window
 	ICE_Window *window;
 	ICE_Renderer *render;
@@ -156,6 +194,7 @@ typedef struct {
 	// Data // 
 	int nb_data;
 	void** data;
+
 } ICE_Game;
 
 #endif

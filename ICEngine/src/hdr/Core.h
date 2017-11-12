@@ -1,7 +1,12 @@
 ﻿#ifndef DEF_ICE_CORE
 #define DEF_ICE_CORE
-#include <time.h>
 
+#define ICE_GAME_RUN ICE_GameLoop(GameCreate, GameUpdate, GameDestroy)
+#define ICE_CREATE ICE_Game GameCreate(void)
+#define ICE_UPDATE void GameUpdate(ICE_Game *game)
+#define ICE_DESTROY void GameDestroy(ICE_Game *game)
+
+#include <time.h>
 #include "Camera.h"
 #include "Entity.h"
 #include "Font.h"
@@ -19,6 +24,10 @@
 #include "Texture.h"
 #include "Time.h"
 #include "Debug.h"
+
+#ifdef main
+#undef main
+#endif
 
 int ICE_InitGameEngine();
 int ICE_CloseGameEngine();
