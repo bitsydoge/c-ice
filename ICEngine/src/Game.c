@@ -1,10 +1,8 @@
 #include "hdr/Game.h"
 
-
 void ICE_SetWindowIcon(ICE_Window *window, char * path)
 {
-	if (!path)
-	{
+	if (!path){
 		#include "raw/Raw_icon.c"
 
 		Uint32 rmask, gmask, bmask, amask;
@@ -42,10 +40,17 @@ ICE_Game ICE_CreateGame(char *window_title, const unsigned int width_window, con
 	ICE_Game game = {0};
 
 	// Window and Render
-	game.window = SDL_CreateWindow(window_title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width_window, height_window, SDL_RENDERER_PRESENTVSYNC | SDL_WINDOW_RESIZABLE);
+	game.window = SDL_CreateWindow(
+		window_title, 
+		SDL_WINDOWPOS_UNDEFINED, 
+		SDL_WINDOWPOS_UNDEFINED, 
+		width_window, 
+		height_window, 
+		SDL_WINDOW_OPENGL | SDL_RENDERER_PRESENTVSYNC | SDL_WINDOW_RESIZABLE
+	);
 	game.render = SDL_CreateRenderer(game.window, -1, SDL_RENDERER_ACCELERATED);
 	ICE_SetRenderClearColor(game.render, NewColor(100, 25, 12));    
-	
+
 	// Render Info
 	SDL_RendererInfo info;
 	SDL_GetRendererInfo(game.render, &info);
@@ -62,12 +67,13 @@ ICE_Game ICE_CreateGame(char *window_title, const unsigned int width_window, con
 	
 	// Time
 	memset(&game.time, 0, sizeof(ICE_Time));
-	game.time.fps = 120; game.time.ticks = 1000 / game.time.fps;
+	game.time.fps = 120; game.time.ticks = (double)1000 / game.time.fps;
 
 	// Sound
 	ICE_CreateSoundManager(&game); // Create the Sound Manager
 
-	game.camera.x = 0; game.camera.y = 0; game.camera.w = width_window; game.camera.h = height_window;
+	game.camera.x = 0; game.camera.y = 0; 
+	game.camera.w = width_window; game.camera.h = height_window;
 	ICE_SetWindowIcon(game.window, 0);
 
 	game.data = malloc(0);
@@ -82,7 +88,7 @@ void ICE_DestroyGame(ICE_Game *app)
 	free(app->input);
 }
 
-// Make a Data
+/// Make a Data and create a pointer in the game->data array (return the pointer created)
 void* ICE_AddData(ICE_Game *game, size_t _size)
 {
 	game->nb_data++;
@@ -92,24 +98,52 @@ void* ICE_AddData(ICE_Game *game, size_t _size)
 	return _pointer;
 }
 
-// Return pointer to a Data
+/// Return pointer to a Data
 void* ICE_GetData(ICE_Game *game, int nb_data)
 {
 	void * _pointer;
+
 	if (nb_data <= game->nb_data)
 		_pointer = game->data[nb_data];
+
+	////////////////////////////////////////////
+	//                                        //
+	// If you see this assert, you choosed    //
+	// a data that doesn't exist              //
+	//                                        //
+	////////////////////////////////////////////
+
 	else
+	{
 		_pointer = NULL;
+		//assert(("Pointer is null so there is no data at this number", _pointer));
+		ICE_Assert(_pointer != NULL, "Pointer is null so there is no data at this number");
+	}
+
 	return _pointer;
 }
 
-// Destroy a Data
+/// Destroy a Data
 void ICE_DestroyData(ICE_Game *game, int nb_data)
 {
 	void * _pointer;
+	
 	if (nb_data <= game->nb_data)
 		_pointer = game->data[nb_data];
+	
+	////////////////////////////////////////////
+	//                                        //
+	// If you see this assert, you choosed    //
+	// a data that doesn't exist              //
+	//                                        //
+	////////////////////////////////////////////
+	
 	else
+	{
 		_pointer = NULL;
+		//assert("Pointer is null so there is no data at this number", _pointer);
+		ICE_Assert(_pointer!=NULL, "Pointer is null so there is no data at this number");
+	}
+	 
 	free(_pointer);
 }
