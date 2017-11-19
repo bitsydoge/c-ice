@@ -8,6 +8,7 @@
 
 void ICE_DebugMouseCoordinate(ICE_Game *game);
 void ICE_DebugShowFps(ICE_Game *game);
+void ICE_DebugShowFpsTitle(ICE_Game *game);
 
 #ifndef NDEBUG
 #   define ICE_Assert(Expr, Msg) \

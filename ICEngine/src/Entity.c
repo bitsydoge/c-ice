@@ -32,6 +32,11 @@ int ICE_CreateEntity(ICE_Game *game, int manager){
 // Define Texture for the entity
 void ICE_SetTextureEntity(ICE_Game *game, int entity_manager, int entity_nb, int texture_manager, int texture_nb){
 	game->entitymanager[entity_manager].entity[entity_nb].man = texture_manager; game->entitymanager[entity_manager].entity[entity_nb].text = texture_nb;
+	game->entitymanager[entity_manager].entity[entity_nb].has_texture = 1;
+}
+
+void ICE_RemoveTextureEntity(ICE_Game *game, int entity_manager, int entity_nb) {
+	game->entitymanager[entity_manager].entity[entity_nb].has_texture = 1;
 }
 
 void ICE_SetEntitySize(ICE_Game *game, int entity_manager, int entity_nb, int w, int h)
@@ -82,6 +87,18 @@ void ICE_GetDataFromEntity(){
 	
 }
 
+ICE_Rect ICE_GetRectFromEntity(ICE_Game *game, int manager, int entity)
+{
+	ICE_Rect rect = 
+	{ 
+		game->entitymanager[manager].entity[entity].x, 
+		game->entitymanager[manager].entity[entity].y, 
+		game->entitymanager[manager].entity[entity].w, 
+		game->entitymanager[manager].entity[entity].h 
+	};
+	return rect;
+}
+
 
 
 /// HIDEN FUNCTION ///
@@ -91,17 +108,20 @@ void ICE_DrawEntity(ICE_Game *game)
 	for (int i = 0; i < game->entitymanager_size; i++)
 		for(int j = 0; j < game->entitymanager[i].nb_existing; j++)
 		{
-			ICE_Rect rect = position_to_screen(NewRect(
-				game->entitymanager[i].entity[j].x,
-				game->entitymanager[i].entity[j].y,
-				game->entitymanager[i].entity[j].w,
-				game->entitymanager[i].entity[j].h), &game->camera);
+			if(game->entitymanager[i].entity[j].has_texture && game->entitymanager[i].entity[j].exist)
+			{
+				ICE_Rect rect = position_to_screen(NewRect(
+					game->entitymanager[i].entity[j].x,
+					game->entitymanager[i].entity[j].y,
+					game->entitymanager[i].entity[j].w,
+					game->entitymanager[i].entity[j].h), &game->camera);
 
-			ICE_TextureRender(
-				game,
-				game->entitymanager[i].entity[j].man,
-				game->entitymanager[i].entity[j].text,
-				NULL, &rect);
+				ICE_TextureRender(
+					game,
+					game->entitymanager[i].entity[j].man,
+					game->entitymanager[i].entity[j].text,
+					NULL, &rect);
+			}
 		}
 }
 

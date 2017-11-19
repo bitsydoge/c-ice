@@ -16,5 +16,7 @@ void ICE_DestroyGame(ICE_Game *app);
 void* ICE_AddData(ICE_Game *game, size_t _size);
 void* ICE_GetData(ICE_Game *game, int nb_data);
 void ICE_DestroyData(ICE_Game *game, int nb_data);
+void ICE_GameResizable(ICE_Game *game, int yn);
+void ICE_GameTitle(ICE_Game *game, const char *title);
 
 #endif
