@@ -3,17 +3,17 @@
 #include "Struct.h"
 #include "Render.h"
 
-ICE_Rect NewRect(int x, int y, int w, int h);
-void EditRect(ICE_Rect * rect, int x, int y, int w, int h);
-void MoveRect(ICE_Rect * rect, int x, int y);
-void ResizeRect(ICE_Rect * rect, int w, int h);
-void ShiftRect(ICE_Rect * rect, int x, int y);
+ICE_Rect RectNew(int x, int y, int w, int h);
+void RectEdit(ICE_Rect * rect, int x, int y, int w, int h);
+void RectMove(ICE_Rect * rect, int x, int y);
+void RectResize(ICE_Rect * rect, int w, int h);
+void RectShift(ICE_Rect * rect, int x, int y);
 
 // POINT
 
-ICE_Point NewPoint(int x, int y);
-void MovePoint(ICE_Point * point, int x, int y);
-void ShiftPoint(ICE_Point *point, int x, int y);
+ICE_Point PointNew(int x, int y);
+void PointMove(ICE_Point * point, int x, int y);
+void PointShift(ICE_Point *point, int x, int y);
 
 /// Draw Point
 int ICE_DrawPoint(ICE_Game *game, int x, int y, const ICE_Color color);

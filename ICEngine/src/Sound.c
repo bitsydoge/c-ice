@@ -1,7 +1,7 @@
 ﻿#include "hdr/Sound.h"
 #include <SDL2/SDL_mixer.h>
 
-void ICE_CreateSoundManager(ICE_Game *game) {
+void ICE_SoundManagerCreate(ICE_Game *game) {
 	ICE_SoundManager soundmanager = { 0 };
 	game->soundmanager = soundmanager;
 	// Music
@@ -16,7 +16,7 @@ void ICE_CreateSoundManager(ICE_Game *game) {
 	//game->soundmanager.soundpack[game->soundmanager.tofill_sound].sound = calloc(1, sizeof(Mix_Chunk*));
 }
 
-void ICE_CreateMusic(ICE_Game *game, char *path) {
+void ICE_MusicCreate(ICE_Game *game, char *path) {
 	game->soundmanager.musicpack[game->soundmanager.tofill_music].music = Mix_LoadMUS(path);
 	if (game->soundmanager.musicpack[game->soundmanager.tofill_music].music != NULL) {
 		printf("Music number : %d loaded from %s \n", game->soundmanager.tofill_music, path);
@@ -32,7 +32,7 @@ void ICE_CreateMusic(ICE_Game *game, char *path) {
 		printf("ERROR : Can't load music from %s \n", path);
 }
 
-void ICE_CreateSound(ICE_Game *game, char *path){
+void ICE_SoundCreate(ICE_Game *game, char *path){
 	game->soundmanager.soundpack[game->soundmanager.tofill_soundpack].sound = Mix_LoadWAV(path);
 	if (game->soundmanager.soundpack[game->soundmanager.tofill_soundpack].sound != NULL) {
 		printf("Sound number : %d loaded from %s \n", game->soundmanager.tofill_soundpack, path);
@@ -47,7 +47,7 @@ void ICE_CreateSound(ICE_Game *game, char *path){
 		printf("ERROR : Can't load sound from %s \n", path);
 }
 
-int ICE_PlayMusic(ICE_Game *game, const int nb, const int volume){
+int ICE_MusicPlay(ICE_Game *game, const int nb, const int volume){
 	if (game->soundmanager.musicpack[nb].music != NULL){
 		Mix_PlayMusic(game->soundmanager.musicpack[nb].music, -1);
 		Mix_VolumeMusic(volume);
@@ -57,7 +57,7 @@ return -1;
 
 }
 
-int ICE_PlaySound(ICE_Game *game, const int chunk, const int volume){
+int ICE_SoundPlay(ICE_Game *game, const int chunk, const int volume){
 	if (game->soundmanager.tofill_soundpack >= chunk){
 		if (game->soundmanager.soundpack[chunk].sound != NULL){
 			Mix_Volume(Mix_PlayChannel(-1, game->soundmanager.soundpack[chunk].sound, 0), volume);

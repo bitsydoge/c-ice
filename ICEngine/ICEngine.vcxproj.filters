@@ -82,6 +82,12 @@
     <ClCompile Include="src\Debug.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Data.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Substate.c">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\external\lodepng.h">
@@ -142,6 +148,12 @@
       <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Font.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Data.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Substate.h">
       <Filter>hdr</Filter>
     </ClInclude>
   </ItemGroup>

@@ -17,7 +17,7 @@ void ICE_DebugShowFps(ICE_Game *game)
 {
 	char gh[100];
 	sprintf(gh, "%f", game->time.fps);
-	ICE_FontDraw(game, gh, 20, NewRect(10, 5, 0, 0));
+	ICE_FontDraw(game, gh, 20, RectNew(10, 5, 0, 0));
 }
 
 void ICE_DebugShowFpsTitle(ICE_Game *game)
