@@ -46,7 +46,7 @@ ICE_UPDATE {
 }
 
 ICE_DESTROY {
-	ICE_DestroyGame(game);
+
 }
 
 int main(){

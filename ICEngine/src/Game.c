@@ -147,3 +147,15 @@ void ICE_DestroyData(ICE_Game *game, int nb_data)
 	 
 	free(_pointer);
 }
+
+/// WINDOW EFFECT
+
+void ICE_GameResizable(ICE_Game *game, int yn)
+{
+	SDL_SetWindowResizable(game->window, yn);
+}
+
+void ICE_GameTitle(ICE_Game *game, const char *title)
+{
+	SDL_SetWindowTitle(game->window, title);
+}

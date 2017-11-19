@@ -11,6 +11,7 @@ typedef SDL_Point ICE_Point;
 typedef SDL_Window ICE_Window;
 typedef SDL_Renderer ICE_Renderer;
 typedef Uint32 ICE_Color;
+typedef char ICE_Bool;
 
 typedef struct
 {
@@ -147,6 +148,7 @@ typedef struct{
 	void **data;
 	
 	// Texture location
+	short has_texture;
 	int man;
 	int text;
 
@@ -161,6 +163,8 @@ typedef struct{
 }ICE_EntityManager;
 
 typedef struct {
+	int returnvalue;
+
 
 	// Window
 	ICE_Window *window;

@@ -5,6 +5,9 @@
 #define ICE_CREATE ICE_Game GameCreate(void)
 #define ICE_UPDATE void GameUpdate(ICE_Game *game)
 #define ICE_DESTROY void GameDestroy(ICE_Game *game)
+#define ICE_False 0
+#define ICE_True 1
+
 
 #include <time.h>
 #include "Camera.h"

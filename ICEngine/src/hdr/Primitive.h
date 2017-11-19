@@ -3,11 +3,18 @@
 #include "Struct.h"
 #include "Render.h"
 
-
-// raw
-
-/// Return a new Rectangle X Y W H
 ICE_Rect NewRect(int x, int y, int w, int h);
+void EditRect(ICE_Rect * rect, int x, int y, int w, int h);
+void MoveRect(ICE_Rect * rect, int x, int y);
+void ResizeRect(ICE_Rect * rect, int w, int h);
+void ShiftRect(ICE_Rect * rect, int x, int y);
+
+// POINT
+
+ICE_Point NewPoint(int x, int y);
+void MovePoint(ICE_Point * point, int x, int y);
+void ShiftPoint(ICE_Point *point, int x, int y);
+
 /// Draw Point
 int ICE_DrawPoint(ICE_Game *game, int x, int y, const ICE_Color color);
 /// Draw Line

@@ -18,6 +18,8 @@ int ICE_CreateEntity(ICE_Game *game, int manager);
 /// Set a texture to a entity
 void ICE_SetTextureEntity(ICE_Game *game, int entity_manager, int entity_nb, int texture_manager, int texture_nb);
 
+void ICE_RemoveTextureEntity(ICE_Game *game, int entity_manager, int entity_nb);
+
 /// Set a texture size
 void ICE_SetEntitySize(ICE_Game *game, int entity_manager, int entity_nb, int w, int h);
 
@@ -41,5 +43,7 @@ void ICE_DataToEntity(ICE_Game *game, int manager, int entity, size_t size);
 
 /// Draw every Entity to screen
 void ICE_DrawEntity(ICE_Game *game);
+
+ICE_Rect ICE_GetRectFromEntity(ICE_Game *game, int manager, int entity);
 
 #endif

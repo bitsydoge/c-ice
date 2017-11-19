@@ -20,6 +20,13 @@ void ICE_DebugShowFps(ICE_Game *game)
 	ICE_FontDraw(game, gh, 20, NewRect(10, 5, 0, 0));
 }
 
+void ICE_DebugShowFpsTitle(ICE_Game *game)
+{
+	char buffer[25];
+	sprintf(buffer, "FPS : [%0.1f]", game->time.fps);
+	ICE_GameTitle(game, buffer);
+}
+
 void _ICE_Assert_(const char* expr_str, int expr, const char* file, int line, const char* msg)
 {
 	if (!expr)

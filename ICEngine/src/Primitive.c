@@ -1,8 +1,45 @@
 ﻿#include "hdr/Primitive.h"
 
+// RECT
+
 ICE_Rect NewRect(int x, int y, int w, int h){
 	ICE_Rect rect = { x,y,w,h };
 	return rect;
+}
+
+void EditRect(ICE_Rect * rect, int x, int y, int w, int h) {
+	rect->x = x; rect->y = y; rect->w = w; rect->h = h;
+}
+
+void MoveRect(ICE_Rect * rect, int x, int y)
+{
+	rect->x = x; rect->y = y;
+}
+
+void ResizeRect(ICE_Rect *rect, int w, int h)
+{
+	rect->w = w; rect->h = h;
+}
+
+void ShiftRect(ICE_Rect *rect, int x, int y)
+{
+	rect->x += x; rect->y += y;
+}
+
+// POINT
+
+ICE_Point NewPoint(int x, int y) {
+	ICE_Point point = {x,y};
+	return point;
+}
+
+void MovePoint(ICE_Point * point, int x, int y) {
+	point->x = x; point->y = y;
+}
+
+void ShiftPoint(ICE_Point *point, int x, int y)
+{
+	point->x += x; point->y += y;
 }
 
 // RAW
