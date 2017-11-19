@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Data.c" />
     <ClCompile Include="src\Debug.c" />
     <ClCompile Include="src\Entity.c" />
     <ClCompile Include="src\Font.c" />
@@ -38,6 +39,7 @@
     <ClCompile Include="src\raw\Raw_icon.c" />
     <ClCompile Include="src\Render.c" />
     <ClCompile Include="src\Sound.c" />
+    <ClCompile Include="src\Substate.c" />
     <ClCompile Include="src\TerminalColor.c" />
     <ClCompile Include="src\Texture.c" />
     <ClCompile Include="src\Time.c" />
@@ -46,6 +48,7 @@
     <ClInclude Include="src\external\icestd.h" />
     <ClInclude Include="src\external\lodepng.h" />
     <ClInclude Include="src\external\rlutil.h" />
+    <ClInclude Include="src\hdr\Data.h" />
     <ClInclude Include="src\hdr\Entity.h" />
     <ClInclude Include="src\hdr\Font.h" />
     <ClInclude Include="src\hdr\Game.h" />
@@ -60,6 +63,7 @@
     <ClInclude Include="src\hdr\Render.h" />
     <ClInclude Include="src\hdr\Sound.h" />
     <ClInclude Include="src\hdr\Struct.h" />
+    <ClInclude Include="src\hdr\Substate.h" />
     <ClInclude Include="src\hdr\TerminalColor.h" />
     <ClInclude Include="src\hdr\Texture.h" />
     <ClInclude Include="src\hdr\Time.h" />

@@ -83,7 +83,7 @@ ICE_Texture* ICE_LoadBMPAlpha(SDL_Renderer *render, char *path, const ICE_Color 
 	return text;
 }
 
-void ICE_DestroyTexture(ICE_Texture *tex){
+void ICE_TextureDestroy(ICE_Texture *tex){
 	SDL_DestroyTexture(tex->handle);
 	free(tex);
 }
@@ -128,7 +128,7 @@ ICE_Color NewColorA(const unsigned int r, const unsigned int g, const unsigned i
 //                                                                      //
 //////////////////////////////////////////////////////////////////////////
 
-void ICE_CreateTextureManager(ICE_Game *game){
+void ICE_TextureManagerCreate(ICE_Game *game){
 	ICE_TextureManager texture_manager = { 0 };
 	texture_manager.array_size = 4;
 	texture_manager.texture = calloc(texture_manager.array_size, sizeof(ICE_Texture));
@@ -139,7 +139,7 @@ void ICE_CreateTextureManager(ICE_Game *game){
 	printf("TextureManager number %d created \n", game->texturemanager_size - 1);
 }
 
-int ICE_CreateTexture(ICE_Game *game, int manager, char* path){
+int ICE_TextureCreate(ICE_Game *game, int manager, char* path){
 	Uint32 color_hex = 0xFF00FFFF;
 	char path2[500]; strcpy(path2, path);
 	char* ext = icestd_ext(path2);

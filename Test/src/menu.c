@@ -4,8 +4,8 @@
 
 void menu_create(ICE_Game* game){
 	DATA1 *data = ICE_GetData(game, 1);
-	data->menu_escape = NewRect(50, 50, game->camera.w - 100, game->camera.h - 100);
-	ICE_PlaySound(game, 0, 2);
+	data->menu_escape = RectNew(50, 50, game->camera.w - 100, game->camera.h - 100);
+	ICE_SoundPlay(game, 0, 2);
 }
 
 void menu_update(ICE_Game* game){
