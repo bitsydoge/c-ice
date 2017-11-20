@@ -1,6 +1,12 @@
 ﻿#include "hdr/Entity.h"
 
 
+//				  //
+//				  //
+//ENTITY CREATION //
+//                //
+//                //
+
 int ICE_EntityManagerCreate(ICE_Game *game){
 	ICE_EntityManager entity_manager = { 0 };
 	entity_manager.array_size = 4;
@@ -29,6 +35,13 @@ int ICE_EntityCreate(ICE_Game *game, int manager){
 	return game->entitymanager->nb_existing - 1;
 }
 
+
+//				  //
+//				  //
+// ENTITY TEXTURE //
+//                //
+//                //
+
 // Define Texture for the entity
 void ICE_EntitySetTexture(ICE_Game *game, int entity_manager, int entity_nb, int texture_manager, int texture_nb){
 	game->entitymanager[entity_manager].entity[entity_nb].man = texture_manager; game->entitymanager[entity_manager].entity[entity_nb].text = texture_nb;
@@ -39,23 +52,24 @@ void ICE_EntityRemoveTexture(ICE_Game *game, int entity_manager, int entity_nb) 
 	game->entitymanager[entity_manager].entity[entity_nb].has_texture = 1;
 }
 
-void ICE_EntitySetSize(ICE_Game *game, int entity_manager, int entity_nb, int w, int h)
-{
-	game->entitymanager[entity_manager].entity[entity_nb].w = w; game->entitymanager[entity_manager].entity[entity_nb].h = h;
-}
+//				  //
+//				  //
+//  ENTITY VALUE  //
+//                //
+//                //
 
 // Instant move entity to a position
-void ICE_EntitySetPos(ICE_Game *game, int manager, int entity, int x, int y){
+void ICE_EntitySetPos(ICE_Game *game, int manager, int entity, float x, float y) {
 	game->entitymanager[manager].entity[entity].x = x; game->entitymanager[manager].entity[entity].y = y;
 }
 
 // Shift position from dX / dY
-void ICE_EntityShiftPos(ICE_Game *game, int manager, int entity, int x, int y){
+void ICE_EntityShiftPos(ICE_Game *game, int manager, int entity, float x, float y) {
 	game->entitymanager[manager].entity[entity].x += x * game->time.delta; game->entitymanager[manager].entity[entity].y += y * game->time.delta;
 }
 
 // Move to a position using Polar coordinate
-void ICE_EntityMovePos(ICE_Game *game, int manager, int entity, int x, int y, int r){
+void ICE_EntityMovePos(ICE_Game *game, int manager, int entity, float x, float y, float r) {
 	float xdif = x - game->entitymanager[manager].entity[entity].x; float ydif = y - game->entitymanager[manager].entity[entity].y;
 	float angle = atan2(ydif, xdif);
 	float distance_r_r = xdif*xdif + ydif*ydif;
@@ -67,6 +81,11 @@ void ICE_EntityMovePos(ICE_Game *game, int manager, int entity, int x, int y, in
 	}
 }
 
+void ICE_EntitySetSize(ICE_Game *game, int entity_manager, int entity_nb, float w, float h){
+	game->entitymanager[entity_manager].entity[entity_nb].w = w; game->entitymanager[entity_manager].entity[entity_nb].h = h;
+}
+
+
 void ICE_EntitySetAngle(ICE_Game *game, int manager, int entity, float angle)
 {
 	
@@ -76,6 +95,24 @@ void ICE_EntityAddAngle(ICE_Game *game, int manager, int entity, float angle)
 {
 
 }
+
+ICE_Rect ICE_EntityGetRect(ICE_Game *game, int manager, int entity)
+{
+	ICE_Rect rect =
+	{
+		game->entitymanager[manager].entity[entity].x,
+		game->entitymanager[manager].entity[entity].y,
+		game->entitymanager[manager].entity[entity].w,
+		game->entitymanager[manager].entity[entity].h
+	};
+	return rect;
+}
+
+//				  //
+//				  //
+//  ENTITY DATA   //
+//                //
+//                //
 
 // Link a Data struct to a Entity
 void ICE_EntityAddData(ICE_Game *game, int manager, int entity, size_t size){
@@ -87,19 +124,12 @@ void ICE_EntityGetData(){
 	
 }
 
-ICE_Rect ICE_EntityGetRect(ICE_Game *game, int manager, int entity)
-{
-	ICE_Rect rect = 
-	{ 
-		game->entitymanager[manager].entity[entity].x, 
-		game->entitymanager[manager].entity[entity].y, 
-		game->entitymanager[manager].entity[entity].w, 
-		game->entitymanager[manager].entity[entity].h 
-	};
-	return rect;
-}
 
-/// HIDEN FUNCTION ///
+//				  //
+//				  //
+//  ENTITY DRAW   //
+//                //
+//                //
 
 void ICE_EntityDrawAll(ICE_Game *game)
 {

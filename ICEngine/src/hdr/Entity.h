@@ -21,16 +21,16 @@ void ICE_EntitySetTexture(ICE_Game *game, int entity_manager, int entity_nb, int
 void ICE_EntityRemoveTexture(ICE_Game *game, int entity_manager, int entity_nb);
 
 /// Set a texture size
-void ICE_EntitySetSize(ICE_Game *game, int entity_manager, int entity_nb, int w, int h);
+void ICE_EntitySetSize(ICE_Game *game, int entity_manager, int entity_nb, float w, float h);
 
 /// Instant move entity to a position
-void ICE_EntitySetPos(ICE_Game *game, int manager, int entity, int x, int y);
+void ICE_EntitySetPos(ICE_Game *game, int manager, int entity, float x, float y);
 
 /// Shift position from dX / dY
-void ICE_EntityShiftPos(ICE_Game *game, int manager, int entity, int x, int y);
+void ICE_EntityShiftPos(ICE_Game *game, int manager, int entity, float x, float y);
 
 /// Move to a position using Polar coordinate
-void ICE_EntityMovePos(ICE_Game *game, int manager, int entity, int x, int y, int r);
+void ICE_EntityMovePos(ICE_Game *game, int manager, int entity, float x, float y, float r);
 
 /// Set the entity Angle
 void ICE_EntitySetAngle(ICE_Game *game, int manager, int entity, float angle);
