@@ -32,7 +32,6 @@
     <ClCompile Include="src\Gui.c" />
     <ClCompile Include="src\Input.c" />
     <ClCompile Include="src\Map.c" />
-    <ClCompile Include="src\Math.c" />
     <ClCompile Include="src\Physics.c" />
     <ClCompile Include="src\Primitive.c" />
     <ClCompile Include="src\raw\Raw_error.c" />
@@ -57,7 +56,6 @@
     <ClInclude Include="src\hdr\Gui.h" />
     <ClInclude Include="src\hdr\Input.h" />
     <ClInclude Include="src\hdr\Map.h" />
-    <ClInclude Include="src\hdr\Math.h" />
     <ClInclude Include="src\hdr\Physics.h" />
     <ClInclude Include="src\hdr\Primitive.h" />
     <ClInclude Include="src\hdr\Render.h" />
