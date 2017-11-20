@@ -127,6 +127,7 @@ typedef struct{
 //  I need to make a ICE_Font struct where
 //
 ////
+
 typedef struct{
 
 	TTF_Font* size[256];

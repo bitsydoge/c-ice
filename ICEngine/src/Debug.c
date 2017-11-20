@@ -6,7 +6,7 @@ void ICE_DebugMouseCoordinate(ICE_Game *game)
 	char coo[20];
 	ICE_Rect coordinate = { game->input->mousex, game->input->mousey };
 	if (game->input->leftclic)
-		coordinate = screen_to_position(coordinate, &game->camera);
+		coordinate = ICE_CameraScreenWorld(coordinate, &game->camera);
 	sprintf(coo, "%d, %d", coordinate.x, coordinate.y);
 	
 	ICE_Rect rect = { game->input->mousex + 10, game->input->mousey + 10 };
@@ -31,25 +31,25 @@ void _ICE_Assert_(const char* expr_str, int expr, const char* file, int line, co
 {
 	if (!expr)
 	{
-		ICE_TC_SetColor(LIGHTRED);
+		ICE_TermSetColor(LIGHTRED);
 		printf("\n\n\t\t-------------------[ERROR]-------------------\t\t\n\n");
-		ICE_TC_ResetColor();
+		ICE_TermResetColor();
 		printf("Assert Msg\t:\t");
-		ICE_TC_SetColor(LIGHTGREEN);
+		ICE_TermSetColor(LIGHTGREEN);
 		printf("%s\n", msg);
-		ICE_TC_ResetColor();
+		ICE_TermResetColor();
 		printf("Expected\t:\t");
-		ICE_TC_SetColor(LIGHTMAGENTA);
+		ICE_TermSetColor(LIGHTMAGENTA);
 		printf("%s\n", expr_str);
-		ICE_TC_ResetColor();
+		ICE_TermResetColor();
 		printf("Source File\t:\t"); 
-		ICE_TC_SetColor(YELLOW);
+		ICE_TermSetColor(YELLOW);
 		printf("%s\n", file); 
-		ICE_TC_ResetColor();
+		ICE_TermResetColor();
 		printf("At the Line\t:\t"); 
-		ICE_TC_SetColor(LIGHTCYAN);
+		ICE_TermSetColor(LIGHTCYAN);
 		printf("%d\n\n", line);
-		ICE_TC_SetColor(LIGHTRED);
+		ICE_TermSetColor(LIGHTRED);
 		printf("\t\t-------------------[ERROR]-------------------\t\t\n");
 		abort();
 	}

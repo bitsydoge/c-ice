@@ -34,9 +34,6 @@
     <ClCompile Include="src\external\icestd.c">
       <Filter>external</Filter>
     </ClCompile>
-    <ClCompile Include="src\TerminalColor.c">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\external\rlutil.c">
       <Filter>external</Filter>
     </ClCompile>
@@ -85,6 +82,9 @@
     <ClCompile Include="src\Substate.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Terminal.c">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\external\lodepng.h">
@@ -107,9 +107,6 @@
     </ClInclude>
     <ClInclude Include="src\external\icestd.h">
       <Filter>external</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\TerminalColor.h">
-      <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Map.h">
       <Filter>hdr</Filter>
@@ -148,6 +145,9 @@
       <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Substate.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Terminal.h">
       <Filter>hdr</Filter>
     </ClInclude>
   </ItemGroup>

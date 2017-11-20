@@ -5,7 +5,7 @@
 #include "Struct.h"
 #include <stdio.h>
 #include "../external/lodepng.h"
-#include "TerminalColor.h"
+#include "Terminal.h"
 #include "../external/icestd.h"
 
 /// Load a PNG with lodepng to a Texture with Error handling
