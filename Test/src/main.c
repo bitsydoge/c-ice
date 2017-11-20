@@ -39,7 +39,7 @@ ICE_UPDATE {
 			ICE_EntityMovePos(game, i, j, 0, 0, 70);
 
 	// Graphical
-	ICE_TextureRender(game, 0, 0, NULL,(ICE_Rect[]){position_to_screen(RectNew(0, 0, 500, 500), &game->camera)});
+	ICE_TextureRender(game, 0, 0, NULL,(ICE_Rect[]){ICE_CameraWorldScreen(RectNew(0, 0, 500, 500), &game->camera)});
 	ICE_EntityDrawAll(game); // Draw every Entity
 	ICE_GuiRect(game, 0, 1, RectNew(0, 0, game->camera.w, 32));
 	ICE_DebugShowFps(game);

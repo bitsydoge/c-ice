@@ -107,7 +107,7 @@ void ICE_InputReset(ICE_Input *input){
 
 	
 	printf("Input Reset : ");
-	ICE_TC_SetColor(GREEN);
+	ICE_TermSetColor(GREEN);
 	printf("OK\n");
-	ICE_TC_ResetColor();
+	ICE_TermResetColor();
 }

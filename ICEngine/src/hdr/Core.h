@@ -11,6 +11,8 @@
 
 #include <time.h>
 #include "Camera.h"
+#include "Data.h"
+#include "Debug.h"
 #include "Entity.h"
 #include "Font.h"
 #include "Game.h"
@@ -22,12 +24,11 @@
 #include "Render.h"
 #include "Sound.h"
 #include "Struct.h"
-#include "TerminalColor.h"
+#include "Substate.h"
+#include "Terminal.h"
 #include "Texture.h"
 #include "Time.h"
-#include "Debug.h"
-#include "Substate.h"
-#include "Data.h"
+
 
 #ifdef main
 	#undef main

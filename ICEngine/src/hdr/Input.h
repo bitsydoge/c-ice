@@ -4,7 +4,7 @@
 #include "Struct.h"
 #include <string.h>
 #include <stdio.h>
-#include "TerminalColor.h"
+#include "Terminal.h"
 #include "../external/rlutil.h"
 
 int ICE_InputReturn(ICE_Game *game, ICE_Input *input);

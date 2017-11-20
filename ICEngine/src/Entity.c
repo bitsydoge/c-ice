@@ -26,9 +26,9 @@ int ICE_EntityCreate(ICE_Game *game, int manager){
 	game->entitymanager[manager].nb_existing++;
 
 	if (game->entitymanager[manager].array_size <= game->entitymanager[manager].nb_existing) {
-		ICE_TC_SetColor(LIGHTCYAN);
+		ICE_TermSetColor(LIGHTCYAN);
 		printf("Extending entity manager size to %d \n", game->entitymanager[manager].array_size * 2);
-		ICE_TC_ResetColor();
+		ICE_TermResetColor();
 		game->entitymanager[manager].entity = realloc(game->entitymanager[manager].entity, sizeof(ICE_Entity)*(game->entitymanager[manager].array_size * 2));
 		game->entitymanager[manager].array_size *= 2;
 	}
@@ -138,7 +138,7 @@ void ICE_EntityDrawAll(ICE_Game *game)
 		{
 			if(game->entitymanager[i].entity[j].has_texture && game->entitymanager[i].entity[j].exist)
 			{
-				ICE_Rect rect = position_to_screen(RectNew(
+				ICE_Rect rect = ICE_CameraWorldScreen(RectNew(
 					game->entitymanager[i].entity[j].x,
 					game->entitymanager[i].entity[j].y,
 					game->entitymanager[i].entity[j].w,

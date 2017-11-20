@@ -3,7 +3,7 @@
 
 #include "Game.h"
 #include <stdio.h>
-#include "TerminalColor.h"
+#include "Terminal.h"
 #include "../external/rlutil.h"
 #include "Primitive.h"
 #include "Texture.h"

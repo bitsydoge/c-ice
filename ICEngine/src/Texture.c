@@ -73,9 +73,9 @@ ICE_Texture* ICE_LoadBMPAlpha(SDL_Renderer *render, char *path, const ICE_Color 
 	ICE_Texture *text = (ICE_Texture*)malloc(sizeof(ICE_Texture));
 	text->handle = SDL_CreateTextureFromSurface(render, surf);
 	if (text->handle == NULL){
-		ICE_TC_SetColor(LIGHTRED);
+		ICE_TermSetColor(LIGHTRED);
 		printf("CRITICAL");
-		ICE_TC_ResetColor();
+		ICE_TermResetColor();
 		printf(" : Can't create Texture from Surface \"%s\" : %s \n", path, SDL_GetError());
 	}
 	text->w = surf->w; text->h = surf->h;
@@ -149,34 +149,34 @@ int ICE_TextureCreate(ICE_Game *game, int manager, char* path){
 	if (!strcmp(ext, "PNG")){
 		text = ICE_LoadPNG(game->texturemanager[manager].ren, path);
 		printf("Texture number %d created on from : \"", game->texturemanager[manager].nb_existing_texture);
-		ICE_TC_SetColor(YELLOW);
+		ICE_TermSetColor(YELLOW);
 		printf("%s", path);
-		ICE_TC_ResetColor();
+		ICE_TermResetColor();
 		printf("\"\n");
 	}
 	else if (!strcmp(ext, "BMP")){
 		if (color_hex != 0){
 			text = ICE_LoadBMPAlpha(game->texturemanager[manager].ren, path, color_hex);
 			printf("Texture number %d created from : \"", game->texturemanager[manager].nb_existing_texture);
-			ICE_TC_SetColor(YELLOW);
+			ICE_TermSetColor(YELLOW);
 			printf("%s", path);
-			ICE_TC_ResetColor();
+			ICE_TermResetColor();
 			printf("\"\n");
 		}
 		else{
 			text = ICE_LoadBMP(game->texturemanager[manager].ren, path);
 			printf("Texture number %d created from : \"", game->texturemanager[manager].nb_existing_texture);
-			ICE_TC_SetColor(YELLOW);
+			ICE_TermSetColor(YELLOW);
 			printf("%s", path);
-			ICE_TC_ResetColor();
+			ICE_TermResetColor();
 			printf("\"\n");
 		}
 	}
 	else{
 		text = ICE_LoadBMP(game->texturemanager[manager].ren, "res/img/error");
-		ICE_TC_SetColor(LIGHTRED);
+		ICE_TermSetColor(LIGHTRED);
 		printf("ERROR ");
-		ICE_TC_ResetColor();
+		ICE_TermResetColor();
 		printf(": %s is not a valid filetype for loading texture.\n", ext);
 	}
 	text->exist = 1;
@@ -185,9 +185,9 @@ int ICE_TextureCreate(ICE_Game *game, int manager, char* path){
 	game->texturemanager[manager].nb_existing_texture++;
 	
 	if (game->texturemanager[manager].array_size <= game->texturemanager[manager].nb_existing_texture){
-		ICE_TC_SetColor(LIGHTCYAN);
+		ICE_TermSetColor(LIGHTCYAN);
 		printf("Extending texture size to %d \n", game->texturemanager[manager].array_size * 2);
-		ICE_TC_ResetColor();
+		ICE_TermResetColor();
 		game->texturemanager[manager].texture = realloc(game->texturemanager[manager].texture, sizeof(ICE_Texture)*(game->texturemanager[manager].array_size * 2));
 		game->texturemanager[manager].array_size *= 2;
 	}

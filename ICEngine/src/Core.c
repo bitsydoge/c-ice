@@ -4,7 +4,7 @@
 
 int ICE_CoreInit(){
 	srand(time(NULL));
-	ICE_TC_SaveColor();
+	ICE_TermSaveColor();
 	SDL_Init(SDL_INIT_VIDEO);
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
 	TTF_Init();
@@ -17,6 +17,7 @@ int ICE_CoreInit(){
 
 int ICE_CoreClose(){
 	SDL_Quit();
+	Mix_CloseAudio();
 	return 0;
 }
 
