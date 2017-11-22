@@ -1,5 +1,4 @@
 #include <Core.h>
-#include "hdr/menu.h"
 #include "hdr/data.h"
 #include "hdr/control.h"
 
@@ -21,7 +20,7 @@ ICE_CREATE {
 	data->speed_camera = 250;
 	// Creating Entity
 	int manager_nb = ICE_EntityManagerCreate(&game);
-	for(int i = 0; i<1000; i++){
+	for(int i = 0; i<10000; i++){
 		int entity_nb = ICE_EntityCreate(&game, 0);
 		ICE_EntitySetTexture(&game, manager_nb, entity_nb, 0, 2);
 		ICE_EntitySetPos(&game, manager_nb, entity_nb, ICE_Random(-5000, 5000), ICE_Random(-5000, 5000));

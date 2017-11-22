@@ -10,10 +10,11 @@ void ICE_FontLoad(ICE_Game* game, char *path)
 	}
 }
 
-void ICE_FontDraw(ICE_Game* game, char* text,int size, ICE_Rect rect)
+void ICE_FontDraw(ICE_Game* game, char* text,int size, ICE_Point point)
 {
 	SDL_Color col; col.r = 255; col.g = 255; col.b = 255; col.a = 255;
 	SDL_Surface *surf = TTF_RenderText_Blended(game->fontmanager.size[size], text, col);
+	ICE_Rect rect; rect.x = point.x; rect.y = point.y;
 	rect.w = surf->w; rect.h = surf->h;
 	SDL_Texture *texture = SDL_CreateTextureFromSurface(game->render, surf);
 	SDL_RenderCopy(game->render, texture, NULL, &rect);
