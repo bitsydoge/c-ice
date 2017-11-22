@@ -6,14 +6,14 @@ ICE_Game ICE_GameCreate(char *window_title, const unsigned int width_window, con
 
 	// Window and Render
 	game.window = SDL_CreateWindow(
-		window_title, 
-		SDL_WINDOWPOS_UNDEFINED, 
-		SDL_WINDOWPOS_UNDEFINED, 
-		width_window, 
-		height_window, 
+		window_title,
+		SDL_WINDOWPOS_UNDEFINED,
+		SDL_WINDOWPOS_UNDEFINED,
+		width_window,
+		height_window,
 		SDL_WINDOW_OPENGL | SDL_RENDERER_PRESENTVSYNC | SDL_WINDOW_RESIZABLE
 	);
-	game.render = SDL_CreateRenderer(game.window, -1, SDL_RENDERER_ACCELERATED);   
+	game.render = SDL_CreateRenderer(game.window, -1, SDL_RENDERER_ACCELERATED);
 
 	// Render Info
 	SDL_RendererInfo info;
@@ -27,7 +27,7 @@ ICE_Game ICE_GameCreate(char *window_title, const unsigned int width_window, con
 	// TextureManager
 	game.texturemanager_size = 0;
 	ICE_TextureManagerCreate(&game);
-	
+
 	// Time
 	memset(&game.time, 0, sizeof(ICE_Time));
 	game.time.fps = 120; game.time.ticks = (double)1000 / game.time.fps;
@@ -35,13 +35,13 @@ ICE_Game ICE_GameCreate(char *window_title, const unsigned int width_window, con
 	// Sound
 	ICE_SoundManagerCreate(&game); // Create the Sound Manager
 
-	game.camera.x = 0; game.camera.y = 0; 
+	game.camera.x = 0; game.camera.y = 0;
 	game.camera.w = width_window; game.camera.h = height_window;
 	ICE_GameSetIcon(game.window, 0);
 
 	game.data = malloc(0);
 	game.nb_data = 0;
-	return game;    
+	return game;
 }
 
 void ICE_GameDestroy(ICE_Game *app)
@@ -55,7 +55,7 @@ void ICE_GameDestroy(ICE_Game *app)
 
 void ICE_GameResizable(ICE_Game *game, ICE_Bool yn)
 {
-	SDL_SetWindowResizable(game->window, yn);
+	//SDL_SetWindowResizable(game->window, yn);
 }
 
 void ICE_GameTitle(ICE_Game *game, const char *title)
