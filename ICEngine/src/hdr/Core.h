@@ -29,11 +29,6 @@
 #include "Texture.h"
 #include "Time.h"
 
-
-#ifdef main
-	#undef main
-#endif
-
 int ICE_CoreInit();
 int ICE_CoreClose();
 int ICE_CoreLoop(ICE_Game(*call_create)(void), void(*call_update)(ICE_Game*), void(*call_destroy)(ICE_Game*));
