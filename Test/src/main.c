@@ -4,24 +4,24 @@
 #include "hdr/control.h"
 
 ICE_CREATE {
-	ICE_Game game = ICE_GameCreate("ICE : Indie \"C\" Engine", 500, 500); 
-	
+	ICE_Game game = ICE_GameCreate("ICE : Indie \"C\" Engine", 500, 500);
+
 	// Load Assets
 	ICE_TextureCreate(&game, 0, "res/img/logo.png");
 	ICE_TextureCreate(&game, 0, "res/img/gui.png");
 	ICE_TextureCreate(&game, 0, "res/img/sprite.png");
-	ICE_MusicCreate(&game, "res/snd/music.ogg"); 
+	ICE_MusicCreate(&game, "res/snd/music.ogg");
 	ICE_SoundCreate(&game, "res/snd/laser.wav");
 	ICE_MusicPlay(&game, 0, 1);
 	ICE_FontLoad(&game, "res/ttf/FiraMono-Medium.ttf");
-	
+
 	// Load Data and Variables
 	DATA0 *data = ICE_AddData(&game, sizeof(DATA0)); // Add DATA0
 	ICE_AddData(&game, sizeof(DATA1)); // Add DATA1
 	data->speed_camera = 250;
 	// Creating Entity
 	int manager_nb = ICE_EntityManagerCreate(&game);
-	for(int i = 0; i<10000; i++){
+	for(int i = 0; i<1000; i++){
 		int entity_nb = ICE_EntityCreate(&game, 0);
 		ICE_EntitySetTexture(&game, manager_nb, entity_nb, 0, 2);
 		ICE_EntitySetPos(&game, manager_nb, entity_nb, ICE_Random(-5000, 5000), ICE_Random(-5000, 5000));
