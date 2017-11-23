@@ -1,4 +1,5 @@
 #include "hdr/Texture.h"
+#include "hdr/Rect.h"
 
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN
 Uint32 static const rmask = 0xff000000;
@@ -52,7 +53,7 @@ ICE_Texture* ICE_LoadBMP(SDL_Renderer *render, char *path){
 	return text;
 }
 
-ICE_Texture* ICE_LoadBMPAlpha(SDL_Renderer *render, char *path, const ICE_Color rgba_hex){
+ICE_Texture* ICE_LoadBMPAlpha(SDL_Renderer *render, char *path, const iceColor rgba_hex){
 	const int r = rgba_hex >> 24 & 255;
 	const int g = rgba_hex >> 16 & 255;
 	const int b = rgba_hex >> 8 & 255;
@@ -88,31 +89,57 @@ void ICE_TextureDestroy(ICE_Texture *tex){
 	free(tex);
 }
 
-int ICE_TextureRender(ICE_Game *game, int man, int text, SDL_Rect* source, SDL_Rect* destination){
-	if (destination){
-		SDL_Rect dst = { destination->x - (destination->w / 2), destination->y - (destination->h / 2), destination->w, destination->h };
-		return SDL_RenderCopy(game->render, game->texturemanager[man].texture[text].handle, source, &dst);
+int ICE_TextureRender(ICE_Game *game, int man, int text, iceRect* src, iceRect* dst){
+	if(!src && dst)
+	{
+		SDL_Rect s_dst = iceRectToSDL(dst);
+		return SDL_RenderCopy(game->render, game->texturemanager[man].texture[text].handle, NULL, &s_dst);
 	}
-	else
-		return SDL_RenderCopy(game->render, game->texturemanager[man].texture[text].handle, source, NULL);
+	if (src && !dst)
+	{
+		SDL_Rect s_src = iceRectToSDL(src);
+		return SDL_RenderCopy(game->render, game->texturemanager[man].texture[text].handle, &s_src, NULL);
+	}
+	if (!src && !dst)
+	{
+		return SDL_RenderCopy(game->render, game->texturemanager[man].texture[text].handle, NULL, NULL);
+	}
+		SDL_Rect s_dst = iceRectToSDL(dst);
+		SDL_Rect s_src = iceRectToSDL(src);
+		return SDL_RenderCopy(game->render, game->texturemanager[man].texture[text].handle, &s_src, &s_dst);
 }
 
-int ICE_TextureRenderNC(ICE_Game *game, int man, int text, SDL_Rect* source, SDL_Rect* destination) {
-	if (destination) {
-		return SDL_RenderCopy(game->render, game->texturemanager[man].texture[text].handle, source, destination);
+int ICE_TextureRenderCentered(ICE_Game *game, int man, int text, iceRect* src, iceRect* dst) {
+	if (!src && dst)
+	{
+		SDL_Rect s_dst = iceRectToSDL(dst);
+		s_dst.x -= s_dst.w / 2; s_dst.y -= s_dst.h / 2;
+		return SDL_RenderCopy(game->render, game->texturemanager[man].texture[text].handle, NULL, &s_dst);
 	}
-	return SDL_RenderCopy(game->render, game->texturemanager[man].texture[text].handle, source, NULL);
+	if (src && !dst)
+	{
+		SDL_Rect s_src = iceRectToSDL(src);
+		return SDL_RenderCopy(game->render, game->texturemanager[man].texture[text].handle, &s_src, NULL);
+	}
+	if (!src && !dst)
+	{
+		return SDL_RenderCopy(game->render, game->texturemanager[man].texture[text].handle, NULL, NULL);
+	}
+	SDL_Rect s_dst = iceRectToSDL(dst);
+	s_dst.x -= s_dst.w / 2; s_dst.y -= s_dst.h / 2;
+	SDL_Rect s_src = iceRectToSDL(src);
+	return SDL_RenderCopy(game->render, game->texturemanager[man].texture[text].handle, &s_src, &s_dst);
 }
 
 int ICE_TextureRenderEx(SDL_Renderer* renderer, const ICE_Texture *tex, SDL_Rect* source, SDL_Rect* destination, const double angle){
 	return SDL_RenderCopyEx(renderer, tex->handle, source, destination, angle, NULL, SDL_FLIP_NONE);
 }
 
-ICE_Color NewColor(const unsigned int r, const unsigned int g,const unsigned int b){
+iceColor NewColor(const unsigned int r, const unsigned int g,const unsigned int b){
 	return (r << 24) + (g << 16) + (b << 8) + 255;
 }
 
-ICE_Color NewColorA(const unsigned int r, const unsigned int g, const unsigned int b, const unsigned int a) {
+iceColor NewColorA(const unsigned int r, const unsigned int g, const unsigned int b, const unsigned int a) {
 	return (r << 24) + (g << 16) + (b << 8) + a;
 }
 

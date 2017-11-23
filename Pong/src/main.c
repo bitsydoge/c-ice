@@ -31,7 +31,7 @@ typedef struct{
 } DATA0;
 
 ICE_CREATE {
-	ICE_Game game = ICE_GameCreate("ICE : Pong", 960, 480); ICE_GameResizable(&game, ICE_False);
+	ICE_Game game = ICE_GameCreate("ICE : Pong", 960, 480); ICE_GameResizable(&game, iceFalse);
 	DATA0 *data = ICE_AddData(&game, sizeof(DATA0));
 	// Entity Create
 	ICE_EntityManagerCreate(&game);
@@ -60,7 +60,7 @@ ICE_CREATE {
 
 void Collision_Ball(ICE_Game *game){
 	DATA0 *data = ICE_GetData(game, 0);
-	ICE_Rect ballrect = ICE_EntityGetRect(game, 0, 2);
+	iceRect ballrect = ICE_EntityGetRect(game, 0, 2);
 	// Top Bottom
 	if (ballrect.y > game->camera.h-20 || ballrect.y < 0)
 		data->ball.dy = -data->ball.dy;
@@ -70,8 +70,8 @@ void Collision_Ball(ICE_Game *game){
 	if (ballrect.x > game->camera.w+20)
 		data->win = PLAYER;
 	// Collision players
-	ICE_Rect ballplayer = ICE_EntityGetRect(game, 0, 0);
-	ICE_Rect ballennemy = ICE_EntityGetRect(game, 0, 1);
+	iceRect ballplayer = ICE_EntityGetRect(game, 0, 0);
+	iceRect ballennemy = ICE_EntityGetRect(game, 0, 1);
 	if (rect_align_collision(ballplayer.x, ballplayer.y, ballplayer.w, ballplayer.h, ballrect.x, ballrect.y, ballrect.w, ballrect.h)){
 		data->ball.dx = -data->ball.dx;
 		data->ball.dy = ICE_Random(-2000, 2000)/1000.0f;

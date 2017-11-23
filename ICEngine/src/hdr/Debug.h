@@ -3,6 +3,7 @@
 
 #include "Camera.h"
 #include "Entity.h"
+#include "Vector.h"
 #include "Font.h"
 #include <stdio.h>
 
