@@ -144,7 +144,7 @@ void ICE_EntityDrawAll(ICE_Game *game)
 					game->entitymanager[i].entity[j].w,
 					game->entitymanager[i].entity[j].h), &game->camera);
 
-				ICE_TextureRender(
+				ICE_TextureRenderCentered(
 					game,
 					game->entitymanager[i].entity[j].man,
 					game->entitymanager[i].entity[j].text,

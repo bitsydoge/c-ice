@@ -3,7 +3,7 @@
 
 void ICE_GuiRect(ICE_Game *game, int man, int text, iceRect rect)
 {
-	SDL_Rect src, dst;
+	iceRect src, dst;
 	int wtext3 = game->texturemanager[man].texture[text].w / 3;
 	int htext3 = game->texturemanager[man].texture[text].h / 3;
 
