@@ -1,5 +1,5 @@
-﻿#ifndef DEF_ICE_VECTOR
-#define DEF_ICE_VECTOR
+﻿#ifndef DEF_iceVECTOR
+#define DEF_iceVECTOR
 
 #include "Types.h"
 

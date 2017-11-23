@@ -1,9 +1,9 @@
-﻿#ifndef DEF_ICE_DATA
-#define DEF_ICE_DATA
+﻿#ifndef DEF_iceDATA
+#define DEF_iceDATA
 #include "Game.h"
 
-void* ICE_AddData(ICE_Game *game, size_t _size);
-void* ICE_GetData(ICE_Game *game, int nb_data);
-void ICE_DestroyData(ICE_Game *game, int nb_data);
+void* iceAddData(iceGame *game, size_t _size);
+void* iceGetData(iceGame *game, int nb_data);
+void iceDestroyData(iceGame *game, int nb_data);
 
 #endif

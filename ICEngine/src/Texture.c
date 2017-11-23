@@ -13,7 +13,7 @@ Uint32 static const bmask = 0x00ff0000;
 Uint32 static const amask = 0xff000000;
 #endif
 
-ICE_Texture* ICE_LoadJPG(SDL_Renderer *render, char *path)
+iceTexture* iceLoadJPG(SDL_Renderer *render, char *path)
 {
 	/*
 	
@@ -42,11 +42,11 @@ ICE_Texture* ICE_LoadJPG(SDL_Renderer *render, char *path)
 	if (!surf) {
 	*/
 	#include "raw/Raw_error.c"
-		SDL_Surface *surf = SDL_CreateRGBSurfaceFrom((void*)ice_raw_img_error.pixel_data, ice_raw_img_error.width,
-			ice_raw_img_error.height, ice_raw_img_error.bytes_per_pixel * 8, ice_raw_img_error.bytes_per_pixel*ice_raw_img_error.width,
+		SDL_Surface *surf = SDL_CreateRGBSurfaceFrom((void*)iceraw_img_error.pixel_data, iceraw_img_error.width,
+			iceraw_img_error.height, iceraw_img_error.bytes_per_pixel * 8, iceraw_img_error.bytes_per_pixel*iceraw_img_error.width,
 			rmask, gmask, bmask, amask);
 	//}
-	ICE_Texture *text = (ICE_Texture*)malloc(sizeof(ICE_Texture));
+	iceTexture *text = (iceTexture*)malloc(sizeof(iceTexture));
 	text->handle = SDL_CreateTextureFromSurface(render, surf);
 	if (text->handle == NULL)
 		printf("CRITICAL : Can't create Texture from Surface \"%s\" : %s \n", path, SDL_GetError());
@@ -57,7 +57,7 @@ ICE_Texture* ICE_LoadJPG(SDL_Renderer *render, char *path)
 	return text;
 }
 
-ICE_Texture* ICE_LoadPNG(SDL_Renderer *render, char *path){
+iceTexture* iceLoadPNG(SDL_Renderer *render, char *path){
 	unsigned char* raw_img;
 	unsigned w, h;
 	unsigned const error = lodepng_decode32_file(&raw_img, &w, &h, path);
@@ -67,11 +67,11 @@ ICE_Texture* ICE_LoadPNG(SDL_Renderer *render, char *path){
 	SDL_Surface *surf = SDL_CreateRGBSurfaceFrom(raw_img, w, h, 32, 4 * w, rmask, gmask, bmask, amask);
 	if (error){
 		#include "raw/Raw_error.c"
-		surf = SDL_CreateRGBSurfaceFrom((void*)ice_raw_img_error.pixel_data, ice_raw_img_error.width,
-			ice_raw_img_error.height, ice_raw_img_error.bytes_per_pixel * 8, ice_raw_img_error.bytes_per_pixel*ice_raw_img_error.width,
+		surf = SDL_CreateRGBSurfaceFrom((void*)iceraw_img_error.pixel_data, iceraw_img_error.width,
+			iceraw_img_error.height, iceraw_img_error.bytes_per_pixel * 8, iceraw_img_error.bytes_per_pixel*iceraw_img_error.width,
 			rmask, gmask, bmask, amask);
 	}
-	ICE_Texture *text = (ICE_Texture*)malloc(sizeof(ICE_Texture));
+	iceTexture *text = (iceTexture*)malloc(sizeof(iceTexture));
 	text->handle = SDL_CreateTextureFromSurface(render, surf);
 	if (text->handle == NULL)
 		printf("CRITICAL : Can't create Texture from Surface \"%s\" : %s \n", path, SDL_GetError());
@@ -80,15 +80,15 @@ ICE_Texture* ICE_LoadPNG(SDL_Renderer *render, char *path){
 	return text;
 }
 
-ICE_Texture* ICE_LoadBMP(SDL_Renderer *render, char *path){
+iceTexture* iceLoadBMP(SDL_Renderer *render, char *path){
 	SDL_Surface *surf = SDL_LoadBMP(path);
 	if (surf == NULL){
 		#include "raw/Raw_error.c"
-		surf = SDL_CreateRGBSurfaceFrom((void*)ice_raw_img_error.pixel_data, ice_raw_img_error.width,
-			ice_raw_img_error.height, ice_raw_img_error.bytes_per_pixel * 8, ice_raw_img_error.bytes_per_pixel*ice_raw_img_error.width,
+		surf = SDL_CreateRGBSurfaceFrom((void*)iceraw_img_error.pixel_data, iceraw_img_error.width,
+			iceraw_img_error.height, iceraw_img_error.bytes_per_pixel * 8, iceraw_img_error.bytes_per_pixel*iceraw_img_error.width,
 			rmask, gmask, bmask, amask);
 	}
-	ICE_Texture *text = (ICE_Texture*)malloc(sizeof(ICE_Texture));
+	iceTexture *text = (iceTexture*)malloc(sizeof(iceTexture));
 	text->handle = SDL_CreateTextureFromSurface(render, surf);
 	if (text->handle == NULL)
 		printf("CRITICAL : Can't create Texture from Surface \"%s\" : %s \n", path, SDL_GetError());
@@ -97,7 +97,7 @@ ICE_Texture* ICE_LoadBMP(SDL_Renderer *render, char *path){
 	return text;
 }
 
-ICE_Texture* ICE_LoadBMPAlpha(SDL_Renderer *render, char *path, const iceColor rgba_hex){
+iceTexture* iceLoadBMPAlpha(SDL_Renderer *render, char *path, const iceColor rgba_hex){
 	const int r = rgba_hex >> 24 & 255;
 	const int g = rgba_hex >> 16 & 255;
 	const int b = rgba_hex >> 8 & 255;
@@ -106,8 +106,8 @@ ICE_Texture* ICE_LoadBMPAlpha(SDL_Renderer *render, char *path, const iceColor r
 	SDL_Surface *surf = SDL_LoadBMP(path);
 	if (surf == NULL){
 		#include "raw/Raw_error.c"
-		surf = SDL_CreateRGBSurfaceFrom((void*)ice_raw_img_error.pixel_data, ice_raw_img_error.width,
-			ice_raw_img_error.height, ice_raw_img_error.bytes_per_pixel * 8, ice_raw_img_error.bytes_per_pixel*ice_raw_img_error.width,
+		surf = SDL_CreateRGBSurfaceFrom((void*)iceraw_img_error.pixel_data, iceraw_img_error.width,
+			iceraw_img_error.height, iceraw_img_error.bytes_per_pixel * 8, iceraw_img_error.bytes_per_pixel*iceraw_img_error.width,
 			rmask, gmask, bmask, amask);
 	}
 	else if (r >= 0 && g >= 0 && b >= 0){
@@ -115,12 +115,12 @@ ICE_Texture* ICE_LoadBMPAlpha(SDL_Renderer *render, char *path, const iceColor r
 		if (a < 255 && a >= 0)
 			SDL_SetSurfaceAlphaMod(surf, a);
 	}
-	ICE_Texture *text = (ICE_Texture*)malloc(sizeof(ICE_Texture));
+	iceTexture *text = (iceTexture*)malloc(sizeof(iceTexture));
 	text->handle = SDL_CreateTextureFromSurface(render, surf);
 	if (text->handle == NULL){
-		ICE_TermSetColor(LIGHTRED);
+		iceTermSetColor(LIGHTRED);
 		printf("CRITICAL");
-		ICE_TermResetColor();
+		iceTermResetColor();
 		printf(" : Can't create Texture from Surface \"%s\" : %s \n", path, SDL_GetError());
 	}
 	text->w = surf->w; text->h = surf->h;
@@ -128,12 +128,12 @@ ICE_Texture* ICE_LoadBMPAlpha(SDL_Renderer *render, char *path, const iceColor r
 	return text;
 }
 
-void ICE_TextureDestroy(ICE_Texture *tex){
+void iceTextureDestroy(iceTexture *tex){
 	SDL_DestroyTexture(tex->handle);
 	free(tex);
 }
 
-int ICE_TextureRender(ICE_Game *game, int man, int text, iceRect* src, iceRect* dst){
+int iceTextureRender(iceGame *game, int man, int text, iceRect* src, iceRect* dst){
 	if(!src && dst)
 	{
 		SDL_Rect s_dst = iceRectToSDL(dst);
@@ -153,7 +153,7 @@ int ICE_TextureRender(ICE_Game *game, int man, int text, iceRect* src, iceRect* 
 		return SDL_RenderCopy(game->render, game->texturemanager[man].texture[text].handle, &s_src, &s_dst);
 }
 
-int ICE_TextureRenderCentered(ICE_Game *game, int man, int text, iceRect* src, iceRect* dst) {
+int iceTextureRenderCentered(iceGame *game, int man, int text, iceRect* src, iceRect* dst) {
 	if (!src && dst)
 	{
 		SDL_Rect s_dst = iceRectToSDL(dst);
@@ -175,7 +175,7 @@ int ICE_TextureRenderCentered(ICE_Game *game, int man, int text, iceRect* src, i
 	return SDL_RenderCopy(game->render, game->texturemanager[man].texture[text].handle, &s_src, &s_dst);
 }
 
-int ICE_TextureRenderEx(SDL_Renderer* renderer, const ICE_Texture *tex, SDL_Rect* source, SDL_Rect* destination, const double angle){
+int iceTextureRenderEx(SDL_Renderer* renderer, const iceTexture *tex, SDL_Rect* source, SDL_Rect* destination, const double angle){
 	return SDL_RenderCopyEx(renderer, tex->handle, source, destination, angle, NULL, SDL_FLIP_NONE);
 }
 
@@ -194,63 +194,63 @@ iceColor NewColorA(const unsigned int r, const unsigned int g, const unsigned in
 //                                                                      //
 //////////////////////////////////////////////////////////////////////////
 
-void ICE_TextureManagerCreate(ICE_Game *game){
-	ICE_TextureManager texture_manager = { 0 };
+void iceTextureManagerCreate(iceGame *game){
+	iceTextureManager texture_manager = { 0 };
 	texture_manager.array_size = 4;
-	texture_manager.texture = calloc(texture_manager.array_size, sizeof(ICE_Texture));
+	texture_manager.texture = calloc(texture_manager.array_size, sizeof(iceTexture));
 	texture_manager.ren = game->render;
 	game->texturemanager_size++;
-	game->texturemanager = realloc(game->texturemanager, game->texturemanager_size * sizeof(ICE_TextureManager));
+	game->texturemanager = realloc(game->texturemanager, game->texturemanager_size * sizeof(iceTextureManager));
 	game->texturemanager[game->texturemanager_size - 1] = texture_manager;
 	printf("TextureManager number %d created \n", game->texturemanager_size - 1);
 }
 
-int ICE_TextureCreate(ICE_Game *game, int manager, char* path){
+int iceTextureCreate(iceGame *game, int manager, char* path){
 	Uint32 color_hex = 0xFF00FFFF;
 	char path2[500]; strcpy(path2, path);
 	char* ext = icestd_ext(path2);
 	icestd_sup(ext);
 
-	ICE_Texture *text;
+	iceTexture *text;
 	if (!strcmp(ext, "PNG")){
-		text = ICE_LoadPNG(game->texturemanager[manager].ren, path);
+		text = iceLoadPNG(game->texturemanager[manager].ren, path);
 		printf("Texture number %d created on from : \"", game->texturemanager[manager].nb_existing_texture);
-		ICE_TermSetColor(YELLOW);
+		iceTermSetColor(YELLOW);
 		printf("%s", path);
-		ICE_TermResetColor();
+		iceTermResetColor();
 		printf("\"\n");
 	}
 	else if (!strcmp(ext, "JPG")) {
-		text = ICE_LoadJPG(game->texturemanager[manager].ren, path);
+		text = iceLoadJPG(game->texturemanager[manager].ren, path);
 		printf("Texture number %d created on from : \"", game->texturemanager[manager].nb_existing_texture);
-		ICE_TermSetColor(YELLOW);
+		iceTermSetColor(YELLOW);
 		printf("%s", path);
-		ICE_TermResetColor();
+		iceTermResetColor();
 		printf("\"\n");
 	}
 	else if (!strcmp(ext, "BMP")){
 		if (color_hex != 0){
-			text = ICE_LoadBMPAlpha(game->texturemanager[manager].ren, path, color_hex);
+			text = iceLoadBMPAlpha(game->texturemanager[manager].ren, path, color_hex);
 			printf("Texture number %d created from : \"", game->texturemanager[manager].nb_existing_texture);
-			ICE_TermSetColor(YELLOW);
+			iceTermSetColor(YELLOW);
 			printf("%s", path);
-			ICE_TermResetColor();
+			iceTermResetColor();
 			printf("\"\n");
 		}
 		else{
-			text = ICE_LoadBMP(game->texturemanager[manager].ren, path);
+			text = iceLoadBMP(game->texturemanager[manager].ren, path);
 			printf("Texture number %d created from : \"", game->texturemanager[manager].nb_existing_texture);
-			ICE_TermSetColor(YELLOW);
+			iceTermSetColor(YELLOW);
 			printf("%s", path);
-			ICE_TermResetColor();
+			iceTermResetColor();
 			printf("\"\n");
 		}
 	}
 	else{
-		text = ICE_LoadBMP(game->texturemanager[manager].ren, "res/img/error");
-		ICE_TermSetColor(LIGHTRED);
+		text = iceLoadBMP(game->texturemanager[manager].ren, "res/img/error");
+		iceTermSetColor(LIGHTRED);
 		printf("ERROR ");
-		ICE_TermResetColor();
+		iceTermResetColor();
 		printf(": %s is not a valid filetype for loading texture.\n", ext);
 	}
 	text->exist = 1;
@@ -259,22 +259,22 @@ int ICE_TextureCreate(ICE_Game *game, int manager, char* path){
 	game->texturemanager[manager].nb_existing_texture++;
 	
 	if (game->texturemanager[manager].array_size <= game->texturemanager[manager].nb_existing_texture){
-		ICE_TermSetColor(LIGHTCYAN);
+		iceTermSetColor(LIGHTCYAN);
 		printf("Extending texture size to %d \n", game->texturemanager[manager].array_size * 2);
-		ICE_TermResetColor();
-		game->texturemanager[manager].texture = realloc(game->texturemanager[manager].texture, sizeof(ICE_Texture)*(game->texturemanager[manager].array_size * 2));
+		iceTermResetColor();
+		game->texturemanager[manager].texture = realloc(game->texturemanager[manager].texture, sizeof(iceTexture)*(game->texturemanager[manager].array_size * 2));
 		game->texturemanager[manager].array_size *= 2;
 	}
 	free(text);
 	return game->texturemanager->nb_existing_texture - 1;
 }
 
-int ICE_TextureGetWidth(ICE_Game *game, int manager, int texture)
+int iceTextureGetWidth(iceGame *game, int manager, int texture)
 {
 	return game->texturemanager[manager].texture[texture].w;
 }
 
-int ICE_TextureGetHeight(ICE_Game *game, int manager, int texture)
+int iceTextureGetHeight(iceGame *game, int manager, int texture)
 {
 	return game->texturemanager[manager].texture[texture].h;
 }

@@ -1,11 +1,11 @@
-#ifndef DEF_ICE_RENDER
-#define DEF_ICE_RENDER 
+#ifndef DEF_iceRENDER
+#define DEF_iceRENDER 
 
 #include <SDL2/SDL.h>
 #include "Types.h"
 
-int ICE_RenderSetClearColor(SDL_Renderer *render,const iceColor color);
-int ICE_RenderClear(SDL_Renderer *render);
-void ICE_RenderPresent(SDL_Renderer *render);
+int iceRenderSetClearColor(SDL_Renderer *render,const iceColor color);
+int iceRenderClear(SDL_Renderer *render);
+void iceRenderPresent(SDL_Renderer *render);
 
 #endif

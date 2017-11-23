@@ -5,7 +5,7 @@ static const struct {
   unsigned int 	 height;
   unsigned int 	 bytes_per_pixel; /* 2:RGB16, 3:RGB, 4:RGBA */ 
   unsigned char	 pixel_data[100 * 100 * 4 + 1];
-} ice_raw_img_error = {
+} iceraw_img_error = {
   100, 100, 4,
   "\000d\233\377\000d\233\377\000c\232\377\000c\232\377\000c\232\377\000c\232\377\000c\232"
   "\377\000c\232\377\000c\232\377\000c\232\377\000c\232\377\000c\232\377\000c\232\377\000"

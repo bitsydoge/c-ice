@@ -1,5 +1,5 @@
-﻿#ifndef DEF_ICE_MAP
-#define DEF_ICE_MAP
+﻿#ifndef DEF_iceMAP
+#define DEF_iceMAP
 
 #include <stdio.h>
 #include "Struct.h"

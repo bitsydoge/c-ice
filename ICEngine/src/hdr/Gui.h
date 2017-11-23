@@ -1,8 +1,8 @@
-﻿#ifndef DEF_ICE_GUI
-#define DEF_ICE_GUI
+﻿#ifndef DEF_iceGUI
+#define DEF_iceGUI
 #include "Struct.h"
 #include "Texture.h"
 
-void ICE_GuiRect(ICE_Game *game, int man, int text, iceRect rect);
+void iceGuiRect(iceGame *game, int man, int text, iceRect rect);
 
 #endif

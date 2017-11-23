@@ -1,5 +1,5 @@
-#ifndef DEF_ICE_INPUT
-#define DEF_ICE_INPUT
+#ifndef DEF_iceINPUT
+#define DEF_iceINPUT
 
 #include "Struct.h"
 #include <string.h>
@@ -7,7 +7,7 @@
 #include "Terminal.h"
 #include "../external/rlutil.h"
 
-int ICE_InputReturn(ICE_Game *game, ICE_Input *input);
-void ICE_InputReset(ICE_Input *input);
+int iceInputReturn(iceGame *game, iceInput *input);
+void iceInputReset(iceInput *input);
 
 #endif

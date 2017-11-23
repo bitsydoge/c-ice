@@ -1,5 +1,5 @@
-﻿#ifndef DEF_ICE_PRIMITIVE
-#define DEF_ICE_PRIMITIVE
+﻿#ifndef DEF_icePRIMITIVE
+#define DEF_icePRIMITIVE
 #include "Struct.h"
 #include "Render.h"
 
@@ -10,19 +10,19 @@ void RectResize(iceRect * rect, iceFloat w, iceFloat h);
 void RectShift(iceRect * rect, iceFloat x, iceFloat y);
 
 /// Draw Point
-int ICE_DrawPoint(ICE_Game *game, int x, int y, const iceColor color);
+int iceDrawPoint(iceGame *game, int x, int y, const iceColor color);
 /// Draw Line
-int ICE_DrawLine(ICE_Game *game, int x1, int y1, int x2, int y2, const iceColor color);
+int iceDrawLine(iceGame *game, int x1, int y1, int x2, int y2, const iceColor color);
 /// Draw One Pixel Line Rectangle
-int ICE_DrawRectangle(ICE_Game *game, iceRect rect, const iceColor color);
+int iceDrawRectangle(iceGame *game, iceRect rect, const iceColor color);
 /// Draw Filled Rectangle 
-int ICE_DrawRectangleFill(ICE_Game *game, const iceRect rect, const iceColor color);
+int iceDrawRectangleFill(iceGame *game, iceRect rect, const iceColor color);
 
 // gl like
 
-int ICE_DrawPointGL(ICE_Game *game, int x, int y, const iceColor color);
-int ICE_DrawLineGL(ICE_Game *game, int x1, int y1, int x2, int y2, const iceColor color);
-int ICE_DrawRectangleGL(ICE_Game *game, iceRect rect, const iceColor color);
-int ICE_DrawRectangleFillGL(ICE_Game *game, const iceRect rect, const iceColor color);
+int iceDrawPointGL(iceGame *game, int x, int y, const iceColor color);
+int iceDrawLineGL(iceGame *game, int x1, int y1, int x2, int y2, const iceColor color);
+int iceDrawRectangleGL(iceGame *game, iceRect rect, const iceColor color);
+int iceDrawRectangleFillGL(iceGame *game, iceRect rect, const iceColor color);
 
 #endif

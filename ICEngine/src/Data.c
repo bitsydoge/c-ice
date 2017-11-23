@@ -1,7 +1,7 @@
 ﻿#include "hdr/Data.h"
 
 // Make a Data and create a pointer in the game->data array (return the pointer created)
-void* ICE_AddData(ICE_Game *game, size_t _size)
+void* iceAddData(iceGame *game, size_t _size)
 {
 	game->nb_data++;
 	game->data = realloc(game->data, sizeof(void*)*game->nb_data);
@@ -11,7 +11,7 @@ void* ICE_AddData(ICE_Game *game, size_t _size)
 }
 
 /// Return pointer to a Data
-void* ICE_GetData(ICE_Game *game, int nb_data)
+void* iceGetData(iceGame *game, int nb_data)
 {
 	void * _pointer;
 
@@ -29,14 +29,14 @@ void* ICE_GetData(ICE_Game *game, int nb_data)
 	{
 		_pointer = NULL;
 		//assert(("Pointer is null so there is no data at this number", _pointer));
-		ICE_Assert(_pointer != NULL, "Pointer is null so there is no data at this number");
+		iceAssert(_pointer != NULL, "Pointer is null so there is no data at this number");
 	}
 
 	return _pointer;
 }
 
 /// Destroy a Data
-void ICE_DestroyData(ICE_Game *game, int nb_data)
+void iceDestroyData(iceGame *game, int nb_data)
 {
 	void * _pointer;
 
@@ -54,7 +54,7 @@ void ICE_DestroyData(ICE_Game *game, int nb_data)
 	{
 		_pointer = NULL;
 		//assert("Pointer is null so there is no data at this number", _pointer);
-		ICE_Assert(_pointer != NULL, "Pointer is null so there is no data at this number");
+		iceAssert(_pointer != NULL, "Pointer is null so there is no data at this number");
 	}
 
 	free(_pointer);

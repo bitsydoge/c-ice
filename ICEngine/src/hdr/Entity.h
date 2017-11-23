@@ -1,5 +1,5 @@
-﻿#ifndef DEF_ICE_ENTITY
-#define DEF_ICE_ENTITY
+﻿#ifndef DEF_iceENTITY
+#define DEF_iceENTITY
 
 #include "Game.h"
 #include <stdio.h>
@@ -10,41 +10,41 @@
 #include "Camera.h"
 
 /// Create a Entity Manager and return it's number
-int ICE_EntityManagerCreate(ICE_Game *game);
+int iceEntityManagerCreate(iceGame *game);
 
 /// Create a Entity and return it's number in the manager
-int ICE_EntityCreate(ICE_Game *game, int manager);
+int iceEntityCreate(iceGame *game, int manager);
 
 /// Set a texture to a entity
-void ICE_EntitySetTexture(ICE_Game *game, int entity_manager, int entity_nb, int texture_manager, int texture_nb);
+void iceEntitySetTexture(iceGame *game, int entity_manager, int entity_nb, int texture_manager, int texture_nb);
 
 /// Remove a texture
-void ICE_EntityRemoveTexture(ICE_Game *game, int entity_manager, int entity_nb);
+void iceEntityRemoveTexture(iceGame *game, int entity_manager, int entity_nb);
 
 /// Set Entity size for the texture
-void ICE_EntitySetSize(ICE_Game *game, int entity_manager, int entity_nb, iceFloat w, iceFloat h);
+void iceEntitySetSize(iceGame *game, int entity_manager, int entity_nb, iceFloat w, iceFloat h);
 
 /// Instant move entity to a position
-void ICE_EntitySetPos(ICE_Game *game, int manager, int entity, iceFloat x, iceFloat y);
+void iceEntitySetPos(iceGame *game, int manager, int entity, iceFloat x, iceFloat y);
 
 /// Shift position from dX / dY
-void ICE_EntityShiftPos(ICE_Game *game, int manager, int entity, iceFloat x, iceFloat y);
+void iceEntityShiftPos(iceGame *game, int manager, int entity, iceFloat x, iceFloat y);
 
 /// Move to a position using Polar coordinate
-void ICE_EntityMovePos(ICE_Game *game, int manager, int entity, iceFloat x, iceFloat y, iceFloat r);
+void iceEntityMovePos(iceGame *game, int manager, int entity, iceFloat x, iceFloat y, iceFloat r);
 
 /// Set the entity Angle
-void ICE_EntitySetAngle(ICE_Game *game, int manager, int entity, iceFloat angle);
+void iceEntitySetAngle(iceGame *game, int manager, int entity, iceFloat angle);
 
 /// Add to the entity Angle
-void ICE_EntityAddAngle(ICE_Game *game, int manager, int entity, iceFloat angle);
+void iceEntityAddAngle(iceGame *game, int manager, int entity, iceFloat angle);
 
 /// Link a Data struct to a Entity
-void ICE_EntityAddData(ICE_Game *game, int manager, int entity, size_t size);
+void iceEntityAddData(iceGame *game, int manager, int entity, size_t size);
 
 /// Draw every Entity to screen
-void ICE_EntityDrawAll(ICE_Game *game);
+void iceEntityDrawAll(iceGame *game);
 
-iceRect ICE_EntityGetRect(ICE_Game *game, int manager, int entity);
+iceRect iceEntityGetRect(iceGame *game, int manager, int entity);
 
 #endif
