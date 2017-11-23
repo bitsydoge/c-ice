@@ -1,22 +1,23 @@
-﻿#ifndef DEF_ICE_DEBUG
-#define DEF_ICE_DEBUG
+﻿#ifndef DEF_iceDEBUG
+#define DEF_iceDEBUG
 
 #include "Camera.h"
 #include "Entity.h"
+#include "Vector.h"
 #include "Font.h"
 #include <stdio.h>
 
-void ICE_DebugMouseCoordinate(ICE_Game *game);
-void ICE_DebugShowFps(ICE_Game *game);
-void ICE_DebugShowFpsTitle(ICE_Game *game);
+void iceDebugMouseCoordinate(iceGame *game);
+void iceDebugShowFps(iceGame *game);
+void iceDebugShowFpsTitle(iceGame *game);
 
 #ifndef NDEBUG
-#   define ICE_Assert(Expr, Msg) \
-	_ICE_Assert_(#Expr, Expr, __FILE__, __LINE__, Msg)
+#   define iceAssert(Expr, Msg) \
+	_iceAssert_(#Expr, Expr, __FILE__, __LINE__, Msg)
 #else
-#   define ICE_Assert(Expr, Msg) ;
+#   define iceAssert(Expr, Msg) ;
 #endif
 
-void _ICE_Assert_(const char* expr_str, int expr, const char* file, int line, const char* msg);
+void _iceAssert_(const char* expr_str, int expr, const char* file, int line, const char* msg);
 
 #endif

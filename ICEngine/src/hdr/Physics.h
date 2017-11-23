@@ -1,5 +1,5 @@
-﻿#ifndef DEF_ICE_PHYSICS
-#define DEF_ICE_PHYSICS
+﻿#ifndef DEF_icePHYSICS
+#define DEF_icePHYSICS
 
 
 #endif

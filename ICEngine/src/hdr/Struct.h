@@ -1,24 +1,21 @@
-﻿#ifndef DEF_ICE_STRUCT
-#define DEF_ICE_STRUCT
+﻿#ifndef DEF_iceSTRUCT
+#define DEF_iceSTRUCT
 
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
+#include "Rect.h"
 
 //SDL typedef layer
-typedef SDL_Rect ICE_Rect;
-typedef SDL_Point ICE_Point;
-typedef SDL_Window ICE_Window;
-typedef SDL_Renderer ICE_Renderer;
-typedef Uint32 ICE_Color;
-typedef char ICE_Bool;
+typedef SDL_Window iceWindow;
+typedef SDL_Renderer iceRenderer;
 
 typedef struct
 {
 	
 	int *tile;
 
-} ICE_Layer;
+} iceLayer;
 
 typedef struct{
 
@@ -28,9 +25,9 @@ typedef struct{
 
 	// Layer
 	int nb_layer;
-	ICE_Layer *layer;
+	iceLayer *layer;
 
-} ICE_Map;
+} iceMap;
 
 typedef struct{
 
@@ -38,7 +35,7 @@ typedef struct{
 	int w, h;
 	float speed;
 
-} ICE_Camera;
+} iceCamera;
 
 typedef struct{
 
@@ -64,7 +61,7 @@ typedef struct{
 	char *filedrop;
 	int substate_quit;
 
-} ICE_Input;
+} iceInput;
 
 typedef struct{
 
@@ -73,42 +70,42 @@ typedef struct{
 	int h;
 	SDL_Texture* handle;
 
-} ICE_Texture;
+} iceTexture;
 
 typedef struct{
 
 	int array_size;
 	int nb_existing_texture;
-	ICE_Texture* texture;
+	iceTexture* texture;
 	SDL_Renderer *ren;
 
-} ICE_TextureManager;
+} iceTextureManager;
 
 typedef struct{
 
 	Mix_Music* music;
 	char *filename;
 
-} ICE_Music;
+} iceMusic;
 
 typedef struct{
 
 	Mix_Chunk* sound;
 	char *filename;
 
-} ICE_Sound;
+} iceSound;
 
 
 typedef struct{
 
 	unsigned short size_musicpack;
-	ICE_Music* musicpack;
+	iceMusic* musicpack;
 	unsigned short tofill_music;
 	unsigned short size_soundpack;
-	ICE_Sound* soundpack;
+	iceSound* soundpack;
 	unsigned short tofill_soundpack;
 
-} ICE_SoundManager;
+} iceSoundManager;
 
 typedef struct{
 
@@ -119,12 +116,12 @@ typedef struct{
 	double fps;
 	double delta;
 
-} ICE_Time;
+} iceTime;
 
 
 ////
 //
-//  I need to make a ICE_Font struct where
+//  I need to make a iceFont struct where
 //
 ////
 
@@ -132,74 +129,73 @@ typedef struct{
 
 	TTF_Font* size[256];
 
-}ICE_FontManager;
+}iceFontManager;
 
 typedef struct{
 
-	int exist;
+	iceBool exist;
 	
 	// Position
-	float x, y;
-	float angle;
+	iceFloat x, y;
+	iceFloat angle;
 
 	// Size
-	float w, h;
+	iceFloat w, h;
 	
 	// Data Array
 	void **data;
 	
 	// Texture location
-	short has_texture;
-	int man;
-	int text;
+	iceBool have_texture;
+	unsigned int man;
+	unsigned int text;
 
-}ICE_Entity;
+}iceEntity;
 
 typedef struct{
 
-	ICE_Entity *entity;
+	iceEntity *entity;
 	unsigned long array_size;
 	unsigned long nb_existing;
 
-}ICE_EntityManager;
+}iceEntityManager;
 
 typedef struct {
 	int returnvalue;
 
-
 	// Window
-	ICE_Window *window;
-	ICE_Renderer *render;
+	iceWindow *window;
+	iceRenderer *render;
 	
 	// Input
-	ICE_Input *input;
+	iceInput *input;
 
 	// Time
-	ICE_Time time;
+	iceTime time;
 
 	// Camera
-	ICE_Camera camera;
+	iceCamera camera;
 
 	//// Manager ////
 	// Texture //
 	
-	unsigned short texturemanager_size;
-	ICE_TextureManager *texturemanager;
+	unsigned int texturemanager_size;
+	iceTextureManager *texturemanager;
 
 	// Sound // Only One soundmanager at a time
-	ICE_SoundManager soundmanager;
+	iceSoundManager soundmanager;
 
 	// Font // Only one for now
-	ICE_FontManager fontmanager;
+	iceFontManager fontmanager;
 
 	// Entity // Multiple
-	unsigned short entitymanager_size;
-	ICE_EntityManager *entitymanager;
+	unsigned int entitymanager_size;
+	iceEntityManager *entitymanager;
 
 	// Data // 
 	int nb_data;
 	void** data;
 
-} ICE_Game;
+} iceGame;
 
 #endif

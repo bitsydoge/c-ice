@@ -1,6 +1,6 @@
 ﻿#include "hdr/Time.h"
 
-int ICE_Random(int min, int max)
+int iceRandom(int min, int max)
 {
 	int result = 0, lowest = 0, highest = 0;
 

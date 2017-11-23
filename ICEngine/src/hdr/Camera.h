@@ -1,17 +1,18 @@
-﻿#ifndef DEF_ICE_CAMERA
-#define DEF_ICE_CAMERA
+﻿#ifndef DEF_iceCAMERA
+#define DEF_iceCAMERA
 
 #include "Struct.h"
+#include "Types.h"
 
 /// Set camera to position
-void ICE_CameraSetPos(ICE_Game *game, const float x, const float y);
+void iceCameraSetPos(iceGame *game, iceVect vect);
 /// Move camera to a position from a r value
-void ICE_CameraMovePos(ICE_Game *game, const float x, const float y, const float r);
+void iceCameraMovePos(iceGame *game, iceVect vect, iceFloat r);
 /// Move camera from X and Y pixel
-void ICE_CameraShiftPos(ICE_Game *game, const float dx, const float dy);
+void iceCameraShiftPos(iceGame *game, iceVect Dvect);
 /// Convert a rect in the virtual coordinate to a screen coordinate with the camera position
-ICE_Rect ICE_CameraWorldScreen(ICE_Rect rect, ICE_Camera *camera);
+iceRect iceCameraWorldScreen(iceRect rect, iceCamera *camera);
 /// Convert a rect in the screen coordinate to a virtual coordinate with the camera position
-ICE_Rect ICE_CameraScreenWorld(ICE_Rect rect, ICE_Camera *camera);
+iceRect iceCameraScreenWorld(iceRect rect, iceCamera *camera);
 
 #endif

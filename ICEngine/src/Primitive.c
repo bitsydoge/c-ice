@@ -1,87 +1,73 @@
 ﻿#include "hdr/Primitive.h"
 
-// RECT
+// Rect
 
-ICE_Rect RectNew(int x, int y, int w, int h){
-	ICE_Rect rect = { x,y,w,h };
+iceRect RectNew(iceFloat x, iceFloat y, iceFloat w, iceFloat h){
+	iceRect rect = { x,y,w,h };
 	return rect;
 }
 
-void RectEdit(ICE_Rect * rect, int x, int y, int w, int h) {
+void RectEdit(iceRect * rect, iceFloat x, iceFloat y, iceFloat w, iceFloat h) {
 	rect->x = x; rect->y = y; rect->w = w; rect->h = h;
 }
 
-void RectMove(ICE_Rect * rect, int x, int y)
+void RectMove(iceRect * rect, iceFloat x, iceFloat y)
 {
 	rect->x = x; rect->y = y;
 }
 
-void RectResize(ICE_Rect *rect, int w, int h)
+void RectResize(iceRect *rect, iceFloat w, iceFloat h)
 {
 	rect->w = w; rect->h = h;
 }
 
-void RectShift(ICE_Rect *rect, int x, int y)
+void RectShift(iceRect *rect, iceFloat x, iceFloat y)
 {
 	rect->x += x; rect->y += y;
 }
 
-// POINT
-
-ICE_Point PointNew(int x, int y) {
-	ICE_Point point = {x,y};
-	return point;
-}
-
-void PointMove(ICE_Point * point, int x, int y) {
-	point->x = x; point->y = y;
-}
-
-void PointShift(ICE_Point *point, int x, int y)
-{
-	point->x += x; point->y += y;
-}
+// Vecto
 
 // RAW
 
-int ICE_PrimPoint(ICE_Game *game, int x, int y, const ICE_Color color){
-	ICE_RenderSetClearColor(game->render, color);
-	return SDL_RenderDrawPoint(game->render, x, y);
+int iceDrawPoint(iceGame *game, iceVect vect, const iceColor color){
+	iceRenderSetClearColor(game->render, color);
+	return SDL_RenderDrawPoint(game->render, vect.x, vect.y);
 }
 
-int ICE_DrawLine(ICE_Game *game, int x1, int y1, int x2, int y2, const ICE_Color color){
-	ICE_RenderSetClearColor(game->render, color);
-	return SDL_RenderDrawLine(game->render, x1, y1, x2, y2);
+int iceDrawLine(iceGame *game, iceVect vect1, iceVect vect2, const iceColor color){
+	iceRenderSetClearColor(game->render, color);
+	return SDL_RenderDrawLine(game->render, vect1.x, vect1.y, vect2.x, vect2.y);
 }
 
-int ICE_DrawRectangle(ICE_Game *game, ICE_Rect rect, const ICE_Color color){
-	ICE_RenderSetClearColor(game->render, color);
-	return SDL_RenderDrawRect(game->render, &rect);
+int iceDrawRectangle(iceGame *game, iceRect rect, const iceColor color){
+	iceRenderSetClearColor(game->render, color);
+	return SDL_RenderDrawRect(game->render, (SDL_Rect[]) { iceRectToSDL(&rect) });
 }
 
-int ICE_DrawRectangleFill(ICE_Game *game, const ICE_Rect rect, const ICE_Color color){
-	ICE_RenderSetClearColor(game->render, color);
-	return SDL_RenderFillRect(game->render, &rect);
+int iceDrawRectangleFill(iceGame *game, iceRect rect, const iceColor color){
+	iceRenderSetClearColor(game->render, color);
+	return SDL_RenderFillRect(game->render, (SDL_Rect[]) { iceRectToSDL(&rect)});
 }
 
 // OPENGL LIKE
 
-int ICE_DrawPointGL(ICE_Game *game, int x, int y, const ICE_Color color) {
-	ICE_RenderSetClearColor(game->render, color);
+int iceDrawPointGL(iceGame *game, int x, int y, const iceColor color) {
+	iceRenderSetClearColor(game->render, color);
 	return SDL_RenderDrawPoint(game->render, x, y);
 }
 
-int ICE_DrawLineGL(ICE_Game *game, int x1, int y1, int x2, int y2, const ICE_Color color) {
-	ICE_RenderSetClearColor(game->render, color);
+int iceDrawLineGL(iceGame *game, int x1, int y1, int x2, int y2, const iceColor color) {
+	iceRenderSetClearColor(game->render, color);
 	return SDL_RenderDrawLine(game->render, x1, y1, x2, y2);
 }
 
-int ICE_DrawRectangleGL(ICE_Game *game, ICE_Rect rect, const ICE_Color color) {
-	ICE_RenderSetClearColor(game->render, color);
-	return SDL_RenderDrawRect(game->render, &rect);
+int iceDrawRectangleGL(iceGame *game, iceRect rect, const iceColor color) {
+	iceRenderSetClearColor(game->render, color);
+	return SDL_RenderDrawRect(game->render, (SDL_Rect[]) { iceRectToSDL(&rect) });
 }
 
-int ICE_DrawRectangleFillGL(ICE_Game *game, const ICE_Rect rect, const ICE_Color color) {
-	ICE_RenderSetClearColor(game->render, color);
-	return SDL_RenderFillRect(game->render, &rect);
+int iceDrawRectangleFillGL(iceGame *game, iceRect rect, const iceColor color) {
+	iceRenderSetClearColor(game->render, color);
+	return SDL_RenderFillRect(game->render, (SDL_Rect[]) { iceRectToSDL(&rect) });
 }

@@ -7,29 +7,29 @@
 //                //
 //                //
 
-int ICE_EntityManagerCreate(ICE_Game *game){
-	ICE_EntityManager entity_manager = { 0 };
+int iceEntityManagerCreate(iceGame *game){
+	iceEntityManager entity_manager = { 0 };
 	entity_manager.array_size = 4;
-	entity_manager.entity = calloc(entity_manager.array_size, sizeof(ICE_Entity));
+	entity_manager.entity = calloc(entity_manager.array_size, sizeof(iceEntity));
 	game->entitymanager_size++;
-	game->entitymanager = realloc(game->entitymanager, game->entitymanager_size * sizeof(ICE_EntityManager));
+	game->entitymanager = realloc(game->entitymanager, game->entitymanager_size * sizeof(iceEntityManager));
 	game->entitymanager[game->entitymanager_size - 1] = entity_manager;
 	printf("EntityManager number %d created \n", game->texturemanager_size - 1);
 	return game->entitymanager_size-1; // Return the entitymanager number
 }
 
-int ICE_EntityCreate(ICE_Game *game, int manager){
+int iceEntityCreate(iceGame *game, int manager){
 	printf("Entity number %d created in manager %d \n", game->entitymanager[manager].nb_existing, manager);
-	ICE_Entity entity = {0};
-	entity.exist = 1;
+	iceEntity entity = {0};
+	entity.exist = iceTrue;
 	game->entitymanager[manager].entity[game->entitymanager[manager].nb_existing] = entity;
 	game->entitymanager[manager].nb_existing++;
 
 	if (game->entitymanager[manager].array_size <= game->entitymanager[manager].nb_existing) {
-		ICE_TermSetColor(LIGHTCYAN);
+		iceTermSetColor(LIGHTCYAN);
 		printf("Extending entity manager size to %d \n", game->entitymanager[manager].array_size * 2);
-		ICE_TermResetColor();
-		game->entitymanager[manager].entity = realloc(game->entitymanager[manager].entity, sizeof(ICE_Entity)*(game->entitymanager[manager].array_size * 2));
+		iceTermResetColor();
+		game->entitymanager[manager].entity = realloc(game->entitymanager[manager].entity, sizeof(iceEntity)*(game->entitymanager[manager].array_size * 2));
 		game->entitymanager[manager].array_size *= 2;
 	}
 	return game->entitymanager->nb_existing - 1;
@@ -43,13 +43,13 @@ int ICE_EntityCreate(ICE_Game *game, int manager){
 //                //
 
 // Define Texture for the entity
-void ICE_EntitySetTexture(ICE_Game *game, int entity_manager, int entity_nb, int texture_manager, int texture_nb){
+void iceEntitySetTexture(iceGame *game, int entity_manager, int entity_nb, int texture_manager, int texture_nb){
 	game->entitymanager[entity_manager].entity[entity_nb].man = texture_manager; game->entitymanager[entity_manager].entity[entity_nb].text = texture_nb;
-	game->entitymanager[entity_manager].entity[entity_nb].has_texture = 1;
+	game->entitymanager[entity_manager].entity[entity_nb].have_texture = iceTrue;
 }
 
-void ICE_EntityRemoveTexture(ICE_Game *game, int entity_manager, int entity_nb) {
-	game->entitymanager[entity_manager].entity[entity_nb].has_texture = 1;
+void iceEntityRemoveTexture(iceGame *game, int entity_manager, int entity_nb) {
+	game->entitymanager[entity_manager].entity[entity_nb].have_texture = iceFalse;
 }
 
 //				  //
@@ -59,17 +59,17 @@ void ICE_EntityRemoveTexture(ICE_Game *game, int entity_manager, int entity_nb) 
 //                //
 
 // Instant move entity to a position
-void ICE_EntitySetPos(ICE_Game *game, int manager, int entity, float x, float y) {
+void iceEntitySetPos(iceGame *game, int manager, int entity, iceFloat x, iceFloat y) {
 	game->entitymanager[manager].entity[entity].x = x; game->entitymanager[manager].entity[entity].y = y;
 }
 
 // Shift position from dX / dY
-void ICE_EntityShiftPos(ICE_Game *game, int manager, int entity, float x, float y) {
+void iceEntityShiftPos(iceGame *game, int manager, int entity, iceFloat x, iceFloat y) {
 	game->entitymanager[manager].entity[entity].x += x * game->time.delta; game->entitymanager[manager].entity[entity].y += y * game->time.delta;
 }
 
 // Move to a position using Polar coordinate
-void ICE_EntityMovePos(ICE_Game *game, int manager, int entity, float x, float y, float r) {
+void iceEntityMovePos(iceGame *game, int manager, int entity, iceFloat x, iceFloat y, iceFloat r) {
 	float xdif = x - game->entitymanager[manager].entity[entity].x; float ydif = y - game->entitymanager[manager].entity[entity].y;
 	float angle = atan2(ydif, xdif);
 	float distance_r_r = xdif*xdif + ydif*ydif;
@@ -81,24 +81,24 @@ void ICE_EntityMovePos(ICE_Game *game, int manager, int entity, float x, float y
 	}
 }
 
-void ICE_EntitySetSize(ICE_Game *game, int entity_manager, int entity_nb, float w, float h){
+void iceEntitySetSize(iceGame *game, int entity_manager, int entity_nb, iceFloat w, iceFloat h){
 	game->entitymanager[entity_manager].entity[entity_nb].w = w; game->entitymanager[entity_manager].entity[entity_nb].h = h;
 }
 
 
-void ICE_EntitySetAngle(ICE_Game *game, int manager, int entity, float angle)
+void iceEntitySetAngle(iceGame *game, int manager, int entity, iceFloat angle)
 {
 	
 }
 
-void ICE_EntityAddAngle(ICE_Game *game, int manager, int entity, float angle)
+void iceEntityAddAngle(iceGame *game, int manager, int entity, iceFloat angle)
 {
 
 }
 
-ICE_Rect ICE_EntityGetRect(ICE_Game *game, int manager, int entity)
+iceRect iceEntityGetRect(iceGame *game, int manager, int entity)
 {
-	ICE_Rect rect =
+	iceRect rect =
 	{
 		game->entitymanager[manager].entity[entity].x,
 		game->entitymanager[manager].entity[entity].y,
@@ -115,12 +115,12 @@ ICE_Rect ICE_EntityGetRect(ICE_Game *game, int manager, int entity)
 //                //
 
 // Link a Data struct to a Entity
-void ICE_EntityAddData(ICE_Game *game, int manager, int entity, size_t size){
+void iceEntityAddData(iceGame *game, int manager, int entity, size_t size){
 	
 }
 
 // Return pointer of a Data from a Entity
-void ICE_EntityGetData(){
+void iceEntityGetData(){
 	
 }
 
@@ -131,20 +131,20 @@ void ICE_EntityGetData(){
 //                //
 //                //
 
-void ICE_EntityDrawAll(ICE_Game *game)
+void iceEntityDrawAll(iceGame *game)
 {
 	for (int i = 0; i < game->entitymanager_size; i++)
 		for(int j = 0; j < game->entitymanager[i].nb_existing; j++)
 		{
-			if(game->entitymanager[i].entity[j].has_texture && game->entitymanager[i].entity[j].exist)
+			if(game->entitymanager[i].entity[j].have_texture && game->entitymanager[i].entity[j].exist)
 			{
-				ICE_Rect rect = ICE_CameraWorldScreen(RectNew(
+				iceRect rect = iceCameraWorldScreen(RectNew(
 					game->entitymanager[i].entity[j].x,
 					game->entitymanager[i].entity[j].y,
 					game->entitymanager[i].entity[j].w,
 					game->entitymanager[i].entity[j].h), &game->camera);
 
-				ICE_TextureRender(
+				iceTextureRenderCentered(
 					game,
 					game->entitymanager[i].entity[j].man,
 					game->entitymanager[i].entity[j].text,
