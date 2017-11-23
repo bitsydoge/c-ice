@@ -1,10 +1,10 @@
 ﻿#include "hdr/Substate.h"
 
-// Create a substate with the ICE_Game but with new Create/Update/Destroy function. This must be called only for specifique thing
+// Create a substate with the iceGame but with new Create/Update/Destroy function. This must be called only for specifique thing
 
 
-int ICE_SubstateLoop(ICE_Game* game, void(*call_create)(ICE_Game*), void(*call_update)(ICE_Game*), void(*call_destroy)(ICE_Game*)) {
-	ICE_InputReset(game->input);
+int iceSubstateLoop(iceGame* game, void(*call_create)(iceGame*), void(*call_update)(iceGame*), void(*call_destroy)(iceGame*)) {
+	iceInputReset(game->input);
 	call_create(game);
 	game->input->substate_quit = 0;
 	while (!game->input->quit && !game->input->substate_quit) {
@@ -13,8 +13,8 @@ int ICE_SubstateLoop(ICE_Game* game, void(*call_create)(ICE_Game*), void(*call_u
 		game->time.delta = (float)game->time.ticksEllapsed / 1000; // update the time.delta
 		if (game->time.ticksEllapsed > game->time.ticks) {// if the ticks ellapsed is superiore to the ticks for a frame it run the loop
 			game->time.fps = (float)(1000 / game->time.ticksEllapsed); // calculate fps
-			ICE_InputReturn(game, game->input);
-			ICE_RenderClear(game->render);
+			iceInputReturn(game, game->input);
+			iceRenderClear(game->render);
 			call_update(game); // Call Update
 			game->time.last = game->time.actual; // restart counter
 		}
@@ -24,7 +24,7 @@ int ICE_SubstateLoop(ICE_Game* game, void(*call_create)(ICE_Game*), void(*call_u
 	game->input->substate_quit = 1;
 	call_destroy(game);
 	int returnvalue = game->returnvalue;
-	ICE_GameDestroy(game);
-	ICE_InputReset(game->input);
+	iceGameDestroy(game);
+	iceInputReset(game->input);
 	return returnvalue;
 }

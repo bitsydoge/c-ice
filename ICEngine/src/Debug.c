@@ -1,55 +1,55 @@
 ﻿#include "hdr/Debug.h"
 
 
-void ICE_DebugMouseCoordinate(ICE_Game *game)
+void iceDebugMouseCoordinate(iceGame *game)
 {
 	char coo[20];
 	iceRect coordinate = { game->input->mousex, game->input->mousey };
 	if (game->input->leftclic)
-		coordinate = ICE_CameraScreenWorld(coordinate, &game->camera);
+		coordinate = iceCameraScreenWorld(coordinate, &game->camera);
 	sprintf(coo, "%0.1f, %0.1f", coordinate.x, coordinate.y);
 	
 	iceVect vect = { game->input->mousex + 10, game->input->mousey + 10 };
-	ICE_FontDraw(game, coo, 10, vect);
+	iceFontDraw(game, coo, 10, vect);
 }
 
-void ICE_DebugShowFps(ICE_Game *game)
+void iceDebugShowFps(iceGame *game)
 {
 	char gh[100];
 	sprintf(gh, "%f", game->time.fps);
-	ICE_FontDraw(game, gh, 20, iceVectNew(10, 5));
+	iceFontDraw(game, gh, 20, iceVectNew(10, 5));
 }
 
-void ICE_DebugShowFpsTitle(ICE_Game *game)
+void iceDebugShowFpsTitle(iceGame *game)
 {
 	char buffer[25];
 	sprintf(buffer, "FPS : [%0.1f]", game->time.fps);
-	ICE_GameTitle(game, buffer);
+	iceGameTitle(game, buffer);
 }
 
-void _ICE_Assert_(const char* expr_str, int expr, const char* file, int line, const char* msg)
+void _iceAssert_(const char* expr_str, int expr, const char* file, int line, const char* msg)
 {
 	if (!expr)
 	{
-		ICE_TermSetColor(LIGHTRED);
+		iceTermSetColor(LIGHTRED);
 		printf("\n\n\t\t-------------------[ERROR]-------------------\t\t\n\n");
-		ICE_TermResetColor();
+		iceTermResetColor();
 		printf("Assert Msg\t:\t");
-		ICE_TermSetColor(LIGHTGREEN);
+		iceTermSetColor(LIGHTGREEN);
 		printf("%s\n", msg);
-		ICE_TermResetColor();
+		iceTermResetColor();
 		printf("Expected\t:\t");
-		ICE_TermSetColor(LIGHTMAGENTA);
+		iceTermSetColor(LIGHTMAGENTA);
 		printf("%s\n", expr_str);
-		ICE_TermResetColor();
+		iceTermResetColor();
 		printf("Source File\t:\t"); 
-		ICE_TermSetColor(YELLOW);
+		iceTermSetColor(YELLOW);
 		printf("%s\n", file); 
-		ICE_TermResetColor();
+		iceTermResetColor();
 		printf("At the Line\t:\t"); 
-		ICE_TermSetColor(LIGHTCYAN);
+		iceTermSetColor(LIGHTCYAN);
 		printf("%d\n\n", line);
-		ICE_TermSetColor(LIGHTRED);
+		iceTermSetColor(LIGHTRED);
 		printf("\t\t-------------------[ERROR]-------------------\t\t\n");
 		abort();
 	}

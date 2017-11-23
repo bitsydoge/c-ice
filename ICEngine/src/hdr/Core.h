@@ -1,10 +1,10 @@
-﻿#ifndef DEF_ICE_CORE
-#define DEF_ICE_CORE
+﻿#ifndef DEF_iceCORE
+#define DEF_iceCORE
 
-#define ICE_GAME_RUN ICE_CoreLoop(GameCreate, GameUpdate, GameDestroy)
-#define ICE_CREATE ICE_Game GameCreate(void)
-#define ICE_UPDATE void GameUpdate(ICE_Game *game)
-#define ICE_DESTROY void GameDestroy(ICE_Game *game)
+#define ICE_GAME_RUN iceCoreLoop(GameCreate, GameUpdate, GameDestroy)
+#define ICE_CREATE iceGame GameCreate(void)
+#define ICE_UPDATE void GameUpdate(iceGame *game)
+#define ICE_DESTROY void GameDestroy(iceGame *game)
 
 
 #include <time.h>
@@ -30,8 +30,8 @@
 #include "Types.h"
 #include "Vector.h"
 
-int ICE_CoreInit();
-int ICE_CoreClose();
-int ICE_CoreLoop(ICE_Game(*call_create)(void), void(*call_update)(ICE_Game*), void(*call_destroy)(ICE_Game*));
+int iceCoreInit();
+int iceCoreClose();
+int iceCoreLoop(iceGame(*call_create)(void), void(*call_update)(iceGame*), void(*call_destroy)(iceGame*));
 
 #endif

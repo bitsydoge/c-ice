@@ -1,18 +1,18 @@
 #include "hdr/Terminal.h"
 
-void ICE_TermSaveColor()
+void iceTermSaveColor()
 {
     saveDefaultColor();    
 }
-void ICE_TermResetColor()
+void iceTermResetColor()
 {
     resetColor(); 
 }
-void ICE_TermSetColor(int c)
+void iceTermSetColor(int c)
 {
     setColor(c);
 }
-void ICE_TermSetBgColor(int c)
+void iceTermSetBgColor(int c)
 {
     setBackgroundColor(c);
 }

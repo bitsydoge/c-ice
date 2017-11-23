@@ -1,5 +1,5 @@
-﻿#ifndef DEF_ICE_TYPES
-#define DEF_ICE_TYPES
+﻿#ifndef DEF_iceTYPES
+#define DEF_iceTYPES
 #include <stdint.h>
 
 typedef char iceBool;

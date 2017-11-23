@@ -1,7 +1,7 @@
 #include <SDL2/SDL.h>
 #include "hdr/Input.h"
 
-int ICE_InputReturn(ICE_Game *game, ICE_Input *input)
+int iceInputReturn(iceGame *game, iceInput *input)
 {
 	static SDL_Event event;
 	while (SDL_PollEvent(&event))
@@ -94,12 +94,12 @@ int ICE_InputReturn(ICE_Game *game, ICE_Input *input)
 	return 0;
 }
 
-void ICE_InputReset(ICE_Input *input){
+void iceInputReset(iceInput *input){
 	int temp = input->focus;
 	int temp2 = input->quit;
 	int mousex = input->mousex;
 	int mousey = input->mousey;
-	memset(input, 0, sizeof(ICE_Input));
+	memset(input, 0, sizeof(iceInput));
 	input->focus = temp;
 	input->quit = temp2;
 	input->mousex = mousex;
@@ -107,7 +107,7 @@ void ICE_InputReset(ICE_Input *input){
 
 	
 	printf("Input Reset : ");
-	ICE_TermSetColor(GREEN);
+	iceTermSetColor(GREEN);
 	printf("OK\n");
-	ICE_TermResetColor();
+	iceTermResetColor();
 }

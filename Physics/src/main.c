@@ -11,9 +11,9 @@ typedef struct
 } DATA;
 
 ICE_CREATE {
-	ICE_Game game = ICE_GameCreate("ICE : Hello World", 800, 480);
-	DATA *data = ICE_AddData(&game, sizeof(DATA));
-	ICE_FontLoad(&game, "res/ttf/FiraSans-Medium.ttf");
+	iceGame game = iceGameCreate("ICE : Hello World", 800, 480);
+	DATA *data = iceAddData(&game, sizeof(DATA));
+	iceFontLoad(&game, "res/ttf/FiraSans-Medium.ttf");
 
 
 
@@ -31,11 +31,11 @@ ICE_CREATE {
 }
 
 ICE_UPDATE {
-	DATA *data = ICE_GetData(game, 0);
+	DATA *data = iceGetData(game, 0);
 	cpFloat timeStep = 1.0 / game->time.fps;
 	cpSpaceStep(data->space, timeStep);
 	cpVect vect = cpBodyGetPosition(data->textBody);
-	ICE_FontDraw(game, "Hello World", 80, iceVectNew(vect.x, vect.y));
+	iceFontDraw(game, "Hello World", 80, iceVectNew(vect.x, vect.y));
 }
 
 ICE_DESTROY {

@@ -1,5 +1,5 @@
-﻿#ifndef DEF_ICE_RECT
-#define DEF_ICE_RECT
+﻿#ifndef DEF_iceRECT
+#define DEF_iceRECT
 
 #include <SDL2/SDL.h>
 #include "Types.h"
