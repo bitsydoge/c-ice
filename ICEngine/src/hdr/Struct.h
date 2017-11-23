@@ -4,14 +4,11 @@
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
+#include "Rect.h"
 
 //SDL typedef layer
-typedef SDL_Rect ICE_Rect;
-typedef SDL_Point ICE_Point;
 typedef SDL_Window ICE_Window;
 typedef SDL_Renderer ICE_Renderer;
-typedef Uint32 ICE_Color;
-typedef char ICE_Bool;
 
 typedef struct
 {
@@ -139,11 +136,11 @@ typedef struct{
 	int exist;
 	
 	// Position
-	float x, y;
-	float angle;
+	iceFloat x, y;
+	iceFloat angle;
 
 	// Size
-	float w, h;
+	iceFloat w, h;
 	
 	// Data Array
 	void **data;

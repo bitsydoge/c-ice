@@ -49,7 +49,7 @@ void ICE_EntitySetTexture(ICE_Game *game, int entity_manager, int entity_nb, int
 }
 
 void ICE_EntityRemoveTexture(ICE_Game *game, int entity_manager, int entity_nb) {
-	game->entitymanager[entity_manager].entity[entity_nb].has_texture = 1;
+	game->entitymanager[entity_manager].entity[entity_nb].has_texture = 0;
 }
 
 //				  //
@@ -59,17 +59,17 @@ void ICE_EntityRemoveTexture(ICE_Game *game, int entity_manager, int entity_nb) 
 //                //
 
 // Instant move entity to a position
-void ICE_EntitySetPos(ICE_Game *game, int manager, int entity, float x, float y) {
+void ICE_EntitySetPos(ICE_Game *game, int manager, int entity, iceFloat x, iceFloat y) {
 	game->entitymanager[manager].entity[entity].x = x; game->entitymanager[manager].entity[entity].y = y;
 }
 
 // Shift position from dX / dY
-void ICE_EntityShiftPos(ICE_Game *game, int manager, int entity, float x, float y) {
+void ICE_EntityShiftPos(ICE_Game *game, int manager, int entity, iceFloat x, iceFloat y) {
 	game->entitymanager[manager].entity[entity].x += x * game->time.delta; game->entitymanager[manager].entity[entity].y += y * game->time.delta;
 }
 
 // Move to a position using Polar coordinate
-void ICE_EntityMovePos(ICE_Game *game, int manager, int entity, float x, float y, float r) {
+void ICE_EntityMovePos(ICE_Game *game, int manager, int entity, iceFloat x, iceFloat y, iceFloat r) {
 	float xdif = x - game->entitymanager[manager].entity[entity].x; float ydif = y - game->entitymanager[manager].entity[entity].y;
 	float angle = atan2(ydif, xdif);
 	float distance_r_r = xdif*xdif + ydif*ydif;
@@ -81,24 +81,24 @@ void ICE_EntityMovePos(ICE_Game *game, int manager, int entity, float x, float y
 	}
 }
 
-void ICE_EntitySetSize(ICE_Game *game, int entity_manager, int entity_nb, float w, float h){
+void ICE_EntitySetSize(ICE_Game *game, int entity_manager, int entity_nb, iceFloat w, iceFloat h){
 	game->entitymanager[entity_manager].entity[entity_nb].w = w; game->entitymanager[entity_manager].entity[entity_nb].h = h;
 }
 
 
-void ICE_EntitySetAngle(ICE_Game *game, int manager, int entity, float angle)
+void ICE_EntitySetAngle(ICE_Game *game, int manager, int entity, iceFloat angle)
 {
 	
 }
 
-void ICE_EntityAddAngle(ICE_Game *game, int manager, int entity, float angle)
+void ICE_EntityAddAngle(ICE_Game *game, int manager, int entity, iceFloat angle)
 {
 
 }
 
-ICE_Rect ICE_EntityGetRect(ICE_Game *game, int manager, int entity)
+iceRect ICE_EntityGetRect(ICE_Game *game, int manager, int entity)
 {
-	ICE_Rect rect =
+	iceRect rect =
 	{
 		game->entitymanager[manager].entity[entity].x,
 		game->entitymanager[manager].entity[entity].y,
@@ -138,7 +138,7 @@ void ICE_EntityDrawAll(ICE_Game *game)
 		{
 			if(game->entitymanager[i].entity[j].has_texture && game->entitymanager[i].entity[j].exist)
 			{
-				ICE_Rect rect = ICE_CameraWorldScreen(RectNew(
+				iceRect rect = ICE_CameraWorldScreen(RectNew(
 					game->entitymanager[i].entity[j].x,
 					game->entitymanager[i].entity[j].y,
 					game->entitymanager[i].entity[j].w,

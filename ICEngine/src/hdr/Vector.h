@@ -1,0 +1,10 @@
+﻿#ifndef DEF_ICE_VECTOR
+#define DEF_ICE_VECTOR
+
+#include "Types.h"
+
+iceVect iceVectNew(iceFloat x, iceFloat y);
+void iceVectAdd(iceVect *point, iceVect vect);
+void iceVectSub(iceVect *point, iceVect vect);
+
+#endif

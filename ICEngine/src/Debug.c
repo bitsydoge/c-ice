@@ -4,20 +4,20 @@
 void ICE_DebugMouseCoordinate(ICE_Game *game)
 {
 	char coo[20];
-	ICE_Rect coordinate = { game->input->mousex, game->input->mousey };
+	iceRect coordinate = { game->input->mousex, game->input->mousey };
 	if (game->input->leftclic)
 		coordinate = ICE_CameraScreenWorld(coordinate, &game->camera);
-	sprintf(coo, "%d, %d", coordinate.x, coordinate.y);
+	sprintf(coo, "%0.1f, %0.1f", coordinate.x, coordinate.y);
 	
-	ICE_Point rect = { game->input->mousex + 10, game->input->mousey + 10 };
-	ICE_FontDraw(game, coo, 10, rect);
+	iceVect vect = { game->input->mousex + 10, game->input->mousey + 10 };
+	ICE_FontDraw(game, coo, 10, vect);
 }
 
 void ICE_DebugShowFps(ICE_Game *game)
 {
 	char gh[100];
 	sprintf(gh, "%f", game->time.fps);
-	ICE_FontDraw(game, gh, 20, PointNew(10, 5));
+	ICE_FontDraw(game, gh, 20, iceVectNew(10, 5));
 }
 
 void ICE_DebugShowFpsTitle(ICE_Game *game)

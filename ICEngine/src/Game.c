@@ -53,7 +53,7 @@ void ICE_GameDestroy(ICE_Game *app)
 
 /// WINDOW EFFECT
 
-void ICE_GameResizable(ICE_Game *game, ICE_Bool yn)
+void ICE_GameResizable(ICE_Game *game, iceBool yn)
 {
 	//SDL_SetWindowResizable(game->window, yn);
 }

@@ -36,12 +36,14 @@
     <ClCompile Include="src\Primitive.c" />
     <ClCompile Include="src\raw\Raw_error.c" />
     <ClCompile Include="src\raw\Raw_icon.c" />
+    <ClCompile Include="src\Rect.c" />
     <ClCompile Include="src\Render.c" />
     <ClCompile Include="src\Sound.c" />
     <ClCompile Include="src\Substate.c" />
     <ClCompile Include="src\Terminal.c" />
     <ClCompile Include="src\Texture.c" />
     <ClCompile Include="src\Time.c" />
+    <ClCompile Include="src\Vector.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\external\icestd.h" />
@@ -58,6 +60,7 @@
     <ClInclude Include="src\hdr\Map.h" />
     <ClInclude Include="src\hdr\Physics.h" />
     <ClInclude Include="src\hdr\Primitive.h" />
+    <ClInclude Include="src\hdr\Rect.h" />
     <ClInclude Include="src\hdr\Render.h" />
     <ClInclude Include="src\hdr\Sound.h" />
     <ClInclude Include="src\hdr\Struct.h" />
@@ -65,6 +68,8 @@
     <ClInclude Include="src\hdr\Terminal.h" />
     <ClInclude Include="src\hdr\Texture.h" />
     <ClInclude Include="src\hdr\Time.h" />
+    <ClInclude Include="src\hdr\Types.h" />
+    <ClInclude Include="src\hdr\Vector.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\hdr\Debug.h" />
