@@ -1,22 +1,22 @@
 ﻿#include "hdr/Sound.h"
 #include <SDL2/SDL_mixer.h>
 
-void ICE_SoundManagerCreate(ICE_Game *game) {
-	ICE_SoundManager soundmanager = { 0 };
+void iceSoundManagerCreate(iceGame *game) {
+	iceSoundManager soundmanager = { 0 };
 	game->soundmanager = soundmanager;
 	// Music
 	game->soundmanager.size_musicpack = 4;
 	game->soundmanager.tofill_music = 0;
-	game->soundmanager.musicpack = calloc(game->soundmanager.size_musicpack, sizeof(ICE_Music));
+	game->soundmanager.musicpack = calloc(game->soundmanager.size_musicpack, sizeof(iceMusic));
 	//game->soundmanager.musicpack[game->soundmanager.tofill_music].music = calloc(1, sizeof(Mix_Music*));
 	// Sound
 	game->soundmanager.size_soundpack = 4;
 	game->soundmanager.tofill_soundpack = 0;
-	game->soundmanager.soundpack = calloc(game->soundmanager.size_soundpack, sizeof(ICE_Sound));
+	game->soundmanager.soundpack = calloc(game->soundmanager.size_soundpack, sizeof(iceSound));
 	//game->soundmanager.soundpack[game->soundmanager.tofill_sound].sound = calloc(1, sizeof(Mix_Chunk*));
 }
 
-void ICE_MusicCreate(ICE_Game *game, char *path) {
+void iceMusicCreate(iceGame *game, char *path) {
 	game->soundmanager.musicpack[game->soundmanager.tofill_music].music = Mix_LoadMUS(path);
 	if (game->soundmanager.musicpack[game->soundmanager.tofill_music].music != NULL) {
 		printf("Music number : %d loaded from %s \n", game->soundmanager.tofill_music, path);
@@ -24,7 +24,7 @@ void ICE_MusicCreate(ICE_Game *game, char *path) {
 		if (game->soundmanager.tofill_music >= game->soundmanager.size_musicpack) {
 			game->soundmanager.size_musicpack *= 2;
 			printf("Musicpack size is now : %d \n", game->soundmanager.size_musicpack);
-			game->soundmanager.musicpack = realloc(game->soundmanager.musicpack, sizeof(ICE_Music)*(game->soundmanager.size_musicpack));
+			game->soundmanager.musicpack = realloc(game->soundmanager.musicpack, sizeof(iceMusic)*(game->soundmanager.size_musicpack));
 		}
 
 	}
@@ -32,7 +32,7 @@ void ICE_MusicCreate(ICE_Game *game, char *path) {
 		printf("ERROR : Can't load music from %s \n", path);
 }
 
-void ICE_SoundCreate(ICE_Game *game, char *path){
+void iceSoundCreate(iceGame *game, char *path){
 	game->soundmanager.soundpack[game->soundmanager.tofill_soundpack].sound = Mix_LoadWAV(path);
 	if (game->soundmanager.soundpack[game->soundmanager.tofill_soundpack].sound != NULL) {
 		printf("Sound number : %d loaded from %s \n", game->soundmanager.tofill_soundpack, path);
@@ -40,14 +40,14 @@ void ICE_SoundCreate(ICE_Game *game, char *path){
 		if (game->soundmanager.tofill_soundpack >= game->soundmanager.size_soundpack) {
 			game->soundmanager.size_soundpack *= 2;
 			printf("Soundpack size is now : %d \n", game->soundmanager.size_soundpack);
-			game->soundmanager.soundpack = realloc(game->soundmanager.soundpack, sizeof(ICE_Sound)*(game->soundmanager.size_soundpack));
+			game->soundmanager.soundpack = realloc(game->soundmanager.soundpack, sizeof(iceSound)*(game->soundmanager.size_soundpack));
 		}
 	}
 	else
 		printf("ERROR : Can't load sound from %s \n", path);
 }
 
-int ICE_MusicPlay(ICE_Game *game, const int nb, const int volume){
+int iceMusicPlay(iceGame *game, const int nb, const int volume){
 	if (game->soundmanager.musicpack[nb].music != NULL){
 		Mix_PlayMusic(game->soundmanager.musicpack[nb].music, -1);
 		Mix_VolumeMusic(volume);
@@ -57,7 +57,7 @@ return -1;
 
 }
 
-int ICE_SoundPlay(ICE_Game *game, const int chunk, const int volume){
+int iceSoundPlay(iceGame *game, const int chunk, const int volume){
 	if (game->soundmanager.tofill_soundpack >= chunk){
 		if (game->soundmanager.soundpack[chunk].sound != NULL){
 			Mix_Volume(Mix_PlayChannel(-1, game->soundmanager.soundpack[chunk].sound, 0), volume);

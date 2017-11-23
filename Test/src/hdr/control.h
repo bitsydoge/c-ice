@@ -5,6 +5,6 @@
 #include "menu.h"
 #include "data.h"
 
-void Control(ICE_Game *game);
+void Control(iceGame *game);
 
 #endif

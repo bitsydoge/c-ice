@@ -2,9 +2,9 @@
 #include "hdr/Core.h"
 
 
-int ICE_CoreInit(){
+int iceCoreInit(){
 	srand(time(NULL));
-	ICE_TermSaveColor();
+	iceTermSaveColor();
 	SDL_Init(SDL_INIT_VIDEO);
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
 	TTF_Init();
@@ -15,15 +15,15 @@ int ICE_CoreInit(){
 	return 0;
 }
 
-int ICE_CoreClose(){
+int iceCoreClose(){
 	SDL_Quit();
 	Mix_CloseAudio();
 	return 0;
 }
 
-int ICE_CoreLoop(ICE_Game(*call_create)(void), void(*call_update)(ICE_Game*), void(*call_destroy)(ICE_Game*)){
-	ICE_CoreInit();
-	ICE_Game game = call_create();
+int iceCoreLoop(iceGame(*call_create)(void), void(*call_update)(iceGame*), void(*call_destroy)(iceGame*)){
+	iceCoreInit();
+	iceGame game = call_create();
 	while (!game.input->quit){
 		game.time.actual = SDL_GetTicks(); // ticks since start of software at the start of loop
 		game.time.ticksEllapsed = game.time.actual - game.time.last; // calculate nb of ticks ellapsed
@@ -31,17 +31,17 @@ int ICE_CoreLoop(ICE_Game(*call_create)(void), void(*call_update)(ICE_Game*), vo
 		//if (game.time.ticksEllapsed > game.time.ticks) {// if the ticks ellapsed is superiore to the ticks for a frame it run the loop
 			if(game.time.ticksEllapsed)
 				game.time.fps = (double)(1000 / game.time.ticksEllapsed); // calculate fps
-			ICE_InputReturn(&game, game.input);
-			ICE_RenderSetClearColor(game.render, NewColor(0, 0, 0));
-			ICE_RenderClear(game.render);
+			iceInputReturn(&game, game.input);
+			iceRenderSetClearColor(game.render, NewColor(0, 0, 0));
+			iceRenderClear(game.render);
 			call_update(&game); // Call Update
-			ICE_RenderPresent(game.render);
+			iceRenderPresent(game.render);
 			game.time.last = game.time.actual; // restart counter
 		//}
 		//else // else it wait until the nb of ticks is enough to fix fps to max fps
 			//SDL_Delay((Uint32)(game.time.ticks - (game.time.actual - game.time.last)));
 	}
 	call_destroy(&game);
-	ICE_CoreClose();
+	iceCoreClose();
 	return 0;
 }

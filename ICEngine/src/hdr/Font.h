@@ -1,10 +1,10 @@
-#ifndef DEF_ICE_FONT
-#define DEF_ICE_FONT
+#ifndef DEF_iceFONT
+#define DEF_iceFONT
 
 #include "Game.h"
 #include <stdio.h>
 
-void ICE_FontLoad(ICE_Game* game, char *path);
-void ICE_FontDraw(ICE_Game* game, char* text, int size, ICE_Point point);
+void iceFontLoad(iceGame* game, char *path);
+void iceFontDraw(iceGame* game, char* text, int size, iceVect vect);
 
 #endif

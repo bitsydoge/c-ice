@@ -85,6 +85,15 @@
     <ClCompile Include="src\Terminal.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Vector.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rect.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\external\nanojpeg.c">
+      <Filter>external</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\external\lodepng.h">
@@ -149,6 +158,18 @@
     </ClInclude>
     <ClInclude Include="src\hdr\Terminal.h">
       <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Types.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Vector.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Rect.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\external\nanojpeg.h">
+      <Filter>external</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
