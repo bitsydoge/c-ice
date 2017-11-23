@@ -22,6 +22,7 @@
     <ClCompile Include="src\Data.c" />
     <ClCompile Include="src\Debug.c" />
     <ClCompile Include="src\Entity.c" />
+    <ClCompile Include="src\external\nanojpeg.c" />
     <ClCompile Include="src\Font.c" />
     <ClCompile Include="src\Game.c" />
     <ClCompile Include="src\Camera.c" />
@@ -48,6 +49,7 @@
   <ItemGroup>
     <ClInclude Include="src\external\icestd.h" />
     <ClInclude Include="src\external\lodepng.h" />
+    <ClInclude Include="src\external\nanojpeg.h" />
     <ClInclude Include="src\external\rlutil.h" />
     <ClInclude Include="src\hdr\Data.h" />
     <ClInclude Include="src\hdr\Entity.h" />

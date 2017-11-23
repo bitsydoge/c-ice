@@ -4,11 +4,15 @@
 #include <SDL2/SDL.h>
 #include "Struct.h"
 #include "Types.h"
+#include "Rect.h"
 #include <stdio.h>
 #include "../external/lodepng.h"
+#include "../external/nanojpeg.h"
 #include "Terminal.h"
 #include "../external/icestd.h"
 
+/// Load a JPG with nanojpeg to a Texture
+ICE_Texture* ICE_LoadJPG(SDL_Renderer *render, char *path);
 /// Load a PNG with lodepng to a Texture with Error handling
 ICE_Texture* ICE_LoadPNG(ICE_Renderer *render, char *path);
 /// Load a BMP with SDL_LoadBMP to a Texture with Error handling
@@ -31,5 +35,9 @@ iceColor NewColorA(const unsigned int r, const unsigned int g, const unsigned in
 void ICE_TextureManagerCreate(ICE_Game *game);
 /// Create a Texture in the choosed manager; Return the texture number
 int ICE_TextureCreate(ICE_Game *game, int manager, char* path);
+/// Get a texture width
+int ICE_TextureGetWidth(ICE_Game *game, int manager, int texture);
+/// Get a texture height
+int ICE_TextureGetHeight(ICE_Game *game, int manager, int texture);
 
 #endif
