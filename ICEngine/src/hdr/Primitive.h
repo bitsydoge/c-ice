@@ -3,12 +3,6 @@
 #include "Struct.h"
 #include "Render.h"
 
-iceRect RectNew(iceFloat x, iceFloat y, iceFloat w, iceFloat h);
-void RectEdit(iceRect * rect, iceFloat x, iceFloat y, iceFloat w, iceFloat h);
-void RectMove(iceRect * rect, iceFloat x, iceFloat y);
-void RectResize(iceRect * rect, iceFloat w, iceFloat h);
-void RectShift(iceRect * rect, iceFloat x, iceFloat y);
-
 /// Draw Point
 int iceDrawPoint(iceGame *game, int x, int y, const iceColor color);
 /// Draw Line

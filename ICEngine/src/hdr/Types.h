@@ -17,8 +17,7 @@ typedef struct iceVect
 
 typedef struct iceRect
 {
-	iceFloat x;
-	iceFloat y;
+	iceVect p;
 	iceFloat w;
 	iceFloat h;
 

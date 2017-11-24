@@ -138,7 +138,7 @@ void iceEntityDrawAll(iceGame *game)
 		{
 			if(game->entitymanager[i].entity[j].have_texture && game->entitymanager[i].entity[j].exist)
 			{
-				iceRect rect = iceCameraWorldScreen(RectNew(
+				iceRect rect = iceCameraWorldScreen(iceRectNew(
 					game->entitymanager[i].entity[j].x,
 					game->entitymanager[i].entity[j].y,
 					game->entitymanager[i].entity[j].w,

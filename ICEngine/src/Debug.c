@@ -7,7 +7,7 @@ void iceDebugMouseCoordinate(iceGame *game)
 	iceRect coordinate = { game->input->mousex, game->input->mousey };
 	if (game->input->leftclic)
 		coordinate = iceCameraScreenWorld(coordinate, &game->camera);
-	sprintf(coo, "%0.1f, %0.1f", coordinate.x, coordinate.y);
+	sprintf(coo, "%0.1f, %0.1f", coordinate.p.x, coordinate.p.y);
 	
 	iceVect vect = { game->input->mousex + 10, game->input->mousey + 10 };
 	iceFontDraw(game, coo, 10, vect);

@@ -1,33 +1,5 @@
 ﻿#include "hdr/Primitive.h"
 
-// Rect
-
-iceRect RectNew(iceFloat x, iceFloat y, iceFloat w, iceFloat h){
-	iceRect rect = { x,y,w,h };
-	return rect;
-}
-
-void RectEdit(iceRect * rect, iceFloat x, iceFloat y, iceFloat w, iceFloat h) {
-	rect->x = x; rect->y = y; rect->w = w; rect->h = h;
-}
-
-void RectMove(iceRect * rect, iceFloat x, iceFloat y)
-{
-	rect->x = x; rect->y = y;
-}
-
-void RectResize(iceRect *rect, iceFloat w, iceFloat h)
-{
-	rect->w = w; rect->h = h;
-}
-
-void RectShift(iceRect *rect, iceFloat x, iceFloat y)
-{
-	rect->x += x; rect->y += y;
-}
-
-// Vecto
-
 // RAW
 
 int iceDrawPoint(iceGame *game, iceVect vect, const iceColor color){

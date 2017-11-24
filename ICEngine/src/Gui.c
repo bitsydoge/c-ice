@@ -11,8 +11,8 @@ void iceGuiRect(iceGame *game, int man, int text, iceRect rect)
 
 	// CENTER
 
-	src.x = wtext3; src.y = htext3;
-	dst.x = rect.x + wtext3; dst.y = rect.y + htext3;
+	src.p.x = wtext3; src.p.y = htext3;
+	dst.p.x = rect.p.x + wtext3; dst.p.y = rect.p.y + htext3;
 	dst.w = rect.w - (wtext3) * 2; dst.h = rect.h - (htext3) * 2;
 
 	iceTextureRender(game, man, text, &src, &dst);
@@ -21,7 +21,7 @@ void iceGuiRect(iceGame *game, int man, int text, iceRect rect)
 
 	// UPMID
 
-	src.x = wtext3; src.y = 0; dst.y = rect.y; dst.x = rect.x + wtext3;
+	src.p.x = wtext3; src.p.y = 0; dst.p.y = rect.p.y; dst.p.x = rect.p.x + wtext3;
 	dst.w = rect.w - (wtext3 * 2);
 
 	iceTextureRender(game, man, text, &src, &dst);
@@ -30,8 +30,8 @@ void iceGuiRect(iceGame *game, int man, int text, iceRect rect)
 
 	// LEFTMID
 
-	src.x = 0; src.y = htext3;
-	dst.x = rect.x; dst.y = rect.y + htext3;
+	src.p.x = 0; src.p.y = htext3;
+	dst.p.x = rect.p.x; dst.p.y = rect.p.y + htext3;
 	dst.h = rect.h - (htext3 * 2);
 
 	iceTextureRender(game, man, text, &src, &dst);
@@ -40,8 +40,8 @@ void iceGuiRect(iceGame *game, int man, int text, iceRect rect)
 
 	// RIGHT MID
 
-	src.x = wtext3 * 2; src.y = htext3;
-	dst.x = rect.x + rect.w - wtext3; dst.y = rect.y + htext3;
+	src.p.x = wtext3 * 2; src.p.y = htext3;
+	dst.p.x = rect.p.x + rect.w - wtext3; dst.p.y = rect.p.y + htext3;
 	dst.h = rect.h - (htext3 * 2);
 
 	iceTextureRender(game, man, text, &src, &dst);
@@ -51,7 +51,7 @@ void iceGuiRect(iceGame *game, int man, int text, iceRect rect)
 
 	// DOWNMID
 
-	src.x = wtext3; src.y = htext3 * 2; dst.y = rect.y + rect.h - htext3; dst.x = rect.x + wtext3;
+	src.p.x = wtext3; src.p.y = htext3 * 2; dst.p.y = rect.p.y + rect.h - htext3; dst.p.x = rect.p.x + wtext3;
 	dst.w = rect.w - (wtext3 * 2);
 
 	iceTextureRender(game, man, text, &src, &dst);
@@ -60,8 +60,8 @@ void iceGuiRect(iceGame *game, int man, int text, iceRect rect)
 
 	// UPLEFT
 
-	src.x = 0; src.y = 0;
-	dst.x = rect.x; dst.y = rect.y;
+	src.p.x = 0; src.p.y = 0;
+	dst.p.x = rect.p.x; dst.p.y = rect.p.y;
 
 	iceTextureRender(game, man, text, &src, &dst);
 
@@ -69,8 +69,8 @@ void iceGuiRect(iceGame *game, int man, int text, iceRect rect)
 
 	// UPRIGHT
 
-	src.x = wtext3 * 2; src.y = 0;
-	dst.x = rect.x + rect.w - wtext3; dst.y = rect.y;
+	src.p.x = wtext3 * 2; src.p.y = 0;
+	dst.p.x = rect.p.x + rect.w - wtext3; dst.p.y = rect.p.y;
 
 	iceTextureRender(game, man, text, &src, &dst);
 
@@ -78,15 +78,15 @@ void iceGuiRect(iceGame *game, int man, int text, iceRect rect)
 
 	// DOWNLEFT
 
-	src.x = 0; src.y = htext3 * 2;
-	dst.x = rect.x; dst.y = rect.y + rect.h - htext3;
+	src.p.x = 0; src.p.y = htext3 * 2;
+	dst.p.x = rect.p.x; dst.p.y = rect.p.y + rect.h - htext3;
 
 	iceTextureRender(game, man, text, &src, &dst);
 
 	// DOWNRIGHT
 
-	src.x = wtext3 * 2; src.y = htext3 * 2;
-	dst.x = rect.x + rect.w - wtext3; dst.y = rect.y + rect.h - htext3;
+	src.p.x = wtext3 * 2; src.p.y = htext3 * 2;
+	dst.p.x = rect.p.x + rect.w - wtext3; dst.p.y = rect.p.y + rect.h - htext3;
 
 	iceTextureRender(game, man, text, &src, &dst);
 }
