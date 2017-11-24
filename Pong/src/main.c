@@ -62,22 +62,22 @@ void Collision_Ball(iceGame *game){
 	DATA0 *data = iceGetData(game, 0);
 	iceRect ballrect = iceEntityGetRect(game, 0, 2);
 	// Top Bottom
-	if (ballrect.y > game->camera.h-20 || ballrect.y < 0)
+	if (ballrect.p.y > game->camera.h-20 || ballrect.p.y < 0)
 		data->ball.dy = -data->ball.dy;
 	// Win 
-	if (ballrect.x < 0)
+	if (ballrect.p.x < 0)
 		data->win = ENNEMY;
-	if (ballrect.x > game->camera.w+20)
+	if (ballrect.p.x > game->camera.w+20)
 		data->win = PLAYER;
 	// Collision players
 	iceRect ballplayer = iceEntityGetRect(game, 0, 0);
 	iceRect ballennemy = iceEntityGetRect(game, 0, 1);
-	if (rect_align_collision(ballplayer.x, ballplayer.y, ballplayer.w, ballplayer.h, ballrect.x, ballrect.y, ballrect.w, ballrect.h)){
+	if (rect_align_collision(ballplayer.p.x, ballplayer.p.y, ballplayer.w, ballplayer.h, ballrect.p.x, ballrect.p.y, ballrect.w, ballrect.h)){
 		data->ball.dx = -data->ball.dx;
 		data->ball.dy = iceRandom(-2000, 2000)/1000.0f;
 		data->ball.speed += iceRandom(1, 25);
 	}
-	if (rect_align_collision(ballennemy.x, ballennemy.y, ballennemy.w, ballennemy.h, ballrect.x, ballrect.y, ballrect.w, ballrect.h)){
+	if (rect_align_collision(ballennemy.p.x, ballennemy.p.y, ballennemy.w, ballennemy.h, ballrect.p.x, ballrect.p.y, ballrect.w, ballrect.h)){
 		data->ball.dx = -data->ball.dx;
 		data->ball.dy = iceRandom(-2000, 2000) / 1000.0f;
 		data->ball.speed += iceRandom(1, 25);

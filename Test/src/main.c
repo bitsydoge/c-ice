@@ -38,9 +38,9 @@ ICE_UPDATE {
 			iceEntityMovePos(game, i, j, 0, 0, 70);
 
 	// Graphical
-	iceTextureRenderCentered(game, 0, 0, NULL, (iceRect[]) { iceCameraWorldScreen(RectNew(0, 0, 500, 500), &game->camera) });
+	iceTextureRenderCentered(game, 0, 0, NULL, (iceRect[]) { iceCameraWorldScreen(iceRectNew(0, 0, 500, 500), &game->camera) });
 	iceEntityDrawAll(game); // Draw every Entity
-	iceGuiRect(game, 0, 1, RectNew(0, 0, game->camera.w, 32));
+	iceGuiRect(game, 0, 1, iceRectNew(0, 0, game->camera.w, 32));
 	iceDebugShowFps(game);
 }
 
