@@ -17,5 +17,8 @@
     <ClInclude Include="src\hdr\Sound.h">
       <Filter>hdr</Filter>
     </ClInclude>
+    <ClInclude Include="src\hdr\StructAudio.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
