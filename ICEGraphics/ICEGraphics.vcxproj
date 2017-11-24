@@ -35,6 +35,7 @@
     <ClInclude Include="src\hdr\Gui.h" />
     <ClInclude Include="src\hdr\Primitive.h" />
     <ClInclude Include="src\hdr\Render.h" />
+    <ClInclude Include="src\hdr\StructGraphics.h" />
     <ClInclude Include="src\hdr\Texture.h" />
     <ClInclude Include="src\hdr\TypesGraphics.h" />
   </ItemGroup>

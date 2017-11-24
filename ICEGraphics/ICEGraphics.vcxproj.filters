@@ -65,5 +65,8 @@
     <ClInclude Include="src\hdr\TypesGraphics.h">
       <Filter>hdr</Filter>
     </ClInclude>
+    <ClInclude Include="src\hdr\StructGraphics.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

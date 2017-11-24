@@ -1,12 +1,12 @@
 ﻿#ifndef DEF_ICE_STRUCT
 #define DEF_ICE_STRUCT
 
-#include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
 #include "Types.h"
 #include "TypesMaths.h"
 #include "TypesGraphics.h"
+#include "StructGraphics.h"
+#include "StructAudio.h"
 
 //SDL typedef layer
 typedef SDL_Window iceWindow;
@@ -30,14 +30,6 @@ typedef struct{
 	iceLayer *layer;
 
 } iceMap;
-
-typedef struct{
-
-	float x, y;
-	int w, h;
-	float speed;
-
-} iceCamera;
 
 typedef struct{
 
@@ -67,50 +59,6 @@ typedef struct{
 
 typedef struct{
 
-	int exist;
-	int w;
-	int h;
-	SDL_Texture* handle;
-
-} iceTexture;
-
-typedef struct{
-
-	int array_size;
-	int nb_existing_texture;
-	iceTexture* texture;
-	SDL_Renderer *ren;
-
-} iceTextureManager;
-
-typedef struct{
-
-	Mix_Music* music;
-	char *filename;
-
-} iceMusic;
-
-typedef struct{
-
-	Mix_Chunk* sound;
-	char *filename;
-
-} iceSound;
-
-
-typedef struct{
-
-	unsigned short size_musicpack;
-	iceMusic* musicpack;
-	unsigned short tofill_music;
-	unsigned short size_soundpack;
-	iceSound* soundpack;
-	unsigned short tofill_soundpack;
-
-} iceSoundManager;
-
-typedef struct{
-
 	unsigned long actual;
 	unsigned long last;
 	double ticks;
@@ -126,12 +74,6 @@ typedef struct{
 //  I need to make a iceFont struct where
 //
 ////
-
-typedef struct{
-
-	TTF_Font* size[256];
-
-}iceFontManager;
 
 typedef struct{
 
