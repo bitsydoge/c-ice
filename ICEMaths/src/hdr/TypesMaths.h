@@ -1,8 +1,8 @@
 ﻿#ifndef DEF_ICE_TYPESMATHS
 #define DEF_ICE_TYPESMATHS
 
-#ifndef _ICE_BOOL_DEFINED
-#define _ICE_BOOL_DEFINED
+#ifndef ICE_BOOL_DEFINED
+#define ICE_BOOL_DEFINED
 typedef char iceBool;
 #endif
 
@@ -14,8 +14,8 @@ typedef char iceBool;
 #define iceFalse 0
 #endif
 
-#ifndef _ICE_FLOAT_DEFINED
-#define _ICE_FLOAT_DEFINED
+#ifndef ICE_FLOAT_DEFINED
+#define ICE_FLOAT_DEFINED
 typedef double iceFloat;
 #endif
 

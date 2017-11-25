@@ -1,7 +1,7 @@
 ﻿#include "hdr/Converter.h"
 
 /// iceBox to SDL_Rect
-iceBox sdlRectToICE(SDL_Rect *rect)
+iceBox iceConvertSdlToBox(SDL_Rect *rect)
 {
 	iceBox ice = { 0 };
 	if (rect)
@@ -11,7 +11,7 @@ iceBox sdlRectToICE(SDL_Rect *rect)
 	return ice;
 }
 /// SDL_Rect to iceBox
-SDL_Rect iceRectToSDL(iceBox *rect)
+SDL_Rect iceConvertBoxToSdl(iceBox *rect)
 {
 	SDL_Rect sdl = { 0 };
 	if (rect)

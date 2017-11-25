@@ -96,7 +96,7 @@ void iceEntityAddAngle(iceGame *game, int manager, int entity, iceFloat angle)
 
 }
 
-iceBox iceEntityGetRect(iceGame *game, int manager, int entity)
+iceBox iceEntityGetBox(iceGame *game, int manager, int entity)
 {
 	iceBox rect =
 	{

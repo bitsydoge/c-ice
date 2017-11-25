@@ -42,6 +42,9 @@
     <ClCompile Include="src\Text.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Window.c">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\hdr\Camera.h">
@@ -72,6 +75,9 @@
       <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Text.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Window.h">
       <Filter>hdr</Filter>
     </ClInclude>
   </ItemGroup>

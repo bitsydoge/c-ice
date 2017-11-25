@@ -12,7 +12,7 @@ typedef struct
 
 ICE_CREATE {
 	iceGame game = iceGameCreate("ICE : Hello World", 800, 480);
-	DATA *data = iceAddData(&game, sizeof(DATA));
+	DATA *data = iceDataAdd(&game, sizeof(DATA));
 	iceFontLoad(&game, "res/ttf/FiraSans-Medium.ttf");
 
 
@@ -31,7 +31,7 @@ ICE_CREATE {
 }
 
 ICE_UPDATE {
-	DATA *data = iceGetData(game, 0);
+	DATA *data = iceDataGet(game, 0);
 	cpFloat timeStep = 1.0 / game->time.fps;
 	cpSpaceStep(data->space, timeStep);
 	cpVect vect = cpBodyGetPosition(data->textBody);

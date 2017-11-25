@@ -121,7 +121,11 @@
 #define ICE_UPDATE void GameUpdate(iceGame *game)
 #define ICE_DESTROY void GameDestroy(iceGame *game)
 
-
+/*
+ *@file
+ *@brief It's the main header, with function define and all include 
+ *
+ */
 
 ///////////////////////////////////
 
@@ -156,6 +160,7 @@
 #include "Render.h"
 #include "Text.h"
 #include "Texture.h"
+#include "Window.h"
 
 ///////////////////////////////////
 //             AUDIO             //

@@ -100,6 +100,11 @@ typedef struct{
 
 }iceEntityManager;
 
+/*! \brief Load essential module of the engine
+*
+*
+*  Load the SDL, SDL_Mixer, SDL_TTF, srand, rlutil
+*/
 typedef struct {
 	int returnvalue;
 	iceColor background;

@@ -3,15 +3,15 @@
 
 #include <stdint.h>
 
-#ifndef _ICE_BOOL_DEFINED
-#define _ICE_BOOL_DEFINED
+#ifndef ICE_BOOL_DEFINED
+#define ICE_BOOL_DEFINED
 typedef char iceBool;
 #define iceTrue 1
 #define iceFalse 0
 #endif
 
-#ifndef _ICE_FLOAT_DEFINED
-#define _ICE_FLOAT_DEFINED
+#ifndef ICE_FLOAT_DEFINED
+#define ICE_FLOAT_DEFINED
 typedef double iceFloat;
 #endif
 

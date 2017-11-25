@@ -27,7 +27,7 @@ void iceDebugShowFpsTitle(iceGame *game)
 	iceDrawerTitle(game, buffer);
 }
 
-void _iceAssert_(const char* expr_str, int expr, const char* file, int line, const char* msg)
+void iceAssert_(const char* expr_str, int expr, const char* file, int line, const char* msg)
 {
 	if (!expr)
 	{
