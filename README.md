@@ -3,8 +3,6 @@
 <img alt="ICE Logo" src="TestProject/Test/res/img/ice_logo.png" width=20% height=20%> 
 
 _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
-
-# Version **Alpha 0.1a** !
 	
 ## Feature :
 
@@ -41,3 +39,6 @@ a CMakeLists.txt will be avaible for compiling outside visual studio.
 	-lodepng (for png decode) (included)   
 	
 	-rlutil.h (for console color) (included)
+
+
+There is a .cbp to build libICE.a, the dependancy for SDL are the same. It is not always uptodate
