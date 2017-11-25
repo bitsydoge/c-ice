@@ -23,8 +23,8 @@ ICE_CREATE {
 	for(int i = 0; i<10000; i++){
 		int entity_nb = iceEntityCreate(&game, 0);
 		iceEntitySetTexture(&game, manager_nb, entity_nb, 0, 2);
-		iceEntitySetPos(&game, manager_nb, entity_nb, iceRandom(-5000, 5000), iceRandom(-5000, 5000));
-		int nb = iceRandom(20, 100);
+		iceEntitySetPos(&game, manager_nb, entity_nb, iceRandomInt(-5000, 5000), iceRandomInt(-5000, 5000));
+		int nb = iceRandomInt(20, 100);
 		iceEntitySetSize(&game, manager_nb, entity_nb, nb, nb);
 	}
 	return game;
@@ -36,7 +36,6 @@ ICE_UPDATE {
 	for (int i = 0; i < game->entitymanager_size; i++) // Move every entity from every manager
 		for (int j = 0; j < game->entitymanager[i].nb_existing; j++) // the center of the map
 			iceEntityMovePos(game, i, j, 0, 0, 70 * game->time.delta);
-
 	// Graphical
 	iceTextureRenderCentered(game, 0, 0, NULL, (iceBox[]) { iceCameraWorldScreen(iceBoxNew(0, 0, 500, 500), &game->camera) });
 	iceEntityDrawAll(game); // Draw every Entity

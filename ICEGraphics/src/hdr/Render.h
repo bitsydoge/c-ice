@@ -5,8 +5,8 @@
 #include "TypesCore.h"
 #include "StructCore.h"
 
-int iceRenderSetClearColor(SDL_Renderer *render,const iceColor color);
-void iceRenderSetBackgroundColor(iceGame *game, iceColor color);
+int iceRenderClearColor(SDL_Renderer *render,const iceColor color);
+void iceRenderSetColor(iceGame *game, iceColor color);
 int iceRenderClear(SDL_Renderer *render);
 void iceRenderPresent(SDL_Renderer *render);
 

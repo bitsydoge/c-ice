@@ -1,7 +1,6 @@
 #include "hdr/Render.h"
 
-
-int iceRenderSetClearColor(SDL_Renderer *render, const iceColor rgba_hex){
+int iceRenderClearColor(SDL_Renderer *render, const iceColor rgba_hex){
 	const int r = rgba_hex >> 24 & 255;
 	const int g = rgba_hex >> 16 & 255;
 	const int b = rgba_hex >> 8 & 255;
@@ -9,7 +8,7 @@ int iceRenderSetClearColor(SDL_Renderer *render, const iceColor rgba_hex){
 	return SDL_SetRenderDrawColor(render, r, g, b, a);
 }
 
-void iceRenderSetBackgroundColor(iceGame *game, iceColor color)
+void iceRenderSetColor(iceGame *game, iceColor color)
 {
 	game->background = color;
 }

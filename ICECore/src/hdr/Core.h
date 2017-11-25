@@ -114,40 +114,91 @@
 #ifndef DEF_ICE_CORE
 #define DEF_ICE_CORE
 
+
+
 #define ICE_GAME_RUN iceCoreLoop(GameCreate, GameUpdate, GameDestroy)
 #define ICE_CREATE iceGame GameCreate(void)
 #define ICE_UPDATE void GameUpdate(iceGame *game)
 #define ICE_DESTROY void GameDestroy(iceGame *game)
 
-#include "Camera.h"
+
+
+///////////////////////////////////
+
+///////////////////////////////////
+//            CORE               //
+///////////////////////////////////
+
+#include "TypesCore.h"
+#include "StructCore.h"
+
+#include "Converter.h"
 #include "Data.h"
 #include "Debug.h"
 #include "Entity.h"
-#include "Font.h"
 #include "Game.h"
-#include "Gui.h"
 #include "Input.h"
 #include "Map.h"
-#include "Physics.h"
-#include "Primitive.h"
-#include "Box.h"
-#include "Render.h"
-#include "Sound.h"
-#include "StructCore.h"
-#include "StructMaths.h"
-#include "StructAudio.h"
-#include "StructGraphics.h"
 #include "Substate.h"
 #include "Terminal.h"
-#include "Texture.h"
-#include "Random.h"
-#include "TypesCore.h"
-#include "TypesMaths.h"
+
+///////////////////////////////////
+//            GRAPHICS           //
+///////////////////////////////////
+
 #include "TypesGraphics.h"
+#include "StructGraphics.h"
+
+#include "Camera.h"
+#include "Font.h"
+#include "Gui.h"
+#include "Primitive.h"
+#include "Render.h"
+#include "Text.h"
+#include "Texture.h"
+
+///////////////////////////////////
+//             AUDIO             //
+///////////////////////////////////
+
+#include "StructAudio.h"
+
+#include "Sound.h"
+#include "Music.h"
+
+///////////////////////////////////
+//            MATHS              //
+///////////////////////////////////
+
+#include "TypesMaths.h"
+#include "StructMaths.h"
+
 #include "Vector.h"
+#include "Box.h"
+#include "Random.h"
+
+///////////////////////////////////
+//            PHYSICS            //
+///////////////////////////////////
+
+#include "Physics.h"
+
+///////////////////////////////////
+
+
+
+///////////////////////////////////                 ///////////////////////////////////
+///////////////////////////////////  CORE FUNCTION  ///////////////////////////////////
+///////////////////////////////////                 ///////////////////////////////////
+
 
 int iceCoreInit();
 int iceCoreClose();
 int iceCoreLoop(iceGame(*call_create)(void), void(*call_update)(iceGame*), void(*call_destroy)(iceGame*));
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
 
 #endif

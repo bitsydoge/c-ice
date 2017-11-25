@@ -138,20 +138,20 @@ int iceTextureRender(iceGame *game, int man, int text, iceBox* src, iceBox* dst)
 	if(!src && dst)
 	{
 		SDL_Rect s_dst = iceRectToSDL(dst);
-		return SDL_RenderCopy(game->scene_render, game->texturemanager[man].texture[text].handle, NULL, &s_dst);
+		return SDL_RenderCopy(game->drawer.render, game->texturemanager[man].texture[text].handle, NULL, &s_dst);
 	}
 	if (src && !dst)
 	{
 		SDL_Rect s_src = iceRectToSDL(src);
-		return SDL_RenderCopy(game->scene_render, game->texturemanager[man].texture[text].handle, &s_src, NULL);
+		return SDL_RenderCopy(game->drawer.render, game->texturemanager[man].texture[text].handle, &s_src, NULL);
 	}
 	if (!src && !dst)
 	{
-		return SDL_RenderCopy(game->scene_render, game->texturemanager[man].texture[text].handle, NULL, NULL);
+		return SDL_RenderCopy(game->drawer.render, game->texturemanager[man].texture[text].handle, NULL, NULL);
 	}
 		SDL_Rect s_dst = iceRectToSDL(dst);
 		SDL_Rect s_src = iceRectToSDL(src);
-		return SDL_RenderCopy(game->scene_render, game->texturemanager[man].texture[text].handle, &s_src, &s_dst);
+		return SDL_RenderCopy(game->drawer.render, game->texturemanager[man].texture[text].handle, &s_src, &s_dst);
 }
 
 int iceTextureRenderCentered(iceGame *game, int man, int text, iceBox* src, iceBox* dst) {
@@ -159,21 +159,21 @@ int iceTextureRenderCentered(iceGame *game, int man, int text, iceBox* src, iceB
 	{
 		SDL_Rect s_dst = iceRectToSDL(dst);
 		s_dst.x -= s_dst.w / 2; s_dst.y -= s_dst.h / 2;
-		return SDL_RenderCopy(game->scene_render, game->texturemanager[man].texture[text].handle, NULL, &s_dst);
+		return SDL_RenderCopy(game->drawer.render, game->texturemanager[man].texture[text].handle, NULL, &s_dst);
 	}
 	if (src && !dst)
 	{
 		SDL_Rect s_src = iceRectToSDL(src);
-		return SDL_RenderCopy(game->scene_render, game->texturemanager[man].texture[text].handle, &s_src, NULL);
+		return SDL_RenderCopy(game->drawer.render, game->texturemanager[man].texture[text].handle, &s_src, NULL);
 	}
 	if (!src && !dst)
 	{
-		return SDL_RenderCopy(game->scene_render, game->texturemanager[man].texture[text].handle, NULL, NULL);
+		return SDL_RenderCopy(game->drawer.render, game->texturemanager[man].texture[text].handle, NULL, NULL);
 	}
 	SDL_Rect s_dst = iceRectToSDL(dst);
 	s_dst.x -= s_dst.w / 2; s_dst.y -= s_dst.h / 2;
 	SDL_Rect s_src = iceRectToSDL(src);
-	return SDL_RenderCopy(game->scene_render, game->texturemanager[man].texture[text].handle, &s_src, &s_dst);
+	return SDL_RenderCopy(game->drawer.render, game->texturemanager[man].texture[text].handle, &s_src, &s_dst);
 }
 
 int iceTextureRenderEx(SDL_Renderer* renderer, const iceTexture *tex, SDL_Rect* source, SDL_Rect* destination, const double angle){
@@ -199,7 +199,7 @@ void iceTextureManagerCreate(iceGame *game){
 	iceTextureManager texture_manager = { 0 };
 	texture_manager.array_size = 4;
 	texture_manager.texture = calloc(texture_manager.array_size, sizeof(iceTexture));
-	texture_manager.ren = game->scene_render;
+	texture_manager.ren = game->drawer.render;
 	game->texturemanager_size++;
 	game->texturemanager = realloc(game->texturemanager, game->texturemanager_size * sizeof(iceTextureManager));
 	game->texturemanager[game->texturemanager_size - 1] = texture_manager;
@@ -215,7 +215,7 @@ int iceTextureCreate(iceGame *game, int manager, char* path){
 	iceTexture *text;
 	if (!strcmp(ext, "PNG")){
 		text = iceLoadPNG(game->texturemanager[manager].ren, path);
-		printf("Texture number %d created on from : \"", game->texturemanager[manager].nb_existing_texture);
+		printf("Texture number %d created on from : \"", game->texturemanager[manager].nb_existing);
 		iceTermSetColor(iceYELLOW);
 		printf("%s", path);
 		iceTermResetColor();
@@ -223,7 +223,7 @@ int iceTextureCreate(iceGame *game, int manager, char* path){
 	}
 	else if (!strcmp(ext, "JPG")) {
 		text = iceLoadJPG(game->texturemanager[manager].ren, path);
-		printf("Texture number %d created on from : \"", game->texturemanager[manager].nb_existing_texture);
+		printf("Texture number %d created on from : \"", game->texturemanager[manager].nb_existing);
 		iceTermSetColor(iceYELLOW);
 		printf("%s", path);
 		iceTermResetColor();
@@ -232,7 +232,7 @@ int iceTextureCreate(iceGame *game, int manager, char* path){
 	else if (!strcmp(ext, "BMP")){
 		if (color_hex != 0){
 			text = iceLoadBMPAlpha(game->texturemanager[manager].ren, path, color_hex);
-			printf("Texture number %d created from : \"", game->texturemanager[manager].nb_existing_texture);
+			printf("Texture number %d created from : \"", game->texturemanager[manager].nb_existing);
 			iceTermSetColor(iceYELLOW);
 			printf("%s", path);
 			iceTermResetColor();
@@ -240,7 +240,7 @@ int iceTextureCreate(iceGame *game, int manager, char* path){
 		}
 		else{
 			text = iceLoadBMP(game->texturemanager[manager].ren, path);
-			printf("Texture number %d created from : \"", game->texturemanager[manager].nb_existing_texture);
+			printf("Texture number %d created from : \"", game->texturemanager[manager].nb_existing);
 			iceTermSetColor(iceYELLOW);
 			printf("%s", path);
 			iceTermResetColor();
@@ -256,10 +256,10 @@ int iceTextureCreate(iceGame *game, int manager, char* path){
 	}
 	text->exist = 1;
 	SDL_QueryTexture(text->handle, NULL, NULL, &text->w, &text->h);
-	game->texturemanager[manager].texture[game->texturemanager[manager].nb_existing_texture] = *text;
-	game->texturemanager[manager].nb_existing_texture++;
+	game->texturemanager[manager].texture[game->texturemanager[manager].nb_existing] = *text;
+	game->texturemanager[manager].nb_existing++;
 	
-	if (game->texturemanager[manager].array_size <= game->texturemanager[manager].nb_existing_texture){
+	if (game->texturemanager[manager].array_size <= game->texturemanager[manager].nb_existing){
 		iceTermSetColor(iceLIGHTCYAN);
 		printf("Extending texture size to %d \n", game->texturemanager[manager].array_size * 2);
 		iceTermResetColor();
@@ -267,7 +267,7 @@ int iceTextureCreate(iceGame *game, int manager, char* path){
 		game->texturemanager[manager].array_size *= 2;
 	}
 	free(text);
-	return game->texturemanager->nb_existing_texture - 1;
+	return game->texturemanager->nb_existing - 1;
 }
 
 int iceTextureGetWidth(iceGame *game, int manager, int texture)

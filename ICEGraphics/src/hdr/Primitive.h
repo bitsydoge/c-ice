@@ -3,7 +3,7 @@
 #include "StructCore.h"
 #include "StructMaths.h"
 #include "Render.h"
-
+#include "Converter.h"
 /// Draw Point
 int iceDrawPoint(iceGame *game, iceVect vect, const iceColor color);
 /// Draw Line

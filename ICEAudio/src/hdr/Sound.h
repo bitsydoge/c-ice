@@ -4,10 +4,13 @@
 #include "StructCore.h"
 #include "stdio.h"
 
+#define ICE_DEFAULT_MUSIC_SIZE 4
+#define ICE_DEFAULT_SOUND_SIZE 4
+
 void iceSoundManagerCreate(iceGame* game);
-void iceMusicCreate(iceGame* game, char* path);
+
 void iceSoundCreate(iceGame* game, char* path);
-int iceMusicPlay(iceGame* game, const int nb, const int volume);
+
 int iceSoundPlay(iceGame* game, const int chunk, const int volume);
 
 #endif
