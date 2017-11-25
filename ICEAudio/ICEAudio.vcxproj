@@ -19,9 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Music.c" />
     <ClCompile Include="src\Sound.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\hdr\Music.h" />
     <ClInclude Include="src\hdr\Sound.h" />
     <ClInclude Include="src\hdr\StructAudio.h" />
   </ItemGroup>

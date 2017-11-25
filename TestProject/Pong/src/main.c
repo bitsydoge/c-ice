@@ -5,7 +5,7 @@
 
 ICE_CREATE {
 	iceGame game = iceGameCreate("ICE : Pong", 960, 480);
-	iceRenderSetBackgroundColor(&game, iceColorNew(100, 200, 50));
+	iceRenderSetColor(&game, iceColorNew(100, 200, 50));
 	return game;
 }
 

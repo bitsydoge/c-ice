@@ -5,7 +5,7 @@ iceGame iceGameCreate(char *window_title, const unsigned int width_window, const
 	iceGame game = {0};
 
 	// Window and Render
-	game.window = SDL_CreateWindow(
+	game.drawer.window = SDL_CreateWindow(
 		window_title,
 		SDL_WINDOWPOS_UNDEFINED,
 		SDL_WINDOWPOS_UNDEFINED,
@@ -13,13 +13,13 @@ iceGame iceGameCreate(char *window_title, const unsigned int width_window, const
 		height_window,
 		SDL_WINDOW_OPENGL | SDL_RENDERER_PRESENTVSYNC | SDL_WINDOW_RESIZABLE
 	);
-	game.scene_render = SDL_CreateRenderer(game.window, -1, SDL_RENDERER_ACCELERATED);
+	game.drawer.render = SDL_CreateRenderer(game.drawer.window, -1, SDL_RENDERER_ACCELERATED);
 	game.background = iceColorNew(0, 0, 0);
 	// Render Info
 	SDL_RendererInfo info;
-	SDL_GetRendererInfo(game.scene_render, &info);
+	SDL_GetRendererInfo(game.drawer.render, &info);
 	printf("Graphic API : %s \n", info.name);
-	SDL_SetRenderDrawBlendMode(game.scene_render, SDL_BLENDMODE_BLEND);
+	SDL_SetRenderDrawBlendMode(game.drawer.render, SDL_BLENDMODE_BLEND);
 
 	// Input
 	game.input = (iceInput*)calloc(1, sizeof(iceInput));
@@ -37,7 +37,7 @@ iceGame iceGameCreate(char *window_title, const unsigned int width_window, const
 
 	game.camera.x = 0; game.camera.y = 0;
 	game.camera.w = width_window; game.camera.h = height_window;
-	iceGameSetIcon(game.window, 0);
+	iceDrawerSetIcon(game.drawer.window, 0);
 
 	game.data = malloc(0);
 	game.nb_data = 0;
@@ -46,24 +46,22 @@ iceGame iceGameCreate(char *window_title, const unsigned int width_window, const
 
 void iceGameDestroy(iceGame *app)
 {
-	SDL_DestroyWindow(app->window);
-	SDL_DestroyRenderer(app->scene_render);
+	SDL_DestroyWindow(app->drawer.window);
+	SDL_DestroyRenderer(app->drawer.render);
 	free(app->input);
 }
 
-/// WINDOW EFFECT
-
-void iceGameResizable(iceGame *game, iceBool yn)
+void iceDrawerResizable(iceGame *game, iceBool yn)
 {
-	SDL_SetWindowResizable(game->window, yn);
+	SDL_SetWindowResizable(game->drawer.window, yn);
 }
 
-void iceGameTitle(iceGame *game, const char *title)
+void iceDrawerTitle(iceGame *game, const char *title)
 {
-	SDL_SetWindowTitle(game->window, title);
+	SDL_SetWindowTitle(game->drawer.window, title);
 }
 
-void iceGameSetIcon(iceWindow *window, char * path)
+void iceDrawerSetIcon(iceWindow *window, char * path)
 {
 	if (!path) {
 #include "raw/Raw_icon.c"

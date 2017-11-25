@@ -64,7 +64,7 @@ int iceInputReturn(iceGame *game, iceInput *input)
 				input->focus = 0;
 				break;
 			case SDL_WINDOWEVENT_RESIZED:
-				SDL_GetWindowSize(game->window, &game->camera.w, &game->camera.h);
+				SDL_GetWindowSize(game->drawer.window, &game->camera.w, &game->camera.h);
 				break;
 			default:
 				break;

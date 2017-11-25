@@ -1,6 +1,6 @@
 ﻿#include "hdr/Random.h"
 
-int iceRandom(int min, int max)
+int iceRandomInt(int min, int max)
 {
 	int result = 0, lowest = 0, highest = 0;
 
@@ -16,4 +16,10 @@ int iceRandom(int min, int max)
 
 	result = (rand() % (highest - lowest)) + lowest;
 	return result;
+}
+
+// Return a random float between 0 and 1;
+iceFloat iceRandomFloat()
+{
+	return (iceFloat)rand() / (iceFloat)RAND_MAX;
 }

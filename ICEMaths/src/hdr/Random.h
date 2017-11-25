@@ -1,8 +1,13 @@
 ﻿#ifndef DEF_ICE_TIME
 #define DEF_ICE_TIME
 
-#include <stdlib.h>
+// srand((unsigned int)time(NULL));
+// Is need if used without the ICECore 
 
-int iceRandom(int min, int max);
+#include <stdlib.h>
+#include "TypesMaths.h"
+
+int iceRandomInt(int min, int max);
+iceFloat iceRandomFloat();
 
 #endif

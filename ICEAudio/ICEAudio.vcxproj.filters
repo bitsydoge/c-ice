@@ -12,12 +12,18 @@
     <ClCompile Include="src\Sound.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Music.c">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\hdr\Sound.h">
       <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\StructAudio.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Music.h">
       <Filter>hdr</Filter>
     </ClInclude>
   </ItemGroup>

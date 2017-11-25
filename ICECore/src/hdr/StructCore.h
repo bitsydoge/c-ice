@@ -104,10 +104,8 @@ typedef struct {
 	int returnvalue;
 	iceColor background;
 
-	// Window
-	iceWindow *window;
-	iceRenderer *scene_render;
-	iceRenderer *final_render;
+	// To implement
+	iceDrawer drawer;
 
 	// Input
 	iceInput *input;

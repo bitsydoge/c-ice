@@ -1,5 +1,18 @@
 ﻿#include "hdr/Gui.h"
 
+// Create GUI Object
+
+void iceGuiCreateManager()
+{
+	
+}
+
+void iceGuiCreate()
+{
+	
+}
+
+// Unoptimized function
 
 void iceGuiRect(iceGame *game, int man, int text, iceBox rect)
 {

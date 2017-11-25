@@ -9,6 +9,8 @@
 #include <stdio.h>
 #include "Terminal.h"
 
+#define ICE_DEFAULT_TEXTURE_SIZE 4
+
 /// Load a JPG with nanojpeg to a Texture
 iceTexture* iceLoadJPG(SDL_Renderer *render, char *path);
 /// Load a PNG with lodepng to a Texture with Error handling

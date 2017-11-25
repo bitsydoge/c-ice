@@ -49,11 +49,11 @@
     <ClCompile Include="src\Terminal.c">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\raw\Raw_icon.c">
-      <Filter>raw</Filter>
-    </ClCompile>
     <ClCompile Include="src\Converter.c">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\raw\Raw_icon.c">
+      <Filter>raw</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
