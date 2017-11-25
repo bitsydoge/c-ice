@@ -71,15 +71,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LibraryPath>..\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\ICEMaths\src\hdr;..\..\ICEPhysics\src\hdr;..\..\ICEAudio\src\hdr;..\..\ICEGraphics\src\hdr;..\..\ICECore\src\hdr;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LibraryPath>..\Release;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\ICEMaths\src\hdr;..\..\ICEPhysics\src\hdr;..\..\ICEAudio\src\hdr;..\..\ICEGraphics\src\hdr;..\..\ICECore\src\hdr;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>..\x64\Debug;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\..\x64\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\ICEMaths\src\hdr;..\..\ICEPhysics\src\hdr;..\..\ICEAudio\src\hdr;..\..\ICEGraphics\src\hdr;..\..\ICECore\src\hdr;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LibraryPath>..\x64\Release;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\ICEMaths\src\hdr;..\..\ICEPhysics\src\hdr;..\..\ICEAudio\src\hdr;..\..\ICEGraphics\src\hdr;..\..\ICECore\src\hdr;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -120,7 +124,7 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>SDL2main.lib;SDL2.lib;SDL2_ttf.lib;SDL2_mixer.lib;chipmunk.lib;ICEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2main.lib;SDL2.lib;SDL2_ttf.lib;SDL2_mixer.lib;chipmunk.lib;ICEGraphics.lib;ICECore.lib;ICEAudio.lib;ICEPhysics.lib;ICEMaths.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>

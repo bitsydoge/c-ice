@@ -107,7 +107,7 @@ void iceInputReset(iceInput *input){
 
 	
 	printf("Input Reset : ");
-	iceTermSetColor(GREEN);
+	iceTermSetColor(iceGREEN);
 	printf("OK\n");
 	iceTermResetColor();
 }

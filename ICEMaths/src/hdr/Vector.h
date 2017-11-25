@@ -2,6 +2,7 @@
 #define DEF_ICE_VECTOR
 
 #include "TypesMaths.h"
+#include "StructMaths.h"
 #include <math.h>
 
 // Create a new vector

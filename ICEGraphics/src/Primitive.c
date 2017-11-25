@@ -12,12 +12,12 @@ int iceDrawLine(iceGame *game, iceVect vect1, iceVect vect2, const iceColor colo
 	return SDL_RenderDrawLine(game->scene_render, vect1.x, vect1.y, vect2.x, vect2.y);
 }
 
-int iceDrawRectangle(iceGame *game, iceRect rect, const iceColor color){
+int iceDrawRectangle(iceGame *game, iceBox rect, const iceColor color){
 	iceRenderSetClearColor(game->scene_render, color);
 	return SDL_RenderDrawRect(game->scene_render, (SDL_Rect[]) { iceRectToSDL(&rect) });
 }
 
-int iceDrawRectangleFill(iceGame *game, iceRect rect, const iceColor color){
+int iceDrawRectangleFill(iceGame *game, iceBox rect, const iceColor color){
 	iceRenderSetClearColor(game->scene_render, color);
 	return SDL_RenderFillRect(game->scene_render, (SDL_Rect[]) { iceRectToSDL(&rect)});
 }
@@ -34,12 +34,12 @@ int iceDrawLineGL(iceGame *game, int x1, int y1, int x2, int y2, const iceColor 
 	return SDL_RenderDrawLine(game->scene_render, x1, y1, x2, y2);
 }
 
-int iceDrawRectangleGL(iceGame *game, iceRect rect, const iceColor color) {
+int iceDrawRectangleGL(iceGame *game, iceBox rect, const iceColor color) {
 	iceRenderSetClearColor(game->scene_render, color);
 	return SDL_RenderDrawRect(game->scene_render, (SDL_Rect[]) { iceRectToSDL(&rect) });
 }
 
-int iceDrawRectangleFillGL(iceGame *game, iceRect rect, const iceColor color) {
+int iceDrawRectangleFillGL(iceGame *game, iceBox rect, const iceColor color) {
 	iceRenderSetClearColor(game->scene_render, color);
 	return SDL_RenderFillRect(game->scene_render, (SDL_Rect[]) { iceRectToSDL(&rect) });
 }

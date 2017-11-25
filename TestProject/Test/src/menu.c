@@ -4,7 +4,7 @@
 
 void menu_create(iceGame* game){
 	DATA1 *data = iceGetData(game, 1);
-	data->menu_escape = iceRectNew(50, 50, game->camera.w - 100, game->camera.h - 100);
+	data->menu_escape = iceBoxNew(50, 50, game->camera.w - 100, game->camera.h - 100);
 	iceSoundPlay(game, 0, 2);
 }
 

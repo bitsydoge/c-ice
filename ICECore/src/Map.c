@@ -1,4 +1,5 @@
 ﻿#include "hdr/Map.h"
+#include "external/icestd.h"
 
 
 void map_load(iceMap *map, char *path)

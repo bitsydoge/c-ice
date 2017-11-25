@@ -1,4 +1,5 @@
 #include "hdr/Terminal.h"
+#include "external/rlutil.h"
 
 void iceTermSaveColor()
 {

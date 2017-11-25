@@ -4,7 +4,6 @@
 #include "Game.h"
 #include <stdio.h>
 #include "Terminal.h"
-#include "../external/rlutil.h"
 #include "Primitive.h"
 #include "Texture.h"
 #include "Camera.h"
@@ -45,6 +44,6 @@ void iceEntityAddData(iceGame *game, int manager, int entity, size_t size);
 /// Draw every Entity to screen
 void iceEntityDrawAll(iceGame *game);
 
-iceRect iceEntityGetRect(iceGame *game, int manager, int entity);
+iceBox iceEntityGetRect(iceGame *game, int manager, int entity);
 
 #endif

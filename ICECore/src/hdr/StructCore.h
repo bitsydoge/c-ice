@@ -2,15 +2,11 @@
 #define DEF_ICE_STRUCT
 
 #include <SDL2/SDL.h>
-#include "Types.h"
+#include "TypesCore.h"
 #include "TypesMaths.h"
 #include "TypesGraphics.h"
 #include "StructGraphics.h"
 #include "StructAudio.h"
-
-//SDL typedef layer
-typedef SDL_Window iceWindow;
-typedef SDL_Renderer iceRenderer;
 
 typedef struct
 {

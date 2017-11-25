@@ -26,7 +26,7 @@ int iceEntityCreate(iceGame *game, int manager){
 	game->entitymanager[manager].nb_existing++;
 
 	if (game->entitymanager[manager].array_size <= game->entitymanager[manager].nb_existing) {
-		iceTermSetColor(LIGHTCYAN);
+		iceTermSetColor(iceLIGHTCYAN);
 		printf("Extending entity manager size to %d \n", game->entitymanager[manager].array_size * 2);
 		iceTermResetColor();
 		game->entitymanager[manager].entity = realloc(game->entitymanager[manager].entity, sizeof(iceEntity)*(game->entitymanager[manager].array_size * 2));
@@ -96,9 +96,9 @@ void iceEntityAddAngle(iceGame *game, int manager, int entity, iceFloat angle)
 
 }
 
-iceRect iceEntityGetRect(iceGame *game, int manager, int entity)
+iceBox iceEntityGetRect(iceGame *game, int manager, int entity)
 {
-	iceRect rect =
+	iceBox rect =
 	{
 		game->entitymanager[manager].entity[entity].x,
 		game->entitymanager[manager].entity[entity].y,
@@ -138,7 +138,7 @@ void iceEntityDrawAll(iceGame *game)
 		{
 			if(game->entitymanager[i].entity[j].have_texture && game->entitymanager[i].entity[j].exist)
 			{
-				iceRect rect = iceCameraWorldScreen(iceRectNew(
+				iceBox rect = iceCameraWorldScreen(iceBoxNew(
 					game->entitymanager[i].entity[j].x,
 					game->entitymanager[i].entity[j].y,
 					game->entitymanager[i].entity[j].w,

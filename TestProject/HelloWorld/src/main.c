@@ -9,8 +9,8 @@ ICE_CREATE {
 }
 
 ICE_UPDATE {
-	iceTextureRenderCentered(game, 0, 0, NULL, (iceRect[]) { iceCameraWorldScreen(iceRectNew(0, 0, 500, 750), &game->camera) });
-	iceTextureRenderCentered(game, 0, 1, NULL, (iceRect[]) { iceCameraWorldScreen(iceRectNew(0, 0, iceTextureGetWidth(game, 0, 1), iceTextureGetHeight(game, 0, 1)), &game->camera) });
+	iceTextureRenderCentered(game, 0, 0, NULL, (iceBox[]) { iceCameraWorldScreen(iceBoxNew(0, 0, 500, 750), &game->camera) });
+	iceTextureRenderCentered(game, 0, 1, NULL, (iceBox[]) { iceCameraWorldScreen(iceBoxNew(0, 0, iceTextureGetWidth(game, 0, 1), iceTextureGetHeight(game, 0, 1)), &game->camera) });
 	iceFontDraw(game, "Hello World", 80, iceVectNew(0, 0));
 }
 
