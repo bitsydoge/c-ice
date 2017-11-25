@@ -28,3 +28,5 @@ ICEngine/build/
 Release/
 
 *.TMP
+
+ICECore/\.vs/
