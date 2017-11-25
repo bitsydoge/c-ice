@@ -2,16 +2,16 @@
 #define DEF_ICE_CONVERTER
 
 ////////////////////////////////////
-//      Converter ice<->sdl        //
+//      Converter ice<->sdl       //
 ////////////////////////////////////
 
-#include "TypesMaths.h"
 #include <SDL2/SDL.h>
+#include "StructMaths.h"
 
-/// iceRect to SDL_Rect
-iceRect sdlRectToICE(SDL_Rect *rect);
-/// SDL_Rect to iceRect
-SDL_Rect iceRectToSDL(iceRect *rect);
+/// iceBox to SDL_Rect
+iceBox sdlRectToICE(SDL_Rect *rect);
+/// SDL_Rect to iceBox
+SDL_Rect iceRectToSDL(iceBox *rect);
 
 ////////////////////////////////////
 

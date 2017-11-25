@@ -1,7 +1,6 @@
 ﻿#include <SDL2/SDL.h>
 #include "hdr/Core.h"
 
-
 int iceCoreInit() {
 	srand(time(NULL));
 	iceTermSaveColor();

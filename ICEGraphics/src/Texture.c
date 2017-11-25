@@ -1,6 +1,6 @@
 #include "hdr/Texture.h"
-
-
+#include "external/lodepng.h"
+#include "../external/icestd.h"
 
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN
 Uint32 static const rmask = 0xff000000;
@@ -119,7 +119,7 @@ iceTexture* iceLoadBMPAlpha(SDL_Renderer *render, char *path, const iceColor rgb
 	iceTexture *text = (iceTexture*)malloc(sizeof(iceTexture));
 	text->handle = SDL_CreateTextureFromSurface(render, surf);
 	if (text->handle == NULL){
-		iceTermSetColor(LIGHTRED);
+		iceTermSetColor(iceLIGHTRED);
 		printf("CRITICAL");
 		iceTermResetColor();
 		printf(" : Can't create Texture from Surface \"%s\" : %s \n", path, SDL_GetError());
@@ -134,7 +134,7 @@ void iceTextureDestroy(iceTexture *tex){
 	free(tex);
 }
 
-int iceTextureRender(iceGame *game, int man, int text, iceRect* src, iceRect* dst){
+int iceTextureRender(iceGame *game, int man, int text, iceBox* src, iceBox* dst){
 	if(!src && dst)
 	{
 		SDL_Rect s_dst = iceRectToSDL(dst);
@@ -154,7 +154,7 @@ int iceTextureRender(iceGame *game, int man, int text, iceRect* src, iceRect* ds
 		return SDL_RenderCopy(game->scene_render, game->texturemanager[man].texture[text].handle, &s_src, &s_dst);
 }
 
-int iceTextureRenderCentered(iceGame *game, int man, int text, iceRect* src, iceRect* dst) {
+int iceTextureRenderCentered(iceGame *game, int man, int text, iceBox* src, iceBox* dst) {
 	if (!src && dst)
 	{
 		SDL_Rect s_dst = iceRectToSDL(dst);
@@ -216,7 +216,7 @@ int iceTextureCreate(iceGame *game, int manager, char* path){
 	if (!strcmp(ext, "PNG")){
 		text = iceLoadPNG(game->texturemanager[manager].ren, path);
 		printf("Texture number %d created on from : \"", game->texturemanager[manager].nb_existing_texture);
-		iceTermSetColor(YELLOW);
+		iceTermSetColor(iceYELLOW);
 		printf("%s", path);
 		iceTermResetColor();
 		printf("\"\n");
@@ -224,7 +224,7 @@ int iceTextureCreate(iceGame *game, int manager, char* path){
 	else if (!strcmp(ext, "JPG")) {
 		text = iceLoadJPG(game->texturemanager[manager].ren, path);
 		printf("Texture number %d created on from : \"", game->texturemanager[manager].nb_existing_texture);
-		iceTermSetColor(YELLOW);
+		iceTermSetColor(iceYELLOW);
 		printf("%s", path);
 		iceTermResetColor();
 		printf("\"\n");
@@ -233,7 +233,7 @@ int iceTextureCreate(iceGame *game, int manager, char* path){
 		if (color_hex != 0){
 			text = iceLoadBMPAlpha(game->texturemanager[manager].ren, path, color_hex);
 			printf("Texture number %d created from : \"", game->texturemanager[manager].nb_existing_texture);
-			iceTermSetColor(YELLOW);
+			iceTermSetColor(iceYELLOW);
 			printf("%s", path);
 			iceTermResetColor();
 			printf("\"\n");
@@ -241,7 +241,7 @@ int iceTextureCreate(iceGame *game, int manager, char* path){
 		else{
 			text = iceLoadBMP(game->texturemanager[manager].ren, path);
 			printf("Texture number %d created from : \"", game->texturemanager[manager].nb_existing_texture);
-			iceTermSetColor(YELLOW);
+			iceTermSetColor(iceYELLOW);
 			printf("%s", path);
 			iceTermResetColor();
 			printf("\"\n");
@@ -249,7 +249,7 @@ int iceTextureCreate(iceGame *game, int manager, char* path){
 	}
 	else{
 		text = iceLoadBMP(game->texturemanager[manager].ren, "res/img/error");
-		iceTermSetColor(LIGHTRED);
+		iceTermSetColor(iceLIGHTRED);
 		printf("ERROR ");
 		iceTermResetColor();
 		printf(": %s is not a valid filetype for loading texture.\n", ext);
@@ -260,7 +260,7 @@ int iceTextureCreate(iceGame *game, int manager, char* path){
 	game->texturemanager[manager].nb_existing_texture++;
 	
 	if (game->texturemanager[manager].array_size <= game->texturemanager[manager].nb_existing_texture){
-		iceTermSetColor(LIGHTCYAN);
+		iceTermSetColor(iceLIGHTCYAN);
 		printf("Extending texture size to %d \n", game->texturemanager[manager].array_size * 2);
 		iceTermResetColor();
 		game->texturemanager[manager].texture = realloc(game->texturemanager[manager].texture, sizeof(iceTexture)*(game->texturemanager[manager].array_size * 2));

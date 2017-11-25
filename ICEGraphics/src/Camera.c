@@ -25,8 +25,8 @@ void iceCameraShiftPos(iceGame *game, iceVect Dvect){
 }
 
 // Converter
-iceRect iceCameraWorldScreen(iceRect rect, iceCamera *camera){
-	iceRect rect2 = {
+iceBox iceCameraWorldScreen(iceBox rect, iceCamera *camera){
+	iceBox rect2 = {
 		(camera->w / 2) + rect.p.x - camera->x,
 		(camera->h / 2) + rect.p.y - camera->y,
 		rect.w,
@@ -35,8 +35,8 @@ iceRect iceCameraWorldScreen(iceRect rect, iceCamera *camera){
 	return rect2;
 }
 
-iceRect iceCameraScreenWorld(iceRect rect, iceCamera *camera){
-	iceRect rect2 = {
+iceBox iceCameraScreenWorld(iceBox rect, iceCamera *camera){
+	iceBox rect2 = {
 		-camera->w / 2 + camera->x + rect.p.x,
 		-camera->h / 2 + camera->y + rect.p.y,
 		rect.w,

@@ -2,8 +2,8 @@
 #define DEF_ICE_RENDER 
 
 #include <SDL2/SDL.h>
-#include "Types.h"
-#include "Struct.h"
+#include "TypesCore.h"
+#include "StructCore.h"
 
 int iceRenderSetClearColor(SDL_Renderer *render,const iceColor color);
 void iceRenderSetBackgroundColor(iceGame *game, iceColor color);

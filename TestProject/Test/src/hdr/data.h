@@ -9,7 +9,7 @@ typedef struct
 
 typedef struct
 {
-	iceRect menu_escape;
+	iceBox menu_escape;
 
 } DATA1;
 

@@ -126,14 +126,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\hdr\Rect.h" />
-    <ClInclude Include="src\hdr\Time.h" />
+    <ClInclude Include="src\hdr\Maths.h" />
+    <ClInclude Include="src\hdr\Box.h" />
+    <ClInclude Include="src\hdr\StructMaths.h" />
+    <ClInclude Include="src\hdr\Random.h" />
     <ClInclude Include="src\hdr\TypesMaths.h" />
     <ClInclude Include="src\hdr\Vector.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Rect.c" />
-    <ClCompile Include="src\Time.c" />
+    <ClCompile Include="src\Maths.c" />
+    <ClCompile Include="src\Box.c" />
+    <ClCompile Include="src\Random.c" />
     <ClCompile Include="src\Vector.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

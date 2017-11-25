@@ -1,7 +1,24 @@
 #ifndef DEF_ICE_TERMINALCOLOR
 #define DEF_ICE_TERMINALCOLOR
 
-#include "../external/rlutil.h"
+enum {
+	iceBLACK,
+	iceBLUE,
+	iceGREEN,
+	iceCYAN,
+	iceRED,
+	iceMAGENTA,
+	iceBROWN,
+	iceGREY,
+	iceDARKGREY,
+	iceLIGHTBLUE,
+	iceLIGHTGREEN,
+	iceLIGHTCYAN,
+	iceLIGHTRED,
+	iceLIGHTMAGENTA,
+	iceYELLOW,
+	iceWHITE
+};
 
 void iceTermSaveColor();
 void iceTermResetColor();

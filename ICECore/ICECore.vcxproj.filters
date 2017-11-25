@@ -75,9 +75,6 @@
     <ClInclude Include="src\hdr\Game.h">
       <Filter>hdr</Filter>
     </ClInclude>
-    <ClInclude Include="src\hdr\Struct.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
     <ClInclude Include="src\hdr\Entity.h">
       <Filter>hdr</Filter>
     </ClInclude>
@@ -90,10 +87,13 @@
     <ClInclude Include="src\hdr\Terminal.h">
       <Filter>hdr</Filter>
     </ClInclude>
-    <ClInclude Include="src\hdr\Types.h">
+    <ClInclude Include="src\hdr\Converter.h">
       <Filter>hdr</Filter>
     </ClInclude>
-    <ClInclude Include="src\hdr\Converter.h">
+    <ClInclude Include="src\hdr\TypesCore.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\StructCore.h">
       <Filter>hdr</Filter>
     </ClInclude>
   </ItemGroup>

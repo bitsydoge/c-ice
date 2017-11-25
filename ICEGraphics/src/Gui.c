@@ -1,9 +1,9 @@
 ﻿#include "hdr/Gui.h"
 
 
-void iceGuiRect(iceGame *game, int man, int text, iceRect rect)
+void iceGuiRect(iceGame *game, int man, int text, iceBox rect)
 {
-	iceRect src, dst;
+	iceBox src, dst;
 	int wtext3 = game->texturemanager[man].texture[text].w / 3;
 	int htext3 = game->texturemanager[man].texture[text].h / 3;
 
