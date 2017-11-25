@@ -2,7 +2,6 @@
 
 // Create a substate with the iceGame but with new Create/Update/Destroy function. This must be called only for specifique thing
 
-
 int iceSubstateLoop(iceGame* game, void(*call_create)(iceGame*), void(*call_update)(iceGame*), void(*call_destroy)(iceGame*)) {
 	iceInputReset(game->input);
 	call_create(game);

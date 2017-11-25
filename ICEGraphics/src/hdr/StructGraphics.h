@@ -36,9 +36,7 @@ typedef struct
 
 typedef struct {
 
-	float x, y;
-	int w, h;
-	float speed;
+	int man;
 
 } iceCameraManager;
 

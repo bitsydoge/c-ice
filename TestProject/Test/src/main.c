@@ -15,8 +15,8 @@ ICE_CREATE {
 	iceFontLoad(&game, "res/ttf/FiraMono-Medium.ttf");
 
 	// Load Data and Variables
-	DATA0 *data = iceAddData(&game, sizeof(DATA0)); // Add DATA0
-	iceAddData(&game, sizeof(DATA1)); // Add DATA1
+	DATA0 *data = iceDataAdd(&game, sizeof(DATA0)); // Add DATA0
+	iceDataAdd(&game, sizeof(DATA1)); // Add DATA1
 	data->speed_camera = 250;
 	// Creating Entity
 	int manager_nb = iceEntityManagerCreate(&game);

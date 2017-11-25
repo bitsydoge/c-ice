@@ -14,12 +14,12 @@ int iceDrawLine(iceGame *game, iceVect vect1, iceVect vect2, const iceColor colo
 
 int iceDrawRectangle(iceGame *game, iceBox rect, const iceColor color){
 	iceRenderClearColor(game->drawer.render, color);
-	return SDL_RenderDrawRect(game->drawer.render, (SDL_Rect[]) { iceRectToSDL(&rect) });
+	return SDL_RenderDrawRect(game->drawer.render, (SDL_Rect[]) { iceConvertBoxToSdl(&rect) });
 }
 
 int iceDrawRectangleFill(iceGame *game, iceBox rect, const iceColor color){
 	iceRenderClearColor(game->drawer.render, color);
-	return SDL_RenderFillRect(game->drawer.render, (SDL_Rect[]) { iceRectToSDL(&rect)});
+	return SDL_RenderFillRect(game->drawer.render, (SDL_Rect[]) { iceConvertBoxToSdl(&rect)});
 }
 
 // OPENGL LIKE
@@ -36,10 +36,10 @@ int iceDrawLineGL(iceGame *game, int x1, int y1, int x2, int y2, const iceColor 
 
 int iceDrawRectangleGL(iceGame *game, iceBox rect, const iceColor color) {
 	iceRenderClearColor(game->drawer.render, color);
-	return SDL_RenderDrawRect(game->drawer.render, (SDL_Rect[]) { iceRectToSDL(&rect) });
+	return SDL_RenderDrawRect(game->drawer.render, (SDL_Rect[]) { iceConvertBoxToSdl(&rect) });
 }
 
 int iceDrawRectangleFillGL(iceGame *game, iceBox rect, const iceColor color) {
 	iceRenderClearColor(game->drawer.render, color);
-	return SDL_RenderFillRect(game->drawer.render, (SDL_Rect[]) { iceRectToSDL(&rect) });
+	return SDL_RenderFillRect(game->drawer.render, (SDL_Rect[]) { iceConvertBoxToSdl(&rect) });
 }

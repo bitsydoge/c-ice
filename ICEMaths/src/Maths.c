@@ -1,23 +1,23 @@
 ﻿#include "hdr/Maths.h"
 
 /// Move point to an other point from a r distance in float
-void move_from_angle(iceFloat *x, iceFloat *y, iceFloat angle, iceFloat r) {
+void iceMathsMoveFromAngle(iceFloat *x, iceFloat *y, iceFloat angle, iceFloat r) {
 	*x += r * cos(angle); *y += r * sin(angle);
 }
 
 /// Calculate the angle for two point in degree
-double angle_calculate_degree(iceFloat x1, iceFloat y1, iceFloat x2, iceFloat y2) {
+double iceMathsAngleCalculatDegree(iceFloat x1, iceFloat y1, iceFloat x2, iceFloat y2) {
 	iceFloat xdif = x2 - x1; iceFloat ydif = y2 - y1;
 	return 57.29*atan2(ydif, xdif);
 }
 
 /// Calculate the angle for two point in radiant
-double angle_calculate_radiant(iceFloat x1, iceFloat y1, iceFloat x2, iceFloat y2) {
+double iceMathsAngleCalculatRadiant(iceFloat x1, iceFloat y1, iceFloat x2, iceFloat y2) {
 	iceFloat xdif = x2 - x1; iceFloat ydif = y2 - y1;
 	return atan2(ydif, xdif);
 }
 
-void move_position_r(iceFloat *x1, iceFloat *y1, iceFloat x2, iceFloat y2, iceFloat r) {
+void iceMathsMoveToPosition(iceFloat *x1, iceFloat *y1, iceFloat x2, iceFloat y2, iceFloat r) {
 	iceFloat xdif = x2 - *x1; iceFloat ydif = y2 - *y1;
 	iceFloat angle = atan2(ydif, xdif);
 	iceFloat distance_r_r = xdif*xdif + ydif*ydif;

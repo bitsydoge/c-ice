@@ -44,6 +44,7 @@ void iceEntityAddData(iceGame *game, int manager, int entity, size_t size);
 /// Draw every Entity to screen
 void iceEntityDrawAll(iceGame *game);
 
-iceBox iceEntityGetRect(iceGame *game, int manager, int entity);
+/// Return the Box of a Entity
+iceBox iceEntityGetBox(iceGame *game, int manager, int entity);
 
 #endif

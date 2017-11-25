@@ -1,7 +1,7 @@
 ﻿#include "hdr/Data.h"
 
 // Make a Data and create a pointer in the game->data array (return the pointer created)
-void* iceAddData(iceGame *game, size_t _size)
+void* iceDataAdd(iceGame *game, size_t _size)
 {
 	game->nb_data++;
 	game->data = realloc(game->data, sizeof(void*)*game->nb_data);
@@ -11,7 +11,7 @@ void* iceAddData(iceGame *game, size_t _size)
 }
 
 /// Return pointer to a Data
-void* iceGetData(iceGame *game, int nb_data)
+void* iceDataGet(iceGame *game, int nb_data)
 {
 	void * _pointer;
 
@@ -36,7 +36,7 @@ void* iceGetData(iceGame *game, int nb_data)
 }
 
 /// Destroy a Data
-void iceDestroyData(iceGame *game, int nb_data)
+void iceDataDestroy(iceGame *game, int nb_data)
 {
 	void * _pointer;
 

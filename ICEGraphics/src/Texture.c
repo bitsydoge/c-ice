@@ -137,42 +137,42 @@ void iceTextureDestroy(iceTexture *tex){
 int iceTextureRender(iceGame *game, int man, int text, iceBox* src, iceBox* dst){
 	if(!src && dst)
 	{
-		SDL_Rect s_dst = iceRectToSDL(dst);
+		SDL_Rect s_dst = iceConvertBoxToSdl(dst);
 		return SDL_RenderCopy(game->drawer.render, game->texturemanager[man].texture[text].handle, NULL, &s_dst);
 	}
 	if (src && !dst)
 	{
-		SDL_Rect s_src = iceRectToSDL(src);
+		SDL_Rect s_src = iceConvertBoxToSdl(src);
 		return SDL_RenderCopy(game->drawer.render, game->texturemanager[man].texture[text].handle, &s_src, NULL);
 	}
 	if (!src && !dst)
 	{
 		return SDL_RenderCopy(game->drawer.render, game->texturemanager[man].texture[text].handle, NULL, NULL);
 	}
-		SDL_Rect s_dst = iceRectToSDL(dst);
-		SDL_Rect s_src = iceRectToSDL(src);
+		SDL_Rect s_dst = iceConvertBoxToSdl(dst);
+		SDL_Rect s_src = iceConvertBoxToSdl(src);
 		return SDL_RenderCopy(game->drawer.render, game->texturemanager[man].texture[text].handle, &s_src, &s_dst);
 }
 
 int iceTextureRenderCentered(iceGame *game, int man, int text, iceBox* src, iceBox* dst) {
 	if (!src && dst)
 	{
-		SDL_Rect s_dst = iceRectToSDL(dst);
+		SDL_Rect s_dst = iceConvertBoxToSdl(dst);
 		s_dst.x -= s_dst.w / 2; s_dst.y -= s_dst.h / 2;
 		return SDL_RenderCopy(game->drawer.render, game->texturemanager[man].texture[text].handle, NULL, &s_dst);
 	}
 	if (src && !dst)
 	{
-		SDL_Rect s_src = iceRectToSDL(src);
+		SDL_Rect s_src = iceConvertBoxToSdl(src);
 		return SDL_RenderCopy(game->drawer.render, game->texturemanager[man].texture[text].handle, &s_src, NULL);
 	}
 	if (!src && !dst)
 	{
 		return SDL_RenderCopy(game->drawer.render, game->texturemanager[man].texture[text].handle, NULL, NULL);
 	}
-	SDL_Rect s_dst = iceRectToSDL(dst);
+	SDL_Rect s_dst = iceConvertBoxToSdl(dst);
 	s_dst.x -= s_dst.w / 2; s_dst.y -= s_dst.h / 2;
-	SDL_Rect s_src = iceRectToSDL(src);
+	SDL_Rect s_src = iceConvertBoxToSdl(src);
 	return SDL_RenderCopy(game->drawer.render, game->texturemanager[man].texture[text].handle, &s_src, &s_dst);
 }
 
