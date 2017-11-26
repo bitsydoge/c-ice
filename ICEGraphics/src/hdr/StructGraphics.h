@@ -155,10 +155,18 @@ typedef enum
 
 typedef struct
 {
+	iceBool exist;
 	iceVect pos;
+
 	char * text;
+	char * old_text;
+	int old_size;
+	int size;
 	iceColor color;
-	iceTexture *texture_handle;
+	iceColor old_color;
+
+	iceTexture texture;
+	iceBool isFixedToWorld;
 	
 
 } iceText;

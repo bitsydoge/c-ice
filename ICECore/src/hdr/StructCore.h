@@ -82,13 +82,13 @@ typedef struct{
 	// Size
 	iceFloat w, h;
 	
-	// Data Array
-	void **data;
-	
 	// Texture location
 	iceBool have_texture;
 	unsigned int man;
 	unsigned int text;
+
+	// Data Array
+	void **data;
 
 }iceEntity;
 
@@ -100,46 +100,60 @@ typedef struct{
 
 }iceEntityManager;
 
-/*! \brief Load essential module of the engine
-*
-*
-*  Load the SDL, SDL_Mixer, SDL_TTF, srand, rlutil
-*/
 typedef struct {
+
+	    ///////////// CORE //////////////
+
+
+	//// Entity ////
+	unsigned int entitymanager_size;
+	iceEntityManager *entitymanager;
+	
+	//// Data //// 
+	int nb_data;
+	void** data;
+
+	//// Input ////
+	iceInput *input;
+
+	//// Time ////
+	iceTime time;
+
+	//// OTHER ////
 	int returnvalue;
 	iceColor background;
 
-	// To implement
+
+
+	    ///////////// GRAPHICS ///////////
+
+
+	//// Drawer ////
 	iceDrawer drawer;
 
-	// Input
-	iceInput *input;
+	//// Texture ////
+	unsigned int texturemanager_size;
+	iceTextureManager *texturemanager;
 
-	// Time
-	iceTime time;
+	//// Font ////
+	iceFontManager fontmanager;
+
+	//// Text ////
+	unsigned int textmanager_size;
+	iceTextManager *textmanager;
 
 	// Camera
 	iceCamera camera;
 
-	//// Manager ////
-	// Texture //
-	
-	unsigned int texturemanager_size;
-	iceTextureManager *texturemanager;
 
-	// Sound // Only One soundmanager at a time
+
+	    ///////////// AUDIO //////////////
+	
+
+	//// Sound //// 
 	iceSoundManager soundmanager;
 
-	// Font // Only one for now
-	iceFontManager fontmanager;
 
-	// Entity // Multiple
-	unsigned int entitymanager_size;
-	iceEntityManager *entitymanager;
-
-	// Data // 
-	int nb_data;
-	void** data;
 
 } iceGame;
 

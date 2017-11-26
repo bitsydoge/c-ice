@@ -123,33 +123,3 @@ void iceEntityAddData(iceGame *game, int manager, int entity, size_t size){
 void iceEntityGetData(){
 	
 }
-
-
-//				  //
-//				  //
-//  ENTITY DRAW   //
-//                //
-//                //
-
-void iceEntityDrawAll(iceGame *game)
-{
-	for (int i = 0; i < game->entitymanager_size; i++)
-		for(int j = 0; j < game->entitymanager[i].nb_existing; j++)
-		{
-			if(game->entitymanager[i].entity[j].have_texture && game->entitymanager[i].entity[j].exist)
-			{
-				iceBox rect = iceCameraWorldScreen(iceBoxNew(
-					game->entitymanager[i].entity[j].x,
-					game->entitymanager[i].entity[j].y,
-					game->entitymanager[i].entity[j].w,
-					game->entitymanager[i].entity[j].h), &game->camera);
-
-				iceTextureRenderCentered(
-					game,
-					game->entitymanager[i].entity[j].man,
-					game->entitymanager[i].entity[j].text,
-					NULL, &rect);
-			}
-		}
-}
-

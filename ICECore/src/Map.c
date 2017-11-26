@@ -2,8 +2,7 @@
 #include "external/icestd.h"
 
 
-void iceMapLoad(iceMap *map, char *path)
-{
+void iceMapLoad(iceMap *map, char *path){
 	FILE* fichier = fopen(path, "r");
 
 	icestd_tnc(fichier, '[');
@@ -29,10 +28,8 @@ void iceMapLoad(iceMap *map, char *path)
 			//fscanf(fichier, "%hu,", &map->enmspawner[i][j]);
 }
 
-int iceMapTileType(int x, int y, iceMap *map)
-{
+int iceMapTileType(int x, int y, iceMap *map){
 	const int tile_nb_x = 0;// (x + (MAP_WIDTH / 2 * TCASE)) / TCASE;
 	const int tile_nb_y = 0;// (y + (MAP_HEIGHT / 2 * TCASE)) / TCASE;
-
 	return 0;//map->tile[tile_nb_y][tile_nb_x];
 }

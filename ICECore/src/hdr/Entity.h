@@ -41,9 +41,6 @@ void iceEntityAddAngle(iceGame *game, int manager, int entity, iceFloat angle);
 /// Link a Data struct to a Entity
 void iceEntityAddData(iceGame *game, int manager, int entity, size_t size);
 
-/// Draw every Entity to screen
-void iceEntityDrawAll(iceGame *game);
-
 /// Return the Box of a Entity
 iceBox iceEntityGetBox(iceGame *game, int manager, int entity);
 

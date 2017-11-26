@@ -5,6 +5,7 @@
 #include "Entity.h"
 #include "Vector.h"
 #include "Font.h"
+#include "Window.h"
 #include <stdio.h>
 
 void iceDebugMouseCoordinate(iceGame *game);
