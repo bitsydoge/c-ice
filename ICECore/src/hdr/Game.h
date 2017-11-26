@@ -10,6 +10,7 @@
 #include "Debug.h"
 #include "TypesCore.h"
 #include "Sound.h"
+#include "Color.h"
 
 iceGame iceGameCreate(char *window_title, const unsigned int width_window, const unsigned int height_window);
 void iceGameDestroy(iceGame *app);

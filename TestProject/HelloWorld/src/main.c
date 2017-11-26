@@ -1,74 +1,93 @@
 #include <Core.h>
-#define _CRTDBG_MAP_ALLOC 
-#include <stdlib.h> 
-#include <crtdbg.h>  
 
-enum // Txt1
+enum // Label in manager 0
 {
-	txtHelloWorld = 0,
-	txtFps
+	labelTest1 = 0,
+	labelFPS
+};
+
+enum // Texture in manager 0
+{
+	textWidow = 0,
+	textIcon
+};
+
+enum // Gui in manager 0
+{
+	guiTest = 0
+};
+
+enum // Entity in manager 0
+{
+	entityWidow = 0
 };
 
 ICE_CREATE {
+
 	iceGame game = iceGameCreate("ICE : Hello World", 800, 480);
+	SDL_DisplayMode dm;
+	SDL_GetCurrentDisplayMode(0, &dm);
+	iceWindowFullscreen(&game, iceFalse);
+	iceWindowSetSize(&game, dm.w, dm.h);
+
+	// Properties
+	iceDrawSetColor(&game, iceColorNew(50, 40, 30));// 
+	iceWindowFullscreen(&game, iceTrue); // Widows is not resizable
+
+	// Manager
+	iceTextureManagerCreate(&game);
+	iceSoundManagerCreate(&game);
 	iceEntityManagerCreate(&game);
-	iceFontLoad(&game, "res/ttf/FiraSans-Medium.ttf");
-	iceTextureCreate(&game, 0, "res/img/pic.png");
-	iceTextureCreate(&game, 0, "res/img/backxc.jpg");
-	iceDrawSetColor(&game, iceColorNew(200, 40, 30));
-	
-	int actual = 0;
-	for (int i = 0; i < 1; i++)
-	{
-		actual = iceEntityCreate(&game, 0);
-		iceEntitySetTexture(&game, 0, actual, 0, 0);
-		iceEntitySetSize(&game, 0, actual, 300, 500);
-		iceEntitySetPos(&game, 0, actual, 0, 0);
-	}
 	iceLabelManagerCreate(&game);
-	iceLabelCreate(&game, 0, iceVectNew(400,240),"Hello");
-	iceLabelCreate(&game, 0, iceVectNew(50, 50), "Hello");
+	iceGuiManagerCreate(&game);
+	
+	// Texture Create
+	iceTextureCreate(&game, 0, "res/img/pic.png");
+	iceTextureCreate(&game, 0, "res/img/gui.png"); // Load an error texture
+	
+	// Font Create
+	iceFontLoad(&game, "res/ttf/FiraSans-Medium.ttf");
 
-	// txtHelloWorld
-	iceLabelSetText(&game, 0, txtHelloWorld, "Hello_Deux");
-	iceLabelSetColor(&game, 0, txtHelloWorld, iceColorNew(100, 0, 200));
-	iceLabelSetSize(&game, 0, txtHelloWorld, 100);
-	iceLabelSetPos(&game, 0, txtHelloWorld, iceVectNew(0, 0));
-	iceLabelIsInWorld(&game, 0, txtHelloWorld, 1);
+	// Entity Create
+	iceEntityCreate(&game, 0);
+	iceEntitySetTexture(&game, 0, entityWidow, 0, textWidow);
+	iceEntitySetSize(&game, 0, entityWidow, 300, 500);
+	iceEntitySetPos(&game, 0, entityWidow, 0, 0);
 
-	iceLabelSetSize(&game, 0, txtFps, 10);
+	// Label Create 
+	  //Label 1
+	iceLabelCreate(&game, 0, iceVectNew(400,240),"OnWorld");
+	iceLabelSetText(&game, 0, labelTest1, "One Shot, One kill !");
+	iceLabelSetColor(&game, 0, labelTest1, iceColorNew(200, 0, 100));
+	iceLabelSetSize(&game, 0, labelTest1, 50);
+	iceLabelSetPos(&game, 0, labelTest1, iceVectNew(0, -270));
+	iceLabelIsInWorld(&game, 0, labelTest1, 1);
+	  // Label 2
+	iceLabelCreate(&game, 0, iceVectNew(30, 10), "OnScreen");
+	iceLabelSetSize(&game, 0, labelFPS, 10);
+
+	// Gui Create
+	iceGuiCreate(&game, 0);
+	iceGuiSetBox(&game, 0, guiTest, iceBoxNew(0, 0, game.camera.w, 20));
+	iceGuiSetTexture(&game, 0, guiTest, 0, textIcon);
 
 	return game;
 }
 
 ICE_UPDATE {
-	char buffer[256];
-	sprintf(buffer, "FPS : %f", game->time.fps);
-	iceLabelSetText(game, 0, txtFps, buffer);
-	//iceTextureRenderCentered(game, 0, 0, NULL, (iceBox[]) { iceCameraWorldScreen(iceBoxNew(0, 0, 500, 750), &game->camera) });
-	//iceTextureRenderCentered(game, 0, 1, NULL, (iceBox[]) { iceCameraWorldScreen(iceBoxNew(0, 0, iceTextureGetWidth(game, 0, 1), iceTextureGetHeight(game, 0, 1)), &game->camera) });
-	//iceFontDraw(game, "Hello World", 80, iceVectNew(0, 0));
-	
-	iceDrawAllText(game);
-	iceDrawAllEntity(game);
-
-	if (game->input->key[SDL_SCANCODE_D] || game->input->key[SDL_SCANCODE_RIGHT]) iceCameraShiftPos(game, iceVectNew(100 * game->time.delta, 0));
-	if (game->input->key[SDL_SCANCODE_A] || game->input->key[SDL_SCANCODE_LEFT]) iceCameraShiftPos(game, iceVectNew(-100 * game->time.delta, 0));
-	if (game->input->key[SDL_SCANCODE_S] || game->input->key[SDL_SCANCODE_DOWN]) iceCameraShiftPos(game, iceVectNew(0, 100 * game->time.delta));
-	if (game->input->key[SDL_SCANCODE_W] || game->input->key[SDL_SCANCODE_UP]) iceCameraShiftPos(game, iceVectNew(0, -100 * game->time.delta));
+	iceDebugShowFpsTitle(game);
+	iceGuiSetBox(game, 0, guiTest, iceBoxNew(0, 0, game->camera.w, 20));
+	if (game->input->key[SDL_SCANCODE_D] || game->input->key[SDL_SCANCODE_RIGHT]) iceCameraShiftPos(game, iceVectNew(1000 * game->time.delta, 0));
+	if (game->input->key[SDL_SCANCODE_A] || game->input->key[SDL_SCANCODE_LEFT]) iceCameraShiftPos(game, iceVectNew(-1000 * game->time.delta, 0));
+	if (game->input->key[SDL_SCANCODE_S] || game->input->key[SDL_SCANCODE_DOWN]) iceCameraShiftPos(game, iceVectNew(0, 1000 * game->time.delta));
+	if (game->input->key[SDL_SCANCODE_W] || game->input->key[SDL_SCANCODE_UP]) iceCameraShiftPos(game, iceVectNew(0, -1000 * game->time.delta));
 	if (game->input->key[SDL_SCANCODE_SPACE]) iceCameraMovePos(game, iceVectNew(0, 0), 100 * game->time.delta);
-
-
-	
-
 }
 
 ICE_DESTROY {
 }
 
 int main(){
-	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 	ICE_GAME_RUN;
-	_CrtDumpMemoryLeaks();
 	return 0;
 }

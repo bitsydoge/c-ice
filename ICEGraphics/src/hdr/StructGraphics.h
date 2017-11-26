@@ -123,6 +123,7 @@ typedef enum
 
 typedef struct
 {
+	iceBool exist;
 	int texture_nb;
 	int texturemanager;
 	iceBox box;

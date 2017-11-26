@@ -11,6 +11,8 @@ void iceDrawSetColor(iceGame *game, iceColor color);
 int iceDrawClear(SDL_Renderer *render);
 void iceDrawPresent(SDL_Renderer *render);
 void iceDrawAllEntity(iceGame *game);
-void iceDrawAllText(iceGame *game);
+void iceDrawLabelScreen(iceGame *game);
+void iceDrawLabelWorld(iceGame *game);
+void iceDrawAllGui(iceGame *game);
 
 #endif

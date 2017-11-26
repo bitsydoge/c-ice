@@ -1,10 +1,22 @@
 ﻿#include "hdr/Window.h"
 #include <SDL2/SDL.h>
 
+void iceWindowSetSize(iceGame *game, int w, int h)
+{
+	SDL_SetWindowSize(game->drawer.window, w, h);
+	SDL_GetWindowSize(game->drawer.window, &game->camera.w, &game->camera.h);
+
+}
+
 
 void iceWindowResizable(iceGame *game, iceBool yn)
 {
 	SDL_SetWindowResizable(game->drawer.window, yn);
+}
+
+void iceWindowFullscreen(iceGame *game, iceBool yn)
+{
+	SDL_SetWindowFullscreen(game->drawer.window, yn);
 }
 
 void iceWindowTitle(iceGame *game, const char *title)

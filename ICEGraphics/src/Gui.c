@@ -2,7 +2,7 @@
 
 // Create GUI Object
 
-void iceGuiCreateManager(iceGame *game)
+void iceGuiManagerCreate(iceGame *game)
 {
 	iceGuiManager gui_manager = { 0 };
 	gui_manager.array_size = ICE_DEFAULT_GUI_SIZE;
@@ -17,7 +17,7 @@ void iceGuiCreate(iceGame *game, int man)
 {
 	iceGui gui = { 0 };
 
-	
+	gui.exist = 1;
 
 	game->guimanager[man].gui[game->guimanager[man].nb_existing] = gui;
 	game->guimanager[man].nb_existing++;
