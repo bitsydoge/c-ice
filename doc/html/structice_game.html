@@ -68,14 +68,11 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Load essential module of the engine.  
- <a href="structice_game.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="_struct_core_8h_source.html">StructCore.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a67aea4974b3abd1d6d5e33a41e6801be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_types_graphics_8h.html#aff6790cd79624a03cabc6b5791431e9e">iceColor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_game.html#a67aea4974b3abd1d6d5e33a41e6801be">background</a></td></tr>
+<tr class="memitem:a67aea4974b3abd1d6d5e33a41e6801be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_types_graphics_8h.html#a8f5f7f0c72f5558e6e7403019e548e00">iceColor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_game.html#a67aea4974b3abd1d6d5e33a41e6801be">background</a></td></tr>
 <tr class="separator:a67aea4974b3abd1d6d5e33a41e6801be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0aee2185cb84fac90312222cfc3573a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structice_camera.html">iceCamera</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_game.html#ad0aee2185cb84fac90312222cfc3573a">camera</a></td></tr>
 <tr class="separator:ad0aee2185cb84fac90312222cfc3573a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -97,6 +94,10 @@ Data Fields</h2></td></tr>
 <tr class="separator:a4f0eed2f6114aacf3eff03b3c40af0d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b1edf147a50514b6bcffa01346cc69c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structice_sound_manager.html">iceSoundManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_game.html#a9b1edf147a50514b6bcffa01346cc69c">soundmanager</a></td></tr>
 <tr class="separator:a9b1edf147a50514b6bcffa01346cc69c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c8b693b4153d39b47a47b0eb38b46ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structice_text_manager.html">iceTextManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_game.html#a0c8b693b4153d39b47a47b0eb38b46ed">textmanager</a></td></tr>
+<tr class="separator:a0c8b693b4153d39b47a47b0eb38b46ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ff93da53ab49b0da190091201b22e56"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_game.html#a3ff93da53ab49b0da190091201b22e56">textmanager_size</a></td></tr>
+<tr class="separator:a3ff93da53ab49b0da190091201b22e56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40bb45dfd3044c259116bd231998f08c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structice_texture_manager.html">iceTextureManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_game.html#a40bb45dfd3044c259116bd231998f08c">texturemanager</a></td></tr>
 <tr class="separator:a40bb45dfd3044c259116bd231998f08c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e70a2d28b9f50a8d8114888e658e00d"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_game.html#a0e70a2d28b9f50a8d8114888e658e00d">texturemanager_size</a></td></tr>
@@ -104,150 +105,7 @@ Data Fields</h2></td></tr>
 <tr class="memitem:aafed0da5b68cb37c92031a0fef9abdfa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structice_time.html">iceTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_game.html#aafed0da5b68cb37c92031a0fef9abdfa">time</a></td></tr>
 <tr class="separator:aafed0da5b68cb37c92031a0fef9abdfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Load essential module of the engine. </p>
-<p>Load the SDL, SDL_Mixer, SDL_TTF, srand, rlutil </p>
-</div><h2 class="groupheader">Field Documentation</h2>
-<a id="a4f0eed2f6114aacf3eff03b3c40af0d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f0eed2f6114aacf3eff03b3c40af0d3">&#9670;&nbsp;</a></span>returnvalue</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int iceGame::returnvalue</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a67aea4974b3abd1d6d5e33a41e6801be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67aea4974b3abd1d6d5e33a41e6801be">&#9670;&nbsp;</a></span>background</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_types_graphics_8h.html#aff6790cd79624a03cabc6b5791431e9e">iceColor</a> iceGame::background</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a619cb6feeaeb5d8041aa3d16e4e4dfed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a619cb6feeaeb5d8041aa3d16e4e4dfed">&#9670;&nbsp;</a></span>drawer</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structice_drawer.html">iceDrawer</a> iceGame::drawer</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aea11b206f904d5873bbb0f048f1dcad8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea11b206f904d5873bbb0f048f1dcad8">&#9670;&nbsp;</a></span>input</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structice_input.html">iceInput</a>* iceGame::input</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aafed0da5b68cb37c92031a0fef9abdfa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aafed0da5b68cb37c92031a0fef9abdfa">&#9670;&nbsp;</a></span>time</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structice_time.html">iceTime</a> iceGame::time</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad0aee2185cb84fac90312222cfc3573a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0aee2185cb84fac90312222cfc3573a">&#9670;&nbsp;</a></span>camera</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structice_camera.html">iceCamera</a> iceGame::camera</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0e70a2d28b9f50a8d8114888e658e00d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e70a2d28b9f50a8d8114888e658e00d">&#9670;&nbsp;</a></span>texturemanager_size</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int iceGame::texturemanager_size</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a40bb45dfd3044c259116bd231998f08c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40bb45dfd3044c259116bd231998f08c">&#9670;&nbsp;</a></span>texturemanager</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structice_texture_manager.html">iceTextureManager</a>* iceGame::texturemanager</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9b1edf147a50514b6bcffa01346cc69c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b1edf147a50514b6bcffa01346cc69c">&#9670;&nbsp;</a></span>soundmanager</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structice_sound_manager.html">iceSoundManager</a> iceGame::soundmanager</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ade1afa407fbd3cc381d1ce75cb89d445"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade1afa407fbd3cc381d1ce75cb89d445">&#9670;&nbsp;</a></span>fontmanager</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structice_font_manager.html">iceFontManager</a> iceGame::fontmanager</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
+<h2 class="groupheader">Field Documentation</h2>
 <a id="ad31d7d9d40ee82f13cd6586c121422ea"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad31d7d9d40ee82f13cd6586c121422ea">&#9670;&nbsp;</a></span>entitymanager_size</h2>
 
@@ -298,6 +156,174 @@ Data Fields</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">void** iceGame::data</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aea11b206f904d5873bbb0f048f1dcad8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea11b206f904d5873bbb0f048f1dcad8">&#9670;&nbsp;</a></span>input</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structice_input.html">iceInput</a>* iceGame::input</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aafed0da5b68cb37c92031a0fef9abdfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafed0da5b68cb37c92031a0fef9abdfa">&#9670;&nbsp;</a></span>time</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structice_time.html">iceTime</a> iceGame::time</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4f0eed2f6114aacf3eff03b3c40af0d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f0eed2f6114aacf3eff03b3c40af0d3">&#9670;&nbsp;</a></span>returnvalue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int iceGame::returnvalue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a67aea4974b3abd1d6d5e33a41e6801be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67aea4974b3abd1d6d5e33a41e6801be">&#9670;&nbsp;</a></span>background</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_types_graphics_8h.html#a8f5f7f0c72f5558e6e7403019e548e00">iceColor</a> iceGame::background</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a619cb6feeaeb5d8041aa3d16e4e4dfed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a619cb6feeaeb5d8041aa3d16e4e4dfed">&#9670;&nbsp;</a></span>drawer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structice_drawer.html">iceDrawer</a> iceGame::drawer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0e70a2d28b9f50a8d8114888e658e00d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e70a2d28b9f50a8d8114888e658e00d">&#9670;&nbsp;</a></span>texturemanager_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int iceGame::texturemanager_size</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a40bb45dfd3044c259116bd231998f08c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40bb45dfd3044c259116bd231998f08c">&#9670;&nbsp;</a></span>texturemanager</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structice_texture_manager.html">iceTextureManager</a>* iceGame::texturemanager</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ade1afa407fbd3cc381d1ce75cb89d445"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade1afa407fbd3cc381d1ce75cb89d445">&#9670;&nbsp;</a></span>fontmanager</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structice_font_manager.html">iceFontManager</a> iceGame::fontmanager</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3ff93da53ab49b0da190091201b22e56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ff93da53ab49b0da190091201b22e56">&#9670;&nbsp;</a></span>textmanager_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int iceGame::textmanager_size</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0c8b693b4153d39b47a47b0eb38b46ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c8b693b4153d39b47a47b0eb38b46ed">&#9670;&nbsp;</a></span>textmanager</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structice_text_manager.html">iceTextManager</a>* iceGame::textmanager</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad0aee2185cb84fac90312222cfc3573a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0aee2185cb84fac90312222cfc3573a">&#9670;&nbsp;</a></span>camera</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structice_camera.html">iceCamera</a> iceGame::camera</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9b1edf147a50514b6bcffa01346cc69c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b1edf147a50514b6bcffa01346cc69c">&#9670;&nbsp;</a></span>soundmanager</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structice_sound_manager.html">iceSoundManager</a> iceGame::soundmanager</td>
         </tr>
       </table>
 </div><div class="memdoc">

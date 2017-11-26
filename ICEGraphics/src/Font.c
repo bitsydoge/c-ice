@@ -10,8 +10,8 @@ void iceFontLoad(iceGame* game, char *path){
 	}
 }
 
-// Unoptimized
-
+// Unoptimized //
+// Deprecated  // Used for debug
 void iceFontDraw(iceGame* game, char* text,int size, iceVect vect){
 	SDL_Color col; col.r = 255; col.g = 255; col.b = 255; col.a = 255;
 	SDL_Surface *surf = TTF_RenderText_Blended(game->fontmanager.size[size], text, col);

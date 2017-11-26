@@ -1,11 +1,12 @@
 var searchData=
 [
-  ['size',['size',['../structice_font.html#ac91f1823b277b8e96c77de87654410cc',1,'iceFont::size()'],['../structice_font_manager.html#ac87a5551217cc0fefc96cac8b4c9cdf4',1,'iceFontManager::size()']]],
-  ['size_5fmusicpack',['size_musicpack',['../structice_sound_manager.html#aa6c75e7bb24f8321c7484d05da6a55d3',1,'iceSoundManager']]],
-  ['size_5fsoundpack',['size_soundpack',['../structice_sound_manager.html#a5073507b45fd34c682510bbf730e182c',1,'iceSoundManager']]],
-  ['sound',['sound',['../structice_sound.html#a2f0a2ca612fabe526c6973977e9579e9',1,'iceSound']]],
-  ['soundmanager',['soundmanager',['../structice_game.html#a9b1edf147a50514b6bcffa01346cc69c',1,'iceGame']]],
-  ['soundpack',['soundpack',['../structice_sound_manager.html#a11d723278c40e85ba3c177ce748cb1d5',1,'iceSoundManager']]],
-  ['speed',['speed',['../structice_camera.html#a06f4f2639df57c7aa3c09fe881ecaf7c',1,'iceCamera']]],
-  ['substate_5fquit',['substate_quit',['../structice_input.html#abf6df707de2e5752866e79d368d9824e',1,'iceInput']]]
+  ['ren',['ren',['../structice_texture_manager.html#a764d75abad9c5656dc72a3e5a754856d',1,'iceTextureManager']]],
+  ['render',['render',['../structice_drawer.html#aba6ad55fb3614a02169af1687f643ebe',1,'iceDrawer']]],
+  ['returnvalue',['returnvalue',['../structice_game.html#a4f0eed2f6114aacf3eff03b3c40af0d3',1,'iceGame']]],
+  ['rightclic',['rightclic',['../structice_input.html#a94eb921e8515b934161ed42468d2e72b',1,'iceInput']]],
+  ['rightclic_5fposition_5fx',['rightclic_position_x',['../structice_input.html#ae613385db1826dfa7e05ddc79fdaf694',1,'iceInput']]],
+  ['rightclic_5fposition_5fx_5fold',['rightclic_position_x_old',['../structice_input.html#ad398ee6792cae0fb221519b7fc7c9190',1,'iceInput']]],
+  ['rightclic_5fposition_5fy',['rightclic_position_y',['../structice_input.html#a9793011e2dfd8728e4155892a8746418',1,'iceInput']]],
+  ['rightclic_5fposition_5fy_5fold',['rightclic_position_y_old',['../structice_input.html#abe08931f5d0afcb37a5ddc21f611175c',1,'iceInput']]],
+  ['rightclic_5ftrigger',['rightclic_trigger',['../structice_input.html#a07f8e2069acc511de4e7216d07f2462c',1,'iceInput']]]
 ];

@@ -36,9 +36,6 @@
     <ClCompile Include="src\external\lodepng.c">
       <Filter>external</Filter>
     </ClCompile>
-    <ClCompile Include="src\Text.c">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\Window.c">
       <Filter>src</Filter>
     </ClCompile>
@@ -46,6 +43,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Color.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Label.c">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -74,9 +74,6 @@
     <ClInclude Include="src\hdr\StructGraphics.h">
       <Filter>hdr</Filter>
     </ClInclude>
-    <ClInclude Include="src\hdr\Text.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
     <ClInclude Include="src\hdr\Window.h">
       <Filter>hdr</Filter>
     </ClInclude>
@@ -84,6 +81,9 @@
       <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Color.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Label.h">
       <Filter>hdr</Filter>
     </ClInclude>
   </ItemGroup>
