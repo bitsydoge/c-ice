@@ -35,6 +35,14 @@ int iceCoreLoop(iceGame(*call_create)(void), void(*call_update)(iceGame*), void(
 		iceDrawClearColor(game.drawer.render, game.background);
 		iceDrawClear(game.drawer.render);
 		call_update(&game); // Call Update
+
+		// Rendering GameObject
+		iceDrawAllEntity(&game);
+		iceDrawLabelWorld(&game);
+		iceDrawAllGui(&game);
+		iceDrawLabelScreen(&game);
+		//////////////////////////
+
 		iceDrawPresent(game.drawer.render);
 		game.time.last = game.time.actual; // restart counter
 	//}

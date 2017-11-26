@@ -5,7 +5,7 @@
 
 #define ICE_DEFAULT_GUI_SIZE 4
 
-void iceGuiCreateManager(iceGame *game);
+void iceGuiManagerCreate(iceGame *game);
 
 void iceGuiCreate(iceGame *game, int man);
 

@@ -1,5 +1,6 @@
 #include "hdr/Game.h"
 
+
 iceGame iceGameCreate(char *window_title, const unsigned int width_window, const unsigned int height_window)
 {
 	iceGame game = {0};
@@ -26,7 +27,7 @@ iceGame iceGameCreate(char *window_title, const unsigned int width_window, const
 
 	// TextureManager
 	game.texturemanager_size = 0;
-	iceTextureManagerCreate(&game);
+	//iceTextureManagerCreate(&game);
 
 	// Time
 	memset(&game.time, 0, sizeof(iceTime));

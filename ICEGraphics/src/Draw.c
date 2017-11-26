@@ -45,12 +45,11 @@ void iceDrawAllEntity(iceGame *game)
 		}
 }
 
-void iceDrawAllText(iceGame *game)
+void iceDrawLabelScreen(iceGame *game)
 {
 	for (int i = 0; i < game->textmanager_size; i++)
 		for (int j = 0; j < game->textmanager[i].nb_existing; j++)
 		{
-			// Fixed to screen
 			if (game->textmanager[i].text[j].exist)
 			{
 				if (
@@ -76,9 +75,53 @@ void iceDrawAllText(iceGame *game)
 				// Fixed to screen 
 				if(!game->textmanager[i].text[j].isFixedToWorld)
 					iceTextureRenderCenteredTexture(game, &game->textmanager[i].text[j].texture, NULL, &box);
-				// Fixed to world
-				else
-					iceTextureRenderCenteredTexture(game, &game->textmanager[i].text[j].texture, NULL, (iceBox[]) { iceCameraWorldScreen(box, &game->camera) });
 			}	
+		}
+}
+
+void iceDrawLabelWorld(iceGame *game)
+{
+	for (int i = 0; i < game->textmanager_size; i++)
+		for (int j = 0; j < game->textmanager[i].nb_existing; j++)
+		{
+			if (game->textmanager[i].text[j].exist)
+			{
+				if (
+					strcmp(game->textmanager[i].text[j].text, game->textmanager[i].text[j].old_text) ||
+					game->textmanager[i].text[j].size != game->textmanager[i].text[j].old_size ||
+					game->textmanager[i].text[j].color != game->textmanager[i].text[j].old_color
+					)
+				{
+					iceLabelUpdateTexture(game, i, j);
+					game->textmanager[i].text[j].old_color = game->textmanager[i].text[j].color;
+					game->textmanager[i].text[j].old_size = game->textmanager[i].text[j].size;
+					free(game->textmanager[i].text[j].old_text);
+					game->textmanager[i].text[j].old_text = STRDUP(game->textmanager[i].text[j].text);
+				}
+
+				iceBox box = iceBoxNew(
+					game->textmanager[i].text[j].pos.x,
+					game->textmanager[i].text[j].pos.y,
+					game->textmanager[i].text[j].texture.w,
+					game->textmanager[i].text[j].texture.h
+				);
+
+				// Fixed to World 
+				if (game->textmanager[i].text[j].isFixedToWorld)
+					iceTextureRenderCenteredTexture(game, &game->textmanager[i].text[j].texture, NULL, (iceBox[]) { iceCameraWorldScreen(box, &game->camera) });		
+			}
+		}
+}
+
+void iceDrawAllGui(iceGame *game)
+{
+	for (int i = 0; i < game->guimanager_size; i++)
+		for (int j = 0; j < game->guimanager[i].nb_existing; j++)
+		{
+			// Fixed to screen
+			if (game->guimanager[i].gui[j].exist)
+			{
+				iceGuiRect(game, game->guimanager[i].gui[j].texturemanager, game->guimanager[i].gui[j].texture_nb, game->guimanager[i].gui[j].box);
+			}
 		}
 }
