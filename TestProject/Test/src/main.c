@@ -1,3 +1,7 @@
+#define _CRTDBG_MAP_ALLOC 
+#include <stdlib.h> 
+#include <crtdbg.h>  
+
 #include <Core.h>
 #include "hdr/data.h"
 #include "hdr/control.h"
@@ -48,5 +52,7 @@ ICE_DESTROY {
 }
 
 int main(){
-	return ICE_GAME_RUN;
+	ICE_GAME_RUN;
+	_CrtDumpMemoryLeaks();
+	return 0;
 }

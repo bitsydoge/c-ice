@@ -123,10 +123,11 @@ typedef enum
 
 typedef struct
 {
-	int texture;
+	int texture_nb;
 	int texturemanager;
 	iceBox box;
 	iceGuiType type;
+	iceTexture texture_cache;
 
 } iceGui;
 
@@ -169,15 +170,15 @@ typedef struct
 	iceBool isFixedToWorld;
 	
 
-} iceText;
+} iceLabel;
 
 typedef struct
 {
 	int array_size;
 	int nb_existing;
-	iceText* text;
+	iceLabel* text;
 
-} iceTextManager;
+} iceLabelManager;
 
 
 ///////////////////////////////////////////////////////////////////

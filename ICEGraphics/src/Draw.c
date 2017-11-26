@@ -1,7 +1,7 @@
 #include "hdr/Draw.h"
 #include "hdr/Texture.h"
 #include "hdr/Camera.h"
-#include "hdr/Text.h"
+#include "hdr/Label.h"
 
 int iceDrawClearColor(SDL_Renderer *render, const iceColor rgba_hex){
 	const int r = rgba_hex >> 24 & 255;
@@ -59,7 +59,7 @@ void iceDrawAllText(iceGame *game)
 					game->textmanager[i].text[j].color != game->textmanager[i].text[j].old_color
 					)
 				{
-					iceTextUpdateTexture(game, i, j);
+					iceLabelUpdateTexture(game, i, j);
 					game->textmanager[i].text[j].old_color = game->textmanager[i].text[j].color;
 					game->textmanager[i].text[j].old_size = game->textmanager[i].text[j].size;
 					free(game->textmanager[i].text[j].old_text);

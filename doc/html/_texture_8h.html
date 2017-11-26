@@ -72,12 +72,12 @@ $(function() {
 <div class="title">Texture.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="_struct_core_8h_source.html">StructCore.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_types_core_8h_source.html">TypesCore.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_box_8h_source.html">Box.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_converter_8h_source.html">Converter.h</a>&quot;</code><br />
-<code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="_terminal_8h_source.html">Terminal.h</a>&quot;</code><br />
 </div>
 <p><a href="_texture_8h_source.html">Go to the source code of this file.</a></p>
@@ -89,16 +89,10 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa6b77abc7b18466910540d27bdbd39ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_types_graphics_8h.html#aff6790cd79624a03cabc6b5791431e9e">iceColor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_texture_8h.html#aa6b77abc7b18466910540d27bdbd39ae">iceColorANew</a> (const unsigned int r, const unsigned int g, const unsigned int b, const unsigned int a)</td></tr>
-<tr class="memdesc:aa6b77abc7b18466910540d27bdbd39ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new iceColor from a R G B and A int.  <a href="#aa6b77abc7b18466910540d27bdbd39ae">More...</a><br /></td></tr>
-<tr class="separator:aa6b77abc7b18466910540d27bdbd39ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23b10fe58a89251c6adefae047b1e5a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_types_graphics_8h.html#aff6790cd79624a03cabc6b5791431e9e">iceColor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_texture_8h.html#a23b10fe58a89251c6adefae047b1e5a1">iceColorNew</a> (const unsigned int r, const unsigned int g, const unsigned int b)</td></tr>
-<tr class="memdesc:a23b10fe58a89251c6adefae047b1e5a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new iceColor from a R G and B int; The A is 255, use iceColorANew to set the transparancy.  <a href="#a23b10fe58a89251c6adefae047b1e5a1">More...</a><br /></td></tr>
-<tr class="separator:a23b10fe58a89251c6adefae047b1e5a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaef8b738eb1c341e50519e812d3f4eba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structice_texture.html">iceTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_texture_8h.html#aaef8b738eb1c341e50519e812d3f4eba">iceLoadBMP</a> (<a class="el" href="_types_graphics_8h.html#a428419495a9ef800f54b6788bc3c6b3c">iceRenderer</a> *render, char *path)</td></tr>
 <tr class="memdesc:aaef8b738eb1c341e50519e812d3f4eba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a BMP with SDL_LoadBMP to a Texture with Error handling.  <a href="#aaef8b738eb1c341e50519e812d3f4eba">More...</a><br /></td></tr>
 <tr class="separator:aaef8b738eb1c341e50519e812d3f4eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd0d3b26f5b10f2d1998bcf71c87a062"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structice_texture.html">iceTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_texture_8h.html#acd0d3b26f5b10f2d1998bcf71c87a062">iceLoadBMPAlpha</a> (<a class="el" href="_types_graphics_8h.html#a428419495a9ef800f54b6788bc3c6b3c">iceRenderer</a> *render, char *path, const <a class="el" href="_types_graphics_8h.html#aff6790cd79624a03cabc6b5791431e9e">iceColor</a> rgba_hex)</td></tr>
+<tr class="memitem:acd0d3b26f5b10f2d1998bcf71c87a062"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structice_texture.html">iceTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_texture_8h.html#acd0d3b26f5b10f2d1998bcf71c87a062">iceLoadBMPAlpha</a> (<a class="el" href="_types_graphics_8h.html#a428419495a9ef800f54b6788bc3c6b3c">iceRenderer</a> *render, char *path, const <a class="el" href="_types_graphics_8h.html#a8f5f7f0c72f5558e6e7403019e548e00">iceColor</a> rgba_hex)</td></tr>
 <tr class="memdesc:acd0d3b26f5b10f2d1998bcf71c87a062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a BMP with SDL_LoadBMP to a Texture with Mono Alpha handle from a hex color.  <a href="#acd0d3b26f5b10f2d1998bcf71c87a062">More...</a><br /></td></tr>
 <tr class="separator:acd0d3b26f5b10f2d1998bcf71c87a062"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade26dc61ba3166e8ac8ed5c26afe8382"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structice_texture.html">iceTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_texture_8h.html#ade26dc61ba3166e8ac8ed5c26afe8382">iceLoadJPG</a> (SDL_Renderer *render, char *path)</td></tr>
@@ -128,8 +122,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a260e9e34f523120dada169977cffd715"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_texture_8h.html#a260e9e34f523120dada169977cffd715">iceTextureRenderCentered</a> (<a class="el" href="structice_game.html">iceGame</a> *game, int man, int text, <a class="el" href="_struct_maths_8h.html#aba7ee5be7b1ea7c3dcc985a76d9fb77d">iceBox</a> *src, <a class="el" href="_struct_maths_8h.html#aba7ee5be7b1ea7c3dcc985a76d9fb77d">iceBox</a> *dst)</td></tr>
 <tr class="memdesc:a260e9e34f523120dada169977cffd715"><td class="mdescLeft">&#160;</td><td class="mdescRight">NO CENTER.  <a href="#a260e9e34f523120dada169977cffd715">More...</a><br /></td></tr>
 <tr class="separator:a260e9e34f523120dada169977cffd715"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac04d16f133588ae62805d807506c7b93"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_texture_8h.html#ac04d16f133588ae62805d807506c7b93">iceTextureRenderCenteredTexture</a> (<a class="el" href="structice_game.html">iceGame</a> *game, <a class="el" href="structice_texture.html">iceTexture</a> *texture, <a class="el" href="_struct_maths_8h.html#aba7ee5be7b1ea7c3dcc985a76d9fb77d">iceBox</a> *src, <a class="el" href="_struct_maths_8h.html#aba7ee5be7b1ea7c3dcc985a76d9fb77d">iceBox</a> *dst)</td></tr>
+<tr class="memdesc:ac04d16f133588ae62805d807506c7b93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render a <a class="el" href="structice_texture.html">iceTexture</a> to the renderer with a rotation.  <a href="#ac04d16f133588ae62805d807506c7b93">More...</a><br /></td></tr>
+<tr class="separator:ac04d16f133588ae62805d807506c7b93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b3157ac89e0f9e64320788ed3678d1a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_texture_8h.html#a0b3157ac89e0f9e64320788ed3678d1a">iceTextureRenderEx</a> (<a class="el" href="_types_graphics_8h.html#a428419495a9ef800f54b6788bc3c6b3c">iceRenderer</a> *renderer, const <a class="el" href="structice_texture.html">iceTexture</a> *tex, SDL_Rect *source, SDL_Rect *destination, const double angle)</td></tr>
-<tr class="memdesc:a0b3157ac89e0f9e64320788ed3678d1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render a <a class="el" href="structice_texture.html">iceTexture</a> to the renderer with a rotation.  <a href="#a0b3157ac89e0f9e64320788ed3678d1a">More...</a><br /></td></tr>
 <tr class="separator:a0b3157ac89e0f9e64320788ed3678d1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -259,7 +255,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="_types_graphics_8h.html#aff6790cd79624a03cabc6b5791431e9e">iceColor</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="_types_graphics_8h.html#a8f5f7f0c72f5558e6e7403019e548e00">iceColor</a>&#160;</td>
           <td class="paramname"><em>rgba_hex</em>&#160;</td>
         </tr>
         <tr>
@@ -390,6 +386,48 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ac04d16f133588ae62805d807506c7b93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac04d16f133588ae62805d807506c7b93">&#9670;&nbsp;</a></span>iceTextureRenderCenteredTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int iceTextureRenderCenteredTexture </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structice_game.html">iceGame</a> *&#160;</td>
+          <td class="paramname"><em>game</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structice_texture.html">iceTexture</a> *&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_struct_maths_8h.html#aba7ee5be7b1ea7c3dcc985a76d9fb77d">iceBox</a> *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_struct_maths_8h.html#aba7ee5be7b1ea7c3dcc985a76d9fb77d">iceBox</a> *&#160;</td>
+          <td class="paramname"><em>dst</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Render a <a class="el" href="structice_texture.html">iceTexture</a> to the renderer with a rotation. </p>
+
+</div>
+</div>
 <a id="a0b3157ac89e0f9e64320788ed3678d1a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0b3157ac89e0f9e64320788ed3678d1a">&#9670;&nbsp;</a></span>iceTextureRenderEx()</h2>
 
@@ -433,86 +471,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Render a <a class="el" href="structice_texture.html">iceTexture</a> to the renderer with a rotation. </p>
-
-</div>
-</div>
-<a id="a23b10fe58a89251c6adefae047b1e5a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23b10fe58a89251c6adefae047b1e5a1">&#9670;&nbsp;</a></span>iceColorNew()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_types_graphics_8h.html#aff6790cd79624a03cabc6b5791431e9e">iceColor</a> iceColorNew </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>r</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>g</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Create a new iceColor from a R G and B int; The A is 255, use iceColorANew to set the transparancy. </p>
-
-</div>
-</div>
-<a id="aa6b77abc7b18466910540d27bdbd39ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6b77abc7b18466910540d27bdbd39ae">&#9670;&nbsp;</a></span>iceColorANew()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_types_graphics_8h.html#aff6790cd79624a03cabc6b5791431e9e">iceColor</a> iceColorANew </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>r</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>g</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Create a new iceColor from a R G B and A int. </p>
 
 </div>
 </div>

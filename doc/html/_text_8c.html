@@ -72,17 +72,30 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="_text_8h_source.html">hdr/Text.h</a>&quot;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0211cbeedd255209ec4af2aa53bbc149"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_text_8c.html#a0211cbeedd255209ec4af2aa53bbc149">iceTextCreate</a> ()</td></tr>
-<tr class="separator:a0211cbeedd255209ec4af2aa53bbc149"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26f83abb1d40dc870f9e832a99b2cb12"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_text_8c.html#a26f83abb1d40dc870f9e832a99b2cb12">iceTextManagerCreate</a> ()</td></tr>
-<tr class="separator:a26f83abb1d40dc870f9e832a99b2cb12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d9359530f14de142a82d64944b91b56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_text_8c.html#a6d9359530f14de142a82d64944b91b56">iceTextCreate</a> (<a class="el" href="structice_game.html">iceGame</a> *game, unsigned int man, <a class="el" href="structice_vect.html">iceVect</a> pos, char *label)</td></tr>
+<tr class="separator:a6d9359530f14de142a82d64944b91b56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0005f69d078708d5ba78c226e2967ffd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_text_8c.html#a0005f69d078708d5ba78c226e2967ffd">iceTextIsFixedToWorld</a> (<a class="el" href="structice_game.html">iceGame</a> *game, int man, int text, <a class="el" href="_types_core_8h.html#ab4e8ee4bc1bdb7c144bd40846386af83">iceBool</a> bool)</td></tr>
+<tr class="separator:a0005f69d078708d5ba78c226e2967ffd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c2c4e995c798d1b4cc1fb8203db8633"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_text_8c.html#a4c2c4e995c798d1b4cc1fb8203db8633">iceTextManagerCreate</a> (<a class="el" href="structice_game.html">iceGame</a> *game)</td></tr>
+<tr class="separator:a4c2c4e995c798d1b4cc1fb8203db8633"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5a84e2ddc34bdf9c650fa9ff5b57bc8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_text_8c.html#ac5a84e2ddc34bdf9c650fa9ff5b57bc8">iceTextSetColor</a> (<a class="el" href="structice_game.html">iceGame</a> *game, const int man, int text, <a class="el" href="_types_graphics_8h.html#a8f5f7f0c72f5558e6e7403019e548e00">iceColor</a> color)</td></tr>
+<tr class="separator:ac5a84e2ddc34bdf9c650fa9ff5b57bc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f9c8e37f6498aaf46d3fdf7fc61f9a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_text_8c.html#a9f9c8e37f6498aaf46d3fdf7fc61f9a0">iceTextSetLabel</a> (<a class="el" href="structice_game.html">iceGame</a> *game, int man, int text, char *string)</td></tr>
+<tr class="separator:a9f9c8e37f6498aaf46d3fdf7fc61f9a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7965d04255efdf5e7f8d438fb277114"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_text_8c.html#ab7965d04255efdf5e7f8d438fb277114">iceTextSetPos</a> (<a class="el" href="structice_game.html">iceGame</a> *game, int man, int text, <a class="el" href="structice_vect.html">iceVect</a> vect)</td></tr>
+<tr class="separator:ab7965d04255efdf5e7f8d438fb277114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2a6c9f13e6ee27a688f3f98ecff4aeb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_text_8c.html#ad2a6c9f13e6ee27a688f3f98ecff4aeb">iceTextSetSize</a> (<a class="el" href="structice_game.html">iceGame</a> *game, int man, int text, int size)</td></tr>
+<tr class="separator:ad2a6c9f13e6ee27a688f3f98ecff4aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2051ccd5449b4117721f4eb3a07d73df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_text_8c.html#a2051ccd5449b4117721f4eb3a07d73df">iceTextUpdateTexture</a> (<a class="el" href="structice_game.html">iceGame</a> *game, int man, int text)</td></tr>
+<tr class="separator:a2051ccd5449b4117721f4eb3a07d73df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a26f83abb1d40dc870f9e832a99b2cb12"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26f83abb1d40dc870f9e832a99b2cb12">&#9670;&nbsp;</a></span>iceTextManagerCreate()</h2>
+<a id="a4c2c4e995c798d1b4cc1fb8203db8633"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c2c4e995c798d1b4cc1fb8203db8633">&#9670;&nbsp;</a></span>iceTextManagerCreate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -90,7 +103,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void iceTextManagerCreate </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structice_game.html">iceGame</a> *&#160;</td>
+          <td class="paramname"><em>game</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -98,8 +112,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a0211cbeedd255209ec4af2aa53bbc149"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0211cbeedd255209ec4af2aa53bbc149">&#9670;&nbsp;</a></span>iceTextCreate()</h2>
+<a id="a6d9359530f14de142a82d64944b91b56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d9359530f14de142a82d64944b91b56">&#9670;&nbsp;</a></span>iceTextCreate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -107,8 +121,265 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void iceTextCreate </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structice_game.html">iceGame</a> *&#160;</td>
+          <td class="paramname"><em>game</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>man</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structice_vect.html">iceVect</a>&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>label</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2051ccd5449b4117721f4eb3a07d73df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2051ccd5449b4117721f4eb3a07d73df">&#9670;&nbsp;</a></span>iceTextUpdateTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void iceTextUpdateTexture </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structice_game.html">iceGame</a> *&#160;</td>
+          <td class="paramname"><em>game</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>man</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>text</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab7965d04255efdf5e7f8d438fb277114"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7965d04255efdf5e7f8d438fb277114">&#9670;&nbsp;</a></span>iceTextSetPos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void iceTextSetPos </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structice_game.html">iceGame</a> *&#160;</td>
+          <td class="paramname"><em>game</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>man</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structice_vect.html">iceVect</a>&#160;</td>
+          <td class="paramname"><em>vect</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad2a6c9f13e6ee27a688f3f98ecff4aeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2a6c9f13e6ee27a688f3f98ecff4aeb">&#9670;&nbsp;</a></span>iceTextSetSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void iceTextSetSize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structice_game.html">iceGame</a> *&#160;</td>
+          <td class="paramname"><em>game</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>man</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac5a84e2ddc34bdf9c650fa9ff5b57bc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5a84e2ddc34bdf9c650fa9ff5b57bc8">&#9670;&nbsp;</a></span>iceTextSetColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void iceTextSetColor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structice_game.html">iceGame</a> *&#160;</td>
+          <td class="paramname"><em>game</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>man</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_types_graphics_8h.html#a8f5f7f0c72f5558e6e7403019e548e00">iceColor</a>&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9f9c8e37f6498aaf46d3fdf7fc61f9a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f9c8e37f6498aaf46d3fdf7fc61f9a0">&#9670;&nbsp;</a></span>iceTextSetLabel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void iceTextSetLabel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structice_game.html">iceGame</a> *&#160;</td>
+          <td class="paramname"><em>game</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>man</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>string</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0005f69d078708d5ba78c226e2967ffd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0005f69d078708d5ba78c226e2967ffd">&#9670;&nbsp;</a></span>iceTextIsFixedToWorld()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void iceTextIsFixedToWorld </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structice_game.html">iceGame</a> *&#160;</td>
+          <td class="paramname"><em>game</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>man</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_types_core_8h.html#ab4e8ee4bc1bdb7c144bd40846386af83">iceBool</a>&#160;</td>
+          <td class="paramname"><em>bool</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">

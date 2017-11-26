@@ -27,7 +27,7 @@
     <ClCompile Include="src\Primitive.c" />
     <ClCompile Include="src\raw\Raw_error.c" />
     <ClCompile Include="src\Draw.c" />
-    <ClCompile Include="src\Text.c" />
+    <ClCompile Include="src\Label.c" />
     <ClCompile Include="src\Texture.c" />
     <ClCompile Include="src\Window.c" />
   </ItemGroup>
@@ -40,7 +40,7 @@
     <ClInclude Include="src\hdr\Primitive.h" />
     <ClInclude Include="src\hdr\Draw.h" />
     <ClInclude Include="src\hdr\StructGraphics.h" />
-    <ClInclude Include="src\hdr\Text.h" />
+    <ClInclude Include="src\hdr\Label.h" />
     <ClInclude Include="src\hdr\Texture.h" />
     <ClInclude Include="src\hdr\TypesGraphics.h" />
     <ClInclude Include="src\hdr\Window.h" />

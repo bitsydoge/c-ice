@@ -140,7 +140,11 @@ typedef struct {
 
 	//// Text ////
 	unsigned int textmanager_size;
-	iceTextManager *textmanager;
+	iceLabelManager *textmanager;
+
+	//// Gui ////
+	unsigned int guimanager_size;
+	iceGuiManager *guimanager;
 
 	// Camera
 	iceCamera camera;

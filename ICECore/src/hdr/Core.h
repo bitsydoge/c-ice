@@ -158,7 +158,7 @@
 #include "Gui.h"
 #include "Primitive.h"
 #include "Draw.h"
-#include "Text.h"
+#include "Label.h"
 #include "Texture.h"
 #include "Window.h"
 
