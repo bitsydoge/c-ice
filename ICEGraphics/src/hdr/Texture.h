@@ -1,12 +1,12 @@
 #ifndef DEF_ICE_TEXTURE
 #define DEF_ICE_TEXTURE
 
+#include <stdio.h>
 #include <SDL2/SDL.h>
 #include "StructCore.h"
 #include "TypesCore.h"
 #include "Box.h"
 #include "Converter.h"
-#include <stdio.h>
 #include "Terminal.h"
 
 #define ICE_DEFAULT_TEXTURE_SIZE 4
@@ -26,11 +26,9 @@ int iceTextureRender(iceGame *game, int man, int text, iceBox* src, iceBox* dst)
 /// NO CENTER
 int iceTextureRenderCentered(iceGame *game, int man, int text, iceBox* src, iceBox* dst);
 /// Render a iceTexture to the renderer with a rotation
+int iceTextureRenderCenteredTexture(iceGame *game, iceTexture *texture, iceBox* src, iceBox* dst);
+/// 
 int iceTextureRenderEx(iceRenderer* renderer, const iceTexture *tex, SDL_Rect* source, SDL_Rect* destination, const double angle);
-/// Create a new iceColor from a R G and B int; The A is 255, use iceColorANew to set the transparancy
-iceColor iceColorNew(const unsigned int r, const unsigned int g, const unsigned int b);
-/// Create a new iceColor from a R G B and A int
-iceColor iceColorANew(const unsigned int r, const unsigned int g, const unsigned int b, const unsigned int a);
 /// Create the texture manager with a default number of texture, everytime the number of texture is too high, it will double
 void iceTextureManagerCreate(iceGame *game);
 /// Create a Texture in the choosed manager; Return the texture number

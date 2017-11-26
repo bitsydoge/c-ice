@@ -20,12 +20,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Camera.c" />
+    <ClCompile Include="src\Color.c" />
     <ClCompile Include="src\external\lodepng.c" />
     <ClCompile Include="src\Font.c" />
     <ClCompile Include="src\Gui.c" />
     <ClCompile Include="src\Primitive.c" />
     <ClCompile Include="src\raw\Raw_error.c" />
-    <ClCompile Include="src\Render.c" />
+    <ClCompile Include="src\Draw.c" />
     <ClCompile Include="src\Text.c" />
     <ClCompile Include="src\Texture.c" />
     <ClCompile Include="src\Window.c" />
@@ -33,10 +34,11 @@
   <ItemGroup>
     <ClInclude Include="src\external\lodepng.h" />
     <ClInclude Include="src\hdr\Camera.h" />
+    <ClInclude Include="src\hdr\Color.h" />
     <ClInclude Include="src\hdr\Font.h" />
     <ClInclude Include="src\hdr\Gui.h" />
     <ClInclude Include="src\hdr\Primitive.h" />
-    <ClInclude Include="src\hdr\Render.h" />
+    <ClInclude Include="src\hdr\Draw.h" />
     <ClInclude Include="src\hdr\StructGraphics.h" />
     <ClInclude Include="src\hdr\Text.h" />
     <ClInclude Include="src\hdr\Texture.h" />

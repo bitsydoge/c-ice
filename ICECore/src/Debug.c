@@ -24,7 +24,7 @@ void iceDebugShowFpsTitle(iceGame *game)
 {
 	char buffer[25];
 	sprintf(buffer, "FPS : [%0.1f]", game->time.fps);
-	iceDrawerTitle(game, buffer);
+	iceWindowTitle(game, buffer);
 }
 
 void iceAssert_(const char* expr_str, int expr, const char* file, int line, const char* msg)

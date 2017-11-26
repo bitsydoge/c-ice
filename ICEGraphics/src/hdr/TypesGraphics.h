@@ -17,6 +17,6 @@ typedef double iceFloat;
 
 typedef SDL_Window iceWindow;
 typedef SDL_Renderer iceRenderer;
-typedef uint32_t iceColor;
+typedef Uint32 iceColor;
 
 #endif

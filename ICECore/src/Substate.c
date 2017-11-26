@@ -14,10 +14,10 @@ int iceSubstateLoop(iceGame* game, void(*call_create)(iceGame*), void(*call_upda
 		if (game->time.ticksEllapsed)
 			game->time.fps = (double)(1000 / game->time.ticksEllapsed); // calculate fps
 		iceInputReturn(&game, game->input);
-		iceRenderClearColor(game->drawer.render, game->background);
-		iceRenderClear(game->drawer.render);
+		iceDrawClearColor(game->drawer.render, game->background);
+		iceDrawClear(game->drawer.render);
 		call_update(game); // Call Update
-		iceRenderPresent(game->drawer.render);
+		iceDrawPresent(game->drawer.render);
 		game->time.last = game->time.actual; // restart counter
 										   //}
 										   //else // else it wait until the nb of ticks is enough to fix fps to max fps
