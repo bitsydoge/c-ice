@@ -8,6 +8,8 @@
 #include "Texture.h"
 #include "Camera.h"
 
+#define _POLAR_MOVEMENT_TYPE_1
+
 /// Create a Entity Manager and return it's number
 int iceEntityManagerCreate(iceGame *game);
 
@@ -37,9 +39,6 @@ void iceEntitySetAngle(iceGame *game, int manager, int entity, iceFloat angle);
 
 /// Add to the entity Angle
 void iceEntityAddAngle(iceGame *game, int manager, int entity, iceFloat angle);
-
-/// Link a Data struct to a Entity
-void iceEntityAddData(iceGame *game, int manager, int entity, size_t size);
 
 /// Return the Box of a Entity
 iceBox iceEntityGetBox(iceGame *game, int manager, int entity);

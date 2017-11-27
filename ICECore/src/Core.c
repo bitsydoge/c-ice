@@ -34,6 +34,8 @@ int iceCoreLoop(iceGame(*call_create)(void), void(*call_update)(iceGame*), void(
 		iceInputReturn(&game, game.input);
 		iceDrawClearColor(game.drawer.render, game.background);
 		iceDrawClear(game.drawer.render);
+		_iceCameraUpdateAttach(&game);
+
 		call_update(&game); // Call Update
 
 		// Rendering GameObject

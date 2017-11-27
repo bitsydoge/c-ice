@@ -71,7 +71,7 @@ void* iceDataEntityAdd(iceGame *game, int entity_man, int entity_nb, size_t _siz
 {
 	game->entitymanager[entity_man].entity[entity_nb].data_nb++;
 	game->entitymanager[entity_man].entity[entity_nb].data = realloc(game->entitymanager[entity_man].entity[entity_nb].data, sizeof(void*)*game->entitymanager[entity_man].entity[entity_nb].data_nb);
-	game->entitymanager[entity_man].entity[entity_nb].data[game->nb_data - 1] = calloc(1, _size);
+	game->entitymanager[entity_man].entity[entity_nb].data[game->entitymanager[entity_man].entity[entity_nb].data_nb - 1] = calloc(1, _size);
 	void * _pointer = game->entitymanager[entity_man].entity[entity_nb].data[game->entitymanager[entity_man].entity[entity_nb].data_nb - 1];
 	return _pointer;
 }

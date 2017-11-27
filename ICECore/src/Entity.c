@@ -1,5 +1,6 @@
 ﻿#include "hdr/Entity.h"
 
+#define _POLAR_MOVEMENT_TYPE_1
 
 //				  //
 //				  //
@@ -68,8 +69,48 @@ void iceEntityShiftPos(iceGame *game, int manager, int entity, iceFloat x, iceFl
 	game->entitymanager[manager].entity[entity].x += x; game->entitymanager[manager].entity[entity].y += y;
 }
 
+
+
 // Move to a position using Polar coordinate
 void iceEntityMovePos(iceGame *game, int manager, int entity, iceFloat x, iceFloat y, iceFloat r) {
+	
+#ifdef _POLAR_MOVEMENT_TYPE_1
+
+	// Check if it's a new movement
+	if (!game->entitymanager[manager].entity[entity].already_moved_polar		   || 
+		 game->entitymanager[manager].entity[entity].x_polar_destination_move != x ||
+		 game->entitymanager[manager].entity[entity].y_polar_destination_move != y   
+		)
+	{
+		// Calculate the movement
+		iceFloat xdif = x - game->entitymanager[manager].entity[entity].x; iceFloat ydif = y - game->entitymanager[manager].entity[entity].y;
+		iceFloat angle = atan2(ydif, xdif);
+		game->entitymanager[manager].entity[entity].x_polar_shift_move = cos(angle); 
+		game->entitymanager[manager].entity[entity].y_polar_shift_move = sin(angle);
+		game->entitymanager[manager].entity[entity].polar_distance_r_r = xdif*xdif + ydif*ydif;
+
+		// Save for later check
+		game->entitymanager[manager].entity[entity].already_moved_polar = 1;
+		game->entitymanager[manager].entity[entity].r_polar_destination_move = r;
+		game->entitymanager[manager].entity[entity].x_polar_destination_move = x; 
+		game->entitymanager[manager].entity[entity].y_polar_destination_move = y;
+	}
+
+	// Movement
+	game->entitymanager[manager].entity[entity].x += r * game->entitymanager[manager].entity[entity].x_polar_shift_move;
+	game->entitymanager[manager].entity[entity].y += r * game->entitymanager[manager].entity[entity].y_polar_shift_move;
+
+	// Check if is close to destination
+	if (game->entitymanager[manager].entity[entity].polar_distance_r_r < r)
+	{
+		game->entitymanager[manager].entity[entity].x = x;
+		game->entitymanager[manager].entity[entity].y = y;
+	}
+
+#endif
+
+#ifdef _POLAR_MOVEMENT_TYPE_2
+
 	float xdif = x - game->entitymanager[manager].entity[entity].x; float ydif = y - game->entitymanager[manager].entity[entity].y;
 	float angle = atan2(ydif, xdif);
 	float distance_r_r = xdif*xdif + ydif*ydif;
@@ -79,6 +120,9 @@ void iceEntityMovePos(iceGame *game, int manager, int entity, iceFloat x, iceFlo
 		game->entitymanager[manager].entity[entity].x = x;
 		game->entitymanager[manager].entity[entity].y = y;
 	}
+
+#endif
+
 }
 
 void iceEntitySetSize(iceGame *game, int entity_manager, int entity_nb, iceFloat w, iceFloat h){
@@ -106,20 +150,4 @@ iceBox iceEntityGetBox(iceGame *game, int manager, int entity)
 		game->entitymanager[manager].entity[entity].h
 	};
 	return rect;
-}
-
-//				  //
-//				  //
-//  ENTITY DATA   //
-//                //
-//                //
-
-// Link a Data struct to a Entity
-void iceEntityAddData(iceGame *game, int manager, int entity, size_t size){
-	
-}
-
-// Return pointer of a Data from a Entity
-void iceEntityGetData(){
-	
 }
