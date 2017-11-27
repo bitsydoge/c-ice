@@ -88,6 +88,7 @@ typedef struct{
 	unsigned int text;
 
 	// Data Array
+	int data_nb;
 	void **data;
 
 }iceEntity;
