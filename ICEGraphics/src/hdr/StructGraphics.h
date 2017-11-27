@@ -124,9 +124,15 @@ typedef enum
 typedef struct
 {
 	iceBool exist;
+	iceBool have_texture_defined;
+
 	int texture_nb;
+	int old_texture_nb;
 	int texturemanager;
+	int old_texturemanager;
 	iceBox box;
+	iceBox old_box;
+
 	iceGuiType type;
 	iceTexture texture_cache;
 

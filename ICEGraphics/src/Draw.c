@@ -119,9 +119,19 @@ void iceDrawAllGui(iceGame *game)
 		for (int j = 0; j < game->guimanager[i].nb_existing; j++)
 		{
 			// Fixed to screen
-			if (game->guimanager[i].gui[j].exist)
+			if (game->guimanager[i].gui[j].exist && game->guimanager[i].gui[j].have_texture_defined)
 			{
-				iceGuiRect(game, game->guimanager[i].gui[j].texturemanager, game->guimanager[i].gui[j].texture_nb, game->guimanager[i].gui[j].box);
+				if (
+					!iceBoxCompareSize(game->guimanager[i].gui[j].box, game->guimanager[i].gui[j].old_box) ||
+					game->guimanager[i].gui[j].texturemanager != game->guimanager[i].gui[j].old_texturemanager ||
+					game->guimanager[i].gui[j].texture_nb != game->guimanager[i].gui[j].old_texture_nb)
+				{
+					iceGuiCreateTextureCache(game, i, j);
+					game->guimanager[i].gui[j].old_texturemanager = game->guimanager[i].gui[j].texturemanager;
+					game->guimanager[i].gui[j].old_texture_nb = game->guimanager[i].gui[j].texture_nb;
+					game->guimanager[i].gui[j].old_box = game->guimanager[i].gui[j].box;
+				}
+				iceTextureRenderTexture(game, &game->guimanager[i].gui[j].texture_cache, NULL, &game->guimanager[i].gui[j].box);	
 			}
 		}
 }
