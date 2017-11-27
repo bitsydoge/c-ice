@@ -27,7 +27,6 @@ ICE_CREATE {
 	iceGame game = iceGameCreate("ICE : Hello World", 800, 480);
 	SDL_DisplayMode dm;
 	SDL_GetCurrentDisplayMode(0, &dm);
-	iceWindowFullscreen(&game, iceFalse);
 	iceWindowSetSize(&game, dm.w, dm.h);
 
 	// Properties
@@ -68,7 +67,7 @@ ICE_CREATE {
 
 	// Gui Create
 	iceGuiCreate(&game, 0);
-	iceGuiSetBox(&game, 0, guiTest, iceBoxNew(0, 0, game.camera.w, 20));
+	iceGuiSetBox(&game, 0, guiTest, iceBoxNew(0, 0, game.camera.w, 40));
 	iceGuiSetTexture(&game, 0, guiTest, 0, textIcon);
 
 	return game;
@@ -76,7 +75,11 @@ ICE_CREATE {
 
 ICE_UPDATE {
 	iceDebugShowFpsTitle(game);
-	iceGuiSetBox(game, 0, guiTest, iceBoxNew(0, 0, game->camera.w, 20));
+	iceGuiSetBox(game, 0, guiTest, iceBoxNew(0, 0, game->camera.w, 40));
+	iceGuiCreateTextureCache(game, 0, 0);
+	iceTextureRenderTexture(game, &game->guimanager[0].gui[0].texture_cache, NULL, &game->guimanager[0].gui[0].box);
+
+
 	if (game->input->key[SDL_SCANCODE_D] || game->input->key[SDL_SCANCODE_RIGHT]) iceCameraShiftPos(game, iceVectNew(1000 * game->time.delta, 0));
 	if (game->input->key[SDL_SCANCODE_A] || game->input->key[SDL_SCANCODE_LEFT]) iceCameraShiftPos(game, iceVectNew(-1000 * game->time.delta, 0));
 	if (game->input->key[SDL_SCANCODE_S] || game->input->key[SDL_SCANCODE_DOWN]) iceCameraShiftPos(game, iceVectNew(0, 1000 * game->time.delta));

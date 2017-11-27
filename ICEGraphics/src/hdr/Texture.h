@@ -28,6 +28,8 @@ int iceTextureRenderCentered(iceGame *game, int man, int text, iceBox* src, iceB
 /// Render a iceTexture to the renderer with a rotation
 int iceTextureRenderCenteredTexture(iceGame *game, iceTexture *texture, iceBox* src, iceBox* dst);
 /// 
+int iceTextureRenderTexture(iceGame *game, iceTexture *texture, iceBox* src, iceBox* dst);
+///
 int iceTextureRenderEx(iceRenderer* renderer, const iceTexture *tex, SDL_Rect* source, SDL_Rect* destination, const double angle);
 /// Create the texture manager with a default number of texture, everytime the number of texture is too high, it will double
 void iceTextureManagerCreate(iceGame *game);
