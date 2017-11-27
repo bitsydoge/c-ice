@@ -1,7 +1,5 @@
 ﻿#include "hdr/Entity.h"
 
-#define _POLAR_MOVEMENT_TYPE_1
-
 //				  //
 //				  //
 //ENTITY CREATION //

@@ -71,11 +71,12 @@ ICE_CREATE {
 	// Label Create 
 	  //Label 1
 	iceLabelCreate(&game, 0, iceVectNew(400,240),"OnWorld");
-	iceLabelSetText(&game, 0, labelTest1, "One Shot, One kill !");
+	iceLabelSetText(&game, 0, labelTest1, "One Shot");
 	iceLabelSetColor(&game, 0, labelTest1, iceColorNew(200, 0, 100));
 	iceLabelSetSize(&game, 0, labelTest1, 50);
 	iceLabelSetPos(&game, 0, labelTest1, iceVectNew(0, -270));
 	iceLabelIsInWorld(&game, 0, labelTest1, 1);
+
 	  // Label 2
 	iceLabelCreate(&game, 0, iceVectNew(30, 10), "OnScreen");
 	iceLabelSetSize(&game, 0, labelFPS, 10);
@@ -92,11 +93,12 @@ ICE_UPDATE {
 	iceDebugShowFpsTitle(game);
 	iceGuiSetBox(game, 0, guiTest, iceBoxNew(0, 0, game->camera.w, 40));
 
+
 for (int i = 0; i < game->entitymanager[0].nb_existing; i++)
 {
 	DATA_WIDOW *data = iceDataEntityGet(game, 0, i, 0);
 	iceEntityMovePos(game, 0, i, data->direction.x, data->direction.y, 100 * game->time.delta);
-	iceDrawRectangleFill(game, iceCameraWorldScreen(iceBoxNew(game->entitymanager[0].entity[i].x, game->entitymanager[0].entity[i].y - 70, 30, 10), &game->camera), iceColorNew(200, 5, 10));
+	//iceDrawRectangleFill(game, iceCameraWorldScreen(iceBoxNew(game->entitymanager[0].entity[i].x, game->entitymanager[0].entity[i].y - 70, 30, 10), &game->camera), iceColorNew(200, 5, 10));
 }
 	
 
@@ -104,12 +106,10 @@ for (int i = 0; i < game->entitymanager[0].nb_existing; i++)
 	if (game->input->key[SDL_SCANCODE_A] || game->input->key[SDL_SCANCODE_LEFT]) iceCameraShiftPos(game, iceVectNew(-1000 * game->time.delta, 0));
 	if (game->input->key[SDL_SCANCODE_S] || game->input->key[SDL_SCANCODE_DOWN]) iceCameraShiftPos(game, iceVectNew(0, 1000 * game->time.delta));
 	if (game->input->key[SDL_SCANCODE_W] || game->input->key[SDL_SCANCODE_UP]) iceCameraShiftPos(game, iceVectNew(0, -1000 * game->time.delta));
-	if (game->input->key[SDL_SCANCODE_SPACE]) iceGuiSetTexture(game, 0, guiTest, 0, textWidow);
-	//iceCameraMovePos(game, iceVectNew(0, 0), 1000 * game->time.delta);
-	if(game->input->key[SDL_SCANCODE_RETURN])
+	if (game->input->key[SDL_SCANCODE_SPACE]) iceCameraMovePos(game, iceVectNew(0, 0), 1000 * game->time.delta);
+	if (game->input->key[SDL_SCANCODE_RETURN])
 	{
 		static iceBool trigger = iceFalse;
-
 		if (!trigger)
 		{
 			iceCameraAttachToEntity(game, 0, 500);
@@ -120,7 +120,6 @@ for (int i = 0; i < game->entitymanager[0].nb_existing; i++)
 			iceCameraDetach(game);
 			trigger = iceFalse;
 		}
-
 		iceInputReset(game->input);
 	}
 }
