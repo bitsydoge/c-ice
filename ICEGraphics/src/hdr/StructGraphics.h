@@ -33,18 +33,17 @@ typedef struct
 //                                                               //
 ///////////////////////////////////////////////////////////////////
 
-
 typedef struct {
-
-	int man;
-
-} iceCameraManager;
-
-typedef struct {
-
 	float x, y;
 	int w, h;
 	float speed;
+
+	// Entity Attachement
+	iceBool isAttachedToEntity;
+	int entity_manager_attached;
+	int entity_attached;
+	iceFloat attach_shift_x;
+	iceFloat attach_shift_y;
 
 } iceCamera;
 

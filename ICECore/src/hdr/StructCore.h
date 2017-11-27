@@ -79,6 +79,18 @@ typedef struct{
 	iceFloat x, y;
 	iceFloat angle;
 
+	// Polar Movement Save
+	iceBool already_moved_polar;
+
+	iceFloat x_polar_destination_move;
+	iceFloat y_polar_destination_move;
+	iceFloat r_polar_destination_move;
+
+	iceFloat x_polar_shift_move;
+	iceFloat y_polar_shift_move;
+	iceFloat polar_distance_r_r;
+	////////////////////////////
+
 	// Size
 	iceFloat w, h;
 	

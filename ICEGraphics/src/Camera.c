@@ -44,3 +44,30 @@ iceBox iceCameraScreenWorld(iceBox rect, iceCamera *camera){
 	};
 	return rect2;
 }
+
+void iceCameraAttachToEntity(iceGame *game, int entity_manager, int entity)
+{
+	game->camera.isAttachedToEntity = iceTrue;
+	game->camera.entity_attached = entity;
+	game->camera.entity_manager_attached = entity_manager;
+}
+
+void iceCameraDetach(iceGame *game)
+{
+	game->camera.isAttachedToEntity = iceFalse;
+}
+
+void _iceCameraUpdateAttach(iceGame* game)
+{
+	if(game->camera.isAttachedToEntity)
+	{
+		iceCameraSetPos(game, iceVectNew(game->entitymanager[game->camera.entity_manager_attached].entity[game->camera.entity_attached].x, game->entitymanager[game->camera.entity_manager_attached].entity[game->camera.entity_attached].y));
+	}
+}
+
+iceBool iceCameraBoxOnScreen(iceGame* game, iceBox *box)
+{
+	//to implement
+		//iceBox new = { game->camera.x - game->camera.w/2, game->camera.y - game->camera.h / 2, game->camera.w, game->camera.h };
+	return 1;
+}

@@ -3,6 +3,7 @@
 
 #include "StructMaths.h"
 #include "StructCore.h"
+#include "Vector.h"
 
 /// Set camera to position
 void iceCameraSetPos(iceGame *game, iceVect vect);
@@ -14,5 +15,12 @@ void iceCameraShiftPos(iceGame *game, iceVect Dvect);
 iceBox iceCameraWorldScreen(iceBox rect, iceCamera *camera);
 /// Convert a rect in the screen coordinate to a virtual coordinate with the camera position
 iceBox iceCameraScreenWorld(iceBox rect, iceCamera *camera);
-
+///
+void iceCameraAttachToEntity(iceGame *game, int entity_manager, int entity);
+///
+void iceCameraDetach(iceGame *game);
+///
+void _iceCameraUpdateAttach(iceGame *game);
+///
+iceBool iceCameraBoxOnScreen(iceGame *game, iceBox box);
 #endif
