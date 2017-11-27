@@ -39,7 +39,7 @@ int iceCoreLoop(iceGame(*call_create)(void), void(*call_update)(iceGame*), void(
 		// Rendering GameObject
 		iceDrawAllEntity(&game);
 		iceDrawLabelWorld(&game);
-		//iceDrawAllGui(&game);
+		iceDrawAllGui(&game);
 		iceDrawLabelScreen(&game);
 		//////////////////////////
 
