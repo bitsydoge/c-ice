@@ -2,12 +2,15 @@
 #define DEF_ICE_GUI
 #include "StructCore.h"
 #include "Texture.h"
+#include "Vector.h"
 
 #define ICE_DEFAULT_GUI_SIZE 4
 
 void iceGuiManagerCreate(iceGame *game);
 
 void iceGuiCreate(iceGame *game, int man);
+
+void iceGuiCreateTextureCache(iceGame *game, int man, int gui);
 
 void iceGuiSetTexture(iceGame *game, int man, int gui, int texture_man, int texture);
 

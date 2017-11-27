@@ -199,6 +199,27 @@ int iceTextureRenderCenteredTexture(iceGame *game, iceTexture *texture, iceBox* 
 	return SDL_RenderCopy(game->drawer.render, texture->handle, &s_src, &s_dst);
 }
 
+int iceTextureRenderTexture(iceGame *game, iceTexture *texture, iceBox* src, iceBox* dst)
+{
+	if (!src && dst)
+	{
+		SDL_Rect s_dst = iceConvertBoxToSdl(dst);
+		return SDL_RenderCopy(game->drawer.render, texture->handle, NULL, &s_dst);
+	}
+	if (src && !dst)
+	{
+		SDL_Rect s_src = iceConvertBoxToSdl(src);
+		return SDL_RenderCopy(game->drawer.render, texture->handle, &s_src, NULL);
+	}
+	if (!src && !dst)
+	{
+		return SDL_RenderCopy(game->drawer.render, texture->handle, NULL, NULL);
+	}
+	SDL_Rect s_dst = iceConvertBoxToSdl(dst);
+	SDL_Rect s_src = iceConvertBoxToSdl(src);
+	return SDL_RenderCopy(game->drawer.render, texture->handle, &s_src, &s_dst);
+}
+
 int iceTextureRenderEx(SDL_Renderer* renderer, const iceTexture *tex, SDL_Rect* source, SDL_Rect* destination, const double angle){
 	return SDL_RenderCopyEx(renderer, tex->handle, source, destination, angle, NULL, SDL_FLIP_NONE);
 }
