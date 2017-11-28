@@ -99,6 +99,11 @@ typedef struct{
 	unsigned int man;
 	unsigned int text;
 
+	// Sprite
+	iceBool have_sprite;
+	unsigned int man_sprite;
+	unsigned int sprite_nb;
+
 	// Data Array
 	int data_nb;
 	void **data;

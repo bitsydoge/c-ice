@@ -111,3 +111,35 @@ void iceInputReset(iceInput *input){
 	printf("OK\n");
 	iceTermResetColor();
 }
+
+iceBool iceInputButton(iceGame *game, int button)
+{
+	if(button < 512)
+	{
+		return game->input->key[button];
+	}
+	if(button > 600)
+	{
+		if(button == ICE_INPUT_LEFTCLICK)
+		{
+			return game->input->leftclic;
+		}
+		if (button == ICE_INPUT_RIGHTCLICK)
+		{
+			return game->input->rightclic;
+		}
+		if (button == ICE_INPUT_WHEELUP)
+		{
+			return game->input->wheelup;
+		}
+		if (button == ICE_INPUT_WHEELDOWN)
+		{
+			return game->input->wheeldown;
+		}
+	}
+	else
+	{
+		printf("No key have that name");
+		return iceFalse;
+	}
+}
