@@ -102,12 +102,12 @@ for (int i = 0; i < game->entitymanager[0].nb_existing; i++)
 }
 	
 
-	if (game->input->key[SDL_SCANCODE_D] || game->input->key[SDL_SCANCODE_RIGHT]) iceCameraShiftPos(game, iceVectNew(1000 * game->time.delta, 0));
-	if (game->input->key[SDL_SCANCODE_A] || game->input->key[SDL_SCANCODE_LEFT]) iceCameraShiftPos(game, iceVectNew(-1000 * game->time.delta, 0));
-	if (game->input->key[SDL_SCANCODE_S] || game->input->key[SDL_SCANCODE_DOWN]) iceCameraShiftPos(game, iceVectNew(0, 1000 * game->time.delta));
-	if (game->input->key[SDL_SCANCODE_W] || game->input->key[SDL_SCANCODE_UP]) iceCameraShiftPos(game, iceVectNew(0, -1000 * game->time.delta));
-	if (game->input->key[SDL_SCANCODE_SPACE]) iceCameraMovePos(game, iceVectNew(0, 0), 1000 * game->time.delta);
-	if (game->input->key[SDL_SCANCODE_RETURN])
+	if (iceInputButton(game, ICE_INPUT_D) || iceInputButton(game, ICE_INPUT_RIGHT)) iceCameraShiftPos(game, iceVectNew(1000 * game->time.delta, 0));
+	if (iceInputButton(game, ICE_INPUT_A) || iceInputButton(game, ICE_INPUT_LEFT)) iceCameraShiftPos(game, iceVectNew(-1000 * game->time.delta, 0));
+	if (iceInputButton(game, ICE_INPUT_S) || iceInputButton(game, ICE_INPUT_DOWN)) iceCameraShiftPos(game, iceVectNew(0, 1000 * game->time.delta));
+	if (iceInputButton(game, ICE_INPUT_W) || iceInputButton(game, ICE_INPUT_UP)) iceCameraShiftPos(game, iceVectNew(0, -1000 * game->time.delta));
+	if (iceInputButton(game, ICE_INPUT_SPACE)) iceCameraMovePos(game, iceVectNew(0, 0), 1000 * game->time.delta);
+	if (iceInputButton(game, ICE_INPUT_RETURN))
 	{
 		static iceBool trigger = iceFalse;
 		if (!trigger)
