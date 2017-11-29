@@ -38,7 +38,7 @@ ICE_CREATE {
 	//iceWindowSetSize(&game, dm.w, dm.h);
 
 	// Properties
-	iceDrawSetColor(&game, iceColorNew(50, 40, 30));// 
+	iceDrawSetColor(&game, iceColorNew(100, 100, 100));// 
 	//iceWindowFullscreen(&game, iceTrue); // Widows is not resizable
 
 	// Manager
@@ -98,9 +98,10 @@ for (int i = 0; i < game->entitymanager[0].nb_existing; i++)
 {
 	DATA_WIDOW *data = iceDataEntityGet(game, 0, i, 0);
 	iceEntityMovePos(game, 0, i, data->direction.x, data->direction.y, 100 * game->time.delta);
+	iceEntityAddAngle(game, 0, i, 45 * game->time.delta);
 	//iceDrawRectangleFill(game, iceCameraWorldScreen(iceBoxNew(game->entitymanager[0].entity[i].x, game->entitymanager[0].entity[i].y - 70, 30, 10), &game->camera), iceColorNew(200, 5, 10));
 }
-	
+	 
 
 	if (iceInputButton(game, ICE_INPUT_D) || iceInputButton(game, ICE_INPUT_RIGHT)) iceCameraShiftPos(game, iceVectNew(1000 * game->time.delta, 0));
 	if (iceInputButton(game, ICE_INPUT_A) || iceInputButton(game, ICE_INPUT_LEFT)) iceCameraShiftPos(game, iceVectNew(-1000 * game->time.delta, 0));

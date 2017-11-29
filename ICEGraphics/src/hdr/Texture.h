@@ -25,6 +25,8 @@ void iceTextureDestroy(iceTexture *tex);
 int iceTextureRender(iceGame *game, int man, int text, iceBox* src, iceBox* dst);
 /// NO CENTER
 int iceTextureRenderCentered(iceGame *game, int man, int text, iceBox* src, iceBox* dst);
+/// 
+int iceTextureRenderCenteredEx(iceGame *game, int man, int text, iceBox* src, iceBox* dst, iceFloat angle);
 /// Render a iceTexture to the renderer with a rotation
 int iceTextureRenderCenteredTexture(iceGame *game, iceTexture *texture, iceBox* src, iceBox* dst);
 /// 

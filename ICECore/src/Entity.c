@@ -135,7 +135,9 @@ void iceEntitySetAngle(iceGame *game, int manager, int entity, iceFloat angle)
 
 void iceEntityAddAngle(iceGame *game, int manager, int entity, iceFloat angle)
 {
-
+	game->entitymanager[manager].entity[entity].angle += angle;
+	if (game->entitymanager[manager].entity[entity].angle >= 360)
+		game->entitymanager[manager].entity[entity].angle = 0;
 }
 
 iceBox iceEntityGetBox(iceGame *game, int manager, int entity)

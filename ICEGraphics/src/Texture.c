@@ -176,6 +176,28 @@ int iceTextureRenderCentered(iceGame *game, int man, int text, iceBox* src, iceB
 	return SDL_RenderCopy(game->drawer.render, game->texturemanager[man].texture[text].handle, &s_src, &s_dst);
 }
 
+int iceTextureRenderCenteredEx(iceGame *game, int man, int text, iceBox* src, iceBox* dst, iceFloat angle) {
+	if (!src && dst)
+	{
+		SDL_Rect s_dst = iceConvertBoxToSdl(dst);
+		s_dst.x -= s_dst.w / 2; s_dst.y -= s_dst.h / 2;
+		return SDL_RenderCopyEx(game->drawer.render, game->texturemanager[man].texture[text].handle, NULL, &s_dst, angle, NULL, 0);
+	}
+	if (src && !dst)
+	{
+		SDL_Rect s_src = iceConvertBoxToSdl(src);
+		return SDL_RenderCopyEx(game->drawer.render, game->texturemanager[man].texture[text].handle, &s_src, NULL, angle, NULL, 0);
+	}
+	if (!src && !dst)
+	{
+		return SDL_RenderCopyEx(game->drawer.render, game->texturemanager[man].texture[text].handle, NULL, NULL, angle, NULL, 0);
+	}
+	SDL_Rect s_dst = iceConvertBoxToSdl(dst);
+	s_dst.x -= s_dst.w / 2; s_dst.y -= s_dst.h / 2;
+	SDL_Rect s_src = iceConvertBoxToSdl(src);
+	return SDL_RenderCopy(game->drawer.render, game->texturemanager[man].texture[text].handle, &s_src, &s_dst);
+}
+
 int iceTextureRenderCenteredTexture(iceGame *game, iceTexture *texture, iceBox* src, iceBox* dst)
 {
 	if (!src && dst)
