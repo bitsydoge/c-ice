@@ -36,11 +36,11 @@ void iceDrawAllEntity(iceGame *game)
 					game->entitymanager[i].entity[j].w,
 					game->entitymanager[i].entity[j].h), &game->camera);
 
-				iceTextureRenderCentered(
+				iceTextureRenderCenteredEx(
 					game,
 					game->entitymanager[i].entity[j].man,
 					game->entitymanager[i].entity[j].text,
-					NULL, &rect);
+					NULL, &rect, game->entitymanager[i].entity[j].angle);
 			}
 		}
 }
