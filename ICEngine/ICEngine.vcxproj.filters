@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="external">
+      <UniqueIdentifier>{a0f530cf-2ca0-4295-a0e0-d31bda7b87f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hdr">
+      <UniqueIdentifier>{30b95d10-223c-4664-aa53-e25efdd50a75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{8fe9e88b-ac8e-4797-a7ad-08bbde5222a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="raw">
+      <UniqueIdentifier>{b042a6a2-c86a-427b-b253-65f9db1b72e7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Box.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Color.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Converter.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Data.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Debug.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Draw.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entity.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Font.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gui.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Label.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Map.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Maths.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Music.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Physics.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Primitive.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Random.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sound.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Substate.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Terminal.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Texture.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Vector.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Window.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\raw\Raw_error.c">
+      <Filter>raw</Filter>
+    </ClCompile>
+    <ClCompile Include="src\raw\Raw_icon.c">
+      <Filter>raw</Filter>
+    </ClCompile>
+    <ClCompile Include="src\external\icestd.c">
+      <Filter>external</Filter>
+    </ClCompile>
+    <ClCompile Include="src\external\lodepng.c">
+      <Filter>external</Filter>
+    </ClCompile>
+    <ClCompile Include="src\external\rlutil.c">
+      <Filter>external</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\hdr\Box.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Camera.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Color.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Converter.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Core.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Data.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Debug.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Draw.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Entity.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Font.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Game.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Gui.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Input.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Label.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Map.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Maths.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Music.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Physics.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Primitive.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Random.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Sound.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Substate.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Terminal.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Texture.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\TypesAudio.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\TypesCore.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\TypesGraphics.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\TypesMaths.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Vector.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Window.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\external\icestd.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="src\external\lodepng.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="src\external\rlutil.h">
+      <Filter>external</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
