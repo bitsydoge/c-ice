@@ -1,134 +1,107 @@
 #include <Core.h>
 
-enum // Label in manager 0
-{
-	labelTest1 = 0,
-	labelFPS
-};
-
-enum // Texture in manager 0
-{
-	textWidow = 0,
-	textIcon
-};
-
-enum // Gui in manager 0
-{
-	guiTest = 0
-};
-
-enum // Entity in manager 0
-{
-	entityWidow = 0
-};
-
 typedef struct
 {
 	iceVect direction;
-	int life;
-	int life_max;
+	iceFloat rotation;
 
 } DATA_WIDOW;
 
-ICE_CREATE {
-
-	iceGame game = iceGameCreate("ICE : Hello World", 800, 480);
-	SDL_DisplayMode dm;
-	SDL_GetCurrentDisplayMode(0, &dm);
-	//iceWindowSetSize(&game, dm.w, dm.h);
-
-	// Properties
-	iceDrawSetColor(&game, iceColorNew(100, 100, 100));// 
-	//iceWindowFullscreen(&game, iceTrue); // Widows is not resizable
-
-	// Manager
-	iceTextureManagerCreate(&game);
-	iceSoundManagerCreate(&game);
-	iceEntityManagerCreate(&game);
-	iceLabelManagerCreate(&game);
-	iceGuiManagerCreate(&game);
-	
-	// Texture Create
-	iceTextureCreate(&game, 0, "res/img/pic.png");
-	iceTextureCreate(&game, 0, "res/img/gui.png");
-	
-	// Font Create
-	iceFontLoad(&game, "res/ttf/FiraSans-Medium.ttf");
-
-	// Entity Create
-	for (int i = 0; i <10000; i++)
-	{
-		int actual = iceEntityCreate(&game, 0);
-		iceEntitySetTexture(&game, 0, actual, 0, textWidow);
-		iceEntitySetSize(&game, 0, actual, 60, 100);
-		iceEntitySetPos(&game, 0, actual, iceRandomInt(-10000,10000), iceRandomInt(-10000, 10000));
-		DATA_WIDOW *data = iceDataEntityAdd(&game, 0, actual, sizeof(DATA_WIDOW));
-		data->direction = iceVectNew(iceRandomInt(-10000, 10000), iceRandomInt(-10000, 10000));
-		data->life = 10;
-		data->life_max = 10;
-	}
-	
-	// Label Create 
-	  //Label 1
-	iceLabelCreate(&game, 0, iceVectNew(400,240),"OnWorld");
-	iceLabelSetText(&game, 0, labelTest1, "One Shot");
-	iceLabelSetColor(&game, 0, labelTest1, iceColorNew(200, 0, 100));
-	iceLabelSetSize(&game, 0, labelTest1, 50);
-	iceLabelSetPos(&game, 0, labelTest1, iceVectNew(0, -270));
-	iceLabelIsInWorld(&game, 0, labelTest1, 1);
-
-	  // Label 2
-	iceLabelCreate(&game, 0, iceVectNew(30, 10), "OnScreen");
-	iceLabelSetSize(&game, 0, labelFPS, 10);
-
-	// Gui Create
-	iceGuiCreate(&game, 0);
-	iceGuiSetBox(&game, 0, guiTest, iceBoxNew(0, 0, game.camera.w, 40));
-	iceGuiSetTexture(&game, 0, guiTest, 0, textIcon);
-
-	return game;
-}
-
-ICE_UPDATE {
-	iceDebugShowFpsTitle(game);
-	iceGuiSetBox(game, 0, guiTest, iceBoxNew(0, 0, game->camera.w, 40));
-
-
-for (int i = 0; i < game->entitymanager[0].nb_existing; i++)
+void input()
 {
-	DATA_WIDOW *data = iceDataEntityGet(game, 0, i, 0);
-	iceEntityMovePos(game, 0, i, data->direction.x, data->direction.y, 100 * game->time.delta);
-	iceEntityAddAngle(game, 0, i, 45 * game->time.delta);
-	//iceDrawRectangleFill(game, iceCameraWorldScreen(iceBoxNew(game->entitymanager[0].entity[i].x, game->entitymanager[0].entity[i].y - 70, 30, 10), &game->camera), iceColorNew(200, 5, 10));
-}
-	 
-
-	if (iceInputButton(game, ICE_INPUT_D) || iceInputButton(game, ICE_INPUT_RIGHT)) iceCameraShiftPos(game, iceVectNew(1000 * game->time.delta, 0));
-	if (iceInputButton(game, ICE_INPUT_A) || iceInputButton(game, ICE_INPUT_LEFT)) iceCameraShiftPos(game, iceVectNew(-1000 * game->time.delta, 0));
-	if (iceInputButton(game, ICE_INPUT_S) || iceInputButton(game, ICE_INPUT_DOWN)) iceCameraShiftPos(game, iceVectNew(0, 1000 * game->time.delta));
-	if (iceInputButton(game, ICE_INPUT_W) || iceInputButton(game, ICE_INPUT_UP)) iceCameraShiftPos(game, iceVectNew(0, -1000 * game->time.delta));
-	if (iceInputButton(game, ICE_INPUT_SPACE)) iceCameraMovePos(game, iceVectNew(0, 0), 1000 * game->time.delta);
-	if (iceInputButton(game, ICE_INPUT_RETURN))
+	if (iceInputButton(ICE_INPUT_D) || iceInputButton(ICE_INPUT_RIGHT)) iceCameraShiftPos(iceVectNew(1000 * iceGameDelta(), 0));
+	if (iceInputButton(ICE_INPUT_A) || iceInputButton(ICE_INPUT_LEFT)) iceCameraShiftPos(iceVectNew(-1000 * iceGameDelta(), 0));
+	if (iceInputButton(ICE_INPUT_S) || iceInputButton(ICE_INPUT_DOWN)) iceCameraShiftPos(iceVectNew(0, 1000 * iceGameDelta()));
+	if (iceInputButton(ICE_INPUT_W) || iceInputButton(ICE_INPUT_UP)) iceCameraShiftPos(iceVectNew(0, -1000 * iceGameDelta()));
+	if (iceInputButton(ICE_INPUT_SPACE)) iceCameraMovePos(iceVectNew(0, 0), 1000 * iceGameDelta());
+	if (iceInputButton(ICE_INPUT_RETURN))
 	{
 		static iceBool trigger = iceFalse;
-		if (!trigger)
-		{
-			iceCameraAttachToEntity(game, 0, 500);
+		if (!trigger){
+			iceCameraAttachToEntity(0, 500);
 			trigger = iceTrue;
 		}
-		else
-		{
-			iceCameraDetach(game);
+		else{
+			iceCameraDetach();
 			trigger = iceFalse;
 		}
-		iceInputReset(game->input);
+		iceInputReset();
 	}
 }
 
-ICE_DESTROY {
+void entity()
+{
+	for (int i = 0; i < iceEntityManagerGetNumberEntity(0); i++)
+	{
+		DATA_WIDOW *data = iceDataEntityGet(0, i, 0);
+		iceEntityMovePos(0, i, data->direction.x, data->direction.y, 100 * iceGameDelta());
+		iceEntityAddAngle(0, i, 45 * iceGameDelta() * data->rotation);
+	}
 }
 
-int main(){
+ICE_CREATE{
+
+	iceGameCreate("ICE : Hello World", 800, 480);
+	iceDrawSetColor(iceColorNew(100, 100, 100));
+
+	// Manager
+	iceTextureManagerCreate();
+	iceSoundManagerCreate();
+	iceEntityManagerCreate();
+	iceLabelManagerCreate();
+	iceGuiManagerCreate();
+
+	// Texture Create
+	iceTextureCreate(0, "res/img/pic.png");
+	iceTextureCreate(0, "res/img/gui.png");
+
+	// Font Create
+	iceFontLoad("res/ttf/FiraSans-Medium.ttf");
+
+	// Entity Create
+	for (int i = 0; i < 1000; i++)
+	{
+		int actual = iceEntityCreate(0);
+		iceEntitySetTexture(0, actual, 0, 0);
+		iceEntitySetSize(0, actual, 60, 100);
+		iceEntitySetPos(0, actual, iceRandomInt(-10000,10000), iceRandomInt(-10000, 10000));
+		DATA_WIDOW *data = iceDataEntityAdd(0, actual, sizeof(DATA_WIDOW));
+		data->direction = iceVectNew(iceRandomInt(-10000, 10000), iceRandomInt(-10000, 10000));
+		data->rotation = iceRandomInt(-1, 1);
+	}
+
+	// Label Create 
+	  //Label 1
+	iceLabelCreate(0, iceVectNew(400,240),"OnWorld");
+	iceLabelSetText(0, 0, "One Shot");
+	iceLabelSetColor(0, 0, iceColorNew(200, 0, 100));
+	iceLabelSetSize(0, 0, 50);
+	iceLabelSetPos(0, 0, iceVectNew(0, -270));
+	iceLabelIsInWorld(0, 0, 1);
+
+	// Label 2
+  iceLabelCreate(0, iceVectNew(30, 10), "OnScreen");
+  iceLabelSetSize(0, 1, 10);
+
+  // Gui Create
+  iceGuiCreate(0);
+  iceGuiSetBox(0, 0, iceBoxNew(0, 0, iceCameraGetW(), 40));
+  iceGuiSetTexture(0, 0, 0, 1);
+}
+
+ICE_UPDATE{
+	iceDebugShowFpsTitle();
+	iceGuiSetBox(0, 0, iceBoxNew(0, 0, iceCameraGetW(), 40));
+
+	input();
+	entity();
+	
+}
+
+ICE_DESTROY{
+}
+
+int main() {
 	ICE_GAME_RUN;
 	return 0;
 }
