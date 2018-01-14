@@ -1,0 +1,22 @@
+version: "{build}"
+
+image:
+  - Visual Studio 2017
+
+platform: Win32
+configuration: Release
+
+environment:
+  global:
+  matrix:
+    - builder: vc
+
+install:
+  # install sdl
+  - appveyor DownloadFile https://www.libsdl.org/release/SDL2-devel-2.0.7-VC.zip
+  - 7z x SDL2-devel-2.0.7-VC.zip
+  - move SDL2-2.0.7 include/sdl
+build_script:
+  # if "%builder%"=="vc" 
+  - if "%builder%"=="vc"      msbuild libhl.vcxproj         /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+  - if "%builder%"=="vc"      msbuild libs/sdl/sdl.vcxproj  /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
