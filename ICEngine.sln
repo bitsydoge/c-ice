@@ -1,13 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestProject", "TestProject", "{650830F3-BCDE-46FF-B76F-D081CA9A0460}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "TestProject\Test\Test.vcxproj", "{42101E49-206C-40E1-88D9-5F52EF7BFD53}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CEAC8C68-C6B6-4756-82D0-C7DCD2C95330} = {CEAC8C68-C6B6-4756-82D0-C7DCD2C95330}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pong", "TestProject\Pong\Pong.vcxproj", "{A52FD8B5-E9AB-4FC0-8AA5-2DA285FB7A4A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CEAC8C68-C6B6-4756-82D0-C7DCD2C95330} = {CEAC8C68-C6B6-4756-82D0-C7DCD2C95330}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloWorld", "TestProject\HelloWorld\HelloWorld.vcxproj", "{6DA2AB11-E47C-47C7-9149-332D34EC5559}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -15,6 +21,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloWorld", "TestProject\H
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Physics", "TestProject\Physics\Physics.vcxproj", "{32B73E47-E2F3-4896-802C-A66CAB322797}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CEAC8C68-C6B6-4756-82D0-C7DCD2C95330} = {CEAC8C68-C6B6-4756-82D0-C7DCD2C95330}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ICEngine", "ICEngine\ICEngine.vcxproj", "{CEAC8C68-C6B6-4756-82D0-C7DCD2C95330}"
 EndProject

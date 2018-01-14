@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ICEngine: ICECore/src/Core.c File Reference</title>
+<title>ICEngine: ICEngine/src/Core.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,12 +61,13 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_493b0ba29b1e6ba2af42b320d3b1df57.html">ICECore</a></li><li class="navelem"><a class="el" href="dir_01f07a1cc20732e33334bfbe6581999e.html">src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_80c9cbfdd4645940d2e10a65f5ed41f7.html">ICEngine</a></li><li class="navelem"><a class="el" href="dir_cc89a509d330c9059f7aeaefd16c95f5.html">src</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">Core.c File Reference</div>  </div>
 </div><!--header-->
@@ -81,8 +82,13 @@ Functions</h2></td></tr>
 <tr class="separator:a1ad788b7fb23beb3b5e0e48174d19d15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46e94bb8710b7c55f1a24050f84052f3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_core_8c.html#a46e94bb8710b7c55f1a24050f84052f3">iceCoreInit</a> ()</td></tr>
 <tr class="separator:a46e94bb8710b7c55f1a24050f84052f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a024f3c3f95809bd9161b4e29e014d5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_core_8c.html#a1a024f3c3f95809bd9161b4e29e014d5">iceCoreLoop</a> (<a class="el" href="structice_game.html">iceGame</a>(*call_create)(void), void(*call_update)(<a class="el" href="structice_game.html">iceGame</a> *), void(*call_destroy)(<a class="el" href="structice_game.html">iceGame</a> *))</td></tr>
-<tr class="separator:a1a024f3c3f95809bd9161b4e29e014d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa38bf85529d02eecb4902022257c0c36"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_core_8c.html#aa38bf85529d02eecb4902022257c0c36">iceCoreLoop</a> (void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void))</td></tr>
+<tr class="separator:aa38bf85529d02eecb4902022257c0c36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a90bf502198894d8024ff311cb6bf9b72"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structice_game.html">iceGame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_core_8c.html#a90bf502198894d8024ff311cb6bf9b72">game</a></td></tr>
+<tr class="separator:a90bf502198894d8024ff311cb6bf9b72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a46e94bb8710b7c55f1a24050f84052f3"></a>
@@ -119,8 +125,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a1a024f3c3f95809bd9161b4e29e014d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a024f3c3f95809bd9161b4e29e014d5">&#9670;&nbsp;</a></span>iceCoreLoop()</h2>
+<a id="aa38bf85529d02eecb4902022257c0c36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa38bf85529d02eecb4902022257c0c36">&#9670;&nbsp;</a></span>iceCoreLoop()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -128,25 +134,40 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int iceCoreLoop </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structice_game.html">iceGame</a>(*)(void)&#160;</td>
+          <td class="paramtype">void(*)(void)&#160;</td>
           <td class="paramname"><em>call_create</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void(*)(<a class="el" href="structice_game.html">iceGame</a> *)&#160;</td>
+          <td class="paramtype">void(*)(void)&#160;</td>
           <td class="paramname"><em>call_update</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void(*)(<a class="el" href="structice_game.html">iceGame</a> *)&#160;</td>
+          <td class="paramtype">void(*)(void)&#160;</td>
           <td class="paramname"><em>call_destroy</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
           <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a90bf502198894d8024ff311cb6bf9b72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90bf502198894d8024ff311cb6bf9b72">&#9670;&nbsp;</a></span>game</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structice_game.html">iceGame</a> game</td>
         </tr>
       </table>
 </div><div class="memdoc">

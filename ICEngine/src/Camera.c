@@ -59,7 +59,7 @@ void iceCameraDetach()
 	game.camera.isAttachedToEntity = iceFalse;
 }
 
-void _iceCameraUpdateAttach()
+void iceCameraUpdateAttach()
 {
 	if(game.camera.isAttachedToEntity)
 	{

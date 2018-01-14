@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['p',['p',['../structice_rect.html#a13afad7ef50de9cd9994617d1ff8eab1',1,'iceRect']]],
-  ['physics_2ec',['Physics.c',['../_physics_8c.html',1,'']]],
-  ['physics_2eh',['Physics.h',['../_physics_8h.html',1,'']]],
-  ['pixel_5fdata',['pixel_data',['../_i_c_e_core_2src_2raw_2_raw__icon_8c.html#af6354079c572f58fde05c7b8d8997ab8',1,'pixel_data():&#160;Raw_icon.c'],['../_raw__error_8c.html#ae072f90f49cdffbe14d6fb8b73c51140',1,'pixel_data():&#160;Raw_error.c'],['../_i_c_e_graphics_2src_2raw_2_raw__icon_8c.html#af6354079c572f58fde05c7b8d8997ab8',1,'pixel_data():&#160;Raw_icon.c']]],
-  ['pos',['pos',['../structice_drawer.html#a60c3eb84942910e6ce853488df572375',1,'iceDrawer::pos()'],['../structice_text.html#a39e6c8084c16ecfd4e4dd09f44f1e15a',1,'iceText::pos()']]],
-  ['primitive_2ec',['Primitive.c',['../_primitive_8c.html',1,'']]],
-  ['primitive_2eh',['Primitive.h',['../_primitive_8h.html',1,'']]]
+  ['old_5fbox',['old_box',['../structice_gui.html#a4d51483a4631748d346558d79ab4f6e5',1,'iceGui']]],
+  ['old_5fcolor',['old_color',['../structice_label.html#a40697dc7dd469e24f9bc20124e8352ad',1,'iceLabel']]],
+  ['old_5fsize',['old_size',['../structice_label.html#a5fd20d3e458d88e4803b90f2f8f9ff91',1,'iceLabel']]],
+  ['old_5ftext',['old_text',['../structice_label.html#a18962133b919e70fb1fcf07b42917296',1,'iceLabel']]],
+  ['old_5ftexture_5fnb',['old_texture_nb',['../structice_gui.html#aa90829250c30152a55678dc8cf0e6c0c',1,'iceGui']]],
+  ['old_5ftexturemanager',['old_texturemanager',['../structice_gui.html#a40a35abda286f69a257ec572e1729ce9',1,'iceGui']]]
 ];

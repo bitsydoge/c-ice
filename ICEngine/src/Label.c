@@ -12,7 +12,7 @@ void iceLabelManagerCreate()
 	game.textmanager_size++;
 	game.textmanager = realloc(game.textmanager, game.textmanager_size * sizeof(iceLabelManager));
 	game.textmanager[game.texturemanager_size - 1] = text_manager;
-	printf("TextManager number %d created \n", game.textmanager_size - 1);
+	printf("LabelManager number %d created \n", game.textmanager_size - 1);
 }
 
 // Create a text object in manager

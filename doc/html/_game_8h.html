@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ICEngine: ICECore/src/hdr/Game.h File Reference</title>
+<title>ICEngine: ICEngine/src/hdr/Game.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_493b0ba29b1e6ba2af42b320d3b1df57.html">ICECore</a></li><li class="navelem"><a class="el" href="dir_01f07a1cc20732e33334bfbe6581999e.html">src</a></li><li class="navelem"><a class="el" href="dir_4cfb674165072476bb2c9d3e620b7f3a.html">hdr</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_80c9cbfdd4645940d2e10a65f5ed41f7.html">ICEngine</a></li><li class="navelem"><a class="el" href="dir_cc89a509d330c9059f7aeaefd16c95f5.html">src</a></li><li class="navelem"><a class="el" href="dir_14f59c60b1b3f99e015dd62dc6399d46.html">hdr</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -71,34 +71,40 @@ $(function() {
 <div class="title">Game.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="_struct_core_8h_source.html">StructCore.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="_types_core_8h_source.html">TypesCore.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_draw_8h_source.html">Draw.h</a>&quot;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;assert.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="_texture_8h_source.html">Texture.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_debug_8h_source.html">Debug.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_types_core_8h_source.html">TypesCore.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_sound_8h_source.html">Sound.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_color_8h_source.html">Color.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_gui_8h_source.html">Gui.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_label_8h_source.html">Label.h</a>&quot;</code><br />
 </div>
 <p><a href="_game_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a36b4fc79c510487f9f649ef23ba4486c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structice_game.html">iceGame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_game_8h.html#a36b4fc79c510487f9f649ef23ba4486c">iceGameCreate</a> (char *window_title, const unsigned int width_window, const unsigned int height_window)</td></tr>
-<tr class="separator:a36b4fc79c510487f9f649ef23ba4486c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab160fccd7b1509f1b6a28479868d4741"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_game_8h.html#ab160fccd7b1509f1b6a28479868d4741">iceGameCreate</a> (char *window_title, const unsigned int width_window, const unsigned int height_window)</td></tr>
+<tr class="separator:ab160fccd7b1509f1b6a28479868d4741"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaac05778fbde38af5aca2fc383f2e1c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_types_maths_8h.html#a2555c8d2d67be42b77818307b7771437">iceFloat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_game_8h.html#aaac05778fbde38af5aca2fc383f2e1c6">iceGameDelta</a> ()</td></tr>
+<tr class="separator:aaac05778fbde38af5aca2fc383f2e1c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5b2cdb16901d5f9c41e92780611edf0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_game_8h.html#af5b2cdb16901d5f9c41e92780611edf0">iceGameDestroy</a> (<a class="el" href="structice_game.html">iceGame</a> *app)</td></tr>
 <tr class="separator:af5b2cdb16901d5f9c41e92780611edf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a408d59bfae60b6126cdcb145d2864a6c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_types_maths_8h.html#a2555c8d2d67be42b77818307b7771437">iceFloat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_game_8h.html#a408d59bfae60b6126cdcb145d2864a6c">iceGameFps</a> ()</td></tr>
+<tr class="separator:a408d59bfae60b6126cdcb145d2864a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a36b4fc79c510487f9f649ef23ba4486c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36b4fc79c510487f9f649ef23ba4486c">&#9670;&nbsp;</a></span>iceGameCreate()</h2>
+<a id="ab160fccd7b1509f1b6a28479868d4741"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab160fccd7b1509f1b6a28479868d4741">&#9670;&nbsp;</a></span>iceGameCreate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structice_game.html">iceGame</a> iceGameCreate </td>
+          <td class="memname">void iceGameCreate </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>window_title</em>, </td>
@@ -136,6 +142,40 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structice_game.html">iceGame</a> *&#160;</td>
           <td class="paramname"><em>app</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaac05778fbde38af5aca2fc383f2e1c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaac05778fbde38af5aca2fc383f2e1c6">&#9670;&nbsp;</a></span>iceGameDelta()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_types_maths_8h.html#a2555c8d2d67be42b77818307b7771437">iceFloat</a> iceGameDelta </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a408d59bfae60b6126cdcb145d2864a6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a408d59bfae60b6126cdcb145d2864a6c">&#9670;&nbsp;</a></span>iceGameFps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_types_maths_8h.html#a2555c8d2d67be42b77818307b7771437">iceFloat</a> iceGameFps </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>

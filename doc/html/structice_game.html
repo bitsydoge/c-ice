@@ -68,7 +68,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_struct_core_8h_source.html">StructCore.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_types_core_8h_source.html">TypesCore.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
@@ -86,6 +86,10 @@ Data Fields</h2></td></tr>
 <tr class="separator:ad31d7d9d40ee82f13cd6586c121422ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade1afa407fbd3cc381d1ce75cb89d445"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structice_font_manager.html">iceFontManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_game.html#ade1afa407fbd3cc381d1ce75cb89d445">fontmanager</a></td></tr>
 <tr class="separator:ade1afa407fbd3cc381d1ce75cb89d445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afac990cd27e5377a0a8e01a4c11c312e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structice_gui_manager.html">iceGuiManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_game.html#afac990cd27e5377a0a8e01a4c11c312e">guimanager</a></td></tr>
+<tr class="separator:afac990cd27e5377a0a8e01a4c11c312e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a0163e917b381ac6f56b299c73d3f7b"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_game.html#a6a0163e917b381ac6f56b299c73d3f7b">guimanager_size</a></td></tr>
+<tr class="separator:a6a0163e917b381ac6f56b299c73d3f7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea11b206f904d5873bbb0f048f1dcad8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structice_input.html">iceInput</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_game.html#aea11b206f904d5873bbb0f048f1dcad8">input</a></td></tr>
 <tr class="separator:aea11b206f904d5873bbb0f048f1dcad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e848dd51fa1d0411942b59e3f046889"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_game.html#a7e848dd51fa1d0411942b59e3f046889">nb_data</a></td></tr>
@@ -94,8 +98,8 @@ Data Fields</h2></td></tr>
 <tr class="separator:a4f0eed2f6114aacf3eff03b3c40af0d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b1edf147a50514b6bcffa01346cc69c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structice_sound_manager.html">iceSoundManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_game.html#a9b1edf147a50514b6bcffa01346cc69c">soundmanager</a></td></tr>
 <tr class="separator:a9b1edf147a50514b6bcffa01346cc69c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c8b693b4153d39b47a47b0eb38b46ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structice_text_manager.html">iceTextManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_game.html#a0c8b693b4153d39b47a47b0eb38b46ed">textmanager</a></td></tr>
-<tr class="separator:a0c8b693b4153d39b47a47b0eb38b46ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e06f087c9a887154b3c7eef4625893b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structice_label_manager.html">iceLabelManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_game.html#a9e06f087c9a887154b3c7eef4625893b">textmanager</a></td></tr>
+<tr class="separator:a9e06f087c9a887154b3c7eef4625893b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ff93da53ab49b0da190091201b22e56"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_game.html#a3ff93da53ab49b0da190091201b22e56">textmanager_size</a></td></tr>
 <tr class="separator:a3ff93da53ab49b0da190091201b22e56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40bb45dfd3044c259116bd231998f08c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structice_texture_manager.html">iceTextureManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_game.html#a40bb45dfd3044c259116bd231998f08c">texturemanager</a></td></tr>
@@ -288,14 +292,42 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a0c8b693b4153d39b47a47b0eb38b46ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c8b693b4153d39b47a47b0eb38b46ed">&#9670;&nbsp;</a></span>textmanager</h2>
+<a id="a9e06f087c9a887154b3c7eef4625893b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e06f087c9a887154b3c7eef4625893b">&#9670;&nbsp;</a></span>textmanager</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structice_text_manager.html">iceTextManager</a>* iceGame::textmanager</td>
+          <td class="memname"><a class="el" href="structice_label_manager.html">iceLabelManager</a>* iceGame::textmanager</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6a0163e917b381ac6f56b299c73d3f7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a0163e917b381ac6f56b299c73d3f7b">&#9670;&nbsp;</a></span>guimanager_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int iceGame::guimanager_size</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afac990cd27e5377a0a8e01a4c11c312e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afac990cd27e5377a0a8e01a4c11c312e">&#9670;&nbsp;</a></span>guimanager</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structice_gui_manager.html">iceGuiManager</a>* iceGame::guimanager</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -331,7 +363,7 @@ Data Fields</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>ICECore/src/hdr/<a class="el" href="_struct_core_8h_source.html">StructCore.h</a></li>
+<li>ICEngine/src/hdr/<a class="el" href="_types_core_8h_source.html">TypesCore.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -160,7 +160,12 @@ iceBox iceEntityGetBox(int manager, int entity)
 
 // Get value
 
-int iceEntityManagerGetNumberEntity(int manager)
+int iceEntityGetNumber(int manager)
 {
 	return game.entitymanager[manager].nb_existing;
+}
+
+int iceEntityManagerGetNumber()
+{
+	return game.entitymanager_size;
 }

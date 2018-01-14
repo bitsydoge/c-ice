@@ -67,14 +67,23 @@ $(function() {
 <li>actual
 : <a class="el" href="structice_time.html#a3b2755462e5eee14244c79fa6678cc11">iceTime</a>
 </li>
+<li>already_moved_polar
+: <a class="el" href="structice_entity.html#abc6c643ac773cc4f0337eaeb9f34d87d">iceEntity</a>
+</li>
 <li>angle
 : <a class="el" href="structice_entity.html#ac2f2ad24927f79ad1c08fce9a766e089">iceEntity</a>
 </li>
 <li>array_size
 : <a class="el" href="structice_entity_manager.html#a580d64a4a5184036abc5fb24b20e6903">iceEntityManager</a>
 , <a class="el" href="structice_gui_manager.html#ab69bf4e3950a7f6f0d3911b14d2f9e8c">iceGuiManager</a>
-, <a class="el" href="structice_text_manager.html#a3fbc57119e174914a8a449b02b29e399">iceTextManager</a>
+, <a class="el" href="structice_label_manager.html#a7e4e5af024f7841583cc77c51f3669c8">iceLabelManager</a>
 , <a class="el" href="structice_texture_manager.html#a5790c95198b4e966aeba0f04d87c4c27">iceTextureManager</a>
+</li>
+<li>attach_shift_x
+: <a class="el" href="structice_camera.html#ac661d22a93ddd7bd5f791f11c0a27a9b">iceCamera</a>
+</li>
+<li>attach_shift_y
+: <a class="el" href="structice_camera.html#a7e9e9e68efc5bd8463ccdb0060ac9413">iceCamera</a>
 </li>
 </ul>
 
@@ -94,7 +103,7 @@ $(function() {
 : <a class="el" href="structice_game.html#ad0aee2185cb84fac90312222cfc3573a">iceGame</a>
 </li>
 <li>color
-: <a class="el" href="structice_text.html#a2b136458adf7adfddbe0b76838ecdadd">iceText</a>
+: <a class="el" href="structice_label.html#a1904875a88e3a593d8b82582841bb61e">iceLabel</a>
 </li>
 </ul>
 
@@ -103,6 +112,9 @@ $(function() {
 <li>data
 : <a class="el" href="structice_entity.html#ad520fb950df719cf5c79f35da3732d35">iceEntity</a>
 , <a class="el" href="structice_game.html#a85857866482f02a65ea9df749816a2bf">iceGame</a>
+</li>
+<li>data_nb
+: <a class="el" href="structice_entity.html#a23f03f2bde386aec228012729af9c089">iceEntity</a>
 </li>
 <li>delta
 : <a class="el" href="structice_time.html#a7700e615c14c13951229e03c5ed86166">iceTime</a>
@@ -117,6 +129,12 @@ $(function() {
 <li>entity
 : <a class="el" href="structice_entity_manager.html#ab729a286a230ac0c33eafae30c2ad01a">iceEntityManager</a>
 </li>
+<li>entity_attached
+: <a class="el" href="structice_camera.html#a04daf7ddd6ac63a5e0d6ad45e6ef6f7d">iceCamera</a>
+</li>
+<li>entity_manager_attached
+: <a class="el" href="structice_camera.html#af5eb34db02eda82a43caad9ad24fd6bd">iceCamera</a>
+</li>
 <li>entitymanager
 : <a class="el" href="structice_game.html#a963fcfe7133e446c8e454d419b65b7d7">iceGame</a>
 </li>
@@ -125,7 +143,8 @@ $(function() {
 </li>
 <li>exist
 : <a class="el" href="structice_entity.html#a083bdd0192f54b744ad13bfe8c217dde">iceEntity</a>
-, <a class="el" href="structice_text.html#a694a90c4631b9627fdf7e77fdc00aa05">iceText</a>
+, <a class="el" href="structice_gui.html#af7e474ca3eb983ada49cab78714195f2">iceGui</a>
+, <a class="el" href="structice_label.html#a03c0dcf9ba10ea19f13a6d149b8b6acd">iceLabel</a>
 , <a class="el" href="structice_texture.html#a4a116b1d712fa69b0ff94c1d82217bff">iceTexture</a>
 </li>
 </ul>
@@ -155,6 +174,12 @@ $(function() {
 <li>gui
 : <a class="el" href="structice_gui_manager.html#aad2c58645bab78dfaabe86ec02238bbf">iceGuiManager</a>
 </li>
+<li>guimanager
+: <a class="el" href="structice_game.html#afac990cd27e5377a0a8e01a4c11c312e">iceGame</a>
+</li>
+<li>guimanager_size
+: <a class="el" href="structice_game.html#a6a0163e917b381ac6f56b299c73d3f7b">iceGame</a>
+</li>
 </ul>
 
 
@@ -178,8 +203,14 @@ $(function() {
 <li>handle_texture
 : <a class="el" href="structice_sprite.html#ad6492df7d6904f40d0f82a129d58434b">iceSprite</a>
 </li>
+<li>have_sprite
+: <a class="el" href="structice_entity.html#a4e75a58cdc3e41a6a0aaaafa7c52cb1e">iceEntity</a>
+</li>
 <li>have_texture
 : <a class="el" href="structice_entity.html#ad0098353306b080b69c96ba9432637d5">iceEntity</a>
+</li>
+<li>have_texture_defined
+: <a class="el" href="structice_gui.html#ab03e0f86c173ab58ae5a16e035378223">iceGui</a>
 </li>
 </ul>
 
@@ -188,11 +219,14 @@ $(function() {
 <li>input
 : <a class="el" href="structice_game.html#aea11b206f904d5873bbb0f048f1dcad8">iceGame</a>
 </li>
+<li>isAttachedToEntity
+: <a class="el" href="structice_camera.html#a78510ee4fe1e3d310b0bbd8068db5d44">iceCamera</a>
+</li>
 <li>isBorderLess
 : <a class="el" href="structice_drawer.html#af028cc04b4a15ac1211811777fa6dd12">iceDrawer</a>
 </li>
 <li>isFixedToWorld
-: <a class="el" href="structice_text.html#aa78845cce59eea0b1724fcfcf9a93601">iceText</a>
+: <a class="el" href="structice_label.html#a69064197ae99162dacc4950ec1d68c1c">iceLabel</a>
 </li>
 <li>isFullScreen
 : <a class="el" href="structice_drawer.html#a0471b7061a3f15ffce77e8ef9fb86200">iceDrawer</a>
@@ -243,8 +277,10 @@ $(function() {
 
 <h3><a id="index_m"></a>- m -</h3><ul>
 <li>man
-: <a class="el" href="structice_camera_manager.html#af9ba3da05d4263777bfcb8bbf5a1ee4f">iceCameraManager</a>
-, <a class="el" href="structice_entity.html#ac5f7c25f06fef7be8b79d61f473a7f28">iceEntity</a>
+: <a class="el" href="structice_entity.html#ac5f7c25f06fef7be8b79d61f473a7f28">iceEntity</a>
+</li>
+<li>man_sprite
+: <a class="el" href="structice_entity.html#adf89dbf4b14acfb41e2508f58ae9d807">iceEntity</a>
 </li>
 <li>mousex
 : <a class="el" href="structice_input.html#a2b6388f2e55b81c264b6f2a4ba1f3e27">iceInput</a>
@@ -268,7 +304,7 @@ $(function() {
 <li>nb_existing
 : <a class="el" href="structice_entity_manager.html#a1a3690ed3254ba5a8714c9c754f9867e">iceEntityManager</a>
 , <a class="el" href="structice_gui_manager.html#aa85e4cd89ff8436b81795190b70ca4a9">iceGuiManager</a>
-, <a class="el" href="structice_text_manager.html#a84b5da3f1ea96491ee846ffa0853e809">iceTextManager</a>
+, <a class="el" href="structice_label_manager.html#afb4d5847b8b85eb438272a1e5d41eaef">iceLabelManager</a>
 , <a class="el" href="structice_texture_manager.html#a0e7ea5f1a183fa5706a46b8d4f99fb15">iceTextureManager</a>
 </li>
 <li>nb_layer
@@ -278,14 +314,23 @@ $(function() {
 
 
 <h3><a id="index_o"></a>- o -</h3><ul>
+<li>old_box
+: <a class="el" href="structice_gui.html#a4d51483a4631748d346558d79ab4f6e5">iceGui</a>
+</li>
 <li>old_color
-: <a class="el" href="structice_text.html#a49a1f1824f4ecaa454f32560c5cb1b8c">iceText</a>
+: <a class="el" href="structice_label.html#a40697dc7dd469e24f9bc20124e8352ad">iceLabel</a>
 </li>
 <li>old_size
-: <a class="el" href="structice_text.html#a309ebc1c2b327dbfee35cdda0990a59d">iceText</a>
+: <a class="el" href="structice_label.html#a5fd20d3e458d88e4803b90f2f8f9ff91">iceLabel</a>
 </li>
 <li>old_text
-: <a class="el" href="structice_text.html#a57f2fbd6973780abaeaec212e4e7bb72">iceText</a>
+: <a class="el" href="structice_label.html#a18962133b919e70fb1fcf07b42917296">iceLabel</a>
+</li>
+<li>old_texture_nb
+: <a class="el" href="structice_gui.html#aa90829250c30152a55678dc8cf0e6c0c">iceGui</a>
+</li>
+<li>old_texturemanager
+: <a class="el" href="structice_gui.html#a40a35abda286f69a257ec572e1729ce9">iceGui</a>
 </li>
 </ul>
 
@@ -294,9 +339,12 @@ $(function() {
 <li>p
 : <a class="el" href="structice_rect.html#a13afad7ef50de9cd9994617d1ff8eab1">iceRect</a>
 </li>
+<li>polar_distance_r_r
+: <a class="el" href="structice_entity.html#ac86c1c6bf0c22dd1693caab24fe0d6be">iceEntity</a>
+</li>
 <li>pos
 : <a class="el" href="structice_drawer.html#a60c3eb84942910e6ce853488df572375">iceDrawer</a>
-, <a class="el" href="structice_text.html#a39e6c8084c16ecfd4e4dd09f44f1e15a">iceText</a>
+, <a class="el" href="structice_label.html#abc9e675fbe2034dcad999aa4dc99b2ff">iceLabel</a>
 </li>
 </ul>
 
@@ -309,6 +357,9 @@ $(function() {
 
 
 <h3><a id="index_r"></a>- r -</h3><ul>
+<li>r_polar_destination_move
+: <a class="el" href="structice_entity.html#aadc00da142309e6ac5aa1150bcddb099">iceEntity</a>
+</li>
 <li>ren
 : <a class="el" href="structice_texture_manager.html#a764d75abad9c5656dc72a3e5a754856d">iceTextureManager</a>
 </li>
@@ -343,7 +394,7 @@ $(function() {
 <li>size
 : <a class="el" href="structice_font.html#ac91f1823b277b8e96c77de87654410cc">iceFont</a>
 , <a class="el" href="structice_font_manager.html#ac87a5551217cc0fefc96cac8b4c9cdf4">iceFontManager</a>
-, <a class="el" href="structice_text.html#ac0503b70c6f75cbd6e0c33c3f3ccf5c0">iceText</a>
+, <a class="el" href="structice_label.html#a160a915f7d8ae16c75c7d2828d317d0a">iceLabel</a>
 </li>
 <li>size_musicpack
 : <a class="el" href="structice_sound_manager.html#aa6c75e7bb24f8321c7484d05da6a55d3">iceSoundManager</a>
@@ -363,6 +414,9 @@ $(function() {
 <li>speed
 : <a class="el" href="structice_camera.html#a06f4f2639df57c7aa3c09fe881ecaf7c">iceCamera</a>
 </li>
+<li>sprite_nb
+: <a class="el" href="structice_entity.html#ab844ffe59fcc86478954e31a4f326a83">iceEntity</a>
+</li>
 <li>substate_quit
 : <a class="el" href="structice_input.html#abf6df707de2e5752866e79d368d9824e">iceInput</a>
 </li>
@@ -372,19 +426,24 @@ $(function() {
 <h3><a id="index_t"></a>- t -</h3><ul>
 <li>text
 : <a class="el" href="structice_entity.html#aa7e884e4dc88104724ac5c2ab87d24f6">iceEntity</a>
-, <a class="el" href="structice_text.html#a565a2f1c78d958eae1eaf1248785967b">iceText</a>
-, <a class="el" href="structice_text_manager.html#a91ef2149537f2db14b4510b1373e2dc9">iceTextManager</a>
+, <a class="el" href="structice_label.html#af6dd4f21229a961de409b0744b48e586">iceLabel</a>
+, <a class="el" href="structice_label_manager.html#a18ee68c55e481089efaf55c56eb16073">iceLabelManager</a>
 </li>
 <li>textmanager
-: <a class="el" href="structice_game.html#a0c8b693b4153d39b47a47b0eb38b46ed">iceGame</a>
+: <a class="el" href="structice_game.html#a9e06f087c9a887154b3c7eef4625893b">iceGame</a>
 </li>
 <li>textmanager_size
 : <a class="el" href="structice_game.html#a3ff93da53ab49b0da190091201b22e56">iceGame</a>
 </li>
 <li>texture
-: <a class="el" href="structice_gui.html#ae3c089c437001d543a521cf3a99511a5">iceGui</a>
-, <a class="el" href="structice_text.html#a161a63bd999ce16057a057f9796ac854">iceText</a>
+: <a class="el" href="structice_label.html#a6842cac21eb67ccfd7bfb3f362d7ed0c">iceLabel</a>
 , <a class="el" href="structice_texture_manager.html#afc1f54e1005c644f14bbadd90a3088b9">iceTextureManager</a>
+</li>
+<li>texture_cache
+: <a class="el" href="structice_gui.html#af095a9b4d4bca3822091ca2ee6036557">iceGui</a>
+</li>
+<li>texture_nb
+: <a class="el" href="structice_gui.html#a1cb711b63e080ae4c0bb3807dd452897">iceGui</a>
 </li>
 <li>texturemanager
 : <a class="el" href="structice_game.html#a40bb45dfd3044c259116bd231998f08c">iceGame</a>
@@ -457,6 +516,12 @@ $(function() {
 , <a class="el" href="structice_sprite_manager.html#a886aef70b21593f6299d98b423847e7f">iceSpriteManager</a>
 , <a class="el" href="structice_vect.html#a62b22e22136e98ce66c8fd4f081ef157">iceVect</a>
 </li>
+<li>x_polar_destination_move
+: <a class="el" href="structice_entity.html#a6083a4fd3a3aa16f9989d6be439a602d">iceEntity</a>
+</li>
+<li>x_polar_shift_move
+: <a class="el" href="structice_entity.html#ad149c44732f55556b05db8c072650918">iceEntity</a>
+</li>
 </ul>
 
 
@@ -465,6 +530,12 @@ $(function() {
 : <a class="el" href="structice_camera.html#ac0f7a58fe57f14823662a678f1201cd4">iceCamera</a>
 , <a class="el" href="structice_entity.html#ae2650bc45501679933fe834b31f7a261">iceEntity</a>
 , <a class="el" href="structice_vect.html#ac4641f4a4be0ac9a952f515d7b063080">iceVect</a>
+</li>
+<li>y_polar_destination_move
+: <a class="el" href="structice_entity.html#af0832b9983334a779b95aeb5bf452859">iceEntity</a>
+</li>
+<li>y_polar_shift_move
+: <a class="el" href="structice_entity.html#a1ccdbf5ce21f7be33f7d8690750232d9">iceEntity</a>
 </li>
 </ul>
 </div><!-- contents -->

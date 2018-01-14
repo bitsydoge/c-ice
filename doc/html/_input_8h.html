@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ICEngine: ICECore/src/hdr/Input.h File Reference</title>
+<title>ICEngine: ICEngine/src/hdr/Input.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,33 +61,648 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_493b0ba29b1e6ba2af42b320d3b1df57.html">ICECore</a></li><li class="navelem"><a class="el" href="dir_01f07a1cc20732e33334bfbe6581999e.html">src</a></li><li class="navelem"><a class="el" href="dir_4cfb674165072476bb2c9d3e620b7f3a.html">hdr</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_80c9cbfdd4645940d2e10a65f5ed41f7.html">ICEngine</a></li><li class="navelem"><a class="el" href="dir_cc89a509d330c9059f7aeaefd16c95f5.html">src</a></li><li class="navelem"><a class="el" href="dir_14f59c60b1b3f99e015dd62dc6399d46.html">hdr</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Input.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="_struct_core_8h_source.html">StructCore.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="_types_core_8h_source.html">TypesCore.h</a>&quot;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="_terminal_8h_source.html">Terminal.h</a>&quot;</code><br />
 </div>
 <p><a href="_input_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a06fc87d81c62e9abb8790b6e5713c55b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baec4df1ea206c1bf0825990cdec981781">ICE_INPUT_UNKNOWN</a> = 0, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba41d898ff6c90b777204513618b4c08db">ICE_INPUT_A</a> = 4, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba46362ad9776df3f16d7ac0018544afb3">ICE_INPUT_B</a> = 5, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bab41afe27e29eb68ebffd09cf2fc3b72b">ICE_INPUT_C</a> = 6, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba52e7627ae4a790dbe5f883baea4e6419">ICE_INPUT_D</a> = 7, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baaef471c0cee9b9742c7967943edf442c">ICE_INPUT_E</a> = 8, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba637441272d75fc9d3fd34aec55352222">ICE_INPUT_F</a> = 9, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bae2dc7696f8e527d3e6fdba76443cc3da">ICE_INPUT_G</a> = 10, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baf70f745af2c85947f93cdeb84a5e9c42">ICE_INPUT_H</a> = 11, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba3cf60d8c21b48c290799627894aae168">ICE_INPUT_I</a> = 12, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba8ea675523b7802a113dfcd3ef5c3067f">ICE_INPUT_J</a> = 13, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba4eb552a6816e4b2450f7f934a3246aeb">ICE_INPUT_K</a> = 14, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba7f3e6fcb28c732fe0db957f92f9619f7">ICE_INPUT_L</a> = 15, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba6e829ee6f69b382961e9bdba1b465e5f">ICE_INPUT_M</a> = 16, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba6150aacd35904238aad89afaa2084fa2">ICE_INPUT_N</a> = 17, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baa02f905e98b0c279ad1039d92e4febdf">ICE_INPUT_O</a> = 18, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baecc37de32aa7c72d804e8373f73d1043">ICE_INPUT_P</a> = 19, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba25db0e9ebe7f32e1a8f55b49cbc819f5">ICE_INPUT_Q</a> = 20, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba48a20ddde9524a08139c21079a3a9742">ICE_INPUT_R</a> = 21, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba52f9861c72c61fe149ea18c040447791">ICE_INPUT_S</a> = 22, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba6b04e274b94c5a48fb24c9a3744b957e">ICE_INPUT_T</a> = 23, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baf255402bd2eb51d0c34e993b2c218eda">ICE_INPUT_U</a> = 24, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baf9507dad914b94849dad49f1111fd640">ICE_INPUT_V</a> = 25, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bae75c857c4e361d2f8fed8b46671a09c4">ICE_INPUT_W</a> = 26, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba8bd437ca6f763c9b202c317cfd8a6e0e">ICE_INPUT_X</a> = 27, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba2f9e10ef1ba1fe19f02e10e962bbe171">ICE_INPUT_Y</a> = 28, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba14ad3df79d3d94e5e0ac4f02e8cf3920">ICE_INPUT_Z</a> = 29, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bae5277452c586e19139c957be0b501951">ICE_INPUT_1</a> = 30, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba502377a37ed1d4cf3e98a3ac97e76d52">ICE_INPUT_2</a> = 31, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba3429597f7f57ed8dd785fdf4d76b5c08">ICE_INPUT_3</a> = 32, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba0ee7ddc487817c118fff40a0ef06f9e1">ICE_INPUT_4</a> = 33, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bab4d02a1575260a9fa7fca14b8948cac4">ICE_INPUT_5</a> = 34, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bae6bf16ddee7d84377a074d6a709e48e7">ICE_INPUT_6</a> = 35, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba9661f77d97ae8676f32d1561fc8215f4">ICE_INPUT_7</a> = 36, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baf6b4cac3799b66aa540878f0192a1903">ICE_INPUT_8</a> = 37, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba2d29f4610e95fb2d72d5854d6f1a41a4">ICE_INPUT_9</a> = 38, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bab901969d65605328c25bc123fab06cd3">ICE_INPUT_0</a> = 39, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bad578f5dd9bb36fe827ae36234bef6443">ICE_INPUT_RETURN</a> = 40, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baf06a516a3226326a04d19aea8bf8bf3b">ICE_INPUT_ESCAPE</a> = 41, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba35087c849b0f70dbf98807b0377f393a">ICE_INPUT_BACKSPACE</a> = 42, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba398ede62900a38a11fa3b98db8e68922">ICE_INPUT_TAB</a> = 43, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba0fba014e988c6638cf71dc51c6d2e280">ICE_INPUT_SPACE</a> = 44, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baff0567cabaa19a7cd06ef46e37bf6bcc">ICE_INPUT_MINUS</a> = 45, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba7437eb6e02b73e5a4a9f041842f6d631">ICE_INPUT_EQUALS</a> = 46, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba7317791f6b5da1520a204e6958d965b5">ICE_INPUT_LEFTBRACKET</a> = 47, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55badcea625e2e38fdf77d0a37ad52687e53">ICE_INPUT_RIGHTBRACKET</a> = 48, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba3ed87aa78a187ea166dbbf22d8332773">ICE_INPUT_BACKSLASH</a> = 49, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba0601681998563fba164ef4ef63bdca7f">ICE_INPUT_NONUSHASH</a> = 50, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bab525a8ebf4cb5725cc4322d4165b981d">ICE_INPUT_SEMICOLON</a> = 51, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba4a6d9ae417eb658ad4e974b785b963d8">ICE_INPUT_APOSTROPHE</a> = 52, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba28aac4ff07025fbe16079d05af40fa3b">ICE_INPUT_GRAVE</a> = 53, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bad6311a5547db152f927dcda996f658fa">ICE_INPUT_COMMA</a> = 54, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba373188bd11fd746bb733b1133f13a82d">ICE_INPUT_PERIOD</a> = 55, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55badc1cea6e018280ebaa817e8700b4e21d">ICE_INPUT_SLASH</a> = 56, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba827a9ea59875862874a8c4a9cc9eaf2b">ICE_INPUT_CAPSLOCK</a> = 57, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba970761bba4b1f296a8b7328ef2a91244">ICE_INPUT_F1</a> = 58, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bad5b09b2bb4d5a271e659135219d689ca">ICE_INPUT_F2</a> = 59, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba782df5d6b8f2e6583089e942ae8c6e33">ICE_INPUT_F3</a> = 60, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba3cab7ceece2aef5795bb03085fcdc97f">ICE_INPUT_F4</a> = 61, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba1cf170db6619bf7d02ea20d9d5ea0ab5">ICE_INPUT_F5</a> = 62, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bad7f938894ead3716d9c39efece80f980">ICE_INPUT_F6</a> = 63, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba2ed4df8b23fea36d1bafbb3b53817c58">ICE_INPUT_F7</a> = 64, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba99038f4060ffce2946b36b1c6a337302">ICE_INPUT_F8</a> = 65, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba8a008d2d83ebcbb4d33118ccaff4e7fa">ICE_INPUT_F9</a> = 66, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba42fced91f0216f700a308854870df256">ICE_INPUT_F10</a> = 67, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba2f4a4cc035880feb2e32232b180e94ff">ICE_INPUT_F11</a> = 68, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba3e57588efbcd420648294877e56038ee">ICE_INPUT_F12</a> = 69, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba52369822b8aff46f3de0a0ab069850fd">ICE_INPUT_PRINTSCREEN</a> = 70, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba9df2d6e9b3e8e4bf9cc287e3265c0e7f">ICE_INPUT_SCROLLLOCK</a> = 71, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba2424a9e44fa0acfb6d23d05e87fb9564">ICE_INPUT_PAUSE</a> = 72, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba122f3bd2011306ee13f4a356be1f1a0a">ICE_INPUT_INSERT</a> = 73, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba8a7e162155f82a7b48e50c17f3598b4d">ICE_INPUT_HOME</a> = 74, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba4658f0e486cdf58e5b30182ffcc14e08">ICE_INPUT_PAGEUP</a> = 75, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba3ef290fbab5bbd95e0ca2b81ee6a8d34">ICE_INPUT_DELETE</a> = 76, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bae15e7364db22ecf98eecad045233a55b">ICE_INPUT_END</a> = 77, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba5f4df48ed2ffe29b937b486f2aa2b488">ICE_INPUT_PAGEDOWN</a> = 78, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba780e6e0d3c6237f1e890f0f46e9763d2">ICE_INPUT_RIGHT</a> = 79, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bada6bf96abd672362c75821f723594a85">ICE_INPUT_LEFT</a> = 80, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba8410fc81932b6012850765c2e31c4395">ICE_INPUT_DOWN</a> = 81, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba56f0cdb7676ab49381babb2a2b652818">ICE_INPUT_UP</a> = 82, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba62d408800fcdcdd7cd100401e2c2fe12">ICE_INPUT_NUMLOCKCLEAR</a> = 83, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba40965e9caf3eeb443d076fc0e446fe17">ICE_INPUT_KP_DIVIDE</a> = 84, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bad19d33a35e8ee08e9b0f7c9b4af572be">ICE_INPUT_KP_MULTIPLY</a> = 85, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba496fc38cfb7fb7ca83e40bd35f88cb62">ICE_INPUT_KP_MINUS</a> = 86, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bad9a1b5ea43844395f2abd77bfbb988b1">ICE_INPUT_KP_PLUS</a> = 87, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bab36d23589ce59ccfa6a0f26e2ff4aa0c">ICE_INPUT_KP_ENTER</a> = 88, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55badd752b2872152058ed6a26e2935e95dc">ICE_INPUT_KP_1</a> = 89, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bad143c8cd656951c008e8e7a5c9128fe1">ICE_INPUT_KP_2</a> = 90, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba9e8cf4a574eac42c448e3d988f2aa878">ICE_INPUT_KP_3</a> = 91, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba66abbb91b1bc80abf9a2ec644019a19e">ICE_INPUT_KP_4</a> = 92, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba4c24f964672972b9efc6202065eda10d">ICE_INPUT_KP_5</a> = 93, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bae3ee13e8cd7bda489a9e74fe765f80fa">ICE_INPUT_KP_6</a> = 94, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bacd7b125aea95d39b66c9cc7cd9cefca8">ICE_INPUT_KP_7</a> = 95, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba881da0d681ce2eba779c13eea427223e">ICE_INPUT_KP_8</a> = 96, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bacc142e7dd3e44ae4b450dcce19cf7ce1">ICE_INPUT_KP_9</a> = 97, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba0ee026e3519927e613fe1ad4e0648551">ICE_INPUT_KP_0</a> = 98, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba1cb1c88fdfb32aab9a16ee49c93e19e9">ICE_INPUT_KP_PERIOD</a> = 99, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bad6c7c85a6d98311e5da4e144176849c4">ICE_INPUT_NONUSBACKSLASH</a> = 100, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba1748bfc55235ccfc984eb3f99b054951">ICE_INPUT_APPLICATION</a> = 101, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba4a105f0e386e84183d8dd26c518da7b5">ICE_INPUT_POWER</a> = 102, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba53979a2b6d33e96c87f215d0664b4db4">ICE_INPUT_KP_EQUALS</a> = 103, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba11f02ac2aa851a131e785c60dd6a7d0f">ICE_INPUT_F13</a> = 104, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba462fde0d98cb15f9aadb829e93b372a2">ICE_INPUT_F14</a> = 105, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bab744d440c9d7b0add0e47e0ac33b6315">ICE_INPUT_F15</a> = 106, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba2561bcdba3d05feb8aad9055a11c32d0">ICE_INPUT_F16</a> = 107, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba3c5be568152a7e59427976342666ce30">ICE_INPUT_F17</a> = 108, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bac2cbd725d86b7148901b86f34c361291">ICE_INPUT_F18</a> = 109, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba3c76a1ca2dd6c998cca89b6cf61aec3d">ICE_INPUT_F19</a> = 110, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55babb99bbb7087b3bab23c09d3b33b9c34b">ICE_INPUT_F20</a> = 111, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba0ef1ee5383497534dfe5003d1ad8a98b">ICE_INPUT_F21</a> = 112, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baff4c63ae937d38aed249ac7fc8af75fb">ICE_INPUT_F22</a> = 113, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55babb4f3cc8fe958056939b1283cb300740">ICE_INPUT_F23</a> = 114, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55badb9b599d03635b6831875fa56d0f1e6e">ICE_INPUT_F24</a> = 115, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baa51bbc57f2d9906aae2b00c36f8ba89d">ICE_INPUT_EXECUTE</a> = 116, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baad1db7bbdb284dabca0aea65d843ff6b">ICE_INPUT_HELP</a> = 117, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba6b3258ab738b5b90db02ab3a1042f699">ICE_INPUT_MENU</a> = 118, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bad59ad3cb1a59cc468b58a660e7a85f3e">ICE_INPUT_SELECT</a> = 119, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55badf59f95896fb2d32d2704db8077042df">ICE_INPUT_STOP</a> = 120, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba1219c86de09c3a26efa0bc76bdc63a86">ICE_INPUT_AGAIN</a> = 121, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba187e9d067c25a489d5485dc7039ac32f">ICE_INPUT_UNDO</a> = 122, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba69421c113c27ec7cace587f25cfe4781">ICE_INPUT_CUT</a> = 123, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba1d578c461863384f3367e45c7ff89361">ICE_INPUT_COPY</a> = 124, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba0a68cbfb0042e1bfb62511380d993b06">ICE_INPUT_PASTE</a> = 125, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bae681c46a911b82c34d975fdfc90cf388">ICE_INPUT_FIND</a> = 126, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba123a22f2a9bd9f3a646e063b2cfd3113">ICE_INPUT_MUTE</a> = 127, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bae51952857f69d2b44676b0824187be69">ICE_INPUT_VOLUMEUP</a> = 128, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bae0ef5a819d91b1e7480ab65476535138">ICE_INPUT_VOLUMEDOWN</a> = 129, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba162b9f1b63d8f533a8b4a6c9e022cb77">ICE_INPUT_KP_COMMA</a> = 133, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba44fdf86d80fc243df729b62efbb53466">ICE_INPUT_KP_EQUALSAS400</a> = 134, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba8a283ac0d959b1d05048ede93d4c4e36">ICE_INPUT_INTERNATIONAL1</a> = 135, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bacb030761c772691e6ae78e06dfe81cb0">ICE_INPUT_INTERNATIONAL2</a> = 136, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba5137f4b6285c157ecf621066e2f616bd">ICE_INPUT_INTERNATIONAL3</a> = 137, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba94abee6ae51f8c11382dfc5eb8f85d80">ICE_INPUT_INTERNATIONAL4</a> = 138, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba2d4ace2f90279d84f9375a2439500712">ICE_INPUT_INTERNATIONAL5</a> = 139, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bab045a69978397b276a5044ffb46f2bac">ICE_INPUT_INTERNATIONAL6</a> = 140, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba8ad7c2b5da37c5b62e2c3e4dd549a5eb">ICE_INPUT_INTERNATIONAL7</a> = 141, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba7940d90b1e6eedda17dbd062add5504e">ICE_INPUT_INTERNATIONAL8</a> = 142, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba7914e4277d765be4ad120940052121b4">ICE_INPUT_INTERNATIONAL9</a> = 143, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bac340d275737d0885dfe3f3a15d8b0cd4">ICE_INPUT_LANG1</a> = 144, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba53eae648eff6dbfea25322d00bc8f9d8">ICE_INPUT_LANG2</a> = 145, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bad388be9da06d0043dc45666effe9a07a">ICE_INPUT_LANG3</a> = 146, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba245f4ec4400bb604129bca1c052f0ece">ICE_INPUT_LANG4</a> = 147, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bad5c35758eacfcf480eb851cce29d568b">ICE_INPUT_LANG5</a> = 148, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bacdb41168b067bba7b2fca61da5d06cf7">ICE_INPUT_LANG6</a> = 149, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba3e2695d998c281e99779df62f41fd593">ICE_INPUT_LANG7</a> = 150, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55badffe511b20644973b7083e8c35dd9da0">ICE_INPUT_LANG8</a> = 151, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba46f74c0dd3d63487694782892dfe53ce">ICE_INPUT_LANG9</a> = 152, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bad598a4e272c68ba7df3d965a52a12017">ICE_INPUT_ALTERASE</a> = 153, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba2c1ed8812fbd272b378a451bf01ca293">ICE_INPUT_SYSREQ</a> = 154, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baab3711198efdb029ea0dadbc9ba875db">ICE_INPUT_CANCEL</a> = 155, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba91c91c86dbdd3c3551d0e3017a3bfc78">ICE_INPUT_CLEAR</a> = 156, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba9e50b0deca1fe4db93e1f2e152187958">ICE_INPUT_PRIOR</a> = 157, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba8dbfa9a2991db57888c916c01629e196">ICE_INPUT_RETURN2</a> = 158, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baa8e05949f23d7d2b261ca62511e0460e">ICE_INPUT_SEPARATOR</a> = 159, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba54da0b847404a500ea752be06e47a1f0">ICE_INPUT_OUT</a> = 160, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba61c6778e4722d1751e72aa88751876a2">ICE_INPUT_OPER</a> = 161, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba18fb3ff90af7a9fe8c9c5125aee3c8df">ICE_INPUT_CLEARAGAIN</a> = 162, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba428a57b1b51cc1a3445908ff94971945">ICE_INPUT_CRSEL</a> = 163, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba18db401bf7d8e70afe0fa160c324f6cc">ICE_INPUT_EXSEL</a> = 164, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba742982078f6bdf1573e34b72e75f0e69">ICE_INPUT_KP_00</a> = 176, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba35d3409f2dc45c93565f2b8c76757839">ICE_INPUT_KP_000</a> = 177, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baf74c919ad1581d8568fc6d09483a321d">ICE_INPUT_THOUSANDSSEPARATOR</a> = 178, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bac765a1eacfa610bd4e700d8ebec4f57e">ICE_INPUT_DECIMALSEPARATOR</a> = 179, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba728d0af1c0f98b224a4decac9601c069">ICE_INPUT_CURRENCYUNIT</a> = 180, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba2b67c01164df22e94ec1eb0e41f08c23">ICE_INPUT_CURRENCYSUBUNIT</a> = 181, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bac6730f50759fb56350a70436fa377ebb">ICE_INPUT_KP_LEFTPAREN</a> = 182, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba19500e72001a2c001760e27d8135d8c9">ICE_INPUT_KP_RIGHTPAREN</a> = 183, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba54c0f39b495e5948840083fadd157748">ICE_INPUT_KP_LEFTBRACE</a> = 184, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baf6a8790f9d1ffe4bd9d4914ee79a99a8">ICE_INPUT_KP_RIGHTBRACE</a> = 185, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba34114e83fc496866fd129990f25cbabc">ICE_INPUT_KP_TAB</a> = 186, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba25547020fb2e945ef1bc85c83c47f53c">ICE_INPUT_KP_BACKSPACE</a> = 187, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bab7530a7ddc51ad53f149602f10973307">ICE_INPUT_KP_A</a> = 188, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba2ecf2f950e6677386680e66c816f8034">ICE_INPUT_KP_B</a> = 189, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba94f3c88599d3a05aca49cf66d1f37598">ICE_INPUT_KP_C</a> = 190, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bacd71bda514eea2b9ea816113e579630a">ICE_INPUT_KP_D</a> = 191, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bae808f75f34752a56722f54b97c6a73d9">ICE_INPUT_KP_E</a> = 192, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bac2cdc5f4543e078f4eda141608f8f2f0">ICE_INPUT_KP_F</a> = 193, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba46273ee3ef5d1caf1c98ffc3fa643cb8">ICE_INPUT_KP_XOR</a> = 194, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bad94334982c45f34860fdd45d1b0dc8ed">ICE_INPUT_KP_POWER</a> = 195, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bae9d814a632632f3bf8ebfc42eb32d7fc">ICE_INPUT_KP_PERCENT</a> = 196, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba1b9e169c6f5577ce831781602c1d22ac">ICE_INPUT_KP_LESS</a> = 197, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baaccc21897ee983f5fd920796a900594e">ICE_INPUT_KP_GREATER</a> = 198, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba2c20cf95de4660a2eed9faa4d39a8d89">ICE_INPUT_KP_AMPERSAND</a> = 199, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba8da24f3e8406aaccbf5d56b423da6ffc">ICE_INPUT_KP_DBLAMPERSAND</a> = 200, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba9fba836d21c79a0aa2897ee31a2ef2fb">ICE_INPUT_KP_VERTICALBAR</a> = 201, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba26aaef626708d09140a4763829e3552e">ICE_INPUT_KP_DBLVERTICALBAR</a> = 202, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba9d9d2114796691ad5c82158c5048e64b">ICE_INPUT_KP_COLON</a> = 203, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bab3b2061ec91a9e4ed06650c4fb11f183">ICE_INPUT_KP_HASH</a> = 204, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba1e1e9af30d2e5f79f29be852b5c8f80c">ICE_INPUT_KP_SPACE</a> = 205, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baac0543573c77ba27d54ce147183a58c8">ICE_INPUT_KP_AT</a> = 206, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba69b9b6c8e83e6d012c11643d4d1d969f">ICE_INPUT_KP_EXCLAM</a> = 207, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba2bae91773295a488baa71c1ffc0ca3ab">ICE_INPUT_KP_MEMSTORE</a> = 208, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baa384e846d0c4e6e02728cb49f5f3c546">ICE_INPUT_KP_MEMRECALL</a> = 209, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba3360425d20cbf5ffe9ed09b2be37edc9">ICE_INPUT_KP_MEMCLEAR</a> = 210, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bab046d704eee116e7e6024c965a385a7d">ICE_INPUT_KP_MEMADD</a> = 211, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baad78af23c48bb3d4c38db00db5caa18c">ICE_INPUT_KP_MEMSUBTRACT</a> = 212, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bae19750acf3165d7b4dd7f1f6a31a3090">ICE_INPUT_KP_MEMMULTIPLY</a> = 213, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bab423f945222de6c6ddfbf8e3170d58ec">ICE_INPUT_KP_MEMDIVIDE</a> = 214, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba40d7456ba89f220cb231ce31741db021">ICE_INPUT_KP_PLUSMINUS</a> = 215, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bad8d37d46e168cf4d412a3747addf6641">ICE_INPUT_KP_CLEAR</a> = 216, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baaaeefbbea2c38fda0d3a15bbacda26d6">ICE_INPUT_KP_CLEARENTRY</a> = 217, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba9ac8795a28f8faee3f6d49cda8934975">ICE_INPUT_KP_BINARY</a> = 218, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baa35c26454b7ad14c9ff0a726356700c4">ICE_INPUT_KP_OCTAL</a> = 219, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba64ada6d9995507b2f498b3c0f5fccff4">ICE_INPUT_KP_DECIMAL</a> = 220, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba8ad77287c42e1e4076ce963138c70ca5">ICE_INPUT_KP_HEXADECIMAL</a> = 221, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bae5cad192b24b85400f5f2e45e3a58191">ICE_INPUT_LCTRL</a> = 224, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba8951f9835b65c1a872566c6c5112e36a">ICE_INPUT_LSHIFT</a> = 225, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba6c8ec761114f296e0843c3dc440ee477">ICE_INPUT_LALT</a> = 226, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba614983a232520ab7dd4f3658af799839">ICE_INPUT_LGUI</a> = 227, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba3e83001bd466020df7757efa6fc28fd8">ICE_INPUT_RCTRL</a> = 228, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba4714fa0f550e93617696425e16697196">ICE_INPUT_RSHIFT</a> = 229, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba6400f8d206ae7a8ffe726dc691d59a0b">ICE_INPUT_RALT</a> = 230, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baaf60a277c3fc8bcbeecd369a82b8a3e3">ICE_INPUT_RGUI</a> = 231, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba54a12078eff0536fb44177868288183a">ICE_INPUT_MODE</a> = 257, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bad148b9044c3a5ecce4872dc2beb5fe83">ICE_INPUT_AUDIONEXT</a> = 258, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba78b99ab7fa403d1db9e3c68901b213df">ICE_INPUT_AUDIOPREV</a> = 259, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba7ada55a8d7d1b52068e8555c00e1214a">ICE_INPUT_AUDIOSTOP</a> = 260, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bac34ec86a7c9b48c4466186533e815f66">ICE_INPUT_AUDIOPLAY</a> = 261, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba43008ef5894c34a5dfe4f816ffd8b286">ICE_INPUT_AUDIOMUTE</a> = 262, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba899fee7716f6a00a690ef77ee5d7eea2">ICE_INPUT_MEDIASELECT</a> = 263, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba72a5e0f5c7737f4ff237337a86b679ee">ICE_INPUT_WWW</a> = 264, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba25a3a527a67e2dcb33c0893a4d8fee90">ICE_INPUT_MAIL</a> = 265, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bae423660826174ae23d50eab41b850026">ICE_INPUT_CALCULATOR</a> = 266, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba7a21be8545907403544d13b81bd3dfde">ICE_INPUT_COMPUTER</a> = 267, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba0a064e37937e93824fb29520899f9424">ICE_INPUT_AC_SEARCH</a> = 268, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba28080f1b38da28c834b076c6e73b9321">ICE_INPUT_AC_HOME</a> = 269, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba54622802b207020b6644f6f8934c934d">ICE_INPUT_AC_BACK</a> = 270, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba3c900062046b48d03ea5d1fe17c9cd81">ICE_INPUT_AC_FORWARD</a> = 271, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baa43fe01adf72622cefbb8296b0088ffd">ICE_INPUT_AC_STOP</a> = 272, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba92a33830ea26c7a400b1912096ecfa5a">ICE_INPUT_AC_REFRESH</a> = 273, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bac7d0b3a8c92330dae18bdf541f78029c">ICE_INPUT_AC_BOOKMARKS</a> = 274, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba09b25ee920ad87e6d4f0656811772f94">ICE_INPUT_BRIGHTNESSDOWN</a> = 275, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba64d51ca8f5e453a977c832d274070c2c">ICE_INPUT_BRIGHTNESSUP</a> = 276, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba0ae2ea226562602b28b9f9982a4a49d9">ICE_INPUT_DISPLAYSWITCH</a> = 277, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba28fecbf07c69b11ce2ee49ad8a49c5da">ICE_INPUT_KBDILLUMTOGGLE</a> = 278, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baaebd87e16f77605a23b49b0215b4a02a">ICE_INPUT_KBDILLUMDOWN</a> = 279, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bab4511dc730e43047dd91d9c236a70056">ICE_INPUT_KBDILLUMUP</a> = 280, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba96c6fd22f33e6ca9a32aa8309f3ac993">ICE_INPUT_EJECT</a> = 281, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55bab05e317dda1a97a42e3f0717b3721566">ICE_INPUT_SLEEP</a> = 282, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba3a05ebdd92f6723e1f5c42f53d9052db">ICE_INPUT_APP1</a> = 283, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba007aaf0ee8f24aebd7293b5e1108f1cd">ICE_INPUT_APP2</a> = 284, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba1deb5a37173cdf3ba4021eb0c58d4680">ICE_INPUT_AUDIOREWIND</a> = 285, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba38b7a51023f5bac87bfc25b876f0c934">ICE_INPUT_AUDIOFASTFORWARD</a> = 286, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba89203d5722b63483002e34f674970403">ICE_INPUT_SCANCODES</a> = 512, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba1445897118697966945129289481a4c0">ICE_INPUT_OTHER</a> = 600, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba6b67c24b1e55ad8bf026eff6a3988a08">ICE_INPUT_LEFTCLICK</a> = 601, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55badd1c86ee710325a33f8b04a2ef6e8460">ICE_INPUT_RIGHTCLICK</a> = 602, 
+<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55baa75173e24072e5f214b310f9bd241540">ICE_INPUT_WHEELUP</a> = 603, 
+<br />
+&#160;&#160;<a class="el" href="_input_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba624e7cece02a4791d459fba59686ea84">ICE_INPUT_WHEELDOWN</a> = 604
+<br />
+ }</td></tr>
+<tr class="separator:a06fc87d81c62e9abb8790b6e5713c55b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a7c9a61b86adb41a6daa9b99b98ed357b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_input_8h.html#a7c9a61b86adb41a6daa9b99b98ed357b">iceInputReset</a> (<a class="el" href="structice_input.html">iceInput</a> *input)</td></tr>
-<tr class="separator:a7c9a61b86adb41a6daa9b99b98ed357b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75e64a53ba31f16a4b449ecd034e03d8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_input_8h.html#a75e64a53ba31f16a4b449ecd034e03d8">iceInputReturn</a> (<a class="el" href="structice_game.html">iceGame</a> *game, <a class="el" href="structice_input.html">iceInput</a> *input)</td></tr>
-<tr class="separator:a75e64a53ba31f16a4b449ecd034e03d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa84c8f46e98cf6ce409a41ab50526b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_types_audio_8h.html#ab4e8ee4bc1bdb7c144bd40846386af83">iceBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_input_8h.html#afa84c8f46e98cf6ce409a41ab50526b4">iceInputButton</a> (int button)</td></tr>
+<tr class="separator:afa84c8f46e98cf6ce409a41ab50526b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add77eceff8d881746d3d11f72f76a266"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_input_8h.html#add77eceff8d881746d3d11f72f76a266">iceInputReset</a> ()</td></tr>
+<tr class="separator:add77eceff8d881746d3d11f72f76a266"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89954554d7ef531684bb4451796d50b2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_input_8h.html#a89954554d7ef531684bb4451796d50b2">iceInputReturn</a> ()</td></tr>
+<tr class="separator:a89954554d7ef531684bb4451796d50b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a06fc87d81c62e9abb8790b6e5713c55b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06fc87d81c62e9abb8790b6e5713c55b">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baec4df1ea206c1bf0825990cdec981781"></a>ICE_INPUT_UNKNOWN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba41d898ff6c90b777204513618b4c08db"></a>ICE_INPUT_A&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba46362ad9776df3f16d7ac0018544afb3"></a>ICE_INPUT_B&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bab41afe27e29eb68ebffd09cf2fc3b72b"></a>ICE_INPUT_C&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba52e7627ae4a790dbe5f883baea4e6419"></a>ICE_INPUT_D&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baaef471c0cee9b9742c7967943edf442c"></a>ICE_INPUT_E&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba637441272d75fc9d3fd34aec55352222"></a>ICE_INPUT_F&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bae2dc7696f8e527d3e6fdba76443cc3da"></a>ICE_INPUT_G&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baf70f745af2c85947f93cdeb84a5e9c42"></a>ICE_INPUT_H&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba3cf60d8c21b48c290799627894aae168"></a>ICE_INPUT_I&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba8ea675523b7802a113dfcd3ef5c3067f"></a>ICE_INPUT_J&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba4eb552a6816e4b2450f7f934a3246aeb"></a>ICE_INPUT_K&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba7f3e6fcb28c732fe0db957f92f9619f7"></a>ICE_INPUT_L&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba6e829ee6f69b382961e9bdba1b465e5f"></a>ICE_INPUT_M&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba6150aacd35904238aad89afaa2084fa2"></a>ICE_INPUT_N&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baa02f905e98b0c279ad1039d92e4febdf"></a>ICE_INPUT_O&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baecc37de32aa7c72d804e8373f73d1043"></a>ICE_INPUT_P&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba25db0e9ebe7f32e1a8f55b49cbc819f5"></a>ICE_INPUT_Q&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba48a20ddde9524a08139c21079a3a9742"></a>ICE_INPUT_R&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba52f9861c72c61fe149ea18c040447791"></a>ICE_INPUT_S&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba6b04e274b94c5a48fb24c9a3744b957e"></a>ICE_INPUT_T&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baf255402bd2eb51d0c34e993b2c218eda"></a>ICE_INPUT_U&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baf9507dad914b94849dad49f1111fd640"></a>ICE_INPUT_V&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bae75c857c4e361d2f8fed8b46671a09c4"></a>ICE_INPUT_W&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba8bd437ca6f763c9b202c317cfd8a6e0e"></a>ICE_INPUT_X&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba2f9e10ef1ba1fe19f02e10e962bbe171"></a>ICE_INPUT_Y&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba14ad3df79d3d94e5e0ac4f02e8cf3920"></a>ICE_INPUT_Z&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bae5277452c586e19139c957be0b501951"></a>ICE_INPUT_1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba502377a37ed1d4cf3e98a3ac97e76d52"></a>ICE_INPUT_2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba3429597f7f57ed8dd785fdf4d76b5c08"></a>ICE_INPUT_3&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba0ee7ddc487817c118fff40a0ef06f9e1"></a>ICE_INPUT_4&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bab4d02a1575260a9fa7fca14b8948cac4"></a>ICE_INPUT_5&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bae6bf16ddee7d84377a074d6a709e48e7"></a>ICE_INPUT_6&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba9661f77d97ae8676f32d1561fc8215f4"></a>ICE_INPUT_7&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baf6b4cac3799b66aa540878f0192a1903"></a>ICE_INPUT_8&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba2d29f4610e95fb2d72d5854d6f1a41a4"></a>ICE_INPUT_9&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bab901969d65605328c25bc123fab06cd3"></a>ICE_INPUT_0&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bad578f5dd9bb36fe827ae36234bef6443"></a>ICE_INPUT_RETURN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baf06a516a3226326a04d19aea8bf8bf3b"></a>ICE_INPUT_ESCAPE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba35087c849b0f70dbf98807b0377f393a"></a>ICE_INPUT_BACKSPACE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba398ede62900a38a11fa3b98db8e68922"></a>ICE_INPUT_TAB&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba0fba014e988c6638cf71dc51c6d2e280"></a>ICE_INPUT_SPACE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baff0567cabaa19a7cd06ef46e37bf6bcc"></a>ICE_INPUT_MINUS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba7437eb6e02b73e5a4a9f041842f6d631"></a>ICE_INPUT_EQUALS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba7317791f6b5da1520a204e6958d965b5"></a>ICE_INPUT_LEFTBRACKET&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55badcea625e2e38fdf77d0a37ad52687e53"></a>ICE_INPUT_RIGHTBRACKET&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba3ed87aa78a187ea166dbbf22d8332773"></a>ICE_INPUT_BACKSLASH&#160;</td><td class="fielddoc"><p>Located at the lower left of the return key on ISO keyboards and at the right end of the QWERTY row on ANSI keyboards. Produces REVERSE SOLIDUS (backslash) and VERTICAL LINE in a US layout, REVERSE SOLIDUS and VERTICAL LINE in a UK Mac layout, NUMBER SIGN and TILDE in a UK Windows layout, DOLLAR SIGN and POUND SIGN in a Swiss German layout, NUMBER SIGN and APOSTROPHE in a German layout, GRAVE ACCENT and POUND SIGN in a French Mac layout, and ASTERISK and MICRO SIGN in a French Windows layout. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba0601681998563fba164ef4ef63bdca7f"></a>ICE_INPUT_NONUSHASH&#160;</td><td class="fielddoc"><p>ISO USB keyboards actually use this code instead of 49 for the same key, but all OSes I've seen treat the two codes identically. So, as an implementor, unless your keyboard generates both of those codes and your OS treats them differently, you should generate ICE_INPUT_BACKSLASH instead of this code. As a user, you should not rely on this code because SDL will never generate it with most (all?) keyboards. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bab525a8ebf4cb5725cc4322d4165b981d"></a>ICE_INPUT_SEMICOLON&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba4a6d9ae417eb658ad4e974b785b963d8"></a>ICE_INPUT_APOSTROPHE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba28aac4ff07025fbe16079d05af40fa3b"></a>ICE_INPUT_GRAVE&#160;</td><td class="fielddoc"><p>Located in the top left corner (on both ANSI and ISO keyboards). Produces GRAVE ACCENT and TILDE in a US Windows layout and in US and UK Mac layouts on ANSI keyboards, GRAVE ACCENT and NOT SIGN in a UK Windows layout, SECTION SIGN and PLUS-MINUS SIGN in US and UK Mac layouts on ISO keyboards, SECTION SIGN and DEGREE SIGN in a Swiss German layout (Mac: only on ISO keyboards), CIRCUMFLEX ACCENT and DEGREE SIGN in a German layout (Mac: only on ISO keyboards), SUPERSCRIPT TWO and TILDE in a French Windows layout, COMMERCIAL AT and NUMBER SIGN in a French Mac layout on ISO keyboards, and LESS-THAN SIGN and GREATER-THAN SIGN in a Swiss German, German, or French Mac layout on ANSI keyboards. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bad6311a5547db152f927dcda996f658fa"></a>ICE_INPUT_COMMA&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba373188bd11fd746bb733b1133f13a82d"></a>ICE_INPUT_PERIOD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55badc1cea6e018280ebaa817e8700b4e21d"></a>ICE_INPUT_SLASH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba827a9ea59875862874a8c4a9cc9eaf2b"></a>ICE_INPUT_CAPSLOCK&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba970761bba4b1f296a8b7328ef2a91244"></a>ICE_INPUT_F1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bad5b09b2bb4d5a271e659135219d689ca"></a>ICE_INPUT_F2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba782df5d6b8f2e6583089e942ae8c6e33"></a>ICE_INPUT_F3&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba3cab7ceece2aef5795bb03085fcdc97f"></a>ICE_INPUT_F4&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba1cf170db6619bf7d02ea20d9d5ea0ab5"></a>ICE_INPUT_F5&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bad7f938894ead3716d9c39efece80f980"></a>ICE_INPUT_F6&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba2ed4df8b23fea36d1bafbb3b53817c58"></a>ICE_INPUT_F7&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba99038f4060ffce2946b36b1c6a337302"></a>ICE_INPUT_F8&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba8a008d2d83ebcbb4d33118ccaff4e7fa"></a>ICE_INPUT_F9&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba42fced91f0216f700a308854870df256"></a>ICE_INPUT_F10&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba2f4a4cc035880feb2e32232b180e94ff"></a>ICE_INPUT_F11&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba3e57588efbcd420648294877e56038ee"></a>ICE_INPUT_F12&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba52369822b8aff46f3de0a0ab069850fd"></a>ICE_INPUT_PRINTSCREEN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba9df2d6e9b3e8e4bf9cc287e3265c0e7f"></a>ICE_INPUT_SCROLLLOCK&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba2424a9e44fa0acfb6d23d05e87fb9564"></a>ICE_INPUT_PAUSE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba122f3bd2011306ee13f4a356be1f1a0a"></a>ICE_INPUT_INSERT&#160;</td><td class="fielddoc"><p>insert on PC, help on some Mac keyboards (but does send code 73, not 117) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba8a7e162155f82a7b48e50c17f3598b4d"></a>ICE_INPUT_HOME&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba4658f0e486cdf58e5b30182ffcc14e08"></a>ICE_INPUT_PAGEUP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba3ef290fbab5bbd95e0ca2b81ee6a8d34"></a>ICE_INPUT_DELETE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bae15e7364db22ecf98eecad045233a55b"></a>ICE_INPUT_END&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba5f4df48ed2ffe29b937b486f2aa2b488"></a>ICE_INPUT_PAGEDOWN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba780e6e0d3c6237f1e890f0f46e9763d2"></a>ICE_INPUT_RIGHT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bada6bf96abd672362c75821f723594a85"></a>ICE_INPUT_LEFT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba8410fc81932b6012850765c2e31c4395"></a>ICE_INPUT_DOWN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba56f0cdb7676ab49381babb2a2b652818"></a>ICE_INPUT_UP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba62d408800fcdcdd7cd100401e2c2fe12"></a>ICE_INPUT_NUMLOCKCLEAR&#160;</td><td class="fielddoc"><p>num lock on PC, clear on Mac keyboards </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba40965e9caf3eeb443d076fc0e446fe17"></a>ICE_INPUT_KP_DIVIDE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bad19d33a35e8ee08e9b0f7c9b4af572be"></a>ICE_INPUT_KP_MULTIPLY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba496fc38cfb7fb7ca83e40bd35f88cb62"></a>ICE_INPUT_KP_MINUS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bad9a1b5ea43844395f2abd77bfbb988b1"></a>ICE_INPUT_KP_PLUS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bab36d23589ce59ccfa6a0f26e2ff4aa0c"></a>ICE_INPUT_KP_ENTER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55badd752b2872152058ed6a26e2935e95dc"></a>ICE_INPUT_KP_1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bad143c8cd656951c008e8e7a5c9128fe1"></a>ICE_INPUT_KP_2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba9e8cf4a574eac42c448e3d988f2aa878"></a>ICE_INPUT_KP_3&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba66abbb91b1bc80abf9a2ec644019a19e"></a>ICE_INPUT_KP_4&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba4c24f964672972b9efc6202065eda10d"></a>ICE_INPUT_KP_5&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bae3ee13e8cd7bda489a9e74fe765f80fa"></a>ICE_INPUT_KP_6&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bacd7b125aea95d39b66c9cc7cd9cefca8"></a>ICE_INPUT_KP_7&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba881da0d681ce2eba779c13eea427223e"></a>ICE_INPUT_KP_8&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bacc142e7dd3e44ae4b450dcce19cf7ce1"></a>ICE_INPUT_KP_9&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba0ee026e3519927e613fe1ad4e0648551"></a>ICE_INPUT_KP_0&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba1cb1c88fdfb32aab9a16ee49c93e19e9"></a>ICE_INPUT_KP_PERIOD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bad6c7c85a6d98311e5da4e144176849c4"></a>ICE_INPUT_NONUSBACKSLASH&#160;</td><td class="fielddoc"><p>This is the additional key that ISO keyboards have over ANSI ones, located between left shift and Y. Produces GRAVE ACCENT and TILDE in a US or UK Mac layout, REVERSE SOLIDUS (backslash) and VERTICAL LINE in a US or UK Windows layout, and LESS-THAN SIGN and GREATER-THAN SIGN in a Swiss German, German, or French layout. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba1748bfc55235ccfc984eb3f99b054951"></a>ICE_INPUT_APPLICATION&#160;</td><td class="fielddoc"><p>windows contextual menu, compose </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba4a105f0e386e84183d8dd26c518da7b5"></a>ICE_INPUT_POWER&#160;</td><td class="fielddoc"><p>The USB document says this is a status flag, not a physical key - but some Mac keyboards do have a power key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba53979a2b6d33e96c87f215d0664b4db4"></a>ICE_INPUT_KP_EQUALS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba11f02ac2aa851a131e785c60dd6a7d0f"></a>ICE_INPUT_F13&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba462fde0d98cb15f9aadb829e93b372a2"></a>ICE_INPUT_F14&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bab744d440c9d7b0add0e47e0ac33b6315"></a>ICE_INPUT_F15&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba2561bcdba3d05feb8aad9055a11c32d0"></a>ICE_INPUT_F16&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba3c5be568152a7e59427976342666ce30"></a>ICE_INPUT_F17&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bac2cbd725d86b7148901b86f34c361291"></a>ICE_INPUT_F18&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba3c76a1ca2dd6c998cca89b6cf61aec3d"></a>ICE_INPUT_F19&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55babb99bbb7087b3bab23c09d3b33b9c34b"></a>ICE_INPUT_F20&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba0ef1ee5383497534dfe5003d1ad8a98b"></a>ICE_INPUT_F21&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baff4c63ae937d38aed249ac7fc8af75fb"></a>ICE_INPUT_F22&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55babb4f3cc8fe958056939b1283cb300740"></a>ICE_INPUT_F23&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55badb9b599d03635b6831875fa56d0f1e6e"></a>ICE_INPUT_F24&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baa51bbc57f2d9906aae2b00c36f8ba89d"></a>ICE_INPUT_EXECUTE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baad1db7bbdb284dabca0aea65d843ff6b"></a>ICE_INPUT_HELP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba6b3258ab738b5b90db02ab3a1042f699"></a>ICE_INPUT_MENU&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bad59ad3cb1a59cc468b58a660e7a85f3e"></a>ICE_INPUT_SELECT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55badf59f95896fb2d32d2704db8077042df"></a>ICE_INPUT_STOP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba1219c86de09c3a26efa0bc76bdc63a86"></a>ICE_INPUT_AGAIN&#160;</td><td class="fielddoc"><p>redo </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba187e9d067c25a489d5485dc7039ac32f"></a>ICE_INPUT_UNDO&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba69421c113c27ec7cace587f25cfe4781"></a>ICE_INPUT_CUT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba1d578c461863384f3367e45c7ff89361"></a>ICE_INPUT_COPY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba0a68cbfb0042e1bfb62511380d993b06"></a>ICE_INPUT_PASTE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bae681c46a911b82c34d975fdfc90cf388"></a>ICE_INPUT_FIND&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba123a22f2a9bd9f3a646e063b2cfd3113"></a>ICE_INPUT_MUTE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bae51952857f69d2b44676b0824187be69"></a>ICE_INPUT_VOLUMEUP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bae0ef5a819d91b1e7480ab65476535138"></a>ICE_INPUT_VOLUMEDOWN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba162b9f1b63d8f533a8b4a6c9e022cb77"></a>ICE_INPUT_KP_COMMA&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba44fdf86d80fc243df729b62efbb53466"></a>ICE_INPUT_KP_EQUALSAS400&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba8a283ac0d959b1d05048ede93d4c4e36"></a>ICE_INPUT_INTERNATIONAL1&#160;</td><td class="fielddoc"><p>used on Asian keyboards, see footnotes in USB doc </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bacb030761c772691e6ae78e06dfe81cb0"></a>ICE_INPUT_INTERNATIONAL2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba5137f4b6285c157ecf621066e2f616bd"></a>ICE_INPUT_INTERNATIONAL3&#160;</td><td class="fielddoc"><p>Yen </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba94abee6ae51f8c11382dfc5eb8f85d80"></a>ICE_INPUT_INTERNATIONAL4&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba2d4ace2f90279d84f9375a2439500712"></a>ICE_INPUT_INTERNATIONAL5&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bab045a69978397b276a5044ffb46f2bac"></a>ICE_INPUT_INTERNATIONAL6&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba8ad7c2b5da37c5b62e2c3e4dd549a5eb"></a>ICE_INPUT_INTERNATIONAL7&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba7940d90b1e6eedda17dbd062add5504e"></a>ICE_INPUT_INTERNATIONAL8&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba7914e4277d765be4ad120940052121b4"></a>ICE_INPUT_INTERNATIONAL9&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bac340d275737d0885dfe3f3a15d8b0cd4"></a>ICE_INPUT_LANG1&#160;</td><td class="fielddoc"><p>Hangul/English toggle </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba53eae648eff6dbfea25322d00bc8f9d8"></a>ICE_INPUT_LANG2&#160;</td><td class="fielddoc"><p>Hanja conversion </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bad388be9da06d0043dc45666effe9a07a"></a>ICE_INPUT_LANG3&#160;</td><td class="fielddoc"><p>Katakana </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba245f4ec4400bb604129bca1c052f0ece"></a>ICE_INPUT_LANG4&#160;</td><td class="fielddoc"><p>Hiragana </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bad5c35758eacfcf480eb851cce29d568b"></a>ICE_INPUT_LANG5&#160;</td><td class="fielddoc"><p>Zenkaku/Hankaku </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bacdb41168b067bba7b2fca61da5d06cf7"></a>ICE_INPUT_LANG6&#160;</td><td class="fielddoc"><p>reserved </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba3e2695d998c281e99779df62f41fd593"></a>ICE_INPUT_LANG7&#160;</td><td class="fielddoc"><p>reserved </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55badffe511b20644973b7083e8c35dd9da0"></a>ICE_INPUT_LANG8&#160;</td><td class="fielddoc"><p>reserved </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba46f74c0dd3d63487694782892dfe53ce"></a>ICE_INPUT_LANG9&#160;</td><td class="fielddoc"><p>reserved </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bad598a4e272c68ba7df3d965a52a12017"></a>ICE_INPUT_ALTERASE&#160;</td><td class="fielddoc"><p>Erase-Eaze </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba2c1ed8812fbd272b378a451bf01ca293"></a>ICE_INPUT_SYSREQ&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baab3711198efdb029ea0dadbc9ba875db"></a>ICE_INPUT_CANCEL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba91c91c86dbdd3c3551d0e3017a3bfc78"></a>ICE_INPUT_CLEAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba9e50b0deca1fe4db93e1f2e152187958"></a>ICE_INPUT_PRIOR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba8dbfa9a2991db57888c916c01629e196"></a>ICE_INPUT_RETURN2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baa8e05949f23d7d2b261ca62511e0460e"></a>ICE_INPUT_SEPARATOR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba54da0b847404a500ea752be06e47a1f0"></a>ICE_INPUT_OUT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba61c6778e4722d1751e72aa88751876a2"></a>ICE_INPUT_OPER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba18fb3ff90af7a9fe8c9c5125aee3c8df"></a>ICE_INPUT_CLEARAGAIN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba428a57b1b51cc1a3445908ff94971945"></a>ICE_INPUT_CRSEL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba18db401bf7d8e70afe0fa160c324f6cc"></a>ICE_INPUT_EXSEL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba742982078f6bdf1573e34b72e75f0e69"></a>ICE_INPUT_KP_00&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba35d3409f2dc45c93565f2b8c76757839"></a>ICE_INPUT_KP_000&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baf74c919ad1581d8568fc6d09483a321d"></a>ICE_INPUT_THOUSANDSSEPARATOR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bac765a1eacfa610bd4e700d8ebec4f57e"></a>ICE_INPUT_DECIMALSEPARATOR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba728d0af1c0f98b224a4decac9601c069"></a>ICE_INPUT_CURRENCYUNIT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba2b67c01164df22e94ec1eb0e41f08c23"></a>ICE_INPUT_CURRENCYSUBUNIT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bac6730f50759fb56350a70436fa377ebb"></a>ICE_INPUT_KP_LEFTPAREN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba19500e72001a2c001760e27d8135d8c9"></a>ICE_INPUT_KP_RIGHTPAREN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba54c0f39b495e5948840083fadd157748"></a>ICE_INPUT_KP_LEFTBRACE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baf6a8790f9d1ffe4bd9d4914ee79a99a8"></a>ICE_INPUT_KP_RIGHTBRACE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba34114e83fc496866fd129990f25cbabc"></a>ICE_INPUT_KP_TAB&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba25547020fb2e945ef1bc85c83c47f53c"></a>ICE_INPUT_KP_BACKSPACE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bab7530a7ddc51ad53f149602f10973307"></a>ICE_INPUT_KP_A&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba2ecf2f950e6677386680e66c816f8034"></a>ICE_INPUT_KP_B&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba94f3c88599d3a05aca49cf66d1f37598"></a>ICE_INPUT_KP_C&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bacd71bda514eea2b9ea816113e579630a"></a>ICE_INPUT_KP_D&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bae808f75f34752a56722f54b97c6a73d9"></a>ICE_INPUT_KP_E&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bac2cdc5f4543e078f4eda141608f8f2f0"></a>ICE_INPUT_KP_F&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba46273ee3ef5d1caf1c98ffc3fa643cb8"></a>ICE_INPUT_KP_XOR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bad94334982c45f34860fdd45d1b0dc8ed"></a>ICE_INPUT_KP_POWER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bae9d814a632632f3bf8ebfc42eb32d7fc"></a>ICE_INPUT_KP_PERCENT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba1b9e169c6f5577ce831781602c1d22ac"></a>ICE_INPUT_KP_LESS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baaccc21897ee983f5fd920796a900594e"></a>ICE_INPUT_KP_GREATER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba2c20cf95de4660a2eed9faa4d39a8d89"></a>ICE_INPUT_KP_AMPERSAND&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba8da24f3e8406aaccbf5d56b423da6ffc"></a>ICE_INPUT_KP_DBLAMPERSAND&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba9fba836d21c79a0aa2897ee31a2ef2fb"></a>ICE_INPUT_KP_VERTICALBAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba26aaef626708d09140a4763829e3552e"></a>ICE_INPUT_KP_DBLVERTICALBAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba9d9d2114796691ad5c82158c5048e64b"></a>ICE_INPUT_KP_COLON&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bab3b2061ec91a9e4ed06650c4fb11f183"></a>ICE_INPUT_KP_HASH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba1e1e9af30d2e5f79f29be852b5c8f80c"></a>ICE_INPUT_KP_SPACE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baac0543573c77ba27d54ce147183a58c8"></a>ICE_INPUT_KP_AT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba69b9b6c8e83e6d012c11643d4d1d969f"></a>ICE_INPUT_KP_EXCLAM&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba2bae91773295a488baa71c1ffc0ca3ab"></a>ICE_INPUT_KP_MEMSTORE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baa384e846d0c4e6e02728cb49f5f3c546"></a>ICE_INPUT_KP_MEMRECALL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba3360425d20cbf5ffe9ed09b2be37edc9"></a>ICE_INPUT_KP_MEMCLEAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bab046d704eee116e7e6024c965a385a7d"></a>ICE_INPUT_KP_MEMADD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baad78af23c48bb3d4c38db00db5caa18c"></a>ICE_INPUT_KP_MEMSUBTRACT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bae19750acf3165d7b4dd7f1f6a31a3090"></a>ICE_INPUT_KP_MEMMULTIPLY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bab423f945222de6c6ddfbf8e3170d58ec"></a>ICE_INPUT_KP_MEMDIVIDE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba40d7456ba89f220cb231ce31741db021"></a>ICE_INPUT_KP_PLUSMINUS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bad8d37d46e168cf4d412a3747addf6641"></a>ICE_INPUT_KP_CLEAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baaaeefbbea2c38fda0d3a15bbacda26d6"></a>ICE_INPUT_KP_CLEARENTRY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba9ac8795a28f8faee3f6d49cda8934975"></a>ICE_INPUT_KP_BINARY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baa35c26454b7ad14c9ff0a726356700c4"></a>ICE_INPUT_KP_OCTAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba64ada6d9995507b2f498b3c0f5fccff4"></a>ICE_INPUT_KP_DECIMAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba8ad77287c42e1e4076ce963138c70ca5"></a>ICE_INPUT_KP_HEXADECIMAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bae5cad192b24b85400f5f2e45e3a58191"></a>ICE_INPUT_LCTRL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba8951f9835b65c1a872566c6c5112e36a"></a>ICE_INPUT_LSHIFT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba6c8ec761114f296e0843c3dc440ee477"></a>ICE_INPUT_LALT&#160;</td><td class="fielddoc"><p>alt, option </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba614983a232520ab7dd4f3658af799839"></a>ICE_INPUT_LGUI&#160;</td><td class="fielddoc"><p>windows, command (apple), meta </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba3e83001bd466020df7757efa6fc28fd8"></a>ICE_INPUT_RCTRL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba4714fa0f550e93617696425e16697196"></a>ICE_INPUT_RSHIFT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba6400f8d206ae7a8ffe726dc691d59a0b"></a>ICE_INPUT_RALT&#160;</td><td class="fielddoc"><p>alt gr, option </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baaf60a277c3fc8bcbeecd369a82b8a3e3"></a>ICE_INPUT_RGUI&#160;</td><td class="fielddoc"><p>windows, command (apple), meta </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba54a12078eff0536fb44177868288183a"></a>ICE_INPUT_MODE&#160;</td><td class="fielddoc"><p>I'm not sure if this is really not covered by any of the above, but since there's a special KMOD_MODE for it I'm adding it here </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bad148b9044c3a5ecce4872dc2beb5fe83"></a>ICE_INPUT_AUDIONEXT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba78b99ab7fa403d1db9e3c68901b213df"></a>ICE_INPUT_AUDIOPREV&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba7ada55a8d7d1b52068e8555c00e1214a"></a>ICE_INPUT_AUDIOSTOP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bac34ec86a7c9b48c4466186533e815f66"></a>ICE_INPUT_AUDIOPLAY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba43008ef5894c34a5dfe4f816ffd8b286"></a>ICE_INPUT_AUDIOMUTE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba899fee7716f6a00a690ef77ee5d7eea2"></a>ICE_INPUT_MEDIASELECT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba72a5e0f5c7737f4ff237337a86b679ee"></a>ICE_INPUT_WWW&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba25a3a527a67e2dcb33c0893a4d8fee90"></a>ICE_INPUT_MAIL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bae423660826174ae23d50eab41b850026"></a>ICE_INPUT_CALCULATOR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba7a21be8545907403544d13b81bd3dfde"></a>ICE_INPUT_COMPUTER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba0a064e37937e93824fb29520899f9424"></a>ICE_INPUT_AC_SEARCH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba28080f1b38da28c834b076c6e73b9321"></a>ICE_INPUT_AC_HOME&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba54622802b207020b6644f6f8934c934d"></a>ICE_INPUT_AC_BACK&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba3c900062046b48d03ea5d1fe17c9cd81"></a>ICE_INPUT_AC_FORWARD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baa43fe01adf72622cefbb8296b0088ffd"></a>ICE_INPUT_AC_STOP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba92a33830ea26c7a400b1912096ecfa5a"></a>ICE_INPUT_AC_REFRESH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bac7d0b3a8c92330dae18bdf541f78029c"></a>ICE_INPUT_AC_BOOKMARKS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba09b25ee920ad87e6d4f0656811772f94"></a>ICE_INPUT_BRIGHTNESSDOWN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba64d51ca8f5e453a977c832d274070c2c"></a>ICE_INPUT_BRIGHTNESSUP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba0ae2ea226562602b28b9f9982a4a49d9"></a>ICE_INPUT_DISPLAYSWITCH&#160;</td><td class="fielddoc"><p>display mirroring/dual display switch, video mode switch </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba28fecbf07c69b11ce2ee49ad8a49c5da"></a>ICE_INPUT_KBDILLUMTOGGLE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baaebd87e16f77605a23b49b0215b4a02a"></a>ICE_INPUT_KBDILLUMDOWN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bab4511dc730e43047dd91d9c236a70056"></a>ICE_INPUT_KBDILLUMUP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba96c6fd22f33e6ca9a32aa8309f3ac993"></a>ICE_INPUT_EJECT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bab05e317dda1a97a42e3f0717b3721566"></a>ICE_INPUT_SLEEP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba3a05ebdd92f6723e1f5c42f53d9052db"></a>ICE_INPUT_APP1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba007aaf0ee8f24aebd7293b5e1108f1cd"></a>ICE_INPUT_APP2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba1deb5a37173cdf3ba4021eb0c58d4680"></a>ICE_INPUT_AUDIOREWIND&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba38b7a51023f5bac87bfc25b876f0c934"></a>ICE_INPUT_AUDIOFASTFORWARD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba89203d5722b63483002e34f674970403"></a>ICE_INPUT_SCANCODES&#160;</td><td class="fielddoc"><p>not a key, just marks the number of scancodes for array bounds </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba1445897118697966945129289481a4c0"></a>ICE_INPUT_OTHER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba6b67c24b1e55ad8bf026eff6a3988a08"></a>ICE_INPUT_LEFTCLICK&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55badd1c86ee710325a33f8b04a2ef6e8460"></a>ICE_INPUT_RIGHTCLICK&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baa75173e24072e5f214b310f9bd241540"></a>ICE_INPUT_WHEELUP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba624e7cece02a4791d459fba59686ea84"></a>ICE_INPUT_WHEELDOWN&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a75e64a53ba31f16a4b449ecd034e03d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75e64a53ba31f16a4b449ecd034e03d8">&#9670;&nbsp;</a></span>iceInputReturn()</h2>
+<a id="a89954554d7ef531684bb4451796d50b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89954554d7ef531684bb4451796d50b2">&#9670;&nbsp;</a></span>iceInputReturn()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -95,27 +710,16 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int iceInputReturn </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structice_game.html">iceGame</a> *&#160;</td>
-          <td class="paramname"><em>game</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structice_input.html">iceInput</a> *&#160;</td>
-          <td class="paramname"><em>input</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a7c9a61b86adb41a6daa9b99b98ed357b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c9a61b86adb41a6daa9b99b98ed357b">&#9670;&nbsp;</a></span>iceInputReset()</h2>
+<a id="add77eceff8d881746d3d11f72f76a266"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add77eceff8d881746d3d11f72f76a266">&#9670;&nbsp;</a></span>iceInputReset()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -123,8 +727,25 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void iceInputReset </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structice_input.html">iceInput</a> *&#160;</td>
-          <td class="paramname"><em>input</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afa84c8f46e98cf6ce409a41ab50526b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa84c8f46e98cf6ce409a41ab50526b4">&#9670;&nbsp;</a></span>iceInputButton()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_types_audio_8h.html#ab4e8ee4bc1bdb7c144bd40846386af83">iceBool</a> iceInputButton </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>button</em></td><td>)</td>
           <td></td>
         </tr>
       </table>

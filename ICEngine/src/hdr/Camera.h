@@ -20,7 +20,7 @@ void iceCameraAttachToEntity(int entity_manager, int entity);
 ///
 void iceCameraDetach();
 ///
-void _iceCameraUpdateAttach();
+void iceCameraUpdateAttach();
 ///
 iceBool iceCameraBoxOnScreen(iceBox box);
 int iceCameraGetW();

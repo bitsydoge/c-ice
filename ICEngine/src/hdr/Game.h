@@ -19,5 +19,6 @@ void iceGameDestroy(iceGame *app);
 
 //get value
 iceFloat iceGameDelta();
+iceFloat iceGameFps();
 
 #endif

@@ -1,22 +1,17 @@
 #include <Core.h>
 #include <chipmunk/chipmunk.h>
 
-typedef struct
-{
+typedef struct{
 	cpSpace *space;
 	cpVect gravity;
 	cpBody *textBody;
 	cpShape *textShape;
-
 } DATA;
 
 ICE_CREATE {
-	iceGame game = iceGameCreate("ICE : Hello World", 800, 480);
-	DATA *data = iceDataAdd(&game, sizeof(DATA));
-	iceFontLoad(&game, "res/ttf/FiraSans-Medium.ttf");
-
-
-
+	iceGameCreate("ICE : Hello World", 800, 480);
+	DATA *data = iceDataAdd(sizeof(DATA));
+	iceFontLoad("res/ttf/FiraSans-Medium.ttf");
 	data->gravity = cpv(10, 50);
 	data->space = cpSpaceNew();
 	cpSpaceSetGravity(data->space, data->gravity);
@@ -27,19 +22,17 @@ ICE_CREATE {
 	cpBodySetPosition(data->textBody, cpv(20, 20));
 	data->textShape = cpSpaceAddShape(data->space, cpCircleShapeNew(data->textBody, radius, cpvzero));
 	cpShapeSetFriction(data->textShape, 0.9);
-	return game;
 }
 
 ICE_UPDATE {
-	DATA *data = iceDataGet(game, 0);
-	cpFloat timeStep = 1.0 / game->time.fps;
+	DATA *data = iceDataGet(0);
+	cpFloat timeStep = 1.0 / iceGameFps();
 	cpSpaceStep(data->space, timeStep);
 	cpVect vect = cpBodyGetPosition(data->textBody);
-	iceFontDraw(game, "Hello World", 80, iceVectNew(vect.x, vect.y));
+	iceFontDraw("Hello World", 80, iceVectNew(vect.x, vect.y));
 }
 
 ICE_DESTROY {
-
 }
 
 int main(){

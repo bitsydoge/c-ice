@@ -29,3 +29,8 @@ int iceSubstateLoop(void(*call_create)(void), void(*call_update)(void), void(*ca
 	iceInputReset();
 	return 0;
 }
+
+void iceSubstateQuit()
+{
+	game.input->substate_quit = iceTrue;
+}
