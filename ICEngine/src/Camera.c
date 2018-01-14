@@ -1,5 +1,8 @@
 ﻿#include "hdr/Camera.h"
 
+#include "hdr/TypesCore.h"
+#include "hdr/Vector.h"
+
 extern iceGame game;
 
 void iceCameraSetPos(iceVect vect){

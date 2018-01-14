@@ -1,7 +1,12 @@
 #include "hdr/Draw.h"
+
+#include <string.h>
+#include <SDL2/SDL.h>
+
 #include "hdr/Texture.h"
 #include "hdr/Camera.h"
 #include "hdr/Label.h"
+#include "hdr/Gui.h"
 
 extern iceGame game;
 

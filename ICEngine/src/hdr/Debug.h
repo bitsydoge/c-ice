@@ -1,13 +1,6 @@
 ﻿#ifndef DEF_ICE_DEBUG
 #define DEF_ICE_DEBUG
 
-#include "Camera.h"
-#include "Entity.h"
-#include "Vector.h"
-#include "Font.h"
-#include "Window.h"
-#include <stdio.h>
-
 void iceDebugMouseCoordinate();
 void iceDebugShowFps();
 void iceDebugShowFpsTitle();

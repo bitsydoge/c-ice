@@ -1,5 +1,11 @@
 ﻿#include "hdr/Label.h"
+
 #include <string.h>
+#include <stdio.h>
+#include "hdr/Terminal.h"
+#include "hdr/Gui.h"
+#include "hdr/Color.h"
+
 
 extern iceGame game;
 

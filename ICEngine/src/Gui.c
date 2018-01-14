@@ -1,5 +1,10 @@
 ﻿#include "hdr/Gui.h"
 
+#include <stdio.h>
+#include "hdr/TypesCore.h"
+#include "hdr/Texture.h"
+#include "hdr/Terminal.h"
+
 extern iceGame game;
 
 // Create GUI Object

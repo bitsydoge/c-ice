@@ -12,11 +12,8 @@ typedef char iceBool;
 #define icefalse 0
 #endif
 
-
-#include <SDL2/SDL.h>
 #include "TypesCore.h"
 #include "TypesMaths.h"
-#include "TypesGraphics.h"
 #include "TypesGraphics.h"
 #include "TypesAudio.h"
 

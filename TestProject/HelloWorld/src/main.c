@@ -1,27 +1,21 @@
 #include <Core.h>
 
-typedef struct
-{
+typedef struct{
 	iceVect direction;
 	iceFloat rotation;
-
 } DATA_WIDOW;
 
-void GameCreate() {
-
+ICE_CREATE {
 	iceGameCreate("ICE : Hello World", 800, 480);
 	iceDrawSetColor(iceColorNew(100, 100, 100));
 
-	// Texture Create
+	//Texture
 	iceTextureCreate(0, "res/img/pic.png");
 	iceTextureCreate(0, "res/img/gui.png");
-
-	// Font Create
+	//Font
 	iceFontLoad("res/ttf/FiraSans-Medium.ttf");
-
-	// Entity Create
-	for (int i = 0; i < 1000; i++)
-	{
+	//Entity
+	for (int i = 0; i < 10000; i++){
 		int actual = iceEntityCreate(0);
 		iceEntitySetTexture(0, actual, 0, 0);
 		iceEntitySetSize(0, actual, 60, 100);
@@ -38,29 +32,24 @@ void GameCreate() {
 	iceLabelSetSize(0, 0, 50);
 	iceLabelSetPos(0, 0, iceVectNew(0, -270));
 	iceLabelIsInWorld(0, 0, 1);
-
 	// Label 2
 	iceLabelCreate(0, iceVectNew(30, 10), "OnScreen");
 	iceLabelSetSize(0, 1, 10);
-
 	// Gui Create
 	iceGuiCreate(0);
-	iceGuiSetBox(0, 0, iceBoxNew(0, 0, iceCameraGetW(), 40));
 	iceGuiSetTexture(0, 0, 0, 1);
 }
 
-void GameUpdate() {
+ICE_UPDATE {
 	iceDebugShowFpsTitle();
 	iceGuiSetBox(0, 0, iceBoxNew(0, 0, iceCameraGetW(), 40));
-
 	// INPUT
 	if (iceInputButton(ICE_INPUT_D) || iceInputButton(ICE_INPUT_RIGHT)) iceCameraShiftPos(iceVectNew(1000 * iceGameDelta(), 0));
 	if (iceInputButton(ICE_INPUT_A) || iceInputButton(ICE_INPUT_LEFT)) iceCameraShiftPos(iceVectNew(-1000 * iceGameDelta(), 0));
 	if (iceInputButton(ICE_INPUT_S) || iceInputButton(ICE_INPUT_DOWN)) iceCameraShiftPos(iceVectNew(0, 1000 * iceGameDelta()));
 	if (iceInputButton(ICE_INPUT_W) || iceInputButton(ICE_INPUT_UP)) iceCameraShiftPos(iceVectNew(0, -1000 * iceGameDelta()));
 	if (iceInputButton(ICE_INPUT_SPACE)) iceCameraMovePos(iceVectNew(0, 0), 1000 * iceGameDelta());
-	if (iceInputButton(ICE_INPUT_RETURN))
-	{
+	if (iceInputButton(ICE_INPUT_RETURN)){
 		static iceBool trigger = iceFalse;
 		if (!trigger) {
 			iceCameraAttachToEntity(0, 500);
@@ -73,15 +62,14 @@ void GameUpdate() {
 		iceInputReset();
 	}
 	// ENTITY
-	for (int i = 0; i < iceEntityGetNumber(0); i++)
-	{
+	for (int i = 0; i < iceEntityGetNumber(0); i++){
 		DATA_WIDOW *data = iceDataEntityGet(0, i, 0);
 		iceEntityMovePos(0, i, data->direction.x, data->direction.y, 100 * iceGameDelta());
 		iceEntityAddAngle(0, i, 45 * iceGameDelta() * data->rotation);
 	}
 }
 
-void GameDestroy() {
+ICE_DESTROY {
 }
 
 int main() {

@@ -2,7 +2,6 @@
 #define DEF_ICE_VECTOR
 
 #include "TypesMaths.h"
-#include <math.h>
 
 // Create a new vector
 iceVect iceVectNew(iceFloat x, iceFloat y);

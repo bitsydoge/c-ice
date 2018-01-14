@@ -2,7 +2,7 @@
 #include "hdr/data.h"
 #include "hdr/control.h"
 
-ICE_CREATE {
+ICE_CREATE{
 	iceGameCreate("ICE : Indie \"C\" Engine", 500, 500);
 
 
@@ -31,7 +31,7 @@ ICE_CREATE {
 	}
 }
 
-ICE_UPDATE {
+ICE_UPDATE{
 	// Logical
 	Control();
 	for (int i = 0; i < iceEntityManagerGetNumber(); i++) // Move every entity from every manager
@@ -44,8 +44,7 @@ ICE_UPDATE {
 	iceDebugShowFps();
 }
 
-ICE_DESTROY {
-
+ICE_DESTROY{ 
 }
 
 int main(){

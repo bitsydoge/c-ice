@@ -1,5 +1,10 @@
 ﻿#include "hdr/Entity.h"
 
+#include <stdio.h>
+#include "hdr/Terminal.h"
+#include "hdr/Texture.h"
+#include "hdr/Camera.h"
+
 extern iceGame game;
 
 //				  //

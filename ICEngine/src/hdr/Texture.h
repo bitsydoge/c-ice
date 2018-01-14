@@ -1,12 +1,8 @@
 #ifndef DEF_ICE_TEXTURE
 #define DEF_ICE_TEXTURE
 
-#include <stdio.h>
-#include <SDL2/SDL.h>
 #include "TypesCore.h"
 #include "Box.h"
-#include "Converter.h"
-#include "Terminal.h"
 
 #define ICE_DEFAULT_TEXTURE_SIZE 4
 

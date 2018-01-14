@@ -2,8 +2,7 @@
 #define DEF_ICE_PRIMITIVE
 #include "TypesCore.h"
 #include "TypesMaths.h"
-#include "Draw.h"
-#include "Converter.h"
+
 /// Draw Point
 int iceDrawPoint(iceVect vect, const iceColor color);
 /// Draw Line

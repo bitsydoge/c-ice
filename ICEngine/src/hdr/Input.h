@@ -1,6 +1,8 @@
 #ifndef DEF_ICE_INPUT
 #define DEF_ICE_INPUT
 
+#include "TypesCore.h"
+
 // Enum miroired from SDL_SCANCODE
 enum
 {
@@ -368,11 +370,6 @@ ICE_INPUT_MODE = 257,    /**< I'm not sure if this is really not covered
 	ICE_INPUT_WHEELUP = 603,
 	ICE_INPUT_WHEELDOWN = 604
 };
-
-#include "TypesCore.h"
-#include <string.h>
-#include <stdio.h>
-#include "Terminal.h"
 
 int iceInputReturn();
 void iceInputReset();

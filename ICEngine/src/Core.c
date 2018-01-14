@@ -5,7 +5,7 @@
 extern iceGame game;
 
 int iceCoreInit() {
-	srand(time(NULL));
+	iceRandomInit();
 	iceTermSaveColor();
 	SDL_Init(SDL_INIT_VIDEO);
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");

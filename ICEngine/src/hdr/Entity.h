@@ -2,11 +2,6 @@
 #define DEF_ICE_ENTITY
 
 #include "Game.h"
-#include <stdio.h>
-#include "Terminal.h"
-#include "Primitive.h"
-#include "Texture.h"
-#include "Camera.h"
 
 #define _POLAR_MOVEMENT_TYPE_1
 

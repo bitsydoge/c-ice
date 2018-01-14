@@ -1,5 +1,12 @@
 ﻿#include "hdr/Debug.h"
 
+#include "hdr/Camera.h"
+#include "hdr/Vector.h"
+#include "hdr/Font.h"
+#include "hdr/Window.h"
+#include <stdio.h>
+#include "hdr/Terminal.h"
+
 extern iceGame game;
 
 void iceDebugMouseCoordinate()

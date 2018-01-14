@@ -1,7 +1,6 @@
 ﻿#ifndef DEF_ICE_GUI
 #define DEF_ICE_GUI
-#include "TypesCore.h"
-#include "Texture.h"
+
 #include "Vector.h"
 
 #define ICE_DEFAULT_GUI_SIZE 4
