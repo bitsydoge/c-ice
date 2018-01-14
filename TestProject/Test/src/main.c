@@ -3,44 +3,45 @@
 #include "hdr/control.h"
 
 ICE_CREATE {
-	iceGame game = iceGameCreate("ICE : Indie \"C\" Engine", 500, 500);
+	iceGameCreate("ICE : Indie \"C\" Engine", 500, 500);
+
+
 
 	// Load Assets
-	iceTextureCreate(&game, 0, "res/img/logo.png");
-	iceTextureCreate(&game, 0, "res/img/gui.png");
-	iceTextureCreate(&game, 0, "res/img/sprite.png");
-	iceMusicCreate(&game, "res/snd/music.ogg");
-	iceSoundCreate(&game, "res/snd/laser.wav");
-	iceMusicPlay(&game, 0, 1);
-	iceFontLoad(&game, "res/ttf/FiraMono-Medium.ttf");
+	iceTextureCreate(0, "res/img/logo.png");
+	iceTextureCreate(0, "res/img/gui.png");
+	iceTextureCreate(0, "res/img/sprite.png");
+	iceMusicCreate("res/snd/music.ogg");
+	iceSoundCreate("res/snd/laser.wav");
+	iceMusicPlay(0, 1);
+	iceFontLoad("res/ttf/FiraMono-Medium.ttf");
 
 	// Load Data and Variables
-	DATA0 *data = iceDataAdd(&game, sizeof(DATA0)); // Add DATA0
-	iceDataAdd(&game, sizeof(DATA1)); // Add DATA1
+	DATA0 *data = iceDataAdd(sizeof(DATA0)); // Add DATA0
+	iceDataAdd(sizeof(DATA1)); // Add DATA1
 	data->speed_camera = 250;
 	// Creating Entity
-	int manager_nb = iceEntityManagerCreate(&game);
+	int manager_nb = iceEntityManagerCreate();
 	for(int i = 0; i<10000; i++){
-		int entity_nb = iceEntityCreate(&game, 0);
-		iceEntitySetTexture(&game, manager_nb, entity_nb, 0, 2);
-		iceEntitySetPos(&game, manager_nb, entity_nb, iceRandomInt(-5000, 5000), iceRandomInt(-5000, 5000));
+		int entity_nb = iceEntityCreate(0);
+		iceEntitySetTexture(manager_nb, entity_nb, 0, 2);
+		iceEntitySetPos(manager_nb, entity_nb, iceRandomInt(-5000, 5000), iceRandomInt(-5000, 5000));
 		int nb = iceRandomInt(20, 100);
-		iceEntitySetSize(&game, manager_nb, entity_nb, nb, nb);
+		iceEntitySetSize(manager_nb, entity_nb, nb, nb);
 	}
-	return game;
 }
 
 ICE_UPDATE {
 	// Logical
-	Control(game);
-	for (int i = 0; i < game->entitymanager_size; i++) // Move every entity from every manager
-		for (int j = 0; j < game->entitymanager[i].nb_existing; j++) // the center of the map
-			iceEntityMovePos(game, i, j, 0, 0, 70 * game->time.delta);
+	Control();
+	for (int i = 0; i < iceEntityManagerGetNumber(); i++) // Move every entity from every manager
+		for (int j = 0; j < iceEntityGetNumber(i); j++) // the center of the map
+			iceEntityMovePos(i, j, 0, 0, 70 * iceGameDelta());
 	// Graphical
-	iceTextureRenderCentered(game, 0, 0, NULL, (iceBox[]) { iceCameraWorldScreen(iceBoxNew(0, 0, 500, 500), &game->camera) });
-	iceDrawAllEntity(game); // Draw every Entity
-	iceGuiRect(game, 0, 1, iceBoxNew(0, 0, game->camera.w, 32));
-	iceDebugShowFps(game);
+	iceTextureRenderCentered(0, 0, NULL, (iceBox[]) { iceCameraWorldScreen(iceBoxNew(0, 0, 500, 500)) });
+	iceDrawAllEntity(); // Draw every Entity
+	iceGuiRect(0, 1, iceBoxNew(0, 0, iceCameraGetW(), 32));
+	iceDebugShowFps();
 }
 
 ICE_DESTROY {

@@ -1,13 +1,7 @@
 var searchData=
 [
-  ['camera',['camera',['../structice_game.html#ad0aee2185cb84fac90312222cfc3573a',1,'iceGame']]],
-  ['camera_2ec',['Camera.c',['../_camera_8c.html',1,'']]],
-  ['camera_2eh',['Camera.h',['../_camera_8h.html',1,'']]],
-  ['color',['color',['../structice_text.html#a2b136458adf7adfddbe0b76838ecdadd',1,'iceText']]],
-  ['color_2ec',['Color.c',['../_color_8c.html',1,'']]],
-  ['color_2eh',['Color.h',['../_color_8h.html',1,'']]],
-  ['converter_2ec',['Converter.c',['../_converter_8c.html',1,'']]],
-  ['converter_2eh',['Converter.h',['../_converter_8h.html',1,'']]],
-  ['core_2ec',['Core.c',['../_core_8c.html',1,'']]],
-  ['core_2eh',['Core.h',['../_core_8h.html',1,'']]]
+  ['background',['background',['../structice_game.html#a67aea4974b3abd1d6d5e33a41e6801be',1,'iceGame']]],
+  ['box',['box',['../structice_gui.html#a564b4df04a84b130a2aa7c63a47c20a6',1,'iceGui']]],
+  ['box_2ec',['Box.c',['../_box_8c.html',1,'']]],
+  ['box_2eh',['Box.h',['../_box_8h.html',1,'']]]
 ];

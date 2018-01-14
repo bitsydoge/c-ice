@@ -1,9 +1,11 @@
 var searchData=
 [
-  ['text',['text',['../structice_entity.html#aa7e884e4dc88104724ac5c2ab87d24f6',1,'iceEntity::text()'],['../structice_text.html#a565a2f1c78d958eae1eaf1248785967b',1,'iceText::text()'],['../structice_text_manager.html#a91ef2149537f2db14b4510b1373e2dc9',1,'iceTextManager::text()']]],
-  ['textmanager',['textmanager',['../structice_game.html#a0c8b693b4153d39b47a47b0eb38b46ed',1,'iceGame']]],
+  ['text',['text',['../structice_entity.html#aa7e884e4dc88104724ac5c2ab87d24f6',1,'iceEntity::text()'],['../structice_label.html#af6dd4f21229a961de409b0744b48e586',1,'iceLabel::text()'],['../structice_label_manager.html#a18ee68c55e481089efaf55c56eb16073',1,'iceLabelManager::text()']]],
+  ['textmanager',['textmanager',['../structice_game.html#a9e06f087c9a887154b3c7eef4625893b',1,'iceGame']]],
   ['textmanager_5fsize',['textmanager_size',['../structice_game.html#a3ff93da53ab49b0da190091201b22e56',1,'iceGame']]],
-  ['texture',['texture',['../structice_texture_manager.html#afc1f54e1005c644f14bbadd90a3088b9',1,'iceTextureManager::texture()'],['../structice_gui.html#ae3c089c437001d543a521cf3a99511a5',1,'iceGui::texture()'],['../structice_text.html#a161a63bd999ce16057a057f9796ac854',1,'iceText::texture()']]],
+  ['texture',['texture',['../structice_texture_manager.html#afc1f54e1005c644f14bbadd90a3088b9',1,'iceTextureManager::texture()'],['../structice_label.html#a6842cac21eb67ccfd7bfb3f362d7ed0c',1,'iceLabel::texture()']]],
+  ['texture_5fcache',['texture_cache',['../structice_gui.html#af095a9b4d4bca3822091ca2ee6036557',1,'iceGui']]],
+  ['texture_5fnb',['texture_nb',['../structice_gui.html#a1cb711b63e080ae4c0bb3807dd452897',1,'iceGui']]],
   ['texturemanager',['texturemanager',['../structice_game.html#a40bb45dfd3044c259116bd231998f08c',1,'iceGame::texturemanager()'],['../structice_gui.html#a50c3938582ee1264a51ce72d1133548a',1,'iceGui::texturemanager()']]],
   ['texturemanager_5fsize',['texturemanager_size',['../structice_game.html#a0e70a2d28b9f50a8d8114888e658e00d',1,'iceGame']]],
   ['ticks',['ticks',['../structice_time.html#a6223310f5974f6720d7ec8a9ba2c15ff',1,'iceTime']]],

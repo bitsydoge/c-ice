@@ -5,6 +5,7 @@ var searchData=
   ['h_5fsize_5ftile',['h_size_tile',['../structice_sprite.html#a36df5bc6ef64058bb930375360bd98db',1,'iceSprite']]],
   ['handle',['handle',['../structice_texture.html#ab83c7dfc3f8aa1ec4815be09c371ebbb',1,'iceTexture']]],
   ['handle_5ftexture',['handle_texture',['../structice_sprite.html#ad6492df7d6904f40d0f82a129d58434b',1,'iceSprite']]],
+  ['have_5fsprite',['have_sprite',['../structice_entity.html#a4e75a58cdc3e41a6a0aaaafa7c52cb1e',1,'iceEntity']]],
   ['have_5ftexture',['have_texture',['../structice_entity.html#ad0098353306b080b69c96ba9432637d5',1,'iceEntity']]],
-  ['height',['height',['../_i_c_e_core_2src_2raw_2_raw__icon_8c.html#ab2e78c61905b4419fcc7b4cfc500fe85',1,'height():&#160;Raw_icon.c'],['../_raw__error_8c.html#ab2e78c61905b4419fcc7b4cfc500fe85',1,'height():&#160;Raw_error.c'],['../_i_c_e_graphics_2src_2raw_2_raw__icon_8c.html#ab2e78c61905b4419fcc7b4cfc500fe85',1,'height():&#160;Raw_icon.c']]]
+  ['have_5ftexture_5fdefined',['have_texture_defined',['../structice_gui.html#ab03e0f86c173ab58ae5a16e035378223',1,'iceGui']]]
 ];

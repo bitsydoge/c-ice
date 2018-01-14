@@ -36,7 +36,7 @@ int iceCoreLoop(void(*call_create)(void), void(*call_update)(void), void(*call_d
 		iceInputReturn();
 		iceDrawClearColor(game.background);
 		iceDrawClear();
-		_iceCameraUpdateAttach();
+		iceCameraUpdateAttach();
 
 		call_update(); // Call Update
 

@@ -1,10 +1,11 @@
 var searchData=
 [
-  ['h',['h',['../structice_map.html#a3669f93cdf96fccba976a3452f03f32f',1,'iceMap::h()'],['../structice_entity.html#a02d4f0d19eb28fef6777af7ceeaeb3a8',1,'iceEntity::h()'],['../structice_camera.html#a0dea8aa5510fe33c8d0f10f8782995da',1,'iceCamera::h()'],['../structice_texture.html#acd755ca15bcf371d8065d35ae325e06a',1,'iceTexture::h()'],['../structice_rect.html#ae581526927a39e5d2860793e4ed5010b',1,'iceRect::h()']]],
-  ['h_5fsize',['h_size',['../structice_sprite.html#ac0be28b5ba09bc8c7e4aeed1593a762f',1,'iceSprite']]],
-  ['h_5fsize_5ftile',['h_size_tile',['../structice_sprite.html#a36df5bc6ef64058bb930375360bd98db',1,'iceSprite']]],
-  ['handle',['handle',['../structice_texture.html#ab83c7dfc3f8aa1ec4815be09c371ebbb',1,'iceTexture']]],
-  ['handle_5ftexture',['handle_texture',['../structice_sprite.html#ad6492df7d6904f40d0f82a129d58434b',1,'iceSprite']]],
-  ['have_5ftexture',['have_texture',['../structice_entity.html#ad0098353306b080b69c96ba9432637d5',1,'iceEntity']]],
-  ['height',['height',['../_i_c_e_core_2src_2raw_2_raw__icon_8c.html#ab2e78c61905b4419fcc7b4cfc500fe85',1,'height():&#160;Raw_icon.c'],['../_raw__error_8c.html#ab2e78c61905b4419fcc7b4cfc500fe85',1,'height():&#160;Raw_error.c'],['../_i_c_e_graphics_2src_2raw_2_raw__icon_8c.html#ab2e78c61905b4419fcc7b4cfc500fe85',1,'height():&#160;Raw_icon.c']]]
+  ['game',['game',['../_camera_8c.html#a90bf502198894d8024ff311cb6bf9b72',1,'game():&#160;Game.c'],['../_core_8c.html#a90bf502198894d8024ff311cb6bf9b72',1,'game():&#160;Game.c'],['../_data_8c.html#a90bf502198894d8024ff311cb6bf9b72',1,'game():&#160;Game.c'],['../_debug_8c.html#a90bf502198894d8024ff311cb6bf9b72',1,'game():&#160;Game.c'],['../_draw_8c.html#a90bf502198894d8024ff311cb6bf9b72',1,'game():&#160;Game.c'],['../_entity_8c.html#a90bf502198894d8024ff311cb6bf9b72',1,'game():&#160;Game.c'],['../_font_8c.html#a90bf502198894d8024ff311cb6bf9b72',1,'game():&#160;Game.c'],['../_game_8c.html#a90bf502198894d8024ff311cb6bf9b72',1,'game():&#160;Game.c'],['../_gui_8c.html#a90bf502198894d8024ff311cb6bf9b72',1,'game():&#160;Game.c'],['../_input_8c.html#a90bf502198894d8024ff311cb6bf9b72',1,'game():&#160;Game.c'],['../_label_8c.html#a90bf502198894d8024ff311cb6bf9b72',1,'game():&#160;Game.c'],['../_map_8c.html#a90bf502198894d8024ff311cb6bf9b72',1,'game():&#160;Game.c'],['../_music_8c.html#a90bf502198894d8024ff311cb6bf9b72',1,'game():&#160;Game.c'],['../_primitive_8c.html#a90bf502198894d8024ff311cb6bf9b72',1,'game():&#160;Game.c'],['../_sound_8c.html#a90bf502198894d8024ff311cb6bf9b72',1,'game():&#160;Game.c'],['../_substate_8c.html#a90bf502198894d8024ff311cb6bf9b72',1,'game():&#160;Game.c'],['../_texture_8c.html#a90bf502198894d8024ff311cb6bf9b72',1,'game():&#160;Game.c'],['../_window_8c.html#a90bf502198894d8024ff311cb6bf9b72',1,'game():&#160;Game.c']]],
+  ['game_2ec',['Game.c',['../_game_8c.html',1,'']]],
+  ['game_2eh',['Game.h',['../_game_8h.html',1,'']]],
+  ['gui',['gui',['../structice_gui_manager.html#aad2c58645bab78dfaabe86ec02238bbf',1,'iceGuiManager']]],
+  ['gui_2ec',['Gui.c',['../_gui_8c.html',1,'']]],
+  ['gui_2eh',['Gui.h',['../_gui_8h.html',1,'']]],
+  ['guimanager',['guimanager',['../structice_game.html#afac990cd27e5377a0a8e01a4c11c312e',1,'iceGame']]],
+  ['guimanager_5fsize',['guimanager_size',['../structice_game.html#a6a0163e917b381ac6f56b299c73d3f7b',1,'iceGame']]]
 ];

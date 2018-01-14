@@ -12,13 +12,6 @@ void GameCreate() {
 	iceGameCreate("ICE : Hello World", 800, 480);
 	iceDrawSetColor(iceColorNew(100, 100, 100));
 
-	// Manager
-	iceTextureManagerCreate();
-	iceSoundManagerCreate();
-	iceEntityManagerCreate();
-	iceLabelManagerCreate();
-	iceGuiManagerCreate();
-
 	// Texture Create
 	iceTextureCreate(0, "res/img/pic.png");
 	iceTextureCreate(0, "res/img/gui.png");
@@ -38,7 +31,6 @@ void GameCreate() {
 		data->rotation = iceRandomInt(-1, 1);
 	}
 
-	// Label Create 
 	// Label 1
 	iceLabelCreate(0, iceVectNew(400, 240), "OnWorld");
 	iceLabelSetText(0, 0, "One Shot");
@@ -62,34 +54,30 @@ void GameUpdate() {
 	iceGuiSetBox(0, 0, iceBoxNew(0, 0, iceCameraGetW(), 40));
 
 	// INPUT
+	if (iceInputButton(ICE_INPUT_D) || iceInputButton(ICE_INPUT_RIGHT)) iceCameraShiftPos(iceVectNew(1000 * iceGameDelta(), 0));
+	if (iceInputButton(ICE_INPUT_A) || iceInputButton(ICE_INPUT_LEFT)) iceCameraShiftPos(iceVectNew(-1000 * iceGameDelta(), 0));
+	if (iceInputButton(ICE_INPUT_S) || iceInputButton(ICE_INPUT_DOWN)) iceCameraShiftPos(iceVectNew(0, 1000 * iceGameDelta()));
+	if (iceInputButton(ICE_INPUT_W) || iceInputButton(ICE_INPUT_UP)) iceCameraShiftPos(iceVectNew(0, -1000 * iceGameDelta()));
+	if (iceInputButton(ICE_INPUT_SPACE)) iceCameraMovePos(iceVectNew(0, 0), 1000 * iceGameDelta());
+	if (iceInputButton(ICE_INPUT_RETURN))
 	{
-		if (iceInputButton(ICE_INPUT_D) || iceInputButton(ICE_INPUT_RIGHT)) iceCameraShiftPos(iceVectNew(1000 * iceGameDelta(), 0));
-		if (iceInputButton(ICE_INPUT_A) || iceInputButton(ICE_INPUT_LEFT)) iceCameraShiftPos(iceVectNew(-1000 * iceGameDelta(), 0));
-		if (iceInputButton(ICE_INPUT_S) || iceInputButton(ICE_INPUT_DOWN)) iceCameraShiftPos(iceVectNew(0, 1000 * iceGameDelta()));
-		if (iceInputButton(ICE_INPUT_W) || iceInputButton(ICE_INPUT_UP)) iceCameraShiftPos(iceVectNew(0, -1000 * iceGameDelta()));
-		if (iceInputButton(ICE_INPUT_SPACE)) iceCameraMovePos(iceVectNew(0, 0), 1000 * iceGameDelta());
-		if (iceInputButton(ICE_INPUT_RETURN))
-		{
-			static iceBool trigger = iceFalse;
-			if (!trigger) {
-				iceCameraAttachToEntity(0, 500);
-				trigger = iceTrue;
-			}
-			else {
-				iceCameraDetach();
-				trigger = iceFalse;
-			}
-			iceInputReset();
+		static iceBool trigger = iceFalse;
+		if (!trigger) {
+			iceCameraAttachToEntity(0, 500);
+			trigger = iceTrue;
 		}
+		else {
+			iceCameraDetach();
+			trigger = iceFalse;
+		}
+		iceInputReset();
 	}
 	// ENTITY
+	for (int i = 0; i < iceEntityGetNumber(0); i++)
 	{
-		for (int i = 0; i < iceEntityManagerGetNumberEntity(0); i++)
-		{
-			DATA_WIDOW *data = iceDataEntityGet(0, i, 0);
-			iceEntityMovePos(0, i, data->direction.x, data->direction.y, 100 * iceGameDelta());
-			iceEntityAddAngle(0, i, 45 * iceGameDelta() * data->rotation);
-		}
+		DATA_WIDOW *data = iceDataEntityGet(0, i, 0);
+		iceEntityMovePos(0, i, data->direction.x, data->direction.y, 100 * iceGameDelta());
+		iceEntityAddAngle(0, i, 45 * iceGameDelta() * data->rotation);
 	}
 }
 

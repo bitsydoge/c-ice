@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ICEngine: ICEGraphics/src/Font.c File Reference</title>
+<title>ICEngine: ICEngine/src/Font.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,12 +61,13 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_3012921aaf9d35e3a1777b960001d3b3.html">ICEGraphics</a></li><li class="navelem"><a class="el" href="dir_de451e049272ff934ebcda2276acd2d2.html">src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_80c9cbfdd4645940d2e10a65f5ed41f7.html">ICEngine</a></li><li class="navelem"><a class="el" href="dir_cc89a509d330c9059f7aeaefd16c95f5.html">src</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">Font.c File Reference</div>  </div>
 </div><!--header-->
@@ -75,14 +76,19 @@ $(function() {
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac8c43276c5ddb0afc9f25a9834b6aa22"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_font_8c.html#ac8c43276c5ddb0afc9f25a9834b6aa22">iceFontDraw</a> (<a class="el" href="structice_game.html">iceGame</a> *game, char *text, int size, <a class="el" href="structice_vect.html">iceVect</a> vect)</td></tr>
-<tr class="separator:ac8c43276c5ddb0afc9f25a9834b6aa22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8109822732c571337f9dac52380e9eee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_font_8c.html#a8109822732c571337f9dac52380e9eee">iceFontLoad</a> (<a class="el" href="structice_game.html">iceGame</a> *game, char *path)</td></tr>
-<tr class="separator:a8109822732c571337f9dac52380e9eee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a402648e1806381d8247a3ffb52c419ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_font_8c.html#a402648e1806381d8247a3ffb52c419ab">iceFontDraw</a> (char *text, int size, <a class="el" href="structice_vect.html">iceVect</a> vect)</td></tr>
+<tr class="separator:a402648e1806381d8247a3ffb52c419ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb35a939d0255dd6a631e4b611646bb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_font_8c.html#acb35a939d0255dd6a631e4b611646bb8">iceFontLoad</a> (char *path)</td></tr>
+<tr class="separator:acb35a939d0255dd6a631e4b611646bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a90bf502198894d8024ff311cb6bf9b72"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structice_game.html">iceGame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_font_8c.html#a90bf502198894d8024ff311cb6bf9b72">game</a></td></tr>
+<tr class="separator:a90bf502198894d8024ff311cb6bf9b72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a8109822732c571337f9dac52380e9eee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8109822732c571337f9dac52380e9eee">&#9670;&nbsp;</a></span>iceFontLoad()</h2>
+<a id="acb35a939d0255dd6a631e4b611646bb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb35a939d0255dd6a631e4b611646bb8">&#9670;&nbsp;</a></span>iceFontLoad()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -90,27 +96,17 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void iceFontLoad </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structice_game.html">iceGame</a> *&#160;</td>
-          <td class="paramname"><em>game</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>path</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>path</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ac8c43276c5ddb0afc9f25a9834b6aa22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8c43276c5ddb0afc9f25a9834b6aa22">&#9670;&nbsp;</a></span>iceFontDraw()</h2>
+<a id="a402648e1806381d8247a3ffb52c419ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a402648e1806381d8247a3ffb52c419ab">&#9670;&nbsp;</a></span>iceFontDraw()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -118,12 +114,6 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void iceFontDraw </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structice_game.html">iceGame</a> *&#160;</td>
-          <td class="paramname"><em>game</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>text</em>, </td>
         </tr>
@@ -143,6 +133,21 @@ Functions</h2></td></tr>
           <td></td>
           <td>)</td>
           <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a90bf502198894d8024ff311cb6bf9b72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90bf502198894d8024ff311cb6bf9b72">&#9670;&nbsp;</a></span>game</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structice_game.html">iceGame</a> game</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ICEngine: ICEGraphics/src/hdr/TypesGraphics.h File Reference</title>
+<title>ICEngine: ICEngine/src/hdr/TypesGraphics.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,131 +61,77 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_3012921aaf9d35e3a1777b960001d3b3.html">ICEGraphics</a></li><li class="navelem"><a class="el" href="dir_de451e049272ff934ebcda2276acd2d2.html">src</a></li><li class="navelem"><a class="el" href="dir_1dcaf4cfeb13a63db3c6ff4f9544664b.html">hdr</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_80c9cbfdd4645940d2e10a65f5ed41f7.html">ICEngine</a></li><li class="navelem"><a class="el" href="dir_cc89a509d330c9059f7aeaefd16c95f5.html">src</a></li><li class="navelem"><a class="el" href="dir_14f59c60b1b3f99e015dd62dc6399d46.html">hdr</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">TypesGraphics.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="_types_maths_8h_source.html">TypesMaths.h</a>&quot;</code><br />
 </div>
 <p><a href="_types_graphics_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a7e472f8397d943a75a26fc88a8c30e09"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_types_graphics_8h.html#a7e472f8397d943a75a26fc88a8c30e09">ICE_BOOL_DEFINED</a></td></tr>
-<tr class="separator:a7e472f8397d943a75a26fc88a8c30e09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6a859923ae60bacace8d3b969ed3dcf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_types_graphics_8h.html#af6a859923ae60bacace8d3b969ed3dcf">ICE_FLOAT_DEFINED</a></td></tr>
-<tr class="separator:af6a859923ae60bacace8d3b969ed3dcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1fbc790f78379a58f11b85fa92557a7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_types_graphics_8h.html#ad1fbc790f78379a58f11b85fa92557a7">iceFalse</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:ad1fbc790f78379a58f11b85fa92557a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0016eccb8b170715f12202af64677b43"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_types_graphics_8h.html#a0016eccb8b170715f12202af64677b43">iceTrue</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:a0016eccb8b170715f12202af64677b43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_camera.html">iceCamera</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_drawer.html">iceDrawer</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_font.html">iceFont</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_font_manager.html">iceFontManager</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_gui.html">iceGui</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_gui_manager.html">iceGuiManager</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_label.html">iceLabel</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_label_manager.html">iceLabelManager</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_sprite.html">iceSprite</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_sprite_manager.html">iceSpriteManager</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_texture.html">iceTexture</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structice_texture_manager.html">iceTextureManager</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ab4e8ee4bc1bdb7c144bd40846386af83"><td class="memItemLeft" align="right" valign="top">typedef char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_types_graphics_8h.html#ab4e8ee4bc1bdb7c144bd40846386af83">iceBool</a></td></tr>
-<tr class="separator:ab4e8ee4bc1bdb7c144bd40846386af83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f5f7f0c72f5558e6e7403019e548e00"><td class="memItemLeft" align="right" valign="top">typedef Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_types_graphics_8h.html#a8f5f7f0c72f5558e6e7403019e548e00">iceColor</a></td></tr>
 <tr class="separator:a8f5f7f0c72f5558e6e7403019e548e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2555c8d2d67be42b77818307b7771437"><td class="memItemLeft" align="right" valign="top">typedef double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_types_graphics_8h.html#a2555c8d2d67be42b77818307b7771437">iceFloat</a></td></tr>
-<tr class="separator:a2555c8d2d67be42b77818307b7771437"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a428419495a9ef800f54b6788bc3c6b3c"><td class="memItemLeft" align="right" valign="top">typedef SDL_Renderer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_types_graphics_8h.html#a428419495a9ef800f54b6788bc3c6b3c">iceRenderer</a></td></tr>
 <tr class="separator:a428419495a9ef800f54b6788bc3c6b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93d3edd5fa161b295fb9f54f3b1219e1"><td class="memItemLeft" align="right" valign="top">typedef SDL_Window&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_types_graphics_8h.html#a93d3edd5fa161b295fb9f54f3b1219e1">iceWindow</a></td></tr>
 <tr class="separator:a93d3edd5fa161b295fb9f54f3b1219e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a3075330223e26a810e1f0ad15b856fd0"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_types_graphics_8h.html#a3075330223e26a810e1f0ad15b856fd0">iceGuiType</a> { <a class="el" href="_types_graphics_8h.html#a3075330223e26a810e1f0ad15b856fd0a22b1ad7e68a62d8caf87d74d715f96ed">ICE_RECTANGLE</a>, 
+<a class="el" href="_types_graphics_8h.html#a3075330223e26a810e1f0ad15b856fd0ab6c74a27d13ee940b5a05a64c37d911d">ICE_GUI_BACKGROUND_FIXED</a>, 
+<a class="el" href="_types_graphics_8h.html#a3075330223e26a810e1f0ad15b856fd0adcc27499b5e3e62662c49820cf495d8d">ICE_GUI_BACKGROUND_FREE</a>
+ }</td></tr>
+<tr class="separator:a3075330223e26a810e1f0ad15b856fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5446c8e02b576e580964eb1c44e8316"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_types_graphics_8h.html#af5446c8e02b576e580964eb1c44e8316">iceSpriteType</a> { <a class="el" href="_types_graphics_8h.html#af5446c8e02b576e580964eb1c44e8316a610ebfbb45d212cca137d1e0a3b61f97">ICE_SPRITE_CHARSET</a>, 
+<a class="el" href="_types_graphics_8h.html#af5446c8e02b576e580964eb1c44e8316aae48c9a06c11b3bc91aeaf6797ba0196">ICE_SPRITE_ADDITIVE</a>
+ }</td></tr>
+<tr class="separator:af5446c8e02b576e580964eb1c44e8316"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a108f7cff7f76308d5bcdef895dbd4d13"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_types_graphics_8h.html#a108f7cff7f76308d5bcdef895dbd4d13">iceTextType</a> { <a class="el" href="_types_graphics_8h.html#a108f7cff7f76308d5bcdef895dbd4d13a1c601a9b655b59cb8ac05ae71d3122de">ICE_TEXT_NORMAL</a>, 
+<a class="el" href="_types_graphics_8h.html#a108f7cff7f76308d5bcdef895dbd4d13a67b2b3ac4da77a29f707fbc79e85fe81">ICE_TEXT_BLACK_BG</a>
+ }</td></tr>
+<tr class="separator:a108f7cff7f76308d5bcdef895dbd4d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a7e472f8397d943a75a26fc88a8c30e09"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e472f8397d943a75a26fc88a8c30e09">&#9670;&nbsp;</a></span>ICE_BOOL_DEFINED</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define ICE_BOOL_DEFINED</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0016eccb8b170715f12202af64677b43"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0016eccb8b170715f12202af64677b43">&#9670;&nbsp;</a></span>iceTrue</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define iceTrue&#160;&#160;&#160;1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad1fbc790f78379a58f11b85fa92557a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1fbc790f78379a58f11b85fa92557a7">&#9670;&nbsp;</a></span>iceFalse</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define iceFalse&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af6a859923ae60bacace8d3b969ed3dcf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6a859923ae60bacace8d3b969ed3dcf">&#9670;&nbsp;</a></span>ICE_FLOAT_DEFINED</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define ICE_FLOAT_DEFINED</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Typedef Documentation</h2>
-<a id="ab4e8ee4bc1bdb7c144bd40846386af83"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab4e8ee4bc1bdb7c144bd40846386af83">&#9670;&nbsp;</a></span>iceBool</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef char <a class="el" href="_types_core_8h.html#ab4e8ee4bc1bdb7c144bd40846386af83">iceBool</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2555c8d2d67be42b77818307b7771437"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2555c8d2d67be42b77818307b7771437">&#9670;&nbsp;</a></span>iceFloat</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef double <a class="el" href="_types_graphics_8h.html#a2555c8d2d67be42b77818307b7771437">iceFloat</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a93d3edd5fa161b295fb9f54f3b1219e1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a93d3edd5fa161b295fb9f54f3b1219e1">&#9670;&nbsp;</a></span>iceWindow</h2>
 
@@ -225,6 +171,62 @@ Typedefs</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="af5446c8e02b576e580964eb1c44e8316"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5446c8e02b576e580964eb1c44e8316">&#9670;&nbsp;</a></span>iceSpriteType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="_types_graphics_8h.html#af5446c8e02b576e580964eb1c44e8316">iceSpriteType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af5446c8e02b576e580964eb1c44e8316a610ebfbb45d212cca137d1e0a3b61f97"></a>ICE_SPRITE_CHARSET&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af5446c8e02b576e580964eb1c44e8316aae48c9a06c11b3bc91aeaf6797ba0196"></a>ICE_SPRITE_ADDITIVE&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a3075330223e26a810e1f0ad15b856fd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3075330223e26a810e1f0ad15b856fd0">&#9670;&nbsp;</a></span>iceGuiType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="_types_graphics_8h.html#a3075330223e26a810e1f0ad15b856fd0">iceGuiType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a3075330223e26a810e1f0ad15b856fd0a22b1ad7e68a62d8caf87d74d715f96ed"></a>ICE_RECTANGLE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a3075330223e26a810e1f0ad15b856fd0ab6c74a27d13ee940b5a05a64c37d911d"></a>ICE_GUI_BACKGROUND_FIXED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a3075330223e26a810e1f0ad15b856fd0adcc27499b5e3e62662c49820cf495d8d"></a>ICE_GUI_BACKGROUND_FREE&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a108f7cff7f76308d5bcdef895dbd4d13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a108f7cff7f76308d5bcdef895dbd4d13">&#9670;&nbsp;</a></span>iceTextType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="_types_graphics_8h.html#a108f7cff7f76308d5bcdef895dbd4d13">iceTextType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a108f7cff7f76308d5bcdef895dbd4d13a1c601a9b655b59cb8ac05ae71d3122de"></a>ICE_TEXT_NORMAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a108f7cff7f76308d5bcdef895dbd4d13a67b2b3ac4da77a29f707fbc79e85fe81"></a>ICE_TEXT_BLACK_BG&#160;</td><td class="fielddoc"></td></tr>
+</table>
 
 </div>
 </div>

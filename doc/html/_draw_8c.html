@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ICEngine: ICEGraphics/src/Draw.c File Reference</title>
+<title>ICEngine: ICEngine/src/Draw.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,12 +61,13 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_3012921aaf9d35e3a1777b960001d3b3.html">ICEGraphics</a></li><li class="navelem"><a class="el" href="dir_de451e049272ff934ebcda2276acd2d2.html">src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_80c9cbfdd4645940d2e10a65f5ed41f7.html">ICEngine</a></li><li class="navelem"><a class="el" href="dir_cc89a509d330c9059f7aeaefd16c95f5.html">src</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">Draw.c File Reference</div>  </div>
 </div><!--header-->
@@ -74,26 +75,35 @@ $(function() {
 <div class="textblock"><code>#include &quot;<a class="el" href="_draw_8h_source.html">hdr/Draw.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_texture_8h_source.html">hdr/Texture.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_camera_8h_source.html">hdr/Camera.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_text_8h_source.html">hdr/Text.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_label_8h_source.html">hdr/Label.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa3c5826e76519f145bcfbf9e3bba7ce8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_draw_8c.html#aa3c5826e76519f145bcfbf9e3bba7ce8">iceDrawAllEntity</a> (<a class="el" href="structice_game.html">iceGame</a> *game)</td></tr>
-<tr class="separator:aa3c5826e76519f145bcfbf9e3bba7ce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad65056dbe8033e5fbf30549174e77a1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_draw_8c.html#ad65056dbe8033e5fbf30549174e77a1d">iceDrawAllText</a> (<a class="el" href="structice_game.html">iceGame</a> *game)</td></tr>
-<tr class="separator:ad65056dbe8033e5fbf30549174e77a1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a897671bbbcb91a40f36f194adfbf7602"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_draw_8c.html#a897671bbbcb91a40f36f194adfbf7602">iceDrawClear</a> (SDL_Renderer *render)</td></tr>
-<tr class="separator:a897671bbbcb91a40f36f194adfbf7602"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ab89e0cd8d71adefd018a8803332a74"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_draw_8c.html#a4ab89e0cd8d71adefd018a8803332a74">iceDrawClearColor</a> (SDL_Renderer *render, const <a class="el" href="_types_graphics_8h.html#a8f5f7f0c72f5558e6e7403019e548e00">iceColor</a> rgba_hex)</td></tr>
-<tr class="separator:a4ab89e0cd8d71adefd018a8803332a74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10a1bf642bf960e446e849391ac8a496"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_draw_8c.html#a10a1bf642bf960e446e849391ac8a496">iceDrawPresent</a> (SDL_Renderer *render)</td></tr>
-<tr class="separator:a10a1bf642bf960e446e849391ac8a496"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2589af216e17f84f8e18e7d44bea69a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_draw_8c.html#a2589af216e17f84f8e18e7d44bea69a4">iceDrawSetColor</a> (<a class="el" href="structice_game.html">iceGame</a> *game, <a class="el" href="_types_graphics_8h.html#a8f5f7f0c72f5558e6e7403019e548e00">iceColor</a> color)</td></tr>
-<tr class="separator:a2589af216e17f84f8e18e7d44bea69a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac93d02b0f4d51c28e29c13e4bbffaf9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_draw_8c.html#ac93d02b0f4d51c28e29c13e4bbffaf9f">iceDrawAllEntity</a> ()</td></tr>
+<tr class="separator:ac93d02b0f4d51c28e29c13e4bbffaf9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dca5cf02458a1b69ed87138219bd405"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_draw_8c.html#a4dca5cf02458a1b69ed87138219bd405">iceDrawAllGui</a> ()</td></tr>
+<tr class="separator:a4dca5cf02458a1b69ed87138219bd405"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1caf8a68ec3b8971aa0dbc6c724f2f96"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_draw_8c.html#a1caf8a68ec3b8971aa0dbc6c724f2f96">iceDrawClear</a> ()</td></tr>
+<tr class="separator:a1caf8a68ec3b8971aa0dbc6c724f2f96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeed881742e1cc1ded49859273064efd5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_draw_8c.html#aeed881742e1cc1ded49859273064efd5">iceDrawClearColor</a> (const <a class="el" href="_types_graphics_8h.html#a8f5f7f0c72f5558e6e7403019e548e00">iceColor</a> rgba_hex)</td></tr>
+<tr class="separator:aeed881742e1cc1ded49859273064efd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51e1dc10609cdb29feb9e39412c50882"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_draw_8c.html#a51e1dc10609cdb29feb9e39412c50882">iceDrawLabelScreen</a> ()</td></tr>
+<tr class="separator:a51e1dc10609cdb29feb9e39412c50882"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f4eafa9eef345a71d22bcbfaa8aa6b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_draw_8c.html#a9f4eafa9eef345a71d22bcbfaa8aa6b6">iceDrawLabelWorld</a> ()</td></tr>
+<tr class="separator:a9f4eafa9eef345a71d22bcbfaa8aa6b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af768cdecab729630f662a40e6ec8dacc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_draw_8c.html#af768cdecab729630f662a40e6ec8dacc">iceDrawPresent</a> ()</td></tr>
+<tr class="separator:af768cdecab729630f662a40e6ec8dacc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbcae177ffcda8696cf30a64257400cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_draw_8c.html#adbcae177ffcda8696cf30a64257400cc">iceDrawSetColor</a> (<a class="el" href="_types_graphics_8h.html#a8f5f7f0c72f5558e6e7403019e548e00">iceColor</a> color)</td></tr>
+<tr class="separator:adbcae177ffcda8696cf30a64257400cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a90bf502198894d8024ff311cb6bf9b72"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structice_game.html">iceGame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_draw_8c.html#a90bf502198894d8024ff311cb6bf9b72">game</a></td></tr>
+<tr class="separator:a90bf502198894d8024ff311cb6bf9b72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a4ab89e0cd8d71adefd018a8803332a74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ab89e0cd8d71adefd018a8803332a74">&#9670;&nbsp;</a></span>iceDrawClearColor()</h2>
+<a id="aeed881742e1cc1ded49859273064efd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeed881742e1cc1ded49859273064efd5">&#9670;&nbsp;</a></span>iceDrawClearColor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -101,27 +111,17 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int iceDrawClearColor </td>
           <td>(</td>
-          <td class="paramtype">SDL_Renderer *&#160;</td>
-          <td class="paramname"><em>render</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">const <a class="el" href="_types_graphics_8h.html#a8f5f7f0c72f5558e6e7403019e548e00">iceColor</a>&#160;</td>
-          <td class="paramname"><em>rgba_hex</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>rgba_hex</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a2589af216e17f84f8e18e7d44bea69a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2589af216e17f84f8e18e7d44bea69a4">&#9670;&nbsp;</a></span>iceDrawSetColor()</h2>
+<a id="adbcae177ffcda8696cf30a64257400cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbcae177ffcda8696cf30a64257400cc">&#9670;&nbsp;</a></span>iceDrawSetColor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -129,27 +129,17 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void iceDrawSetColor </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structice_game.html">iceGame</a> *&#160;</td>
-          <td class="paramname"><em>game</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype"><a class="el" href="_types_graphics_8h.html#a8f5f7f0c72f5558e6e7403019e548e00">iceColor</a>&#160;</td>
-          <td class="paramname"><em>color</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>color</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a897671bbbcb91a40f36f194adfbf7602"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a897671bbbcb91a40f36f194adfbf7602">&#9670;&nbsp;</a></span>iceDrawClear()</h2>
+<a id="a1caf8a68ec3b8971aa0dbc6c724f2f96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1caf8a68ec3b8971aa0dbc6c724f2f96">&#9670;&nbsp;</a></span>iceDrawClear()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -157,8 +147,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int iceDrawClear </td>
           <td>(</td>
-          <td class="paramtype">SDL_Renderer *&#160;</td>
-          <td class="paramname"><em>render</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -166,8 +155,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a10a1bf642bf960e446e849391ac8a496"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10a1bf642bf960e446e849391ac8a496">&#9670;&nbsp;</a></span>iceDrawPresent()</h2>
+<a id="af768cdecab729630f662a40e6ec8dacc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af768cdecab729630f662a40e6ec8dacc">&#9670;&nbsp;</a></span>iceDrawPresent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -175,8 +164,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void iceDrawPresent </td>
           <td>(</td>
-          <td class="paramtype">SDL_Renderer *&#160;</td>
-          <td class="paramname"><em>render</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -184,8 +172,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa3c5826e76519f145bcfbf9e3bba7ce8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3c5826e76519f145bcfbf9e3bba7ce8">&#9670;&nbsp;</a></span>iceDrawAllEntity()</h2>
+<a id="ac93d02b0f4d51c28e29c13e4bbffaf9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac93d02b0f4d51c28e29c13e4bbffaf9f">&#9670;&nbsp;</a></span>iceDrawAllEntity()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -193,8 +181,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void iceDrawAllEntity </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structice_game.html">iceGame</a> *&#160;</td>
-          <td class="paramname"><em>game</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -202,18 +189,66 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad65056dbe8033e5fbf30549174e77a1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad65056dbe8033e5fbf30549174e77a1d">&#9670;&nbsp;</a></span>iceDrawAllText()</h2>
+<a id="a51e1dc10609cdb29feb9e39412c50882"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51e1dc10609cdb29feb9e39412c50882">&#9670;&nbsp;</a></span>iceDrawLabelScreen()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void iceDrawAllText </td>
+          <td class="memname">void iceDrawLabelScreen </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structice_game.html">iceGame</a> *&#160;</td>
-          <td class="paramname"><em>game</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9f4eafa9eef345a71d22bcbfaa8aa6b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f4eafa9eef345a71d22bcbfaa8aa6b6">&#9670;&nbsp;</a></span>iceDrawLabelWorld()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void iceDrawLabelWorld </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4dca5cf02458a1b69ed87138219bd405"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dca5cf02458a1b69ed87138219bd405">&#9670;&nbsp;</a></span>iceDrawAllGui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void iceDrawAllGui </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a90bf502198894d8024ff311cb6bf9b72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90bf502198894d8024ff311cb6bf9b72">&#9670;&nbsp;</a></span>game</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structice_game.html">iceGame</a> game</td>
         </tr>
       </table>
 </div><div class="memdoc">

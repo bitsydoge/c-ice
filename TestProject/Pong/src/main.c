@@ -4,9 +4,8 @@
 #include <Core.h>
 
 ICE_CREATE {
-	iceGame game = iceGameCreate("ICE : Pong", 960, 480);
-	iceDrawSetColor(&game, iceColorNew(100, 200, 50));
-	return game;
+	iceGameCreate("ICE : Pong", 960, 480);
+	iceDrawSetColor(iceColorNew(100, 200, 50));
 }
 
 ICE_UPDATE {

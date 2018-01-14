@@ -16,9 +16,6 @@ void iceGameCreate(char *window_title, const unsigned int width_window, const un
 	game.drawer.render = SDL_CreateRenderer(game.drawer.window, -1, SDL_RENDERER_ACCELERATED);
 	game.background = iceColorNew(0, 0, 0);
 	// Render Info
-	SDL_RendererInfo info;
-	SDL_GetRendererInfo(game.drawer.render, &info);
-	printf("Graphic API : %s \n", info.name);
 	SDL_SetRenderDrawBlendMode(game.drawer.render, SDL_BLENDMODE_BLEND);
 
 	// Input
@@ -41,6 +38,12 @@ void iceGameCreate(char *window_title, const unsigned int width_window, const un
 
 	game.data = malloc(0);
 	game.nb_data = 0;
+
+	iceTextureManagerCreate();
+	iceSoundManagerCreate();
+	iceEntityManagerCreate();
+	iceLabelManagerCreate();
+	iceGuiManagerCreate();
 }
 
 void iceGameDestroy(iceGame *app)
@@ -53,4 +56,9 @@ void iceGameDestroy(iceGame *app)
 iceFloat iceGameDelta()
 {
 	return game.time.delta;
+}
+
+iceFloat iceGameFps()
+{
+	return game.time.fps;
 }

@@ -44,6 +44,7 @@ void iceEntityAddAngle(int manager, int entity, iceFloat angle);
 iceBox iceEntityGetBox(int manager, int entity);
 
 // Get value
-int iceEntityManagerGetNumberEntity(int manager);
+int iceEntityGetNumber(int manager);
+int iceEntityManagerGetNumber();
 
 #endif
