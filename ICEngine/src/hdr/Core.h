@@ -159,6 +159,7 @@
 #include "Label.h"
 #include "Texture.h"
 #include "Window.h"
+#include "Color.h"
 
 ///////////////////////////////////
 //             AUDIO             //

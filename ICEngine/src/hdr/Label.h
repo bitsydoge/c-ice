@@ -3,11 +3,7 @@
 
 #define ICE_DEFAULT_TEXT_SIZE 4
 
-#include <stdio.h>
 #include "TypesCore.h"
-#include "Terminal.h"
-#include "Gui.h"
-#include "Color.h"
 
 #ifndef _WIN32
 #define STRDUP(STRING_PARAMETER) strdup(STRING_PARAMETER)

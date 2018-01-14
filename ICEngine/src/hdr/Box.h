@@ -1,7 +1,6 @@
 ﻿#ifndef DEF_ICE_BOX
 #define DEF_ICE_BOX
 
-#include <SDL2/SDL.h>
 #include "TypesMaths.h"
 
 // Creation

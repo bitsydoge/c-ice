@@ -2,6 +2,11 @@
 #include "external/lodepng.h"
 #include "external/icestd.h"
 
+#include <stdio.h>
+#include <SDL2/SDL.h>
+#include "hdr/Converter.h"
+#include "hdr/Terminal.h"
+
 extern iceGame game;
 
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN

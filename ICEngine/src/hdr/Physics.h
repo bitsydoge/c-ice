@@ -3,6 +3,6 @@
 
 #include "TypesMaths.h"
 
-iceBool icePhysicsBoxCollision(iceBox box1, iceBox box2);
+iceBool icePhysicsBoxCollision(const iceBox box1, const iceBox box2);
 
 #endif

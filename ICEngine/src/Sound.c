@@ -1,5 +1,8 @@
 ﻿#include "hdr/Sound.h"
+
 #include <SDL2/SDL_mixer.h>
+#include "hdr/TypesCore.h"
+#include <stdio.h>
 
 extern iceGame game;
 

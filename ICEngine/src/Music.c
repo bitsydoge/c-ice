@@ -1,5 +1,8 @@
 ﻿#include "hdr/Music.h"
 
+#include <stdio.h>
+#include "hdr/Game.h"
+
 extern iceGame game;
 
 void iceMusicCreate(char *path) {

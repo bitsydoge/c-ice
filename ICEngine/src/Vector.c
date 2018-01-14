@@ -1,5 +1,7 @@
 ﻿#include "hdr/Vector.h"
 
+#include <math.h>
+
 // Create a new vector
 iceVect iceVectNew(iceFloat x, iceFloat y) {
 	iceVect vect = { x,y };

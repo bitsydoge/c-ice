@@ -1,5 +1,9 @@
 ﻿#include "hdr/Substate.h"
 
+#include "hdr/Input.h"
+#include "hdr/Game.h"
+#include "hdr/Draw.h"
+
 extern iceGame game;
 
 // Create a substate with the iceGame but with new Create/Update/Destroy function. This must be called only for specifique thing

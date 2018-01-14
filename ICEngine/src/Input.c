@@ -1,5 +1,9 @@
 #include <SDL2/SDL.h>
 #include "hdr/Input.h"
+#include <string.h>
+#include <stdio.h>
+#include "hdr/Terminal.h"
+
 
 extern iceGame game;
 

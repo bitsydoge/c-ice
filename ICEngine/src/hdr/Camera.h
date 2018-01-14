@@ -2,8 +2,6 @@
 #define DEF_ICE_CAMERA
 
 #include "TypesMaths.h"
-#include "TypesCore.h"
-#include "Vector.h"
 
 /// Set camera to position
 void iceCameraSetPos(iceVect vect);

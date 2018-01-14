@@ -1,5 +1,6 @@
 ﻿#include "hdr/Map.h"
 #include "external/icestd.h"
+#include <stdio.h>
 
 extern iceGame game;
 
@@ -30,7 +31,7 @@ void iceMapLoad(iceMap *map, char *path){
 }
 
 int iceMapTileType(int x, int y, iceMap *map){
-	const int tile_nb_x = 0;// (x + (MAP_WIDTH / 2 * TCASE)) / TCASE;
-	const int tile_nb_y = 0;// (y + (MAP_HEIGHT / 2 * TCASE)) / TCASE;
+	// (x + (MAP_WIDTH / 2 * TCASE)) / TCASE;
+	// (y + (MAP_HEIGHT / 2 * TCASE)) / TCASE;
 	return 0;//map->tile[tile_nb_y][tile_nb_x];
 }

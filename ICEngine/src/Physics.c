@@ -1,7 +1,7 @@
 ﻿#include "hdr/Physics.h"
 
 /// return 1 if it colide
-iceBool icePhysicsBoxCollision(iceBox box1, iceBox box2)
+iceBool icePhysicsBoxCollision(const iceBox box1, const iceBox box2)
 {
 	if (
 		box1.p.x<(box2.p.x + box2.w) && 

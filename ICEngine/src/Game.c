@@ -1,5 +1,15 @@
 #include "hdr/Game.h"
 
+#include <string.h>
+#include "hdr/Texture.h"
+#include "hdr/TypesCore.h"
+#include "hdr/Sound.h"
+#include "hdr/Color.h"
+#include "hdr/Gui.h"
+#include "hdr/Label.h"
+#include "hdr/Window.h"
+#include "hdr/Entity.h"
+
 iceGame game = {0};
 
 void iceGameCreate(char *window_title, const unsigned int width_window, const unsigned int height_window)

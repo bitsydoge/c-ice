@@ -1,9 +1,19 @@
 ﻿#include "hdr/Random.h"
+#include <time.h>
+
+void iceRandomInit()
+{
+	static iceBool triggered = iceFalse;
+	if(!triggered)
+	{
+		srand(time(NULL));
+		triggered = iceTrue;
+	}
+}
 
 int iceRandomInt(int min, int max)
 {
-	int result = 0, lowest = 0, highest = 0;
-
+	int lowest, highest;
 	if (min < max)
 	{
 		lowest = min;
@@ -13,9 +23,7 @@ int iceRandomInt(int min, int max)
 		lowest = max + 1;
 		highest = min;
 	}
-
-	result = (rand() % (highest - lowest)) + lowest;
-	return result;
+	return (rand() % (highest - lowest)) + lowest;
 }
 
 // Return a random float between 0 and 1;

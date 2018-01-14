@@ -1,4 +1,5 @@
 #include "hdr/Font.h"
+#include <stdio.h>
 
 extern iceGame game;
 
