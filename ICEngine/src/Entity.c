@@ -4,6 +4,7 @@
 #include "hdr/Terminal.h"
 #include "hdr/Texture.h"
 #include "hdr/Camera.h"
+#include "hdr/Maths.h"
 
 extern iceGame game;
 
@@ -137,7 +138,7 @@ void iceEntitySetSize(int entity_manager, int entity_nb, iceFloat w, iceFloat h)
 
 void iceEntitySetAngle(int manager, int entity, iceFloat angle)
 {
-	
+	game.entitymanager[manager].entity[entity].angle = angle;
 }
 
 void iceEntityAddAngle(int manager, int entity, iceFloat angle)
@@ -147,6 +148,12 @@ void iceEntityAddAngle(int manager, int entity, iceFloat angle)
 		game.entitymanager[manager].entity[entity].angle = 0;
 	if (game.entitymanager[manager].entity[entity].angle < 0)
 		game.entitymanager[manager].entity[entity].angle = 0;
+}
+
+void iceEntityLookAt(int manager, int entity, iceVect pos)
+{
+	iceFloat result = iceMathsAngleCalculatDegree(game.entitymanager[manager].entity[entity].x, game.entitymanager[manager].entity[entity].y, pos.x, pos.y);
+	game.entitymanager[manager].entity[entity].angle = result;
 }
 
 iceBox iceEntityGetBox(int manager, int entity)

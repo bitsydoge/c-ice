@@ -1,6 +1,6 @@
 ﻿#ifndef DEF_ICE_DATA
 #define DEF_ICE_DATA
-#include "Game.h"
+#include <stddef.h>
 
 void* iceDataAdd(size_t _size);
 void* iceDataGet(int nb_data);
