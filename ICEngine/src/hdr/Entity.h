@@ -35,6 +35,9 @@ void iceEntitySetAngle(int manager, int entity, iceFloat angle);
 /// Add to the entity Angle
 void iceEntityAddAngle(int manager, int entity, iceFloat angle);
 
+/// Look at a vector
+void iceEntityLookAt(int manager, int entity, iceVect pos);
+
 /// Return the Box of a Entity
 iceBox iceEntityGetBox(int manager, int entity);
 

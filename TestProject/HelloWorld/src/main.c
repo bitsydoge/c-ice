@@ -18,11 +18,12 @@ ICE_CREATE {
 	for (int i = 0; i < 10000; i++){
 		int actual = iceEntityCreate(0);
 		iceEntitySetTexture(0, actual, 0, 0);
-		iceEntitySetSize(0, actual, 60, 100);
+		iceEntitySetSize(0, actual, 128, 128);
 		iceEntitySetPos(0, actual, iceRandomInt(-10000, 10000), iceRandomInt(-10000, 10000));
 		DATA_WIDOW *data = iceDataEntityAdd(0, actual, sizeof(DATA_WIDOW));
 		data->direction = iceVectNew(iceRandomInt(-10000, 10000), iceRandomInt(-10000, 10000));
 		data->rotation = iceRandomInt(-1, 1);
+		iceEntityLookAt(0, i, data->direction);
 	}
 
 	// Label 1
@@ -65,7 +66,7 @@ ICE_UPDATE {
 	for (int i = 0; i < iceEntityGetNumber(0); i++){
 		DATA_WIDOW *data = iceDataEntityGet(0, i, 0);
 		iceEntityMovePos(0, i, data->direction.x, data->direction.y, 100 * iceGameDelta());
-		iceEntityAddAngle(0, i, 45 * iceGameDelta() * data->rotation);
+		//iceEntityAddAngle(0, i, 45 * iceGameDelta() * data->rotation);
 	}
 }
 
