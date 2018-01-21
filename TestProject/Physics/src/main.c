@@ -2,34 +2,27 @@
 #include <chipmunk/chipmunk.h>
 
 typedef struct{
-	cpSpace *space;
-	cpVect gravity;
 	cpBody *textBody;
 	cpShape *textShape;
 } DATA;
 
 ICE_CREATE {
 	iceGameCreate("ICE : Hello World", 800, 480);
-	DATA *data = iceDataAdd(sizeof(DATA));
 	iceFontLoad("res/ttf/FiraSans-Medium.ttf");
-	data->gravity = cpv(10, 50);
-	data->space = cpSpaceNew();
-	cpSpaceSetGravity(data->space, data->gravity);
-	cpFloat radius = 5;
-	cpFloat mass = 1;
-	cpFloat moment = cpMomentForCircle(mass, 0, radius, cpvzero);
-	data->textBody = cpSpaceAddBody(data->space, cpBodyNew(mass, moment));
+	DATA *data = iceDataAdd(sizeof(DATA));
+	data->textBody = cpSpaceAddBody(icePhysicsGetSpace(), cpBodyNew(1, cpMomentForCircle(1, 0, 5, cpvzero)));
 	cpBodySetPosition(data->textBody, cpv(20, 20));
-	data->textShape = cpSpaceAddShape(data->space, cpCircleShapeNew(data->textBody, radius, cpvzero));
+
+	data->textShape = cpSpaceAddShape(icePhysicsGetSpace(), cpCircleShapeNew(data->textBody, 5, cpvzero));
 	cpShapeSetFriction(data->textShape, 0.9);
+
+	icePhysicsSetGravity(iceVectNew(0, 20));
 }
 
 ICE_UPDATE {
 	DATA *data = iceDataGet(0);
-	cpFloat timeStep = 1.0 / iceGameFps();
-	cpSpaceStep(data->space, timeStep);
 	cpVect vect = cpBodyGetPosition(data->textBody);
-	iceFontDraw("Hello World", 80, iceVectNew(vect.x, vect.y));
+	iceFontDraw("O", 50, iceVectNew(vect.x, vect.y));
 }
 
 ICE_DESTROY {

@@ -1,4 +1,8 @@
 ﻿#include "hdr/Physics.h"
+#include "hdr/TypesCore.h"
+#include "hdr/Game.h"
+
+extern iceGame game;
 
 /// return 1 if it colide
 iceBool icePhysicsBoxCollision(const iceBox box1, const iceBox box2)
@@ -11,4 +15,20 @@ iceBool icePhysicsBoxCollision(const iceBox box1, const iceBox box2)
 		)
 		return iceTrue;
 	return iceFalse;
+}
+
+void icePhysicsSetGravity(iceVect vect)
+{
+	cpSpaceSetGravity(game.physicsmanager.space, iceVect_to_cpVect(vect));
+	game.physicsmanager.gravity = iceVect_to_cpVect(vect);
+}
+
+void icePhysicsSpaceStep()
+{
+	cpSpaceStep(game.physicsmanager.space, (float)(1.0/iceGameFps()));
+}
+
+cpSpace* icePhysicsGetSpace()
+{
+	return game.physicsmanager.space;
 }
