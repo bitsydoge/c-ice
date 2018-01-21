@@ -118,76 +118,82 @@ typedef struct {
 	int data_nb;
 	void **data;
 
+	// Physics
+	icePhysicsObject physics;
+
 }iceEntity;
 
 typedef struct {
 
 	iceEntity *entity;
-	unsigned long array_size;
-	unsigned long nb_existing;
+	unsigned int array_size;
+	unsigned int nb_existing;
 
 }iceEntityManager;
 
 typedef struct {
 
-	///////////// CORE //////////////
+// Core
+// -------------------------------
 
 
-	//// Entity ////
-	unsigned int entitymanager_size;
+	// Entity 
+	unsigned int entitymanager_nb;
 	iceEntityManager *entitymanager;
 
-	//// Data //// 
-	int nb_data;
+	// Data 
+	unsigned int data_nb;
 	void** data;
 
-	//// Input ////
+	// Input 
 	iceInput *input;
 
-	//// Time ////
+	// Time 
 	iceTime time;
 
-	//// OTHER ////
+	// OTHER 
 	int returnvalue;
 	iceColor background;
 
 
 
-	///////////// GRAPHICS ///////////
+// Graphics
+// -------------------------------
 
 
-	//// Drawer ////
+	// Drawer 
 	iceDrawer drawer;
 
-	//// Texture ////
-	unsigned int texturemanager_size;
+	// Texture 
+	unsigned int texturemanager_nb;
 	iceTextureManager *texturemanager;
 
-	//// Font ////
+	// Font 
 	iceFontManager fontmanager;
 
-	//// Text ////
-	unsigned int textmanager_size;
-	iceLabelManager *textmanager;
+	// Text 
+	unsigned int labelmanager_nb;
+	iceLabelManager *labelmanager;
 
-	//// Gui ////
-	unsigned int guimanager_size;
+	// Gui 
+	unsigned int guimanager_nb;
 	iceGuiManager *guimanager;
 
 	// Camera
 	iceCamera camera;
 
 
+// Audio
+// -------------------------------
 
-	///////////// AUDIO //////////////
-
-
-	//// Sound //// 
+	// Sound 
 	iceSoundManager soundmanager;
 
-	///////////// PHYSICS ////////////
+// Physics
+// -------------------------------
 
-	icePhysics physicsmanager;
+	// Physics
+	icePhysicsManager physicsmanager;
 
 } iceGame;
 

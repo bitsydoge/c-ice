@@ -8,10 +8,10 @@ extern iceGame game;
 // Make a Data and create a pointer in the game->data array (return the pointer created)
 void* iceDataAdd(size_t _size)
 {
-	game.nb_data++;
-	game.data = realloc(game.data, sizeof(void*)*game.nb_data);
-	game.data[game.nb_data - 1] = calloc(1, _size);
-	void * _pointer = game.data[game.nb_data - 1];
+	game.data_nb++;
+	game.data = realloc(game.data, sizeof(void*)*game.data_nb);
+	game.data[game.data_nb - 1] = calloc(1, _size);
+	void * _pointer = game.data[game.data_nb - 1];
 	return _pointer;
 }
 
@@ -20,7 +20,7 @@ void* iceDataGet(int nb_data)
 {
 	void * _pointer;
 
-	if (nb_data <= game.nb_data)
+	if (nb_data <= game.data_nb)
 		_pointer = game.data[nb_data];
 
 	////////////////////////////////////////////
@@ -45,7 +45,7 @@ void iceDataDestroy(int nb_data)
 {
 	void * _pointer;
 
-	if (nb_data <= game.nb_data)
+	if (nb_data <= game.data_nb)
 		_pointer = game.data[nb_data];
 
 	////////////////////////////////////////////

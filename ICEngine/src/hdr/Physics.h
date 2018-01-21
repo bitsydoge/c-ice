@@ -25,5 +25,6 @@ iceBool icePhysicsBoxCollision(const iceBox box1, const iceBox box2);
 void icePhysicsSetGravity(iceVect vect);
 void icePhysicsSpaceStep();
 cpSpace* icePhysicsGetSpace();
+void icePhysicsUpdateEntity();
 
 #endif

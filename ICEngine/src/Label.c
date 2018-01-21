@@ -15,10 +15,10 @@ void iceLabelManagerCreate()
 	iceLabelManager text_manager = { 0 };
 	text_manager.array_size = ICE_DEFAULT_TEXT_SIZE;
 	text_manager.text = calloc(text_manager.array_size, sizeof(iceLabel));
-	game.textmanager_size++;
-	game.textmanager = realloc(game.textmanager, game.textmanager_size * sizeof(iceLabelManager));
-	game.textmanager[game.texturemanager_size - 1] = text_manager;
-	printf("LabelManager number %d created \n", game.textmanager_size - 1);
+	game.labelmanager_nb++;
+	game.labelmanager = realloc(game.labelmanager, game.labelmanager_nb * sizeof(iceLabelManager));
+	game.labelmanager[game.texturemanager_nb - 1] = text_manager;
+	printf("LabelManager number %d created \n", game.labelmanager_nb - 1);
 }
 
 // Create a text object in manager
@@ -38,61 +38,61 @@ void iceLabelCreate(unsigned int man, iceVect pos, char *label)
 	text.pos.x = pos.x;
 	text.pos.y = pos.y;
 
-	game.textmanager[man].text[game.textmanager[man].nb_existing] = text;
-	iceLabelUpdateTexture(man, game.textmanager[man].nb_existing);
-	game.textmanager[man].nb_existing++;
+	game.labelmanager[man].text[game.labelmanager[man].nb_existing] = text;
+	iceLabelUpdateTexture(man, game.labelmanager[man].nb_existing);
+	game.labelmanager[man].nb_existing++;
 
 	
-	if (game.textmanager[man].array_size <= game.textmanager[man].nb_existing) {
+	if (game.labelmanager[man].array_size <= game.labelmanager[man].nb_existing) {
 		iceTermSetColor(iceLIGHTCYAN);
-		printf("Extending TextManager size to %d \n", game.textmanager[man].array_size * 2);
+		printf("Extending TextManager size to %d \n", game.labelmanager[man].array_size * 2);
 		iceTermResetColor();
-		game.textmanager[man].text = realloc(game.textmanager[man].text, sizeof(iceLabel)*(game.textmanager[man].array_size * 2));
-		game.textmanager[man].array_size *= 2;
+		game.labelmanager[man].text = realloc(game.labelmanager[man].text, sizeof(iceLabel)*(game.labelmanager[man].array_size * 2));
+		game.labelmanager[man].array_size *= 2;
 	}
 }
 
 void iceLabelUpdateTexture(int man, int text)
 {		
 		SDL_Surface *surf = TTF_RenderText_Blended(
-			game.fontmanager.size[game.textmanager[man].text[text].size], 
-			game.textmanager[man].text[text].text, 
-			iceColorToSdl(game.textmanager[man].text[text].color)
+			game.fontmanager.size[game.labelmanager[man].text[text].size], 
+			game.labelmanager[man].text[text].text, 
+			iceColorToSdl(game.labelmanager[man].text[text].color)
 		);
 		iceTexture texture = { 0 };
 		texture.handle = SDL_CreateTextureFromSurface(game.drawer.render, surf);
 		texture.w = surf->w; texture.h = surf->h;
-		if(game.textmanager[man].text[text].texture.exist)
+		if(game.labelmanager[man].text[text].texture.exist)
 		{
-			SDL_DestroyTexture(game.textmanager[man].text[text].texture.handle);
+			SDL_DestroyTexture(game.labelmanager[man].text[text].texture.handle);
 		}
-		game.textmanager[man].text[text].texture = texture;
-		game.textmanager[man].text[text].texture.exist = iceTrue;
+		game.labelmanager[man].text[text].texture = texture;
+		game.labelmanager[man].text[text].texture.exist = iceTrue;
 		SDL_FreeSurface(surf);
 }
 
 void iceLabelSetPos(int man, int text, iceVect vect)
 {
-	game.textmanager[man].text[text].pos = vect;
+	game.labelmanager[man].text[text].pos = vect;
 }
 
 void iceLabelSetSize(int man, int text, int size)
 {
-	game.textmanager[man].text[text].size = size;
+	game.labelmanager[man].text[text].size = size;
 }
 
 void iceLabelSetColor(const int man, int text, iceColor color)
 {
-	game.textmanager[man].text[text].color = color;
+	game.labelmanager[man].text[text].color = color;
 }
 
 void iceLabelSetText(int man, int text, char * string)
 {
-	free(game.textmanager[man].text[text].text);
-	game.textmanager[man].text[text].text = STRDUP(string);
+	free(game.labelmanager[man].text[text].text);
+	game.labelmanager[man].text[text].text = STRDUP(string);
 }
 
 void iceLabelIsInWorld(int man, int text, iceBool bool)
 {
-	game.textmanager[man].text[text].isFixedToWorld = bool;
+	game.labelmanager[man].text[text].isFixedToWorld = bool;
 }

@@ -268,10 +268,10 @@ void iceTextureManagerCreate(){
 	texture_manager.array_size = ICE_DEFAULT_TEXTURE_SIZE;
 	texture_manager.texture = calloc(texture_manager.array_size, sizeof(iceTexture));
 	texture_manager.ren = game.drawer.render;
-	game.texturemanager_size++;
-	game.texturemanager = realloc(game.texturemanager, game.texturemanager_size * sizeof(iceTextureManager));
-	game.texturemanager[game.texturemanager_size - 1] = texture_manager;
-	printf("TextureManager number %d created \n", game.texturemanager_size - 1);
+	game.texturemanager_nb++;
+	game.texturemanager = realloc(game.texturemanager, game.texturemanager_nb * sizeof(iceTextureManager));
+	game.texturemanager[game.texturemanager_nb - 1] = texture_manager;
+	printf("TextureManager number %d created \n", game.texturemanager_nb - 1);
 }
 
 int iceTextureCreate(int manager, char* path){

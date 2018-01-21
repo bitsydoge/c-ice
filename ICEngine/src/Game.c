@@ -32,7 +32,7 @@ void iceGameCreate(char *window_title, const unsigned int width_window, const un
 	game.input = (iceInput*)calloc(1, sizeof(iceInput));
 
 	// TextureManager
-	game.texturemanager_size = 0;
+	game.texturemanager_nb = 0;
 	//iceTextureManagerCreate(&game);
 
 	// Time
@@ -47,7 +47,7 @@ void iceGameCreate(char *window_title, const unsigned int width_window, const un
 	iceWindowSetIcon(0);
 
 	game.data = malloc(0);
-	game.nb_data = 0;
+	game.data_nb = 0;
 
 	iceTextureManagerCreate();
 	iceSoundManagerCreate();
@@ -76,4 +76,9 @@ iceFloat iceGameDelta()
 iceFloat iceGameFps()
 {
 	return game.time.fps;
+}
+
+iceGame* EOFUNC_iceGameGetGameObject()
+{
+	return &game;
 }

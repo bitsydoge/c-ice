@@ -14,10 +14,10 @@ void iceGuiManagerCreate()
 	iceGuiManager gui_manager = { 0 };
 	gui_manager.array_size = ICE_DEFAULT_GUI_SIZE;
 	gui_manager.gui = calloc(gui_manager.array_size, sizeof(iceGui));
-	game.guimanager_size++;
-	game.guimanager = realloc(game.guimanager, game.guimanager_size * sizeof(iceGuiManager));
-	game.guimanager[game.guimanager_size - 1] = gui_manager;
-	printf("GuiManager number %d created \n", game.guimanager_size - 1);
+	game.guimanager_nb++;
+	game.guimanager = realloc(game.guimanager, game.guimanager_nb * sizeof(iceGuiManager));
+	game.guimanager[game.guimanager_nb - 1] = gui_manager;
+	printf("GuiManager number %d created \n", game.guimanager_nb - 1);
 }
 
 void iceGuiCreate(int man)

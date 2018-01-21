@@ -1,5 +1,7 @@
 #include <Core.h>
 
+extern iceGame game;
+
 typedef struct{
 	iceVect direction;
 	iceFloat rotation;
