@@ -35,8 +35,17 @@ int iceEntityCreate(int manager)
 	printf("Entity number %d created in manager %d \n", game.entitymanager[manager].nb_existing, manager);
 	iceEntity entity = {0};
 	entity.exist = iceTrue;
+
+	// Default physic
+	entity.physics.friction = 1.0f;
+	entity.physics.radius = 5;
+	entity.physics.mass = 1;
+
 	game.entitymanager[manager].entity[game.entitymanager[manager].nb_existing] = entity;
 	game.entitymanager[manager].nb_existing++;
+
+
+
 
 	if (game.entitymanager[manager].array_size <= game.entitymanager[manager].nb_existing)
 	{
@@ -201,4 +210,75 @@ iceVect iceEntityGetPosition(int manager, int entity)
 {
 	iceVect vect = { game.entitymanager[manager].entity[entity].x , game.entitymanager[manager].entity[entity].y };
 	return vect;
+}
+
+
+
+// Physics
+// ------------------------------------
+
+void iceEntityPhysicSetBodyTypes(unsigned int manager, unsigned int entity, int bodytypes)
+{
+	game.entitymanager[manager].entity[entity].physics.body_types = bodytypes;
+}
+
+void iceEntityPhysicSetShapeTypes(unsigned int manager, unsigned int entity, int shapetypes)
+{
+	game.entitymanager[manager].entity[entity].physics.shape_types = shapetypes;
+}
+
+void iceEntityPhysicSetFriction(unsigned int manager, unsigned int entity, iceFloat friction)
+{
+	game.entitymanager[manager].entity[entity].physics.friction = friction;
+}
+
+void iceEntityPhysicSetRadius(unsigned int manager, unsigned int entity, iceFloat radius)
+{
+	game.entitymanager[manager].entity[entity].physics.radius = radius;
+}
+
+void iceEntityPhysicSetBox(unsigned int manager, unsigned int entity, iceBox box)
+{
+	game.entitymanager[manager].entity[entity].physics.w = box.w;
+	game.entitymanager[manager].entity[entity].physics.h = box.h;
+}
+
+void iceEntityPhysicSetMass(unsigned int manager, unsigned int entity, iceFloat mass)
+{
+	game.entitymanager[manager].entity[entity].physics.mass = mass;
+}
+
+void iceEntityPhysicGenerate(unsigned int manager, unsigned int entity)
+{
+	if(game.entitymanager[manager].entity[entity].physics.shape_types == ICE_PHYSICS_SHAPE_CIRCLE)
+	{
+		// Create the body
+		game.entitymanager[manager].entity[entity].physics.body =
+			cpSpaceAddBody(
+				icePhysicsGetSpace(),
+				cpBodyNew(
+					game.entitymanager[manager].entity[entity].physics.mass,
+					cpMomentForCircle(
+						game.entitymanager[manager].entity[entity].physics.mass,
+						0,
+						game.entitymanager[manager].entity[entity].physics.radius,
+						cpvzero
+				)
+			)
+		);
+
+		// Set the position
+		cpBodySetPosition(game.entitymanager[manager].entity[entity].physics.body, cpv(game.entitymanager[manager].entity[entity].x, game.entitymanager[manager].entity[entity].y));
+
+		// Create Shape
+		game.entitymanager[manager].entity[entity].physics.shape =
+			cpSpaceAddShape(
+				icePhysicsGetSpace(),
+				cpCircleShapeNew(
+					game.entitymanager[manager].entity[entity].physics.body,
+					game.entitymanager[manager].entity[entity].physics.radius,
+					cpvzero)
+			);
+		cpShapeSetFriction(game.entitymanager[manager].entity[entity].physics.shape, game.entitymanager[manager].entity[entity].physics.friction);
+	}
 }

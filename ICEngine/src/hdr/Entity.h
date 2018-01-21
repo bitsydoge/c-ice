@@ -44,4 +44,16 @@ int iceEntityGetNumber(int manager);
 int iceEntityManagerGetNumber();
 iceVect iceEntityGetPosition(int manager, int entity);
 
+// Physics
+// --------------------------
+
+void iceEntityPhysicSetBodyTypes(unsigned int manager, unsigned int entity, int bodytypes);
+void iceEntityPhysicSetShapeTypes(unsigned int manager, unsigned int entity, int shapetypes);
+void iceEntityPhysicSetFriction(unsigned int manager, unsigned int entity, iceFloat friction);
+void iceEntityPhysicSetRadius(unsigned int manager, unsigned int entity, iceFloat radius);
+void iceEntityPhysicSetBox(unsigned int manager, unsigned int entity, iceBox box);
+void iceEntityPhysicSetMass(unsigned int manager, unsigned int entity, iceFloat mass);
+void iceEntityPhysicGenerate(unsigned int manager, unsigned int entity);
+
+
 #endif

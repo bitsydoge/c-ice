@@ -26,9 +26,11 @@ typedef struct
 	
 	icePhysicsObjectShapes shape_types;
 	cpShape *shape;
+	cpFloat friction;
 
 	cpFloat mass;
 
+	// Size
 	cpFloat radius;
 	cpFloat w;
 	cpFloat h;
