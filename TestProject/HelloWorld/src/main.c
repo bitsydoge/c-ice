@@ -17,16 +17,25 @@ ICE_CREATE {
 	//Font
 	iceFontLoad("res/ttf/FiraSans-Medium.ttf");
 	//Entity
-	for (int i = 0; i < 5000; i++){
+	for (int i = 0; i < 50; i++){
 		int actual = iceEntityCreate(0);
 		iceEntitySetTexture(0, actual, 0, 0);
 		iceEntitySetSize(0, actual, 150, 100);
-		iceEntitySetPos(0, actual, iceRandomInt(-10000, 10000), iceRandomInt(-10000, 10000));
+		iceEntitySetPos(0, actual, iceRandomInt(-1000, 1000), iceRandomInt(-1000, 1000));
 		DATA_WIDOW *data = iceDataEntityAdd(0, actual, sizeof(DATA_WIDOW));
 		data->direction = iceVectNew(iceRandomInt(-10000, 10000), iceRandomInt(-10000, 10000));
 		data->rotation = iceRandomInt(-1, 1);
 		iceEntityLookAt(0, i, data->direction);
+
+		iceEntityPhysicSetBodyTypes(0, i, ICE_PHYSICS_RIGID_BODY);
+		iceEntityPhysicSetShapeTypes(0, i, ICE_PHYSICS_SHAPE_CIRCLE);
+		iceEntityPhysicSetFriction(0, i, iceRandomFloat());
+		iceEntityPhysicSetMass(0, i, iceRandomInt(1,200));
+		iceEntityPhysicGenerate(0, i); // Generate the body
+
 	}
+
+	icePhysicsSetGravity(iceVectNew(0, 20));
 
 	// Label 1
 	iceLabelCreate(0, iceVectNew(400, 240), "OnWorld");
@@ -55,7 +64,7 @@ ICE_UPDATE {
 	if (iceInputButton(ICE_INPUT_RETURN)){
 		static iceBool trigger = iceFalse;
 		if (!trigger) {
-			iceCameraAttachToEntity(0, 500);
+			iceCameraAttachToEntity(0, 20);
 			trigger = iceTrue;
 		}
 		else {
@@ -67,7 +76,7 @@ ICE_UPDATE {
 	// ENTITY
 	for (int i = 0; i < iceEntityGetNumber(0); i++){
 		DATA_WIDOW *data = iceDataEntityGet(0, i, 0);
-		iceEntityMovePos(0, i, data->direction.x, data->direction.y, 100 * iceGameDelta());
+		//iceEntityMovePos(0, i, data->direction.x, data->direction.y, 100 * iceGameDelta());
 		//iceEntityAddAngle(0, i, 45 * iceGameDelta() * data->rotation);
 	}
 }
