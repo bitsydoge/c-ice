@@ -42,9 +42,13 @@ void icePhysicsUpdateEntity()
 			{
 				if(game.entitymanager[i].entity[j].physics.body_types == ICE_PHYSICS_RIGID_BODY)
 				{
+					// Update pos of the entity
 					cpVect vect = cpBodyGetPosition(game.entitymanager[i].entity[j].physics.body);
 					game.entitymanager[i].entity[j].x = vect.x;
 					game.entitymanager[i].entity[j].y = vect.y;
+
+					// Update angle of the entity
+					game.entitymanager[i].entity[j].angle = cpBodyGetAngle(game.entitymanager[i].entity[j].physics.body);
 				}
 			}
 		}

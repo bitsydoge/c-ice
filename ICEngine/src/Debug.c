@@ -6,6 +6,10 @@
 #include "hdr/Window.h"
 #include <stdio.h>
 #include "hdr/Terminal.h"
+#include "hdr/Primitive.h"
+#include "hdr/Box.h"
+#include "hdr/Physics.h"
+#include "hdr/Color.h"
 
 extern iceGame game;
 
@@ -62,4 +66,29 @@ void iceAssert_(const char* expr_str, int expr, const char* file, int line, cons
 		printf("\t\t-------------------[ERROR]-------------------\t\t\n");
 		abort();
 	}
+}
+
+void iceDebugShowCollide()
+{
+	for (int i = 0; i < game.entitymanager_nb; i++)
+		for (int j = 0; j < game.entitymanager[i].nb_existing; j++)
+		{
+			if (game.entitymanager[i].entity[j].exist)
+			{
+				if (game.entitymanager[i].entity[j].physics.body_types == ICE_PHYSICS_RIGID_BODY)
+				{
+					iceVect vect = cpVect_to_iceVect(cpBodyGetPosition(game.entitymanager[i].entity[j].physics.body));
+					iceFloat radius = game.entitymanager[i].entity[j].physics.radius;
+					iceBox box = iceCameraWorldScreen(
+						iceBoxNew(
+							vect.x-(radius), vect.y - (radius),
+							radius*2, radius*2
+						)
+					);
+					
+					iceDrawPoint(iceVectNew(vect.x, vect.y), iceColorNew(0,0,255));
+					iceDrawRectangle(box, iceColorNew(0,0,255));
+				}
+			}
+		}
 }
