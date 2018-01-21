@@ -6,6 +6,7 @@
 // Enum miroired from SDL_SCANCODE
 enum
 {
+	// FROM SDL JUST RENAMED
 	ICE_INPUT_UNKNOWN = 0,
 	ICE_INPUT_A = 4,
 	ICE_INPUT_B = 5,
@@ -33,7 +34,6 @@ enum
 	ICE_INPUT_X = 27,
 	ICE_INPUT_Y = 28,
 	ICE_INPUT_Z = 29,
-
 	ICE_INPUT_1 = 30,
 	ICE_INPUT_2 = 31,
 	ICE_INPUT_3 = 32,
@@ -44,18 +44,16 @@ enum
 	ICE_INPUT_8 = 37,
 	ICE_INPUT_9 = 38,
 	ICE_INPUT_0 = 39,
-
 	ICE_INPUT_RETURN = 40,
 	ICE_INPUT_ESCAPE = 41,
 	ICE_INPUT_BACKSPACE = 42,
 	ICE_INPUT_TAB = 43,
 	ICE_INPUT_SPACE = 44,
-
 	ICE_INPUT_MINUS = 45,
 	ICE_INPUT_EQUALS = 46,
 	ICE_INPUT_LEFTBRACKET = 47,
 	ICE_INPUT_RIGHTBRACKET = 48,
-	ICE_INPUT_BACKSLASH = 49, /**< Located at the lower left of the return
+	ICE_INPUT_BACKSLASH = 49,    /**< Located at the lower left of the return
 								 *   key on ISO keyboards and at the right end
 								 *   of the QWERTY row on ANSI keyboards.
 								 *   Produces REVERSE SOLIDUS (backslash) and
@@ -69,7 +67,7 @@ enum
 								 *   layout, and ASTERISK and MICRO SIGN in a
 								 *   French Windows layout.
 								 */
-	ICE_INPUT_NONUSHASH = 50, /**< ISO USB keyboards actually use this code
+	ICE_INPUT_NONUSHASH = 50,    /**< ISO USB keyboards actually use this code
 								 *   instead of 49 for the same key, but all
 								 *   OSes I've seen treat the two codes
 								 *   identically. So, as an implementor, unless
@@ -83,7 +81,7 @@ enum
 								 */
 	ICE_INPUT_SEMICOLON = 51,
 	ICE_INPUT_APOSTROPHE = 52,
-	ICE_INPUT_GRAVE = 53, /**< Located in the top left corner (on both ANSI
+	ICE_INPUT_GRAVE = 53,      /**< Located in the top left corner (on both ANSI
 							 *   and ISO keyboards). Produces GRAVE ACCENT and
 							 *   TILDE in a US Windows layout and in US and UK
 							 *   Mac layouts on ANSI keyboards, GRAVE ACCENT
@@ -103,9 +101,7 @@ enum
 	ICE_INPUT_COMMA = 54,
 	ICE_INPUT_PERIOD = 55,
 	ICE_INPUT_SLASH = 56,
-
 	ICE_INPUT_CAPSLOCK = 57,
-
 	ICE_INPUT_F1 = 58,
 	ICE_INPUT_F2 = 59,
 	ICE_INPUT_F3 = 60,
@@ -118,7 +114,6 @@ enum
 	ICE_INPUT_F10 = 67,
 	ICE_INPUT_F11 = 68,
 	ICE_INPUT_F12 = 69,
-
 	ICE_INPUT_PRINTSCREEN = 70,
 	ICE_INPUT_SCROLLLOCK = 71,
 	ICE_INPUT_PAUSE = 72,
@@ -133,9 +128,8 @@ enum
 	ICE_INPUT_LEFT = 80,
 	ICE_INPUT_DOWN = 81,
 	ICE_INPUT_UP = 82,
-
 	ICE_INPUT_NUMLOCKCLEAR = 83, /**< num lock on PC, clear on Mac keyboards
-									*/
+							                                               */
 	ICE_INPUT_KP_DIVIDE = 84,
 	ICE_INPUT_KP_MULTIPLY = 85,
 	ICE_INPUT_KP_MINUS = 86,

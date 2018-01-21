@@ -80,7 +80,8 @@
     <IncludePath>..\..\ICEngine\src\hdr;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LibraryPath>..\x64\Release;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\..\x64\Release;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\ICEngine\src\hdr;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>

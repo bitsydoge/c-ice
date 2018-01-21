@@ -54,6 +54,11 @@ void iceGameCreate(char *window_title, const unsigned int width_window, const un
 	iceEntityManagerCreate();
 	iceLabelManagerCreate();
 	iceGuiManagerCreate();
+
+	// Physic
+
+	game.physicsmanager.space = cpSpaceNew();
+
 }
 
 void iceGameDestroy(iceGame *app)

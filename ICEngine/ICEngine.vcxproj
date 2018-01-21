@@ -119,10 +119,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Box.c" />
     <ClCompile Include="src\Camera.c" />
-    <ClCompile Include="src\Color.c" />
-    <ClCompile Include="src\Converter.c" />
     <ClCompile Include="src\Core.c" />
     <ClCompile Include="src\Data.c" />
     <ClCompile Include="src\Debug.c" />
@@ -148,7 +145,6 @@
     <ClCompile Include="src\Substate.c" />
     <ClCompile Include="src\Terminal.c" />
     <ClCompile Include="src\Texture.c" />
-    <ClCompile Include="src\Vector.c" />
     <ClCompile Include="src\Window.c" />
   </ItemGroup>
   <ItemGroup>
@@ -183,6 +179,7 @@
     <ClInclude Include="src\hdr\TypesCore.h" />
     <ClInclude Include="src\hdr\TypesGraphics.h" />
     <ClInclude Include="src\hdr\TypesMaths.h" />
+    <ClInclude Include="src\hdr\TypesPhysics.h" />
     <ClInclude Include="src\hdr\Vector.h" />
     <ClInclude Include="src\hdr\Window.h" />
   </ItemGroup>

@@ -16,6 +16,7 @@ typedef char iceBool;
 #include "TypesMaths.h"
 #include "TypesGraphics.h"
 #include "TypesAudio.h"
+#include "TypesPhysics.h"
 
 typedef struct
 {
@@ -184,7 +185,9 @@ typedef struct {
 	//// Sound //// 
 	iceSoundManager soundmanager;
 
+	///////////// PHYSICS ////////////
 
+	icePhysics physicsmanager;
 
 } iceGame;
 

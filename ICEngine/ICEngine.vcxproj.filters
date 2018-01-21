@@ -15,16 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Box.c">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\Camera.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Color.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Converter.c">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Core.c">
@@ -85,9 +76,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Texture.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Vector.c">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Window.c">
@@ -208,6 +196,9 @@
     </ClInclude>
     <ClInclude Include="src\external\rlutil.h">
       <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\TypesPhysics.h">
+      <Filter>hdr</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

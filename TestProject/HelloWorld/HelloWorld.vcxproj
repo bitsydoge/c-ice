@@ -71,19 +71,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LibraryPath>..\Debug;$(LibraryPath)</LibraryPath>
-    <IncludePath>..\..\ICE\src\hdr;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\ICEngine\src\hdr;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LibraryPath>..\Release;$(LibraryPath)</LibraryPath>
-    <IncludePath>..\..\ICE\src\hdr;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\ICEngine\src\hdr;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LibraryPath>..\..\x64\Debug;$(LibraryPath)</LibraryPath>
     <IncludePath>..\..\ICEngine\src\hdr;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LibraryPath>..\x64\Release;$(LibraryPath)</LibraryPath>
-    <IncludePath>..\..\ICE\src\hdr;$(IncludePath)</IncludePath>
+    <LibraryPath>..\..\x64\Release;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\ICEngine\src\hdr;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
