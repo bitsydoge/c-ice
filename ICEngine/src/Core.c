@@ -45,6 +45,8 @@ int iceCoreLoop(void(*call_create)(void), void(*call_update)(void), void(*call_d
 		iceDrawLabelWorld();
 		iceDrawAllGui();
 		iceDrawLabelScreen();
+		iceDebugShowCollide();
+
 		//////////////////////////
 
 		iceDrawPresent();

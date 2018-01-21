@@ -17,7 +17,9 @@ void iceLabelManagerCreate()
 	text_manager.text = calloc(text_manager.array_size, sizeof(iceLabel));
 	game.labelmanager_nb++;
 	game.labelmanager = realloc(game.labelmanager, game.labelmanager_nb * sizeof(iceLabelManager));
-	game.labelmanager[game.texturemanager_nb - 1] = text_manager;
+	game.labelmanager[game.labelmanager_nb - 1] = text_manager;
+
+
 	printf("LabelManager number %d created \n", game.labelmanager_nb - 1);
 }
 

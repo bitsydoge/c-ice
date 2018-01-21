@@ -14,6 +14,7 @@
 
 // Create manager of Text Object
 void iceLabelManagerCreate();
+
 // Create a text object in manager
 void iceLabelCreate(unsigned int man, iceVect pos, char *label);
 //

@@ -7,6 +7,7 @@
 #include "hdr/Maths.h"
 #include "hdr/TypesPhysics.h"
 #include "hdr/Physics.h"
+#include "hdr/Random.h"
 
 extern iceGame game;
 
@@ -263,12 +264,16 @@ void iceEntityPhysicGenerate(unsigned int manager, unsigned int entity)
 						0,
 						game.entitymanager[manager].entity[entity].physics.radius,
 						cpvzero
+					)
 				)
-			)
-		);
+			); 
 
 		// Set the position
 		cpBodySetPosition(game.entitymanager[manager].entity[entity].physics.body, cpv(game.entitymanager[manager].entity[entity].x, game.entitymanager[manager].entity[entity].y));
+
+		// Set Angle
+		cpBodySetAngle(game.entitymanager[manager].entity[entity].physics.body, game.entitymanager[manager].entity[entity].angle);
+		//cpBodySetAngularVelocity(game.entitymanager[manager].entity[entity].physics.body, iceRandomInt(-100, 100));
 
 		// Create Shape
 		game.entitymanager[manager].entity[entity].physics.shape =
@@ -281,4 +286,9 @@ void iceEntityPhysicGenerate(unsigned int manager, unsigned int entity)
 			);
 		cpShapeSetFriction(game.entitymanager[manager].entity[entity].physics.shape, game.entitymanager[manager].entity[entity].physics.friction);
 	}
+}
+
+void iceEntityPhysicAddForce(unsigned int manager, unsigned int entity, iceVect force)
+{
+	cpBodyApplyForceAtWorldPoint(game.entitymanager[manager].entity[entity].physics.body, iceVect_to_cpVect(force), cpvzero);
 }

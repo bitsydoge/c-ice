@@ -54,6 +54,6 @@ void iceEntityPhysicSetRadius(unsigned int manager, unsigned int entity, iceFloa
 void iceEntityPhysicSetBox(unsigned int manager, unsigned int entity, iceBox box);
 void iceEntityPhysicSetMass(unsigned int manager, unsigned int entity, iceFloat mass);
 void iceEntityPhysicGenerate(unsigned int manager, unsigned int entity);
-
+void iceEntityPhysicAddForce(unsigned int manager, unsigned int entity, iceVect force);
 
 #endif

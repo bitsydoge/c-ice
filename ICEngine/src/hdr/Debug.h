@@ -16,4 +16,6 @@ void iceDebugShowFpsTitle();
 
 void iceAssert_(const char* expr_str, int expr, const char* file, int line, const char* msg);
 
+void iceDebugShowCollide();
+
 #endif
