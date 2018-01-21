@@ -32,3 +32,20 @@ cpSpace* icePhysicsGetSpace()
 {
 	return game.physicsmanager.space;
 }
+
+void icePhysicsUpdateEntity()
+{
+	for (int i = 0; i < game.entitymanager_nb; i++)
+		for (int j = 0; j < game.entitymanager[i].nb_existing; j++)
+		{
+			if (game.entitymanager[i].entity[j].exist)
+			{
+				if(game.entitymanager[i].entity[j].physics.body_types == ICE_PHYSICS_RIGID_BODY)
+				{
+					cpVect vect = cpBodyGetPosition(game.entitymanager[i].entity[j].physics.body);
+					game.entitymanager[i].entity[j].x = vect.x;
+					game.entitymanager[i].entity[j].y = vect.y;
+				}
+			}
+		}
+}

@@ -134,7 +134,6 @@
     <ClCompile Include="src\Input.c" />
     <ClCompile Include="src\Label.c" />
     <ClCompile Include="src\Map.c" />
-    <ClCompile Include="src\Maths.c" />
     <ClCompile Include="src\Music.c" />
     <ClCompile Include="src\Physics.c" />
     <ClCompile Include="src\Primitive.c" />

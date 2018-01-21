@@ -32,7 +32,7 @@ void iceDrawPresent(){
 
 void iceDrawAllEntity()
 {
-	for (int i = 0; i < game.entitymanager_size; i++)
+	for (int i = 0; i < game.entitymanager_nb; i++)
 		for (int j = 0; j < game.entitymanager[i].nb_existing; j++)
 		{
 			if (game.entitymanager[i].entity[j].have_texture && game.entitymanager[i].entity[j].exist)
@@ -53,75 +53,75 @@ void iceDrawAllEntity()
 
 void iceDrawLabelScreen()
 {
-	for (int i = 0; i < game.textmanager_size; i++)
-		for (int j = 0; j < game.textmanager[i].nb_existing; j++)
+	for (int i = 0; i < game.labelmanager_nb; i++)
+		for (int j = 0; j < game.labelmanager[i].nb_existing; j++)
 		{
-			if (game.textmanager[i].text[j].exist)
+			if (game.labelmanager[i].text[j].exist)
 			{
 				if (
-					strcmp(game.textmanager[i].text[j].text, game.textmanager[i].text[j].old_text) ||
-					game.textmanager[i].text[j].size != game.textmanager[i].text[j].old_size ||
-					game.textmanager[i].text[j].color != game.textmanager[i].text[j].old_color
+					strcmp(game.labelmanager[i].text[j].text, game.labelmanager[i].text[j].old_text) ||
+					game.labelmanager[i].text[j].size != game.labelmanager[i].text[j].old_size ||
+					game.labelmanager[i].text[j].color != game.labelmanager[i].text[j].old_color
 					)
 				{
 					iceLabelUpdateTexture(i, j);
-					game.textmanager[i].text[j].old_color = game.textmanager[i].text[j].color;
-					game.textmanager[i].text[j].old_size = game.textmanager[i].text[j].size;
-					free(game.textmanager[i].text[j].old_text);
-					game.textmanager[i].text[j].old_text = STRDUP(game.textmanager[i].text[j].text);
+					game.labelmanager[i].text[j].old_color = game.labelmanager[i].text[j].color;
+					game.labelmanager[i].text[j].old_size = game.labelmanager[i].text[j].size;
+					free(game.labelmanager[i].text[j].old_text);
+					game.labelmanager[i].text[j].old_text = STRDUP(game.labelmanager[i].text[j].text);
 				}
 				
 				iceBox box = iceBoxNew(
-					game.textmanager[i].text[j].pos.x,
-					game.textmanager[i].text[j].pos.y,
-					game.textmanager[i].text[j].texture.w,
-					game.textmanager[i].text[j].texture.h
+					game.labelmanager[i].text[j].pos.x,
+					game.labelmanager[i].text[j].pos.y,
+					game.labelmanager[i].text[j].texture.w,
+					game.labelmanager[i].text[j].texture.h
 				);
 
 				// Fixed to screen 
-				if(!game.textmanager[i].text[j].isFixedToWorld)
-					iceTextureRenderCenteredTexture(&game.textmanager[i].text[j].texture, NULL, &box);
+				if(!game.labelmanager[i].text[j].isFixedToWorld)
+					iceTextureRenderCenteredTexture(&game.labelmanager[i].text[j].texture, NULL, &box);
 			}	
 		}
 }
 
 void iceDrawLabelWorld()
 {
-	for (int i = 0; i < game.textmanager_size; i++)
-		for (int j = 0; j < game.textmanager[i].nb_existing; j++)
+	for (int i = 0; i < game.labelmanager_nb; i++)
+		for (int j = 0; j < game.labelmanager[i].nb_existing; j++)
 		{
-			if (game.textmanager[i].text[j].exist)
+			if (game.labelmanager[i].text[j].exist)
 			{
 				if (
-					strcmp(game.textmanager[i].text[j].text, game.textmanager[i].text[j].old_text) ||
-					game.textmanager[i].text[j].size != game.textmanager[i].text[j].old_size ||
-					game.textmanager[i].text[j].color != game.textmanager[i].text[j].old_color
+					strcmp(game.labelmanager[i].text[j].text, game.labelmanager[i].text[j].old_text) ||
+					game.labelmanager[i].text[j].size != game.labelmanager[i].text[j].old_size ||
+					game.labelmanager[i].text[j].color != game.labelmanager[i].text[j].old_color
 					)
 				{
 					iceLabelUpdateTexture(i, j);
-					game.textmanager[i].text[j].old_color = game.textmanager[i].text[j].color;
-					game.textmanager[i].text[j].old_size = game.textmanager[i].text[j].size;
-					free(game.textmanager[i].text[j].old_text);
-					game.textmanager[i].text[j].old_text = STRDUP(game.textmanager[i].text[j].text);
+					game.labelmanager[i].text[j].old_color = game.labelmanager[i].text[j].color;
+					game.labelmanager[i].text[j].old_size = game.labelmanager[i].text[j].size;
+					free(game.labelmanager[i].text[j].old_text);
+					game.labelmanager[i].text[j].old_text = STRDUP(game.labelmanager[i].text[j].text);
 				}
 
 				iceBox box = iceBoxNew(
-					game.textmanager[i].text[j].pos.x,
-					game.textmanager[i].text[j].pos.y,
-					game.textmanager[i].text[j].texture.w,
-					game.textmanager[i].text[j].texture.h
+					game.labelmanager[i].text[j].pos.x,
+					game.labelmanager[i].text[j].pos.y,
+					game.labelmanager[i].text[j].texture.w,
+					game.labelmanager[i].text[j].texture.h
 				);
 
 				// Fixed to World 
-				if (game.textmanager[i].text[j].isFixedToWorld)
-					iceTextureRenderCenteredTexture(&game.textmanager[i].text[j].texture, NULL, (iceBox[]) { iceCameraWorldScreen(box) });		
+				if (game.labelmanager[i].text[j].isFixedToWorld)
+					iceTextureRenderCenteredTexture(&game.labelmanager[i].text[j].texture, NULL, (iceBox[]) { iceCameraWorldScreen(box) });		
 			}
 		}
 }
 
 void iceDrawAllGui()
 {
-	for (int i = 0; i < game.guimanager_size; i++)
+	for (int i = 0; i < game.guimanager_nb; i++)
 		for (int j = 0; j < game.guimanager[i].nb_existing; j++)
 		{
 			// Fixed to screen

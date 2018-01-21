@@ -51,9 +51,6 @@
     <ClCompile Include="src\Map.c">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Maths.c">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\Music.c">
       <Filter>src</Filter>
     </ClCompile>

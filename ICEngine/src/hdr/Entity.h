@@ -3,8 +3,6 @@
 
 #include "Game.h"
 
-#define _POLAR_MOVEMENT_TYPE_1
-
 /// Create a Entity Manager and return it's number
 int iceEntityManagerCreate();
 
@@ -44,5 +42,6 @@ iceBox iceEntityGetBox(int manager, int entity);
 // Get value
 int iceEntityGetNumber(int manager);
 int iceEntityManagerGetNumber();
+iceVect iceEntityGetPosition(int manager, int entity);
 
 #endif
