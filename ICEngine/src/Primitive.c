@@ -1,6 +1,7 @@
 ﻿#include "hdr/Primitive.h"
 #include "hdr/Draw.h"
-#include "hdr/Converter.h"
+#include "hdr/Converter_private.h"
+#include "hdr/Draw_private.h"
 
 extern iceGame game;
 

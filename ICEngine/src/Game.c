@@ -77,8 +77,3 @@ iceFloat iceGameFps()
 {
 	return game.time.fps;
 }
-
-iceGame* EOFUNC_iceGameGetGameObject()
-{
-	return &game;
-}

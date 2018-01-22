@@ -10,6 +10,4 @@ void iceGameDestroy(iceGame *app);
 iceFloat iceGameDelta();
 iceFloat iceGameFps();
 
-iceGame* EOFUNC_iceGameGetGameObject();
-
 #endif

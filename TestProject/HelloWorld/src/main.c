@@ -71,8 +71,6 @@ ICE_CREATE
 
 ICE_UPDATE
 {
-	iceGame* thegame = EOFUNC_iceGameGetGameObject();
-
 	iceDebugShowFpsTitle();
 	iceGuiSetBox(0, 0, iceBoxNew(0, 0, iceCameraGetW(), 40));
 	static iceBool trigger = iceFalse;

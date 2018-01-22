@@ -2,11 +2,10 @@
 
 #include <stdio.h>
 #include "hdr/Terminal.h"
-#include "hdr/Texture.h"
 #include "hdr/Camera.h"
 #include "hdr/Maths.h"
 #include "hdr/TypesPhysics.h"
-#include "hdr/Physics.h"
+#include "hdr/Physics_private.h"
 #include "hdr/Random.h"
 
 extern iceGame game;

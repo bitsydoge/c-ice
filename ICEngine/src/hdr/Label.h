@@ -11,14 +11,11 @@
 #define STRDUP(STRING_PARAMETER) _strdup(STRING_PARAMETER)
 #endif
 
-
 // Create manager of Text Object
 void iceLabelManagerCreate();
 
 // Create a text object in manager
 void iceLabelCreate(unsigned int man, iceVect pos, char *label);
-//
-void iceLabelUpdateTexture(int man, int text);
 //
 void iceLabelSetPos(int man, int text, iceVect vect);
 //

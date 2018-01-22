@@ -5,10 +5,9 @@
 #include "hdr/Font.h"
 #include "hdr/Window.h"
 #include <stdio.h>
-#include "hdr/Terminal.h"
 #include "hdr/Primitive.h"
 #include "hdr/Box.h"
-#include "hdr/Physics.h"
+#include "hdr/Physics_private.h"
 #include "hdr/Color.h"
 
 extern iceGame game;
@@ -38,34 +37,6 @@ void iceDebugShowFpsTitle()
 	char buffer[25];
 	sprintf(buffer, "FPS : [%0.1f]", game.time.fps);
 	iceWindowTitle(buffer);
-}
-
-void iceAssert_(const char* expr_str, int expr, const char* file, int line, const char* msg)
-{
-	if (!expr)
-	{
-		iceTermSetColor(iceLIGHTRED);
-		printf("\n\n\t\t-------------------[ERROR]-------------------\t\t\n\n");
-		iceTermResetColor();
-		printf("Assert Msg\t:\t");
-		iceTermSetColor(iceLIGHTGREEN);
-		printf("%s\n", msg);
-		iceTermResetColor();
-		printf("Expected\t:\t");
-		iceTermSetColor(iceLIGHTMAGENTA);
-		printf("%s\n", expr_str);
-		iceTermResetColor();
-		printf("Source File\t:\t"); 
-		iceTermSetColor(iceYELLOW);
-		printf("%s\n", file); 
-		iceTermResetColor();
-		printf("At the Line\t:\t"); 
-		iceTermSetColor(iceLIGHTCYAN);
-		printf("%d\n\n", line);
-		iceTermSetColor(iceLIGHTRED);
-		printf("\t\t-------------------[ERROR]-------------------\t\t\n");
-		abort();
-	}
 }
 
 void iceDebugShowCollide()

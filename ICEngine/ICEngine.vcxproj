@@ -126,6 +126,7 @@
     <ClCompile Include="src\Data.c" />
     <ClCompile Include="src\Debug.c" />
     <ClCompile Include="src\Draw.c" />
+    <ClCompile Include="src\Draw_private.c" />
     <ClCompile Include="src\Entity.c" />
     <ClCompile Include="src\external\icestd.c" />
     <ClCompile Include="src\external\lodepng.c" />
@@ -133,11 +134,15 @@
     <ClCompile Include="src\Font.c" />
     <ClCompile Include="src\Game.c" />
     <ClCompile Include="src\Gui.c" />
+    <ClCompile Include="src\Gui_private.c" />
     <ClCompile Include="src\Input.c" />
+    <ClCompile Include="src\Input_private.c" />
     <ClCompile Include="src\Label.c" />
+    <ClCompile Include="src\Label_private.c" />
     <ClCompile Include="src\Map.c" />
     <ClCompile Include="src\Music.c" />
     <ClCompile Include="src\Physics.c" />
+    <ClCompile Include="src\Physics_private.c" />
     <ClCompile Include="src\Primitive.c" />
     <ClCompile Include="src\Random.c" />
     <ClCompile Include="src\raw\Raw_error.c" />
@@ -146,9 +151,11 @@
     <ClCompile Include="src\Substate.c" />
     <ClCompile Include="src\Terminal.c" />
     <ClCompile Include="src\Texture.c" />
+    <ClCompile Include="src\Texture_private.c" />
     <ClCompile Include="src\Window.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Debug_private.c" />
     <ClInclude Include="src\external\icestd.h" />
     <ClInclude Include="src\external\lodepng.h" />
     <ClInclude Include="src\external\rlutil.h" />
@@ -162,23 +169,30 @@
     <ClInclude Include="src\hdr\Core_private.h" />
     <ClInclude Include="src\hdr\Data.h" />
     <ClInclude Include="src\hdr\Debug.h" />
+    <ClInclude Include="src\hdr\Debug_private.h" />
     <ClInclude Include="src\hdr\Draw.h" />
+    <ClInclude Include="src\hdr\Draw_private.h" />
     <ClInclude Include="src\hdr\Entity.h" />
     <ClInclude Include="src\hdr\Font.h" />
     <ClInclude Include="src\hdr\Game.h" />
     <ClInclude Include="src\hdr\Gui.h" />
+    <ClInclude Include="src\hdr\Gui_private.h" />
     <ClInclude Include="src\hdr\Input.h" />
+    <ClInclude Include="src\hdr\Input_private.h" />
     <ClInclude Include="src\hdr\Label.h" />
+    <ClInclude Include="src\hdr\Label_private.h" />
     <ClInclude Include="src\hdr\Map.h" />
     <ClInclude Include="src\hdr\Maths.h" />
     <ClInclude Include="src\hdr\Music.h" />
     <ClInclude Include="src\hdr\Physics.h" />
+    <ClInclude Include="src\hdr\Physics_private.h" />
     <ClInclude Include="src\hdr\Primitive.h" />
     <ClInclude Include="src\hdr\Random.h" />
     <ClInclude Include="src\hdr\Sound.h" />
     <ClInclude Include="src\hdr\Substate.h" />
     <ClInclude Include="src\hdr\Terminal.h" />
     <ClInclude Include="src\hdr\Texture.h" />
+    <ClInclude Include="src\hdr\Texture_private.h" />
     <ClInclude Include="src\hdr\TypesAudio.h" />
     <ClInclude Include="src\hdr\TypesCore.h" />
     <ClInclude Include="src\hdr\TypesGraphics.h" />
