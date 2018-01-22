@@ -2,6 +2,9 @@
 #include "hdr/Core.h"
 #include "hdr/Core_private.h"
 #include "hdr/Camera_private.h"
+#include "hdr/Input_private.h"
+#include "hdr/Draw_private.h"
+#include "hdr/Physics_private.h"
 
 extern iceGame game;
 

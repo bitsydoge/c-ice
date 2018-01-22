@@ -1,6 +1,6 @@
 ﻿#include "hdr/Data.h"
-#include "hdr/Debug.h"
 #include "hdr/Game.h"
+#include "hdr/Debug_private.h"
 
 
 extern iceGame game;

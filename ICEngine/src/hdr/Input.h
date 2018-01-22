@@ -365,8 +365,7 @@ ICE_INPUT_MODE = 257,    /**< I'm not sure if this is really not covered
 	ICE_INPUT_WHEELDOWN = 604
 };
 
-int iceInputReturn();
-void iceInputReset();
 iceBool iceInputButton(int button);
+void iceInputReset();
 
 #endif

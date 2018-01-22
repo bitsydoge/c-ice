@@ -2,7 +2,8 @@
 
 #include "hdr/Input.h"
 #include "hdr/Game.h"
-#include "hdr/Draw.h"
+#include "hdr/Draw_private.h"
+#include "hdr/Input_private.h"
 
 extern iceGame game;
 

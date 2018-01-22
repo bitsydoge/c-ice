@@ -6,6 +6,7 @@
 #include "hdr/Gui.h"
 #include "hdr/Color_private.h"
 #include "hdr/Color.h"
+#include "hdr/Label_private.h"
 
 
 extern iceGame game;
@@ -53,25 +54,6 @@ void iceLabelCreate(unsigned int man, iceVect pos, char *label)
 		game.labelmanager[man].text = realloc(game.labelmanager[man].text, sizeof(iceLabel)*(game.labelmanager[man].array_size * 2));
 		game.labelmanager[man].array_size *= 2;
 	}
-}
-
-void iceLabelUpdateTexture(int man, int text)
-{		
-		SDL_Surface *surf = TTF_RenderText_Blended(
-			game.fontmanager.size[game.labelmanager[man].text[text].size], 
-			game.labelmanager[man].text[text].text, 
-			iceColorToSdl(game.labelmanager[man].text[text].color)
-		);
-		iceTexture texture = { 0 };
-		texture.handle = SDL_CreateTextureFromSurface(game.drawer.render, surf);
-		texture.w = surf->w; texture.h = surf->h;
-		if(game.labelmanager[man].text[text].texture.exist)
-		{
-			SDL_DestroyTexture(game.labelmanager[man].text[text].texture.handle);
-		}
-		game.labelmanager[man].text[text].texture = texture;
-		game.labelmanager[man].text[text].texture.exist = iceTrue;
-		SDL_FreeSurface(surf);
 }
 
 void iceLabelSetPos(int man, int text, iceVect vect)

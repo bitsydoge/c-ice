@@ -99,6 +99,24 @@
     <ClCompile Include="src\Core_private.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Gui_private.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input_private.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Label_private.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Physics_private.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Texture_private.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Draw_private.c">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\hdr\Box.h">
@@ -210,6 +228,30 @@
       <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Core_private.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Debug_private.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Debug_private.c">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Draw_private.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Gui_private.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Input_private.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Physics_private.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Texture_private.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Label_private.h">
       <Filter>hdr</Filter>
     </ClInclude>
   </ItemGroup>
