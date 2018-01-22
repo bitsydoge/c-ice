@@ -135,7 +135,6 @@
 
 #include "TypesCore.h"
 
-#include "Converter.h"
 #include "Data.h"
 #include "Debug.h"
 #include "Entity.h"
@@ -195,8 +194,6 @@
 ///////////////////////////////////                 ///////////////////////////////////
 
 
-int iceCoreInit();
-int iceCoreClose();
 int iceCoreLoop(void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void));
 
 

@@ -93,6 +93,12 @@
     <ClCompile Include="src\external\rlutil.c">
       <Filter>external</Filter>
     </ClCompile>
+    <ClCompile Include="src\Camera_private.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core_private.c">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\hdr\Box.h">
@@ -102,9 +108,6 @@
       <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Color.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Converter.h">
       <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Core.h">
@@ -195,6 +198,18 @@
       <Filter>external</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\TypesPhysics.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Camera_private.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Color_private.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Converter_private.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Core_private.h">
       <Filter>hdr</Filter>
     </ClInclude>
   </ItemGroup>

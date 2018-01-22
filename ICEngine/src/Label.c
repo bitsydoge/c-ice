@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include "hdr/Terminal.h"
 #include "hdr/Gui.h"
+#include "hdr/Color_private.h"
 #include "hdr/Color.h"
 
 
