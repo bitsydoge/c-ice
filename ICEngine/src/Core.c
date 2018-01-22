@@ -1,27 +1,9 @@
 ﻿#include <SDL2/SDL.h>
 #include "hdr/Core.h"
-#include <time.h>
+#include "hdr/Core_private.h"
+#include "hdr/Camera_private.h"
 
 extern iceGame game;
-
-int iceCoreInit() {
-	iceRandomInit();
-	iceTermSaveColor();
-	SDL_Init(SDL_INIT_VIDEO);
-	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
-	TTF_Init();
-	Mix_Init(MIX_INIT_OGG);
-	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024);
-	Mix_AllocateChannels(20);
-	Mix_VolumeMusic(5);
-	return 0;
-}
-
-int iceCoreClose() {
-	SDL_Quit();
-	Mix_CloseAudio();
-	return 0;
-}
 
 int iceCoreLoop(void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void)) {
 	iceCoreInit();

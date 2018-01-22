@@ -120,7 +120,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Camera.c" />
+    <ClCompile Include="src\Camera_private.c" />
     <ClCompile Include="src\Core.c" />
+    <ClCompile Include="src\Core_private.c" />
     <ClCompile Include="src\Data.c" />
     <ClCompile Include="src\Debug.c" />
     <ClCompile Include="src\Draw.c" />
@@ -152,9 +154,12 @@
     <ClInclude Include="src\external\rlutil.h" />
     <ClInclude Include="src\hdr\Box.h" />
     <ClInclude Include="src\hdr\Camera.h" />
+    <ClInclude Include="src\hdr\Camera_private.h" />
     <ClInclude Include="src\hdr\Color.h" />
-    <ClInclude Include="src\hdr\Converter.h" />
+    <ClInclude Include="src\hdr\Color_private.h" />
+    <ClInclude Include="src\hdr\Converter_private.h" />
     <ClInclude Include="src\hdr\Core.h" />
+    <ClInclude Include="src\hdr\Core_private.h" />
     <ClInclude Include="src\hdr\Data.h" />
     <ClInclude Include="src\hdr\Debug.h" />
     <ClInclude Include="src\hdr\Draw.h" />
