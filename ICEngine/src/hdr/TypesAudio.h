@@ -4,7 +4,7 @@
 
 #ifndef ICE_BOOL_DEFINED
 #define ICE_BOOL_DEFINED
-typedef char iceBool;
+typedef int iceBool;
 #define iceTrue 1
 #define iceTRUE 1
 #define icetrue 1
