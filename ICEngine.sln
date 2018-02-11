@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestProject", "TestProject", "{650830F3-BCDE-46FF-B76F-D081CA9A0460}"
 EndProject
@@ -26,6 +26,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Physics", "TestProject\Phys
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ICEngine", "ICEngine\ICEngine.vcxproj", "{CEAC8C68-C6B6-4756-82D0-C7DCD2C95330}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2inside_Remake", "TestProject\2inside_Remake\2inside_Remake.vcxproj", "{8989DC75-D7E8-4B25-9BED-865EC4BD96BD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CEAC8C68-C6B6-4756-82D0-C7DCD2C95330} = {CEAC8C68-C6B6-4756-82D0-C7DCD2C95330}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +80,14 @@ Global
 		{CEAC8C68-C6B6-4756-82D0-C7DCD2C95330}.Release|x64.Build.0 = Release|x64
 		{CEAC8C68-C6B6-4756-82D0-C7DCD2C95330}.Release|x86.ActiveCfg = Release|Win32
 		{CEAC8C68-C6B6-4756-82D0-C7DCD2C95330}.Release|x86.Build.0 = Release|Win32
+		{8989DC75-D7E8-4B25-9BED-865EC4BD96BD}.Debug|x64.ActiveCfg = Debug|x64
+		{8989DC75-D7E8-4B25-9BED-865EC4BD96BD}.Debug|x64.Build.0 = Debug|x64
+		{8989DC75-D7E8-4B25-9BED-865EC4BD96BD}.Debug|x86.ActiveCfg = Debug|Win32
+		{8989DC75-D7E8-4B25-9BED-865EC4BD96BD}.Debug|x86.Build.0 = Debug|Win32
+		{8989DC75-D7E8-4B25-9BED-865EC4BD96BD}.Release|x64.ActiveCfg = Release|x64
+		{8989DC75-D7E8-4B25-9BED-865EC4BD96BD}.Release|x64.Build.0 = Release|x64
+		{8989DC75-D7E8-4B25-9BED-865EC4BD96BD}.Release|x86.ActiveCfg = Release|Win32
+		{8989DC75-D7E8-4B25-9BED-865EC4BD96BD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -84,6 +97,7 @@ Global
 		{A52FD8B5-E9AB-4FC0-8AA5-2DA285FB7A4A} = {650830F3-BCDE-46FF-B76F-D081CA9A0460}
 		{6DA2AB11-E47C-47C7-9149-332D34EC5559} = {650830F3-BCDE-46FF-B76F-D081CA9A0460}
 		{32B73E47-E2F3-4896-802C-A66CAB322797} = {650830F3-BCDE-46FF-B76F-D081CA9A0460}
+		{8989DC75-D7E8-4B25-9BED-865EC4BD96BD} = {650830F3-BCDE-46FF-B76F-D081CA9A0460}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C09DC0D6-2242-4966-AA1E-B099D7447133}

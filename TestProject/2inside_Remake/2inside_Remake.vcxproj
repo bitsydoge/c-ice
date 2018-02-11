@@ -20,32 +20,32 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{CEAC8C68-C6B6-4756-82D0-C7DCD2C95330}</ProjectGuid>
-    <RootNamespace>ICEngine</RootNamespace>
+    <ProjectGuid>{8989DC75-D7E8-4B25-9BED-865EC4BD96BD}</ProjectGuid>
+    <RootNamespace>Test</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -69,24 +69,64 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LibraryPath>..\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\ICEngine\src\hdr;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LibraryPath>..\Release;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\ICEngine\src\hdr;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LibraryPath>..\..\x64\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\ICEngine\src\hdr;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LibraryPath>..\..\x64\Release;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\ICEngine\src\hdr;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\ICEngine\src\hdr;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>SDL2main.lib;SDL2.lib;SDL2_ttf.lib;SDL2_mixer.lib;chipmunk.lib;ICEngine.lib</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\ICEngine\src\hdr;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>SDL2main.lib;SDL2.lib;SDL2_ttf.lib;SDL2_mixer.lib;chipmunk.lib;ICEngine.lib</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\ICEngine\src\hdr;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>SDL2main.lib;SDL2.lib;SDL2_ttf.lib;SDL2_mixer.lib;chipmunk.lib;ICEngine.lib</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -95,110 +135,18 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\ICEngine\src\hdr;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
-      <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <Link>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>SDL2main.lib;SDL2.lib;SDL2_ttf.lib;SDL2_mixer.lib;chipmunk.lib;ICEngine.lib</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Camera.c" />
-    <ClCompile Include="src\Camera_private.c" />
-    <ClCompile Include="src\Core.c" />
-    <ClCompile Include="src\Core_private.c" />
-    <ClCompile Include="src\Data.c" />
-    <ClCompile Include="src\Debug.c" />
-    <ClCompile Include="src\Debug_private.c" />
-    <ClCompile Include="src\Draw.c" />
-    <ClCompile Include="src\Draw_private.c" />
-    <ClCompile Include="src\Entity.c" />
-    <ClCompile Include="src\external\icestd.c" />
-    <ClCompile Include="src\external\rlutil.c" />
-    <ClCompile Include="src\Font.c" />
-    <ClCompile Include="src\Game.c" />
-    <ClCompile Include="src\Gui.c" />
-    <ClCompile Include="src\Gui_private.c" />
-    <ClCompile Include="src\Input.c" />
-    <ClCompile Include="src\Input_private.c" />
-    <ClCompile Include="src\Label.c" />
-    <ClCompile Include="src\Label_private.c" />
-    <ClCompile Include="src\Map.c" />
-    <ClCompile Include="src\Music.c" />
-    <ClCompile Include="src\Physics.c" />
-    <ClCompile Include="src\Physics_private.c" />
-    <ClCompile Include="src\Primitive.c" />
-    <ClCompile Include="src\Random.c" />
-    <ClCompile Include="src\raw\Raw_error.c" />
-    <ClCompile Include="src\raw\Raw_icon.c" />
-    <ClCompile Include="src\Sound.c" />
-    <ClCompile Include="src\Substate.c" />
-    <ClCompile Include="src\Terminal.c" />
-    <ClCompile Include="src\Texture.c" />
-    <ClCompile Include="src\Texture_private.c" />
-    <ClCompile Include="src\Window.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\external\icestd.h" />
-    <ClInclude Include="src\external\rlutil.h" />
-    <ClInclude Include="src\external\stb_image.h" />
-    <ClInclude Include="src\hdr\Box.h" />
-    <ClInclude Include="src\hdr\Camera.h" />
-    <ClInclude Include="src\hdr\Camera_private.h" />
-    <ClInclude Include="src\hdr\Color.h" />
-    <ClInclude Include="src\hdr\Color_private.h" />
-    <ClInclude Include="src\hdr\Converter_private.h" />
-    <ClInclude Include="src\hdr\Core.h" />
-    <ClInclude Include="src\hdr\Core_private.h" />
-    <ClInclude Include="src\hdr\Data.h" />
-    <ClInclude Include="src\hdr\Debug.h" />
-    <ClInclude Include="src\hdr\Debug_private.h" />
-    <ClInclude Include="src\hdr\Draw.h" />
-    <ClInclude Include="src\hdr\Draw_private.h" />
-    <ClInclude Include="src\hdr\Entity.h" />
-    <ClInclude Include="src\hdr\Font.h" />
-    <ClInclude Include="src\hdr\Game.h" />
-    <ClInclude Include="src\hdr\Gui.h" />
-    <ClInclude Include="src\hdr\Gui_private.h" />
-    <ClInclude Include="src\hdr\Input.h" />
-    <ClInclude Include="src\hdr\Input_private.h" />
-    <ClInclude Include="src\hdr\Label.h" />
-    <ClInclude Include="src\hdr\Label_private.h" />
-    <ClInclude Include="src\hdr\Map.h" />
-    <ClInclude Include="src\hdr\Maths.h" />
-    <ClInclude Include="src\hdr\Music.h" />
-    <ClInclude Include="src\hdr\Physics.h" />
-    <ClInclude Include="src\hdr\Physics_private.h" />
-    <ClInclude Include="src\hdr\Primitive.h" />
-    <ClInclude Include="src\hdr\Random.h" />
-    <ClInclude Include="src\hdr\Sound.h" />
-    <ClInclude Include="src\hdr\Substate.h" />
-    <ClInclude Include="src\hdr\Terminal.h" />
-    <ClInclude Include="src\hdr\Texture.h" />
-    <ClInclude Include="src\hdr\Texture_private.h" />
-    <ClInclude Include="src\hdr\TypesAudio.h" />
-    <ClInclude Include="src\hdr\TypesCore.h" />
-    <ClInclude Include="src\hdr\TypesGraphics.h" />
-    <ClInclude Include="src\hdr\TypesMaths.h" />
-    <ClInclude Include="src\hdr\TypesPhysics.h" />
-    <ClInclude Include="src\hdr\Vector.h" />
-    <ClInclude Include="src\hdr\Window.h" />
+    <ClCompile Include="src\main.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

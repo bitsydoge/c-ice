@@ -29,22 +29,13 @@ ICE_CREATE
 		iceEntitySetPos(0, actual, iceRandomInt(-1000, 1000), iceRandomInt(-1000, 1000));
 		iceEntitySetAngle(0, i, 1);
 
-		/*
-		iceVect pos_label = iceEntityGetPosition(0, i);
-		pos_label.y += 60;
-		iceLabelCreate(0, pos_label, "Hello");
-		iceLabelSetSize(0, i, 20);
-		iceLabelIsInWorld(0, i, 1);
-		*/
-
 		iceEntityPhysicSetBodyTypes(0, i, ICE_PHYSICS_RIGID_BODY);
 		iceEntityPhysicSetShapeTypes(0, i, ICE_PHYSICS_SHAPE_CIRCLE);
 		iceEntityPhysicSetFriction(0, i, iceRandomInt(9, 9) / 10.0f);
 		iceEntityPhysicSetMass(0, i, iceRandomInt(1, 5));
 		iceEntityPhysicSetRadius(0, i, 16);
 		iceEntityPhysicGenerate(0, i); // Generate the body
-		//iceEntityPhysicAddForce(0, i, iceVectNew(iceRandomInt(-100, 100), iceRandomInt(-100, 100)));
-	}
+		}
 
 	iceLabelManagerCreate();
 

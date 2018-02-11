@@ -1,6 +1,8 @@
 #include <Core.h>
 #include "hdr/data.h"
 #include "hdr/control.h"
+#include "Texture_private.h"
+#include "Draw_private.h"
 
 ICE_CREATE{
 	iceGameCreate("ICE : Indie \"C\" Engine", 500, 500);
