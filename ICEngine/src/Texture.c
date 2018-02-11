@@ -36,47 +36,14 @@ int iceTextureCreate(int manager, char* path){
 	icestd_sup(ext);
 
 	iceTexture *text;
-	if (!strcmp(ext, "PNG")){
-		text = iceLoadPNG(path);
-		printf("Texture number %d created on from : \"", game.texturemanager[manager].nb_existing);
-		iceTermSetColor(iceYELLOW);
-		printf("%s", path);
-		iceTermResetColor();
-		printf("\"\n");
-	}
-	else if (!strcmp(ext, "JPG")) {
-		text = iceLoadJPG(path);
-		printf("Texture number %d created on from : \"", game.texturemanager[manager].nb_existing);
-		iceTermSetColor(iceYELLOW);
-		printf("%s", path);
-		iceTermResetColor();
-		printf("\"\n");
-	}
-	else if (!strcmp(ext, "BMP")){
-		if (color_hex != 0){
-			text = iceLoadBMPAlpha(path, color_hex);
-			printf("Texture number %d created from : \"", game.texturemanager[manager].nb_existing);
-			iceTermSetColor(iceYELLOW);
-			printf("%s", path);
-			iceTermResetColor();
-			printf("\"\n");
-		}
-		else{
-			text = iceLoadBMP(path);
-			printf("Texture number %d created from : \"", game.texturemanager[manager].nb_existing);
-			iceTermSetColor(iceYELLOW);
-			printf("%s", path);
-			iceTermResetColor();
-			printf("\"\n");
-		}
-	}
-	else{
-		text = iceLoadBMP("res/img/error");
-		iceTermSetColor(iceLIGHTRED);
-		printf("ERROR ");
-		iceTermResetColor();
-		printf(": %s is not a valid filetype for loading texture.\n", ext);
-	}
+
+	text = iceLoadImage(path);
+	printf("Texture number %d created on from : \"", game.texturemanager[manager].nb_existing);
+	iceTermSetColor(iceYELLOW);
+	printf("%s", path);
+	iceTermResetColor();
+	printf("\"\n");
+
 	text->exist = 1;
 	SDL_QueryTexture(text->handle, NULL, NULL, &text->w, &text->h);
 	game.texturemanager[manager].texture[game.texturemanager[manager].nb_existing] = *text;

@@ -87,9 +87,6 @@
     <ClCompile Include="src\external\icestd.c">
       <Filter>external</Filter>
     </ClCompile>
-    <ClCompile Include="src\external\lodepng.c">
-      <Filter>external</Filter>
-    </ClCompile>
     <ClCompile Include="src\external\rlutil.c">
       <Filter>external</Filter>
     </ClCompile>
@@ -115,6 +112,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Draw_private.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Debug_private.c">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -209,9 +209,6 @@
     <ClInclude Include="src\external\icestd.h">
       <Filter>external</Filter>
     </ClInclude>
-    <ClInclude Include="src\external\lodepng.h">
-      <Filter>external</Filter>
-    </ClInclude>
     <ClInclude Include="src\external\rlutil.h">
       <Filter>external</Filter>
     </ClInclude>
@@ -233,9 +230,6 @@
     <ClInclude Include="src\hdr\Debug_private.h">
       <Filter>hdr</Filter>
     </ClInclude>
-    <ClInclude Include="src\Debug_private.c">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\hdr\Draw_private.h">
       <Filter>hdr</Filter>
     </ClInclude>
@@ -253,6 +247,9 @@
     </ClInclude>
     <ClInclude Include="src\hdr\Label_private.h">
       <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\external\stb_image.h">
+      <Filter>external</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

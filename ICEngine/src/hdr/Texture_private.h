@@ -3,14 +3,8 @@
 
 #include "TypesCore.h"
 
-/// Load a JPG with nanojpeg to a Texture
-iceTexture* iceLoadJPG(char *path);
-/// Load a PNG with lodepng to a Texture with Error handling
-iceTexture* iceLoadPNG(char *path);
-/// Load a BMP with SDL_LoadBMP to a Texture with Error handling
-iceTexture* iceLoadBMP(char *path);
-/// Load a BMP with SDL_LoadBMP to a Texture with Mono Alpha handle from a hex color
-iceTexture* iceLoadBMPAlpha(char *path, const iceColor rgba_hex);
+iceTexture* iceLoadImage(char *path);
+
 /// Destroy the texture and free pointer
 void iceTextureDestroy(iceTexture *tex);
 /// Render a iceTexture to the renderer. The X, Y of the Source is the top left but the X, Y of the Destination is the center
