@@ -21,6 +21,8 @@ int iceCoreLoop(void(*call_create)(void), void(*call_update)(void), void(*call_d
 		iceInputReturn();
 		iceDrawClearColor(game.background);
 		iceDrawClear();
+		icePhysicsSpaceStep();
+		icePhysicsUpdateEntity();
 		iceCameraUpdateAttach();
 
 		call_update(); // Call Update
@@ -30,13 +32,11 @@ int iceCoreLoop(void(*call_create)(void), void(*call_update)(void), void(*call_d
 		iceDrawLabelWorld();
 		iceDrawAllGui();
 		iceDrawLabelScreen();
-		iceDebugShowCollide();
+		//iceDebugShowCollide();
 
 		//////////////////////////
 
 		iceDrawPresent();
-		icePhysicsSpaceStep();
-		icePhysicsUpdateEntity();
 		game.time.last = game.time.actual; // restart counter
 	//}
 	//else // else it wait until the nb of ticks is enough to fix fps to max fps

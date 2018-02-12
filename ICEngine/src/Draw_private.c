@@ -5,6 +5,7 @@
 #include "hdr/Box.h"
 #include "hdr/Label.h"
 #include "hdr/Gui.h"
+#include "hdr/Gui_private.h"
 #include "hdr/Texture_private.h"
 #include "hdr/Label_private.h"
 
