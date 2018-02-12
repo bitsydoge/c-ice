@@ -1,5 +1,5 @@
 #include "hdr/Texture.h"
-#include "external/lodepng.h"
+
 #include "external/icestd.h"
 
 #include <SDL2/SDL.h>
@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include "hdr/Texture_private.h"
 #include "hdr/Terminal.h"
+#include <string.h>
 
 extern iceGame game;
 
@@ -30,7 +31,6 @@ void iceTextureManagerCreate(){
 
 int iceTextureCreate(int manager, char* path){
 
-	Uint32 color_hex = 0xFF00FFFF;
 	char path2[500]; strcpy(path2, path);
 	char* ext = icestd_ext(path2);
 	icestd_sup(ext);

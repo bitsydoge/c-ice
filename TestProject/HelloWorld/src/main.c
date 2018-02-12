@@ -21,7 +21,7 @@ ICE_CREATE
 	iceFontLoad("res/ttf/FiraSans-Medium.ttf");
 
 	//Entity
-	for (int i = 0; i < 50; i++)
+	for (int i = 0; i < 500; i++)
 	{
 		int actual = iceEntityCreate(0);
 		iceEntitySetTexture(0, actual, 0, 0);
@@ -31,8 +31,8 @@ ICE_CREATE
 
 		iceEntityPhysicSetBodyTypes(0, i, ICE_PHYSICS_RIGID_BODY);
 		iceEntityPhysicSetShapeTypes(0, i, ICE_PHYSICS_SHAPE_CIRCLE);
-		iceEntityPhysicSetFriction(0, i, iceRandomInt(9, 9) / 10.0f);
-		iceEntityPhysicSetMass(0, i, iceRandomInt(1, 5));
+		iceEntityPhysicSetFriction(0, i, 1);
+		iceEntityPhysicSetMass(0, i, 1);
 		iceEntityPhysicSetRadius(0, i, 16);
 		iceEntityPhysicGenerate(0, i); // Generate the body
 		}
@@ -42,28 +42,45 @@ ICE_CREATE
 	// Label
 	// Label 1
 	iceLabelCreate(1, iceVectNew(400, 240), "OnWorld");
-	iceLabelSetText(1, 0, "One Shot");
+	iceLabelSetText(1, 0, "Romain");
 	iceLabelSetColor(1, 0, iceColorNew(200, 0, 100));
 	iceLabelSetSize(1, 0, 50);
 	iceLabelSetPos(1, 0, iceVectNew(0, -270));
 	iceLabelIsInWorld(1, 0, 1);
 
 	// Label 2
-	iceLabelCreate(1, iceVectNew(30, 10), "OnScreen");
+	iceLabelCreate(1, iceVectNew(50, 10), "Fixed Entity");
 	iceLabelSetSize(1, 1, 10);
 
+	// Label 2
+	iceLabelCreate(1, iceVectNew(50, 30), "<x,x>");
+	iceLabelSetSize(1, 2, 10);
 
-	icePhysicsSetGravity(iceVectNew(0, 0));
+	// Label Player Name
+	iceVect pos_player = iceEntityGetPosition(0, 20);
+	pos_player.y += 20;
+	iceLabelCreate(1, pos_player, "Player");
+	iceLabelIsInWorld(1, 3, iceTrue);
+	iceLabelSetSize(1, 3, 10);
 
 	// Gui Create
 	iceGuiCreate(0);
 	iceGuiSetTexture(0, 0, 0, 1);
+
+	// Physics
+	icePhysicsSetGravity(iceVectNew(0, 0));
 }
 
 ICE_UPDATE
 {
 	iceDebugShowFpsTitle();
-	iceGuiSetBox(0, 0, iceBoxNew(0, 0, iceCameraGetW(), 40));
+	iceGuiSetBox(0, 0, iceBoxNew(0, 0, 100, 40));
+
+	iceVect pos_player = iceEntityGetPosition(0, 20);
+	pos_player.y += 20;
+	iceLabelSetPos(1, 3, pos_player);
+
+
 	static iceBool trigger = iceFalse;
 	// INPUT
 	if (iceInputButton(ICE_INPUT_D)) iceCameraShiftPos(iceVectNew(1000 * iceGameDelta(), 0));
@@ -87,6 +104,14 @@ ICE_UPDATE
 	}
 
 
+	if (trigger)
+	{
+		iceVect pos = iceEntityGetPosition(0, 20);
+		char buffer[256];
+		sprintf(buffer, "<%.1f,%.1f>", pos.x, pos.y);
+		iceLabelSetText(1, 2, buffer);
+	}
+
 	if (iceInputButton(ICE_INPUT_UP))
 	{
 			iceEntityPhysicAddForce(0, 20, iceVectNew(0, -100000 * iceGameDelta()));
@@ -104,25 +129,6 @@ ICE_UPDATE
 	{
 			iceEntityPhysicAddForce(0, 20, iceVectNew(100000 * iceGameDelta(), 0));
 	}
-
-
-	if (trigger)
-	{
-		iceVect pos = iceEntityGetPosition(0, 20);
-
-		printf("<%lf,%lf>\n", pos.x, pos.y);
-	}
-
-	// ENTITY
-	/*
-	for (int i = 0; i < iceEntityGetNumber(0)-2; i++){
-		DATA_WIDOW *data = iceDataEntityGet(0, i, 0);
-		iceVect pos_label = iceEntityGetPosition(0, i);
-		pos_label.y += 60;
-		iceLabelSetPos(0, i, iceVectNew(pos_label.x, pos_label.y));
-		//iceEntityMovePos(0, i, data->direction.x, data->direction.y, 100 * iceGameDelta());
-		//iceEntityAddAngle(0, i, 45 * iceGameDelta() * data->rotation);
-	}*/
 }
 
 ICE_DESTROY
