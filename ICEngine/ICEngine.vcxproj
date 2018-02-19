@@ -152,6 +152,7 @@
     <ClCompile Include="src\Terminal.c" />
     <ClCompile Include="src\Texture.c" />
     <ClCompile Include="src\Texture_private.c" />
+    <ClCompile Include="src\Time_private.c" />
     <ClCompile Include="src\Window.c" />
   </ItemGroup>
   <ItemGroup>
@@ -192,6 +193,7 @@
     <ClInclude Include="src\hdr\Terminal.h" />
     <ClInclude Include="src\hdr\Texture.h" />
     <ClInclude Include="src\hdr\Texture_private.h" />
+    <ClInclude Include="src\hdr\Time_private.h" />
     <ClInclude Include="src\hdr\TypesAudio.h" />
     <ClInclude Include="src\hdr\TypesCore.h" />
     <ClInclude Include="src\hdr\TypesGraphics.h" />

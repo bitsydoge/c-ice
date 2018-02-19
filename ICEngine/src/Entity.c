@@ -16,7 +16,7 @@ extern iceGame game;
 //                //
 //                //
 
-#define _POLAR_MOVEMENT_TYPE_1
+#define _POLAR_MOVEMENT_TYPE_2
 
 int iceEntityManagerCreate()
 {
@@ -141,14 +141,14 @@ void iceEntityMovePos(int manager, int entity, iceFloat x, iceFloat y, iceFloat 
 
 #ifdef _POLAR_MOVEMENT_TYPE_2
 
-	float xdif = x - game->entitymanager[manager].entity[entity].x; float ydif = y - game->entitymanager[manager].entity[entity].y;
+	float xdif = x - game.entitymanager[manager].entity[entity].x; float ydif = y - game.entitymanager[manager].entity[entity].y;
 	float angle = atan2(ydif, xdif);
 	float distance_r_r = xdif*xdif + ydif*ydif;
-	game->entitymanager[manager].entity[entity].x += r * cos(angle); game->entitymanager[manager].entity[entity].y += r * sin(angle);
+	game.entitymanager[manager].entity[entity].x += r * cos(angle); game.entitymanager[manager].entity[entity].y += r * sin(angle);
 	if (distance_r_r < r)
 	{
-		game->entitymanager[manager].entity[entity].x = x;
-		game->entitymanager[manager].entity[entity].y = y;
+		game.entitymanager[manager].entity[entity].x = x;
+		game.entitymanager[manager].entity[entity].y = y;
 	}
 
 #endif

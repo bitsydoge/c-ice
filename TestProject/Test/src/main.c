@@ -23,13 +23,12 @@ ICE_CREATE{
 	iceDataAdd(sizeof(DATA1)); // Add DATA1
 	data->speed_camera = 250;
 	// Creating Entity
-	int manager_nb = iceEntityManagerCreate();
-	for(int i = 0; i<10000; i++){
+	for(int i = 0; i<1000; i++){
 		int entity_nb = iceEntityCreate(0);
-		iceEntitySetTexture(manager_nb, entity_nb, 0, 2);
-		iceEntitySetPos(manager_nb, entity_nb, iceRandomInt(-5000, 5000), iceRandomInt(-5000, 5000));
+		iceEntitySetTexture(0, entity_nb, 0, 2);
+		iceEntitySetPos(0, entity_nb, iceRandomInt(-5000, 5000), iceRandomInt(-5000, 5000));
 		int nb = iceRandomInt(20, 100);
-		iceEntitySetSize(manager_nb, entity_nb, nb, nb);
+		iceEntitySetSize(0, entity_nb, nb, nb);
 	}
 }
 
@@ -42,8 +41,7 @@ ICE_UPDATE{
 	// Graphical
 	iceTextureRenderCentered(0, 0, NULL, (iceBox[]) { iceCameraWorldScreen(iceBoxNew(0, 0, 500, 500)) });
 	iceDrawAllEntity(); // Draw every Entity
-	iceGuiRect(0, 1, iceBoxNew(0, 0, iceCameraGetW(), 32));
-	iceDebugShowFps();
+	iceDebugShowFpsTitle();
 }
 
 ICE_DESTROY{ 
