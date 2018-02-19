@@ -14,7 +14,7 @@ iceTexture* iceLoadImage(char *path)
 	int width, height, orig_format;
 	unsigned char* data = stbi_load(path, &width, &height, &orig_format, req_format);
 	if (data == NULL) {
-		SDL_Log("Loading image failed: %s", stbi_failure_reason());
+		SDL_Log("ERROR : Can't load image : %s", stbi_failure_reason());
 		exit(1);
 	}
 
@@ -22,10 +22,10 @@ iceTexture* iceLoadImage(char *path)
 	Uint32 pixel_format;
 	if (req_format == STBI_rgb) {
 		depth = 24;
-		pitch = 3 * width; // 3 bytes per pixel * pixels per row
+		pitch = 3 * width;
 		pixel_format = SDL_PIXELFORMAT_RGB24;
 	}
-	else { // STBI_rgb_alpha (RGBA)
+	else {
 		depth = 32;
 		pitch = 4 * width;
 		pixel_format = SDL_PIXELFORMAT_RGBA32;
@@ -35,7 +35,7 @@ iceTexture* iceLoadImage(char *path)
 		depth, pitch, pixel_format);
 
 	if (surf == NULL) {
-		SDL_Log("Creating surface failed: %s", SDL_GetError());
+		SDL_Log("CRITICAL : Can't create Surface from image ", SDL_GetError());
 		stbi_image_free(data);
 		exit(1);
 	}

@@ -117,6 +117,9 @@
     <ClCompile Include="src\Debug_private.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Time_private.c">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\hdr\Box.h">
@@ -250,6 +253,9 @@
     </ClInclude>
     <ClInclude Include="src\external\stb_image.h">
       <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Time_private.h">
+      <Filter>hdr</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -20,10 +20,10 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{A52FD8B5-E9AB-4FC0-8AA5-2DA285FB7A4A}</ProjectGuid>
+    <ProjectGuid>{6DA2AB11-E47C-47C7-9149-332D34EC5559}</ProjectGuid>
     <RootNamespace>Test</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
-    <ProjectName>Pong</ProjectName>
+    <ProjectName>HelloPhysics</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -71,19 +71,20 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LibraryPath>..\..\ICEngine\src\hdr;..\Debug;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\Debug;$(LibraryPath)</LibraryPath>
     <IncludePath>..\..\ICEngine\src\hdr;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LibraryPath>..\..\ICEngine\src\hdr;..\Release;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\Release;$(LibraryPath)</LibraryPath>
     <IncludePath>..\..\ICEngine\src\hdr;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>..\..\ICEngine\src\hdr;..\..\x64\Debug;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\..\x64\Debug;$(LibraryPath)</LibraryPath>
     <IncludePath>..\..\ICEngine\src\hdr;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LibraryPath>..\..\ICEngine\src\hdr;..\x64\Release;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\..\x64\Release;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\ICEngine\src\hdr;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
