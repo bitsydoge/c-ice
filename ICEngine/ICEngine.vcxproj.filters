@@ -120,6 +120,9 @@
     <ClCompile Include="src\Time_private.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\external\vec.c">
+      <Filter>external</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\hdr\Box.h">
@@ -256,6 +259,9 @@
     </ClInclude>
     <ClInclude Include="src\hdr\Time_private.h">
       <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\external\vec.h">
+      <Filter>external</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

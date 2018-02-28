@@ -31,3 +31,4 @@ iceFloat iceRandomFloat()
 {
 	return (iceFloat)rand() / (iceFloat)RAND_MAX;
 }
+

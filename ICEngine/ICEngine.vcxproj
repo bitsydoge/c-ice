@@ -131,6 +131,7 @@
     <ClCompile Include="src\Entity.c" />
     <ClCompile Include="src\external\icestd.c" />
     <ClCompile Include="src\external\rlutil.c" />
+    <ClCompile Include="src\external\vec.c" />
     <ClCompile Include="src\Font.c" />
     <ClCompile Include="src\Game.c" />
     <ClCompile Include="src\Gui.c" />
@@ -159,6 +160,7 @@
     <ClInclude Include="src\external\icestd.h" />
     <ClInclude Include="src\external\rlutil.h" />
     <ClInclude Include="src\external\stb_image.h" />
+    <ClInclude Include="src\external\vec.h" />
     <ClInclude Include="src\hdr\Box.h" />
     <ClInclude Include="src\hdr\Camera.h" />
     <ClInclude Include="src\hdr\Camera_private.h" />

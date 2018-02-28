@@ -8,7 +8,7 @@ ICE_CREATE{
 	iceGameCreate("ICE : Indie \"C\" Engine", 500, 500);
 
 
-
+	
 	// Load Assets
 	iceTextureCreate(0, "res/img/logo.png");
 	iceTextureCreate(0, "res/img/gui.png");
