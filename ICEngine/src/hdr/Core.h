@@ -19,7 +19,7 @@
 #include "Array.h"
 #include "Color.h"
 #include "Debug.h"
-#include "DynString.h"
+#include "StringDyn.h"
 #include "Game.h"
 #include "Input.h"
 #include "Render.h"

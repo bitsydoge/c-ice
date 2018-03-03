@@ -2,7 +2,7 @@
 #define DEF_ICE_TYPESCORE
 
 #include "Array.h"
-#include "DynString.h"
+#include "StringDyn.h"
 #include <SDL2/SDL.h>
 
 // Typedef
@@ -85,5 +85,10 @@ struct ICE_Game {
 	ICE_Bool debug;
 
 }; typedef struct ICE_Game ICE_Game;
+
+struct ICE_Asset
+{
+	int a;
+}; typedef struct ICE_Asset ICE_Asset;
 
 #endif

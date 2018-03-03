@@ -10,9 +10,8 @@ extern ICE_Game game;
 int ICE_CoreLoop(const ICE_String title, const int window_width, const int window_height, void(*call_preload)(void), void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void)) 
 {
 	ICE_CoreInit();
-	ICE_GameCreate(title, window_width, window_height);
-
 	call_preload();
+	ICE_GameCreate(title, window_width, window_height);
 	call_create();
 	while (!game.window.input.quit)
 	{	
@@ -28,7 +27,7 @@ int ICE_CoreLoop(const ICE_String title, const int window_width, const int windo
 		ICE_TimeEnd();
 	}
 	call_destroy();
-
+	ICE_GameDestroy();
 	ICE_CoreClose();
 	return 0;
 }
