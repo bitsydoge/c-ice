@@ -39,9 +39,6 @@
     <ClCompile Include="src\Core_private.c">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\DynString.c">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\Game.c">
       <Filter>src</Filter>
     </ClCompile>
@@ -78,6 +75,12 @@
     <ClCompile Include="src\Debug_private.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\StringDyn.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Asset_private.c">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\external\icestd.h">
@@ -106,9 +109,6 @@
     </ClInclude>
     <ClInclude Include="src\external\gb_string.h">
       <Filter>external</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\DynString.h">
-      <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Game.h">
       <Filter>hdr</Filter>
@@ -165,6 +165,12 @@
       <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Debug_private.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\StringDyn.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Asset_private.h">
       <Filter>hdr</Filter>
     </ClInclude>
   </ItemGroup>

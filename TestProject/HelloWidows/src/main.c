@@ -1,7 +1,7 @@
 #include <Core.h>
 #include <stdio.h>
 
-ICE_PRELOAD()
+ICE_PRELOAD() // Load asset here, if the game "restart" they are not gonna be reload
 {
 	
 }
@@ -9,7 +9,7 @@ ICE_PRELOAD()
 ICE_CREATE()
 {
 	ICE_Debug( ICE_True );
-	ICE_RenderSetClear(ICE_ColorNew( 200, 200, 200 ));
+	ICE_RenderSetColor( ICE_ColorNew( 200, 200, 200 ) );
 }
 
 ICE_UPDATE()
