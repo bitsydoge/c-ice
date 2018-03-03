@@ -1,19 +1,51 @@
-#include "hdr/Terminal.h"
+﻿#include "hdr/Terminal.h"
 #include "external/rlutil.h"
+#include "hdr/TypesCore.h"
+#include <time.h>
+#include "hdr/TypesMaths.h"
 
-void iceTermSaveColor()
+extern ICE_Game game;
+
+void ICE_TermResetColor()
 {
-    saveDefaultColor();    
+	if (game.debug)
+		resetColor();
 }
-void iceTermResetColor()
+void ICE_TermSetColor(const int c)
 {
-    resetColor(); 
+	if (game.debug)
+		setColor(c);
 }
-void iceTermSetColor(int c)
+void ICE_TermSetBgColor(const int c)
 {
-    setColor(c);
+	if (game.debug)
+		setBackgroundColor(c);
 }
-void iceTermSetBgColor(int c)
+
+void ICE_TermClear()
 {
-    setBackgroundColor(c);
+	if (game.debug)
+		cls();
+}
+
+void ICE_TermClock()
+{
+	if (game.debug)
+	{
+		ICE_TermSetColor(iceYELLOW);
+		printf("[%.3f s]", (ICE_Float)clock() / 1000);
+		ICE_TermResetColor();
+		printf(" :: ");
+
+	}
+}
+
+void ICE_TermWait()
+{
+	if (game.debug)
+	{
+		ICE_TermClock();
+		printf("Press a Key To Continue");
+		getchar();
+	}
 }

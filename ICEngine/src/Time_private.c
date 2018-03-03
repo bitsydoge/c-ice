@@ -2,9 +2,9 @@
 #include <SDL2/SDL.h>
 #include "hdr/TypesCore.h"
 
-extern iceGame game;
+extern ICE_Game game;
 
-void iceTimeStart()
+void ICE_TimeStart()
 {
 	game.time.actual = SDL_GetTicks(); // ticks since start of software at the start of loop
 	game.time.ticksEllapsed = game.time.actual - game.time.last; // calculate nb of ticks ellapsed
@@ -14,7 +14,7 @@ void iceTimeStart()
 		game.time.fps = (double)(1000 / game.time.ticksEllapsed); // calculate fps
 }
 
-void iceTimeEnd()
+void ICE_TimeEnd()
 {
 	game.time.last = game.time.actual;
 }

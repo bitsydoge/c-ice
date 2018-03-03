@@ -4,7 +4,7 @@
 #include <SDL2/SDL.h>
 #include "TypesGraphics.h"
 
-inline SDL_Color iceColorToSdl(const iceColor ice_color) {
+inline SDL_Color iceColorToSdl(const ICE_Color ice_color) {
 	SDL_Color sdl_color;
 	sdl_color.r = ice_color >> 24 & 255;
 	sdl_color.g = ice_color >> 16 & 255;

@@ -1,61 +1,34 @@
 ﻿#include "hdr/Core.h"
 #include "hdr/Core_private.h"
-#include "hdr/Camera_private.h"
+#include "hdr/Game_private.h"
 #include "hdr/Input_private.h"
-#include "hdr/Draw_private.h"
-#include "hdr/Physics_private.h"
+#include "hdr/Render_private.h"
 #include "hdr/Time_private.h"
 
-extern iceGame game;
+extern ICE_Game game;
 
-int iceCoreLoop(void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void)) {
-	iceCoreInit();
+int ICE_CoreLoop(const ICE_String title, const int window_width, const int window_height, void(*call_preload)(void), void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void)) 
+{
+	ICE_CoreInit();
+	ICE_GameCreate(title, window_width, window_height);
+
+	call_preload();
 	call_create();
-	while (!game.input->quit) 
-	{
-		// Time
-		//////////////////////////////
-		iceTimeStart();
-	
-		// Input
-		//////////////////////////////
-		iceInputReturn();
-		
-		// Camera
-		//////////////////////////////
-		iceCameraUpdateAttach();
-		
-		// Physics
-		//////////////////////////////
-		icePhysicsSpaceStep();
-		icePhysicsUpdateEntity();
-		
-		
-		//////////////////////////////
-		//////////////////////////////
-		//////////////////////////////
-
+	while (!game.window.input.quit)
+	{	
+		ICE_TimeStart();
+		ICE_InputReturn();
 		call_update();
+		ICE_RenderClear();
 
-		//////////////////////////////
-		//////////////////////////////
-		//////////////////////////////
+		// RENDER HERE
 
-		// Graphic Rendering
-		//////////////////////////////
-		iceDrawClearColor(game.background);
-		iceDrawClear();
-		iceDrawAllEntity();
-		iceDrawLabelWorld();
-		iceDrawAllGui();
-		iceDrawLabelScreen();
-		iceDrawPresent();
+		ICE_RenderNow();
 
-		// Time
-		//////////////////////////////
-		iceTimeEnd();
+		ICE_TimeEnd();
 	}
 	call_destroy();
-	iceCoreClose();
+
+	ICE_CoreClose();
 	return 0;
 }
