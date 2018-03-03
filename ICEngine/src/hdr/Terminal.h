@@ -1,4 +1,4 @@
-#ifndef DEF_ICE_TERMINALCOLOR
+﻿#ifndef DEF_ICE_TERMINALCOLOR
 #define DEF_ICE_TERMINALCOLOR
 
 enum {
@@ -20,9 +20,16 @@ enum {
 	iceWHITE
 };
 
-void iceTermSaveColor();
-void iceTermResetColor();
-void iceTermSetColor(int c);
-void iceTermSetBgColor(int c);
+void ICE_TermResetColor();
+
+void ICE_TermSetColor(const int c);
+
+void ICE_TermSetBgColor(const int c);
+
+void ICE_TermClear();
+
+void ICE_TermClock();
+
+void ICE_TermWait();
 
 #endif

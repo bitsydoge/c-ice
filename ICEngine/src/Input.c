@@ -1,60 +1,65 @@
-#include <SDL2/SDL.h>
+﻿#include <SDL2/SDL.h>
 #include <string.h>
 #include <stdio.h>
 
 #include "hdr/Input.h"
 #include "hdr/Terminal.h"
 
-extern iceGame game;
+extern ICE_Game game;
 
-iceBool iceInputButton(int button)
+ICE_Bool ICE_InputButton(const int button)
 {
-	if(button < 512)
+	if (button < 512)
 	{
-		return game.input->key[button];
+		return game.window.input.key[button];
 	}
-	if(button > 600)
+	if (button > 600)
 	{
-		if(button == ICE_INPUT_LEFTCLICK)
+		if (button == ICE_INPUT_LEFTCLICK)
 		{
-			return game.input->leftclic;
+			return game.window.input.leftclic;
 		}
 		if (button == ICE_INPUT_RIGHTCLICK)
 		{
-			return game.input->rightclic;
+			return game.window.input.rightclic;
 		}
 		if (button == ICE_INPUT_WHEELUP)
 		{
-			return game.input->wheelup;
+			return game.window.input.wheelup;
 		}
 		if (button == ICE_INPUT_WHEELDOWN)
 		{
-			return game.input->wheeldown;
+			return game.window.input.wheeldown;
 		}
 	}
 	else
 	{
-		printf("No key have that name");
-		return iceFalse;
+		printf("No corresponding key");
+		return ICE_False;
 	}
 
-	return iceFalse;
+	return ICE_False;
 }
 
-void iceInputReset() {
-	int temp = game.input->focus;
-	int temp2 = game.input->quit;
-	int mousex = game.input->mousex;
-	int mousey = game.input->mousey;
-	memset(game.input, 0, sizeof(iceInput));
-	game.input->focus = temp;
-	game.input->quit = temp2;
-	game.input->mousex = mousex;
-	game.input->mousey = mousey;
+void ICE_InputQuit()
+{
+	game.window.input.quit = ICE_True;
+}
+
+void ICE_InputReset() {
+	int temp = game.window.input.focus;
+	int temp2 = game.window.input.quit;
+	int mousex = game.window.input.mousex;
+	int mousey = game.window.input.mousey;
+	memset(&game.window.input, 0, sizeof(ICE_Input));
+	game.window.input.focus = temp;
+	game.window.input.quit = temp2;
+	game.window.input.mousex = mousex;
+	game.window.input.mousey = mousey;
 
 
 	printf("Input Reset : ");
-	iceTermSetColor(iceGREEN);
+	ICE_TermSetColor(iceGREEN);
 	printf("OK\n");
-	iceTermResetColor();
+	ICE_TermResetColor();
 }

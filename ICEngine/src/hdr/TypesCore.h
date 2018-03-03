@@ -1,43 +1,41 @@
-﻿#ifndef DEF_ICE_TYPES
-#define DEF_ICE_TYPES
+﻿#ifndef DEF_ICE_TYPESCORE
+#define DEF_ICE_TYPESCORE
+
+#include "Array.h"
+#include "DynString.h"
+#include <SDL2/SDL.h>
+
+// Typedef
+// --------------------------------------
 
 #ifndef ICE_BOOL_DEFINED
 #define ICE_BOOL_DEFINED
-typedef int iceBool;
-#define iceTrue 1
-#define iceTRUE 1
-#define icetrue 1
-#define iceFalse 0
-#define iceFALSE 0
-#define icefalse 0
+	typedef int ICE_Bool;
+	#define ICE_True 1
+	#define ICE_TRUE 1
+	#define ICE_true 1
+	#define ICE_False 0
+	#define ICE_FALSE 0
+	#define ICE_false 0
 #endif
 
-#include "TypesCore.h"
-#include "TypesMaths.h"
-#include "TypesGraphics.h"
-#include "TypesAudio.h"
-#include "TypesPhysics.h"
+// Struct
+// --------------------------------------
 
-typedef struct
-{
+struct ICE_Time {
 
-	int *tile;
+	unsigned long actual;
+	unsigned long last;
+	double ticks;
+	unsigned int ticksEllapsed;
+	double fps;
+	double delta;
 
-} iceLayer;
+}; typedef struct ICE_Time ICE_Time;
 
-typedef struct {
+// --------------------------------------
 
-	// Map Size
-	int w, h;
-	int tile_w, tile_h;
-
-	// Layer
-	int nb_layer;
-	iceLayer *layer;
-
-} iceMap;
-
-typedef struct {
+struct ICE_Input {
 
 	char key[512];
 	int wheelup;
@@ -61,141 +59,31 @@ typedef struct {
 	char *filedrop;
 	int substate_quit;
 
-} iceInput;
+}; typedef struct ICE_Input ICE_Input;
 
-typedef struct {
+// --------------------------------------
 
-	unsigned long actual;
-	unsigned long last;
-	double ticks;
-	unsigned int ticksEllapsed;
-	double fps;
-	double delta;
+struct ICE_Window
+{
+	ICE_String title;
+	int width, height;
 
-} iceTime;
+	SDL_Window *handle;
+	SDL_Renderer *render;
+	ICE_Input input;
+}; typedef struct ICE_Window ICE_Window;
 
+// --------------------------------------
 
-////
-//
-//  I need to make a iceFont struct where
-//
-////
+struct ICE_Game {
+	
+	ICE_Window window;
 
-typedef struct {
+	ICE_Time time;
 
-	iceBool exist;
+	// Config
+	ICE_Bool debug;
 
-	// Position
-	iceFloat x, y;
-	iceFloat angle;
-
-	// Polar Movement Save
-	iceBool already_moved_polar;
-
-	iceFloat x_polar_destination_move;
-	iceFloat y_polar_destination_move;
-	iceFloat r_polar_destination_move;
-
-	iceFloat x_polar_shift_move;
-	iceFloat y_polar_shift_move;
-	iceFloat polar_distance_r_r;
-	////////////////////////////
-
-	// Size
-	iceFloat w, h;
-
-	// Texture location
-	iceBool have_texture;
-	unsigned int man;
-	unsigned int text;
-
-	// Sprite
-	iceBool have_sprite;
-	unsigned int man_sprite;
-	unsigned int sprite_nb;
-
-	// Data Array
-	int data_nb;
-	void **data;
-
-	// Physics
-	icePhysicsObject physics;
-
-}iceEntity;
-
-typedef struct {
-
-	iceEntity *entity;
-	unsigned int array_size;
-	unsigned int nb_existing;
-
-}iceEntityManager;
-
-typedef struct {
-
-// Core
-// -------------------------------
-
-
-	// Entity 
-	unsigned int entitymanager_nb;
-	iceEntityManager *entitymanager;
-
-	// Data 
-	unsigned int data_nb;
-	void** data;
-
-	// Input 
-	iceInput *input;
-
-	// Time 
-	iceTime time;
-
-	// OTHER 
-	int returnvalue;
-	iceColor background;
-
-
-
-// Graphics
-// -------------------------------
-
-
-	// Drawer 
-	iceDrawer drawer;
-
-	// Texture 
-	unsigned int texturemanager_nb;
-	iceTextureManager *texturemanager;
-
-	// Font 
-	iceFontManager fontmanager;
-
-	// Text 
-	unsigned int labelmanager_nb;
-	iceLabelManager *labelmanager;
-
-	// Gui 
-	unsigned int guimanager_nb;
-	iceGuiManager *guimanager;
-
-	// Camera
-	iceCamera camera;
-
-
-// Audio
-// -------------------------------
-
-	// Sound 
-	iceSoundManager soundmanager;
-
-// Physics
-// -------------------------------
-
-	// Physics
-	icePhysicsManager physicsmanager;
-
-} iceGame;
-
+}; typedef struct ICE_Game ICE_Game;
 
 #endif

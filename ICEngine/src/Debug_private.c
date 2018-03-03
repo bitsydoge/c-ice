@@ -1,30 +1,33 @@
-﻿#include "hdr/Terminal.h"
-#include <stdio.h>
+﻿#include "hdr/Debug_private.h"
+
 #include <stdlib.h>
+#include <stdio.h>
+#include "hdr/Terminal.h"
+
 
 void iceAssert_(const char* expr_str, int expr, const char* file, int line, const char* msg)
 {
 	if (!expr)
 	{
-		iceTermSetColor(iceLIGHTRED);
+		ICE_TermSetColor(iceLIGHTRED);
 		printf("\n\n\t\t-------------------[ERROR]-------------------\t\t\n\n");
-		iceTermResetColor();
+		ICE_TermResetColor();
 		printf("Assert Msg\t:\t");
-		iceTermSetColor(iceLIGHTGREEN);
+		ICE_TermSetColor(iceLIGHTGREEN);
 		printf("%s\n", msg);
-		iceTermResetColor();
+		ICE_TermResetColor();
 		printf("Expected\t:\t");
-		iceTermSetColor(iceLIGHTMAGENTA);
+		ICE_TermSetColor(iceLIGHTMAGENTA);
 		printf("%s\n", expr_str);
-		iceTermResetColor();
+		ICE_TermResetColor();
 		printf("Source File\t:\t");
-		iceTermSetColor(iceYELLOW);
+		ICE_TermSetColor(iceYELLOW);
 		printf("%s\n", file);
-		iceTermResetColor();
+		ICE_TermResetColor();
 		printf("At the Line\t:\t");
-		iceTermSetColor(iceLIGHTCYAN);
+		ICE_TermSetColor(iceLIGHTCYAN);
 		printf("%d\n\n", line);
-		iceTermSetColor(iceLIGHTRED);
+		ICE_TermSetColor(iceLIGHTRED);
 		printf("\t\t-------------------[ERROR]-------------------\t\t\n");
 		abort();
 	}
