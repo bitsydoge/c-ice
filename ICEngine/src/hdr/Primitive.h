@@ -1,5 +1,6 @@
 ﻿#ifndef DEF_ICE_PRIMITIVE
 #define DEF_ICE_PRIMITIVE
+
 #include "TypesGraphics.h"
 #include "TypesMaths.h"
 

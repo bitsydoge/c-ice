@@ -11,5 +11,4 @@ void ICE_DebugFontDrawFgColor(int r, int g, int b);
 void ICE_DebugFontDraw(int y, const char* format, ...);
 void ICE_DebugMoveCamera();
 
-
 #endif

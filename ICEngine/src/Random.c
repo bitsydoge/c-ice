@@ -4,6 +4,7 @@
 #include "hdr/TypesMaths.h"
 
 #include <time.h>
+#include <stdlib.h>
 
 
 void ICE_RandomInit()

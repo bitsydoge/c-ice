@@ -2,6 +2,7 @@
 #define DEF_ICE_COLOR_PRIVATE
 
 #include <SDL2/SDL.h>
+
 #include "TypesGraphics.h"
 
 inline SDL_Color ICE_ColorToSdl(const ICE_Color ice_color) {
