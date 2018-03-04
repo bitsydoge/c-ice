@@ -9,13 +9,15 @@ void ICE_TermResetColor(){
 	if (game.debug)
 		resetColor();
 }
-void ICE_TermSetColor(const int c){
+char ICE_TermSetColor(const int c){
 	if (game.debug)
 		setColor(c);
+	return '\0';
 }
-void ICE_TermSetBgColor(const int c){
+char ICE_TermSetBgColor(const int c){
 	if (game.debug)
 		setBackgroundColor(c);
+	return '\0';
 }
 
 void ICE_TermClear(){
@@ -26,11 +28,10 @@ void ICE_TermClear(){
 void ICE_TermClock(){
 	if (game.debug)
 	{
-		ICE_TermSetColor(iceYELLOW);
+		ICE_TermSetColor(iceLIGHTCYAN);
 		printf("[%.3f s]", ICE_TimeClock());
 		ICE_TermResetColor();
-		printf(" :: ");
-
+		printf("::");
 	}
 }
 

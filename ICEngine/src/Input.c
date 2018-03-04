@@ -4,6 +4,7 @@
 
 #include "hdr/Input.h"
 #include "hdr/Terminal.h"
+#include "hdr/Debug.h"
 
 extern ICE_Game game;
 
@@ -13,7 +14,7 @@ ICE_Bool ICE_InputButton(const int button)
 	{
 		return game.window.input.key[button];
 	}
-	if (button > 600)
+	if (button > 600 && button < ICE_INPUT_MAX)
 	{
 		if (button == ICE_INPUT_LEFTCLICK)
 		{
@@ -34,7 +35,7 @@ ICE_Bool ICE_InputButton(const int button)
 	}
 	else
 	{
-		printf("No corresponding key");
+		ICE_Log(ICE_LOG_WARNING, "INPUT]::[NOKEY]::[%d", button);
 		return ICE_False;
 	}
 

@@ -8,7 +8,7 @@ extern ICE_Game game;
 void ICE_WindowSetSize(int w, int h)
 {
 	SDL_SetWindowSize(game.window.handle, w, h);
-	game.window.width = w; game.window.height = h;
+	game.window.w = w; game.window.h = h;
 	game.camera.w = w; game.camera.h = h;
 }
 
@@ -63,9 +63,9 @@ void ICE_WindowSetIcon(char * path)
 
 int ICE_WindowGetW()
 {
-	return game.window.width;
+	return game.window.w;
 }
 int ICE_WindowGetH()
 {
-	return game.window.height;
+	return game.window.h;
 }

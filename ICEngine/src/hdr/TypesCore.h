@@ -22,6 +22,9 @@
 	#define ICE_False 0
 	#define ICE_FALSE 0
 	#define ICE_false 0
+	#define ICE_NULL -1	
+	#define ICE_Null -1
+	#define ICE_null -1
 #endif
 
 // Struct
@@ -71,7 +74,7 @@ struct ICE_Input {
 struct ICE_Window
 {
 	ICE_String title;
-	unsigned int width, height;
+	unsigned int w, h;
 
 	SDL_Window *handle;
 	SDL_Renderer *render;

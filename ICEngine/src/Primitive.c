@@ -1,7 +1,7 @@
 ﻿#include "hdr/Primitive.h"
-#include "hdr/Render.h"
 #include "hdr/Converter_private.h"
 #include "hdr/TypesCore.h"
+#include "hdr/Render_private.h"
 
 extern ICE_Game game;
 
