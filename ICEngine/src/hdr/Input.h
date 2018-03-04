@@ -260,7 +260,7 @@ ICE_INPUT_WHEELDOWN = 604,
 ICE_INPUT_MAX
 };
 
-ICE_Bool ICE_InputButton(int button);
+ICE_Bool ICE_InputKey(int button);
 void ICE_InputQuit();
 void ICE_InputReset();
 

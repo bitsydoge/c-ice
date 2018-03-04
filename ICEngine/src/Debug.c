@@ -7,21 +7,19 @@
 #include <stdio.h>
 #include "hdr/Color.h"
 #include "hdr/Color_private.h"
-#include "hdr/Terminal.h"
+#include "hdr/Input.h"
+#include "hdr/Game.h"
 
 extern ICE_Game game;
 
-ICE_Bool ICE_Debug(const ICE_Bool yn)
-{
+ICE_Bool ICE_Debug(const ICE_Bool yn){
 	if(yn != -1)
 		game.debug = yn;
 	return game.debug;
 }
 
-void ICE_DebugMouseCoordinate()
-{
-	if (game.debug && SDL_GetMouseFocus())
-	{
+void ICE_DebugMouseCoordinate(){
+	if (game.debug && SDL_GetMouseFocus()){
 		char coo[20];
 		ICE_Box coordinate = { game.window.input.mousex, game.window.input.mousey };
 		if (game.window.input.leftclic)
@@ -38,16 +36,13 @@ void ICE_DebugShowFps()
 	if (game.debug)
 	{
 		char gh[20];
-		sprintf(gh, "FPS : [%.1f]", game.time.fps);
-
-		ICE_DebugFontDraw(0, gh);
+		sprintf(gh, " FPS : [%.1f] ", game.time.fps);
+		ICE_DebugFontDraw(1, gh);
 	}
 }
 
-void ICE_DebugShowFpsTitle()
-{
-	if (game.debug)
-	{
+void ICE_DebugShowFpsTitle(){
+	if (game.debug){
 		char buffer[25];
 		sprintf(buffer, "FPS : [%0.1f]", game.time.fps);
 		ICE_WindowTitle(buffer);
@@ -73,7 +68,6 @@ void ICE_DebugFontDrawFgColor(int r, int g, int b)
 	}
 }
 
-// DEBUG
 void ICE_DebugFontDraw(int y, const char* format, ...) {
 	if(game.debug)
 	{
@@ -81,9 +75,9 @@ void ICE_DebugFontDraw(int y, const char* format, ...) {
 		va_list args;
 		va_start(args, format);
 		vsprintf(buffer, format, args);
-		int size = (int)((ICE_Float)ICE_WindowGetH() / 40.0);
-		if (size < 10)
-			size = 10;
+		int size = (int)((ICE_Float)ICE_WindowGetH() / 50.0);
+		if (size < 12)
+			size = 12;
 		SDL_Surface *surf = TTF_RenderText_Shaded(game.font.size[size], buffer, ICE_ColorToSdl(font_color_foreground_set), ICE_ColorToSdl(font_color_background_set));
 		SDL_Rect rect; rect.x = 0; rect.y = surf->h * y;
 		rect.w = surf->w; rect.h = surf->h;
@@ -96,97 +90,18 @@ void ICE_DebugFontDraw(int y, const char* format, ...) {
 	}
 }
 
-void ICE_Log(ICE_LogTypes type, const char * format, ...)
+void ICE_DebugMoveCamera()
 {
-	if (game.debug)
+	if(game.debug)
 	{
-		va_list args;
-		va_start(args, format);
-		
-		switch (type)
-		{
-		case ICE_LOG_SUCCES:
-			ICE_TermClock();
-			ICE_TermSetColor(iceLIGHTGREEN);
-			printf("[SUCCES]");
-			break;
-		case ICE_LOG_NONE:
-			ICE_TermClock();
-			printf("[LOG]");
-			break;
-		case ICE_LOG_WARNING:
-			ICE_TermClock();
-			ICE_TermSetColor(iceYELLOW);
-			printf("[WARNING]");
-			break;
-		case ICE_LOG_ERROR:
-			ICE_TermClock();
-			ICE_TermSetColor(iceLIGHTRED);
+		if (ICE_InputKey(ICE_INPUT_W))
+			ICE_CameraShiftPos(ICE_VectNew(0, 100 * ICE_GameDelta()));
+		if (ICE_InputKey(ICE_INPUT_S))
+			ICE_CameraShiftPos(ICE_VectNew(0, -100 * ICE_GameDelta()));
+		if (ICE_InputKey(ICE_INPUT_A))
+			ICE_CameraShiftPos(ICE_VectNew(-100 * ICE_GameDelta(), 0));
+		if (ICE_InputKey(ICE_INPUT_D))
+			ICE_CameraShiftPos(ICE_VectNew(100 * ICE_GameDelta(), 0));
 
-			printf("[ERROR]");
-			break;
-		case ICE_LOG_CRITICAL:
-			ICE_TermClock();
-			ICE_TermSetColor(iceRED);
-			printf("[CRITICAL]");
-			break;
-		default:
-			ICE_TermClock();
-			printf("[NOLOGTYPE]");
-			break;
-		}
-		ICE_TermResetColor();
-		printf("::[");
-		vprintf(format, args);
-		printf("]");
-		printf("\n");
-		va_end(args);
-	}
-}
-
-void ICE_Log_no_n(ICE_LogTypes type, const char * format, ...)
-{
-	if (game.debug)
-	{
-		va_list args;
-		va_start(args, format);
-
-		switch (type)
-		{
-		case ICE_LOG_SUCCES:
-			ICE_TermClock();
-			ICE_TermSetColor(iceLIGHTGREEN);
-			printf("[SUCCES]");
-			break;
-		case ICE_LOG_NONE:
-			ICE_TermClock();
-			printf("[LOG]");
-			break;
-		case ICE_LOG_WARNING:
-			ICE_TermClock();
-			ICE_TermSetColor(iceYELLOW);
-			printf("[WARNING]");
-			break;
-		case ICE_LOG_ERROR:
-			ICE_TermClock();
-			ICE_TermSetColor(iceLIGHTRED);
-
-			printf("[ERROR]");
-			break;
-		case ICE_LOG_CRITICAL:
-			ICE_TermClock();
-			ICE_TermSetColor(iceRED);
-			printf("[CRITICAL]");
-			break;
-		default:
-			ICE_TermClock();
-			printf("[NOLOGTYPE]");
-			break;
-		}
-		ICE_TermResetColor();
-		printf("::[");
-		vprintf(format, args);
-		printf("]");
-		va_end(args);
 	}
 }

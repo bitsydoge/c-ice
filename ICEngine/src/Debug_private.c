@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "hdr/Terminal.h"
-#include "hdr/Debug.h"
+#include "hdr/Log.h"
 
 
 void ICE_Assert_(const char* expr_str, int expr, const char* file, int line, const char* msg)

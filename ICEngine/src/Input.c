@@ -5,10 +5,11 @@
 #include "hdr/Input.h"
 #include "hdr/Terminal.h"
 #include "hdr/Debug.h"
+#include "hdr/Log.h"
 
 extern ICE_Game game;
 
-ICE_Bool ICE_InputButton(const int button)
+ICE_Bool ICE_InputKey(const int button)
 {
 	if (button < 512)
 	{
