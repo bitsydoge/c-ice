@@ -80,6 +80,7 @@ struct ICE_Window
 	SDL_Renderer *render;
 	ICE_Color background;
 	ICE_Input input;
+
 }; typedef struct ICE_Window ICE_Window;
 
 // --------------------------------------
@@ -100,13 +101,51 @@ struct ICE_Font
 
 // --------------------------------------
 
+enum ICE_NodeType
+{
+	ICE_NODETYPE_VOID = 0,
+	ICE_NODETYPE_SPRITE = 1,
+	ICE_NODETYPE_COLLIDER = 2,
+	ICE_NODETYPE_LABEL = 3,
+	ICE_NODETYPE_MAP = 4,
+	ICE_NODETYPE_GUI = 5
+
+}; typedef enum ICE_NodeType ICE_NodeType;
+
+// --------------------------------------
+
+struct ICE_Node
+{
+	// Attribute
+	// ----------------------
+	ICE_String name;
+	ICE_Float x, y;
+
+	ICE_NodeType type;
+	unsigned int man, item;
+	void* component;
+
+	// Tree
+	// ----------------------
+	ICE_Bool haveParent;
+	ICE_Node *parent;
+
+	ICE_Bool haveChild;
+	ICE_Node *childArray;
+
+}; typedef struct ICE_Node ICE_Node;
+
+typedef 
+
+// --------------------------------------
+
 struct ICE_Game {
 	
 	ICE_Window window;
 	ICE_Camera camera;
 	ICE_Time time;
 
-	ICE_Font font;
+
 
 	// Config
 	ICE_Bool debug;
@@ -117,7 +156,7 @@ struct ICE_Game {
 
 struct ICE_Asset
 {
-	int a;
+	ICE_Font font;
 
 }; typedef struct ICE_Asset ICE_Asset;
 

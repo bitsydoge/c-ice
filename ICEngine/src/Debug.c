@@ -11,6 +11,7 @@
 #include "hdr/Game.h"
 
 extern ICE_Game game;
+extern ICE_Asset asset;
 
 ICE_Bool ICE_Debug(const ICE_Bool yn){
 	if(yn != -1)
@@ -43,7 +44,7 @@ void ICE_DebugShowFps()
 
 void ICE_DebugShowFpsTitle(){
 	if (game.debug){
-		char buffer[25];
+		char buffer[20];
 		sprintf(buffer, "FPS : [%0.1f]", game.time.fps);
 		ICE_WindowTitle(buffer);
 	}
@@ -78,7 +79,7 @@ void ICE_DebugFontDraw(int y, const char* format, ...) {
 		int size = (int)((ICE_Float)ICE_WindowGetH() / 50.0);
 		if (size < 12)
 			size = 12;
-		SDL_Surface *surf = TTF_RenderText_Shaded(game.font.size[size], buffer, ICE_ColorToSdl(font_color_foreground_set), ICE_ColorToSdl(font_color_background_set));
+		SDL_Surface *surf = TTF_RenderText_Shaded(asset.font.size[size], buffer, ICE_ColorToSdl(font_color_foreground_set), ICE_ColorToSdl(font_color_background_set));
 		SDL_Rect rect; rect.x = 0; rect.y = surf->h * y;
 		rect.w = surf->w; rect.h = surf->h;
 		SDL_Texture *texture = SDL_CreateTextureFromSurface(game.window.render, surf);
@@ -95,13 +96,13 @@ void ICE_DebugMoveCamera()
 	if(game.debug)
 	{
 		if (ICE_InputKey(ICE_INPUT_W))
-			ICE_CameraShiftPos(ICE_VectNew(0, 100 * ICE_GameDelta()));
+			ICE_CameraShiftPos(ICE_VectNew(0, -1000 * ICE_GameDelta()));
 		if (ICE_InputKey(ICE_INPUT_S))
-			ICE_CameraShiftPos(ICE_VectNew(0, -100 * ICE_GameDelta()));
+			ICE_CameraShiftPos(ICE_VectNew(0, 1000 * ICE_GameDelta()));
 		if (ICE_InputKey(ICE_INPUT_A))
-			ICE_CameraShiftPos(ICE_VectNew(-100 * ICE_GameDelta(), 0));
+			ICE_CameraShiftPos(ICE_VectNew(-1000 * ICE_GameDelta(), 0));
 		if (ICE_InputKey(ICE_INPUT_D))
-			ICE_CameraShiftPos(ICE_VectNew(100 * ICE_GameDelta(), 0));
+			ICE_CameraShiftPos(ICE_VectNew(1000 * ICE_GameDelta(), 0));
 
 	}
 }
