@@ -1,5 +1,4 @@
 #include <Core.h>
-
 ICE_PRELOAD() // Load assets here, if the game "restart" they are not gonna be reload
 {
 	ICE_Debug(ICE_True);
@@ -34,8 +33,7 @@ ICE_UPDATE()
 		ICE_DebugMoveCamera();
 		ICE_DebugShowFps();
 		ICE_DebugFontDraw(2, " Version Test %s ", ICE_VERSION);
-		ICE_DebugMouseCoordinate();
-		
+		ICE_DebugMouseCoordinate();		
 }
 
 ICE_DESTROY() {}
