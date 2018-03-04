@@ -81,6 +81,21 @@
     <ClCompile Include="src\Asset_private.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Primitive.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Window.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Font.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Random.c">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\external\icestd.h">
@@ -146,9 +161,6 @@
     <ClInclude Include="src\hdr\Time_private.h">
       <Filter>hdr</Filter>
     </ClInclude>
-    <ClInclude Include="src\hdr\Converter.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
     <ClInclude Include="src\hdr\TypesMaths.h">
       <Filter>hdr</Filter>
     </ClInclude>
@@ -171,6 +183,30 @@
       <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Asset_private.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Primitive.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Converter_private.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Vector.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Box.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Window.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Font.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Camera.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Random.h">
       <Filter>hdr</Filter>
     </ClInclude>
   </ItemGroup>

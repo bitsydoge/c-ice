@@ -3,7 +3,12 @@
 
 #include "Array.h"
 #include "StringDyn.h"
+#include "TypesMaths.h"
+#include "TypesGraphics.h"
+
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
+
 
 // Typedef
 // --------------------------------------
@@ -37,7 +42,7 @@ struct ICE_Time {
 
 struct ICE_Input {
 
-	char key[512];
+	int key[512];
 	int wheelup;
 	int wheeldown;
 	int quit;
@@ -66,29 +71,51 @@ struct ICE_Input {
 struct ICE_Window
 {
 	ICE_String title;
-	int width, height;
+	unsigned int width, height;
 
 	SDL_Window *handle;
 	SDL_Renderer *render;
+	ICE_Color background;
 	ICE_Input input;
 }; typedef struct ICE_Window ICE_Window;
+
+// --------------------------------------
+
+struct ICE_Camera
+{
+	ICE_Float x, y, w, h;
+
+}; typedef struct ICE_Camera ICE_Camera;
+
+// --------------------------------------
+
+struct ICE_Font
+{
+	TTF_Font* size[256];
+
+}; typedef struct ICE_Font ICE_Font;
 
 // --------------------------------------
 
 struct ICE_Game {
 	
 	ICE_Window window;
-
+	ICE_Camera camera;
 	ICE_Time time;
+
+	ICE_Font font;
 
 	// Config
 	ICE_Bool debug;
 
 }; typedef struct ICE_Game ICE_Game;
 
+// --------------------------------------
+
 struct ICE_Asset
 {
 	int a;
+
 }; typedef struct ICE_Asset ICE_Asset;
 
 #endif

@@ -17,8 +17,9 @@ int ICE_CoreLoop(const ICE_String title, const int window_width, const int windo
 	{	
 		ICE_TimeStart();
 		ICE_InputReturn();
-		call_update();
+		ICE_RenderSetColor(game.window.background);
 		ICE_RenderClear();
+		call_update();
 
 		// RENDER HERE
 

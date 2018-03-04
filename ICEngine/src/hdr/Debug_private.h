@@ -1,7 +1,7 @@
 ﻿#ifndef DEF_ICE_DEBUG_PRIVATE
 #define DEF_ICE_DEBUG_PRIVATE
 
-#define ICE_DEBUG_GET_GAME_OBJECT extern iceGame game;
+#define ICE_DEBUG_GET_GAME_OBJECT extern ICE_Game game;
 
 #ifndef NDEBUG
 #   define ICE_Assert(Expr, Msg) \

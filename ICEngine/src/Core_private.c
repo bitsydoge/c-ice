@@ -1,7 +1,7 @@
 ﻿#include "hdr/Core_private.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
-#include "hdr/Terminal.h"
+#include "hdr/Terminal_private.h"
 
 int ICE_CoreInit() {
 
