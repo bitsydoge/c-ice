@@ -2,6 +2,7 @@
 #include "external/rlutil.h"
 #include "hdr/TypesCore.h"
 #include "hdr/Time.h"
+#include "hdr/Debug.h"
 
 extern ICE_Game game;
 
@@ -38,8 +39,12 @@ void ICE_TermClock(){
 void ICE_TermWait(){
 	if (game.debug)
 	{
-		ICE_TermClock();
-		printf("Press a Key To Continue");
+		ICE_Log_no_n(ICE_LOG_NONE, "TERMINAL]::[PRESSRETURNTOCONTINUE");
+		#ifdef getch
+		getch();
+		puts("");
+		#else
 		getchar();
+		#endif
 	}
 }

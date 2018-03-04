@@ -7,7 +7,6 @@
 #include <stdio.h>
 #include "hdr/Color.h"
 #include "hdr/Color_private.h"
-#include "hdr/Vector.h"
 #include "hdr/Terminal.h"
 
 extern ICE_Game game;
@@ -141,6 +140,53 @@ void ICE_Log(ICE_LogTypes type, const char * format, ...)
 		vprintf(format, args);
 		printf("]");
 		printf("\n");
+		va_end(args);
+	}
+}
+
+void ICE_Log_no_n(ICE_LogTypes type, const char * format, ...)
+{
+	if (game.debug)
+	{
+		va_list args;
+		va_start(args, format);
+
+		switch (type)
+		{
+		case ICE_LOG_SUCCES:
+			ICE_TermClock();
+			ICE_TermSetColor(iceLIGHTGREEN);
+			printf("[SUCCES]");
+			break;
+		case ICE_LOG_NONE:
+			ICE_TermClock();
+			printf("[LOG]");
+			break;
+		case ICE_LOG_WARNING:
+			ICE_TermClock();
+			ICE_TermSetColor(iceYELLOW);
+			printf("[WARNING]");
+			break;
+		case ICE_LOG_ERROR:
+			ICE_TermClock();
+			ICE_TermSetColor(iceLIGHTRED);
+
+			printf("[ERROR]");
+			break;
+		case ICE_LOG_CRITICAL:
+			ICE_TermClock();
+			ICE_TermSetColor(iceRED);
+			printf("[CRITICAL]");
+			break;
+		default:
+			ICE_TermClock();
+			printf("[NOLOGTYPE]");
+			break;
+		}
+		ICE_TermResetColor();
+		printf("::[");
+		vprintf(format, args);
+		printf("]");
 		va_end(args);
 	}
 }
