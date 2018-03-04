@@ -6,6 +6,7 @@
 ////////////////////////////////////
 
 #include <SDL2/SDL.h>
+
 #include "TypesMaths.h"
 
 /// iceBox to SDL_Rect

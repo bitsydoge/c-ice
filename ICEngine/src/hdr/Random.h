@@ -1,7 +1,6 @@
 ﻿#ifndef DEF_ICE_RANDOM
 #define DEF_ICE_RANDOM
 
-#include <stdlib.h>
 #include "TypesMaths.h"
 
 void ICE_RandomInit();
