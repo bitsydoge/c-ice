@@ -121,6 +121,7 @@
   <ItemGroup>
     <ClCompile Include="src\Array.c" />
     <ClCompile Include="src\Asset_private.c" />
+    <ClCompile Include="src\Camera.c" />
     <ClCompile Include="src\Core.c" />
     <ClCompile Include="src\Core_private.c" />
     <ClCompile Include="src\Debug.c" />
@@ -128,10 +129,13 @@
     <ClCompile Include="src\external\icestd.c" />
     <ClCompile Include="src\external\rlutil.c" />
     <ClCompile Include="src\external\vec.c" />
+    <ClCompile Include="src\Font.c" />
     <ClCompile Include="src\Game.c" />
     <ClCompile Include="src\Game_private.c" />
     <ClCompile Include="src\Input.c" />
     <ClCompile Include="src\Input_private.c" />
+    <ClCompile Include="src\Primitive.c" />
+    <ClCompile Include="src\Random.c" />
     <ClCompile Include="src\raw\raw_error.c" />
     <ClCompile Include="src\raw\raw_icon.c" />
     <ClCompile Include="src\StringDyn.c" />
@@ -141,6 +145,7 @@
     <ClCompile Include="src\Terminal_private.c" />
     <ClCompile Include="src\Time.c" />
     <ClCompile Include="src\Time_private.c" />
+    <ClCompile Include="src\Window.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\external\gb_string.h" />
@@ -150,13 +155,18 @@
     <ClInclude Include="src\external\vec.h" />
     <ClInclude Include="src\hdr\Array.h" />
     <ClInclude Include="src\hdr\Asset_private.h" />
+    <ClInclude Include="src\hdr\Box.h" />
+    <ClInclude Include="src\hdr\Camera.h" />
     <ClInclude Include="src\hdr\Color.h" />
     <ClInclude Include="src\hdr\Color_private.h" />
-    <ClInclude Include="src\hdr\Converter.h" />
+    <ClInclude Include="src\hdr\Converter_private.h" />
     <ClInclude Include="src\hdr\Core.h" />
     <ClInclude Include="src\hdr\Core_private.h" />
     <ClInclude Include="src\hdr\Debug.h" />
     <ClInclude Include="src\hdr\Debug_private.h" />
+    <ClInclude Include="src\hdr\Font.h" />
+    <ClInclude Include="src\hdr\Primitive.h" />
+    <ClInclude Include="src\hdr\Random.h" />
     <ClInclude Include="src\hdr\StringDyn.h" />
     <ClInclude Include="src\hdr\Game.h" />
     <ClInclude Include="src\hdr\Game_private.h" />
@@ -173,6 +183,8 @@
     <ClInclude Include="src\hdr\TypesGraphics.h" />
     <ClInclude Include="src\hdr\TypesMaths.h" />
     <ClInclude Include="src\hdr\TypesPhysics.h" />
+    <ClInclude Include="src\hdr\Vector.h" />
+    <ClInclude Include="src\hdr\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
