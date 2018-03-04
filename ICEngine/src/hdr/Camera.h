@@ -15,7 +15,7 @@ ICE_Box ICE_CameraWorldScreen(ICE_Box rect);
 /// Convert a rect in the screen coordinate to a virtual coordinate with the camera position
 ICE_Box ICE_CameraScreenWorld(ICE_Box rect);
 ///
-ICE_Bool ICE_CameraBoxOnScreen(ICE_Box box);
+
 int ICE_CameraGetW();
 int ICE_CameraGetH();
 

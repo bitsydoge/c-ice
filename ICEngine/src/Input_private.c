@@ -8,6 +8,7 @@ void ICE_InputReturn()
 	static SDL_Event event;
 	while (SDL_PollEvent(&event))
 	{
+		int get_w, get_h;
 		switch (event.type)
 		{
 		case SDL_QUIT:
@@ -66,7 +67,9 @@ void ICE_InputReturn()
 				game.window.input.focus = 0;
 				break;
 			case SDL_WINDOWEVENT_RESIZED:
-				SDL_GetWindowSize(game.window.handle, &game.window.width, &game.window.height);
+				SDL_GetWindowSize(game.window.handle, &get_w, &get_h);
+				game.camera.w = get_w; game.camera.h = get_h;
+				game.window.w = get_w; game.window.h = get_h;
 				break;
 			default:
 				break;

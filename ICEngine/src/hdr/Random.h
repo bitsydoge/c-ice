@@ -4,8 +4,8 @@
 #include <stdlib.h>
 #include "TypesMaths.h"
 
-void iceRandomInit();
-int iceRandomInt(int min, int max);
-ICE_Float iceRandomFloat();
+void ICE_RandomInit();
+int ICE_RandomInt(int min, int max);
+ICE_Float ICE_RandomFloat();
 
 #endif

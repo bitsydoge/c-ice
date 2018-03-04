@@ -6,7 +6,7 @@
 #include <time.h>
 
 
-void iceRandomInit()
+void ICE_RandomInit()
 {
 	static ICE_Bool triggered = ICE_False;
 	if (!triggered)
@@ -16,7 +16,7 @@ void iceRandomInit()
 	}
 }
 
-int iceRandomInt(int min, int max)
+int ICE_RandomInt(int min, int max)
 {
 	int lowest, highest;
 	if (min < max)
@@ -32,7 +32,7 @@ int iceRandomInt(int min, int max)
 }
 
 // Return a random float between 0 and 1;
-ICE_Float iceRandomFloat()
+ICE_Float ICE_RandomFloat()
 {
 	return (ICE_Float)rand() / (ICE_Float)RAND_MAX;
 }

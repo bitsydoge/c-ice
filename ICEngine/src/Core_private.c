@@ -2,8 +2,11 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include "hdr/Terminal_private.h"
+#include "hdr/Terminal.h"
+
 
 int ICE_CoreInit() {
+
 
 	// Other
 	ICE_TermSaveColor();

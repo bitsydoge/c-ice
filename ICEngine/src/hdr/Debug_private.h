@@ -5,7 +5,7 @@
 
 #ifndef NDEBUG
 #   define ICE_Assert(Expr, Msg) \
-	iceAssert_(#Expr, Expr, __FILE__, __LINE__, Msg)
+	ICE_Assert_(#Expr, Expr, __FILE__, __LINE__, Msg)
 #else
 #   define iceAssert(Expr, Msg) ;
 #endif

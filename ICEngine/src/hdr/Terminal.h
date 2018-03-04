@@ -21,8 +21,8 @@ enum {
 };
 
 void ICE_TermResetColor();
-void ICE_TermSetColor(const int c);
-void ICE_TermSetBgColor(const int c);
+char ICE_TermSetColor(const int c);
+char ICE_TermSetBgColor(const int c);
 void ICE_TermClear();
 void ICE_TermClock();
 void ICE_TermWait();

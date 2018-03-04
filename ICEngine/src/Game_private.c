@@ -1,5 +1,6 @@
 ﻿#include "hdr/Game_private.h"
 #include "hdr/TypesCore.h"
+#include "hdr/Debug.h"
 
 ICE_Game game = { 0 };
 
@@ -17,8 +18,10 @@ void ICE_GameCreate(char *window_title, const unsigned int width_window, const u
 	game.window.render = SDL_CreateRenderer(game.window.handle, -1, SDL_RENDERER_ACCELERATED);
 	SDL_SetRenderDrawBlendMode(game.window.render, SDL_BLENDMODE_BLEND);
 	
-	game.window.width = width_window; game.window.height = height_window;
+	game.window.w = width_window; game.window.h = height_window;
 	game.camera.w = width_window; game.camera.h = height_window;
+
+	ICE_Log(ICE_LOG_SUCCES, "GAMELAUNCH");
 }
 
 void ICE_GameDestroy()
