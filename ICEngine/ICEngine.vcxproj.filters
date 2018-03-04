@@ -96,6 +96,9 @@
     <ClCompile Include="src\Random.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Log.c">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\external\icestd.h">
@@ -207,6 +210,9 @@
       <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Random.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Log.h">
       <Filter>hdr</Filter>
     </ClInclude>
   </ItemGroup>

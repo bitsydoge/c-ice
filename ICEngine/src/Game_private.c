@@ -1,6 +1,6 @@
 ﻿#include "hdr/Game_private.h"
 #include "hdr/TypesCore.h"
-#include "hdr/Debug.h"
+#include "hdr/Log.h"
 
 ICE_Game game = { 0 };
 

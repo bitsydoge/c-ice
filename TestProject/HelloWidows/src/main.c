@@ -19,21 +19,23 @@ ICE_CREATE()
 
 ICE_UPDATE()
 {
-	ICE_Float clock = ICE_TimeClock();
-	if ( clock > 30 )
-		ICE_InputQuit();
+	// Primitive
+	// -------------------------
 
-	// Croix
-	ICE_DrawLine( ICE_VectNull, ICE_VectScreen, ICE_ColorRed );
-	ICE_DrawLine(ICE_VectNew(0, ICE_WindowGetH()), ICE_VectNew(ICE_WindowGetW(),0), ICE_ColorRed);
-	// Center
-	ICE_DrawRectangleFill(ICE_CameraWorldScreen(ICE_BoxNew(-10, -10, 20, 20)), ICE_ColorRed);
+		// Croix
+		ICE_DrawLine( ICE_VectNull, ICE_VectScreen, ICE_ColorRed );
+		ICE_DrawLine(ICE_VectNew(0, ICE_WindowGetH()), ICE_VectNew(ICE_WindowGetW(),0), ICE_ColorRed);
+		// Center
+		ICE_DrawRectangleFill(ICE_CameraWorldScreen(ICE_BoxNew(-10, -10, 20, 20)), ICE_ColorRed);
 	
-	ICE_TermWait();
+	// Debug Drawing
+	// -------------------------
 
-	ICE_DebugFontDraw(1, "Version Test %s", ICE_VERSION);
-	ICE_DebugMouseCoordinate();
-	ICE_DebugShowFps();
+		ICE_DebugMoveCamera();
+		ICE_DebugShowFps();
+		ICE_DebugFontDraw(2, " Version Test %s ", ICE_VERSION);
+		ICE_DebugMouseCoordinate();
+		
 }
 
 ICE_DESTROY() {}

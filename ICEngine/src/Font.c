@@ -6,7 +6,7 @@
 #include "hdr/Window.h"
 #include "hdr/TypesGraphics.h"
 #include "hdr/Color_private.h"
-#include "hdr/Debug.h"
+#include "hdr/Log.h"
 
 extern ICE_Game game;
 
@@ -23,9 +23,9 @@ void ICE_FontLoad(char *path) {
 void ICE_FontDraw(char* text, ICE_Vect vect, ICE_Color fg, ICE_Color bg) {
 	if (game.debug)
 	{
-		int size = (int)((ICE_Float)ICE_WindowGetH() / 40.0);
-		if (size < 10)
-			size = 10;
+		int size = (int)((ICE_Float)ICE_WindowGetH() / 50.0);
+		if (size < 12)
+			size = 12;
 		SDL_Surface *surf = TTF_RenderText_Shaded(game.font.size[size], text, ICE_ColorToSdl(fg), ICE_ColorToSdl(bg));
 		SDL_Rect rect; rect.x = vect.x; rect.y = vect.y;
 		rect.w = surf->w; rect.h = surf->h;
