@@ -29,6 +29,8 @@ ICE_UPDATE()
 	// Center
 	ICE_DrawRectangleFill(ICE_CameraWorldScreen(ICE_BoxNew(-10, -10, 20, 20)), ICE_ColorRed);
 	
+	ICE_TermWait();
+
 	ICE_DebugFontDraw(1, "Version Test %s", ICE_VERSION);
 	ICE_DebugMouseCoordinate();
 	ICE_DebugShowFps();

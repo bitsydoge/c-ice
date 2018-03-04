@@ -21,5 +21,6 @@ enum ICE_LogTypes
 }; typedef enum ICE_LogTypes ICE_LogTypes;
 
 void ICE_Log(ICE_LogTypes type, const char * format, ...);
+void ICE_Log_no_n(ICE_LogTypes type, const char * format, ...);
 
 #endif
