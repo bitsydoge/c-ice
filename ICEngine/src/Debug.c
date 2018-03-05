@@ -86,7 +86,6 @@ void ICE_DebugFontDraw(int y, const char* format, ...) {
 		SDL_RenderCopy(game.window.render, texture, NULL, &rect);
 		SDL_FreeSurface(surf);
 		SDL_DestroyTexture(texture);
-
 		va_end(args);
 	}
 }
@@ -103,6 +102,7 @@ void ICE_DebugMoveCamera()
 			ICE_CameraShiftPos(ICE_VectNew(-1000 * ICE_GameDelta(), 0));
 		if (ICE_InputKey(ICE_INPUT_D))
 			ICE_CameraShiftPos(ICE_VectNew(1000 * ICE_GameDelta(), 0));
-
+		if (ICE_InputKey(ICE_INPUT_SPACE))
+			ICE_CameraMovePos(ICE_VectNull, 1000 * ICE_GameDelta());
 	}
 }

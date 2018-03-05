@@ -128,14 +128,12 @@ struct ICE_Node
 	// Tree
 	// ----------------------
 	ICE_Bool haveParent;
-	ICE_Node *parent;
+	//ICE_Node *parent;
 
 	ICE_Bool haveChild;
-	ICE_Node *childArray;
+	//ICE_Node *childArray;
 
 }; typedef struct ICE_Node ICE_Node;
-
-typedef 
 
 // --------------------------------------
 

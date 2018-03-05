@@ -69,7 +69,14 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Program Files %28x86%29\Visual Leak Detector\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Visual Leak Detector\lib\Win32;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\Program Files %28x86%29\Visual Leak Detector\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Visual Leak Detector\lib\Win64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -128,6 +135,10 @@
     <ClCompile Include="src\Debug_private.c" />
     <ClCompile Include="src\external\icestd.c" />
     <ClCompile Include="src\external\rlutil.c" />
+    <ClCompile Include="src\external\SDL2_framerate.c" />
+    <ClCompile Include="src\external\SDL2_gfxPrimitives.c" />
+    <ClCompile Include="src\external\SDL2_imageFilter.c" />
+    <ClCompile Include="src\external\SDL2_rotozoom.c" />
     <ClCompile Include="src\external\vec.c" />
     <ClCompile Include="src\Font.c" />
     <ClCompile Include="src\Game.c" />
@@ -153,6 +164,11 @@
     <ClInclude Include="src\external\gb_string.h" />
     <ClInclude Include="src\external\icestd.h" />
     <ClInclude Include="src\external\rlutil.h" />
+    <ClInclude Include="src\external\SDL2_framerate.h" />
+    <ClInclude Include="src\external\SDL2_gfxPrimitives.h" />
+    <ClInclude Include="src\external\SDL2_gfxPrimitives_font.h" />
+    <ClInclude Include="src\external\SDL2_imageFilter.h" />
+    <ClInclude Include="src\external\SDL2_rotozoom.h" />
     <ClInclude Include="src\external\stb_image.h" />
     <ClInclude Include="src\external\vec.h" />
     <ClInclude Include="src\hdr\Array.h" />
