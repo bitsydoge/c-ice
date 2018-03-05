@@ -37,7 +37,7 @@ void ICE_DebugShowFps()
 	if (game.debug)
 	{
 		char gh[20];
-		sprintf(gh, " FPS : [%.1f] ", game.time.fps);
+		sprintf(gh, " FPS : [%.0f] ", game.time.fps);
 		ICE_DebugFontDraw(1, gh);
 	}
 }
@@ -45,7 +45,7 @@ void ICE_DebugShowFps()
 void ICE_DebugShowFpsTitle(){
 	if (game.debug){
 		char buffer[20];
-		sprintf(buffer, "FPS : [%0.1f]", game.time.fps);
+		sprintf(buffer, "FPS : [%.0f]", game.time.fps);
 		ICE_WindowTitle(buffer);
 	}
 }
