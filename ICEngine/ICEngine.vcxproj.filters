@@ -102,6 +102,18 @@
     <ClCompile Include="src\Node.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\external\SDL2_framerate.c">
+      <Filter>external</Filter>
+    </ClCompile>
+    <ClCompile Include="src\external\SDL2_gfxPrimitives.c">
+      <Filter>external</Filter>
+    </ClCompile>
+    <ClCompile Include="src\external\SDL2_imageFilter.c">
+      <Filter>external</Filter>
+    </ClCompile>
+    <ClCompile Include="src\external\SDL2_rotozoom.c">
+      <Filter>external</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\external\icestd.h">
@@ -220,6 +232,21 @@
     </ClInclude>
     <ClInclude Include="src\hdr\Node.h">
       <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\external\SDL2_framerate.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="src\external\SDL2_gfxPrimitives.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="src\external\SDL2_gfxPrimitives_font.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="src\external\SDL2_imageFilter.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="src\external\SDL2_rotozoom.h">
+      <Filter>external</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

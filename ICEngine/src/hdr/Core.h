@@ -35,6 +35,10 @@
 #include "Vector.h"
 #include "Window.h"
 
+#if defined(_MSC_VER) && defined(_DEBUG)
+	#include <vld.h>
+#endif
+
 int ICE_CoreLoop(ICE_String title, int window_width, int window_height, void(*call_preload)(void), void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void));
 
 #endif
