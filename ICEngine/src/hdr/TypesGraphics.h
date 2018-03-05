@@ -4,4 +4,5 @@
 
 typedef Uint32 ICE_Color;
 
+
 #endif

@@ -3,7 +3,7 @@
 #include <SDL2/SDL_ttf.h>
 #include "hdr/Terminal_private.h"
 #include "hdr/Terminal.h"
-
+#include "hdr/Time_private.h"
 
 int ICE_CoreInit() {
 
@@ -17,6 +17,9 @@ int ICE_CoreInit() {
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
 	TTF_Init();
 	
+	// SDL_gfx
+	ICE_TimeInit();
+
 	return 0;
 }
 

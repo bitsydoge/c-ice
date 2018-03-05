@@ -1,7 +1,7 @@
 #ifndef DEF_ICE_CORE
 #define DEF_ICE_CORE
 
-#define ICE_VERSION "180300.dev"
+#define ICE_VERSION "100<dev>"
 #define ICE_DEBUG_BUILD 1;
 
 #define ICE_START(NAME, WIDTH, HEIGHT) ICE_CoreLoop(NAME, WIDTH, HEIGHT, ICE_User_Preload, ICE_User_Create, ICE_User_Update, ICE_User_Destroy)

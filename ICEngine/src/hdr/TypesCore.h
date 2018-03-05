@@ -9,7 +9,6 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 
-
 // Typedef
 // --------------------------------------
 
@@ -32,12 +31,12 @@
 
 struct ICE_Time {
 
-	unsigned long actual;
-	unsigned long last;
-	double ticks;
-	unsigned int ticksEllapsed;
-	double fps;
-	double delta;
+	//unsigned long actual;
+	//unsigned long last;
+	//double ticks;
+	//unsigned int ticksEllapsed;
+	ICE_Float fps;
+	ICE_Float delta;
 
 }; typedef struct ICE_Time ICE_Time;
 
@@ -142,8 +141,6 @@ struct ICE_Game {
 	ICE_Window window;
 	ICE_Camera camera;
 	ICE_Time time;
-
-
 
 	// Config
 	ICE_Bool debug;
