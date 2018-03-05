@@ -140,9 +140,6 @@
     <ClInclude Include="src\hdr\Core_private.h">
       <Filter>hdr</Filter>
     </ClInclude>
-    <ClInclude Include="src\external\gb_string.h">
-      <Filter>external</Filter>
-    </ClInclude>
     <ClInclude Include="src\hdr\Game.h">
       <Filter>hdr</Filter>
     </ClInclude>
@@ -173,9 +170,6 @@
     <ClInclude Include="src\hdr\Render_private.h">
       <Filter>hdr</Filter>
     </ClInclude>
-    <ClInclude Include="src\hdr\Time.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
     <ClInclude Include="src\hdr\Time_private.h">
       <Filter>hdr</Filter>
     </ClInclude>
@@ -195,9 +189,6 @@
       <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Debug_private.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\StringDyn.h">
       <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Asset_private.h">
@@ -247,6 +238,12 @@
     </ClInclude>
     <ClInclude Include="src\external\SDL2_rotozoom.h">
       <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\String_.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Time_.h">
+      <Filter>hdr</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
