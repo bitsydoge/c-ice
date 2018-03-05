@@ -71,16 +71,16 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LibraryPath>..\Debug;$(LibraryPath)</LibraryPath>
-    <IncludePath>..\..\ICEngine\src\hdr;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Visual Leak Detector\lib\Win32;..\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Program Files %28x86%29\Visual Leak Detector\include;..\..\ICEngine\src\hdr;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LibraryPath>..\Release;$(LibraryPath)</LibraryPath>
     <IncludePath>..\..\ICEngine\src\hdr;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>..\..\x64\Debug;$(LibraryPath)</LibraryPath>
-    <IncludePath>..\..\ICEngine\src\hdr;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Visual Leak Detector\lib\Win64;..\..\x64\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Program Files %28x86%29\Visual Leak Detector\include;..\..\ICEngine\src\hdr;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LibraryPath>..\..\x64\Release;$(LibraryPath)</LibraryPath>
