@@ -29,9 +29,9 @@
 #include "Primitive.h"
 #include "Random.h"
 #include "Render.h"
-#include "StringDyn.h"
+#include "String_.h"
 #include "Terminal.h"
-#include "Time.h"
+#include "Time_.h"
 #include "Vector.h"
 #include "Window.h"
 

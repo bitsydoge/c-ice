@@ -2,7 +2,7 @@
 #define DEF_ICE_TYPESCORE
 
 #include "Array.h"
-#include "StringDyn.h"
+#include "String_.h"
 #include "TypesMaths.h"
 #include "TypesGraphics.h"
 

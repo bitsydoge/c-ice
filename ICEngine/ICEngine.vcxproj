@@ -161,7 +161,6 @@
     <ClCompile Include="src\Window.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\external\gb_string.h" />
     <ClInclude Include="src\external\icestd.h" />
     <ClInclude Include="src\external\rlutil.h" />
     <ClInclude Include="src\external\SDL2_framerate.h" />
@@ -187,7 +186,7 @@
     <ClInclude Include="src\hdr\Node.h" />
     <ClInclude Include="src\hdr\Primitive.h" />
     <ClInclude Include="src\hdr\Random.h" />
-    <ClInclude Include="src\hdr\StringDyn.h" />
+    <ClInclude Include="src\hdr\String_.h" />
     <ClInclude Include="src\hdr\Game.h" />
     <ClInclude Include="src\hdr\Game_private.h" />
     <ClInclude Include="src\hdr\Input.h" />
@@ -196,7 +195,7 @@
     <ClInclude Include="src\hdr\Render_private.h" />
     <ClInclude Include="src\hdr\Terminal.h" />
     <ClInclude Include="src\hdr\Terminal_private.h" />
-    <ClInclude Include="src\hdr\Time.h" />
+    <ClInclude Include="src\hdr\Time_.h" />
     <ClInclude Include="src\hdr\Time_private.h" />
     <ClInclude Include="src\hdr\TypesAudio.h" />
     <ClInclude Include="src\hdr\TypesCore.h" />

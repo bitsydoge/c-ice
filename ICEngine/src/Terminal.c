@@ -1,7 +1,7 @@
 ﻿#include "hdr/Terminal.h"
 #include "external/rlutil.h"
 #include "hdr/TypesCore.h"
-#include "hdr/Time.h"
+#include "hdr/Time_.h"
 #include "hdr/Log.h"
 
 extern ICE_Game game;
