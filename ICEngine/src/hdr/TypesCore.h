@@ -1,7 +1,6 @@
 ﻿#ifndef DEF_ICE_TYPESCORE
 #define DEF_ICE_TYPESCORE
 
-#include "Array.h"
 #include "String_.h"
 #include "TypesMaths.h"
 #include "TypesGraphics.h"

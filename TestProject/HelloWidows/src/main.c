@@ -22,11 +22,8 @@ ICE_UPDATE()
 	// Primitive
 	// -------------------------
 
-		// Croix
 		ICE_DrawLineAA( ICE_VectNull, ICE_VectScreen, ICE_ColorRed );
 		ICE_DrawLineAA(ICE_VectNew(0, ICE_WindowGetH()), ICE_VectNew(ICE_WindowGetW(),0), ICE_ColorRed);
-		//ICE_DrawCircleAA(ICE_VectNew(ICE_WindowGetW()/2, ICE_WindowGetH()/2), 100, ICE_ColorRed);
-	
 		ICE_DrawRectangleFill(ICE_CameraWorldScreen(ICE_BoxNew(-10, -10, 20, 20)), ICE_ColorRed);
 	
 	// Debug Drawing
@@ -34,8 +31,7 @@ ICE_UPDATE()
 
 		ICE_DebugMoveCamera();
 		ICE_DebugShowFps();
-		//ICE_DebugFontDraw(2, " Version %s ", ICE_VERSION);
-		//ICE_DebugMouseCoordinate();		
+		ICE_DebugFontDraw(2, " Version %s ", ICE_VERSION);		
 }
 
 ICE_DESTROY() {}

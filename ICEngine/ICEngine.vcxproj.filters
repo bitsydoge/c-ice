@@ -30,78 +30,6 @@
     <ClCompile Include="src\raw\raw_icon.c">
       <Filter>raw</Filter>
     </ClCompile>
-    <ClCompile Include="src\Core.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Array.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core_private.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game_private.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Terminal.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Debug.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Input.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Input_private.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Render.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Render_private.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Time.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Time_private.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Terminal_private.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Debug_private.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\StringDyn.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Asset_private.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Primitive.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Window.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Font.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Camera.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Random.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Log.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Node.c">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\external\SDL2_framerate.c">
       <Filter>external</Filter>
     </ClCompile>
@@ -113,6 +41,75 @@
     </ClCompile>
     <ClCompile Include="src\external\SDL2_rotozoom.c">
       <Filter>external</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Array.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Asset_private.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core_private.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Debug.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Debug_private.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Font.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game_private.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input_private.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Log.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Primitive.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Random.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Render.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Render_private.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\String_.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Terminal.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Terminal_private.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Time_.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Time_private.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Window.c">
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -219,9 +216,6 @@
       <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Log.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Node.h">
       <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\external\SDL2_framerate.h">

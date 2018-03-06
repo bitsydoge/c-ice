@@ -148,7 +148,7 @@ Uint32 SDL_framerateDelay(FPSmanager * manager)
 	Uint32 current_ticks;
 	Uint32 target_ticks;
 	Uint32 the_delay;
-	Uint32 time_passed = 0;
+	Uint32 time_passed;
 
 	/*
 	* No manager, no delay
