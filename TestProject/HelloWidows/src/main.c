@@ -1,4 +1,5 @@
 #include <Core.h>
+
 ICE_PRELOAD() // Load assets here, if the game "restart" they are not gonna be reload
 {
 	ICE_Debug(ICE_True);
@@ -8,7 +9,7 @@ ICE_PRELOAD() // Load assets here, if the game "restart" they are not gonna be r
 ICE_CREATE()
 {
 	ICE_RenderBgColor( ICE_ColorNew( 200, 200, 200 ) );
-	if(ICE_Debug(ICE_Null))
+	if(ICE_Debug(ICE_BoolNone))
 	{
 		ICE_DebugFontDrawBgColor(100, 100, 100);
 		ICE_DebugFontDrawFgColor(0, 0, 50);
@@ -24,7 +25,7 @@ ICE_UPDATE()
 		// Croix
 		ICE_DrawLineAA( ICE_VectNull, ICE_VectScreen, ICE_ColorRed );
 		ICE_DrawLineAA(ICE_VectNew(0, ICE_WindowGetH()), ICE_VectNew(ICE_WindowGetW(),0), ICE_ColorRed);
-		ICE_DrawCircleAA(ICE_VectNew(ICE_WindowGetW()/2, ICE_WindowGetH()/2), 100, ICE_ColorRed);
+		//ICE_DrawCircleAA(ICE_VectNew(ICE_WindowGetW()/2, ICE_WindowGetH()/2), 100, ICE_ColorRed);
 	
 		ICE_DrawRectangleFill(ICE_CameraWorldScreen(ICE_BoxNew(-10, -10, 20, 20)), ICE_ColorRed);
 	
@@ -33,8 +34,8 @@ ICE_UPDATE()
 
 		ICE_DebugMoveCamera();
 		ICE_DebugShowFps();
-		ICE_DebugFontDraw(2, " Version %s ", ICE_VERSION);
-		ICE_DebugMouseCoordinate();		
+		//ICE_DebugFontDraw(2, " Version %s ", ICE_VERSION);
+		//ICE_DebugMouseCoordinate();		
 }
 
 ICE_DESTROY() {}
