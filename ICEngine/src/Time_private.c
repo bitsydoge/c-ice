@@ -28,8 +28,8 @@ void ICE_TimeStart()
 void ICE_TimeEnd()
 {
 
-#define NB_COUNT_FPS 10
-#define TIME_BETWEEN_UPDATE 100
+#define NB_COUNT_FPS 25
+#define TIME_BETWEEN_UPDATE 6.9444444444444
 
 	static double fps_count[NB_COUNT_FPS];
 	static int fps_actual_to_fill = 0;

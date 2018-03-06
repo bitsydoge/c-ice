@@ -21,9 +21,9 @@
 	#define ICE_False 0
 	#define ICE_FALSE 0
 	#define ICE_false 0
-	#define ICE_NULL -1	
-	#define ICE_Null -1
-	#define ICE_null -1
+	#define ICE_BOOLNONE -1	
+	#define ICE_BoolNone -1
+	#define ICE_boolnone -1
 #endif
 
 // Struct
