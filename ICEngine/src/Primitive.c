@@ -3,7 +3,6 @@
 #include "hdr/TypesCore.h"
 #include "hdr/Render_private.h"
 #include "external/SDL2_gfxPrimitives.h"
-#include "hdr/Color_private.h"
 
 extern ICE_Game game;
 

@@ -2,7 +2,6 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include "hdr/Terminal_private.h"
-#include "hdr/Terminal.h"
 #include "hdr/Time_private.h"
 
 int ICE_CoreInit() {
