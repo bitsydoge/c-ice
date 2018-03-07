@@ -3,6 +3,11 @@
 #include <SDL2/SDL_ttf.h>
 #include "hdr/Terminal_private.h"
 #include "hdr/Time_private.h"
+#include "hdr/TypesCore.h"
+#include "hdr/Label.h"
+#include "hdr/Log.h"
+
+extern ICE_Game game;
 
 int ICE_CoreInit() {
 
@@ -19,10 +24,16 @@ int ICE_CoreInit() {
 	// SDL_gfx
 	ICE_TimeInit();
 
+	ICE_Log(ICE_LOG_SUCCES, "ENGINE]::[OK");
+
 	return 0;
 }
 
 int ICE_CoreClose() {
+	
+	// Manager Clean
+	//free(game.label_mngr);
+	ICE_LabelManagerDestroyAll();
 	// SDL
 	TTF_Quit();
 	SDL_Quit();

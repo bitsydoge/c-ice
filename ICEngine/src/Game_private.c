@@ -1,6 +1,7 @@
 ﻿#include "hdr/Game_private.h"
 #include "hdr/TypesCore.h"
 #include "hdr/Log.h"
+#include "hdr/Label.h"
 
 ICE_Game game = { 0 };
 
@@ -21,7 +22,9 @@ void ICE_GameCreate(char *window_title, const unsigned int width_window, const u
 	game.window.w = width_window; game.window.h = height_window;
 	game.camera.w = width_window; game.camera.h = height_window;
 
-	ICE_Log(ICE_LOG_SUCCES, "GAMELAUNCH");
+	ICE_Log(ICE_LOG_SUCCES, "GAME::OK");
+
+	ICE_LabelManagerCreate();
 }
 
 void ICE_GameDestroy()
