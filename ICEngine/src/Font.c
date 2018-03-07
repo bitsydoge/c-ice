@@ -1,6 +1,5 @@
 ﻿#include "hdr/Font.h"
 
-#include <stdio.h>
 #include <SDL2/SDL_ttf.h>
 #include "hdr/TypesCore.h"
 #include "hdr/Window.h"
@@ -10,7 +9,7 @@
 
 extern ICE_Game game;
 extern ICE_Asset asset;
-
+extern ICE_Bool debug_ok;
 // Font load
 
 void ICE_FontLoad(char *path) {
@@ -22,7 +21,7 @@ void ICE_FontLoad(char *path) {
 }
 
 void ICE_FontDraw(char* text, ICE_Vect vect, ICE_Color fg, ICE_Color bg) {
-	if (game.debug)
+	if (debug_ok)
 	{
 		int size = (int)((ICE_Float)ICE_WindowGetH() / 50.0);
 		if (size < 12)

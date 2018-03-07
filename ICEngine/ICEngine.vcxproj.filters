@@ -111,6 +111,9 @@
     <ClCompile Include="src\Window.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Label.c">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\external\icestd.h">
@@ -237,6 +240,9 @@
       <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Time_.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Label.h">
       <Filter>hdr</Filter>
     </ClInclude>
   </ItemGroup>

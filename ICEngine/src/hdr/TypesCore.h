@@ -99,54 +99,75 @@ struct ICE_Font
 
 // --------------------------------------
 
-enum ICE_NodeType
+typedef struct
 {
-	ICE_NODETYPE_VOID = 0,
-	ICE_NODETYPE_SPRITE = 1,
-	ICE_NODETYPE_COLLIDER = 2,
-	ICE_NODETYPE_LABEL = 3,
-	ICE_NODETYPE_MAP = 4,
-	ICE_NODETYPE_GUI = 5
-
-}; typedef enum ICE_NodeType ICE_NodeType;
-
-// --------------------------------------
-
-struct ICE_Node
-{
-	// Attribute
-	// ----------------------
-	ICE_String name;
+	// Main
+	ICE_Bool active;
 	ICE_Float x, y;
 
-	ICE_NodeType type;
-	unsigned int man, item;
-	void* component;
+	// Label Value
+	ICE_String text;
+	int size;
+	ICE_Color color;
 
-	// Tree
-	// ----------------------
-	ICE_Bool haveParent;
-	//ICE_Node *parent;
+	ICE_String old_text;
+	int old_size;
+	ICE_Color old_color;
+	
+	//ICE_Texture texture;
+	ICE_Bool isFixedToWorld;
 
-	ICE_Bool haveChild;
-	//ICE_Node *childArray;
 
-}; typedef struct ICE_Node ICE_Node;
+} ICE_Label;
 
+typedef struct
+{
+	ICE_Bool isFree;
+	unsigned int label_size;
+	unsigned int label_contain;
+	ICE_Label* label;
+
+} ICE_LabelManager;
+
+
+
+
+
+// BIG OBJECT
 // --------------------------------------
+// --------------------------------------
+// --------------------------------------
+// --------------------------------------
+// --------------------------------------
+// --------------------------------------
+// --------------------------------------
+// --------------------------------------
+// --------------------------------------
+
+
+
+
 
 struct ICE_Game {
 	
+	// Main
 	ICE_Window window;
 	ICE_Camera camera;
 	ICE_Time time;
 
-	// Config
-	ICE_Bool debug;
+	// Label
+	unsigned int label_mngr_nb;
+	ICE_LabelManager *label_mngr;
 
 }; typedef struct ICE_Game ICE_Game;
 
+
+
 // --------------------------------------
+// --------------------------------------
+// --------------------------------------
+
+
 
 struct ICE_Asset
 {

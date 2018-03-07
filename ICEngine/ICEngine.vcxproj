@@ -145,6 +145,7 @@
     <ClCompile Include="src\Game_private.c" />
     <ClCompile Include="src\Input.c" />
     <ClCompile Include="src\Input_private.c" />
+    <ClCompile Include="src\Label.c" />
     <ClCompile Include="src\Log.c" />
     <ClCompile Include="src\Primitive.c" />
     <ClCompile Include="src\Random.c" />
@@ -181,6 +182,7 @@
     <ClInclude Include="src\hdr\Debug.h" />
     <ClInclude Include="src\hdr\Debug_private.h" />
     <ClInclude Include="src\hdr\Font.h" />
+    <ClInclude Include="src\hdr\Label.h" />
     <ClInclude Include="src\hdr\Log.h" />
     <ClInclude Include="src\hdr\Primitive.h" />
     <ClInclude Include="src\hdr\Random.h" />

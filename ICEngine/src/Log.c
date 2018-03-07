@@ -7,12 +7,13 @@
 #include <stdio.h>
 
 extern ICE_Game game;
+extern ICE_Bool debug_ok;
 
 // Log
 
 void ICE_Log(ICE_LogTypes type, const char * format, ...)
 {
-	if (game.debug)
+	if (debug_ok)
 	{
 		va_list args;
 		va_start(args, format);
@@ -60,7 +61,7 @@ void ICE_Log(ICE_LogTypes type, const char * format, ...)
 
 void ICE_Log_no_n(ICE_LogTypes type, const char * format, ...)
 {
-	if (game.debug)
+	if (debug_ok)
 	{
 		va_list args;
 		va_start(args, format);

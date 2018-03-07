@@ -25,6 +25,7 @@
 #include "Font.h"
 #include "Game.h"
 #include "Input.h"
+#include "Label.h"
 #include "Log.h"
 #include "Primitive.h"
 #include "Random.h"

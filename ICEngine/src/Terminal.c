@@ -6,28 +6,28 @@
 
 extern ICE_Game game;
 
+extern ICE_Bool debug_ok;
+
 void ICE_TermResetColor(){
-	if (game.debug)
+	if (debug_ok)
 		resetColor();
 }
-char ICE_TermSetColor(const int c){
-	if (game.debug)
+void ICE_TermSetColor(const int c){
+	if (debug_ok)
 		setColor(c);
-	return '\0';
 }
-char ICE_TermSetBgColor(const int c){
-	if (game.debug)
+void ICE_TermSetBgColor(const int c){
+	if (debug_ok)
 		setBackgroundColor(c);
-	return '\0';
 }
 
 void ICE_TermClear(){
-	if (game.debug)
+	if (debug_ok)
 		cls();
 }
 
 void ICE_TermClock(){
-	if (game.debug)
+	if (debug_ok)
 	{
 		ICE_TermSetColor(iceLIGHTCYAN);
 		printf("[%.3f s]", ICE_TimeClock());
@@ -37,7 +37,7 @@ void ICE_TermClock(){
 }
 
 void ICE_TermWait(){
-	if (game.debug)
+	if (debug_ok)
 	{
 		ICE_Log_no_n(ICE_LOG_NONE, "TERMINAL]::[PRESSRETURNTOCONTINUE");
 		#ifdef getch
