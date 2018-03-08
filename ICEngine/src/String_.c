@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "hdr/Memory_.h"
 
 // Number of char per int on that platform
 static const int cpi = sizeof(int) / sizeof(char);
@@ -49,7 +50,7 @@ ICE_String ICE_StringInit(char* stdstring)
 
 	nb_int_to_malloc += 2;
 
-	int * tmp = (int*)malloc(sizeof(int)*nb_int_to_malloc);
+	int * tmp = (int*)ICE_Malloc(sizeof(int)*nb_int_to_malloc);
 	char* string = (char*)(tmp + 2);
 
 	int* size_array = (int*)(string - (2 * cpi));
@@ -67,7 +68,7 @@ ICE_String ICE_StringInit(char* stdstring)
 void ICE_StringDelete(ICE_String string)
 {
 	int *tmp = (int*)(string - (2 * cpi));
-	free(tmp);
+	ICE_Free(tmp);
 }
 
 // Draw string + header informations
@@ -101,7 +102,7 @@ void ICE_StringResize(ICE_String* ptr_string, const int size)
 	else
 		bool_tronc = 0;
 
-	tmp = (int*)realloc(tmp, sizeof(int)*(2 + nb_int_to_realloc));
+	tmp = (int*)ICE_Realloc(tmp, sizeof(int)*(2 + nb_int_to_realloc));
 	tmp[0] = nb_int_to_realloc * cpi;
 	tmp[1] = bool_tronc ? size : contain_array;
 	ice_string = (char*)(tmp + 2);
