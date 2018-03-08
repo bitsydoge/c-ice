@@ -3,7 +3,6 @@
 #include "hdr/TypesCore.h"
 #include "hdr/Log.h"
 #include "hdr/Color.h"
-#include "hdr/Debug_private.h"
 
 #include <string.h>
 #include "hdr/Memory_.h"
@@ -19,7 +18,7 @@ void ICE_LabelManagerCreate()
 	game.label_mngr = ICE_Realloc(game.label_mngr, game.label_mngr_nb * sizeof(ICE_LabelManager)); // Manager Array
 	game.label_mngr[game.label_mngr_nb - 1] = text_manager;
 
-	ICE_Log(ICE_LOG_SUCCES, "LABELMANAGER]::[%d]::[CREATE", game.label_mngr_nb - 1);
+	ICE_Log(ICE_LOG_SUCCES, "LabelManager]::[%d]::[Create", game.label_mngr_nb - 1);
 }
 
 void ICE_LabelCreate(const unsigned int man, const ICE_Vect pos, char *text)
@@ -43,13 +42,13 @@ void ICE_LabelCreate(const unsigned int man, const ICE_Vect pos, char *text)
 	//ICE_LabelUpdateTexture(man, game.label_mngr[man].label_contain);
 	game.label_mngr[man].label_contain++;
 
-	ICE_Log(ICE_LOG_SUCCES, "LABELMANAGER]::[%d]::[LABEL]::[%d]::[CREATE]::[String=\"%s\"", man, game.label_mngr[man].label_contain-1, text);
+	ICE_Log(ICE_LOG_SUCCES, "LabelManager]::[%d]::[Label]::[%d]::[Create]::[String=\"%s\"", man, game.label_mngr[man].label_contain-1, text);
 
 	// Test size to realloc more space
 	if (game.label_mngr[man].label_size <= game.label_mngr[man].label_contain) {
 		ICE_Label* tmp = ICE_Realloc(game.label_mngr[man].label, sizeof(ICE_Label)*(game.label_mngr[man].label_size * 2));
 		// Test if realloc succes
-		ICE_Log(ICE_LOG_WARNING, "LABELMANAGER]::[%d]::[RESIZED]::[%d", man, game.label_mngr[man].label_size * 2);
+		ICE_Log(ICE_LOG_WARNING, "LabelManager]::[%d]::[Resized]::[%d", man, game.label_mngr[man].label_size * 2);
 		game.label_mngr[man].label = tmp;
 		game.label_mngr[man].label_size *= 2;
 	}
@@ -76,6 +75,7 @@ void ICE_LabelManagerDestroy(const unsigned int man)
 		ICE_StringDelete(manager->label[i].old_text);
 	}
 	ICE_Free(manager->label);
+	ICE_Log(ICE_LOG_SUCCES, "LabelManager]::[%d]::[Free", man);
 }
 
 void ICE_LabelManagerDestroyAll()

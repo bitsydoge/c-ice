@@ -14,7 +14,7 @@ int ICE_CoreInit() {
 	// Other
 	ICE_TermSaveColor();
 	printf("------------------------\n");
-	ICE_Log(ICE_LOG_RUNNING, "ENGINE]::[INIT]::[START");
+	ICE_Log(ICE_LOG_RUNNING, "Engine]::[Init]::[Start");
 	printf("------------------------\n");
 	ICE_TermHideCursor();
 
@@ -26,17 +26,12 @@ int ICE_CoreInit() {
 	// SDL_gfx
 	ICE_TimeInit();
 
-	printf("------------------------\n");
-	ICE_Log(ICE_LOG_SUCCES, "ENGINE]::[INIT]::[FINISH");
-	printf("------------------------\n");
-	printf("\n");
-
 	return 0;
 }
 
 int ICE_CoreClose() {
 	printf("------------------------\n");
-	ICE_Log(ICE_LOG_RUNNING, "ENGINE]::[CLOSE]::[START");
+	ICE_Log(ICE_LOG_RUNNING, "Engine]::[Close]::[Start");
 	printf("------------------------\n");
 
 	// Manager Clean
@@ -47,7 +42,7 @@ int ICE_CoreClose() {
 	SDL_Quit();
 
 	printf("------------------------\n");
-	ICE_Log(ICE_LOG_SUCCES, "ENGINE]::[CLOSE]::[FINISH");
+	ICE_Log(ICE_LOG_SUCCES, "Engine]::[Close]::[Finish");
 	printf("------------------------\n\n");
 
 
