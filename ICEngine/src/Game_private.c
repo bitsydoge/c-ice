@@ -22,8 +22,6 @@ void ICE_GameCreate(char *window_title, const unsigned int width_window, const u
 	game.window.w = width_window; game.window.h = height_window;
 	game.camera.w = width_window; game.camera.h = height_window;
 
-	ICE_Log(ICE_LOG_SUCCES, "GAME::OK");
-
 	ICE_LabelManagerCreate();
 }
 
