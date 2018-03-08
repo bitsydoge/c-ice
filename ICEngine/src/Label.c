@@ -49,17 +49,9 @@ void ICE_LabelCreate(const unsigned int man, const ICE_Vect pos, char *text)
 	if (game.label_mngr[man].label_size <= game.label_mngr[man].label_contain) {
 		ICE_Label* tmp = ICE_Realloc(game.label_mngr[man].label, sizeof(ICE_Label)*(game.label_mngr[man].label_size * 2));
 		// Test if realloc succes
-		if (tmp)
-		{
-			ICE_Log(ICE_LOG_WARNING, "LABELMANAGER]::[%d]::[RESIZED]::[%d", man, game.label_mngr[man].label_size * 2);
-			game.label_mngr[man].label = tmp;
-			game.label_mngr[man].label_size *= 2;
-		}
-		else
-		{
-			ICE_Log(ICE_LOG_CRITICAL, "LABELMANAGER]::[%d]::[RESIZE]::[FAIL", man);
-			ICE_Assert(tmp != NULL, "Label Manager failed to realloc");
-		}
+		ICE_Log(ICE_LOG_WARNING, "LABELMANAGER]::[%d]::[RESIZED]::[%d", man, game.label_mngr[man].label_size * 2);
+		game.label_mngr[man].label = tmp;
+		game.label_mngr[man].label_size *= 2;
 	}
 }
 
