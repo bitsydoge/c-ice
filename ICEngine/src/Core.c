@@ -4,6 +4,7 @@
 #include "hdr/Input_private.h"
 #include "hdr/Render_private.h"
 #include "hdr/Time_private.h"
+#include <stdio.h>
 
 extern ICE_Game game;
 
@@ -11,8 +12,19 @@ int ICE_CoreLoop(const ICE_String title, const int window_width, const int windo
 {
 	ICE_CoreInit();
 	call_preload();
+
+	printf("------------------------\n");
+	ICE_Log(ICE_LOG_RUNNING, "GAME]::[CREATE]::[START");
+	printf("------------------------\n");
 	ICE_GameCreate(title, window_width, window_height);
 	call_create();
+	printf("------------------------\n");
+	ICE_Log(ICE_LOG_SUCCES, "GAME]::[CREATE]::[FINISH");
+	printf("------------------------\n");
+	printf("\n");
+	printf("------------------------\n");
+	ICE_Log(ICE_LOG_RUNNING, "GAME]::[UPDATE]::[START");
+	printf("------------------------\n");
 	while (!game.window.input.quit)
 	{	
 		ICE_TimeStart();
@@ -27,8 +39,19 @@ int ICE_CoreLoop(const ICE_String title, const int window_width, const int windo
 
 		ICE_TimeEnd();
 	}
+	printf("------------------------\n");
+	ICE_Log(ICE_LOG_SUCCES, "GAME]::[UPDATE]::[FINISH");
+	printf("------------------------\n");
+	printf("\n");
+	printf("------------------------\n");
+	ICE_Log(ICE_LOG_RUNNING, "GAME]::[DESTROY]::[START");
+	printf("------------------------\n");
 	call_destroy();
 	ICE_GameDestroy();
+	printf("------------------------\n");
+	ICE_Log(ICE_LOG_SUCCES, "GAME]::[DESTROY]::[FINISH");
+	printf("------------------------\n\n");
+	
 	ICE_CoreClose();
 	return 0;
 }

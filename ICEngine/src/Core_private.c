@@ -6,14 +6,16 @@
 #include "hdr/TypesCore.h"
 #include "hdr/Label.h"
 #include "hdr/Log.h"
+#include <stdio.h>
 
 extern ICE_Game game;
 
 int ICE_CoreInit() {
-
-
 	// Other
 	ICE_TermSaveColor();
+	printf("------------------------\n");
+	ICE_Log(ICE_LOG_RUNNING, "ENGINE]::[INIT]::[START");
+	printf("------------------------\n");
 	ICE_TermHideCursor();
 
 	// SDL
@@ -24,19 +26,30 @@ int ICE_CoreInit() {
 	// SDL_gfx
 	ICE_TimeInit();
 
-	ICE_Log(ICE_LOG_SUCCES, "ENGINE]::[OK");
+	printf("------------------------\n");
+	ICE_Log(ICE_LOG_SUCCES, "ENGINE]::[INIT]::[FINISH");
+	printf("------------------------\n");
+	printf("\n");
 
 	return 0;
 }
 
 int ICE_CoreClose() {
-	
+	printf("------------------------\n");
+	ICE_Log(ICE_LOG_RUNNING, "ENGINE]::[CLOSE]::[START");
+	printf("------------------------\n");
+
 	// Manager Clean
 	//free(game.label_mngr);
 	ICE_LabelManagerDestroyAll();
 	// SDL
 	TTF_Quit();
 	SDL_Quit();
+
+	printf("------------------------\n");
+	ICE_Log(ICE_LOG_SUCCES, "ENGINE]::[CLOSE]::[FINISH");
+	printf("------------------------\n\n");
+
 
 	return 0;
 }

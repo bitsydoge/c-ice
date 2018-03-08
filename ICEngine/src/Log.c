@@ -45,6 +45,11 @@ void ICE_Log(ICE_LogTypes type, const char * format, ...)
 			ICE_TermSetColor(iceRED);
 			printf("[CRITICAL]");
 			break;
+		case ICE_LOG_RUNNING:
+			ICE_TermClock();
+			ICE_TermSetColor(iceLIGHTMAGENTA);
+			printf("[RUNNING...]");
+			break;
 		default:
 			ICE_TermClock();
 			printf("[NOLOGTYPE]");
