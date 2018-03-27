@@ -10,7 +10,7 @@
 #include "TypesMaths.h"
 
 /// iceBox to SDL_Rect
-inline ICE_Box ICE_ConvertSDLtoBox(SDL_Rect *rect)
+inline ICE_Box ICE_Convert_SDLtoBox(SDL_Rect *rect)
 {
 	ICE_Box ice = { 0 };
 	if (rect)
@@ -22,7 +22,7 @@ inline ICE_Box ICE_ConvertSDLtoBox(SDL_Rect *rect)
 	}
 	return ice;
 }/// SDL_Rect to iceBox
-inline SDL_Rect ICE_ConvertBoxToSDL(ICE_Box *rect)
+inline SDL_Rect ICE_Convert_BoxToSDL(ICE_Box *rect)
 {
 	SDL_Rect sdl = { 0 };
 	if (rect)

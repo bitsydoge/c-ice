@@ -4,7 +4,7 @@
 #define ICE_VERSION "100<dev>"
 #define ICE_DEBUG_BUILD 1;
 
-#define ICE_START(NAME, WIDTH, HEIGHT) ICE_CoreLoop(NAME, WIDTH, HEIGHT, ICE_User_Preload, ICE_User_Create, ICE_User_Update, ICE_User_Destroy)
+#define ICE_START(NAME, WIDTH, HEIGHT) ICE_Core_Main(NAME, WIDTH, HEIGHT, ICE_User_Preload, ICE_User_Create, ICE_User_Update, ICE_User_Destroy)
 
 #define ICE_PRELOAD() void ICE_User_Preload(void)
 #define ICE_CREATE() void ICE_User_Create(void)
@@ -40,6 +40,6 @@
 	#include <vld.h>
 #endif
 
-int ICE_CoreLoop(ICE_String title, int window_width, int window_height, void(*call_preload)(void), void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void));
+int ICE_Core_Main(ICE_String title, int window_width, int window_height, void(*call_preload)(void), void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void));
 
 #endif

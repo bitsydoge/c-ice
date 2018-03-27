@@ -7,13 +7,13 @@ extern ICE_Game game;
 
 FPSmanager fps_manager_global;
 
-void ICE_TimeInit()
+void ICE_Time_Init()
 {
 	SDL_initFramerate(&fps_manager_global);
 	SDL_setFramerate(&fps_manager_global, 144);
 }
 
-void ICE_TimeStart()
+void ICE_Time_Start()
 {	
 	/*
 	game.time.actual = SDL_GetTicks(); // ticks since start of software at the start of loop
@@ -25,7 +25,7 @@ void ICE_TimeStart()
 	*/
 }
 
-void ICE_TimeEnd()
+void ICE_Time_End()
 {
 
 #define NB_COUNT_FPS 25

@@ -3,8 +3,8 @@
 
 #include "TypesMaths.h"
 
-void ICE_RandomInit();
-int ICE_RandomInt(int min, int max);
-ICE_Float ICE_RandomFloat();
+void ICE_Random_Init();
+int ICE_Random_Int(int min, int max);
+ICE_Float ICE_Random_Float();
 
 #endif

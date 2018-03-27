@@ -8,12 +8,12 @@
 
 extern ICE_Game game;
 
-int ICE_CoreLoop(const ICE_String title, const int window_width, const int window_height, void(*call_preload)(void), void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void)) 
+int ICE_Core_Main(const ICE_String title, const int window_width, const int window_height, void(*call_preload)(void), void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void)) 
 {
-	ICE_CoreInit();
+	ICE_Core_Init();
 	call_preload();
 
-	ICE_GameCreate(title, window_width, window_height);
+	ICE_Game_Create(title, window_width, window_height);
 	printf("------------------------\n");
 	ICE_Log(ICE_LOG_RUNNING, "Game]::[Create]::[Start");
 	printf("------------------------\n");
@@ -27,17 +27,17 @@ int ICE_CoreLoop(const ICE_String title, const int window_width, const int windo
 	printf("------------------------\n");
 	while (!game.window.input.quit)
 	{	
-		ICE_TimeStart();
-		ICE_InputReturn();
-		ICE_RenderSetColor(game.window.background);
-		ICE_RenderClear();
+		ICE_Time_Start();
+		ICE_Input_Return();
+		ICE_Render_SetColor(game.window.background);
+		ICE_Render_Clear();
 		call_update();
 
 		// RENDER HERE
 
-		ICE_RenderNow();
+		ICE_Render_Now();
 
-		ICE_TimeEnd();
+		ICE_Time_End();
 	}
 	printf("------------------------\n");
 	ICE_Log(ICE_LOG_SUCCES, "Game]::[Update]::[Finish");
@@ -47,11 +47,11 @@ int ICE_CoreLoop(const ICE_String title, const int window_width, const int windo
 	ICE_Log(ICE_LOG_RUNNING, "Game]::[Destroy]::[Start");
 	printf("------------------------\n");
 	call_destroy();
-	ICE_GameDestroy();
+	ICE_Game_Destroy();
 	printf("------------------------\n");
 	ICE_Log(ICE_LOG_SUCCES, "Game]::[Destroy]::[Finish");
 	printf("------------------------\n\n");
 	
-	ICE_CoreClose();
+	ICE_Core_Close();
 	return 0;
 }

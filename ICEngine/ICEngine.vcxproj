@@ -206,6 +206,7 @@
     <ClInclude Include="src\hdr\TypesPhysics.h" />
     <ClInclude Include="src\hdr\Vector.h" />
     <ClInclude Include="src\hdr\Window.h" />
+    <ClInclude Include="src\hdr\_Notes.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

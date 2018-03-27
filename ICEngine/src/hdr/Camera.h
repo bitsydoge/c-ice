@@ -4,18 +4,18 @@
 #include "TypesMaths.h"
 
 /// Set camera to position
-void ICE_CameraSetPos(ICE_Vect vect);
+void ICE_Camera_SetPos(ICE_Vect vect);
 /// Move camera to a position from a r value
-void ICE_CameraMovePos(ICE_Vect vect, ICE_Float r);
+void ICE_Camera_MovePos(ICE_Vect vect, ICE_Float r);
 /// Move camera from X and Y pixel
-void ICE_CameraShiftPos(ICE_Vect Dvect);
+void ICE_Camera_ShiftPos(ICE_Vect Dvect);
 /// Convert a rect in the virtual coordinate to a screen coordinate with the camera position
-ICE_Box ICE_CameraWorldScreen(ICE_Box rect);
+ICE_Box ICE_Camera_WorldScreen(ICE_Box rect);
 /// Convert a rect in the screen coordinate to a virtual coordinate with the camera position
-ICE_Box ICE_CameraScreenWorld(ICE_Box rect);
+ICE_Box ICE_Camera_ScreenWorld(ICE_Box rect);
 ///
 
-int ICE_CameraGetW();
-int ICE_CameraGetH();
+int ICE_Camera_GetW();
+int ICE_Camera_GetH();
 
 #endif

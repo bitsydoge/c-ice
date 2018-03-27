@@ -1,0 +1,6 @@
+﻿#ifndef DEF_ICE_STATE
+#define DEF_ICE_STATE
+
+#define ICE_DEFAULT_STATE_MNGR_SIZE 4
+
+#endif

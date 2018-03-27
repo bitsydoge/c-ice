@@ -10,13 +10,13 @@
 
 extern ICE_Game game;
 
-int ICE_CoreInit() {
+int ICE_Core_Init() {
 	// Other
-	ICE_TermSaveColor();
+	ICE_Term_SaveColor();
 	printf("------------------------\n");
 	ICE_Log(ICE_LOG_RUNNING, "Engine]::[Init]::[Start");
 	printf("------------------------\n");
-	ICE_TermHideCursor();
+	ICE_Term_HideCursor();
 
 	// SDL
 	SDL_Init(SDL_INIT_VIDEO);
@@ -24,19 +24,19 @@ int ICE_CoreInit() {
 	TTF_Init();
 	
 	// SDL_gfx
-	ICE_TimeInit();
+	ICE_Time_Init();
 
 	return 0;
 }
 
-int ICE_CoreClose() {
+int ICE_Core_Close() {
 	printf("------------------------\n");
 	ICE_Log(ICE_LOG_RUNNING, "Engine]::[Close]::[Start");
 	printf("------------------------\n");
 
 	// Manager Clean
 	//free(game.label_mngr);
-	ICE_LabelManagerDestroyAll();
+	ICE_LabelManager_DestroyAll();
 	// SDL
 	TTF_Quit();
 	SDL_Quit();

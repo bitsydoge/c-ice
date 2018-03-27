@@ -20,11 +20,11 @@ enum {
 	iceWHITE
 };
 
-void ICE_TermResetColor();
-void ICE_TermSetColor(const int c);
-void ICE_TermSetBgColor(const int c);
-void ICE_TermClear();
-void ICE_TermClock();
-void ICE_TermWait();
+void ICE_Term_ResetColor();
+void ICE_Term_SetColor(const int c);
+void ICE_Term_SetBgColor(const int c);
+void ICE_Term_Clear();
+void ICE_Term_Clock();
+void ICE_Term_Wait();
 
 #endif

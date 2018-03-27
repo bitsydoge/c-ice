@@ -9,7 +9,7 @@
 
 extern ICE_Game game;
 
-ICE_Bool ICE_InputKey(const int button)
+ICE_Bool ICE_Input_Press(const int button)
 {
 	if (button < 512)
 	{
@@ -43,12 +43,12 @@ ICE_Bool ICE_InputKey(const int button)
 	return ICE_False;
 }
 
-void ICE_InputQuit()
+void ICE_Input_Quit()
 {
 	game.window.input.quit = ICE_True;
 }
 
-void ICE_InputReset() {
+void ICE_Input_Reset() {
 	int temp = game.window.input.focus;
 	int temp2 = game.window.input.quit;
 	int mousex = game.window.input.mousex;
@@ -61,7 +61,7 @@ void ICE_InputReset() {
 
 
 	printf("Input Reset : ");
-	ICE_TermSetColor(iceGREEN);
+	ICE_Term_SetColor(iceGREEN);
 	printf("OK\n");
-	ICE_TermResetColor();
+	ICE_Term_ResetColor();
 }
