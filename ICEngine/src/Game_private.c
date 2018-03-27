@@ -6,7 +6,7 @@
 
 ICE_Game game = { 0 };
 
-void ICE_GameCreate(char *window_title, const unsigned int width_window, const unsigned int height_window)
+void ICE_Game_Create(char *window_title, const unsigned int width_window, const unsigned int height_window)
 {
 	// Window and Render
 	game.window.handle = SDL_CreateWindow(
@@ -23,7 +23,7 @@ void ICE_GameCreate(char *window_title, const unsigned int width_window, const u
 	game.window.w = width_window; game.window.h = height_window;
 	game.camera.w = width_window; game.camera.h = height_window;
 
-	ICE_LabelManagerCreate();
+	ICE_Label_ManagerCreate();
 
 	printf("------------------------\n");
 	ICE_Log(ICE_LOG_SUCCES, "Engine]::[Init]::[Finish");
@@ -31,7 +31,7 @@ void ICE_GameCreate(char *window_title, const unsigned int width_window, const u
 	printf("\n");
 }
 
-void ICE_GameDestroy()
+void ICE_Game_Destroy()
 {
 	SDL_DestroyWindow(game.window.handle);
 	SDL_DestroyRenderer(game.window.render);

@@ -147,6 +147,28 @@ typedef struct
 
 
 
+struct ICE_State
+{
+	void * func_create;
+	void * func_update;
+	void * func_destroy;
+}; typedef struct ICE_State ICE_State;
+
+struct ICE_StateManager
+{
+	ICE_Bool isFree;
+	unsigned int state_size;
+	unsigned int state_contain;
+	ICE_State * state;
+}; typedef struct ICE_StateManager ICE_StateManager;
+
+struct ICE_Select
+{
+	void * object_selected;
+	ICE_Bool isFromMan;
+	unsigned int man;
+	unsigned int nb;
+}; typedef struct ICE_Select ICE_Select;
 
 struct ICE_Game {
 	
@@ -156,8 +178,14 @@ struct ICE_Game {
 	ICE_Time time;
 
 	// Label
+	ICE_Select label_select;
 	unsigned int label_mngr_nb;
 	ICE_LabelManager *label_mngr;
+
+	// State
+	ICE_Select state_select;
+	unsigned int state_mngr_nb;
+	ICE_StateManager *state_mngr;
 
 }; typedef struct ICE_Game ICE_Game;
 

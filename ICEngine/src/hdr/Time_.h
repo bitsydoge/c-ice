@@ -3,6 +3,6 @@
 
 #include "TypesMaths.h"
 
-ICE_Float ICE_TimeClock();
+ICE_Float ICE_Time_Clock();
 
 #endif

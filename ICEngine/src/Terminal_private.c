@@ -2,12 +2,12 @@
 
 #include "external/rlutil.h"
 
-void ICE_TermSaveColor()
+void ICE_Term_SaveColor()
 {
 	saveDefaultColor();
 }
 
-void ICE_TermHideCursor()
+void ICE_Term_HideCursor()
 {
 	hidecursor();
 }

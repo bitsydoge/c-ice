@@ -21,41 +21,41 @@ void ICE_Log(ICE_LogTypes type, const char * format, ...)
 		switch (type)
 		{
 		case ICE_LOG_SUCCES:
-			ICE_TermClock();
-			ICE_TermSetColor(iceLIGHTGREEN);
+			ICE_Term_Clock();
+			ICE_Term_SetColor(iceLIGHTGREEN);
 			printf("[SUCCES]");
 			break;
 		case ICE_LOG_NONE:
-			ICE_TermClock();
+			ICE_Term_Clock();
 			printf("[LOG]");
 			break;
 		case ICE_LOG_WARNING:
-			ICE_TermClock();
-			ICE_TermSetColor(iceYELLOW);
+			ICE_Term_Clock();
+			ICE_Term_SetColor(iceYELLOW);
 			printf("[WARNING]");
 			break;
 		case ICE_LOG_ERROR:
-			ICE_TermClock();
-			ICE_TermSetColor(iceLIGHTRED);
+			ICE_Term_Clock();
+			ICE_Term_SetColor(iceLIGHTRED);
 
 			printf("[ERROR]");
 			break;
 		case ICE_LOG_CRITICAL:
-			ICE_TermClock();
-			ICE_TermSetColor(iceRED);
+			ICE_Term_Clock();
+			ICE_Term_SetColor(iceRED);
 			printf("[CRITICAL]");
 			break;
 		case ICE_LOG_RUNNING:
-			ICE_TermClock();
-			ICE_TermSetColor(iceLIGHTMAGENTA);
+			ICE_Term_Clock();
+			ICE_Term_SetColor(iceLIGHTMAGENTA);
 			printf("[RUNNING...]");
 			break;
 		default:
-			ICE_TermClock();
+			ICE_Term_Clock();
 			printf("[NOLOGTYPE]");
 			break;
 		}
-		ICE_TermResetColor();
+		ICE_Term_ResetColor();
 		printf("::[");
 		vprintf(format, args);
 		printf("]");
@@ -64,7 +64,7 @@ void ICE_Log(ICE_LogTypes type, const char * format, ...)
 	}
 }
 
-void ICE_Log_no_n(ICE_LogTypes type, const char * format, ...)
+void ICE_Log_NoReturn(ICE_LogTypes type, const char * format, ...)
 {
 	if (debug_ok)
 	{
@@ -74,36 +74,36 @@ void ICE_Log_no_n(ICE_LogTypes type, const char * format, ...)
 		switch (type)
 		{
 		case ICE_LOG_SUCCES:
-			ICE_TermClock();
-			ICE_TermSetColor(iceLIGHTGREEN);
+			ICE_Term_Clock();
+			ICE_Term_SetColor(iceLIGHTGREEN);
 			printf("[SUCCES]");
 			break;
 		case ICE_LOG_NONE:
-			ICE_TermClock();
+			ICE_Term_Clock();
 			printf("[LOG]");
 			break;
 		case ICE_LOG_WARNING:
-			ICE_TermClock();
-			ICE_TermSetColor(iceYELLOW);
+			ICE_Term_Clock();
+			ICE_Term_SetColor(iceYELLOW);
 			printf("[WARNING]");
 			break;
 		case ICE_LOG_ERROR:
-			ICE_TermClock();
-			ICE_TermSetColor(iceLIGHTRED);
+			ICE_Term_Clock();
+			ICE_Term_SetColor(iceLIGHTRED);
 
 			printf("[ERROR]");
 			break;
 		case ICE_LOG_CRITICAL:
-			ICE_TermClock();
-			ICE_TermSetColor(iceRED);
+			ICE_Term_Clock();
+			ICE_Term_SetColor(iceRED);
 			printf("[CRITICAL]");
 			break;
 		default:
-			ICE_TermClock();
+			ICE_Term_Clock();
 			printf("[NOLOGTYPE]");
 			break;
 		}
-		ICE_TermResetColor();
+		ICE_Term_ResetColor();
 		printf("::[");
 		vprintf(format, args);
 		printf("]");

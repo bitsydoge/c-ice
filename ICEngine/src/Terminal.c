@@ -8,38 +8,38 @@ extern ICE_Game game;
 
 extern ICE_Bool debug_ok;
 
-void ICE_TermResetColor(){
+void ICE_Term_ResetColor(){
 	if (debug_ok)
 		resetColor();
 }
-void ICE_TermSetColor(const int c){
+void ICE_Term_SetColor(const int c){
 	if (debug_ok)
 		setColor(c);
 }
-void ICE_TermSetBgColor(const int c){
+void ICE_Term_SetBgColor(const int c){
 	if (debug_ok)
 		setBackgroundColor(c);
 }
 
-void ICE_TermClear(){
+void ICE_Term_Clear(){
 	if (debug_ok)
 		cls();
 }
 
-void ICE_TermClock(){
+void ICE_Term_Clock(){
 	if (debug_ok)
 	{
-		ICE_TermSetColor(iceLIGHTCYAN);
-		printf("[%.3f s]", ICE_TimeClock());
-		ICE_TermResetColor();
+		ICE_Term_SetColor(iceLIGHTCYAN);
+		printf("[%.3f s]", ICE_Time_Clock());
+		ICE_Term_ResetColor();
 		printf("::");
 	}
 }
 
-void ICE_TermWait(){
+void ICE_Term_Wait(){
 	if (debug_ok)
 	{
-		ICE_Log_no_n(ICE_LOG_NONE, "TERMINAL]::[PRESSRETURNTOCONTINUE");
+		ICE_Log_NoReturn(ICE_LOG_NONE, "TERMINAL]::[PRESSRETURNTOCONTINUE");
 		#ifdef getch
 		getch();
 		puts("");

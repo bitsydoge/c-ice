@@ -5,12 +5,12 @@
 
 extern ICE_Game game;
 
-ICE_Float ICE_GameDelta()
+ICE_Float ICE_Game_GetDelta()
 {
 	return game.time.delta;
 }
 
-ICE_Float ICE_GameFps()
+ICE_Float ICE_Game_GetFps()
 {
 	return game.time.fps;
 }

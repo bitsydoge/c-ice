@@ -3,8 +3,8 @@
 
 #include "TypesGraphics.h"
 
-int ICE_RenderSetColor(const ICE_Color rgba_hex);
-int ICE_RenderClear();
-void ICE_RenderNow();
+int ICE_Render_SetColor(const ICE_Color rgba_hex);
+int ICE_Render_Clear();
+void ICE_Render_Now();
 
 #endif

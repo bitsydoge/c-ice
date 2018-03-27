@@ -251,5 +251,8 @@
     <ClInclude Include="src\hdr\Memory_.h">
       <Filter>hdr</Filter>
     </ClInclude>
+    <ClInclude Include="src\hdr\_Notes.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

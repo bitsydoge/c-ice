@@ -11,26 +11,26 @@ void ICE_Assert_(const char* expr_str, int expr, const char* file, int line, con
 	if (!expr)
 	{
 		ICE_Log(ICE_LOG_CRITICAL, "ASSERT");
-		//ICE_TermSetColor(iceLIGHTRED);
+		//ICE_Term_SetColor(iceLIGHTRED);
 		//printf("\n\n\t\t-------------------[ERROR]-------------------\t\t\n\n");
-		//ICE_TermResetColor();
+		//ICE_Term_ResetColor();
 		printf("Assert Msg\t:\t");
-		ICE_TermSetColor(iceLIGHTGREEN);
+		ICE_Term_SetColor(iceLIGHTGREEN);
 		printf("%s\n", msg);
-		ICE_TermResetColor();
+		ICE_Term_ResetColor();
 		printf("Expected\t:\t");
-		ICE_TermSetColor(iceLIGHTMAGENTA);
+		ICE_Term_SetColor(iceLIGHTMAGENTA);
 		printf("%s\n", expr_str);
-		ICE_TermResetColor();
+		ICE_Term_ResetColor();
 		printf("Source File\t:\t");
-		ICE_TermSetColor(iceYELLOW);
+		ICE_Term_SetColor(iceYELLOW);
 		printf("%s\n", file);
-		ICE_TermResetColor();
+		ICE_Term_ResetColor();
 		printf("At the Line\t:\t");
-		ICE_TermSetColor(iceLIGHTCYAN);
+		ICE_Term_SetColor(iceLIGHTCYAN);
 		printf("%d\n\n", line);
-		ICE_TermResetColor();
-		//ICE_TermSetColor(iceLIGHTRED);
+		ICE_Term_ResetColor();
+		//ICE_Term_SetColor(iceLIGHTRED);
 		//printf("\t\t-------------------[ERROR]-------------------\t\t\n");
 		abort();
 	}

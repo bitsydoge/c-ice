@@ -3,12 +3,13 @@
 
 #include "TypesCore.h"
 
-void ICE_WindowSetSize(int w, int h);
-void ICE_WindowResizable(ICE_Bool yn);
-void ICE_WindowFullscreen(ICE_Bool yn);
-void ICE_WindowTitle(const char *title);
-void ICE_WindowSetIcon(char * path);
-int ICE_WindowGetW();
-int ICE_WindowGetH();
+void ICE_Window_SetSize(int w, int h);
+void ICE_Window_SetResizable(ICE_Bool yn);
+void ICE_Window_SetFullscreen(ICE_Bool yn);
+void ICE_Window_SetTitle(const char *title);
+void ICE_Window_SetIcon(char * path);
+
+int ICE_Window_GetW();
+int ICE_Window_GetH();
 
 #endif

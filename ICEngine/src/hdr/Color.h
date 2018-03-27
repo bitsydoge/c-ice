@@ -3,18 +3,18 @@
 
 #include "TypesGraphics.h"
 
-#define ICE_ColorRed ICE_ColorNew(255,0,0)
-#define ICE_ColorBlue ICE_ColorNew(0,0,255)
-#define ICE_ColorGreen ICE_ColorNew(0,255,0)
-#define ICE_ColorBlack ICE_ColorNew(0,0,0)
-#define ICE_ColorWhite ICE_ColorNew(255,255,255)
-#define ICE_ColorGrey ICE_ColorNew(127,127,127)
+#define ICE_Color_Red ICE_Color_New(255,0,0)
+#define ICE_Color_Blue ICE_Color_New(0,0,255)
+#define ICE_Color_Green ICE_Color_New(0,255,0)
+#define ICE_Color_Black ICE_Color_New(0,0,0)
+#define ICE_Color_White ICE_Color_New(255,255,255)
+#define ICE_Color_Grey ICE_Color_New(127,127,127)
 
-inline ICE_Color ICE_ColorNew(const unsigned int r, const unsigned int g, const unsigned int b) {
+inline ICE_Color ICE_Color_New(const unsigned int r, const unsigned int g, const unsigned int b) {
 	return (r << 24) + (g << 16) + (b << 8) + 255;
 }
 
-inline ICE_Color ICE_ColorANew(const unsigned int r, const unsigned int g, const unsigned int b, const unsigned int a) {
+inline ICE_Color ICE_Color_ANew(const unsigned int r, const unsigned int g, const unsigned int b, const unsigned int a) {
 	return (r << 24) + (g << 16) + (b << 8) + a;
 }
 

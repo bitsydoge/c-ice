@@ -3,7 +3,7 @@
 
 extern ICE_Game game;
 
-void ICE_InputReturn()
+void ICE_Input_Return()
 {
 	static SDL_Event event;
 	while (SDL_PollEvent(&event))

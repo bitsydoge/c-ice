@@ -3,7 +3,7 @@
 
 #include "TypesCore.h"
 
-void ICE_FontLoad(char *path);
-void ICE_FontDraw(char* text, ICE_Vect vect, ICE_Color fg, ICE_Color bg);
+void ICE_Font_Load(char *path);
+void ICE_Font_Draw(char* text, ICE_Vect vect, ICE_Color fg, ICE_Color bg);
 
 #endif

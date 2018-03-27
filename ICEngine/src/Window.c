@@ -5,29 +5,29 @@
 
 extern ICE_Game game;
 
-void ICE_WindowSetSize(int w, int h)
+void ICE_Window_SetSize(int w, int h)
 {
 	SDL_SetWindowSize(game.window.handle, w, h);
 	game.window.w = w; game.window.h = h;
 	game.camera.w = w; game.camera.h = h;
 }
 
-void ICE_WindowResizable(ICE_Bool yn)
+void ICE_Window_SetResizable(ICE_Bool yn)
 {
 	SDL_SetWindowResizable(game.window.handle, yn);
 }
 
-void ICE_WindowFullscreen(ICE_Bool yn)
+void ICE_Window_SetFullscreen(ICE_Bool yn)
 {
 	SDL_SetWindowFullscreen(game.window.handle, yn);
 }
 
-void ICE_WindowTitle(const char *title)
+void ICE_Window_SetTitle(const char *title)
 {
 	SDL_SetWindowTitle(game.window.handle, title);
 }
 
-void ICE_WindowSetIcon(char * path)
+void ICE_Window_SetIcon(char * path)
 {
 	if (!path) {
 
@@ -61,11 +61,11 @@ void ICE_WindowSetIcon(char * path)
 	}
 }
 
-int ICE_WindowGetW()
+int ICE_Window_GetW()
 {
 	return game.window.w;
 }
-int ICE_WindowGetH()
+int ICE_Window_GetH()
 {
 	return game.window.h;
 }

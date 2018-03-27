@@ -7,7 +7,7 @@
 #include <stdlib.h>
 
 
-void ICE_RandomInit()
+void ICE_Random_Init()
 {
 	static ICE_Bool triggered = ICE_False;
 	if (!triggered)
@@ -17,7 +17,7 @@ void ICE_RandomInit()
 	}
 }
 
-int ICE_RandomInt(int min, int max)
+int ICE_Random_Int(int min, int max)
 {
 	int lowest, highest;
 	if (min < max)
@@ -33,7 +33,7 @@ int ICE_RandomInt(int min, int max)
 }
 
 // Return a random float between 0 and 1;
-ICE_Float ICE_RandomFloat()
+ICE_Float ICE_Random_Float()
 {
 	return (ICE_Float)rand() / (ICE_Float)RAND_MAX;
 }

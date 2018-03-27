@@ -7,11 +7,11 @@ extern ICE_Game game;
 // Camera edit
 // ----------------------------------------------------
 
-void ICE_CameraSetPos(ICE_Vect vect) {
+void ICE_Camera_SetPos(ICE_Vect vect) {
 	game.camera.x = vect.x; game.camera.y = vect.y;
 }
 
-void ICE_CameraMovePos(ICE_Vect vect, ICE_Float r) {
+void ICE_Camera_MovePos(ICE_Vect vect, ICE_Float r) {
 	float xdif = vect.x - game.camera.x;
 	float ydif = vect.y - game.camera.y;
 
@@ -27,7 +27,7 @@ void ICE_CameraMovePos(ICE_Vect vect, ICE_Float r) {
 	}
 }
 
-void ICE_CameraShiftPos(ICE_Vect Dvect) {
+void ICE_Camera_ShiftPos(ICE_Vect Dvect) {
 	game.camera.x += Dvect.x; game.camera.y += Dvect.y;
 }
 
@@ -35,12 +35,12 @@ void ICE_CameraShiftPos(ICE_Vect Dvect) {
 // ----------------------------------------------------
 
 
-int ICE_CameraGetW()
+int ICE_Camera_GetW()
 {
 	return game.camera.w;
 }
 
-int ICE_CameraGetH()
+int ICE_Camera_GetH()
 {
 	return game.camera.h;
 }
@@ -48,7 +48,7 @@ int ICE_CameraGetH()
 // Converter
 // ----------------------------------
 
-ICE_Box ICE_CameraWorldScreen(ICE_Box rect) {
+ICE_Box ICE_Camera_WorldScreen(ICE_Box rect) {
 	ICE_Box rect2 = {
 		(game.camera.w / 2) + rect.x - game.camera.x,
 		(game.camera.h / 2) + rect.y - game.camera.y,
@@ -58,7 +58,7 @@ ICE_Box ICE_CameraWorldScreen(ICE_Box rect) {
 	return rect2;
 }
 
-ICE_Box ICE_CameraScreenWorld(ICE_Box rect) {
+ICE_Box ICE_Camera_ScreenWorld(ICE_Box rect) {
 	ICE_Box rect2 = {
 		-game.camera.w / 2 + game.camera.x + rect.x,
 		-game.camera.h / 2 + game.camera.y + rect.y,

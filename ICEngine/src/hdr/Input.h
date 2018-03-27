@@ -260,8 +260,8 @@ enum
 	ICE_INPUT_MAX
 };
 
-ICE_Bool ICE_InputKey(int button);
-void ICE_InputQuit();
-void ICE_InputReset();
+ICE_Bool ICE_Input_Press(int button);
+void ICE_Input_Quit();
+void ICE_Input_Reset();
 
 #endif
