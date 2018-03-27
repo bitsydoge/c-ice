@@ -9,12 +9,21 @@
 
 extern ICE_Game game;
 
-void ICE_Label_Select(ICE_Label * set_this)
+void ICE_Label_Select_ptr(ICE_Label * set_this)
 {
+	game.label_select.isFromMan = 0;
 	game.label_select.object_selected = set_this;
 }
 
-void ICE_Label_ManagerCreate()
+void ICE_Label_Select_mgr(const unsigned int man, const unsigned int nb)
+{
+	game.label_select.object_selected = &game.label_mngr[man].label[nb];
+	game.label_select.isFromMan = 1;
+	game.label_select.man = man;
+	game.label_select.nb = nb;
+}
+
+void ICE_LabelManager_Create()
 {
 	ICE_LabelManager text_manager = { 0 };
 	text_manager.label_size = ICE_DEFAULT_LABEL_MNGR_SIZE;
@@ -81,8 +90,7 @@ void ICE_LabelManager_Destroy(const unsigned int man)
 	for(int i = 0; i < manager->label_contain; i++)
 	{
 		//Free everything to free in Label
-		ICE_String_Delete(manager->label[i].text);
-		ICE_String_Delete(manager->label[i].old_text);
+		ICE_Label_Destroy(&manager->label[i]);
 	}
 	ICE_Free(manager->label);
 	ICE_Log(ICE_LOG_SUCCES, "LabelManager]::[%d]::[Free", man);
@@ -106,4 +114,10 @@ void ICE_LabelManager_DestroyAll()
 ICE_Label * ICE_Label_ReturnPtr(unsigned man, unsigned nb)
 {
 	return &game.label_mngr[man].label[nb];
+}
+
+void ICE_Label_Destroy(ICE_Label * ptr)
+{
+	ICE_String_Delete(ptr->text);
+	ICE_String_Delete(ptr->old_text);
 }

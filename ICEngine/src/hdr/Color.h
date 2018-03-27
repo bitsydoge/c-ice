@@ -14,7 +14,7 @@ inline ICE_Color ICE_Color_New(const unsigned int r, const unsigned int g, const
 	return (r << 24) + (g << 16) + (b << 8) + 255;
 }
 
-inline ICE_Color ICE_Color_ANew(const unsigned int r, const unsigned int g, const unsigned int b, const unsigned int a) {
+inline ICE_Color ICE_Color_New_Rgba(const unsigned int r, const unsigned int g, const unsigned int b, const unsigned int a) {
 	return (r << 24) + (g << 16) + (b << 8) + a;
 }
 

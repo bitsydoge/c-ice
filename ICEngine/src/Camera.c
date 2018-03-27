@@ -45,6 +45,11 @@ int ICE_Camera_GetH()
 	return game.camera.h;
 }
 
+ICE_Vect ICE_Camera_GetVect()
+{
+	return ICE_Vect_New(game.camera.w, game.camera.h);
+}
+
 // Converter
 // ----------------------------------
 
