@@ -23,7 +23,7 @@ void ICE_Label_Select_mgr(const unsigned int man, const unsigned int nb)
 	game.label_select.nb = nb;
 }
 
-void ICE_LabelManager_Create()
+void ICE_LabelManager_Insert()
 {
 	ICE_LabelManager text_manager = { 0 };
 	text_manager.label_size = ICE_DEFAULT_LABEL_MNGR_SIZE;
@@ -70,6 +70,7 @@ void ICE_Label_Insert(const unsigned int man, char *text, const ICE_Vect pos)
 		ICE_Log(ICE_LOG_WARNING, "LabelManager]::[%d]::[Resized]::[%d", man, game.label_mngr[man].label_size * 2);
 		game.label_mngr[man].label = tmp;
 		game.label_mngr[man].label_size *= 2;
+		ICE_Label_SelectUpdate();
 	}
 }
 

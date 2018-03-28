@@ -9,7 +9,11 @@
 
 #include "TypesMaths.h"
 
-/// iceBox to SDL_Rect
+/**
+ * \brief Convert a SDL_Rect to a ICE_Box
+ * \param rect The SDL_Rect to convert
+ * \return The converted ICE_Box
+ */
 inline ICE_Box ICE_Convert_SDLtoBox(SDL_Rect *rect)
 {
 	ICE_Box ice = { 0 };
@@ -21,16 +25,22 @@ inline ICE_Box ICE_Convert_SDLtoBox(SDL_Rect *rect)
 		ice.h = rect->h;
 	}
 	return ice;
-}/// SDL_Rect to iceBox
-inline SDL_Rect ICE_Convert_BoxToSDL(ICE_Box *rect)
+}
+
+/**
+ * \brief Convert a ICE_Box to a SDL_Rect
+ * \param box The ICE_Box to convert
+ * \return The converted SDL_Rect
+ */
+inline SDL_Rect ICE_Convert_BoxToSDL(ICE_Box *box)
 {
 	SDL_Rect sdl = { 0 };
-	if (rect)
+	if (box)
 	{
-		sdl.x = rect->x; 
-		sdl.y = rect->y; 
-		sdl.w = rect->w; 
-		sdl.h = rect->h;
+		sdl.x = box->x; 
+		sdl.y = box->y; 
+		sdl.w = box->w; 
+		sdl.h = box->h;
 	}
 		
 	return sdl;

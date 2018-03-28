@@ -10,11 +10,28 @@
 #define ICE_Color_White ICE_Color_New(255,255,255)
 #define ICE_Color_Grey ICE_Color_New(127,127,127)
 
+/**
+ * \brief Create a new Color 
+ * \param r The red value
+ * \param g The green value
+ * \param b The blue value
+ * \return The new created Color
+ */
 inline ICE_Color ICE_Color_New(const unsigned int r, const unsigned int g, const unsigned int b) {
 	return (r << 24) + (g << 16) + (b << 8) + 255;
 }
 
-inline ICE_Color ICE_Color_New_Rgba(const unsigned int r, const unsigned int g, const unsigned int b, const unsigned int a) {
+/**
+* \brief Create a new Color
+* \param r The red value
+* \param g The green value
+* \param b The blue value
+* \param a the alpha value
+* \return The new created Color
+*/
+inline ICE_Color ICE_Color_New_Rgba(const unsigned int r, const unsigned int g, const unsigned int b,
+                                    const unsigned int a)
+{
 	return (r << 24) + (g << 16) + (b << 8) + a;
 }
 
