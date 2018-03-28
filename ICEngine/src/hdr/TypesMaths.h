@@ -6,6 +6,9 @@
 typedef double ICE_Float;
 #endif
 
+/**
+ * \brief Vector2D
+ */
 struct ICE_Vect
 {
 	ICE_Float x;
@@ -13,6 +16,9 @@ struct ICE_Vect
 
 }; typedef struct ICE_Vect ICE_Vect;
 
+/**
+ * \brief Box (or Rectangle)
+ */
 struct ICE_Box
 {
 	ICE_Float x;

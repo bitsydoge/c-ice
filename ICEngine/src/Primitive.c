@@ -18,14 +18,14 @@ int ICE_Draw_Line(const ICE_Vect vect1, const ICE_Vect vect2, const ICE_Color co
 	return SDL_RenderDrawLine(game.window.render, vect1.x, vect1.y, vect2.x, vect2.y);
 }
 
-int ICE_Draw_Rectangle(ICE_Box rect, const ICE_Color color) {
+int ICE_Draw_Rectangle(ICE_Box box, const ICE_Color color) {
 	ICE_Render_SetColor(color);
-	return SDL_RenderDrawRect(game.window.render, (SDL_Rect[]){ICE_Convert_BoxToSDL(&rect)});
+	return SDL_RenderDrawRect(game.window.render, (SDL_Rect[]){ICE_Convert_BoxToSDL(&box)});
 }
 
-int ICE_Draw_RectangleFill(ICE_Box rect, const ICE_Color color) {
+int ICE_Draw_RectangleFill(ICE_Box box, const ICE_Color color) {
 	ICE_Render_SetColor(color);
-	return SDL_RenderFillRect(game.window.render, (SDL_Rect[]) {ICE_Convert_BoxToSDL(&rect) });
+	return SDL_RenderFillRect(game.window.render, (SDL_Rect[]) {ICE_Convert_BoxToSDL(&box) });
 }
 
 // AntiAliased SDL_GFX powa

@@ -22,7 +22,7 @@ void ICE_Log(ICE_LogTypes type, const char * format, ...)
 		{
 		case ICE_LOG_SUCCES:
 			ICE_Term_Clock();
-			ICE_Term_SetColor(iceLIGHTGREEN);
+			ICE_Term_SetColor(ICE_T_LIGHTGREEN);
 			printf("[SUCCES]");
 			break;
 		case ICE_LOG_NONE:
@@ -31,23 +31,23 @@ void ICE_Log(ICE_LogTypes type, const char * format, ...)
 			break;
 		case ICE_LOG_WARNING:
 			ICE_Term_Clock();
-			ICE_Term_SetColor(iceYELLOW);
+			ICE_Term_SetColor(ICE_T_YELLOW);
 			printf("[WARNING]");
 			break;
 		case ICE_LOG_ERROR:
 			ICE_Term_Clock();
-			ICE_Term_SetColor(iceLIGHTRED);
+			ICE_Term_SetColor(ICE_T_LIGHTRED);
 
 			printf("[ERROR]");
 			break;
 		case ICE_LOG_CRITICAL:
 			ICE_Term_Clock();
-			ICE_Term_SetColor(iceRED);
+			ICE_Term_SetColor(ICE_T_RED);
 			printf("[CRITICAL]");
 			break;
 		case ICE_LOG_RUNNING:
 			ICE_Term_Clock();
-			ICE_Term_SetColor(iceLIGHTMAGENTA);
+			ICE_Term_SetColor(ICE_T_LIGHTMAGENTA);
 			printf("[RUNNING...]");
 			break;
 		default:
@@ -75,7 +75,7 @@ void ICE_Log_NoReturn(ICE_LogTypes type, const char * format, ...)
 		{
 		case ICE_LOG_SUCCES:
 			ICE_Term_Clock();
-			ICE_Term_SetColor(iceLIGHTGREEN);
+			ICE_Term_SetColor(ICE_T_LIGHTGREEN);
 			printf("[SUCCES]");
 			break;
 		case ICE_LOG_NONE:
@@ -84,18 +84,18 @@ void ICE_Log_NoReturn(ICE_LogTypes type, const char * format, ...)
 			break;
 		case ICE_LOG_WARNING:
 			ICE_Term_Clock();
-			ICE_Term_SetColor(iceYELLOW);
+			ICE_Term_SetColor(ICE_T_YELLOW);
 			printf("[WARNING]");
 			break;
 		case ICE_LOG_ERROR:
 			ICE_Term_Clock();
-			ICE_Term_SetColor(iceLIGHTRED);
+			ICE_Term_SetColor(ICE_T_LIGHTRED);
 
 			printf("[ERROR]");
 			break;
 		case ICE_LOG_CRITICAL:
 			ICE_Term_Clock();
-			ICE_Term_SetColor(iceRED);
+			ICE_Term_SetColor(ICE_T_RED);
 			printf("[CRITICAL]");
 			break;
 		default:

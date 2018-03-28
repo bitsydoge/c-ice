@@ -61,7 +61,7 @@ void ICE_Input_Reset() {
 
 
 	printf("Input Reset : ");
-	ICE_Term_SetColor(iceGREEN);
+	ICE_Term_SetColor(ICE_T_GREEN);
 	printf("OK\n");
 	ICE_Term_ResetColor();
 }
