@@ -21,9 +21,6 @@
     <ClCompile Include="src\external\rlutil.c">
       <Filter>external</Filter>
     </ClCompile>
-    <ClCompile Include="src\external\vec.c">
-      <Filter>external</Filter>
-    </ClCompile>
     <ClCompile Include="src\raw\raw_error.c">
       <Filter>raw</Filter>
     </ClCompile>
@@ -120,6 +117,12 @@
     <ClCompile Include="src\Label_private.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Texture.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Texture_private.c">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\external\icestd.h">
@@ -129,9 +132,6 @@
       <Filter>external</Filter>
     </ClInclude>
     <ClInclude Include="src\external\stb_image.h">
-      <Filter>external</Filter>
-    </ClInclude>
-    <ClInclude Include="src\external\vec.h">
       <Filter>external</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Core.h">
@@ -260,5 +260,17 @@
     <ClInclude Include="src\hdr\Label_private.h">
       <Filter>hdr</Filter>
     </ClInclude>
+    <ClInclude Include="src\hdr\Texture.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Texture_private.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\CMakeLists.txt" />
   </ItemGroup>
 </Project>

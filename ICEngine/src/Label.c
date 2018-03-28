@@ -6,6 +6,7 @@
 
 #include <string.h>
 #include "hdr/Memory_.h"
+#include "hdr/Label_private.h"
 
 extern ICE_Game game;
 
