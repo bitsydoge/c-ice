@@ -13,6 +13,10 @@
 
 #ifndef ICE_BOOL_DEFINED
 #define ICE_BOOL_DEFINED
+/**
+	 * \brief A special bool that can be equal to 0(ICE_False) 1(ICE_True) or -1(ICE_BoolNone).
+	 * The last one is for some function where the use of ICE_BoolNone is documented
+	 */
 	typedef int ICE_Bool;
 	#define ICE_True 1
 	#define ICE_TRUE 1
@@ -23,11 +27,15 @@
 	#define ICE_BOOLNONE -1	
 	#define ICE_BoolNone -1
 	#define ICE_boolnone -1
+
 #endif
 
 // Struct
 // --------------------------------------
 
+/**
+ * \brief Fps and Delta are here
+ */
 struct ICE_Time {
 
 	//unsigned long actual;
@@ -41,6 +49,9 @@ struct ICE_Time {
 
 // --------------------------------------
 
+/**
+ * \brief Input struct where every key state are kept
+ */
 struct ICE_Input {
 
 	int key[512];
@@ -69,6 +80,9 @@ struct ICE_Input {
 
 // --------------------------------------
 
+/**
+ * \brief A struct that keep SDL handler (Window, renderer), Values (Title, Size ...) and Input struct
+ */
 struct ICE_Window
 {
 	ICE_String title;
@@ -83,6 +97,9 @@ struct ICE_Window
 
 // --------------------------------------
 
+/**
+ * \brief Camera that render the scene
+ */
 struct ICE_Camera
 {
 	ICE_Float x, y, w, h;
@@ -91,6 +108,9 @@ struct ICE_Camera
 
 // --------------------------------------
 
+/**
+ * \brief A ICE Font that keep the font from 1 to 255 in size
+ */
 struct ICE_Font
 {
 	TTF_Font* size[256];
@@ -99,7 +119,10 @@ struct ICE_Font
 
 // --------------------------------------
 
-typedef struct
+/**
+ * \brief A struct that is a text on screen, contain Size, Color and String in it
+ */
+struct ICE_Label
 {
 	// Main
 	ICE_Bool active;
@@ -118,16 +141,19 @@ typedef struct
 	ICE_Bool isFixedToWorld;
 
 
-} ICE_Label;
+}; typedef struct ICE_Label ICE_Label;
 
-typedef struct
+/**
+ * \brief Manager of Label
+ */
+struct ICE_LabelManager
 {
 	ICE_Bool isFree;
 	unsigned int label_size;
 	unsigned int label_contain;
 	ICE_Label* label;
 
-} ICE_LabelManager;
+}; typedef struct ICE_LabelManager ICE_LabelManager;
 
 
 
@@ -147,6 +173,9 @@ typedef struct
 
 
 
+/**
+ * \brief Current function used by the engine
+ */
 struct ICE_State
 {
 	void * func_create;
@@ -154,6 +183,10 @@ struct ICE_State
 	void * func_destroy;
 }; typedef struct ICE_State ICE_State;
 
+
+/**
+ * \brief Manager of State
+ */
 struct ICE_StateManager
 {
 	ICE_Bool isFree;
@@ -162,6 +195,9 @@ struct ICE_StateManager
 	ICE_State * state;
 }; typedef struct ICE_StateManager ICE_StateManager;
 
+/**
+ * \brief Current selected object 
+ */
 struct ICE_Select
 {
 	void * object_selected;
@@ -170,6 +206,9 @@ struct ICE_Select
 	unsigned int nb;
 }; typedef struct ICE_Select ICE_Select;
 
+/**
+ * \brief The god object of the game with everything in it exept for Assets
+ */
 struct ICE_Game {
 	
 	// Main
@@ -197,6 +236,9 @@ struct ICE_Game {
 
 
 
+/**
+ * \brief Assets of the game (Image, Sound, Font ...)
+ */
 struct ICE_Asset
 {
 	ICE_Font font;

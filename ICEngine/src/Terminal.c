@@ -29,7 +29,7 @@ void ICE_Term_Clear(){
 void ICE_Term_Clock(){
 	if (debug_ok)
 	{
-		ICE_Term_SetColor(iceLIGHTCYAN);
+		ICE_Term_SetColor(ICE_T_LIGHTCYAN);
 		printf("[%.3f s]", ICE_Time_Clock());
 		ICE_Term_ResetColor();
 		printf("::");
