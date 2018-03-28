@@ -1,0 +1,6 @@
+﻿#ifndef DEF_ICE_TEXTURE_PRIVATE
+#define DEF_ICE_TEXTURE_PRIVATE
+
+
+
+#endif
