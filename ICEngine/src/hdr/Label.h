@@ -22,16 +22,70 @@
  */
 #define ICE_Label_Select(...) ICE_Label_MACRO_CHOOSER(__VA_ARGS__)(__VA_ARGS__)
 
+/**
+ * \brief Select a Label with it's pointer
+ * \param set_this Ptr to a label to set it
+ */
 void ICE_Label_Select_ptr(ICE_Label * set_this);
+
+/**
+ * \brief Select a Label with it's Manager number and Position in the Manager
+ * \param man LabelManager nb
+ * \param nb Label nb
+ */
 void ICE_Label_Select_mgr(const unsigned int man, const unsigned int nb);
-void ICE_LabelManager_Create();
+
+/**
+ * \brief Insert a new LabelManager in the Game
+ */
+void ICE_LabelManager_Insert();
+
+/**
+ * \brief Create a New Label
+ * \param text The text of the Label
+ * \param pos The position of the Label 
+ * \return The new Label
+ */
 ICE_Label ICE_Label_Create(char* text, ICE_Vect pos);
+
+/**
+ * \brief Insert a new Label in a manager
+ * \param man The manager where label must be added
+ * \param text The text of the Label
+ * \param pos The position of the Label
+ */
 void ICE_Label_Insert(unsigned int man, char *text, ICE_Vect pos);
+
+/**
+ * \brief Clear a Label and put everything to 0
+ * \param man The manager number
+ * \param label The label number
+ */
 void ICE_Label_Clear(const unsigned int man, const unsigned int label);
+
+/**
+ * \brief Destroy a manager
+ * \param man The manager number
+ */
 void ICE_LabelManager_Destroy(const unsigned int man);
+
+/**
+ * \brief Destroy all manager
+ */
 void ICE_LabelManager_DestroyAll();
 
+/**
+ * \brief Get the pointer of a Label	
+ * \param man The manager where the label is 
+ * \param nb The position of the label
+ * \return The Label pointer
+ */
 ICE_Label * ICE_Label_ReturnPtr(unsigned int man, unsigned int nb);
+
+/**
+ * \brief Destroy a label with it's pointer
+ * \param ptr The pointer of the Label
+ */
 void ICE_Label_Destroy(ICE_Label * ptr);
 
 #endif

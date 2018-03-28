@@ -9,7 +9,7 @@
 
 extern ICE_Game game;
 
-ICE_Bool ICE_Input_Press(const int button)
+ICE_Bool ICE_Input_Press(enum ICE_InputKey button)
 {
 	if (button < 512)
 	{

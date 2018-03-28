@@ -3,7 +3,10 @@
 
 #include "TypesCore.h"
 
-enum
+/**
+ * \brief The key value of the input
+ */
+enum ICE_InputKey
 {
 	// FROM SDL JUST RENAMED
 	ICE_INPUT_UNKNOWN = 0,
@@ -260,8 +263,20 @@ enum
 	ICE_INPUT_MAX
 };
 
-ICE_Bool ICE_Input_Press(int button);
+/**
+ * \brief Detect if you pressed the corresponding key
+ * \param button The key value
+ * \return ICE_True or ICE_False
+ */
+ICE_Bool ICE_Input_Press(enum ICE_InputKey button);
+/**
+ * \brief Send the Quit instruction to the engine
+ */
 void ICE_Input_Quit();
+
+/**
+ * \brief Reset every input to 0. Can be usefull in some case
+ */
 void ICE_Input_Reset();
 
 #endif

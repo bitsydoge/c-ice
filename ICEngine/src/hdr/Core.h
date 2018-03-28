@@ -40,6 +40,18 @@
 	#include <vld.h>
 #endif
 
-int ICE_Core_Main(ICE_String title, int window_width, int window_height, void(*call_preload)(void), void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void));
+/**
+ * \brief The main loop of the engine
+ * \param title The Title of the game
+ * \param window_width The width of the window
+ * \param window_height The height of the window
+ * \param call_preload The preload function where you load Assets (Img, Sound, Ttf)
+ * \param call_create The create function where you create entitys 
+ * \param call_update The update function called every frames
+ * \param call_destroy The destroy function called at the end
+ * \return 0
+ */
+int ICE_Core_Main(ICE_String title, int window_width, int window_height, void (*call_preload)(void),
+                  void (*call_create)(void), void (*call_update)(void), void (*call_destroy)(void));
 
 #endif

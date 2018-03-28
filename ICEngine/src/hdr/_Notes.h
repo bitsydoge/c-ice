@@ -1,11 +1,8 @@
 ﻿#ifndef _NOTES_H
 #define _NOTES_H
 /*
- *
- * Faire l'update du label_select quand le dernier est en mgr et 
- * qu'un realloc est fait (comme on est pas sur que le realloc se fasse
- * a la meme adresse mémoire)
- *
+ * Init = Object to free (with a _Destroy)
+ * New = Standard variable returned
  */
 
 #endif // _NOTES_H

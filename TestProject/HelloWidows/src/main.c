@@ -19,7 +19,7 @@ ICE_CREATE()
 	ICE_Label test = ICE_Label_Create("Test", ICE_Vect_New(20, 20));
 	ICE_Label_Select(&test);
 
-	ICE_LabelManager_Create(); // Create manager if you prefer
+	ICE_LabelManager_Insert(); // Create manager if you prefer
 	ICE_Label_Insert(0, "Annyeong", ICE_Vect_New(50, 50));
 	ICE_Label_Insert(0, "Gengu", ICE_Vect_New(50, 50));
 	ICE_Label_Insert(0, "Gengu", ICE_Vect_New(50, 50));
@@ -27,7 +27,7 @@ ICE_CREATE()
 	ICE_Label_Insert(0, "Gengu", ICE_Vect_New(50, 50));
 	ICE_Label_Select(0, 3);
 
-	ICE_LabelManager_Create(); // Create as much as you want
+	ICE_LabelManager_Insert(); // Create as much as you want
 	ICE_Label_Insert(1, "Annyeong", ICE_Vect_New(50, 50));
 	ICE_Label_Insert(1, "Gengu", ICE_Vect_New(50, 50));
 	ICE_Label_Select(1, 1);
