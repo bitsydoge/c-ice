@@ -88,4 +88,6 @@ ICE_Label * ICE_Label_ReturnPtr(unsigned int man, unsigned int nb);
  */
 void ICE_Label_Destroy(ICE_Label * ptr);
 
+ICE_String ICE_Label_GetString();
+
 #endif

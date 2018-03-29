@@ -16,8 +16,9 @@ void ICE_Debug_DrawCoordinate();
 
 /**
  * \brief Draw the fps on screen using debug font
+ * \param y_pos Position of the font on screen line
  */
-void ICE_Debug_DrawFps();
+void ICE_Debug_DrawFps(int y_pos);
 
 /**
  * \brief Show FPS in the title

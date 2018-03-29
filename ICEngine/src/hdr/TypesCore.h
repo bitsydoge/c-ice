@@ -90,6 +90,8 @@ struct ICE_Window
 
 	SDL_Window *handle;
 	SDL_Renderer *render;
+	ICE_Bool auto_render;
+	ICE_Bool auto_clear;
 	ICE_Color background;
 	ICE_Input input;
 

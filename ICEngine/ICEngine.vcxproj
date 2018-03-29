@@ -144,6 +144,7 @@
     <ClCompile Include="src\Game_private.c" />
     <ClCompile Include="src\Input.c" />
     <ClCompile Include="src\Input_private.c" />
+    <ClCompile Include="src\Interpolate.c" />
     <ClCompile Include="src\Label.c" />
     <ClCompile Include="src\Label_private.c" />
     <ClCompile Include="src\Log.c" />
@@ -184,6 +185,7 @@
     <ClInclude Include="src\hdr\Debug.h" />
     <ClInclude Include="src\hdr\Debug_private.h" />
     <ClInclude Include="src\hdr\Font.h" />
+    <ClInclude Include="src\hdr\Interpolate.h" />
     <ClInclude Include="src\hdr\Label.h" />
     <ClInclude Include="src\hdr\Label_private.h" />
     <ClInclude Include="src\hdr\Log.h" />

@@ -7,21 +7,36 @@
 #include <string.h>
 #include "hdr/Memory_.h"
 #include "hdr/Label_private.h"
+#include "hdr/Debug_private.h"
 
 extern ICE_Game game;
 
 void ICE_Label_Select_ptr(ICE_Label * set_this)
 {
-	game.label_select.isFromMan = 0;
-	game.label_select.object_selected = set_this;
+	if(set_this)
+	{
+		game.label_select.isFromMan = 0;
+		game.label_select.object_selected = set_this;
+	}
+	else
+	{
+		ICE_Log(ICE_LOG_ERROR, "POINTER IS NULL");
+	}
 }
 
 void ICE_Label_Select_mgr(const unsigned int man, const unsigned int nb)
 {
-	game.label_select.object_selected = &game.label_mngr[man].label[nb];
-	game.label_select.isFromMan = 1;
-	game.label_select.man = man;
-	game.label_select.nb = nb;
+	if (game.label_mngr_nb < man)
+		ICE_Log(ICE_LOG_ERROR, "NO MANAGER NUMBER %d", man);
+	else if (game.label_mngr[man].label_contain < nb)
+		ICE_Log(ICE_LOG_ERROR, "NO LABEL NUMBER %d", nb);
+	else
+	{
+		game.label_select.object_selected = &game.label_mngr[man].label[nb];;
+		game.label_select.isFromMan = 1;
+		game.label_select.man = man;
+		game.label_select.nb = nb;
+	}
 }
 
 void ICE_LabelManager_Insert()
@@ -122,4 +137,10 @@ void ICE_Label_Destroy(ICE_Label * ptr)
 {
 	ICE_String_Delete(ptr->text);
 	ICE_String_Delete(ptr->old_text);
+}
+
+ICE_String ICE_Label_GetString()
+{
+	ICE_Label * label = (ICE_Label*)game.label_select.object_selected;
+	return label->text;
 }
