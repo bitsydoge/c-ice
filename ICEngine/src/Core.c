@@ -30,12 +30,14 @@ int ICE_Core_Main(const ICE_String title, const int window_width, const int wind
 		ICE_Time_Start();
 		ICE_Input_Return();
 		ICE_Render_SetColor(game.window.background);
-		ICE_Render_Clear();
+		if(game.window.auto_clear)
+			ICE_Render_Clear();
 		call_update();
 
 		// RENDER HERE
 
-		ICE_Render_Now();
+		if(game.window.auto_render)
+			ICE_Render_Now();
 
 		ICE_Time_End();
 	}

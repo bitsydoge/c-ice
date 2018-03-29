@@ -34,13 +34,13 @@ void ICE_Debug_DrawCoordinate(){
 	}
 }
 
-void ICE_Debug_DrawFps()
+void ICE_Debug_DrawFps(int y_pos)
 {
 	if (debug_ok)
 	{
 		char gh[20];
 		sprintf(gh, " FPS : [%.0f] ", game.time.fps);
-		ICE_Debug_FontDraw(1, gh);
+		ICE_Debug_FontDraw(y_pos, gh);
 	}
 }
 

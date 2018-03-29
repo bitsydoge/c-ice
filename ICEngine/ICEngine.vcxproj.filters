@@ -123,6 +123,9 @@
     <ClCompile Include="src\Texture_private.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Interpolate.c">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\external\icestd.h">
@@ -264,6 +267,9 @@
       <Filter>hdr</Filter>
     </ClInclude>
     <ClInclude Include="src\hdr\Texture_private.h">
+      <Filter>hdr</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hdr\Interpolate.h">
       <Filter>hdr</Filter>
     </ClInclude>
   </ItemGroup>
