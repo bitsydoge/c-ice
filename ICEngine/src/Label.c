@@ -6,12 +6,12 @@
 
 #include <string.h>
 #include "hdr/Memory_.h"
-#include "hdr/Label_private.h"
-#include "hdr/Debug_private.h"
 
 extern ICE_Game game;
 
-void ICE_Label_Select_ptr(ICE_Label * set_this)
+// OLD SELECT METHODE
+/*
+ICE_Label * ICE_Label_Select_ptr(ICE_Label * set_this)
 {
 	if(set_this)
 	{
@@ -24,7 +24,7 @@ void ICE_Label_Select_ptr(ICE_Label * set_this)
 	}
 }
 
-void ICE_Label_Select_mgr(const unsigned int man, const unsigned int nb)
+ICE_Label * ICE_Label_Select_mgr(const unsigned int man, const unsigned int nb)
 {
 	if (game.label_mngr_nb < man)
 		ICE_Log(ICE_LOG_ERROR, "NO MANAGER NUMBER %d", man);
@@ -38,8 +38,14 @@ void ICE_Label_Select_mgr(const unsigned int man, const unsigned int nb)
 		game.label_select.nb = nb;
 	}
 }
+*/ // OLD SELECT METHODE
 
-void ICE_LabelManager_Insert()
+ICE_Label* ICE_Label_Get(const unsigned man, const unsigned nb)
+{
+	return &game.label_mngr[man].label[nb];
+}
+
+unsigned int ICE_LabelManager_Insert()
 {
 	ICE_LabelManager text_manager = { 0 };
 	text_manager.label_size = ICE_DEFAULT_LABEL_MNGR_SIZE;
@@ -49,6 +55,7 @@ void ICE_LabelManager_Insert()
 	game.label_mngr[game.label_mngr_nb - 1] = text_manager;
 
 	ICE_Log(ICE_LOG_SUCCES, "LabelManager]::[%d]::[Create", game.label_mngr_nb - 1);
+	return game.label_mngr_nb - 1;
 }
 
 ICE_Label ICE_Label_Create(char* text, ICE_Vect pos)
@@ -70,7 +77,27 @@ ICE_Label ICE_Label_Create(char* text, ICE_Vect pos)
 	return label;
 }
 
-void ICE_Label_Insert(const unsigned int man, char *text, const ICE_Vect pos)
+ICE_Label * ICE_Label_Init(char* text, ICE_Vect pos)
+{
+	ICE_Label * label = ICE_Calloc(1, sizeof(ICE_Label));
+
+	// Assigne
+	label->isFromMalloc = ICE_True;
+	label->active = ICE_True;
+	label->isFixedToWorld = ICE_False;
+	label->color = ICE_Color_New(255, 255, 255);
+	label->old_color = ICE_Color_New(255, 255, 255);
+	label->text = ICE_String_Init(text);
+	label->old_text = ICE_String_Init(text);
+	label->size = 200;
+	label->old_size = 200;
+	label->x = pos.x;
+	label->y = pos.y;
+
+	return label;
+}
+
+unsigned int ICE_Label_Insert(const unsigned int man, char *text, const ICE_Vect pos)
 {
 	// Insert label in array
 	game.label_mngr[man].label[game.label_mngr[man].label_contain] = ICE_Label_Create(text, pos);
@@ -86,8 +113,9 @@ void ICE_Label_Insert(const unsigned int man, char *text, const ICE_Vect pos)
 		ICE_Log(ICE_LOG_WARNING, "LabelManager]::[%d]::[Resized]::[%d", man, game.label_mngr[man].label_size * 2);
 		game.label_mngr[man].label = tmp;
 		game.label_mngr[man].label_size *= 2;
-		ICE_Label_SelectUpdate();
 	}
+
+	return game.label_mngr[man].label_contain - 1;
 }
 
 void ICE_Label_Clear(const unsigned int man, const unsigned int label)
@@ -128,19 +156,17 @@ void ICE_LabelManager_DestroyAll()
 	free(manager);
 }
 
-ICE_Label * ICE_Label_ReturnPtr(unsigned man, unsigned nb)
-{
-	return &game.label_mngr[man].label[nb];
-}
-
 void ICE_Label_Destroy(ICE_Label * ptr)
 {
 	ICE_String_Delete(ptr->text);
 	ICE_String_Delete(ptr->old_text);
+	if(ptr->isFromMalloc)
+	{
+		ICE_Free(ptr);
+	}
 }
 
-ICE_String ICE_Label_GetString()
+ICE_String ICE_Label_GetString(ICE_Label * ptr)
 {
-	ICE_Label * label = (ICE_Label*)game.label_select.object_selected;
-	return label->text;
+	return ptr->text;
 }

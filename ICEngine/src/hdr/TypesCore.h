@@ -127,6 +127,7 @@ struct ICE_Font
 struct ICE_Label
 {
 	// Main
+	ICE_Bool isFromMalloc;
 	ICE_Bool active;
 	ICE_Float x, y;
 
@@ -180,9 +181,11 @@ struct ICE_LabelManager
  */
 struct ICE_State
 {
+	void * func_preload;
 	void * func_create;
 	void * func_update;
 	void * func_destroy;
+
 }; typedef struct ICE_State ICE_State;
 
 
@@ -198,17 +201,6 @@ struct ICE_StateManager
 }; typedef struct ICE_StateManager ICE_StateManager;
 
 /**
- * \brief Current selected object 
- */
-struct ICE_Select
-{
-	void * object_selected;
-	ICE_Bool isFromMan;
-	unsigned int man;
-	unsigned int nb;
-}; typedef struct ICE_Select ICE_Select;
-
-/**
  * \brief The god object of the game with everything in it exept for Assets
  */
 struct ICE_Game {
@@ -219,12 +211,10 @@ struct ICE_Game {
 	ICE_Time time;
 
 	// Label
-	ICE_Select label_select;
 	unsigned int label_mngr_nb;
 	ICE_LabelManager *label_mngr;
 
 	// State
-	ICE_Select state_select;
 	unsigned int state_mngr_nb;
 	ICE_StateManager *state_mngr;
 
