@@ -137,6 +137,7 @@
     <ClInclude Include="src\Core\Input.h" />
     <ClInclude Include="src\Core\Input_private.h" />
     <ClInclude Include="src\Core\Label.h" />
+    <ClInclude Include="src\Core\Label_private.h" />
     <ClInclude Include="src\Core\State.h" />
     <ClInclude Include="src\Core\Time_.h" />
     <ClInclude Include="src\Core\Time_private.h" />
@@ -162,6 +163,7 @@
     <ClInclude Include="src\Graphics\Camera.h" />
     <ClInclude Include="src\Graphics\Color.h" />
     <ClInclude Include="src\Graphics\Color_private.h" />
+    <ClInclude Include="src\Graphics\Draw.h" />
     <ClInclude Include="src\Graphics\Font.h" />
     <ClInclude Include="src\Graphics\Primitive.h" />
     <ClInclude Include="src\Graphics\Render.h" />
@@ -186,6 +188,7 @@
     <ClCompile Include="src\Core\Input.c" />
     <ClCompile Include="src\Core\Input_private.c" />
     <ClCompile Include="src\Core\Label.c" />
+    <ClCompile Include="src\Core\Label_private.c" />
     <ClCompile Include="src\Core\State.c" />
     <ClCompile Include="src\Core\Time_.c" />
     <ClCompile Include="src\Core\Time_private.c" />
@@ -204,6 +207,7 @@
     <ClCompile Include="src\Framework\Terminal.c" />
     <ClCompile Include="src\Framework\Terminal_private.c" />
     <ClCompile Include="src\Graphics\Camera.c" />
+    <ClCompile Include="src\Graphics\Draw.c" />
     <ClCompile Include="src\Graphics\Font.c" />
     <ClCompile Include="src\Graphics\Primitive.c" />
     <ClCompile Include="src\Graphics\Render.c" />

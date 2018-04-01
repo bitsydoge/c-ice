@@ -142,6 +142,8 @@ struct ICE_Label
 	//ICE_Texture texture;
 	ICE_Bool isFixedToWorld;
 
+	ICE_Texture texture;
+
 
 }; typedef struct ICE_Label ICE_Label;
 

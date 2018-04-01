@@ -172,6 +172,12 @@
     <ClInclude Include="src\Core\Converter_private.h">
       <Filter>Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Core\Label_private.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Draw.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Asset_private.c">
@@ -281,6 +287,12 @@
     </ClCompile>
     <ClCompile Include="src\Framework\Std_.c">
       <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Label_private.c">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Draw.c">
+      <Filter>Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

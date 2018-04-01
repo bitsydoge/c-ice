@@ -11,7 +11,7 @@
 
 extern ICE_Game game;
 
-ICE_Texture* ICE_LoadImage(char *path)
+ICE_Texture* ICE_Texture_Load(char *path)
 {
 	int req_format = STBI_rgb_alpha;
 	int width, height, orig_format;
@@ -52,11 +52,6 @@ ICE_Texture* ICE_LoadImage(char *path)
 	SDL_FreeSurface(surf);
 	stbi_image_free(data);
 	return text;
-}
-
-void ICE_TextureDestroy(ICE_Texture *tex) {
-	SDL_DestroyTexture(tex->handle);
-	free(tex);
 }
 
 int ICE_TextureRenderEx(const ICE_Texture *tex, ICE_Box* source, ICE_Box* destination, const double angle) {

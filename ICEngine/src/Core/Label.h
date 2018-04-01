@@ -17,7 +17,6 @@ unsigned int ICE_LabelManager_Insert(ICE_State * state);
 
 /**
 * \brief Destroy a manager
-* \param state The state where the manager is
 * \param man The manager number
 */
 void ICE_LabelManager_Destroy(const unsigned int man);
