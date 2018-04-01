@@ -11,6 +11,7 @@
 #include "../Core/Label.h"
 
 #include <stdio.h>
+#include "../Graphics/Draw.h"
 
 extern ICE_Game game;
 
@@ -77,6 +78,9 @@ void ICE_Substate_Loop()
 		current->func_update();
 
 		// RENDER HERE
+		ICE_Draw_LabelWorld();
+
+		ICE_Draw_LabelScreen();
 
 		if (game.window.auto_render)
 			ICE_Render_Now();
