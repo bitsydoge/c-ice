@@ -1,12 +1,11 @@
 #include <ICE.h>
 
 ICE_State hello;
-unsigned int man;
 
 void hello_create()
 {
 	ICE_Render_Color(ICE_Color_New(55, 20, 10));
-	man = ICE_LabelManager_Insert(NULL);
+	ICE_LabelManager_Insert(NULL);
 }
 
 void hello_update()
@@ -25,13 +24,15 @@ void hello_update()
 	{
 		
 	}
+
+	ICE_Label * the_string = ICE_Label_Get(ICE_State_GetParent(NULL), 0, 0);
+	ICE_Debug_FontDraw(4, "RESULT = %s", ICE_Label_GetString(the_string));
 }
 
 void hello_destroy()
 {
-	ICE_LabelManager_Destroy(man);
-}
 
+}
 
 
 ICE_PRELOAD()
@@ -47,7 +48,7 @@ ICE_CREATE()
 	unsigned int manager = 0;
 
 	manager = ICE_LabelManager_Insert(NULL);
-	ICE_Label_Insert(NULL, manager, "Hello ", ICE_Vect_New(0,0));
+	ICE_Label_Insert(NULL, manager, "It's a me  !!!", ICE_Vect_New(0,0));
 	ICE_Label_Insert(NULL, manager, "World !", ICE_Vect_New(30, 0));
 
 	manager = ICE_LabelManager_Insert(NULL);

@@ -47,10 +47,10 @@ void ICE_LabelManager_Destroy(const unsigned int man)
 
 void ICE_LabelManager_DestroyAll()
 {
-	ICE_LabelManager *manager = game.state_main.object.label_mngr;
-	unsigned int nb_manager = game.state_main.object.label_mngr_nb;
+	ICE_LabelManager *manager = game.state_mngr.current->object.label_mngr;
+	unsigned int nb_manager = game.state_mngr.current->object.label_mngr_nb;
 	
-	for (int i = 0; i < nb_manager; i++)
+	for (unsigned int i = 0; i < nb_manager; i++)
 	{
 		if (!manager[i].isFree)
 		{
