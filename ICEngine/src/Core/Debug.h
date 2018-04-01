@@ -7,7 +7,7 @@
  * \param yn Bool, ICE_True or ICE_False. Use ICE_BoolNone if you just want to know the state
  * \return The actual state
  */
-ICE_Bool ICE_Debug(const ICE_Bool yn);
+ICE_Bool ICE_Debug_Set(const ICE_Bool yn);
 
 /**
  * \brief Draw the mouse coordinate

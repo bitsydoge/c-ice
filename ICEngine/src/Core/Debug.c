@@ -18,7 +18,7 @@ extern ICE_Asset asset;
 
 ICE_Bool debug_ok = ICE_False;
 
-ICE_Bool ICE_Debug(const ICE_Bool yn){
+ICE_Bool ICE_Debug_Set(const ICE_Bool yn){
 	if(yn != -1)
 		debug_ok = yn;
 	return debug_ok;
