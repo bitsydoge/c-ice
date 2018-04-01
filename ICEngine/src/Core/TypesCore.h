@@ -232,6 +232,9 @@ struct ICE_Asset
 {
 	ICE_Font font;
 
+	unsigned int texture_mngr_nb;
+	ICE_TextureManager *texture_mngr;
+
 }; typedef struct ICE_Asset ICE_Asset;
 
 #endif

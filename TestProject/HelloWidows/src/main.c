@@ -1,4 +1,5 @@
 #include <ICE.h>
+#include <Graphics/Texture_private.h>
 
 ICE_State hello;
 
@@ -38,6 +39,7 @@ void hello_destroy()
 ICE_PRELOAD()
 {
 	ICE_Font_Load("res//ttf//FiraSans-Medium.ttf");
+	ICE_Texture_Create(ICE_TextureManager_Create(), "res//img//pic.png");
 }
 
 ICE_CREATE()
@@ -81,6 +83,9 @@ ICE_UPDATE()
 	ICE_Render_Color(ICE_Color_New(result, result, result));
 	ICE_Draw_RectangleFill(ICE_Camera_WorldScreen(ICE_Box_New(-10, -10, 20, 20)), ICE_Color_Red);
 	
+	ICE_Box a1 = ICE_Box_New(0, 0, 128, 128);
+	ICE_TextureRenderEx(ICE_Texture_Get(0,0), &a1, &a1, 0);
+
 	ICE_Debug_CameraControl();
 	ICE_Debug_DrawFps(0);
 	ICE_Debug_FontDraw(2, " Version %s ", ICE_VERSION);

@@ -169,6 +169,9 @@
     <ClInclude Include="src\Framework\Std_.h">
       <Filter>Framework</Filter>
     </ClInclude>
+    <ClInclude Include="src\Core\Converter_private.h">
+      <Filter>Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Asset_private.c">
