@@ -1,11 +1,13 @@
 ﻿#include "../Core/TypesCore.h"
 #include <string.h>
+#include "../Core/Label_private.h"
+#include "../Maths/Box.h"
+#include "Texture.h"
+#include "../Graphics/Camera.h"
 
 extern ICE_Game game;
 
-/*
-
-void ICE_Draw_LabelScreen()
+void ICE_Draw_LabelWorld()
 {
 	ICE_State * current = game.state_mngr.current;
 
@@ -15,64 +17,64 @@ void ICE_Draw_LabelScreen()
 			if (current->object.label_mngr[i].label[j].active)
 			{
 				if (
-					strcmp(game.labelmanager[i].text[j].text, game.labelmanager[i].text[j].old_text) ||
-					game.labelmanager[i].text[j].size != game.labelmanager[i].text[j].old_size ||
-					game.labelmanager[i].text[j].color != game.labelmanager[i].text[j].old_color
+					strcmp(current->object.label_mngr[i].label[j].text, current->object.label_mngr[i].label[j].old_text) ||
+					current->object.label_mngr[i].label[j].size != current->object.label_mngr[i].label[j].old_size ||
+					current->object.label_mngr[i].label[j].color != current->object.label_mngr[i].label[j].old_color
 					)
 				{
-					iceLabelUpdateTexture(i, j);
-					game.labelmanager[i].text[j].old_color = game.labelmanager[i].text[j].color;
-					game.labelmanager[i].text[j].old_size = game.labelmanager[i].text[j].size;
-					free(game.labelmanager[i].text[j].old_text);
-					game.labelmanager[i].text[j].old_text = STRDUP(game.labelmanager[i].text[j].text);
+					ICE_Label_UpdateTexture(ICE_Label_Get(NULL, i, j));
+					current->object.label_mngr[i].label[j].old_color = current->object.label_mngr[i].label[j].color;
+					current->object.label_mngr[i].label[j].old_size = current->object.label_mngr[i].label[j].size;
+
+					ICE_String_Delete(current->object.label_mngr[i].label[j].old_text);
+					current->object.label_mngr[i].label[j].old_text = ICE_String_Init(current->object.label_mngr[i].label[j].text);
 				}
 
-				iceBox box = iceBoxNew(
-					game.labelmanager[i].text[j].pos.x,
-					game.labelmanager[i].text[j].pos.y,
-					game.labelmanager[i].text[j].texture.w,
-					game.labelmanager[i].text[j].texture.h
+				ICE_Box box = ICE_Box_New(
+					current->object.label_mngr[i].label[j].x,
+					current->object.label_mngr[i].label[j].y,
+					current->object.label_mngr[i].label[j].texture.w,
+					current->object.label_mngr[i].label[j].texture.h
 				);
-
-				// Fixed to screen 
-				if (!game.labelmanager[i].text[j].isFixedToWorld)
-					iceTextureRenderCenteredTexture(&game.labelmanager[i].text[j].texture, NULL, &box);
+ 
+				if (current->object.label_mngr[i].label[j].isFixedToWorld)
+					ICE_Texture_RenderCenteredTexture(&current->object.label_mngr[i].label[j].texture, NULL, (ICE_Box[]) { ICE_Camera_WorldScreen(box) });
 			}
 		}
-}
 
-void ICE_Draw_LabelWorld()
-{
-	for (int i = 0; i < game.labelmanager_nb; i++)
-		for (int j = 0; j < game.labelmanager[i].nb_existing; j++)
+}
+void ICE_Draw_LabelScreen() {
+	ICE_State * current = game.state_mngr.current;
+
+	for (int i = 0; i < current->object.label_mngr_nb; i++)
+		for (int j = 0; j < current->object.label_mngr[i].label_contain; j++)
 		{
-			if (game.labelmanager[i].text[j].exist)
+			if (current->object.label_mngr[i].label[j].active)
 			{
 				if (
-					strcmp(game.labelmanager[i].text[j].text, game.labelmanager[i].text[j].old_text) ||
-					game.labelmanager[i].text[j].size != game.labelmanager[i].text[j].old_size ||
-					game.labelmanager[i].text[j].color != game.labelmanager[i].text[j].old_color
+					strcmp(current->object.label_mngr[i].label[j].text, current->object.label_mngr[i].label[j].old_text) ||
+					current->object.label_mngr[i].label[j].size != current->object.label_mngr[i].label[j].old_size ||
+					current->object.label_mngr[i].label[j].color != current->object.label_mngr[i].label[j].old_color
 					)
 				{
-					iceLabelUpdateTexture(i, j);
-					game.labelmanager[i].text[j].old_color = game.labelmanager[i].text[j].color;
-					game.labelmanager[i].text[j].old_size = game.labelmanager[i].text[j].size;
-					free(game.labelmanager[i].text[j].old_text);
-					game.labelmanager[i].text[j].old_text = STRDUP(game.labelmanager[i].text[j].text);
+					ICE_Label_UpdateTexture(ICE_Label_Get(NULL, i, j));
+					current->object.label_mngr[i].label[j].old_color = current->object.label_mngr[i].label[j].color;
+					current->object.label_mngr[i].label[j].old_size = current->object.label_mngr[i].label[j].size;
+
+					ICE_String_Delete(current->object.label_mngr[i].label[j].old_text);
+					current->object.label_mngr[i].label[j].old_text = ICE_String_Init(current->object.label_mngr[i].label[j].text);
 				}
 
-				iceBox box = iceBoxNew(
-					game.labelmanager[i].text[j].pos.x,
-					game.labelmanager[i].text[j].pos.y,
-					game.labelmanager[i].text[j].texture.w,
-					game.labelmanager[i].text[j].texture.h
+				ICE_Box box = ICE_Box_New(
+					current->object.label_mngr[i].label[j].x,
+					current->object.label_mngr[i].label[j].y,
+					current->object.label_mngr[i].label[j].texture.w,
+					current->object.label_mngr[i].label[j].texture.h
 				);
 
-				// Fixed to World 
-				if (game.labelmanager[i].text[j].isFixedToWorld)
-					iceTextureRenderCenteredTexture(&game.labelmanager[i].text[j].texture, NULL, (iceBox[]) { iceCameraWorldScreen(box) });
+				// Fixed to screen
+				if (!current->object.label_mngr[i].label[j].isFixedToWorld)
+					ICE_Texture_RenderCenteredTexture(&current->object.label_mngr[i].label[j].texture, NULL, &box);
 			}
 		}
 }
-
-*/

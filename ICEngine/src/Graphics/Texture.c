@@ -8,8 +8,10 @@
 #include <string.h>
 #include "Texture_private.h"
 #include "../Framework/Memory_.h"
+#include "../Core/Converter_private.h"
 
 extern ICE_Asset asset;
+extern ICE_Game game;
 
 unsigned int ICE_TextureManager_Insert() 
 {
@@ -76,4 +78,27 @@ void ICE_Texture_Destroy(ICE_Texture *tex) {
 ICE_Texture * ICE_Texture_Get(unsigned int man, unsigned int nb)
 {
 	return &asset.texture_mngr[man].texture[nb];
+}
+
+int ICE_Texture_RenderCenteredTexture(ICE_Texture *texture, ICE_Box* src, ICE_Box* dst)
+{
+	if (!src && dst)
+	{
+		SDL_Rect s_dst = ICE_Convert_BoxToSDL(dst);
+		s_dst.x -= s_dst.w / 2; s_dst.y -= s_dst.h / 2;
+		return SDL_RenderCopy(game.window.render, texture->handle, NULL, &s_dst);
+	}
+	if (src && !dst)
+	{
+		SDL_Rect s_src = ICE_Convert_BoxToSDL(src);
+		return SDL_RenderCopy(game.window.render, texture->handle, &s_src, NULL);
+	}
+	if (!src && !dst)
+	{
+		return SDL_RenderCopy(game.window.render, texture->handle, NULL, NULL);
+	}
+	SDL_Rect s_dst = ICE_Convert_BoxToSDL(dst);
+	s_dst.x -= s_dst.w / 2; s_dst.y -= s_dst.h / 2;
+	SDL_Rect s_src = ICE_Convert_BoxToSDL(src);
+	return SDL_RenderCopy(game.window.render, texture->handle, &s_src, &s_dst);
 }

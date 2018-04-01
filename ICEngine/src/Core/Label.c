@@ -139,3 +139,32 @@ ICE_String ICE_Label_GetString(ICE_Label* ptr)
 {
 	return ptr->text;
 }
+
+/* LABEL SET FUNCTION */
+
+void ICE_Label_SetSize(ICE_Label *label, int size)
+{
+	label->size = size;
+}
+
+void ICE_Label_SetString(ICE_Label * label, ICE_String string)
+{
+	ICE_String_Delete(label->text);
+	label->text = ICE_String_Init(string);
+}
+
+void ICE_Label_SetPos(ICE_Label * label, ICE_Vect vect)
+{
+	label->x = vect.x;
+	label->y = vect.y;
+}
+
+void ICE_Label_SetColor(ICE_Label * label, ICE_Color color)
+{
+	label->color = color;
+}
+
+void ICE_Label_SetIsFixedToWorld(ICE_Label * label, ICE_Bool yn)
+{
+	label->isFixedToWorld = yn;
+}
