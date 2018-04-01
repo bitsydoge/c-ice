@@ -6,44 +6,7 @@
 
 #define ICE_DEFAULT_LABEL_MNGR_SIZE 4
 
-////////////////////////////////////////////////////////////////////////////////////
-// Select method that is boundaried
-
-/*
-#define ICE_Label_Select_2(X, Y) ICE_Label_Select_mgr(X, Y)
-#define ICE_Label_Select_1(X) ICE_Label_Select_ptr(X) 
-#define ICE_Label_Select_0() 
-
-#define ICE_Label_FUNC_CHOOSER(_f1, _f2, _f3, ...) _f3
-#define ICE_Label_FUNC_RECOMPOSER(argsWithParentheses) ICE_Label_FUNC_CHOOSER argsWithParentheses
-#define ICE_Label_CHOOSE_FROM_ARG_COUNT(...) ICE_Label_FUNC_RECOMPOSER((__VA_ARGS__, ICE_Label_Select_2, ICE_Label_Select_1, ))
-#define ICE_Label_NO_ARG_EXPANDER() ,,ICE_Label_Select_0
-#define ICE_Label_MACRO_CHOOSER(...) ICE_Label_CHOOSE_FROM_ARG_COUNT(ICE_Label_NO_ARG_EXPANDER __VA_ARGS__ ())
-
-
-/**
- * \brief Select label to apply function on
- * \param 1_arg Pointer of a ICE_Label
- * \param 2_arg Man number and Label Number
- */
-//#define ICE_Label_Select(...) ICE_Label_MACRO_CHOOSER(__VA_ARGS__)(__VA_ARGS__)
-
-/**
- * \brief Select a Label with it's pointer
- * \param set_this Ptr to a label to set it
- */
-//ICE_Label * ICE_Label_Select_ptr(ICE_Label * set_this);
-
-////////////////////////////////////////////////////////////////////////////////////
-
-/**
- * \brief Select a Label with it's Manager number and Position in the Manager
- * \param man LabelManager nb
- * \param nb Label nb
- */
-//ICE_Label * ICE_Label_Select(const unsigned int man, const unsigned int nb);
-
-ICE_Label * ICE_Label_Get(const unsigned int man, const unsigned int nb);
+ICE_Label * ICE_Label_Get(unsigned int man, unsigned int nb);
 
 /**
  * \brief Insert a new LabelManager in the Game
@@ -58,8 +21,6 @@ unsigned int ICE_LabelManager_Insert();
  */
 ICE_Label ICE_Label_Create(char* text, ICE_Vect pos);
 
-ICE_Label * ICE_Label_Init(char* text, ICE_Vect pos);
-
 /**
  * \brief Insert a new Label in a manager
  * \param man The manager where label must be added
@@ -73,7 +34,8 @@ unsigned int ICE_Label_Insert(unsigned int man, char *text, ICE_Vect pos);
  * \param man The manager number
  * \param label The label number
  */
-void ICE_Label_Clear(const unsigned int man, const unsigned int label);
+void ICE_Label_Clear();
+
 
 /**
  * \brief Destroy a manager
@@ -81,10 +43,16 @@ void ICE_Label_Clear(const unsigned int man, const unsigned int label);
  */
 void ICE_LabelManager_Destroy(const unsigned int man);
 
+void ICE_LabelManager_DestroyGlobal(const unsigned int man);
+
+
 /**
  * \brief Destroy all manager
  */
 void ICE_LabelManager_DestroyAll();
+
+void ICE_LabelManager_DestroyAllGlobal();
+
 
 /**
  * \brief Destroy a label with it's pointer

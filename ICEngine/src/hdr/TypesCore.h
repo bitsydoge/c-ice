@@ -160,44 +160,47 @@ struct ICE_LabelManager
 
 
 
-
-
 // BIG OBJECT
 // --------------------------------------
 // --------------------------------------
 // --------------------------------------
-// --------------------------------------
-// --------------------------------------
-// --------------------------------------
-// --------------------------------------
-// --------------------------------------
-// --------------------------------------
 
 
 
+struct ICE_ObjectManager
+{
+	// Label
+	unsigned int label_mngr_nb;
+	ICE_LabelManager *label_mngr;
+
+}; typedef struct ICE_ObjectManager ICE_ObjectManager;
 
 /**
- * \brief Current function used by the engine
- */
+* \brief Current function used by the engine
+*/
 struct ICE_State
 {
+	ICE_Bool isMainState;
+
 	void * func_preload;
 	void * func_create;
 	void * func_update;
 	void * func_destroy;
 
+	ICE_ObjectManager object;
+
+	struct ICE_State * parent;
+
 }; typedef struct ICE_State ICE_State;
 
 
 /**
- * \brief Manager of State
- */
+* \brief Manager of State
+*/
 struct ICE_StateManager
 {
-	ICE_Bool isFree;
-	unsigned int state_size;
-	unsigned int state_contain;
-	ICE_State * state;
+	ICE_State current;
+
 }; typedef struct ICE_StateManager ICE_StateManager;
 
 /**
@@ -210,13 +213,9 @@ struct ICE_Game {
 	ICE_Camera camera;
 	ICE_Time time;
 
-	// Label
-	unsigned int label_mngr_nb;
-	ICE_LabelManager *label_mngr;
-
 	// State
-	unsigned int state_mngr_nb;
-	ICE_StateManager *state_mngr;
+	ICE_State state_main;
+	ICE_StateManager state_mngr;
 
 }; typedef struct ICE_Game ICE_Game;
 
