@@ -17,13 +17,9 @@ void hello_update()
 	ICE_Draw_RectangleFill(ICE_Camera_WorldScreen(ICE_Box_New(-25, -25, 50, 50)), ICE_Color_Blue);
 
 
-	if(ICE_Input_Press(ICE_INPUT_ESCAPE))
+	if(ICE_Input_Key(ICE_KEY_ESCAPE))
 	{
 		ICE_State_Quit();
-	}
-	if(ICE_Input_Press(ICE_INPUT_SPACE))
-	{
-		
 	}
 
 	ICE_Label * the_string = ICE_Label_Get(ICE_State_GetParent(NULL), 0, 0);
@@ -39,7 +35,7 @@ void hello_destroy()
 ICE_PRELOAD()
 {
 	ICE_Font_Load("res//ttf//FiraSans-Medium.ttf");
-	ICE_Texture_Create(ICE_TextureManager_Create(), "res//img//pic.png");
+	ICE_Texture_Insert(ICE_TextureManager_Insert(), "res//img//pic.png");
 }
 
 ICE_CREATE()
@@ -90,7 +86,7 @@ ICE_UPDATE()
 	ICE_Debug_DrawFps(0);
 	ICE_Debug_FontDraw(2, " Version %s ", ICE_VERSION);
 	
-	if(ICE_Input_Press(ICE_INPUT_ESCAPE))
+	if(ICE_Input_Key(ICE_KEY_ESCAPE))
 	{
 		ICE_Substate_Start(hello);
 	}

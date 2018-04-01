@@ -8,27 +8,27 @@
 
 extern ICE_Game game;
 
-ICE_Bool ICE_Input_Press(enum ICE_InputKey button)
+ICE_Bool ICE_Input_Key(enum ICE_InputKey button)
 {
 	if (button < 512)
 	{
 		return game.window.input.key[button];
 	}
-	if (button > 600 && button < ICE_INPUT_MAX)
+	if (button > 600 && button < ICE_KEY_MAX)
 	{
-		if (button == ICE_INPUT_LEFTCLICK)
+		if (button == ICE_KEY_LEFTCLICK)
 		{
 			return game.window.input.leftclic;
 		}
-		if (button == ICE_INPUT_RIGHTCLICK)
+		if (button == ICE_KEY_RIGHTCLICK)
 		{
 			return game.window.input.rightclic;
 		}
-		if (button == ICE_INPUT_WHEELUP)
+		if (button == ICE_KEY_WHEELUP)
 		{
 			return game.window.input.wheelup;
 		}
-		if (button == ICE_INPUT_WHEELDOWN)
+		if (button == ICE_KEY_WHEELDOWN)
 		{
 			return game.window.input.wheeldown;
 		}

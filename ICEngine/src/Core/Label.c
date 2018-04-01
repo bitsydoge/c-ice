@@ -7,8 +7,10 @@
 #include "../Framework/Memory_.h"
 #include "../Framework/String_.h"
 #include "../Maths/TypesMaths.h"
+#include "Label_private.h"
 
 #include <string.h>
+#include "../ICE.h"
 
 extern ICE_Game game;
 
@@ -89,7 +91,7 @@ unsigned int ICE_Label_Insert(ICE_State * state, const unsigned int man, char *t
 
 	// Insert label in array
 	state->object.label_mngr[man].label[state->object.label_mngr[man].label_contain] = ICE_Label_Create(text, pos);
-	//ICE_LabelUpdateTexture(man, game.label_mngr[man].label_contain);
+	ICE_Label_UpdateTexture(ICE_Label_Get(state, man, state->object.label_mngr[man].label_contain));
 	state->object.label_mngr[man].label_contain++;
 
 	ICE_Log(ICE_LOG_SUCCES, "LabelManager]::[%d]::[Label]::[%d]::[Create]::[String=\"%s\"", man, state->object.label_mngr[man].label_contain - 1, text);
@@ -121,6 +123,7 @@ void ICE_Label_Destroy(ICE_Label * ptr)
 {
 	ICE_String_Delete(ptr->text);
 	ICE_String_Delete(ptr->old_text);
+	ICE_Texture_Destroy(&ptr->texture);
 }
 
 /* LABEL GET FUNCTION */

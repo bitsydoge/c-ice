@@ -99,15 +99,15 @@ void ICE_Debug_CameraControl()
 {
 	if(debug_ok)
 	{
-		if (ICE_Input_Press(ICE_INPUT_W))
+		if (ICE_Input_Key(ICE_KEY_W))
 			ICE_Camera_ShiftPos(ICE_Vect_New(0, -1000 * ICE_Game_GetDelta()));
-		if (ICE_Input_Press(ICE_INPUT_S))
+		if (ICE_Input_Key(ICE_KEY_S))
 			ICE_Camera_ShiftPos(ICE_Vect_New(0, 1000 * ICE_Game_GetDelta()));
-		if (ICE_Input_Press(ICE_INPUT_A))
+		if (ICE_Input_Key(ICE_KEY_A))
 			ICE_Camera_ShiftPos(ICE_Vect_New(-1000 * ICE_Game_GetDelta(), 0));
-		if (ICE_Input_Press(ICE_INPUT_D))
+		if (ICE_Input_Key(ICE_KEY_D))
 			ICE_Camera_ShiftPos(ICE_Vect_New(1000 * ICE_Game_GetDelta(), 0));
-		if (ICE_Input_Press(ICE_INPUT_SPACE))
+		if (ICE_Input_Key(ICE_KEY_SPACE))
 			ICE_Camera_MovePos(ICE_Vect_Null, 1000 * ICE_Game_GetDelta());
 	}
 }

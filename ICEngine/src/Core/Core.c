@@ -10,6 +10,7 @@
 #include "../Graphics/Render_private.h"
 #include "../Framework/String_.h"
 #include "../Framework/Log.h"
+#include "../Graphics/Texture.h"
 
 #include <stdio.h>
 
@@ -61,7 +62,7 @@ int ICE_Core_Main(const ICE_String title, const int window_width, const int wind
 	printf("------------------------\n");
 	ICE_Log(ICE_LOG_SUCCES, "Game]::[Destroy]::[Finish");
 	printf("------------------------\n\n");
-	
+	ICE_TextureManager_DestroyAll();
 	ICE_Core_Close();
 	return 0;
 }
