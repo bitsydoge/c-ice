@@ -178,11 +178,12 @@ struct ICE_ObjectManager
 */
 struct ICE_State
 {
+	ICE_Bool quit;
+	ICE_Bool hasBeenAlreadyRunOnce;
 
-	void * func_preload;
-	void * func_create;
-	void * func_update;
-	void * func_destroy;
+	void (*func_create)(void);
+	void (*func_update)(void);
+	void (*func_destroy)(void);
 
 	ICE_ObjectManager object;
 
