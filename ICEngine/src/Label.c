@@ -9,54 +9,56 @@
 
 extern ICE_Game game;
 
-// OLD SELECT METHODE
-/*
-ICE_Label * ICE_Label_Select_ptr(ICE_Label * set_this)
-{
-	if(set_this)
-	{
-		game.label_select.isFromMan = 0;
-		game.label_select.object_selected = set_this;
-	}
-	else
-	{
-		ICE_Log(ICE_LOG_ERROR, "POINTER IS NULL");
-	}
-}
+/* LABEL MANAGER */
 
-ICE_Label * ICE_Label_Select_mgr(const unsigned int man, const unsigned int nb)
+unsigned int ICE_LabelManager_Insert(ICE_State * state)
 {
-	if (game.label_mngr_nb < man)
-		ICE_Log(ICE_LOG_ERROR, "NO MANAGER NUMBER %d", man);
-	else if (game.label_mngr[man].label_contain < nb)
-		ICE_Log(ICE_LOG_ERROR, "NO LABEL NUMBER %d", nb);
-	else
-	{
-		game.label_select.object_selected = &game.label_mngr[man].label[nb];;
-		game.label_select.isFromMan = 1;
-		game.label_select.man = man;
-		game.label_select.nb = nb;
-	}
-}
-*/ // OLD SELECT METHODE
+	if (!state)
+		state = &game.state_mngr.current;
 
-ICE_Label* ICE_Label_Get(const unsigned man, const unsigned nb)
-{
-	return &game.label_mngr[man].label[nb];
-}
-
-unsigned int ICE_LabelManager_Insert()
-{
 	ICE_LabelManager text_manager = { 0 };
 	text_manager.label_size = ICE_DEFAULT_LABEL_MNGR_SIZE;
 	text_manager.label = ICE_Calloc(text_manager.label_size, sizeof(ICE_Label)); // Label Array
-	game.label_mngr_nb++;
-	game.label_mngr = ICE_Realloc(game.label_mngr, game.label_mngr_nb * sizeof(ICE_LabelManager)); // Manager Array
-	game.label_mngr[game.label_mngr_nb - 1] = text_manager;
 
-	ICE_Log(ICE_LOG_SUCCES, "LabelManager]::[%d]::[Create", game.label_mngr_nb - 1);
-	return game.label_mngr_nb - 1;
+	state->object.label_mngr_nb++;
+	state->object.label_mngr = ICE_Realloc(state->object.label_mngr, state->object.label_mngr_nb * sizeof(ICE_LabelManager)); // Manager Array
+	state->object.label_mngr[state->object.label_mngr_nb - 1] = text_manager;
+
+	ICE_Log(ICE_LOG_SUCCES, "LabelManager]::[%d]::[Create", state->object.label_mngr_nb - 1);
+	return state->object.label_mngr_nb - 1;
 }
+
+void ICE_LabelManager_Destroy(ICE_State * state, const unsigned int man)
+{
+	if (!state)
+		state = &game.state_mngr.current;
+
+	ICE_LabelManager *manager = &state->object.label_mngr[man];
+	for (int i = 0; i < manager->label_contain; i++)
+	{
+		//Free everything to free in Label
+		ICE_Label_Destroy(&manager->label[i]);
+	}
+	ICE_Free(manager->label);
+	ICE_Log(ICE_LOG_SUCCES, "LabelManager]::[%d]::[Free", man);
+}
+
+void ICE_LabelManager_DestroyAll()
+{
+	ICE_LabelManager *manager = game.state_main.object.label_mngr;
+	unsigned int nb_manager = game.state_main.object.label_mngr_nb;
+	for (int i = 0; i < nb_manager; i++)
+	{
+		if (!manager[i].isFree)
+		{
+			ICE_LabelManager_Destroy(NULL ,i);
+			manager[i].isFree = ICE_True;
+		}
+	}
+	free(manager);
+}
+
+/* LABEL */
 
 ICE_Label ICE_Label_Create(char* text, ICE_Vect pos)
 {
@@ -77,93 +79,58 @@ ICE_Label ICE_Label_Create(char* text, ICE_Vect pos)
 	return label;
 }
 
-ICE_Label * ICE_Label_Init(char* text, ICE_Vect pos)
+unsigned int ICE_Label_Insert(ICE_State * state, const unsigned int man, char *text, const ICE_Vect pos)
 {
-	ICE_Label * label = ICE_Calloc(1, sizeof(ICE_Label));
+	if (!state)
+		state = &game.state_mngr.current;
 
-	// Assigne
-	label->isFromMalloc = ICE_True;
-	label->active = ICE_True;
-	label->isFixedToWorld = ICE_False;
-	label->color = ICE_Color_New(255, 255, 255);
-	label->old_color = ICE_Color_New(255, 255, 255);
-	label->text = ICE_String_Init(text);
-	label->old_text = ICE_String_Init(text);
-	label->size = 200;
-	label->old_size = 200;
-	label->x = pos.x;
-	label->y = pos.y;
-
-	return label;
-}
-
-unsigned int ICE_Label_Insert(const unsigned int man, char *text, const ICE_Vect pos)
-{
 	// Insert label in array
-	game.label_mngr[man].label[game.label_mngr[man].label_contain] = ICE_Label_Create(text, pos);
+	state->object.label_mngr[man].label[state->object.label_mngr[man].label_contain] = ICE_Label_Create(text, pos);
 	//ICE_LabelUpdateTexture(man, game.label_mngr[man].label_contain);
-	game.label_mngr[man].label_contain++;
+	state->object.label_mngr[man].label_contain++;
 
-	ICE_Log(ICE_LOG_SUCCES, "LabelManager]::[%d]::[Label]::[%d]::[Create]::[String=\"%s\"", man, game.label_mngr[man].label_contain-1, text);
+	ICE_Log(ICE_LOG_SUCCES, "LabelManager]::[%d]::[Label]::[%d]::[Create]::[String=\"%s\"", man, state->object.label_mngr[man].label_contain - 1, text);
 
 	// Test size to realloc more space
-	if (game.label_mngr[man].label_size <= game.label_mngr[man].label_contain) {
-		ICE_Label* tmp = ICE_Realloc(game.label_mngr[man].label, sizeof(ICE_Label)*(game.label_mngr[man].label_size * 2));
+	if (state->object.label_mngr[man].label_size <= state->object.label_mngr[man].label_contain) {
+		ICE_Label* tmp = ICE_Realloc(state->object.label_mngr[man].label, sizeof(ICE_Label)*(state->object.label_mngr[man].label_size * 2));
 		// Test if realloc succes
-		ICE_Log(ICE_LOG_WARNING, "LabelManager]::[%d]::[Resized]::[%d", man, game.label_mngr[man].label_size * 2);
-		game.label_mngr[man].label = tmp;
-		game.label_mngr[man].label_size *= 2;
+		ICE_Log(ICE_LOG_WARNING, "LabelManager]::[%d]::[Resized]::[%d", man, state->object.label_mngr[man].label_size * 2);
+		state->object.label_mngr[man].label = tmp;
+		state->object.label_mngr[man].label_size *= 2;
 	}
 
-	return game.label_mngr[man].label_contain - 1;
+	return state->object.label_mngr[man].label_contain - 1;
 }
 
-void ICE_Label_Clear(const unsigned int man, const unsigned int label)
+void ICE_Label_Clear(ICE_Label * label)
 {
-	ICE_String temp = game.label_mngr[man].label[label].text;
-	ICE_String temp2 = game.label_mngr[man].label[label].old_text;
-	memset(&game.label_mngr[man].label[label], 0, sizeof(ICE_Label));
-	game.label_mngr[man].label[label].text = temp;
-	game.label_mngr[man].label[label].old_text = temp2;
+	ICE_String temp = label->text;
+	ICE_String temp2 = label->old_text;
+	memset(label, 0, sizeof(ICE_Label));
+	label->text = temp;
+	label->old_text = temp2;
 	ICE_String_Resize(&temp, 1);
 	ICE_String_Resize(&temp2, 1);
-}
-
-void ICE_LabelManager_Destroy(const unsigned int man)
-{
-	ICE_LabelManager *manager = &game.label_mngr[man];
-	for(int i = 0; i < manager->label_contain; i++)
-	{
-		//Free everything to free in Label
-		ICE_Label_Destroy(&manager->label[i]);
-	}
-	ICE_Free(manager->label);
-	ICE_Log(ICE_LOG_SUCCES, "LabelManager]::[%d]::[Free", man);
-}
-
-void ICE_LabelManager_DestroyAll()
-{
-	ICE_LabelManager *manager = game.label_mngr;
-	unsigned int nb_manager = game.label_mngr_nb;
-	for (int i = 0; i < nb_manager; i++)
-	{
-		if (!manager[i].isFree)
-		{
-			ICE_LabelManager_Destroy(i);
-			manager[i].isFree = ICE_True;
-		}
-	}
-	free(manager);
 }
 
 void ICE_Label_Destroy(ICE_Label * ptr)
 {
 	ICE_String_Delete(ptr->text);
 	ICE_String_Delete(ptr->old_text);
-	if(ptr->isFromMalloc)
+	if (ptr->isFromMalloc)
 	{
 		ICE_Free(ptr);
 	}
+}
+
+/* LABEL GET FUNCTION */
+
+ICE_Label * ICE_Label_Get(ICE_State * state, const unsigned man, const unsigned nb)
+{
+	if(state)
+		return &state->object.label_mngr[man].label[nb];
+	return &game.state_mngr.current.object.label_mngr[man].label[nb];
 }
 
 ICE_String ICE_Label_GetString(ICE_Label * ptr)
