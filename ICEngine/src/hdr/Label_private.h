@@ -1,5 +1,0 @@
-﻿#ifndef DEF_ICE_LABEL_PRIVATE
-#define DEF_ICE_LABEL_PRIVATE
-
-
-#endif
