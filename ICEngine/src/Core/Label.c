@@ -17,7 +17,7 @@ extern ICE_Game game;
 unsigned int ICE_LabelManager_Insert(ICE_State * state)
 {
 	if (!state)
-		state = &game.state_mngr.current;
+		state = game.state_mngr.current;
 
 	ICE_LabelManager text_manager = { 0 };
 	text_manager.label_size = ICE_DEFAULT_LABEL_MNGR_SIZE;
@@ -31,14 +31,11 @@ unsigned int ICE_LabelManager_Insert(ICE_State * state)
 	return state->object.label_mngr_nb - 1;
 }
 
-void ICE_LabelManager_Destroy(ICE_State * state, const unsigned int man)
+void ICE_LabelManager_Destroy(const unsigned int man)
 {
-	if (!state)
-		state = &game.state_mngr.current;
+	ICE_LabelManager *manager = &game.state_mngr.current->object.label_mngr[man];
 
-	ICE_LabelManager *manager = &state->object.label_mngr[man];
-
-	for (int i = 0; i < manager->label_contain; i++)
+	for (unsigned int i = 0; i < manager->label_contain; i++)
 	{
 		//Free everything to free in Label
 		ICE_Label_Destroy(&manager->label[i]);
@@ -57,7 +54,7 @@ void ICE_LabelManager_DestroyAll()
 	{
 		if (!manager[i].isFree)
 		{
-			ICE_LabelManager_Destroy(NULL ,i);
+			ICE_LabelManager_Destroy(i);
 			manager[i].isFree = ICE_True;
 		}
 	}
@@ -88,7 +85,7 @@ ICE_Label ICE_Label_Create(char* text, ICE_Vect pos)
 unsigned int ICE_Label_Insert(ICE_State * state, const unsigned int man, char *text, const ICE_Vect pos)
 {
 	if (!state)
-		state = &game.state_mngr.current;
+		state = game.state_mngr.current;
 
 	// Insert label in array
 	state->object.label_mngr[man].label[state->object.label_mngr[man].label_contain] = ICE_Label_Create(text, pos);
@@ -124,10 +121,6 @@ void ICE_Label_Destroy(ICE_Label * ptr)
 {
 	ICE_String_Delete(ptr->text);
 	ICE_String_Delete(ptr->old_text);
-	if (ptr->isFromMalloc)
-	{
-		ICE_Free(ptr);
-	}
 }
 
 /* LABEL GET FUNCTION */
@@ -136,7 +129,7 @@ ICE_Label * ICE_Label_Get(ICE_State * state, const unsigned man, const unsigned 
 {
 	if(state)
 		return &state->object.label_mngr[man].label[nb];
-	return &game.state_mngr.current.object.label_mngr[man].label[nb];
+	return &game.state_mngr.current->object.label_mngr[man].label[nb];
 }
 
 ICE_String ICE_Label_GetString(ICE_Label* ptr)

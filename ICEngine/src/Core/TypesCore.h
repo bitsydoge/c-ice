@@ -42,10 +42,6 @@
  */
 struct ICE_Time {
 
-	//unsigned long actual;
-	//unsigned long last;
-	//double ticks;
-	//unsigned int ticksEllapsed;
 	ICE_Float fps;
 	ICE_Float delta;
 
@@ -131,7 +127,6 @@ struct ICE_Font
 struct ICE_Label
 {
 	// Main
-	ICE_Bool isFromMalloc;
 	ICE_Bool active;
 	ICE_Float x, y;
 
@@ -156,6 +151,7 @@ struct ICE_Label
 struct ICE_LabelManager
 {
 	ICE_Bool isFree;
+
 	unsigned int label_size;
 	unsigned int label_contain;
 	ICE_Label* label;
@@ -168,8 +164,6 @@ struct ICE_LabelManager
 // --------------------------------------
 // --------------------------------------
 // --------------------------------------
-
-
 
 struct ICE_ObjectManager
 {
@@ -184,7 +178,6 @@ struct ICE_ObjectManager
 */
 struct ICE_State
 {
-	ICE_Bool isMainState;
 
 	void * func_preload;
 	void * func_create;
@@ -203,7 +196,7 @@ struct ICE_State
 */
 struct ICE_StateManager
 {
-	ICE_State current;
+	ICE_State * current;
 
 }; typedef struct ICE_StateManager ICE_StateManager;
 

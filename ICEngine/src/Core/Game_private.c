@@ -28,7 +28,7 @@ void ICE_Game_Create(char *window_title, const unsigned int width_window, const 
 	game.window.auto_clear = 1;
 	game.window.auto_render = 1;
 
-	game.state_mngr.current = game.state_main;
+	game.state_mngr.current = &game.state_main;
 
 	printf("------------------------\n");
 	ICE_Log(ICE_LOG_SUCCES, "Engine]::[Init]::[Finish");
