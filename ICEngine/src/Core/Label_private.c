@@ -18,12 +18,15 @@ void ICE_Label_UpdateTexture(ICE_Label * label)
 	ICE_Texture texture = { 0 };
 
 	texture.handle = SDL_CreateTextureFromSurface(game.window.render, surf);
-	texture.w = surf->w; texture.h = surf->h;
-	if (label->texture.exist)
+	if (texture.handle)
 	{
-		SDL_DestroyTexture(label->texture.handle);
+		texture.w = surf->w; texture.h = surf->h;
+		if (label->texture.exist)
+		{
+			SDL_DestroyTexture(label->texture.handle);
+		}
+		label->texture = texture;
+		label->texture.exist = ICE_True;
+		SDL_FreeSurface(surf);
 	}
-	label->texture = texture;
-	label->texture.exist = ICE_True;
-	SDL_FreeSurface(surf);
 }

@@ -6,6 +6,7 @@
 #include "Input_private.h"
 #include "Time_private.h"
 
+#include "../Graphics/Draw.h"
 #include "../Graphics/Render.h"
 #include "../Graphics/Render_private.h"
 #include "../Framework/String_.h"
@@ -44,7 +45,9 @@ int ICE_Core_Main(const ICE_String title, const int window_width, const int wind
 		call_update();
 
 		// RENDER HERE
+		ICE_Draw_LabelWorld();
 
+		ICE_Draw_LabelScreen();
 		if(game.window.auto_render)
 			ICE_Render_Now();
 
