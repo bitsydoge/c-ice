@@ -7,6 +7,16 @@ void hello_create()
 {
 	ICE_Render_Color(ICE_Color_New(55, 20, 10));
 	ICE_LabelManager_Insert(NULL);
+	unsigned int nb = ICE_Label_Insert(ICE_State_GetParent(NULL), 0, "HELLO GIRL FROM STATE", ICE_Vect_New(100, 100));
+	ICE_Label_SetColor(ICE_Label_Get(ICE_State_GetParent(NULL), 0, nb), ICE_Color_New(100, 255, 2));
+	ICE_Label_SetSize(ICE_Label_Get(ICE_State_GetParent(NULL), 0, nb), 100);
+	ICE_Label_SetIsFixedToWorld(ICE_Label_Get(ICE_State_GetParent(NULL), 0, nb), ICE_True);
+
+
+	nb = ICE_Label_Insert(NULL, 0, "HELLO GIRL", ICE_Vect_New(100, 100));
+	ICE_Label_SetColor(ICE_Label_Get(NULL, 0, nb), ICE_Color_New(100, 255, 2));
+	ICE_Label_SetSize(ICE_Label_Get(NULL, 0, nb), 100);
+	ICE_Label_SetIsFixedToWorld(ICE_Label_Get(NULL, 0, nb), ICE_True);
 }
 
 void hello_update()
@@ -35,7 +45,8 @@ void hello_destroy()
 ICE_PRELOAD()
 {
 	ICE_Font_Load("res//ttf//FiraSans-Medium.ttf");
-	ICE_Texture_Insert(ICE_TextureManager_Insert(), "res//img//pic.png");
+	ICE_Texture_Insert(ICE_TextureManager_Insert(), "res//img//pics.png");
+	ICE_Texture_Insert(0, "res//img//pic.png");
 }
 
 ICE_CREATE()
@@ -93,11 +104,15 @@ ICE_UPDATE()
 	else
 		result = ICE_Interpolate(0, 255, 1 - ( (amount-5) / 5.0f ), ICE_Interpolate_CubicOut);
 	
-	ICE_Render_Color(ICE_Color_New(result, 0, result/2 + 128));
+	ICE_Render_Color(ICE_Color_New(20, result/5.0f * 4, result/2 + 100));
 	ICE_Draw_RectangleFill(ICE_Camera_WorldScreen(ICE_Box_New(-10, -10, 20, 20)), ICE_Color_Red);
 	
+	/* Private test */
 	ICE_Box a1 = ICE_Box_New(0, 0, 128, 128);
-	ICE_TextureRenderEx(ICE_Texture_Get(0,0), &a1, &a1, 0);
+	ICE_TextureRenderEx(ICE_Texture_Get(0,1), &a1, &a1, 0);
+
+	ICE_Box a2 = ICE_Camera_WorldScreen(ICE_Box_New(200, 200, 128, 128));
+	ICE_TextureRenderEx(ICE_Texture_Get(0,0), &a1, &a2, 0);
 
 	ICE_Debug_CameraControl();
 	ICE_Debug_DrawFps(0);

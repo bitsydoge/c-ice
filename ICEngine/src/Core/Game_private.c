@@ -5,6 +5,7 @@
 #include "../Framework/Log.h"
 
 #include <stdio.h>
+#include "../Core/Window.h"
 
 ICE_Game game = { 0 };
 
@@ -29,6 +30,8 @@ void ICE_Game_Create(char *window_title, const unsigned int width_window, const 
 	game.window.auto_render = 1;
 
 	game.state_mngr.current = &game.state_main;
+
+	ICE_Window_SetIcon(0);
 
 	printf("------------------------\n");
 	ICE_Log(ICE_LOG_SUCCES, "Engine]::[Init]::[Finish");
