@@ -1,11 +1,16 @@
 ﻿#include "State.h"
 
 #include "TypesCore.h"
-#include <stdio.h>
-#include "../ICE.h"
 #include "Time_private.h"
 #include "Input_private.h"
+#include "Input.h"
+
+#include "../Graphics/Render.h"
 #include "../Graphics/Render_private.h"
+#include "../Framework/Log.h"
+#include "../Core/Label.h"
+
+#include <stdio.h>
 
 extern ICE_Game game;
 
@@ -86,5 +91,20 @@ void ICE_Substate_Loop()
 	ICE_Log(ICE_LOG_RUNNING, "Game]::[Destroy]::[Start");
 	printf("------------------------\n");
 	current->func_destroy();
+	ICE_LabelManager_DestroyAll();
+	ICE_ObjectManager obj = { 0 };
+	current->object = obj;
 	ICE_Input_Reset();
+}
+
+ICE_State * ICE_State_GetParent(ICE_State * state)
+{
+	if (!state)
+		state = game.state_mngr.current;
+
+
+	if(state->parent)
+		return state->parent;
+	ICE_Log(ICE_LOG_CRITICAL, "NOPARENTSTATE");
+	return state;
 }

@@ -4,7 +4,6 @@
 #include "Input.h"
 #include "Debug.h"
 
-#include "../Framework/Terminal.h"
 #include "../Framework/Log.h"
 
 extern ICE_Game game;
@@ -58,10 +57,4 @@ void ICE_Input_Reset() {
 	game.window.input.quit = temp2;
 	game.window.input.mousex = mousex;
 	game.window.input.mousey = mousey;
-
-
-	printf("Input Reset : ");
-	ICE_Term_SetColor(ICE_T_GREEN);
-	printf("OK\n");
-	ICE_Term_ResetColor();
 }
