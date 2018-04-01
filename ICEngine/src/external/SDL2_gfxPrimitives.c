@@ -1225,17 +1225,17 @@ int arcRGBA(SDL_Renderer * renderer, Sint16 x, Sint16 y, Sint16 rad, Sint16 star
 
 	/*
 	 Octant labeling
-	      
+		  
 	  \ 5 | 6 /
 	   \  |  /
 	  4 \ | / 7
-	     \|/
+		 \|/
 	------+------ +x
-	     /|\
+		 /|\
 	  3 / | \ 0
 	   /  |  \
 	  / 2 | 1 \
-	      +y
+		  +y
 
 	 Initially reset bitmask to 0x00000000
 	 the set whether or not to keep drawing a given octant.
@@ -1532,10 +1532,10 @@ int _ellipseRGBA(SDL_Renderer * renderer, Sint16 x, Sint16 y, Sint16 rx, Sint16 
 	int result;
 	Sint32 rxi, ryi;
 	Sint32 rx2, ry2, rx22, ry22; 
-    Sint32 error;
-    Sint32 curX, curY, curXp1, curYm1;
+	Sint32 error;
+	Sint32 curX, curY, curXp1, curYm1;
 	Sint32 scrX, scrY, oldX, oldY;
-    Sint32 deltaX, deltaY;
+	Sint32 deltaX, deltaY;
 	Sint32 ellipseOverscan;
 
 	/*
@@ -1568,7 +1568,7 @@ int _ellipseRGBA(SDL_Renderer * renderer, Sint16 x, Sint16 y, Sint16 rx, Sint16 
 	}
 	
 	/*
- 	 * Adjust overscan 
+	 * Adjust overscan 
 	 */
 	rxi = rx;
 	ryi = ry;
@@ -1597,27 +1597,27 @@ int _ellipseRGBA(SDL_Renderer * renderer, Sint16 x, Sint16 y, Sint16 rx, Sint16 
 	ryi *= ellipseOverscan;
 	rx2 = rxi * rxi;
 	rx22 = rx2 + rx2;
-    ry2 = ryi * ryi;
+	ry2 = ryi * ryi;
 	ry22 = ry2 + ry2;
-    curX = 0;
-    curY = ryi;
-    deltaX = 0;
-    deltaY = rx22 * curY;
+	curX = 0;
+	curY = ryi;
+	deltaX = 0;
+	deltaY = rx22 * curY;
  
 	/* Points in segment 1 */ 
-    error = ry2 - rx2 * ryi + rx2 / 4;
-    while (deltaX <= deltaY)
-    {
-          curX++;
-          deltaX += ry22;
+	error = ry2 - rx2 * ryi + rx2 / 4;
+	while (deltaX <= deltaY)
+	{
+		  curX++;
+		  deltaX += ry22;
  
-          error +=  deltaX + ry2; 
-          if (error >= 0)
-          {
-               curY--;
-               deltaY -= rx22; 
-               error -= deltaY;
-          }
+		  error +=  deltaX + ry2; 
+		  if (error >= 0)
+		  {
+			   curY--;
+			   deltaY -= rx22; 
+			   error -= deltaY;
+		  }
 
 		  scrX = curX / ellipseOverscan;
 		  scrY = curY / ellipseOverscan;
@@ -1626,7 +1626,7 @@ int _ellipseRGBA(SDL_Renderer * renderer, Sint16 x, Sint16 y, Sint16 rx, Sint16 
 			oldX = scrX;
 			oldY = scrY;
 		  }
-    }
+	}
 
 	/* Points in segment 2 */
 	if (curY > 0) 
@@ -1644,14 +1644,14 @@ int _ellipseRGBA(SDL_Renderer * renderer, Sint16 x, Sint16 y, Sint16 rx, Sint16 
  
 			if (error <= 0) 
 			{
-               curX++;
-               deltaX += ry22;
-               error += deltaX;
+			   curX++;
+			   deltaX += ry22;
+			   error += deltaX;
 			}
 
-		    scrX = curX / ellipseOverscan;
-		    scrY = curY / ellipseOverscan;
-		    if ((scrX != oldX && scrY == oldY) || (scrX != oldX && scrY != oldY)) {
+			scrX = curX / ellipseOverscan;
+			scrY = curY / ellipseOverscan;
+			if ((scrX != oldX && scrY == oldY) || (scrX != oldX && scrY != oldY)) {
 				oldY--;
 				for (;oldY >= scrY; oldY--) {
 					result |= _drawQuadrants(renderer, x, y, scrX, oldY, f);
@@ -1660,9 +1660,9 @@ int _ellipseRGBA(SDL_Renderer * renderer, Sint16 x, Sint16 y, Sint16 rx, Sint16 
 						oldY = scrY - 1;
 					}
 				}
-  				oldX = scrX;
+				oldX = scrX;
 				oldY = scrY;
-		    }		
+			}		
 		}
 
 		/* Remaining points in vertical */
@@ -2870,7 +2870,7 @@ int filledPolygonRGBAMT(SDL_Renderer * renderer, const Sint16 * vx, const Sint16
 		* Set color 
 		*/
 		result = 0;
-	    result |= SDL_SetRenderDrawBlendMode(renderer, (a == 255) ? SDL_BLENDMODE_NONE : SDL_BLENDMODE_BLEND);
+		result |= SDL_SetRenderDrawBlendMode(renderer, (a == 255) ? SDL_BLENDMODE_NONE : SDL_BLENDMODE_BLEND);
 		result |= SDL_SetRenderDrawColor(renderer, r, g, b, a);	
 
 		for (i = 0; (i < ints); i += 2) {
@@ -3136,7 +3136,7 @@ int texturedPolygonMT(SDL_Renderer *renderer, const Sint16 * vx, const Sint16 * 
 		}
 	}
 
-    /* Create texture for drawing */
+	/* Create texture for drawing */
 	textureAsTexture = SDL_CreateTextureFromSurface(renderer, texture);
 	if (textureAsTexture == NULL)
 	{

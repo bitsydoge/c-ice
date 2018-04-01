@@ -1,2 +1,0 @@
-﻿#include "hdr/Texture.h"
-

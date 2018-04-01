@@ -1,32 +1,41 @@
-#include <Core.h>
+#include <ICE.h>
 
-ICE_PRELOAD() // Load assets here, if the game "restart" they are not gonna be reload
+ICE_PRELOAD()
 {
 	ICE_Font_Load("res//ttf//FiraSans-Medium.ttf");
 }
 
 ICE_CREATE()
 {	
-	ICE_Render_Color( ICE_Color_New( 200, 200, 200 ) );
 	ICE_Debug_FontSetColorBg( 100, 100, 100 );
 	ICE_Debug_FontSetColorFg( 0, 0, 50 );
 
-	ICE_LabelManager_Insert(); // Create manager if you prefer
-	ICE_Label_Insert( 0, "Anneyong", ICE_Vect_New( 50, 50 ) );
-	ICE_Label_Insert( 0, "Gengu", ICE_Vect_New( 50, 50) );
-	ICE_Label_Insert( 0, "Gengu", ICE_Vect_New( 50, 50 ) );
-	ICE_Label_Insert( 0, "Gengu", ICE_Vect_New( 50, 50 ) );
-	ICE_Label_Insert( 0, "Gengu", ICE_Vect_New( 50, 50 ) );
+	unsigned int manager = 0;
 
-	ICE_LabelManager_Insert();
-	ICE_Label_Insert( 1, "Annyeong", ICE_Vect_New( 50, 50 ) );
-	ICE_Label_Insert( 1, "Gengu", ICE_Vect_New( 50, 50 ) );
+	manager = ICE_LabelManager_Insert(NULL);
+	ICE_Label_Insert(NULL, manager, "Hello ", ICE_Vect_New(0,0));
+	ICE_Label_Insert(NULL, manager, "World !", ICE_Vect_New(30, 0));
+
+	manager = ICE_LabelManager_Insert(NULL);
+	ICE_Label_Insert(NULL, manager, "Hello ", ICE_Vect_New(0, 0));
+	ICE_Label_Insert(NULL, manager, "World !", ICE_Vect_New(30, 0));
+
+	manager = ICE_LabelManager_Insert(NULL);
+	ICE_Label_Insert(NULL, manager, "Hello ", ICE_Vect_New(0, 0));
+	ICE_Label_Insert(NULL, manager, "World !", ICE_Vect_New(30, 0));
+
+	manager = ICE_LabelManager_Insert(NULL);
+	ICE_Label_Insert(NULL, manager, "Hello ", ICE_Vect_New(0, 0));
+	ICE_Label_Insert(NULL, manager, "World !", ICE_Vect_New(30, 0));
+
+	manager = ICE_LabelManager_Insert(NULL);
+	ICE_Label_Insert(NULL, manager, "Hello ", ICE_Vect_New(0, 0));
+	ICE_Label_Insert(NULL, manager, "World !", ICE_Vect_New(30, 0));
 }
 
 ICE_UPDATE()
 {
-	static float amount = 0;
-	float result;
+	static float amount = 0; float result;
 	if (amount <= 5.0f)
 		result = ICE_Interpolate(0, 255, amount / 5.0f, ICE_Interpolate_CubicIn);
 	else
@@ -34,6 +43,7 @@ ICE_UPDATE()
 	
 	ICE_Render_Color(ICE_Color_New(result, result, result));
 	ICE_Draw_RectangleFill(ICE_Camera_WorldScreen(ICE_Box_New(-10, -10, 20, 20)), ICE_Color_Red);
+	
 	ICE_Debug_CameraControl();
 	ICE_Debug_DrawFps(0);
 	ICE_Debug_FontDraw(2, " Version %s ", ICE_VERSION);
