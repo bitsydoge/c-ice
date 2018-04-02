@@ -12,6 +12,5 @@ void ICE_TextureManager_DestroyAll();
 unsigned int ICE_Texture_Insert(int manager, char* path);
 void ICE_Texture_Destroy(ICE_Texture *tex);
 ICE_Texture * ICE_Texture_Get(unsigned int man, unsigned int nb);
-int ICE_Texture_RenderCenteredTexture(ICE_Texture *texture, ICE_Box* src, ICE_Box* dst);
 
 #endif

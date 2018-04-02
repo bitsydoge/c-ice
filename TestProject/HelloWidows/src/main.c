@@ -44,11 +44,12 @@ void hello_destroy()
 
 ICE_PRELOAD()
 {
-	ICE_Font_Load("res//ttf//FiraSans-Medium.ttf");
 	ICE_TextureManager_Insert();
 	ICE_Texture_Insert(0, "res//img//pics.png");
 	ICE_Texture_Insert(0, "res//img//pic.png");
 	ICE_Texture_Insert(0, "res//img//gui.png");
+
+	ICE_Font_Load("res//ttf//FiraSans-Medium.ttf");
 }
 
 ICE_CREATE()
@@ -63,40 +64,14 @@ ICE_CREATE()
 	ICE_Gui_Insert(NULL, 0, ICE_Box_New(0, 0, ICE_Window_GetW(), 50), 0, 2);
 
 	manager = ICE_LabelManager_Insert(NULL);
-	label = ICE_Label_Insert(NULL, manager, "It is a me", ICE_Vect_New(100,300));
-	ICE_Label_SetSize(ICE_Label_Get(NULL, manager ,label), 10);
+	label = ICE_Label_Insert(NULL, manager, "It is a me", ICE_Vect_New(0,0));
+	ICE_Label_SetSize(ICE_Label_Get(NULL, manager ,label), 30);
 	ICE_Label_FixToWorld(ICE_Label_Get(NULL, manager, label), ICE_True);
-	
-	label = ICE_Label_Insert(NULL, manager, "It is a not a me !", ICE_Vect_New(300, 100));
-	ICE_Label_SetSize(ICE_Label_Get(NULL, manager, label), 12);
+	ICE_Label_SetAngle(ICE_Label_Get(NULL, manager, label), 30);
 
-	manager = ICE_LabelManager_Insert(NULL);
-	label = ICE_Label_Insert(NULL, manager, "Hello Wurld", ICE_Vect_New(140, 570));
-	ICE_Label_SetSize(ICE_Label_Get(NULL, manager, label), 4);
 
-	label = ICE_Label_Insert(NULL, manager, "World !", ICE_Vect_New(830, 750));
-	ICE_Label_SetSize(ICE_Label_Get(NULL, manager, label), 24);
-
-	manager = ICE_LabelManager_Insert(NULL);
-	label = ICE_Label_Insert(NULL, manager, "Hello ", ICE_Vect_New(120, 750));
-	ICE_Label_SetSize(ICE_Label_Get(NULL, manager, label), 22);
-
-	label = ICE_Label_Insert(NULL, manager, "World !", ICE_Vect_New(310, 420));
-	ICE_Label_SetSize(ICE_Label_Get(NULL, manager, label), 7);
-
-	manager = ICE_LabelManager_Insert(NULL);
-	label = ICE_Label_Insert(NULL, manager, "Hello ", ICE_Vect_New(210, 310));
-	ICE_Label_SetSize(ICE_Label_Get(NULL, manager, label), 10);
-
-	label = ICE_Label_Insert(NULL, manager, "World !", ICE_Vect_New(130, 140));
-	ICE_Label_SetSize(ICE_Label_Get(NULL, manager, label), 12);
-
-	manager = ICE_LabelManager_Insert(NULL);
-	label = ICE_Label_Insert(NULL, manager, "Hello ", ICE_Vect_New(420, 440));
-	ICE_Label_SetSize(ICE_Label_Get(NULL, manager, label), 10);
-
-	label = ICE_Label_Insert(NULL, manager, "World !", ICE_Vect_New(305, 01));
-	ICE_Label_SetSize(ICE_Label_Get(NULL, manager, label), 15);
+	label = ICE_Label_Insert(NULL, manager, "It is a not a me !", ICE_Vect_New(5, 5));
+	ICE_Label_SetSize(ICE_Label_Get(NULL, manager, label), 30);
 
 	hello = ICE_State_Create(hello_create, hello_update, hello_destroy);
 }
@@ -111,15 +86,8 @@ ICE_UPDATE()
 	else
 		result = ICE_Interpolate(0, 255, 1 - ( (amount-5) / 5.0f ), ICE_Interpolate_CubicOut);
 	
-	ICE_Render_Color(ICE_Color_New(20, result/5.0f * 4, result/2 + 100));
+	ICE_Render_Color(ICE_Color_New(result/5, result/2.5f+20, result/1.5f+20));
 	ICE_Draw_RectangleFill(ICE_Camera_WorldScreen(ICE_Box_New(-10, -10, 20, 20)), ICE_Color_Red);
-	
-	/* Private test */
-	ICE_Box a1 = ICE_Box_New(0, 0, 128, 128);
-	ICE_Texture_RenderEx(ICE_Texture_Get(0,1), &a1, &a1, 0);
-
-	ICE_Box a2 = ICE_Camera_WorldScreen(ICE_Box_New(200, 200, 128, 128));
-	ICE_Texture_RenderEx(ICE_Texture_Get(0,0), &a1, &a2, 0);
 
 	ICE_Debug_CameraControl();
 	ICE_Debug_DrawFps(0);
@@ -136,6 +104,11 @@ ICE_UPDATE()
 		ICE_Label_SetSize(ICE_Label_Get(NULL, 0, 0), 50);
 		ICE_Label_SetColor(ICE_Label_Get(NULL, 0, 0), ICE_Color_Red);
 		ICE_Label_SetPos(ICE_Label_Get(NULL, 0, 0), ICE_Vect_New( 0, 0 ));
+	}
+
+	if(ICE_Input_Key(ICE_KEY_RETURN))
+	{
+		ICE_Camera_SetPos(ICE_Vect_New(0,0));
 	}
 
 	amount += ICE_Game_GetDelta();

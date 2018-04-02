@@ -139,6 +139,8 @@ struct ICE_Label
 	int old_size;
 	ICE_Color old_color;
 	
+	ICE_Float angle;
+
 	//ICE_Texture texture;
 	ICE_Bool isFixedToWorld;
 

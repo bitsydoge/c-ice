@@ -84,7 +84,7 @@ unsigned int ICE_Gui_Insert(ICE_State * state, const unsigned int man, const ICE
 	state->object.gui_mngr[man].gui[state->object.gui_mngr[man].gui_contain] = ICE_Gui_Create(box, texture_manager, texture_nb);
 	state->object.gui_mngr[man].gui_contain++;
 
-	ICE_Log(ICE_LOG_SUCCES, "GuiManager]::[%d]::[Gui]::[%d]::[Create");
+	ICE_Log(ICE_LOG_SUCCES, "GuiManager]::[%d]::[Gui]::[%d]::[Create", texture_manager, state->object.gui_mngr[man].gui_contain-1);
 
 	// Test size to realloc more space
 	if (state->object.gui_mngr[man].gui_size <= state->object.gui_mngr[man].gui_contain) {
