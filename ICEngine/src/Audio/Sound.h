@@ -4,7 +4,6 @@
 #define ICE_DEFAULT_SOUND_SIZE 4
 #include "TypesAudio.h"
 
-
 // MANAGER
 
 unsigned int ICE_SoundManager_Insert();
@@ -30,7 +29,5 @@ ICE_Sound * ICE_Sound_Get(unsigned int man, unsigned int nb);
 // PLAY
 
 int ICE_Sound_Play(ICE_Sound * sound, const int volume);
-
-
 
 #endif

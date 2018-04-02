@@ -41,6 +41,9 @@
 // Audio
 
 #include "Audio/TypesAudio.h"
+#include "Audio/Audio.h"
+#include "Audio/Sound.h"
+#include "Audio/Music.h"
 
 // Maths
 
