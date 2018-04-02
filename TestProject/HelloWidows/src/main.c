@@ -1,7 +1,4 @@
 #include <ICE.h>
-#include <Graphics/Texture_private.h>
-
-ICE_State hello;
 
 void hello_create()
 {
@@ -12,7 +9,6 @@ void hello_create()
 	ICE_Label_SetSize(ICE_Label_Get(ICE_State_GetParent(NULL), 0, nb), 100);
 	ICE_Label_FixToWorld(ICE_Label_Get(ICE_State_GetParent(NULL), 0, nb), ICE_True);
 
-
 	nb = ICE_Label_Insert(NULL, 0, "HELLO GIRL", ICE_Vect_New(100, 100));
 	ICE_Label_SetColor(ICE_Label_Get(NULL, 0, nb), ICE_Color_New(100, 255, 2));
 	ICE_Label_SetSize(ICE_Label_Get(NULL, 0, nb), 100);
@@ -22,10 +18,9 @@ void hello_create()
 void hello_update()
 {
 	ICE_Debug_CameraControl();
-	ICE_Debug_DrawFps(0);
-	ICE_Debug_FontDraw(2, " Version %s ", ICE_VERSION);
+	ICE_Debug_DrawFps(3);
+	ICE_Debug_FontDraw(4, " Version %s ", ICE_VERSION);
 	ICE_Draw_RectangleFill(ICE_Camera_WorldScreen(ICE_Box_New(-25, -25, 50, 50)), ICE_Color_Blue);
-
 
 	if(ICE_Input_Key(ICE_KEY_ESCAPE))
 	{
@@ -33,7 +28,7 @@ void hello_update()
 	}
 
 	ICE_Label * the_string = ICE_Label_Get(ICE_State_GetParent(NULL), 0, 0);
-	ICE_Debug_FontDraw(4, "RESULT = %s", ICE_Label_GetString(the_string));
+	ICE_Debug_FontDraw(5, "RESULT = %s", ICE_Label_GetString(the_string));
 }
 
 void hello_destroy()
@@ -41,6 +36,7 @@ void hello_destroy()
 
 }
 
+ICE_State hello;
 
 ICE_PRELOAD()
 {
@@ -69,7 +65,6 @@ ICE_CREATE()
 	ICE_Label_FixToWorld(ICE_Label_Get(NULL, manager, label), ICE_True);
 	ICE_Label_SetAngle(ICE_Label_Get(NULL, manager, label), 30);
 
-
 	label = ICE_Label_Insert(NULL, manager, "It is a not a me !", ICE_Vect_New(5, 5));
 	ICE_Label_SetSize(ICE_Label_Get(NULL, manager, label), 30);
 
@@ -90,8 +85,8 @@ ICE_UPDATE()
 	ICE_Draw_RectangleFill(ICE_Camera_WorldScreen(ICE_Box_New(-10, -10, 20, 20)), ICE_Color_Red);
 
 	ICE_Debug_CameraControl();
-	ICE_Debug_DrawFps(0);
-	ICE_Debug_FontDraw(2, " Version %s ", ICE_VERSION);
+	ICE_Debug_DrawFps(4);
+	ICE_Debug_FontDraw(5, " Version %s ", ICE_VERSION);
 
 	if(ICE_Input_Key(ICE_KEY_ESCAPE))
 	{

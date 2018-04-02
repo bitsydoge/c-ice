@@ -8,9 +8,9 @@ _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
 
 **Supported Format :** 
 
-	- Image : JPG, PNG, BMP (And everything stb image support)
-	- Sound : OGG and WAV (And everything SDL mixer support)
-	- Font  : TTF (And everything SDL ttf support)
+	- Image : JPG, PNG, BMP (And everything stb_image support)
+	- Sound : OGG and WAV (And everything SDL_mixer support)
+	- Font  : TTF (And everything SDL_ttf support)
 
 **Tools** :
 
@@ -34,24 +34,30 @@ _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
 ```c
 #include <Core.h>
 
-ICE_PRELOAD() // Load assets here, if the game "restart" they are not gonna be reload{
+ICE_PRELOAD()
+{
 	ICE_Font_Load("font.ttf");
 }
 
-ICE_CREATE(){
-	ICE_Render_Color( ICE_Color_New( 200, 200, 200 ) ); // Background color
-	ICE_Debug_FontSetColorBg(100, 100, 100); // Text Background Color
-	ICE_Debug_FontSetColorFg(0, 0, 50); // Text Color
+ICE_CREATE()
+{
+	ICE_Render_Color( ICE_Color_New( 200, 200, 200 ) );
+
+	unsigned int man = ICE_LabelManager_Insert(NULL);
+	unsigned int nb  = ICE_Label_Insert(NULL, man, "Hello World", ICE_Vect_New(0,0));
+	ICE_Label_FixToWorld(ICE_Label_Get(NULL, 0, nb), ICE_True);
+}	
+
+ICE_UPDATE()
+{
+	if(ICE_Input_Key(ICE_KEY_ESCAPE))
+		ICE_Input_Quit();
 }
 
-ICE_UPDATE(){
-	ICE_Debug_FontDraw(1, " Hello World from ICE %s ", ICE_VERSION);		
-}
+ICE_DESTROY() {}
 
-ICE_DESTROY(){}
-
-int main(){
-	ICE_Debug(ICE_True);
+int main()
+{
 	ICE_START( "Hello World", 800, 480 );
 	return 0;
 }
