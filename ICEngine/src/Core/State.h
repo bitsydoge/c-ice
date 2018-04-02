@@ -8,11 +8,15 @@
 
 ICE_State ICE_State_Create(void(*func_create)(void), void(*func_update)(void), void(*func_destroy)(void));
 
-void ICE_State_Change(ICE_State state);
+void ICE_State_Change(ICE_State * state);
 
 void ICE_State_Quit();
 
-void ICE_Substate_Start(ICE_State state);
+void ICE_State_Pause();
+
+void ICE_Substate_Start(ICE_State * state);
+
+void ICE_State_Destroy(ICE_State * state);
 
 void ICE_Substate_Loop();
 

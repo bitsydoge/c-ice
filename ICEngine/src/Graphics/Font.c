@@ -13,7 +13,8 @@ extern ICE_Game game;
 extern ICE_Asset asset;
 extern ICE_Bool debug_ok;
 
-void ICE_Font_Load(char *path) {
+void ICE_Font_Load(char *path) 
+{
 	for (int i = 0; i < 256; i++) {
 		asset.font.size[i] = TTF_OpenFont(path, i);
 		if (!asset.font.size[i])
@@ -21,7 +22,13 @@ void ICE_Font_Load(char *path) {
 	}
 }
 
-void ICE_Font_Draw(char* text, ICE_Vect vect, ICE_Color fg, ICE_Color bg) {
+void ICE_Font_Destroy(ICE_Font * font)
+{
+	
+}
+
+void ICE_Font_Draw(char* text, ICE_Vect vect, ICE_Color fg, ICE_Color bg) 
+{
 	if (debug_ok)
 	{
 		int size = (int)((ICE_Float)ICE_Window_GetH() / 50.0);

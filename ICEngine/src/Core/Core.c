@@ -11,10 +11,8 @@
 #include "../Graphics/Render_private.h"
 #include "../Framework/String_.h"
 #include "../Framework/Log.h"
-#include "../Graphics/Texture.h"
 
 #include <stdio.h>
-#include "../ICE.h"
 
 extern ICE_Game game;
 
@@ -25,17 +23,11 @@ int ICE_Core_Main(const ICE_String title, const int window_width, const int wind
 	call_preload();
 
 	
-	printf("------------------------\n");
 	ICE_Log(ICE_LOG_RUNNING, "Game]::[Create]::[Start");
-	printf("------------------------\n");
 	call_create();
-	printf("------------------------\n");
 	ICE_Log(ICE_LOG_SUCCES, "Game]::[Create]::[Finish");
-	printf("------------------------\n");
 	printf("\n");
-	printf("------------------------\n");
 	ICE_Log(ICE_LOG_RUNNING, "Game]::[Update]::[Start");
-	printf("------------------------\n");
 	while (!game.window.input.quit)
 	{	
 		ICE_Time_Start();
@@ -54,18 +46,12 @@ int ICE_Core_Main(const ICE_String title, const int window_width, const int wind
 
 		ICE_Time_End();
 	}
-	printf("------------------------\n");
 	ICE_Log(ICE_LOG_SUCCES, "Game]::[Update]::[Finish");
-	printf("------------------------\n");
 	printf("\n");
-	printf("------------------------\n");
 	ICE_Log(ICE_LOG_RUNNING, "Game]::[Destroy]::[Start");
-	printf("------------------------\n");
 	call_destroy();
 	ICE_Game_Destroy();
-	printf("------------------------\n");
 	ICE_Log(ICE_LOG_SUCCES, "Game]::[Destroy]::[Finish");
-	printf("------------------------\n\n");
 	
 	ICE_Core_Close();
 	return 0;
