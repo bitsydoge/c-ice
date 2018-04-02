@@ -1,8 +1,6 @@
 ﻿#include <string.h>
-#include <stdio.h>
 
 #include "Input.h"
-#include "Debug.h"
 
 #include "../Framework/Log.h"
 
@@ -47,7 +45,8 @@ void ICE_Input_Quit()
 	game.window.input.quit = ICE_True;
 }
 
-void ICE_Input_Reset() {
+void ICE_Input_Reset() 
+{
 	int temp = game.window.input.focus;
 	int temp2 = game.window.input.quit;
 	int mousex = game.window.input.mousex;

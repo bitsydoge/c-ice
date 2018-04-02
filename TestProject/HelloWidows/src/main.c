@@ -1,4 +1,5 @@
 #include <ICE.h>
+#include "Audio/Sound.h"
 
 void hello_create()
 {
@@ -40,10 +41,14 @@ ICE_State hello;
 
 ICE_PRELOAD()
 {
-	ICE_TextureManager_Insert();
-	ICE_Texture_Insert(0, "res//img//pics.png");
-	ICE_Texture_Insert(0, "res//img//pic.png");
-	ICE_Texture_Insert(0, "res//img//gui.png");
+	unsigned int man = 0;
+
+	man = ICE_TextureManager_Insert();
+	ICE_Texture_Insert(man, "res//img//pic.png");
+	ICE_Texture_Insert(man, "res//img//gui.png");
+
+	man = ICE_SoundManager_Insert();
+	ICE_Sound_Insert(man, "res//snd//explosion.wav");
 
 	ICE_Font_Load("res//ttf//FiraSans-Medium.ttf");
 }
@@ -57,7 +62,7 @@ ICE_CREATE()
 	unsigned int label = 0;
 
 	ICE_GuiManager_Insert(NULL);
-	ICE_Gui_Insert(NULL, 0, ICE_Box_New(0, 0, ICE_Window_GetW(), 50), 0, 2);
+	ICE_Gui_Insert(NULL, 0, ICE_Box_New(0, 0, ICE_Window_GetW(), 50), 0, 1);
 
 	manager = ICE_LabelManager_Insert(NULL);
 	label = ICE_Label_Insert(NULL, manager, "It is a me", ICE_Vect_New(0,0));
@@ -90,6 +95,7 @@ ICE_UPDATE()
 
 	if(ICE_Input_Key(ICE_KEY_ESCAPE))
 	{
+		ICE_Sound_Play(ICE_Sound_Get(0, 0), 64);
 		ICE_Substate_Start(hello);
 	}
 

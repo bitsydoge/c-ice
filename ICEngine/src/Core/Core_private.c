@@ -12,6 +12,8 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <stdio.h>
+#include "../Audio/Audio.h"
+#include "../Audio/Sound.h"
 
 extern ICE_Game game;
 
@@ -25,6 +27,7 @@ int ICE_Core_Init() {
 
 	// SDL
 	SDL_Init(SDL_INIT_VIDEO);
+	ICE_Audio_Init();
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
 	TTF_Init();
 	
@@ -43,9 +46,11 @@ int ICE_Core_Close() {
 	ICE_LabelManager_DestroyAll();
 	ICE_GuiManager_DestroyAll();
 	ICE_TextureManager_DestroyAll();
+	ICE_SoundManager_DestroyAll();
 
 	// SDL
 	TTF_Quit();
+	ICE_Audio_Close();
 	SDL_Quit();
 
 	printf("------------------------\n");
