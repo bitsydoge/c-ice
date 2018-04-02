@@ -1,261 +1,344 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="external">
-      <UniqueIdentifier>{a0f530cf-2ca0-4295-a0e0-d31bda7b87f4}</UniqueIdentifier>
+    <Filter Include="Audio">
+      <UniqueIdentifier>{d86cf02c-314e-4279-97f8-c49efe518c7c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="hdr">
-      <UniqueIdentifier>{30b95d10-223c-4664-aa53-e25efdd50a75}</UniqueIdentifier>
+    <Filter Include="Physics">
+      <UniqueIdentifier>{6ff1e53b-7521-404b-99ba-023942d695f0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src">
-      <UniqueIdentifier>{8fe9e88b-ac8e-4797-a7ad-08bbde5222a1}</UniqueIdentifier>
+    <Filter Include="External">
+      <UniqueIdentifier>{36c83cd6-08b4-4e5d-83e0-116134c5c3e2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="raw">
-      <UniqueIdentifier>{b042a6a2-c86a-427b-b253-65f9db1b72e7}</UniqueIdentifier>
+    <Filter Include="Raw">
+      <UniqueIdentifier>{e9fd9301-db3d-4b26-ad6b-9ee56e5334a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="__Core">
+      <UniqueIdentifier>{168370c5-3986-4c02-b4e1-491595f06b82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="___Framework">
+      <UniqueIdentifier>{a8631434-0cd9-4cbd-8b74-e20e92612dc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Graphics">
+      <UniqueIdentifier>{c4de349e-a88f-446e-a759-630d70ad9b2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Maths">
+      <UniqueIdentifier>{02dfc310-3a03-4719-91c3-198866493c09}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Camera.c">
-      <Filter>src</Filter>
+    <ClInclude Include="src\ICE.h" />
+    <ClInclude Include="src\Audio\TypesAudio.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Asset_private.h">
+      <Filter>__Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Core.h">
+      <Filter>__Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Core_private.h">
+      <Filter>__Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Debug.h">
+      <Filter>__Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Game.h">
+      <Filter>__Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Game_private.h">
+      <Filter>__Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Input.h">
+      <Filter>__Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Input_private.h">
+      <Filter>__Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Label.h">
+      <Filter>__Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\State.h">
+      <Filter>__Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\TypesCore.h">
+      <Filter>__Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Window.h">
+      <Filter>__Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Log.h">
+      <Filter>___Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Memory_.h">
+      <Filter>___Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Random.h">
+      <Filter>___Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\String_.h">
+      <Filter>___Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Terminal.h">
+      <Filter>___Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Terminal_private.h">
+      <Filter>___Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\TypesFramework.h">
+      <Filter>___Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Camera.h">
+      <Filter>_Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Color.h">
+      <Filter>_Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Color_private.h">
+      <Filter>_Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Font.h">
+      <Filter>_Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Primitive.h">
+      <Filter>_Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Render.h">
+      <Filter>_Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Render_private.h">
+      <Filter>_Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Texture.h">
+      <Filter>_Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Texture_private.h">
+      <Filter>_Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\TypesGraphics.h">
+      <Filter>_Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Maths\Box.h">
+      <Filter>_Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Maths\Interpolate.h">
+      <Filter>_Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Maths\TypesMaths.h">
+      <Filter>_Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Maths\Vector.h">
+      <Filter>_Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Physics\TypesPhysics.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\rlutil.h">
+      <Filter>External</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\rnd.h">
+      <Filter>External</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\SDL2_framerate.h">
+      <Filter>External</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\SDL2_gfxPrimitives.h">
+      <Filter>External</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\SDL2_gfxPrimitives_font.h">
+      <Filter>External</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\SDL2_imageFilter.h">
+      <Filter>External</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\SDL2_rotozoom.h">
+      <Filter>External</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\stb_image.h">
+      <Filter>External</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Assert.h">
+      <Filter>___Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Time_private.h">
+      <Filter>__Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Time_.h">
+      <Filter>__Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Std_.h">
+      <Filter>___Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Converter_private.h">
+      <Filter>__Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Label_private.h">
+      <Filter>__Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Draw.h">
+      <Filter>_Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Gui.h">
+      <Filter>_Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Gui_private.h">
+      <Filter>_Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Audio\Music.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Audio\Sound.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Audio\Audio.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Entity.h">
+      <Filter>__Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Data.h">
+      <Filter>__Core</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Core\Asset_private.c">
+      <Filter>__Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Core.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Core\Core.c">
+      <Filter>__Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Data.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Core\Core_private.c">
+      <Filter>__Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Debug.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Core\Debug.c">
+      <Filter>__Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Draw.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Core\Game.c">
+      <Filter>__Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Entity.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Core\Game_private.c">
+      <Filter>__Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Font.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Core\Input.c">
+      <Filter>__Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Game.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Core\Input_private.c">
+      <Filter>__Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Gui.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Core\Label.c">
+      <Filter>__Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Input.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Core\State.c">
+      <Filter>__Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Label.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Core\Window.c">
+      <Filter>__Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Map.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Framework\Log.c">
+      <Filter>___Framework</Filter>
     </ClCompile>
-    <ClCompile Include="src\Music.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Framework\Memory_.c">
+      <Filter>___Framework</Filter>
     </ClCompile>
-    <ClCompile Include="src\Physics.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Framework\Random.c">
+      <Filter>___Framework</Filter>
     </ClCompile>
-    <ClCompile Include="src\Primitive.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Framework\String_.c">
+      <Filter>___Framework</Filter>
     </ClCompile>
-    <ClCompile Include="src\Random.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Framework\Terminal.c">
+      <Filter>___Framework</Filter>
     </ClCompile>
-    <ClCompile Include="src\Sound.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Framework\Terminal_private.c">
+      <Filter>___Framework</Filter>
     </ClCompile>
-    <ClCompile Include="src\Substate.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Graphics\Camera.c">
+      <Filter>_Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="src\Terminal.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Graphics\Font.c">
+      <Filter>_Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="src\Texture.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Graphics\Primitive.c">
+      <Filter>_Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="src\Window.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Graphics\Render.c">
+      <Filter>_Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="src\raw\Raw_error.c">
-      <Filter>raw</Filter>
+    <ClCompile Include="src\Graphics\Render_private.c">
+      <Filter>_Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="src\raw\Raw_icon.c">
-      <Filter>raw</Filter>
+    <ClCompile Include="src\Graphics\Texture.c">
+      <Filter>_Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="src\external\icestd.c">
-      <Filter>external</Filter>
+    <ClCompile Include="src\Graphics\Texture_private.c">
+      <Filter>_Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="src\external\rlutil.c">
-      <Filter>external</Filter>
+    <ClCompile Include="src\Maths\Interpolate.c">
+      <Filter>_Maths</Filter>
     </ClCompile>
-    <ClCompile Include="src\Camera_private.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\External\rlutil.c">
+      <Filter>External</Filter>
     </ClCompile>
-    <ClCompile Include="src\Core_private.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\External\SDL2_framerate.c">
+      <Filter>External</Filter>
     </ClCompile>
-    <ClCompile Include="src\Gui_private.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\External\SDL2_gfxPrimitives.c">
+      <Filter>External</Filter>
     </ClCompile>
-    <ClCompile Include="src\Input_private.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\External\SDL2_imageFilter.c">
+      <Filter>External</Filter>
     </ClCompile>
-    <ClCompile Include="src\Label_private.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\External\SDL2_rotozoom.c">
+      <Filter>External</Filter>
     </ClCompile>
-    <ClCompile Include="src\Physics_private.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Raw\Error.c">
+      <Filter>Raw</Filter>
     </ClCompile>
-    <ClCompile Include="src\Texture_private.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Raw\Icon.c">
+      <Filter>Raw</Filter>
     </ClCompile>
-    <ClCompile Include="src\Draw_private.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Framework\Assert.c">
+      <Filter>___Framework</Filter>
     </ClCompile>
-    <ClCompile Include="src\Debug_private.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Core\Time_.c">
+      <Filter>__Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Time_private.c">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Core\Time_private.c">
+      <Filter>__Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\Std_.c">
+      <Filter>___Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Label_private.c">
+      <Filter>__Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Draw.c">
+      <Filter>_Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Gui.c">
+      <Filter>_Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Gui_private.c">
+      <Filter>_Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Audio\Music.c">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Audio\Sound.c">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Audio\Audio.c">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Entity.c">
+      <Filter>__Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Data.c">
+      <Filter>__Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\hdr\Box.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Camera.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Color.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Core.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Data.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Debug.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Draw.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Entity.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Font.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Game.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Gui.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Input.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Label.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Map.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Maths.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Music.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Physics.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Primitive.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Random.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Sound.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Substate.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Terminal.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Texture.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\TypesAudio.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\TypesCore.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\TypesGraphics.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\TypesMaths.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Vector.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Window.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\external\icestd.h">
-      <Filter>external</Filter>
-    </ClInclude>
-    <ClInclude Include="src\external\rlutil.h">
-      <Filter>external</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\TypesPhysics.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Camera_private.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Color_private.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Converter_private.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Core_private.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Debug_private.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Draw_private.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Gui_private.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Input_private.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Physics_private.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Texture_private.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Label_private.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
-    <ClInclude Include="src\external\stb_image.h">
-      <Filter>external</Filter>
-    </ClInclude>
-    <ClInclude Include="src\hdr\Time_private.h">
-      <Filter>hdr</Filter>
-    </ClInclude>
+    <None Include="..\NOTES.md" />
+    <None Include="..\README.md" />
   </ItemGroup>
 </Project>

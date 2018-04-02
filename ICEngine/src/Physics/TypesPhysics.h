@@ -1,0 +1,6 @@
+﻿#ifndef DEF_ICE_TYPESPHYSICS
+#define DEF_ICE_TYPESPHYSICS
+
+
+
+#endif

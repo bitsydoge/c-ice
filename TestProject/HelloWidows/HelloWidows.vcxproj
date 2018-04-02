@@ -23,7 +23,7 @@
     <ProjectGuid>{2215F685-D120-4370-9CDD-8999390B9E62}</ProjectGuid>
     <RootNamespace>Test</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
-    <ProjectName>HelloWidows</ProjectName>
+    <ProjectName>HelloWorld</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -71,20 +71,29 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+<<<<<<< HEAD
+    <LibraryPath>..\..\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\ICEngine\src\;$(IncludePath)</IncludePath>
+=======
     <LibraryPath>C:\Program Files %28x86%29\Visual Leak Detector\lib\Win32;..\Debug;$(LibraryPath)</LibraryPath>
     <IncludePath>C:\Program Files %28x86%29\Visual Leak Detector\include;..\..\ICEngine\src\hdr;$(IncludePath)</IncludePath>
+>>>>>>> master
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LibraryPath>..\Release;$(LibraryPath)</LibraryPath>
-    <IncludePath>..\..\ICEngine\src\hdr;$(IncludePath)</IncludePath>
+    <LibraryPath>..\..\Release;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\ICEngine\src\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LibraryPath>C:\Program Files %28x86%29\Visual Leak Detector\lib\Win64;..\..\x64\Debug;$(LibraryPath)</LibraryPath>
+<<<<<<< HEAD
+    <IncludePath>C:\Program Files (x86)\Visual Leak Detector;..\..\ICEngine\src;$(IncludePath)</IncludePath>
+=======
     <IncludePath>C:\Program Files %28x86%29\Visual Leak Detector\include;..\..\ICEngine\src\hdr;$(IncludePath)</IncludePath>
+>>>>>>> master
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LibraryPath>..\..\x64\Release;$(LibraryPath)</LibraryPath>
-    <IncludePath>..\..\ICEngine\src\hdr;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\ICEngine\src\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -127,6 +136,7 @@
     <Link>
       <AdditionalDependencies>SDL2main.lib;SDL2.lib;SDL2_ttf.lib;SDL2_mixer.lib;chipmunk.lib;ICEngine.lib</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

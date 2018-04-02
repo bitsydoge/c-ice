@@ -1,6 +1,6 @@
 
 # ICE : Indie "C" Engine
-<img alt="ICE Logo" src="TestProject/Test/res/img/ice_logo.png" width=20% height=20%> 
+<img alt="ICE Logo" src="TestProject/HelloWidows/res/img/ice_logo.png" width=20% height=20%> 
 
 _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
 	
@@ -8,37 +8,59 @@ _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
 
 **Supported Format :** 
 
-	- Image : PNG and BMP (Probably JPEG in the futur)
-	
-	- Sound : OGG and WAV (And basicaly everything SDL_mixer support, but my function will focus on those)
-	
-	- Text : TTF (And basicaly everything SDL_ttf support)
-	
-	- Map : JSON from Tiled (I'll focus with the compatibility of it)
+	- Image : JPG, PNG, BMP (And everything stb_image support)
+	- Sound : OGG and WAV (And everything SDL_mixer support)
+	- Font  : TTF (And everything SDL_ttf support)
 
 **Tools** :
 
-	- Terminal Color : with rlutil, providing cross platform for terminal color; it will be usefull for debugging.
-	
-	- File exploring : with tinyfiles, providing cross platform for file listing
-
-
-Made with Visual Studio Community 2017 and Visual Studio Code on linux
-a CMakeLists.txt will be avaible for compiling outside visual studio.
+	- Terminal Color : Crossplatform terminal color.
 
 ## Dependancy : 
 
-	-SDL2 (Main lib for the engine)  
-	
-	-SDL2 mixer (for the sound)   
-	
-	-SDL2 ttf (for the text)   
-	
-	-chipmunk2d (for physics)
-	
-	-lodepng (for png decode) (included)   
-	
-	-rlutil.h (for console color) (included)
+	- SDL2 (Main lib for the engine)  
+	- SDL2_mixer (for the sound)   
+	- SDL2_ttf (for the text)   
+	- chipmunk2d (for physics)
 
+## Included : 
 
-There is a .cbp to build libICE.a, the dependancy for SDL are the same. It is not always uptodate
+	- stb_image (image decode)
+	- rlutil.h (console color)
+	- SDL2_gfx (AA primitives)
+
+## Hello World
+
+```c
+#include <ICE.h>
+
+ICE_PRELOAD()
+{
+	ICE_Font_Load("res//ttf//FiraSans-Medium.ttf");
+}
+
+ICE_CREATE()
+{
+	ICE_Render_Color(ICE_Color_New(100, 200, 80));
+
+	unsigned int man	=		ICE_LabelManager_Insert(NULL);
+	unsigned int nb		=		ICE_Label_Insert(NULL, man, "Hello World", ICE_Vect_New(0, 0));
+
+	ICE_Label_SetSize(ICE_Label_Get(NULL, man, nb), 30);
+	ICE_Label_FixToWorld(ICE_Label_Get(NULL, man, nb), ICE_True);
+}
+
+ICE_UPDATE()
+{
+	if (ICE_Input_Key(ICE_KEY_ESCAPE))
+		ICE_Input_Quit();
+}
+
+ICE_DESTROY() {}
+
+int main()
+{
+	ICE_START("Hello World", 800, 480);
+	return 0;
+}
+```
