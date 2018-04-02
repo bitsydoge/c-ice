@@ -1,9 +1,16 @@
 #include <ICE.h>
 #include "Audio/Sound.h"
 
-void hello_create()
+void hello_resume()
 {
 	ICE_Render_Color(ICE_Color_New(55, 20, 10));
+}
+
+void hello_create()
+{
+	hello_resume();
+	ICE_State_ResumeCallback(NULL, hello_resume);
+
 	ICE_LabelManager_Insert(NULL);
 	unsigned int nb = ICE_Label_Insert(ICE_State_GetParent(NULL), 0, "HELLO GIRL FROM STATE", ICE_Vect_New(100, 100));
 	ICE_Label_SetColor(ICE_Label_Get(ICE_State_GetParent(NULL), 0, nb), ICE_Color_New(100, 255, 2));
@@ -18,21 +25,16 @@ void hello_create()
 
 void hello_update()
 {
-	if(ICE_State_WasPaused())
-		ICE_Render_Color(ICE_Color_New(55, 20, 10));
-
 	ICE_Debug_CameraControl();
+	
 	ICE_Debug_DrawFps(3);
 	ICE_Debug_FontDraw(4, " Version %s ", ICE_VERSION);
 	ICE_Draw_RectangleFill(ICE_Camera_WorldScreen(ICE_Box_New(-25, -25, 50, 50)), ICE_Color_Blue);
 
 	if(ICE_Input_Key(ICE_KEY_ESCAPE))
-	{
 		ICE_State_Pause();
-	}
 
-	ICE_Label * the_string = ICE_Label_Get(ICE_State_GetParent(NULL), 0, 0);
-	ICE_Debug_FontDraw(5, "RESULT = %s", ICE_Label_GetString(the_string));
+	ICE_Debug_FontDraw(5, "RESULT = %s", ICE_Label_GetString(ICE_Label_Get(ICE_State_GetParent(NULL), 0, 0)));
 }
 
 void hello_destroy()
@@ -116,9 +118,7 @@ ICE_UPDATE()
 	}
 
 	if(ICE_Input_Key(ICE_KEY_RETURN))
-	{
 		ICE_Camera_SetPos(ICE_Vect_New(0,0));
-	}
 
 	amount += ICE_Game_GetDelta();
 	if (amount >= 10.0f)

@@ -201,6 +201,9 @@ struct ICE_State
 	void (*func_update)(void);
 	void (*func_destroy)(void);
 
+	void(*func_resume)(void);
+	void(*func_pause)(void);
+
 	ICE_ObjectManager object;
 
 	struct ICE_State * parent;

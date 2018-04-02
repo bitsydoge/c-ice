@@ -14,6 +14,10 @@ void ICE_State_Quit();
 
 void ICE_State_Pause();
 
+void ICE_State_ResumeCallback(ICE_State * state, void(*func_resume)(void));
+
+void ICE_State_PauseCallback(ICE_State * state, void(*func_pause)(void));
+
 ICE_Bool ICE_State_WasPaused();
 
 void ICE_Substate_Start(ICE_State * state);

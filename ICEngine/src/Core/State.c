@@ -10,9 +10,9 @@
 #include "../Framework/Log.h"
 #include "../Core/Label.h"
 #include "../Graphics/Draw.h"
+#include "../Graphics/Gui.h"
 
 #include <stdio.h>
-#include "../ICE.h"
 
 extern ICE_Game game;
 
@@ -42,6 +42,22 @@ void ICE_State_Pause()
 {
 	game.state_mngr.current->quit = ICE_True;
 	game.state_mngr.current->isPaused = ICE_True;
+}
+
+void ICE_State_ResumeCallback(ICE_State * state, void(*func_resume)(void))
+{
+	if (!state)
+		state = game.state_mngr.current;
+
+	state->func_resume = func_resume;
+}
+
+void ICE_State_PauseCallback(ICE_State * state, void(*func_pause)(void))
+{
+	if (!state)
+		state = game.state_mngr.current;
+
+	state->func_pause = func_pause;
 }
 
 ICE_Bool ICE_State_WasPaused()
@@ -82,8 +98,11 @@ void ICE_Substate_Loop()
 
 	ICE_Log(ICE_LOG_RUNNING, "Substate]::[Create]::[Start");
 	
-	if(!current->isPaused)
+	if (!current->isPaused)
 		current->func_create();
+	else
+		if (current->func_resume != NULL)
+			current->func_resume();
 
 	ICE_Log(ICE_LOG_SUCCES, "Substate]::[Create]::[Finish");
 	printf("\n");
@@ -119,6 +138,10 @@ void ICE_Substate_Loop()
 		ICE_ObjectManager obj = { 0 };
 		current->object = obj;
 	}
+	else
+		if(current->func_pause != NULL)
+			current->func_pause();
+
 	ICE_Input_Reset();
 }
 
