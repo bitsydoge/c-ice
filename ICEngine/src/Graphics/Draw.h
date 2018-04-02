@@ -3,5 +3,6 @@
 
 void ICE_Draw_LabelWorld();
 void ICE_Draw_LabelScreen();
+void ICE_Draw_Gui();
 
 #endif 

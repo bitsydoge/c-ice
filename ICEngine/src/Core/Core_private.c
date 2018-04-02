@@ -6,6 +6,8 @@
 
 #include "../Framework/Terminal_private.h"
 #include "../Framework/Log.h"
+#include "../Graphics/Gui.h"
+#include "../Graphics/Texture.h"
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
@@ -39,6 +41,8 @@ int ICE_Core_Close() {
 
 	// Manager Clean
 	ICE_LabelManager_DestroyAll();
+	ICE_GuiManager_DestroyAll();
+	ICE_TextureManager_DestroyAll();
 
 	// SDL
 	TTF_Quit();

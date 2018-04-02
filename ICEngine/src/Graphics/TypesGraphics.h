@@ -1,6 +1,7 @@
 ﻿#ifndef DEF_ICE_TYPESGRAPHICS
 #define DEF_ICE_TYPESGRAPHICS
 #include <SDL2/SDL.h>
+#include "../Maths/TypesMaths.h"
 
 #ifndef ICE_BOOL_DEFINED
 #define ICE_BOOL_DEFINED
@@ -49,5 +50,40 @@ struct ICE_TextureManager
 	ICE_Texture* texture;
 
 }; typedef struct ICE_TextureManager ICE_TextureManager;
+
+typedef enum
+{
+	ICE_RECTANGLE,
+	ICE_GUI_BACKGROUND_FIXED,
+	ICE_GUI_BACKGROUND_FREE
+
+} ICE_GuiType;
+
+typedef struct
+{
+	ICE_Bool exist;
+	ICE_Bool have_texture_defined;
+
+	int texture_nb;
+	int old_texture_nb;
+	int texturemanager_nb;
+	int old_texturemanager_nb;
+	ICE_Box box;
+	ICE_Box old_box;
+
+	ICE_GuiType type;
+	ICE_Texture texture_cache;
+
+} ICE_Gui;
+
+typedef struct
+{
+	ICE_Bool isFree;
+
+	int gui_size;
+	int gui_contain;
+	ICE_Gui* gui;
+
+} ICE_GuiManager;
 
 #endif

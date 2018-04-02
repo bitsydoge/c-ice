@@ -36,6 +36,7 @@
 #include "Graphics/Primitive.h"
 #include "Graphics/Render.h"
 #include "Graphics/Texture.h"
+#include "Graphics/Gui.h"
 
 // Audio
 

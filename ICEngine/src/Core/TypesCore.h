@@ -173,6 +173,9 @@ struct ICE_ObjectManager
 	unsigned int label_mngr_nb;
 	ICE_LabelManager *label_mngr;
 
+	unsigned int gui_mngr_nb;
+	ICE_GuiManager *gui_mngr;
+
 }; typedef struct ICE_ObjectManager ICE_ObjectManager;
 
 /**

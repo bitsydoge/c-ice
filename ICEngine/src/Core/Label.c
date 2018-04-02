@@ -164,7 +164,7 @@ void ICE_Label_SetColor(ICE_Label * label, ICE_Color color)
 	label->color = color;
 }
 
-void ICE_Label_SetIsFixedToWorld(ICE_Label * label, ICE_Bool yn)
+void ICE_Label_FixToWorld(ICE_Label * label, ICE_Bool yn)
 {
 	label->isFixedToWorld = yn;
 }

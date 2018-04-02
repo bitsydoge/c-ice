@@ -14,6 +14,7 @@
 #include "../Graphics/Texture.h"
 
 #include <stdio.h>
+#include "../ICE.h"
 
 extern ICE_Game game;
 
@@ -46,7 +47,7 @@ int ICE_Core_Main(const ICE_String title, const int window_width, const int wind
 
 		// RENDER HERE
 		ICE_Draw_LabelWorld();
-
+		ICE_Draw_Gui();
 		ICE_Draw_LabelScreen();
 		if(game.window.auto_render)
 			ICE_Render_Now();
@@ -65,7 +66,7 @@ int ICE_Core_Main(const ICE_String title, const int window_width, const int wind
 	printf("------------------------\n");
 	ICE_Log(ICE_LOG_SUCCES, "Game]::[Destroy]::[Finish");
 	printf("------------------------\n\n");
-	ICE_TextureManager_DestroyAll();
+	
 	ICE_Core_Close();
 	return 0;
 }
