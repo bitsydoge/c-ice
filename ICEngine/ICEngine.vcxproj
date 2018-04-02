@@ -134,6 +134,7 @@
     <ClInclude Include="src\Core\Converter_private.h" />
     <ClInclude Include="src\Core\Core.h" />
     <ClInclude Include="src\Core\Core_private.h" />
+    <ClInclude Include="src\Core\Data.h" />
     <ClInclude Include="src\Core\Debug.h" />
     <ClInclude Include="src\Core\Entity.h" />
     <ClInclude Include="src\Core\Game.h" />
@@ -191,6 +192,7 @@
     <ClCompile Include="src\Core\Asset_private.c" />
     <ClCompile Include="src\Core\Core.c" />
     <ClCompile Include="src\Core\Core_private.c" />
+    <ClCompile Include="src\Core\Data.c" />
     <ClCompile Include="src\Core\Debug.c" />
     <ClCompile Include="src\Core\Entity.c" />
     <ClCompile Include="src\Core\Game.c" />

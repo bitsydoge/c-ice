@@ -20,6 +20,8 @@ void ICE_State_PauseCallback(ICE_State * state, void(*func_pause)(void));
 
 ICE_Bool ICE_State_WasPaused();
 
+ICE_State * ICE_State_Main();
+
 void ICE_Substate_Start(ICE_State * state);
 
 void ICE_State_Destroy(ICE_State * state);

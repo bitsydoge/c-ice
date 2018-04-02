@@ -14,6 +14,7 @@
 #include "../Audio/Audio.h"
 #include "../Audio/Sound.h"
 #include "../Audio/Music.h"
+#include "Data.h"
 
 extern ICE_Game game;
 
@@ -42,9 +43,12 @@ int ICE_Core_Close()
 	// Manager Clean
 	ICE_LabelManager_DestroyAll(NULL);
 	ICE_GuiManager_DestroyAll(NULL);
+	ICE_Data_DestroyAll(NULL);
+
 	ICE_TextureManager_DestroyAll();
 	ICE_SoundManager_DestroyAll();
 	ICE_MusicManager_DestroyAll();
+
 
 	// SDL
 	TTF_Quit();

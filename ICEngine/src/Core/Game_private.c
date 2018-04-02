@@ -34,9 +34,7 @@ void ICE_Game_Create(char *window_title, const unsigned int width_window, const 
 
 	ICE_Window_SetIcon(0);
 
-	printf("------------------------\n");
 	ICE_Log(ICE_LOG_SUCCES, "Engine]::[Init]::[Finish");
-	printf("------------------------\n");
 	printf("\n");
 }
 
