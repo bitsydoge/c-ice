@@ -43,8 +43,6 @@ void hello_destroy()
 
 }
 
-ICE_State hello;
-
 ICE_PRELOAD()
 {
 	unsigned int man = 0;
@@ -64,7 +62,9 @@ ICE_PRELOAD()
 
 struct DATA1
 {
-	int life, speed;
+	int			life, speed;
+	ICE_State	hello;
+
 }; typedef struct DATA1 DATA1;
 
 ICE_CREATE()
@@ -87,12 +87,10 @@ ICE_CREATE()
 	label = ICE_Label_Insert(NULL, manager, "It is a not a me !", ICE_Vect_New(5, 5));
 	ICE_Label_SetSize(ICE_Label_Get(NULL, manager, label), 30);
 
-	hello = ICE_State_Create(hello_create, hello_update, hello_destroy);
-
 	DATA1 * data = ICE_Data_Insert(NULL, sizeof(DATA1));
 
-	data->life = 100;
-
+	data->hello = ICE_State_Create(hello_create, hello_update, hello_destroy);
+	
 	ICE_Music_Play(ICE_Music_Get(0, 0), 16);
 }
 
@@ -116,7 +114,8 @@ ICE_UPDATE()
 	if(ICE_Input_Key(ICE_KEY_ESCAPE))
 	{
 		ICE_Sound_Play(ICE_Sound_Get(0, 0), 16);
-		ICE_Substate_Start(&hello);
+		DATA1 * data = ICE_Data_Get(NULL, 0);
+		ICE_Substate_Start(&data->hello);
 	}
 
 	if(ICE_Input_Key(ICE_KEY_SPACE))
@@ -137,7 +136,8 @@ ICE_UPDATE()
 
 ICE_DESTROY()
 {
-	ICE_State_Destroy(&hello);
+	DATA1 * data = ICE_Data_Get(NULL, 0);
+	ICE_State_Destroy(&data->hello);
 }
 
 int main()
