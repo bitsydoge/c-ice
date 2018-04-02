@@ -18,6 +18,9 @@ void hello_create()
 
 void hello_update()
 {
+	if(ICE_State_WasPaused())
+		ICE_Render_Color(ICE_Color_New(55, 20, 10));
+
 	ICE_Debug_CameraControl();
 	ICE_Debug_DrawFps(3);
 	ICE_Debug_FontDraw(4, " Version %s ", ICE_VERSION);
@@ -78,7 +81,7 @@ ICE_CREATE()
 
 	hello = ICE_State_Create(hello_create, hello_update, hello_destroy);
 
-	ICE_Music_Play(ICE_Music_Get(0, 0), 50);
+	ICE_Music_Play(ICE_Music_Get(0, 0), 16);
 }
 
 ICE_UPDATE()
@@ -100,7 +103,7 @@ ICE_UPDATE()
 
 	if(ICE_Input_Key(ICE_KEY_ESCAPE))
 	{
-		ICE_Sound_Play(ICE_Sound_Get(0, 0), 64);
+		ICE_Sound_Play(ICE_Sound_Get(0, 0), 16);
 		ICE_Substate_Start(&hello);
 	}
 

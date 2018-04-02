@@ -14,6 +14,8 @@ void ICE_State_Quit();
 
 void ICE_State_Pause();
 
+ICE_Bool ICE_State_WasPaused();
+
 void ICE_Substate_Start(ICE_State * state);
 
 void ICE_State_Destroy(ICE_State * state);
