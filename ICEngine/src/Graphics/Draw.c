@@ -4,6 +4,8 @@
 #include "../Maths/Box.h"
 #include "Texture.h"
 #include "../Graphics/Camera.h"
+#include "Gui_private.h"
+#include "Texture_private.h"
 
 extern ICE_Game game;
 
@@ -75,6 +77,31 @@ void ICE_Draw_LabelScreen() {
 				// Fixed to screen
 				if (!current->object.label_mngr[i].label[j].isFixedToWorld)
 					ICE_Texture_RenderCenteredTexture(&current->object.label_mngr[i].label[j].texture, NULL, &box);
+			}
+		}
+}
+
+void ICE_Draw_Gui()
+{
+	ICE_State * current = game.state_mngr.current;
+	for (int i = 0; i < current->object.gui_mngr_nb; i++)
+		for (int j = 0; j < current->object.gui_mngr[i].gui_contain; j++)
+		{
+			// Fixed to screen
+			if (current->object.gui_mngr[i].gui[j].exist && current->object.gui_mngr[i].gui[j].have_texture_defined)
+			{
+				if (
+					!ICE_Box_CompareSize(current->object.gui_mngr[i].gui[j].box, current->object.gui_mngr[i].gui[j].old_box) ||
+					current->object.gui_mngr[i].gui[j].texturemanager_nb != current->object.gui_mngr[i].gui[j].old_texturemanager_nb ||
+					current->object.gui_mngr[i].gui[j].texture_nb != current->object.gui_mngr[i].gui[j].old_texture_nb)
+				{
+					ICE_Gui_UpdateTexture(i, j);
+
+					current->object.gui_mngr[i].gui[j].old_texturemanager_nb = current->object.gui_mngr[i].gui[j].texturemanager_nb;
+					current->object.gui_mngr[i].gui[j].old_texture_nb = current->object.gui_mngr[i].gui[j].texture_nb;
+					current->object.gui_mngr[i].gui[j].old_box = current->object.gui_mngr[i].gui[j].box;
+				}
+				ICE_Texture_RenderEx(&current->object.gui_mngr[i].gui[j].texture_cache, NULL, &current->object.gui_mngr[i].gui[j].box, 0);
 			}
 		}
 }

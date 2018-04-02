@@ -165,6 +165,8 @@
     <ClInclude Include="src\Graphics\Color_private.h" />
     <ClInclude Include="src\Graphics\Draw.h" />
     <ClInclude Include="src\Graphics\Font.h" />
+    <ClInclude Include="src\Graphics\Gui.h" />
+    <ClInclude Include="src\Graphics\Gui_private.h" />
     <ClInclude Include="src\Graphics\Primitive.h" />
     <ClInclude Include="src\Graphics\Render.h" />
     <ClInclude Include="src\Graphics\Render_private.h" />
@@ -209,6 +211,8 @@
     <ClCompile Include="src\Graphics\Camera.c" />
     <ClCompile Include="src\Graphics\Draw.c" />
     <ClCompile Include="src\Graphics\Font.c" />
+    <ClCompile Include="src\Graphics\Gui.c" />
+    <ClCompile Include="src\Graphics\Gui_private.c" />
     <ClCompile Include="src\Graphics\Primitive.c" />
     <ClCompile Include="src\Graphics\Render.c" />
     <ClCompile Include="src\Graphics\Render_private.c" />

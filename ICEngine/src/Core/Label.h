@@ -68,6 +68,6 @@ void ICE_Label_SetSize(ICE_Label *label, int size);
 void ICE_Label_SetString(ICE_Label * label, ICE_String string);
 void ICE_Label_SetPos(ICE_Label * label, ICE_Vect vect);
 void ICE_Label_SetColor(ICE_Label * label, ICE_Color color);
-void ICE_Label_SetIsFixedToWorld(ICE_Label * label, ICE_Bool yn);
+void ICE_Label_FixToWorld(ICE_Label * label, ICE_Bool yn);
 
 #endif

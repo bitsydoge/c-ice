@@ -9,9 +9,10 @@
 #include "../Graphics/Render_private.h"
 #include "../Framework/Log.h"
 #include "../Core/Label.h"
+#include "../Graphics/Draw.h"
 
 #include <stdio.h>
-#include "../Graphics/Draw.h"
+#include "../ICE.h"
 
 extern ICE_Game game;
 
@@ -37,15 +38,15 @@ void ICE_State_Quit()
 	game.state_mngr.current->quit = ICE_True;
 }
 
-void ICE_Substate_Start(ICE_State state)
+void ICE_Substate_Start(ICE_State *state)
 {
-	state.parent = game.state_mngr.current;
+	state->parent = game.state_mngr.current;
 
-	game.state_mngr.current = &state;
+	game.state_mngr.current = state;
 
 	ICE_Substate_Loop();
 
-	game.state_mngr.current = state.parent;
+	game.state_mngr.current = state->parent;
 	
 
 }
@@ -56,17 +57,17 @@ void ICE_Substate_Loop()
 	ICE_State * current = game.state_mngr.current;
 
 	printf("------------------------\n");
-	ICE_Log(ICE_LOG_RUNNING, "Game]::[Create]::[Start");
+	ICE_Log(ICE_LOG_RUNNING, "Substate]::[Create]::[Start");
 	printf("------------------------\n");
 	
 	current->func_create();
 
 	printf("------------------------\n");
-	ICE_Log(ICE_LOG_SUCCES, "Game]::[Create]::[Finish");
+	ICE_Log(ICE_LOG_SUCCES, "Substate]::[Create]::[Finish");
 	printf("------------------------\n");
 	printf("\n");
 	printf("------------------------\n");
-	ICE_Log(ICE_LOG_RUNNING, "Game]::[Update]::[Start");
+	ICE_Log(ICE_LOG_RUNNING, "Substate]::[Update]::[Start");
 	printf("------------------------\n");
 	while (!game.window.input.quit && !game.state_mngr.current->quit)
 	{
@@ -79,7 +80,7 @@ void ICE_Substate_Loop()
 
 		// RENDER HERE
 		ICE_Draw_LabelWorld();
-
+		ICE_Draw_Gui();
 		ICE_Draw_LabelScreen();
 
 		if (game.window.auto_render)
@@ -88,14 +89,15 @@ void ICE_Substate_Loop()
 		ICE_Time_End();
 	}
 	printf("------------------------\n");
-	ICE_Log(ICE_LOG_SUCCES, "Game]::[Update]::[Finish");
+	ICE_Log(ICE_LOG_SUCCES, "Substate]::[Update]::[Finish");
 	printf("------------------------\n");
 	printf("\n");
 	printf("------------------------\n");
-	ICE_Log(ICE_LOG_RUNNING, "Game]::[Destroy]::[Start");
+	ICE_Log(ICE_LOG_RUNNING, "Substate]::[Destroy]::[Start");
 	printf("------------------------\n");
 	current->func_destroy();
 	ICE_LabelManager_DestroyAll();
+	ICE_GuiManager_DestroyAll();
 	ICE_ObjectManager obj = { 0 };
 	current->object = obj;
 	ICE_Input_Reset();
@@ -109,6 +111,6 @@ ICE_State * ICE_State_GetParent(ICE_State * state)
 
 	if(state->parent)
 		return state->parent;
-	ICE_Log(ICE_LOG_CRITICAL, "NOPARENTSTATE");
+	ICE_Log(ICE_LOG_CRITICAL, "No Parent State");
 	return state;
 }

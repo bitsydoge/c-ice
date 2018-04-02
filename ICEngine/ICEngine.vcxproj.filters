@@ -1,20 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Framework">
-      <UniqueIdentifier>{a8631434-0cd9-4cbd-8b74-e20e92612dc9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core">
-      <UniqueIdentifier>{168370c5-3986-4c02-b4e1-491595f06b82}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Graphics">
-      <UniqueIdentifier>{c4de349e-a88f-446e-a759-630d70ad9b2f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Audio">
       <UniqueIdentifier>{d86cf02c-314e-4279-97f8-c49efe518c7c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Maths">
-      <UniqueIdentifier>{02dfc310-3a03-4719-91c3-198866493c09}</UniqueIdentifier>
     </Filter>
     <Filter Include="Physics">
       <UniqueIdentifier>{6ff1e53b-7521-404b-99ba-023942d695f0}</UniqueIdentifier>
@@ -25,6 +13,18 @@
     <Filter Include="Raw">
       <UniqueIdentifier>{e9fd9301-db3d-4b26-ad6b-9ee56e5334a6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="__Core">
+      <UniqueIdentifier>{168370c5-3986-4c02-b4e1-491595f06b82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="___Framework">
+      <UniqueIdentifier>{a8631434-0cd9-4cbd-8b74-e20e92612dc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Graphics">
+      <UniqueIdentifier>{c4de349e-a88f-446e-a759-630d70ad9b2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Maths">
+      <UniqueIdentifier>{02dfc310-3a03-4719-91c3-198866493c09}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ICE.h" />
@@ -32,103 +32,103 @@
       <Filter>Audio</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Asset_private.h">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Core.h">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Core_private.h">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Debug.h">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Game.h">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Game_private.h">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Input.h">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Input_private.h">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Label.h">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\State.h">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\TypesCore.h">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Window.h">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Framework\Log.h">
-      <Filter>Framework</Filter>
+      <Filter>___Framework</Filter>
     </ClInclude>
     <ClInclude Include="src\Framework\Memory_.h">
-      <Filter>Framework</Filter>
+      <Filter>___Framework</Filter>
     </ClInclude>
     <ClInclude Include="src\Framework\Random.h">
-      <Filter>Framework</Filter>
+      <Filter>___Framework</Filter>
     </ClInclude>
     <ClInclude Include="src\Framework\String_.h">
-      <Filter>Framework</Filter>
+      <Filter>___Framework</Filter>
     </ClInclude>
     <ClInclude Include="src\Framework\Terminal.h">
-      <Filter>Framework</Filter>
+      <Filter>___Framework</Filter>
     </ClInclude>
     <ClInclude Include="src\Framework\Terminal_private.h">
-      <Filter>Framework</Filter>
+      <Filter>___Framework</Filter>
     </ClInclude>
     <ClInclude Include="src\Framework\TypesFramework.h">
-      <Filter>Framework</Filter>
+      <Filter>___Framework</Filter>
     </ClInclude>
     <ClInclude Include="src\Graphics\Camera.h">
-      <Filter>Graphics</Filter>
+      <Filter>_Graphics</Filter>
     </ClInclude>
     <ClInclude Include="src\Graphics\Color.h">
-      <Filter>Graphics</Filter>
+      <Filter>_Graphics</Filter>
     </ClInclude>
     <ClInclude Include="src\Graphics\Color_private.h">
-      <Filter>Graphics</Filter>
+      <Filter>_Graphics</Filter>
     </ClInclude>
     <ClInclude Include="src\Graphics\Font.h">
-      <Filter>Graphics</Filter>
+      <Filter>_Graphics</Filter>
     </ClInclude>
     <ClInclude Include="src\Graphics\Primitive.h">
-      <Filter>Graphics</Filter>
+      <Filter>_Graphics</Filter>
     </ClInclude>
     <ClInclude Include="src\Graphics\Render.h">
-      <Filter>Graphics</Filter>
+      <Filter>_Graphics</Filter>
     </ClInclude>
     <ClInclude Include="src\Graphics\Render_private.h">
-      <Filter>Graphics</Filter>
+      <Filter>_Graphics</Filter>
     </ClInclude>
     <ClInclude Include="src\Graphics\Texture.h">
-      <Filter>Graphics</Filter>
+      <Filter>_Graphics</Filter>
     </ClInclude>
     <ClInclude Include="src\Graphics\Texture_private.h">
-      <Filter>Graphics</Filter>
+      <Filter>_Graphics</Filter>
     </ClInclude>
     <ClInclude Include="src\Graphics\TypesGraphics.h">
-      <Filter>Graphics</Filter>
+      <Filter>_Graphics</Filter>
     </ClInclude>
     <ClInclude Include="src\Maths\Box.h">
-      <Filter>Maths</Filter>
+      <Filter>_Maths</Filter>
     </ClInclude>
     <ClInclude Include="src\Maths\Interpolate.h">
-      <Filter>Maths</Filter>
+      <Filter>_Maths</Filter>
     </ClInclude>
     <ClInclude Include="src\Maths\TypesMaths.h">
-      <Filter>Maths</Filter>
+      <Filter>_Maths</Filter>
     </ClInclude>
     <ClInclude Include="src\Maths\Vector.h">
-      <Filter>Maths</Filter>
+      <Filter>_Maths</Filter>
     </ClInclude>
     <ClInclude Include="src\Physics\TypesPhysics.h">
       <Filter>Physics</Filter>
@@ -158,102 +158,108 @@
       <Filter>External</Filter>
     </ClInclude>
     <ClInclude Include="src\Framework\Assert.h">
-      <Filter>Framework</Filter>
+      <Filter>___Framework</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Time_private.h">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Time_.h">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Framework\Std_.h">
-      <Filter>Framework</Filter>
+      <Filter>___Framework</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Converter_private.h">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Label_private.h">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Graphics\Draw.h">
-      <Filter>Graphics</Filter>
+      <Filter>_Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Gui.h">
+      <Filter>_Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Gui_private.h">
+      <Filter>_Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Asset_private.c">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Core.c">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Core_private.c">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Debug.c">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Game.c">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Game_private.c">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Input.c">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Input_private.c">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Label.c">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\State.c">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Window.c">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Framework\Log.c">
-      <Filter>Framework</Filter>
+      <Filter>___Framework</Filter>
     </ClCompile>
     <ClCompile Include="src\Framework\Memory_.c">
-      <Filter>Framework</Filter>
+      <Filter>___Framework</Filter>
     </ClCompile>
     <ClCompile Include="src\Framework\Random.c">
-      <Filter>Framework</Filter>
+      <Filter>___Framework</Filter>
     </ClCompile>
     <ClCompile Include="src\Framework\String_.c">
-      <Filter>Framework</Filter>
+      <Filter>___Framework</Filter>
     </ClCompile>
     <ClCompile Include="src\Framework\Terminal.c">
-      <Filter>Framework</Filter>
+      <Filter>___Framework</Filter>
     </ClCompile>
     <ClCompile Include="src\Framework\Terminal_private.c">
-      <Filter>Framework</Filter>
+      <Filter>___Framework</Filter>
     </ClCompile>
     <ClCompile Include="src\Graphics\Camera.c">
-      <Filter>Graphics</Filter>
+      <Filter>_Graphics</Filter>
     </ClCompile>
     <ClCompile Include="src\Graphics\Font.c">
-      <Filter>Graphics</Filter>
+      <Filter>_Graphics</Filter>
     </ClCompile>
     <ClCompile Include="src\Graphics\Primitive.c">
-      <Filter>Graphics</Filter>
+      <Filter>_Graphics</Filter>
     </ClCompile>
     <ClCompile Include="src\Graphics\Render.c">
-      <Filter>Graphics</Filter>
+      <Filter>_Graphics</Filter>
     </ClCompile>
     <ClCompile Include="src\Graphics\Render_private.c">
-      <Filter>Graphics</Filter>
+      <Filter>_Graphics</Filter>
     </ClCompile>
     <ClCompile Include="src\Graphics\Texture.c">
-      <Filter>Graphics</Filter>
+      <Filter>_Graphics</Filter>
     </ClCompile>
     <ClCompile Include="src\Graphics\Texture_private.c">
-      <Filter>Graphics</Filter>
+      <Filter>_Graphics</Filter>
     </ClCompile>
     <ClCompile Include="src\Maths\Interpolate.c">
-      <Filter>Maths</Filter>
+      <Filter>_Maths</Filter>
     </ClCompile>
     <ClCompile Include="src\External\rlutil.c">
       <Filter>External</Filter>
@@ -277,22 +283,28 @@
       <Filter>Raw</Filter>
     </ClCompile>
     <ClCompile Include="src\Framework\Assert.c">
-      <Filter>Framework</Filter>
+      <Filter>___Framework</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Time_.c">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Time_private.c">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Framework\Std_.c">
-      <Filter>Framework</Filter>
+      <Filter>___Framework</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Label_private.c">
-      <Filter>Core</Filter>
+      <Filter>__Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Graphics\Draw.c">
-      <Filter>Graphics</Filter>
+      <Filter>_Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Gui.c">
+      <Filter>_Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Gui_private.c">
+      <Filter>_Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
