@@ -30,9 +30,12 @@ unsigned int ICE_GuiManager_Insert(ICE_State * state)
 	return state->object.gui_mngr_nb - 1;
 }
 
-void ICE_GuiManager_Destroy(const unsigned int man)
+void ICE_GuiManager_Destroy(ICE_State * state, const unsigned int man)
 {
-	ICE_GuiManager *manager = &game.state_mngr.current->object.gui_mngr[man];
+	if (!state)
+		state = game.state_mngr.current;
+
+	ICE_GuiManager *manager = &state->object.gui_mngr[man];
 
 	for (unsigned int i = 0; i < manager->gui_contain; i++)
 	{
@@ -44,16 +47,19 @@ void ICE_GuiManager_Destroy(const unsigned int man)
 	ICE_Log(ICE_LOG_SUCCES, "GuiManager]::[%d]::[Free", man);
 }
 
-void ICE_GuiManager_DestroyAll()
+void ICE_GuiManager_DestroyAll(ICE_State * state)
 {
-	ICE_GuiManager *manager = game.state_mngr.current->object.gui_mngr;
-	unsigned int nb_manager = game.state_mngr.current->object.gui_mngr_nb;
+	if (!state)
+		state = game.state_mngr.current;
+
+	ICE_GuiManager *manager = state->object.gui_mngr;
+	unsigned int nb_manager = state->object.gui_mngr_nb;
 
 	for (unsigned int i = 0; i < nb_manager; i++)
 	{
 		if (!manager[i].isFree)
 		{
-			ICE_GuiManager_Destroy(i);
+			ICE_GuiManager_Destroy(state, i);
 			manager[i].isFree = ICE_True;
 		}
 	}

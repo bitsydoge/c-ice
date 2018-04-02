@@ -25,7 +25,7 @@ void hello_update()
 
 	if(ICE_Input_Key(ICE_KEY_ESCAPE))
 	{
-		ICE_State_Quit();
+		ICE_State_Pause();
 	}
 
 	ICE_Label * the_string = ICE_Label_Get(ICE_State_GetParent(NULL), 0, 0);
@@ -101,7 +101,7 @@ ICE_UPDATE()
 	if(ICE_Input_Key(ICE_KEY_ESCAPE))
 	{
 		ICE_Sound_Play(ICE_Sound_Get(0, 0), 64);
-		ICE_Substate_Start(hello);
+		ICE_Substate_Start(&hello);
 	}
 
 	if(ICE_Input_Key(ICE_KEY_SPACE))
@@ -124,7 +124,7 @@ ICE_UPDATE()
 
 ICE_DESTROY()
 {
-
+	ICE_State_Destroy(&hello);
 }
 
 int main()

@@ -17,14 +17,15 @@ unsigned int ICE_LabelManager_Insert(ICE_State * state);
 
 /**
 * \brief Destroy a manager
+* \param state The state to destroy manager
 * \param man The manager number
 */
-void ICE_LabelManager_Destroy(const unsigned int man);
+void ICE_LabelManager_Destroy(ICE_State * state, const unsigned int man);
 
 /**
 * \brief Destroy all manager
 */
-void ICE_LabelManager_DestroyAll();
+void ICE_LabelManager_DestroyAll(ICE_State * state);
 
 /////////////////////// * LABEL * //////////////////////////
 

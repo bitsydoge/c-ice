@@ -28,9 +28,9 @@ ICE_State ICE_State_Create(void (*func_create)(void), void (* func_update)(void)
 	return state;
 }
 
-void ICE_State_Change(ICE_State state)
+void ICE_State_Change(ICE_State * state)
 {
-	game.state_mngr.current = &state;
+	game.state_mngr.current = state;
 }
 
 void ICE_State_Quit()
@@ -38,11 +38,21 @@ void ICE_State_Quit()
 	game.state_mngr.current->quit = ICE_True;
 }
 
+void ICE_State_Pause()
+{
+	game.state_mngr.current->quit = ICE_True;
+	game.state_mngr.current->isPaused = ICE_True;
+}
+
 void ICE_Substate_Start(ICE_State *state)
 {
 	state->parent = game.state_mngr.current;
-
 	game.state_mngr.current = state;
+
+	if(game.state_mngr.current->isPaused)
+	{
+		game.state_mngr.current->quit = ICE_False;
+	}
 
 	ICE_Substate_Loop();
 
@@ -51,24 +61,28 @@ void ICE_Substate_Start(ICE_State *state)
 
 }
 
+void ICE_State_Destroy(ICE_State * state)
+{
+	if(!state->isFree)
+	{
+		ICE_LabelManager_DestroyAll(state);
+		ICE_GuiManager_DestroyAll(state);
+	}
+}
+
 void ICE_Substate_Loop()
 {
 	ICE_Input_Reset();
 	ICE_State * current = game.state_mngr.current;
 
-	printf("------------------------\n");
 	ICE_Log(ICE_LOG_RUNNING, "Substate]::[Create]::[Start");
-	printf("------------------------\n");
 	
-	current->func_create();
+	if(!current->isPaused)
+		current->func_create();
 
-	printf("------------------------\n");
 	ICE_Log(ICE_LOG_SUCCES, "Substate]::[Create]::[Finish");
-	printf("------------------------\n");
 	printf("\n");
-	printf("------------------------\n");
 	ICE_Log(ICE_LOG_RUNNING, "Substate]::[Update]::[Start");
-	printf("------------------------\n");
 	while (!game.window.input.quit && !game.state_mngr.current->quit)
 	{
 		ICE_Time_Start();
@@ -88,18 +102,18 @@ void ICE_Substate_Loop()
 
 		ICE_Time_End();
 	}
-	printf("------------------------\n");
 	ICE_Log(ICE_LOG_SUCCES, "Substate]::[Update]::[Finish");
-	printf("------------------------\n");
 	printf("\n");
-	printf("------------------------\n");
 	ICE_Log(ICE_LOG_RUNNING, "Substate]::[Destroy]::[Start");
-	printf("------------------------\n");
-	current->func_destroy();
-	ICE_LabelManager_DestroyAll();
-	ICE_GuiManager_DestroyAll();
-	ICE_ObjectManager obj = { 0 };
-	current->object = obj;
+	if (!current->isPaused)
+	{
+		current->func_destroy();
+		current->isFree = ICE_True;
+		ICE_LabelManager_DestroyAll(NULL);
+		ICE_GuiManager_DestroyAll(NULL);
+		ICE_ObjectManager obj = { 0 };
+		current->object = obj;
+	}
 	ICE_Input_Reset();
 }
 

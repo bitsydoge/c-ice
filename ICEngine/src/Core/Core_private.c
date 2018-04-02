@@ -40,8 +40,8 @@ int ICE_Core_Close()
 	ICE_Log(ICE_LOG_RUNNING, "Engine]::[Close]::[Start");
 
 	// Manager Clean
-	ICE_LabelManager_DestroyAll();
-	ICE_GuiManager_DestroyAll();
+	ICE_LabelManager_DestroyAll(NULL);
+	ICE_GuiManager_DestroyAll(NULL);
 	ICE_TextureManager_DestroyAll();
 	ICE_SoundManager_DestroyAll();
 	ICE_MusicManager_DestroyAll();

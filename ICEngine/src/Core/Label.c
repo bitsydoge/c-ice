@@ -33,9 +33,12 @@ unsigned int ICE_LabelManager_Insert(ICE_State * state)
 	return state->object.label_mngr_nb - 1;
 }
 
-void ICE_LabelManager_Destroy(const unsigned int man)
+void ICE_LabelManager_Destroy(ICE_State * state, const unsigned int man)
 {
-	ICE_LabelManager *manager = &game.state_mngr.current->object.label_mngr[man];
+	if (!state)
+		state = game.state_mngr.current;
+
+	ICE_LabelManager *manager = &state->object.label_mngr[man];
 
 	for (unsigned int i = 0; i < manager->label_contain; i++)
 	{
@@ -47,16 +50,19 @@ void ICE_LabelManager_Destroy(const unsigned int man)
 	ICE_Log(ICE_LOG_SUCCES, "LabelManager]::[%d]::[Free", man);
 }
 
-void ICE_LabelManager_DestroyAll()
+void ICE_LabelManager_DestroyAll(ICE_State * state)
 {
-	ICE_LabelManager *manager = game.state_mngr.current->object.label_mngr;
-	unsigned int nb_manager = game.state_mngr.current->object.label_mngr_nb;
+	if (!state)
+		state = game.state_mngr.current;
+
+	ICE_LabelManager *manager = state->object.label_mngr;
+	unsigned int nb_manager = state->object.label_mngr_nb;
 	
 	for (unsigned int i = 0; i < nb_manager; i++)
 	{
 		if (!manager[i].isFree)
 		{
-			ICE_LabelManager_Destroy(i);
+			ICE_LabelManager_Destroy(state, i);
 			manager[i].isFree = ICE_True;
 		}
 	}

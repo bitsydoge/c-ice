@@ -11,9 +11,9 @@
 
 unsigned int ICE_GuiManager_Insert(ICE_State * state);
 
-void ICE_GuiManager_Destroy(const unsigned int man);
+void ICE_GuiManager_Destroy(ICE_State * state, const unsigned int man);
 
-void ICE_GuiManager_DestroyAll();
+void ICE_GuiManager_DestroyAll(ICE_State * state);
 
 /* GUI */
 

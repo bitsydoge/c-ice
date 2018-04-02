@@ -194,7 +194,8 @@ struct ICE_ObjectManager
 struct ICE_State
 {
 	ICE_Bool quit;
-	ICE_Bool hasBeenAlreadyRunOnce;
+	ICE_Bool isPaused;
+	ICE_Bool isFree;
 
 	void (*func_create)(void);
 	void (*func_update)(void);
