@@ -4,7 +4,6 @@
 #include "../Framework/Memory_.h"
 #include "../Framework/Log.h"
 
-
 extern ICE_Asset asset;
 
 // MANAGER
@@ -16,7 +15,7 @@ unsigned int ICE_SoundManager_Insert()
 	soundmanager.sound = ICE_Calloc(soundmanager.sound_size, sizeof(ICE_Sound));
 
 	asset.sound_mngr_nb++;
-	asset.sound_mngr = ICE_Realloc(asset.sound_mngr, asset.sound_mngr_nb * sizeof(ICE_LabelManager));
+	asset.sound_mngr = ICE_Realloc(asset.sound_mngr, asset.sound_mngr_nb * sizeof(ICE_SoundManager));
 	asset.sound_mngr[asset.sound_mngr_nb - 1] = soundmanager;
 
 	ICE_Log(ICE_LOG_SUCCES, "SoundManager]::[%d]::[Create", asset.sound_mngr_nb-1);
@@ -79,7 +78,7 @@ unsigned int ICE_Sound_Insert(unsigned int man, char *path)
 	if (asset.sound_mngr[man].sound_size <= asset.sound_mngr[man].sound_contain) {
 		ICE_Sound* tmp = ICE_Realloc(asset.sound_mngr[man].sound, sizeof(ICE_Sound)*(asset.sound_mngr[man].sound_size * 2));
 		// Test if realloc succes
-		ICE_Log(ICE_LOG_WARNING, "LabelManager]::[%d]::[Resized]::[%d", man, asset.sound_mngr[man].sound_size * 2);
+		ICE_Log(ICE_LOG_WARNING, "SoundManager]::[%d]::[Resized]::[%d", man, asset.sound_mngr[man].sound_size * 2);
 		asset.sound_mngr[man].sound = tmp;
 		asset.sound_mngr[man].sound_size *= 2;
 	}

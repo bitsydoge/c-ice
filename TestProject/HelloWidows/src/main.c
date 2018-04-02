@@ -50,6 +50,9 @@ ICE_PRELOAD()
 	man = ICE_SoundManager_Insert();
 	ICE_Sound_Insert(man, "res//snd//explosion.wav");
 
+	man = ICE_MusicManager_Insert();
+	ICE_Music_Insert(man, "res//snd//music.ogg");
+
 	ICE_Font_Load("res//ttf//FiraSans-Medium.ttf");
 }
 
@@ -74,6 +77,8 @@ ICE_CREATE()
 	ICE_Label_SetSize(ICE_Label_Get(NULL, manager, label), 30);
 
 	hello = ICE_State_Create(hello_create, hello_update, hello_destroy);
+
+	ICE_Music_Play(ICE_Music_Get(0, 0), 50);
 }
 
 ICE_UPDATE()

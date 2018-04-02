@@ -11,18 +11,16 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
-#include <stdio.h>
 #include "../Audio/Audio.h"
 #include "../Audio/Sound.h"
+#include "../Audio/Music.h"
 
 extern ICE_Game game;
 
 int ICE_Core_Init() {
 	// Other
 	ICE_Term_SaveColor();
-	printf("------------------------\n");
 	ICE_Log(ICE_LOG_RUNNING, "Engine]::[Init]::[Start");
-	printf("------------------------\n");
 	ICE_Term_HideCursor();
 
 	// SDL
@@ -37,26 +35,23 @@ int ICE_Core_Init() {
 	return 0;
 }
 
-int ICE_Core_Close() {
-	printf("------------------------\n");
+int ICE_Core_Close() 
+{
 	ICE_Log(ICE_LOG_RUNNING, "Engine]::[Close]::[Start");
-	printf("------------------------\n");
 
 	// Manager Clean
 	ICE_LabelManager_DestroyAll();
 	ICE_GuiManager_DestroyAll();
 	ICE_TextureManager_DestroyAll();
 	ICE_SoundManager_DestroyAll();
+	ICE_MusicManager_DestroyAll();
 
 	// SDL
 	TTF_Quit();
 	ICE_Audio_Close();
 	SDL_Quit();
 
-	printf("------------------------\n");
 	ICE_Log(ICE_LOG_SUCCES, "Engine]::[Close]::[Finish");
-	printf("------------------------\n\n");
-
 
 	return 0;
 }
