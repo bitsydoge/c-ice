@@ -69,7 +69,6 @@ void ICE_Input_Return()
 				break;
 			case SDL_WINDOWEVENT_RESIZED:
 				SDL_GetWindowSize(game.window.handle, &get_w, &get_h);
-				game.camera.w = get_w; game.camera.h = get_h;
 				game.window.w = get_w; game.window.h = get_h;
 				break;
 			default:

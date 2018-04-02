@@ -19,39 +19,40 @@ _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
 ## Dependancy : 
 
 	- SDL2 (Main lib for the engine)  
-	- SDL2 mixer (for the sound)   
-	- SDL2 ttf (for the text)   
+	- SDL2_mixer (for the sound)   
+	- SDL2_ttf (for the text)   
 	- chipmunk2d (for physics)
 
 ## Included : 
 
-	- stb image (image decode)
+	- stb_image (image decode)
 	- rlutil.h (console color)
-	- SDL2 gfx (AA primitives)
+	- SDL2_gfx (AA primitives)
 
 ## Hello World
 
 ```c
-#include <Core.h>
+#include <ICE.h>
 
 ICE_PRELOAD()
 {
-	ICE_Font_Load( "font.ttf" );
+	ICE_Font_Load("res//ttf//FiraSans-Medium.ttf");
 }
 
 ICE_CREATE()
 {
-	ICE_Render_Color( ICE_Color_New( 200, 200, 200 ) );
+	ICE_Render_Color(ICE_Color_New(100, 200, 80));
 
-	unsigned int man	=		ICE_LabelManager_Insert( NULL );
-	unsigned int nb		=		ICE_Label_Insert( NULL, man, "Hello World", ICE_Vect_New( 0, 0 ) );
+	unsigned int man = ICE_LabelManager_Insert(NULL);
+	unsigned int nb = ICE_Label_Insert(NULL, man, "Hello World", ICE_Vect_New(0, 0));
 
-	ICE_Label_FixToWorld( ICE_Label_Get( NULL, 0, nb ), ICE_True );
-}	
+	ICE_Label_SetSize(ICE_Label_Get(NULL, man, nb), 30);
+	ICE_Label_FixToWorld(ICE_Label_Get(NULL, man, nb), ICE_True);
+}
 
 ICE_UPDATE()
 {
-	if(ICE_Input_Key(ICE_KEY_ESCAPE))
+	if (ICE_Input_Key(ICE_KEY_ESCAPE))
 		ICE_Input_Quit();
 }
 
@@ -59,7 +60,7 @@ ICE_DESTROY() {}
 
 int main()
 {
-	ICE_START( "Hello World", 800, 480 );
+	ICE_START("Hello World", 800, 480);
 	return 0;
 }
 ```
