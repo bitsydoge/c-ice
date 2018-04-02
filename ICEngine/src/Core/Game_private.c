@@ -24,12 +24,13 @@ void ICE_Game_Create(char *window_title, const unsigned int width_window, const 
 	SDL_SetRenderDrawBlendMode(game.window.render, SDL_BLENDMODE_BLEND);
 	
 	game.window.w = width_window; game.window.h = height_window;
-	game.camera.w = width_window; game.camera.h = height_window;
+	game.state_mngr.current = &game.state_main;
+	game.window.w = width_window; game.window.h = height_window;
 
 	game.window.auto_clear = 1;
 	game.window.auto_render = 1;
 
-	game.state_mngr.current = &game.state_main;
+	
 
 	ICE_Window_SetIcon(0);
 

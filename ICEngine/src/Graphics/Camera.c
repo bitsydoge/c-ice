@@ -10,32 +10,33 @@ extern ICE_Game game;
 
 void ICE_Camera_SetPos(ICE_Vect vect)
 {
-	game.camera.x = vect.x;
-	game.camera.y = vect.y;
+	
+	game.state_mngr.current->object.camera.x = vect.x;
+	game.state_mngr.current->object.camera.y = vect.y;
 }
 
 void ICE_Camera_MovePos(ICE_Vect vect, ICE_Float r)
 {
-	float xdif = vect.x - game.camera.x;
-	float ydif = vect.y - game.camera.y;
+	float xdif = vect.x - game.state_mngr.current->object.camera.x;
+	float ydif = vect.y - game.state_mngr.current->object.camera.y;
 
 	float angle = atan2(ydif, xdif);
 	float distance_r_r = xdif * xdif + ydif * ydif;
 
-	game.camera.x += r * cos(angle);
-	game.camera.y += r * sin(angle);
+	game.state_mngr.current->object.camera.x += r * cos(angle);
+	game.state_mngr.current->object.camera.y += r * sin(angle);
 
 	if (distance_r_r < r)
 	{
-		game.camera.x = vect.x;
-		game.camera.y = vect.y;
+		game.state_mngr.current->object.camera.x = vect.x;
+		game.state_mngr.current->object.camera.y = vect.y;
 	}
 }
 
 void ICE_Camera_ShiftPos(ICE_Vect Dvect)
 {
-	game.camera.x += Dvect.x;
-	game.camera.y += Dvect.y;
+	game.state_mngr.current->object.camera.x += Dvect.x;
+	game.state_mngr.current->object.camera.y += Dvect.y;
 }
 
 // Camera return
@@ -44,17 +45,17 @@ void ICE_Camera_ShiftPos(ICE_Vect Dvect)
 
 int ICE_Camera_GetW()
 {
-	return game.camera.w;
+	return game.window.w;
 }
 
 int ICE_Camera_GetH()
 {
-	return game.camera.h;
+	return game.window.h;
 }
 
 ICE_Vect ICE_Camera_GetVect()
 {
-	return ICE_Vect_New(game.camera.w, game.camera.h);
+	return ICE_Vect_New(game.window.w, game.window.h);
 }
 
 // Converter
@@ -63,8 +64,8 @@ ICE_Vect ICE_Camera_GetVect()
 ICE_Box ICE_Camera_WorldScreen(ICE_Box rect)
 {
 	ICE_Box rect2 = {
-		(game.camera.w / 2) + rect.x - game.camera.x,
-		(game.camera.h / 2) + rect.y - game.camera.y,
+		(game.window.w / 2) + rect.x - game.state_mngr.current->object.camera.x,
+		(game.window.h / 2) + rect.y - game.state_mngr.current->object.camera.y,
 		rect.w,
 		rect.h
 	};
@@ -74,8 +75,8 @@ ICE_Box ICE_Camera_WorldScreen(ICE_Box rect)
 ICE_Box ICE_Camera_ScreenWorld(ICE_Box rect)
 {
 	ICE_Box rect2 = {
-		-game.camera.w / 2 + game.camera.x + rect.x,
-		-game.camera.h / 2 + game.camera.y + rect.y,
+		-game.window.w / 2 + game.state_mngr.current->object.camera.x + rect.x,
+		-game.window.h / 2 + game.state_mngr.current->object.camera.y + rect.y,
 		rect.w,
 		rect.h
 	};

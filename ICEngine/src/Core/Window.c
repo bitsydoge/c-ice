@@ -9,7 +9,6 @@ void ICE_Window_SetSize(int w, int h)
 {
 	SDL_SetWindowSize(game.window.handle, w, h);
 	game.window.w = w; game.window.h = h;
-	game.camera.w = w; game.camera.h = h;
 }
 
 void ICE_Window_SetResizable(ICE_Bool yn)

@@ -86,7 +86,7 @@ struct ICE_Input {
 struct ICE_Window
 {
 	ICE_String title;
-	unsigned int w, h;
+	ICE_Float w, h;
 
 	SDL_Window *handle;
 	SDL_Renderer *render;
@@ -104,7 +104,7 @@ struct ICE_Window
  */
 struct ICE_Camera
 {
-	ICE_Float x, y, w, h;
+	ICE_Float x, y;
 
 }; typedef struct ICE_Camera ICE_Camera;
 
@@ -171,10 +171,14 @@ struct ICE_LabelManager
 
 struct ICE_ObjectManager
 {
+	// Camera
+	ICE_Camera camera;
+
 	// Label
 	unsigned int label_mngr_nb;
 	ICE_LabelManager *label_mngr;
-
+	
+	// Gui
 	unsigned int gui_mngr_nb;
 	ICE_GuiManager *gui_mngr;
 
@@ -215,7 +219,6 @@ struct ICE_Game {
 	
 	// Main
 	ICE_Window window;
-	ICE_Camera camera;
 	ICE_Time time;
 
 	// State
