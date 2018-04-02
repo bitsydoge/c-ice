@@ -126,6 +126,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Audio\Audio.h" />
+    <ClInclude Include="src\Audio\Music.h" />
+    <ClInclude Include="src\Audio\Sound.h" />
     <ClInclude Include="src\Audio\TypesAudio.h" />
     <ClInclude Include="src\Core\Asset_private.h" />
     <ClInclude Include="src\Core\Converter_private.h" />
@@ -181,6 +184,9 @@
     <ClInclude Include="src\Physics\TypesPhysics.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Audio\Audio.c" />
+    <ClCompile Include="src\Audio\Music.c" />
+    <ClCompile Include="src\Audio\Sound.c" />
     <ClCompile Include="src\Core\Asset_private.c" />
     <ClCompile Include="src\Core\Core.c" />
     <ClCompile Include="src\Core\Core_private.c" />

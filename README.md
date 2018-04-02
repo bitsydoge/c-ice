@@ -43,8 +43,8 @@ ICE_CREATE()
 {
 	ICE_Render_Color(ICE_Color_New(100, 200, 80));
 
-	unsigned int man = ICE_LabelManager_Insert(NULL);
-	unsigned int nb = ICE_Label_Insert(NULL, man, "Hello World", ICE_Vect_New(0, 0));
+	unsigned int man	=		ICE_LabelManager_Insert(NULL);
+	unsigned int nb		=		ICE_Label_Insert(NULL, man, "Hello World", ICE_Vect_New(0, 0));
 
 	ICE_Label_SetSize(ICE_Label_Get(NULL, man, nb), 30);
 	ICE_Label_FixToWorld(ICE_Label_Get(NULL, man, nb), ICE_True);

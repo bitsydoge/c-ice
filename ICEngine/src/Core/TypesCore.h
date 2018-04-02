@@ -3,6 +3,7 @@
 
 #include "../Framework/String_.h"
 #include "../Graphics/TypesGraphics.h"
+#include "../Audio/TypesAudio.h"
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
@@ -182,6 +183,9 @@ struct ICE_ObjectManager
 	unsigned int gui_mngr_nb;
 	ICE_GuiManager *gui_mngr;
 
+	// Entity
+	unsigned int entity_mngr_nb;
+
 }; typedef struct ICE_ObjectManager ICE_ObjectManager;
 
 /**
@@ -240,10 +244,21 @@ struct ICE_Game {
  */
 struct ICE_Asset
 {
+	// Font
+	unsigned int font_mngr_nb; // TO DO
 	ICE_Font font;
 
+	// Texture
 	unsigned int texture_mngr_nb;
 	ICE_TextureManager *texture_mngr;
+
+	// Sound
+	unsigned int sound_mngr_nb;
+	ICE_SoundManager *sound_mngr;
+
+	// Music
+	unsigned int music_mngr_nb;
+	ICE_MusicManager *music_mngr;
 
 }; typedef struct ICE_Asset ICE_Asset;
 
