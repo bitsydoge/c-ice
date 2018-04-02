@@ -1,6 +1,6 @@
 
 # ICE : Indie "C" Engine
-<img alt="ICE Logo" src="TestProject/Test/res/img/ice_logo.png" width=20% height=20%> 
+<img alt="ICE Logo" src="TestProject/HelloWidows/res/img/ice_logo.png" width=20% height=20%> 
 
 _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
 	
@@ -36,16 +36,17 @@ _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
 
 ICE_PRELOAD()
 {
-	ICE_Font_Load("font.ttf");
+	ICE_Font_Load( "font.ttf" );
 }
 
 ICE_CREATE()
 {
 	ICE_Render_Color( ICE_Color_New( 200, 200, 200 ) );
 
-	unsigned int man = ICE_LabelManager_Insert(NULL);
-	unsigned int nb  = ICE_Label_Insert(NULL, man, "Hello World", ICE_Vect_New(0,0));
-	ICE_Label_FixToWorld(ICE_Label_Get(NULL, 0, nb), ICE_True);
+	unsigned int man	=		ICE_LabelManager_Insert( NULL );
+	unsigned int nb		=		ICE_Label_Insert( NULL, man, "Hello World", ICE_Vect_New( 0, 0 ) );
+
+	ICE_Label_FixToWorld( ICE_Label_Get( NULL, 0, nb ), ICE_True );
 }	
 
 ICE_UPDATE()
