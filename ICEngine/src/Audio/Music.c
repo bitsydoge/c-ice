@@ -30,7 +30,7 @@ void ICE_MusicManager_Destroy(const unsigned int man)
 	for (unsigned int i = 0; i < manager->music_contain; i++)
 	{
 		//Free everything to free in Label
-		//ICE_Music_Destroy(&manager->music[i]);
+		ICE_Music_Destroy(&manager->music[i]);
 	}
 
 	ICE_Free(manager->music);

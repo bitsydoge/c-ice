@@ -23,7 +23,7 @@ unsigned int ICE_TextureManager_Insert()
 	asset.texture_mngr = ICE_Realloc(asset.texture_mngr, asset.texture_mngr_nb * sizeof(ICE_TextureManager));
 	asset.texture_mngr[asset.texture_mngr_nb - 1] = texture_manager;
 	
-	printf("TextureManager]::[%d]::[Create", asset.texture_mngr_nb - 1);
+	ICE_Log(ICE_LOG_SUCCES, "TextureManager]::[%d]::[Create", asset.texture_mngr_nb - 1);
 	return asset.texture_mngr_nb - 1;
 }
 
