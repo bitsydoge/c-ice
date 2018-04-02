@@ -196,6 +196,9 @@
     <ClInclude Include="src\Core\Entity.h">
       <Filter>__Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Core\Data.h">
+      <Filter>__Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Asset_private.c">
@@ -328,6 +331,9 @@
       <Filter>Audio</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Entity.c">
+      <Filter>__Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Data.c">
       <Filter>__Core</Filter>
     </ClCompile>
   </ItemGroup>

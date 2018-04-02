@@ -1,5 +1,6 @@
 #include <ICE.h>
 #include "Audio/Sound.h"
+#include "Core/Data.h"
 
 void hello_resume()
 {
@@ -61,6 +62,11 @@ ICE_PRELOAD()
 	ICE_Font_Load("res//ttf//FiraSans-Medium.ttf");
 }
 
+struct DATA1
+{
+	int life, speed;
+}; typedef struct DATA1 DATA1;
+
 ICE_CREATE()
 {	
 	ICE_Debug_FontSetColorBg( 100, 100, 100 );
@@ -82,6 +88,10 @@ ICE_CREATE()
 	ICE_Label_SetSize(ICE_Label_Get(NULL, manager, label), 30);
 
 	hello = ICE_State_Create(hello_create, hello_update, hello_destroy);
+
+	DATA1 * data = ICE_Data_Insert(NULL, sizeof(DATA1));
+
+	data->life = 100;
 
 	ICE_Music_Play(ICE_Music_Get(0, 0), 16);
 }

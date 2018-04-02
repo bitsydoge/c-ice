@@ -186,6 +186,10 @@ struct ICE_ObjectManager
 	// Entity
 	unsigned int entity_mngr_nb;
 
+	// Data
+	unsigned int data_nb;
+	void** data;
+
 }; typedef struct ICE_ObjectManager ICE_ObjectManager;
 
 /**
