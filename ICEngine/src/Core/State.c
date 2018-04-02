@@ -44,6 +44,11 @@ void ICE_State_Pause()
 	game.state_mngr.current->isPaused = ICE_True;
 }
 
+ICE_Bool ICE_State_WasPaused()
+{
+	return game.state_mngr.current->isPaused;
+}
+
 void ICE_Substate_Start(ICE_State *state)
 {
 	state->parent = game.state_mngr.current;
