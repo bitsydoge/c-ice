@@ -25,6 +25,7 @@
 #include "Core/State.h"
 #include "Core/Time_.h"
 #include "Core/Window.h"
+#include "Core/Data.h"
 
 // Graphics
 

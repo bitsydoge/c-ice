@@ -1,46 +1,104 @@
 #include <ICE.h>
-#include "Audio/Sound.h"
-#include "Core/Data.h"
 
-void hello_resume()
+struct Game_Weapon
 {
-	ICE_Render_Color(ICE_Color_New(55, 20, 10));
+	ICE_String name;
+	ICE_Float damage;
+	ICE_Float speed;
+	ICE_Float weight;
+};
+
+struct DATA1
+{
+	int			life, speed;
+	ICE_State	inventory;
+	struct Game_Weapon current_weapon;
+
+}; typedef struct DATA1 DATA1;
+
+struct Game_Weapon Game_Weapon_Init(char * name, ICE_Float damage, ICE_Float speed, ICE_Float weight)
+{
+	struct Game_Weapon weapon = { ICE_String_Init(name), damage, speed, weight };
+	return weapon;
 }
 
-void hello_create()
+void Game_Weapon_Destroy(struct Game_Weapon *weapon)
 {
-	hello_resume();
-	ICE_State_ResumeCallback(NULL, hello_resume);
-
-	ICE_LabelManager_Insert(NULL);
-	unsigned int nb = ICE_Label_Insert(ICE_State_GetParent(NULL), 0, "HELLO GIRL FROM STATE", ICE_Vect_New(100, 100));
-	ICE_Label_SetColor(ICE_Label_Get(ICE_State_GetParent(NULL), 0, nb), ICE_Color_New(100, 255, 2));
-	ICE_Label_SetSize(ICE_Label_Get(ICE_State_GetParent(NULL), 0, nb), 100);
-	ICE_Label_FixToWorld(ICE_Label_Get(ICE_State_GetParent(NULL), 0, nb), ICE_True);
-
-	nb = ICE_Label_Insert(NULL, 0, "HELLO GIRL", ICE_Vect_New(100, 100));
-	ICE_Label_SetColor(ICE_Label_Get(NULL, 0, nb), ICE_Color_New(100, 255, 2));
-	ICE_Label_SetSize(ICE_Label_Get(NULL, 0, nb), 100);
-	ICE_Label_FixToWorld(ICE_Label_Get(NULL, 0, nb), ICE_True);
+	ICE_String_Delete(weapon->name);
 }
 
-void hello_update()
+// STATE ///////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+void inventory_create()
 {
+	ICE_Render_Color( ICE_Color_New( 50, 50, 50 ) );
+
+	DATA1 * data = ICE_Data_Get(ICE_State_GetParent(NULL), 0);
+	unsigned int man = ICE_LabelManager_Insert(NULL);
+	unsigned int nb = ICE_Label_Insert(NULL, 0, "", ICE_Vect_New(50, 20));
+	ICE_Label_SetString(ICE_Label_Get(NULL, man, nb), "Name : %s     Damage : %.1f     Speed : %.1f", data->current_weapon.name, data->current_weapon.damage, data->current_weapon.speed);
+	ICE_Label_SetSize(ICE_Label_Get(NULL, man, nb), 12);
+	ICE_Label_SetWrapWidth(ICE_Label_Get(NULL, man, nb), 100);
+	ICE_GuiManager_Insert(NULL);
+	ICE_Gui_Insert(
+		NULL,
+		0,
+		ICE_Box_New(
+			ICE_Label_GetX(ICE_Label_Get(NULL, man, nb))-5,
+			ICE_Label_GetY(ICE_Label_Get(NULL, man, nb)), 
+			ICE_Label_GetWidth(ICE_Label_Get(NULL, man, nb))+10, 
+			ICE_Label_GetHeight(ICE_Label_Get(NULL, man, nb)+2)
+		), 
+		0, 
+		1
+	);
+}
+
+void inventory_update()
+{
+	ICE_Label_SetPos(ICE_Label_Get(NULL, 0, 0), ICE_Vect_New(ICE_Input_MouseX()+15, ICE_Input_MouseY()-10));
+	DATA1 * data = ICE_Data_Get(ICE_State_GetParent(NULL), 0);
+	ICE_Gui_SetSize(
+		ICE_Gui_Get(NULL, 0, 0),
+		ICE_Vect_New(
+			ICE_Label_GetWidth(ICE_Label_Get(NULL, 0, 0))+10,
+			ICE_Label_GetHeight(ICE_Label_Get(NULL, 0, 0))+2
+		)
+	);
+
+	ICE_Gui_SetPos(
+		ICE_Gui_Get(NULL, 0, 0),
+		ICE_Vect_New(
+			ICE_Label_GetX(ICE_Label_Get(NULL, 0, 0)) - 5,
+			ICE_Label_GetY(ICE_Label_Get(NULL, 0, 0))
+		)
+	);
 	ICE_Debug_CameraControl();
-	
-	ICE_Debug_DrawFps(3);
-	ICE_Debug_FontDraw(4, " Version %s ", ICE_VERSION);
-	ICE_Draw_RectangleFill(ICE_Camera_WorldScreen(ICE_Box_New(-25, -25, 50, 50)), ICE_Color_Blue);
 
 	if(ICE_Input_Key(ICE_KEY_ESCAPE))
 		ICE_State_Pause();
-
-	ICE_Debug_FontDraw(5, "RESULT = %s", ICE_Label_GetString(ICE_Label_Get(ICE_State_GetParent(NULL), 0, 0)));
 }
 
-void hello_destroy()
+void inventory_destroy()
 {
 
+}
+
+// MAIN //////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
+	int i;
+	for (i = 0; i<argc; i++) {
+		printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+	}
+	printf("\n");
+	return 0;
 }
 
 ICE_PRELOAD()
@@ -59,13 +117,6 @@ ICE_PRELOAD()
 
 	ICE_Font_Load("res//ttf//FiraSans-Medium.ttf");
 }
-
-struct DATA1
-{
-	int			life, speed;
-	ICE_State	hello;
-
-}; typedef struct DATA1 DATA1;
 
 ICE_CREATE()
 {	
@@ -88,34 +139,37 @@ ICE_CREATE()
 	ICE_Label_SetSize(ICE_Label_Get(NULL, manager, label), 30);
 
 	DATA1 * data = ICE_Data_Insert(NULL, sizeof(DATA1));
+	data->inventory = ICE_State_Create(inventory_create, inventory_update, inventory_destroy);
+	data->current_weapon = Game_Weapon_Init("Big Sword", 100, 1.2, 50);
 
-	data->hello = ICE_State_Create(hello_create, hello_update, hello_destroy);
-	
 	ICE_Music_Play(ICE_Music_Get(0, 0), 16);
 }
 
-ICE_UPDATE()
+void Screen_Update()
 {
-	ICE_Gui_SetSize(ICE_Gui_Get(NULL, 0, 0), ICE_Vect_New(ICE_Window_GetW(), 50));
-
 	static float amount = 0; float result;
 	if (amount <= 5.0f)
 		result = ICE_Interpolate(0, 255, amount / 5.0f, ICE_Interpolate_CubicIn);
 	else
-		result = ICE_Interpolate(0, 255, 1 - ( (amount-5) / 5.0f ), ICE_Interpolate_CubicOut);
+		result = ICE_Interpolate(0, 255, 1 - ((amount - 5) / 5.0f), ICE_Interpolate_CubicOut);
+	ICE_Render_Color(ICE_Color_New(result / 5, result / 2.5f + 20, result / 1.5f + 20));
+	amount += ICE_Game_GetDelta();
+	if (amount >= 10.0f)
+		amount = 0;
+}
+
+ICE_UPDATE()
+{
+	Screen_Update();
+	ICE_Gui_SetSize(ICE_Gui_Get(NULL, 0, 0), ICE_Vect_New(ICE_Window_GetW(), 50));
 	
-	ICE_Render_Color(ICE_Color_New(result/5, result/2.5f+20, result/1.5f+20));
 	ICE_Draw_RectangleFill(ICE_Camera_WorldScreen(ICE_Box_New(-10, -10, 20, 20)), ICE_Color_Red);
-
+	DATA1 * data = ICE_Data_Get(NULL, 0);
 	ICE_Debug_CameraControl();
-	ICE_Debug_DrawFps(4);
-	ICE_Debug_FontDraw(5, " Version %s ", ICE_VERSION);
-
 	if(ICE_Input_Key(ICE_KEY_ESCAPE))
 	{
 		ICE_Sound_Play(ICE_Sound_Get(0, 0), 16);
-		DATA1 * data = ICE_Data_Get(NULL, 0);
-		ICE_Substate_Start(&data->hello);
+		ICE_Substate_Start(&data->inventory);
 	}
 
 	if(ICE_Input_Key(ICE_KEY_SPACE))
@@ -128,16 +182,13 @@ ICE_UPDATE()
 
 	if(ICE_Input_Key(ICE_KEY_RETURN))
 		ICE_Camera_SetPos(ICE_Vect_New(0,0));
-
-	amount += ICE_Game_GetDelta();
-	if (amount >= 10.0f)
-		amount = 0;
 }
 
 ICE_DESTROY()
 {
 	DATA1 * data = ICE_Data_Get(NULL, 0);
-	ICE_State_Destroy(&data->hello);
+	ICE_State_Destroy(&data->inventory);
+	Game_Weapon_Destroy(&data->current_weapon);
 }
 
 int main()

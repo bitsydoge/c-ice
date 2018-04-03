@@ -118,7 +118,7 @@ void ICE_Substate_Loop()
 	{
 		ICE_Time_Start();
 		ICE_Input_Return();
-		ICE_Render_SetColor(game.window.background);
+		ICE_Render_SetColor(current->background);
 		if (game.window.auto_clear)
 			ICE_Render_Clear();
 		current->func_update();

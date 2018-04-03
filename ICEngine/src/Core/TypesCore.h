@@ -93,7 +93,6 @@ struct ICE_Window
 	SDL_Renderer *render;
 	ICE_Bool auto_render;
 	ICE_Bool auto_clear;
-	ICE_Color background;
 	ICE_Input input;
 
 }; typedef struct ICE_Window ICE_Window;
@@ -135,12 +134,16 @@ struct ICE_Label
 	ICE_String text;
 	int size;
 	ICE_Color color;
+	int wrap_width;
 
 	ICE_String old_text;
 	int old_size;
 	ICE_Color old_color;
-	
+	int wrap_width_old;
+
 	ICE_Float angle;
+
+
 
 	//ICE_Texture texture;
 	ICE_Bool isFixedToWorld;
@@ -209,6 +212,8 @@ struct ICE_State
 	void(*func_pause)(void);
 
 	ICE_ObjectManager object;
+
+	ICE_Color background;
 
 	struct ICE_State * parent;
 

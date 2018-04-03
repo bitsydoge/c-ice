@@ -21,7 +21,8 @@ void ICE_Draw_LabelWorld()
 				if (
 					strcmp(current->object.label_mngr[i].label[j].text, current->object.label_mngr[i].label[j].old_text) ||
 					current->object.label_mngr[i].label[j].size != current->object.label_mngr[i].label[j].old_size ||
-					current->object.label_mngr[i].label[j].color != current->object.label_mngr[i].label[j].old_color
+					current->object.label_mngr[i].label[j].color != current->object.label_mngr[i].label[j].old_color ||
+					current->object.label_mngr[i].label->wrap_width != current->object.label_mngr[i].label->wrap_width_old
 					)
 				{
 					ICE_Label_UpdateTexture(ICE_Label_Get(NULL, i, j));
@@ -30,6 +31,7 @@ void ICE_Draw_LabelWorld()
 
 					ICE_String_Delete(current->object.label_mngr[i].label[j].old_text);
 					current->object.label_mngr[i].label[j].old_text = ICE_String_Init(current->object.label_mngr[i].label[j].text);
+					current->object.label_mngr[i].label[j].wrap_width_old = current->object.label_mngr[i].label[j].wrap_width;
 				}
 
 				ICE_Box box = ICE_Box_New(
@@ -84,6 +86,7 @@ void ICE_Draw_LabelScreen() {
 void ICE_Draw_Gui()
 {
 	ICE_State * current = game.state_mngr.current;
+
 	for (int i = 0; i < current->object.gui_mngr_nb; i++)
 		for (int j = 0; j < current->object.gui_mngr[i].gui_contain; j++)
 		{
