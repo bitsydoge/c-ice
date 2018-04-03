@@ -9,11 +9,24 @@ extern ICE_Game game;
 
 void ICE_Label_UpdateTexture(ICE_Label * label)
 {
-	SDL_Surface *surf = TTF_RenderText_Blended(
-		asset.font.size[label->size],
-		label->text,
-		ICE_Color_ToSdl(label->color)
-	);
+	SDL_Surface *surf;
+	if(label->wrap_width == 0)
+	{
+		surf = TTF_RenderText_Blended(
+			asset.font.size[label->size],
+			label->text,
+			ICE_Color_ToSdl(label->color)
+		);
+	}
+	else
+	{
+		surf = TTF_RenderText_Blended_Wrapped(
+			asset.font.size[label->size],
+			label->text,
+			ICE_Color_ToSdl(label->color),
+			label->wrap_width
+		);
+	}
 
 	ICE_Texture texture = { 0 };
 

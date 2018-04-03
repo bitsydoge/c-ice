@@ -3,6 +3,7 @@
 
 #ifndef ICE_BOOL_DEFINED
 #define ICE_BOOL_DEFINED
+
 /**
 * \brief A special bool that can be equal to 0(ICE_False) 1(ICE_True) or -1(ICE_BoolNone).
 * The last one is for some function where the use of ICE_BoolNone is documented

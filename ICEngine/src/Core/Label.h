@@ -62,13 +62,18 @@ void ICE_Label_Destroy(ICE_Label * ptr);
 
 ICE_String ICE_Label_GetString(ICE_Label* ptr);
 ICE_Label * ICE_Label_Get(ICE_State * state, unsigned int man, unsigned int nb);
+int ICE_Label_GetWidth(ICE_Label * label);
+int ICE_Label_GetHeight(ICE_Label * label);
+ICE_Float ICE_Label_GetX(ICE_Label * label);
+ICE_Float ICE_Label_GetY(ICE_Label * label);
 
 /////////////////////// * LABEL SET * //////////////////////////
 
 void ICE_Label_SetSize(ICE_Label *label, int size);
-void ICE_Label_SetString(ICE_Label * label, ICE_String string);
+void ICE_Label_SetString(ICE_Label * label, const char * format, ...);
 void ICE_Label_SetPos(ICE_Label * label, ICE_Vect vect);
 void ICE_Label_SetColor(ICE_Label * label, ICE_Color color);
+void ICE_Label_SetWrapWidth(ICE_Label * label, int wrap_width);
 void ICE_Label_SetAngle(ICE_Label * label, ICE_Float angle);
 void ICE_Label_FixToWorld(ICE_Label * label, ICE_Bool yn);
 

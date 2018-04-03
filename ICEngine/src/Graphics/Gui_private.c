@@ -1,7 +1,6 @@
 ﻿#include "Gui_private.h"
 #include "Gui.h"
 #include "../Core/TypesCore.h"
-#include "../Maths/Vector.h"
 #include "../Graphics/TypesGraphics.h"
 #include "../Graphics/Texture.h"
 

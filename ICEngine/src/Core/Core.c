@@ -32,7 +32,7 @@ int ICE_Core_Main(const ICE_String title, const int window_width, const int wind
 	{	
 		ICE_Time_Start();
 		ICE_Input_Return();
-		ICE_Render_SetColor(game.window.background);
+		ICE_Render_SetColor(game.state_mngr.current->background);
 		if(game.window.auto_clear)
 			ICE_Render_Clear();
 		call_update();

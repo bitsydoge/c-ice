@@ -40,6 +40,16 @@ ICE_Bool ICE_Input_Key(enum ICE_InputKey button)
 	return ICE_False;
 }
 
+int ICE_Input_MouseX()
+{
+	return game.window.input.mousex;
+}
+
+int ICE_Input_MouseY()
+{
+	return game.window.input.mousey;
+}
+
 void ICE_Input_Quit()
 {
 	game.window.input.quit = ICE_True;

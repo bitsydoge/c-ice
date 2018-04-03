@@ -279,4 +279,8 @@ void ICE_Input_Quit();
  */
 void ICE_Input_Reset();
 
+int ICE_Input_MouseX();
+
+int ICE_Input_MouseY();
+
 #endif
