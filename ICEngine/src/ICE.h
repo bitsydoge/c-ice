@@ -26,6 +26,7 @@
 #include "Core/Time_.h"
 #include "Core/Window.h"
 #include "Core/Data.h"
+#include "Core/Entity.h"
 
 // Graphics
 

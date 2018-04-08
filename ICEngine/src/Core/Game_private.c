@@ -30,7 +30,7 @@ void ICE_Game_Create(char *window_title, const unsigned int width_window, const 
 	game.window.auto_clear = 1;
 	game.window.auto_render = 1;
 
-	
+	SDL_SetRenderDrawBlendMode(game.window.render, SDL_BLENDMODE_BLEND);
 
 	ICE_Window_SetIcon(0);
 

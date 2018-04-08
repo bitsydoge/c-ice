@@ -181,6 +181,7 @@
     <ClInclude Include="src\ICE.h" />
     <ClInclude Include="src\Maths\Box.h" />
     <ClInclude Include="src\Maths\Interpolate.h" />
+    <ClInclude Include="src\Maths\Maths.h" />
     <ClInclude Include="src\Maths\TypesMaths.h" />
     <ClInclude Include="src\Maths\Vector.h" />
     <ClInclude Include="src\Physics\TypesPhysics.h" />

@@ -108,3 +108,28 @@ void ICE_Draw_Gui()
 			}
 		}
 }
+
+void ICE_Draw_Entity()
+{
+	ICE_State * current = game.state_mngr.current;
+
+	for (int i = 0; i < current->object.entity_mngr_nb; i++)
+		for (int j = 0; j < current->object.entity_mngr[i].entity_contain; j++)
+		{
+			if (current->object.entity_mngr[i].entity[j].have_texture && current->object.entity_mngr[i].entity[j].active)
+			{
+				ICE_Box rect = ICE_Camera_WorldScreen(ICE_Box_New(
+					current->object.entity_mngr[i].entity[j].x,
+					current->object.entity_mngr[i].entity[j].y,
+					current->object.entity_mngr[i].entity[j].w,
+					current->object.entity_mngr[i].entity[j].h));
+
+				ICE_Texture_RenderExCentered(
+					ICE_Texture_Get(current->object.entity_mngr[i].entity[j].man, current->object.entity_mngr[i].entity[j].text),
+					NULL, 
+					&rect, 
+					current->object.entity_mngr[i].entity[j].angle
+				);
+			}
+		}
+}

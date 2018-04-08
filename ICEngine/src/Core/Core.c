@@ -38,6 +38,7 @@ int ICE_Core_Main(const ICE_String title, const int window_width, const int wind
 		call_update();
 
 		// RENDER HERE
+		ICE_Draw_Entity();
 		ICE_Draw_LabelWorld();
 		ICE_Draw_Gui();
 		ICE_Draw_LabelScreen();
