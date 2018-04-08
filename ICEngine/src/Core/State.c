@@ -124,6 +124,7 @@ void ICE_Substate_Loop()
 		current->func_update();
 
 		// RENDER HERE
+		ICE_Draw_Entity();
 		ICE_Draw_LabelWorld();
 		ICE_Draw_Gui();
 		ICE_Draw_LabelScreen();

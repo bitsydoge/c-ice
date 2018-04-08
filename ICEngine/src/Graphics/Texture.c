@@ -22,7 +22,7 @@ unsigned int ICE_TextureManager_Insert()
 	asset.texture_mngr_nb++;
 	asset.texture_mngr = ICE_Realloc(asset.texture_mngr, asset.texture_mngr_nb * sizeof(ICE_TextureManager));
 	asset.texture_mngr[asset.texture_mngr_nb - 1] = texture_manager;
-	
+
 	ICE_Log(ICE_LOG_SUCCES, "TextureManager]::[%d]::[Create", asset.texture_mngr_nb - 1);
 	return asset.texture_mngr_nb - 1;
 }
@@ -61,6 +61,8 @@ unsigned int ICE_Texture_Insert(int manager, char* path)
 
 	SDL_QueryTexture(text->handle, NULL, NULL, &text->w, &text->h);
 	asset.texture_mngr[manager].texture[asset.texture_mngr[manager].texture_contain] = *text;
+	SDL_SetTextureBlendMode(text->handle, SDL_BLENDMODE_BLEND);
+
 	asset.texture_mngr[manager].texture_contain++;
 
 	if (asset.texture_mngr[manager].texture_size <= asset.texture_mngr[manager].texture_contain) {

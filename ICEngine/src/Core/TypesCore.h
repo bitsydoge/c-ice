@@ -166,7 +166,53 @@ struct ICE_LabelManager
 
 }; typedef struct ICE_LabelManager ICE_LabelManager;
 
+// --------------------------------------
 
+/**
+* \brief A struct that is a text on screen, contain Size, Color and String in it
+*/
+struct ICE_Entity
+{
+	// Main
+	ICE_Bool active;
+
+	ICE_Float x, y;
+	ICE_Float w, h;
+	ICE_Float angle;
+
+	// Polar Movement Save
+	ICE_Bool already_moved_polar;
+	ICE_Float x_polar_destination_move;
+	ICE_Float y_polar_destination_move;
+	ICE_Float r_polar_destination_move;
+	ICE_Float x_polar_shift_move;
+	ICE_Float y_polar_shift_move;
+	ICE_Float polar_distance_r_r;
+	////////////////////////////
+
+	// Texture location
+	ICE_Bool have_texture;
+	unsigned int man;
+	unsigned int text;
+
+	// Data Array
+	unsigned int data_nb;
+	void **data;
+
+}; typedef struct ICE_Entity ICE_Entity;
+
+/**
+* \brief Manager of Label
+*/
+struct ICE_EntityManager
+{
+	ICE_Bool isFree;
+
+	unsigned int entity_size;
+	unsigned int entity_contain;
+	ICE_Entity* entity;
+
+}; typedef struct ICE_EntityManager ICE_EntityManager;
 
 // BIG OBJECT
 // --------------------------------------
@@ -188,6 +234,7 @@ struct ICE_ObjectManager
 
 	// Entity
 	unsigned int entity_mngr_nb;
+	ICE_EntityManager *entity_mngr;
 
 	// Data
 	unsigned int data_nb;
