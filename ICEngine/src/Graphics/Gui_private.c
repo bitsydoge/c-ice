@@ -3,6 +3,7 @@
 #include "../Core/TypesCore.h"
 #include "../Graphics/TypesGraphics.h"
 #include "../Graphics/Texture.h"
+#include "Texture_private.h"
 
 extern struct ICE_Game game;
 
@@ -16,7 +17,19 @@ void ICE_Gui_UpdateTexture(int man, int gui)
 	SDL_RenderClear(game.window.render);
 	ICE_Box box2 = game.state_mngr.current->object.gui_mngr[man].gui[gui].box;
 	box2.x = 0; box2.y = 0;
-	ICE_Gui_Rect(ICE_Texture_Get(game.state_mngr.current->object.gui_mngr[man].gui[gui].texturemanager_nb, game.state_mngr.current->object.gui_mngr[man].gui[gui].texture_nb), box2);
+
+	// TYPE DRAW
+
+	if(game.state_mngr.current->object.gui_mngr[man].gui[gui].type == ICE_GUI_RECTANGLE)
+		ICE_Gui_Rect(ICE_Texture_Get(game.state_mngr.current->object.gui_mngr[man].gui[gui].texturemanager_nb, game.state_mngr.current->object.gui_mngr[man].gui[gui].texture_nb), box2);
+	if (game.state_mngr.current->object.gui_mngr[man].gui[gui].type == ICE_GUI_IMAGE)
+		ICE_Texture_RenderEx(
+			ICE_Texture_Get(game.state_mngr.current->object.gui_mngr[man].gui[gui].texturemanager_nb, game.state_mngr.current->object.gui_mngr[man].gui[gui].texture_nb),
+			NULL,
+			&game.state_mngr.current->object.gui_mngr[man].gui[gui].box,
+			0
+		);
+	
 	SDL_SetRenderTarget(game.window.render, NULL);
 	if (game.state_mngr.current->object.gui_mngr[man].gui[gui].texture_cache.handle)
 		SDL_DestroyTexture(game.state_mngr.current->object.gui_mngr[man].gui[gui].texture_cache.handle);

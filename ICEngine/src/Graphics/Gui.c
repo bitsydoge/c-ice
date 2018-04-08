@@ -72,6 +72,8 @@ ICE_Gui ICE_Gui_Create(ICE_Box box, unsigned int man_texture, unsigned int nb_te
 {
 	ICE_Gui gui = { 0 };
 
+	gui.type = ICE_GUI_RECTANGLE;
+
 	gui.have_texture_defined = ICE_True;
 	gui.exist = ICE_True;
 	gui.box = box;
@@ -150,4 +152,9 @@ void ICE_Gui_SetSize(ICE_Gui * gui, ICE_Vect vect)
 {
 	gui->box.w = vect.x;
 	gui->box.h = vect.y;
+}
+
+void ICE_Gui_SetType(ICE_Gui * gui, ICE_GuiType type)
+{
+	gui->type = type;
 }

@@ -60,6 +60,8 @@ void inventory_create()
 
 void inventory_update()
 {
+	ICE_Debug_DrawFps(5);
+
 	ICE_Label_SetPos(ICE_Label_Get(NULL, 0, 0), ICE_Vect_New(ICE_Input_MouseX()+15, ICE_Input_MouseY()-10));
 	DATA1 * data = ICE_Data_Get(ICE_State_GetParent(NULL), 0);
 	ICE_Gui_SetSize(
@@ -93,6 +95,16 @@ void inventory_destroy()
 /////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
 
+enum
+{
+
+	texture_Pic = 0,
+	texture_Gui = 1,
+	texture_Widow = 2,
+	texture_Sprite = 3
+
+};
+
 ICE_PRELOAD()
 {
 	unsigned int man = 0;
@@ -101,6 +113,8 @@ ICE_PRELOAD()
 	man = ICE_TextureManager_Insert();
 	ICE_Texture_Insert(man, "res//img//pic.png");
 	ICE_Texture_Insert(man, "res//img//gui.png");
+	ICE_Texture_Insert(man, "res//img//widow.png");
+	ICE_Texture_Insert(man, "res//img//sprite.png");
 
 	// Sound
 	man = ICE_SoundManager_Insert();
@@ -116,13 +130,16 @@ ICE_PRELOAD()
 
 ICE_CREATE()
 {	
+	ICE_Debug_FontSetColorBg( 100, 100, 100 );
+	ICE_Debug_FontSetColorFg( 255, 255, 255 );
+
 	unsigned int manager = 0;
 	unsigned int nb = 0;
 
 	// Entity
 	manager = ICE_EntityManager_Insert(NULL);
-	nb = ICE_Entity_Insert(NULL, manager, ICE_Box_New(0,0,100,100));
-	ICE_Entity_SetTexture(ICE_Entity_Get(NULL, 0, 0), 0, 0);
+	nb = ICE_Entity_Insert(NULL, manager, ICE_Box_New(0,0,375,250));
+	ICE_Entity_SetTexture(ICE_Entity_Get(NULL, 0, 0), 0, texture_Widow);
 
 	// Gui
 	manager = ICE_GuiManager_Insert(NULL);
@@ -160,11 +177,15 @@ void Screen_Update()
 	amount += ICE_Game_GetDelta();
 	if (amount >= 10.0f)
 		amount = 0;
+
+	ICE_Entity_AddAngle(ICE_Entity_Get(NULL, 0, 0), 50 * ICE_Game_GetDelta());
 }
 
 ICE_UPDATE()
 {
 	Screen_Update();
+
+	ICE_Debug_DrawFps(5);
 
 	// Gui Resize
 	ICE_Gui_SetSize(ICE_Gui_Get(NULL, 0, 0), ICE_Vect_New(ICE_Window_GetW(), 50));
