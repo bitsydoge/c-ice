@@ -4,7 +4,6 @@
 #define ICE_DEFAULT_TEXTURE_SIZE 4
 
 #include "TypesGraphics.h"
-#include "../Maths/TypesMaths.h"
 
 unsigned int ICE_TextureManager_Insert();
 void ICE_TextureManager_Destroy(const unsigned int man);

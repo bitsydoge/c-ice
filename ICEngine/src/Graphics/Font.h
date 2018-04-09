@@ -8,7 +8,7 @@
  * \brief Load the font
  * \param path Path to the font file
  */
-void ICE_Font_Load(char *path);
+void ICE_Font_Insert(char *path);
 
 /**
  * \brief Unoptimized font drawing
