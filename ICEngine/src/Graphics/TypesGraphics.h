@@ -32,9 +32,9 @@ typedef Uint32 ICE_Color;
  */
 struct ICE_Texture
 {
-	ICE_Bool exist;
-	int w, h;
-	SDL_Texture* handle;
+	ICE_Bool		exist;
+	size_t	w, h;
+	SDL_Texture*	handle;
 
 }; typedef struct ICE_Texture ICE_Texture;
 
@@ -44,12 +44,34 @@ struct ICE_Texture
 struct ICE_TextureManager
 {
 
-	ICE_Bool isFree;
-	unsigned int texture_size;
-	unsigned int texture_contain;
-	ICE_Texture* texture;
+	ICE_Bool		isFree;
+	size_t			texture_size;
+	size_t			texture_contain;
+	ICE_Texture*	texture;
 
 }; typedef struct ICE_TextureManager ICE_TextureManager;
+
+
+typedef struct
+{
+	ICE_Bool		exist;
+	ICE_Bool		have_texture_defined;
+
+	size_t			texture_index;
+	size_t			texturemanager_index;
+
+} ICE_Sprite;
+
+typedef struct
+{
+	ICE_Bool		isFree;
+
+	size_t			sprite_size;
+	size_t			sprite_contain;
+
+	ICE_Sprite*		sprite;
+
+} ICE_SpriteManager;
 
 typedef enum
 {
@@ -62,28 +84,27 @@ typedef enum
 
 typedef struct
 {
-	ICE_Bool exist;
-	ICE_Bool have_texture_defined;
+	ICE_Bool		exist;
+	ICE_Bool		have_texture_defined;
+	size_t			texture_index;
+	size_t			old_texture_index;
+	size_t			texturemanager_index;
+	size_t			old_texturemanager_index;
+	ICE_Box			box;
+	ICE_Box			old_box;
 
-	unsigned int texture_nb;
-	unsigned int old_texture_nb;
-	unsigned int texturemanager_nb;
-	unsigned int old_texturemanager_nb;
-	ICE_Box box;
-	ICE_Box old_box;
-
-	ICE_GuiType type;
-	ICE_Texture texture_cache;
+	ICE_GuiType		type;
+	ICE_Texture		texture_cache;
 
 } ICE_Gui;
 
 typedef struct
 {
-	ICE_Bool isFree;
+	ICE_Bool		isFree;
 
-	unsigned int gui_size;
-	unsigned int gui_contain;
-	ICE_Gui* gui;
+	size_t			gui_size;
+	size_t			gui_contain;
+	ICE_Gui*		gui;
 
 } ICE_GuiManager;
 

@@ -6,9 +6,9 @@
 
 // MANAGER
 
-unsigned int ICE_SoundManager_Insert();
+size_t ICE_SoundManager_Insert();
 
-void ICE_SoundManager_Destroy(const unsigned int man);
+void ICE_SoundManager_Destroy(const size_t man);
 
 void ICE_SoundManager_DestroyAll();
 
@@ -16,7 +16,7 @@ void ICE_SoundManager_DestroyAll();
 
 ICE_Sound ICE_Sound_Create(char *path);
 
-unsigned int ICE_Sound_Insert(unsigned int man, char *path);
+size_t ICE_Sound_Insert(size_t man, char *path);
 
 void ICE_Sound_Clear(ICE_Sound * sound);
 
@@ -24,7 +24,7 @@ void ICE_Sound_Destroy(ICE_Sound * ptr);
 
 // GET
 
-ICE_Sound * ICE_Sound_Get(unsigned int man, unsigned int nb);
+ICE_Sound * ICE_Sound_Get(size_t man, size_t nb);
 
 // PLAY
 

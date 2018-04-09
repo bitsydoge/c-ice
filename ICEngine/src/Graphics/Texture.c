@@ -2,18 +2,15 @@
 
 #include "TypesGraphics.h"
 #include "../Core/TypesCore.h"
-#include "../Framework/Std_.h"
 #include "../Framework/Log.h"
 
-#include <string.h>
 #include "Texture_private.h"
 #include "../Framework/Memory_.h"
-#include "../Core/Converter_private.h"
 
 extern ICE_Asset asset;
 extern ICE_Game game;
 
-unsigned int ICE_TextureManager_Insert() 
+size_t ICE_TextureManager_Insert() 
 {
 	ICE_TextureManager texture_manager = { 0 };
 	texture_manager.texture_size = ICE_DEFAULT_TEXTURE_SIZE;
@@ -27,11 +24,11 @@ unsigned int ICE_TextureManager_Insert()
 	return asset.texture_mngr_nb - 1;
 }
 
-void ICE_TextureManager_Destroy(const unsigned int man)
+void ICE_TextureManager_Destroy(const size_t man)
 {
 	ICE_TextureManager * manager = &asset.texture_mngr[man];
 	
-	for (unsigned int i = 0; i < asset.texture_mngr[man].texture_contain; i++)
+	for (size_t i = 0; i < asset.texture_mngr[man].texture_contain; i++)
 		ICE_Texture_Destroy(ICE_Texture_Get(man, i));
 
 	ICE_Free(manager->texture);
@@ -41,9 +38,9 @@ void ICE_TextureManager_Destroy(const unsigned int man)
 void ICE_TextureManager_DestroyAll()
 {
 	ICE_TextureManager *manager = asset.texture_mngr;
-	unsigned int nb_manager = asset.texture_mngr_nb;
+	size_t nb_manager = asset.texture_mngr_nb;
 
-	for (unsigned int i = 0; i < nb_manager; i++)
+	for (size_t i = 0; i < nb_manager; i++)
 	{
 		if (!manager[i].isFree)
 		{
@@ -54,7 +51,7 @@ void ICE_TextureManager_DestroyAll()
 	free(manager);
 }
 
-unsigned int ICE_Texture_Insert(int manager, char* path) 
+size_t ICE_Texture_Insert(int manager, char* path) 
 {
 	ICE_Texture *text = ICE_Texture_Load(path);
 	text->exist = 1;
@@ -77,7 +74,7 @@ void ICE_Texture_Destroy(ICE_Texture *tex) {
 	SDL_DestroyTexture(tex->handle);
 }
 
-ICE_Texture * ICE_Texture_Get(unsigned int man, unsigned int nb)
+ICE_Texture * ICE_Texture_Get(size_t man, size_t nb)
 {
 	return &asset.texture_mngr[man].texture[nb];
 }

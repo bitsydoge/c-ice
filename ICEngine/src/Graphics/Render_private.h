@@ -1,5 +1,5 @@
-﻿#ifndef DEF_ICE_INPUT_RENDER_PRIVATE
-#define DEF_ICE_INPUT_RENDER_PRIVATE
+﻿#ifndef DEF_ICE_RENDER_PRIVATE
+#define DEF_ICE_RENDER_PRIVATE
 
 #include "TypesGraphics.h"
 

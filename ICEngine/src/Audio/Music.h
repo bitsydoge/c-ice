@@ -5,20 +5,20 @@
 
 #include "TypesAudio.h"
 
-unsigned int ICE_MusicManager_Insert();
-void ICE_MusicManager_Destroy(const unsigned int man);
+size_t ICE_MusicManager_Insert();
+void ICE_MusicManager_Destroy(const size_t man);
 void ICE_MusicManager_DestroyAll();
 
 // MUSIC
 
 ICE_Music ICE_Music_Create(char *path);
-unsigned int ICE_Music_Insert(unsigned int man, char *path);
+size_t ICE_Music_Insert(size_t man, char *path);
 void ICE_Music_Clear(ICE_Music * music);
 void ICE_Music_Destroy(ICE_Music * ptr);
 
 // GET
 
-ICE_Music * ICE_Music_Get(unsigned int man, unsigned int nb);
+ICE_Music * ICE_Music_Get(size_t man, size_t nb);
 
 // PLAY
 

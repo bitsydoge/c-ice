@@ -13,10 +13,10 @@ extern ICE_Game game;
 
 /* GUIMANAGER */
 
-unsigned int ICE_GuiManager_Insert(ICE_State * state)
+size_t ICE_GuiManager_Insert(ICE_State * state)
 {
 	if (!state)
-		state = game.state_mngr.current;
+		state = game.current;
 
 	ICE_GuiManager gui_manager = { 0 };
 	gui_manager.gui_size = ICE_DEFAULT_GUI_MNGR_SIZE;
@@ -30,14 +30,14 @@ unsigned int ICE_GuiManager_Insert(ICE_State * state)
 	return state->object.gui_mngr_nb - 1;
 }
 
-void ICE_GuiManager_Destroy(ICE_State * state, const unsigned int man)
+void ICE_GuiManager_Destroy(ICE_State * state, const size_t man)
 {
 	if (!state)
-		state = game.state_mngr.current;
+		state = game.current;
 
 	ICE_GuiManager *manager = &state->object.gui_mngr[man];
 
-	for (unsigned int i = 0; i < manager->gui_contain; i++)
+	for (size_t i = 0; i < manager->gui_contain; i++)
 	{
 		//Free everything to free in Label
 		ICE_Gui_Destroy(&manager->gui[i]);
@@ -50,12 +50,12 @@ void ICE_GuiManager_Destroy(ICE_State * state, const unsigned int man)
 void ICE_GuiManager_DestroyAll(ICE_State * state)
 {
 	if (!state)
-		state = game.state_mngr.current;
+		state = game.current;
 
 	ICE_GuiManager *manager = state->object.gui_mngr;
-	unsigned int nb_manager = state->object.gui_mngr_nb;
+	size_t nb_manager = state->object.gui_mngr_nb;
 
-	for (unsigned int i = 0; i < nb_manager; i++)
+	for (size_t i = 0; i < nb_manager; i++)
 	{
 		if (!manager[i].isFree)
 		{
@@ -68,7 +68,7 @@ void ICE_GuiManager_DestroyAll(ICE_State * state)
 
 /* GUI */
 
-ICE_Gui ICE_Gui_Create(ICE_Box box, unsigned int man_texture, unsigned int nb_texture)
+ICE_Gui ICE_Gui_Create(ICE_Box box, size_t man_texture, size_t nb_texture)
 {
 	ICE_Gui gui = { 0 };
 
@@ -77,16 +77,16 @@ ICE_Gui ICE_Gui_Create(ICE_Box box, unsigned int man_texture, unsigned int nb_te
 	gui.have_texture_defined = ICE_True;
 	gui.exist = ICE_True;
 	gui.box = box;
-	gui.texturemanager_nb = man_texture;
-	gui.texture_nb = nb_texture;
+	gui.texturemanager_index = man_texture;
+	gui.texture_index = nb_texture;
 
 	return gui;
 }
 
-unsigned int ICE_Gui_Insert(ICE_State * state, const unsigned int man, const ICE_Box box, unsigned int texture_manager, unsigned int texture_nb)
+size_t ICE_Gui_Insert(ICE_State * state, const size_t man, const ICE_Box box, size_t texture_manager, size_t texture_nb)
 {
 	if (!state)
-		state = game.state_mngr.current;
+		state = game.current;
 
 	// Insert label in array
 	state->object.gui_mngr[man].gui[state->object.gui_mngr[man].gui_contain] = ICE_Gui_Create(box, texture_manager, texture_nb);
@@ -123,7 +123,7 @@ void ICE_Gui_Destroy(ICE_Gui * ptr)
 ICE_Gui * ICE_Gui_Get(ICE_State *state, int man, int gui)
 {
 	if (!state)
-		state = game.state_mngr.current;
+		state = game.current;
 
 	return &state->object.gui_mngr[man].gui[gui];
 }
@@ -132,8 +132,8 @@ ICE_Gui * ICE_Gui_Get(ICE_State *state, int man, int gui)
 
 void ICE_Gui_SetTexture(ICE_Gui * gui, int texture_man, int texture)
 {
-	gui->texture_nb = texture;
-	gui->texturemanager_nb = texture_man;
+	gui->texture_index = texture;
+	gui->texturemanager_index = texture_man;
 	gui->have_texture_defined = ICE_True;
 }
 

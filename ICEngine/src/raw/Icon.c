@@ -1,9 +1,9 @@
 /* GIMP RGBA C-Source image dump (raw_icon.c) */
 
 static const struct {
-  unsigned int 	 width;
-  unsigned int 	 height;
-  unsigned int 	 bytes_per_pixel; /* 2:RGB16, 3:RGB, 4:RGBA */ 
+  size_t 	 width;
+  size_t 	 height;
+  size_t 	 bytes_per_pixel; /* 2:RGB16, 3:RGB, 4:RGBA */ 
   unsigned char	 pixel_data[32 * 32 * 4 + 1];
 } ice_raw_img_icon = {
   32, 32, 4,

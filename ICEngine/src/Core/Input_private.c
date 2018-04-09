@@ -68,8 +68,8 @@ void ICE_Input_Return()
 				game.window.input.focus = 0;
 				break;
 			case SDL_WINDOWEVENT_RESIZED:
-				SDL_GetWindowSize(game.window.handle, &get_w, &get_h);
-				game.window.w = get_w; game.window.h = get_h;
+				game.window.w = event.window.data1;
+				game.window.h = event.window.data2;
 				break;
 			default:
 				break;

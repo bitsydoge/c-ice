@@ -16,10 +16,10 @@ extern ICE_Game game;
 
 /* LABEL MANAGER */
 
-unsigned int ICE_LabelManager_Insert(ICE_State * state)
+size_t ICE_LabelManager_Insert(ICE_State * state)
 {
 	if (!state)
-		state = game.state_mngr.current;
+		state = game.current;
 
 	ICE_LabelManager text_manager = { 0 };
 	text_manager.label_size = ICE_DEFAULT_LABEL_MNGR_SIZE;
@@ -33,14 +33,14 @@ unsigned int ICE_LabelManager_Insert(ICE_State * state)
 	return state->object.label_mngr_nb - 1;
 }
 
-void ICE_LabelManager_Destroy(ICE_State * state, const unsigned int man)
+void ICE_LabelManager_Destroy(ICE_State * state, const size_t man)
 {
 	if (!state)
-		state = game.state_mngr.current;
+		state = game.current;
 
 	ICE_LabelManager *manager = &state->object.label_mngr[man];
 
-	for (unsigned int i = 0; i < manager->label_contain; i++)
+	for (size_t i = 0; i < manager->label_contain; i++)
 	{
 		//Free everything to free in Label
 		ICE_Label_Destroy(&manager->label[i]);
@@ -53,12 +53,12 @@ void ICE_LabelManager_Destroy(ICE_State * state, const unsigned int man)
 void ICE_LabelManager_DestroyAll(ICE_State * state)
 {
 	if (!state)
-		state = game.state_mngr.current;
+		state = game.current;
 
 	ICE_LabelManager *manager = state->object.label_mngr;
-	unsigned int nb_manager = state->object.label_mngr_nb;
+	size_t nb_manager = state->object.label_mngr_nb;
 	
-	for (unsigned int i = 0; i < nb_manager; i++)
+	for (size_t i = 0; i < nb_manager; i++)
 	{
 		if (!manager[i].isFree)
 		{
@@ -90,10 +90,10 @@ ICE_Label ICE_Label_Create(char* text, ICE_Vect pos)
 	return label;
 }
 
-unsigned int ICE_Label_Insert(ICE_State * state, const unsigned int man, char *text, const ICE_Vect pos)
+size_t ICE_Label_Insert(ICE_State * state, const size_t man, char *text, const ICE_Vect pos)
 {
 	if (!state)
-		state = game.state_mngr.current;
+		state = game.current;
 
 	// Insert label in array
 	state->object.label_mngr[man].label[state->object.label_mngr[man].label_contain] = ICE_Label_Create(text, pos);
@@ -138,7 +138,7 @@ ICE_Label * ICE_Label_Get(ICE_State * state, const unsigned man, const unsigned 
 {
 	if(state)
 		return &state->object.label_mngr[man].label[nb];
-	return &game.state_mngr.current->object.label_mngr[man].label[nb];
+	return &game.current->object.label_mngr[man].label[nb];
 }
 
 ICE_String ICE_Label_GetString(ICE_Label* ptr)
