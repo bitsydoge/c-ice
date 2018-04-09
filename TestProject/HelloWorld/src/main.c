@@ -35,7 +35,7 @@ void Game_Weapon_Destroy(struct Game_Weapon *weapon)
 
 void inventory_create()
 {
-	ICE_Render_Color( ICE_Color_New( 50, 50, 50 ) );
+	ICE_Render_Color(ICE_Color_New(50, 50, 50));
 
 	DATA1 * data = ICE_Data_Get(ICE_State_GetParent(NULL), 0);
 	unsigned int man = ICE_LabelManager_Insert(NULL);
@@ -48,12 +48,12 @@ void inventory_create()
 		NULL,
 		0,
 		ICE_Box_New(
-			ICE_Label_GetX(ICE_Label_Get(NULL, man, nb))-5,
-			ICE_Label_GetY(ICE_Label_Get(NULL, man, nb)), 
-			ICE_Label_GetWidth(ICE_Label_Get(NULL, man, nb))+10, 
-			ICE_Label_GetHeight(ICE_Label_Get(NULL, man, nb)+2)
-		), 
-		0, 
+			ICE_Label_GetX(ICE_Label_Get(NULL, man, nb)) - 5,
+			ICE_Label_GetY(ICE_Label_Get(NULL, man, nb)),
+			ICE_Label_GetWidth(ICE_Label_Get(NULL, man, nb)) + 10,
+			ICE_Label_GetHeight(ICE_Label_Get(NULL, man, nb) + 2)
+		),
+		0,
 		1
 	);
 }
@@ -62,13 +62,13 @@ void inventory_update()
 {
 	ICE_Debug_DrawFps(5);
 
-	ICE_Label_SetPos(ICE_Label_Get(NULL, 0, 0), ICE_Vect_New(ICE_Input_MouseX()+15, ICE_Input_MouseY()-10));
+	ICE_Label_SetPos(ICE_Label_Get(NULL, 0, 0), ICE_Vect_New(ICE_Input_MouseX() + 15, ICE_Input_MouseY() - 10));
 	DATA1 * data = ICE_Data_Get(ICE_State_GetParent(NULL), 0);
 	ICE_Gui_SetSize(
 		ICE_Gui_Get(NULL, 0, 0),
 		ICE_Vect_New(
-			ICE_Label_GetWidth(ICE_Label_Get(NULL, 0, 0))+10,
-			ICE_Label_GetHeight(ICE_Label_Get(NULL, 0, 0))+2
+			ICE_Label_GetWidth(ICE_Label_Get(NULL, 0, 0)) + 10,
+			ICE_Label_GetHeight(ICE_Label_Get(NULL, 0, 0)) + 2
 		)
 	);
 
@@ -81,7 +81,7 @@ void inventory_update()
 	);
 	ICE_Debug_CameraControl();
 
-	if(ICE_Input_Key(ICE_KEY_ESCAPE))
+	if (ICE_Input_Key(ICE_KEY_ESCAPE))
 		ICE_State_Pause();
 }
 
@@ -101,7 +101,8 @@ enum
 	texture_Pic = 0,
 	texture_Gui = 1,
 	texture_Widow = 2,
-	texture_Sprite = 3
+	texture_Sprite = 3,
+	texture_Logo = 4
 
 };
 
@@ -115,6 +116,7 @@ ICE_PRELOAD()
 	ICE_Texture_Insert(man, "res//img//gui.png");
 	ICE_Texture_Insert(man, "res//img//widow.png");
 	ICE_Texture_Insert(man, "res//img//sprite.png");
+	ICE_Texture_Insert(man, "res//img//ice_logo.png");
 
 	// Sound
 	man = ICE_SoundManager_Insert();
@@ -125,34 +127,37 @@ ICE_PRELOAD()
 	ICE_Music_Insert(man, "res//snd//music.ogg");
 
 	// Font
-	ICE_Font_Load("res//ttf//FiraSans-Medium.ttf");
+	ICE_Font_Insert("res//ttf//FiraSans-Medium.ttf");
 }
 
 ICE_CREATE()
-{	
-	ICE_Debug_FontSetColorBg( 100, 100, 100 );
-	ICE_Debug_FontSetColorFg( 255, 255, 255 );
+{
+	ICE_Debug_FontSetColorBg(100, 100, 100);
+	ICE_Debug_FontSetColorFg(255, 255, 255);
 
 	unsigned int manager = 0;
 	unsigned int nb = 0;
 
 	// Entity
 	manager = ICE_EntityManager_Insert(NULL);
-	nb = ICE_Entity_Insert(NULL, manager, ICE_Box_New(0,0,375,250));
+	nb = ICE_Entity_Insert(NULL, manager, ICE_Box_New(0, 0, 375, 250));
 	ICE_Entity_SetTexture(ICE_Entity_Get(NULL, 0, 0), 0, texture_Widow);
 
 	// Gui
 	manager = ICE_GuiManager_Insert(NULL);
 	nb = ICE_Gui_Insert(NULL, manager, ICE_Box_New(0, 0, ICE_Window_GetW(), 50), 0, 1);
 
+	nb = ICE_Gui_Insert(NULL, manager, ICE_Box_New(0, 0, 50, 70), 0, texture_Logo);
+	ICE_Gui_SetType(ICE_Gui_Get(NULL, 0, nb), ICE_GUI_IMAGE);
+
 	// Label
 	manager = ICE_LabelManager_Insert(NULL);
-		// 1
-	nb = ICE_Label_Insert(NULL, manager, "It is a me", ICE_Vect_New(0,0));
-	ICE_Label_SetSize(ICE_Label_Get(NULL, manager ,nb), 30);
+	// 1
+	nb = ICE_Label_Insert(NULL, manager, "It is a me", ICE_Vect_New(0, 0));
+	ICE_Label_SetSize(ICE_Label_Get(NULL, manager, nb), 30);
 	ICE_Label_FixToWorld(ICE_Label_Get(NULL, manager, nb), ICE_True);
 	ICE_Label_SetAngle(ICE_Label_Get(NULL, manager, nb), 30);
-		// 2
+	// 2
 	nb = ICE_Label_Insert(NULL, manager, "It is a not a me !", ICE_Vect_New(5, 5));
 	ICE_Label_SetSize(ICE_Label_Get(NULL, manager, nb), 30);
 
@@ -189,26 +194,26 @@ ICE_UPDATE()
 
 	// Gui Resize
 	ICE_Gui_SetSize(ICE_Gui_Get(NULL, 0, 0), ICE_Vect_New(ICE_Window_GetW(), 50));
-	
+
 	DATA1 * data = ICE_Data_Get(NULL, 0);
 	ICE_Debug_CameraControl();
 
-	if(ICE_Input_Key(ICE_KEY_ESCAPE))
+	if (ICE_Input_Key(ICE_KEY_ESCAPE))
 	{
 		ICE_Sound_Play(ICE_Sound_Get(0, 0), 16);
 		ICE_Substate_Start(&data->inventory);
 	}
 
-	if(ICE_Input_Key(ICE_KEY_SPACE))
+	if (ICE_Input_Key(ICE_KEY_SPACE))
 	{
 		ICE_Label_SetString(ICE_Label_Get(NULL, 0, 0), "IT IS THE END OF THE WORLD");
 		ICE_Label_SetSize(ICE_Label_Get(NULL, 0, 0), 50);
 		ICE_Label_SetColor(ICE_Label_Get(NULL, 0, 0), ICE_Color_Red);
-		ICE_Label_SetPos(ICE_Label_Get(NULL, 0, 0), ICE_Vect_New( 0, 0 ));
+		ICE_Label_SetPos(ICE_Label_Get(NULL, 0, 0), ICE_Vect_New(0, 0));
 	}
 
-	if(ICE_Input_Key(ICE_KEY_RETURN))
-		ICE_Camera_SetPos(ICE_Vect_New(0,0));
+	if (ICE_Input_Key(ICE_KEY_RETURN))
+		ICE_Camera_SetPos(ICE_Vect_New(0, 0));
 }
 
 ICE_DESTROY()
@@ -221,6 +226,6 @@ ICE_DESTROY()
 int main()
 {
 	ICE_Debug_Set(ICE_True);
-	ICE_START( "Hello World", 500, 500 );
+	ICE_START("Hello World", 500, 500);
 	return 0;
 }

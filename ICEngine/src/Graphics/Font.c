@@ -13,7 +13,7 @@ extern ICE_Game game;
 extern ICE_Asset asset;
 extern ICE_Bool debug_ok;
 
-void ICE_Font_Load(char *path) 
+void ICE_Font_Insert(char *path) 
 {
 	for (int i = 0; i < 256; i++) {
 		asset.font.size[i] = TTF_OpenFont(path, i);
