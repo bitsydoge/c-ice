@@ -9,7 +9,7 @@
 
 ICE_Game game = { 0 };
 
-void ICE_Game_Create(char *window_title, const unsigned int width_window, const unsigned int height_window)
+void ICE_Game_Create(char *window_title, const size_t width_window, const size_t height_window)
 {
 	// Window and Render
 	game.window.handle = SDL_CreateWindow(
@@ -24,7 +24,7 @@ void ICE_Game_Create(char *window_title, const unsigned int width_window, const 
 	SDL_SetRenderDrawBlendMode(game.window.render, SDL_BLENDMODE_BLEND);
 	
 	game.window.w = width_window; game.window.h = height_window;
-	game.state_mngr.current = &game.state_main;
+	game.current = &game.state_main;
 	game.window.w = width_window; game.window.h = height_window;
 
 	game.window.auto_clear = 1;

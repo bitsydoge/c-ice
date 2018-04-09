@@ -175,6 +175,7 @@
     <ClInclude Include="src\Graphics\Primitive.h" />
     <ClInclude Include="src\Graphics\Render.h" />
     <ClInclude Include="src\Graphics\Render_private.h" />
+    <ClInclude Include="src\Graphics\Sprite.h" />
     <ClInclude Include="src\Graphics\Texture.h" />
     <ClInclude Include="src\Graphics\Texture_private.h" />
     <ClInclude Include="src\Graphics\TypesGraphics.h" />
@@ -227,6 +228,7 @@
     <ClCompile Include="src\Graphics\Primitive.c" />
     <ClCompile Include="src\Graphics\Render.c" />
     <ClCompile Include="src\Graphics\Render_private.c" />
+    <ClCompile Include="src\Graphics\Sprite.c" />
     <ClCompile Include="src\Graphics\Texture.c" />
     <ClCompile Include="src\Graphics\Texture_private.c" />
     <ClCompile Include="src\Maths\Interpolate.c" />

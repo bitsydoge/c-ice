@@ -12,10 +12,10 @@ extern ICE_Game game;
 
 /* ENTITY MANAGER */
 
-unsigned int ICE_EntityManager_Insert(ICE_State * state)
+size_t ICE_EntityManager_Insert(ICE_State * state)
 {
 	if (!state)
-		state = game.state_mngr.current;
+		state = game.current;
 
 	ICE_EntityManager text_manager = { 0 };
 	text_manager.entity_size = ICE_DEFAULT_ENTITY_MNGR_SIZE;
@@ -29,14 +29,14 @@ unsigned int ICE_EntityManager_Insert(ICE_State * state)
 	return state->object.entity_mngr_nb - 1;
 }
 
-void ICE_EntityManager_Destroy(ICE_State * state, const unsigned int man)
+void ICE_EntityManager_Destroy(ICE_State * state, const size_t man)
 {
 	if (!state)
-		state = game.state_mngr.current;
+		state = game.current;
 
 	ICE_EntityManager *manager = &state->object.entity_mngr[man];
 
-	for (unsigned int i = 0; i < manager->entity_contain; i++)
+	for (size_t i = 0; i < manager->entity_contain; i++)
 	{
 		//Free everything to free in Entity
 		ICE_Entity_Destroy(&manager->entity[i]);
@@ -49,12 +49,12 @@ void ICE_EntityManager_Destroy(ICE_State * state, const unsigned int man)
 void ICE_EntityManager_DestroyAll(ICE_State * state)
 {
 	if (!state)
-		state = game.state_mngr.current;
+		state = game.current;
 
 	ICE_EntityManager *manager = state->object.entity_mngr;
-	unsigned int nb_manager = state->object.entity_mngr_nb;
+	size_t nb_manager = state->object.entity_mngr_nb;
 
-	for (unsigned int i = 0; i < nb_manager; i++)
+	for (size_t i = 0; i < nb_manager; i++)
 	{
 		if (!manager[i].isFree)
 		{
@@ -81,10 +81,10 @@ ICE_Entity ICE_Entity_Create(ICE_Box pos)
 	return entity;
 }
 
-unsigned int ICE_Entity_Insert(ICE_State * state, const unsigned int man, ICE_Box pos)
+size_t ICE_Entity_Insert(ICE_State * state, const size_t man, ICE_Box pos)
 {
 	if (!state)
-		state = game.state_mngr.current;
+		state = game.current;
 
 	// Insert entity in array
 	state->object.entity_mngr[man].entity[state->object.entity_mngr[man].entity_contain] = ICE_Entity_Create(pos);
@@ -120,21 +120,21 @@ ICE_Entity * ICE_Entity_Get(ICE_State * state, const unsigned man, const unsigne
 {
 	if (state)
 		return &state->object.entity_mngr[man].entity[nb];
-	return &game.state_mngr.current->object.entity_mngr[man].entity[nb];
+	return &game.current->object.entity_mngr[man].entity[nb];
 }
 
-unsigned int ICE_Entity_GetNumber(ICE_State * state, unsigned int manager)
+size_t ICE_Entity_GetNumber(ICE_State * state, size_t manager)
 {
 	if (!state)
-		state = game.state_mngr.current;
+		state = game.current;
 
 	return state->object.entity_mngr[manager].entity_contain;
 }
 
-unsigned int ICE_EntityManager_GetNumber(ICE_State * state)
+size_t ICE_EntityManager_GetNumber(ICE_State * state)
 {
 	if (!state)
-		state = game.state_mngr.current;
+		state = game.current;
 
 	return state->object.entity_mngr_nb;
 }
@@ -147,10 +147,10 @@ ICE_Vect ICE_Entity_GetPosition(ICE_Entity * entity)
 
 /* ENTITY SET FUNCTION */
 
-void ICE_Entity_SetTexture(ICE_Entity * entity, unsigned int texture_manager, unsigned int texture_nb)
+void ICE_Entity_SetTexture(ICE_Entity * entity, size_t texture_manager, size_t texture_nb)
 {
-	entity->man = texture_manager;
-	entity->text = texture_nb;
+	entity->texture_mngr_index = texture_manager;
+	entity->texture_index = texture_nb;
 	entity->have_texture = ICE_True;
 }
 

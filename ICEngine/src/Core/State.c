@@ -31,24 +31,24 @@ ICE_State ICE_State_Create(void (*func_create)(void), void (* func_update)(void)
 
 void ICE_State_Change(ICE_State * state)
 {
-	game.state_mngr.current = state;
+	game.current = state;
 }
 
 void ICE_State_Quit()
 {
-	game.state_mngr.current->quit = ICE_True;
+	game.current->quit = ICE_True;
 }
 
 void ICE_State_Pause()
 {
-	game.state_mngr.current->quit = ICE_True;
-	game.state_mngr.current->isPaused = ICE_True;
+	game.current->quit = ICE_True;
+	game.current->isPaused = ICE_True;
 }
 
 void ICE_State_ResumeCallback(ICE_State * state, void(*func_resume)(void))
 {
 	if (!state)
-		state = game.state_mngr.current;
+		state = game.current;
 
 	state->func_resume = func_resume;
 }
@@ -56,29 +56,29 @@ void ICE_State_ResumeCallback(ICE_State * state, void(*func_resume)(void))
 void ICE_State_PauseCallback(ICE_State * state, void(*func_pause)(void))
 {
 	if (!state)
-		state = game.state_mngr.current;
+		state = game.current;
 
 	state->func_pause = func_pause;
 }
 
 ICE_Bool ICE_State_WasPaused()
 {
-	return game.state_mngr.current->isPaused;
+	return game.current->isPaused;
 }
 
 void ICE_Substate_Start(ICE_State *state)
 {
-	state->parent = game.state_mngr.current;
-	game.state_mngr.current = state;
+	state->parent = game.current;
+	game.current = state;
 
-	if(game.state_mngr.current->isPaused)
+	if(game.current->isPaused)
 	{
-		game.state_mngr.current->quit = ICE_False;
+		game.current->quit = ICE_False;
 	}
 
 	ICE_Substate_Loop();
 
-	game.state_mngr.current = state->parent;
+	game.current = state->parent;
 	
 
 }
@@ -101,7 +101,7 @@ void ICE_State_Destroy(ICE_State * state)
 void ICE_Substate_Loop()
 {
 	ICE_Input_Reset();
-	ICE_State * current = game.state_mngr.current;
+	ICE_State * current = game.current;
 
 	ICE_Log(ICE_LOG_RUNNING, "Substate]::[Create]::[Start");
 	
@@ -114,7 +114,7 @@ void ICE_Substate_Loop()
 	ICE_Log(ICE_LOG_SUCCES, "Substate]::[Create]::[Finish");
 	printf("\n");
 	ICE_Log(ICE_LOG_RUNNING, "Substate]::[Update]::[Start");
-	while (!game.window.input.quit && !game.state_mngr.current->quit)
+	while (!game.window.input.quit && !game.current->quit)
 	{
 		ICE_Time_Start();
 		ICE_Input_Return();
@@ -157,7 +157,7 @@ void ICE_Substate_Loop()
 ICE_State * ICE_State_GetParent(ICE_State * state)
 {
 	if (!state)
-		state = game.state_mngr.current;
+		state = game.current;
 
 
 	if(state->parent)

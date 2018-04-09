@@ -8,7 +8,7 @@ extern ICE_Asset asset;
 
 // MANAGER
 
-unsigned int ICE_SoundManager_Insert()
+size_t ICE_SoundManager_Insert()
 {
 	ICE_SoundManager soundmanager = { 0 };
 	soundmanager.sound_size = ICE_DEFAULT_SOUND_SIZE;
@@ -23,11 +23,11 @@ unsigned int ICE_SoundManager_Insert()
 	return asset.sound_mngr_nb - 1;
 }
 
-void ICE_SoundManager_Destroy(const unsigned int man)
+void ICE_SoundManager_Destroy(const size_t man)
 {
 	ICE_SoundManager *manager = &asset.sound_mngr[man];
 
-	for (unsigned int i = 0; i < manager->sound_contain; i++)
+	for (size_t i = 0; i < manager->sound_contain; i++)
 	{
 		//Free everything to free in Label
 		ICE_Sound_Destroy(&manager->sound[i]);
@@ -40,9 +40,9 @@ void ICE_SoundManager_Destroy(const unsigned int man)
 void ICE_SoundManager_DestroyAll()
 {
 	ICE_SoundManager *manager = asset.sound_mngr;
-	unsigned int nb_manager = asset.sound_mngr_nb;
+	size_t nb_manager = asset.sound_mngr_nb;
 
-	for (unsigned int i = 0; i < nb_manager; i++)
+	for (size_t i = 0; i < nb_manager; i++)
 	{
 		if (!manager[i].isFree)
 		{
@@ -66,7 +66,7 @@ ICE_Sound ICE_Sound_Create(char *path)
 	return sound;
 }
 
-unsigned int ICE_Sound_Insert(unsigned int man, char *path) 
+size_t ICE_Sound_Insert(size_t man, char *path) 
 {
 	// Insert label in array
 	asset.sound_mngr[man].sound[asset.sound_mngr[man].sound_contain] = ICE_Sound_Create(path);
@@ -99,7 +99,7 @@ void ICE_Sound_Destroy(ICE_Sound * ptr)
 
 // GET
 
-ICE_Sound * ICE_Sound_Get(unsigned int man, unsigned int nb)
+ICE_Sound * ICE_Sound_Get(size_t man, size_t nb)
 {
 	return &asset.sound_mngr[man].sound[nb];
 }

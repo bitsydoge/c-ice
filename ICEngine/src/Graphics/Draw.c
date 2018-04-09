@@ -11,7 +11,7 @@ extern ICE_Game game;
 
 void ICE_Draw_LabelWorld()
 {
-	ICE_State * current = game.state_mngr.current;
+	ICE_State * current = game.current;
 
 	for (int i = 0; i < current->object.label_mngr_nb; i++)
 		for (int j = 0; j < current->object.label_mngr[i].label_contain; j++)
@@ -48,7 +48,7 @@ void ICE_Draw_LabelWorld()
 
 }
 void ICE_Draw_LabelScreen() {
-	ICE_State * current = game.state_mngr.current;
+	ICE_State * current = game.current;
 
 	for (int i = 0; i < current->object.label_mngr_nb; i++)
 		for (int j = 0; j < current->object.label_mngr[i].label_contain; j++)
@@ -85,7 +85,7 @@ void ICE_Draw_LabelScreen() {
 
 void ICE_Draw_Gui()
 {
-	ICE_State * current = game.state_mngr.current;
+	ICE_State * current = game.current;
 
 	for (int i = 0; i < current->object.gui_mngr_nb; i++)
 		for (int j = 0; j < current->object.gui_mngr[i].gui_contain; j++)
@@ -95,13 +95,13 @@ void ICE_Draw_Gui()
 
 				if (
 					!ICE_Box_CompareSize(current->object.gui_mngr[i].gui[j].box, current->object.gui_mngr[i].gui[j].old_box) ||
-					current->object.gui_mngr[i].gui[j].texturemanager_nb != current->object.gui_mngr[i].gui[j].old_texturemanager_nb ||
-					current->object.gui_mngr[i].gui[j].texture_nb != current->object.gui_mngr[i].gui[j].old_texture_nb)
+					current->object.gui_mngr[i].gui[j].texturemanager_index != current->object.gui_mngr[i].gui[j].old_texturemanager_index ||
+					current->object.gui_mngr[i].gui[j].texture_index != current->object.gui_mngr[i].gui[j].old_texture_index)
 				{
 					ICE_Gui_UpdateTexture(i, j);
 
-					current->object.gui_mngr[i].gui[j].old_texturemanager_nb = current->object.gui_mngr[i].gui[j].texturemanager_nb;
-					current->object.gui_mngr[i].gui[j].old_texture_nb = current->object.gui_mngr[i].gui[j].texture_nb;
+					current->object.gui_mngr[i].gui[j].old_texturemanager_index = current->object.gui_mngr[i].gui[j].texturemanager_index;
+					current->object.gui_mngr[i].gui[j].old_texture_index = current->object.gui_mngr[i].gui[j].texture_index;
 					current->object.gui_mngr[i].gui[j].old_box = current->object.gui_mngr[i].gui[j].box;
 				}
 				ICE_Texture_RenderEx(&current->object.gui_mngr[i].gui[j].texture_cache, NULL, &current->object.gui_mngr[i].gui[j].box, 0);
@@ -111,7 +111,7 @@ void ICE_Draw_Gui()
 
 void ICE_Draw_Entity()
 {
-	ICE_State * current = game.state_mngr.current;
+	ICE_State * current = game.current;
 
 	for (int i = 0; i < current->object.entity_mngr_nb; i++)
 		for (int j = 0; j < current->object.entity_mngr[i].entity_contain; j++)
@@ -125,7 +125,7 @@ void ICE_Draw_Entity()
 					current->object.entity_mngr[i].entity[j].h));
 
 				ICE_Texture_RenderExCentered(
-					ICE_Texture_Get(current->object.entity_mngr[i].entity[j].man, current->object.entity_mngr[i].entity[j].text),
+					ICE_Texture_Get(current->object.entity_mngr[i].entity[j].texture_mngr_index, current->object.entity_mngr[i].entity[j].texture_index),
 					NULL, 
 					&rect, 
 					current->object.entity_mngr[i].entity[j].angle

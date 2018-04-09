@@ -13,14 +13,14 @@
 /**
  * \brief Insert a new LabelManager in the Game
  */
-unsigned int ICE_LabelManager_Insert(ICE_State * state);
+size_t ICE_LabelManager_Insert(ICE_State * state);
 
 /**
 * \brief Destroy a manager
 * \param state The state to destroy manager
 * \param man The manager number
 */
-void ICE_LabelManager_Destroy(ICE_State * state, const unsigned int man);
+void ICE_LabelManager_Destroy(ICE_State * state, const size_t man);
 
 /**
 * \brief Destroy all manager
@@ -44,7 +44,7 @@ ICE_Label ICE_Label_Create(char* text, ICE_Vect pos);
  * \param text The text of the Label
  * \param pos The position of the Label
  */
-unsigned int ICE_Label_Insert(ICE_State * state, unsigned int man, char *text, ICE_Vect pos);
+size_t ICE_Label_Insert(ICE_State * state, size_t man, char *text, ICE_Vect pos);
 
 /**
  * \brief Clear a Label and put everything to 0
@@ -61,7 +61,7 @@ void ICE_Label_Destroy(ICE_Label * ptr);
 /////////////////////// * LABEL GET * //////////////////////////
 
 ICE_String ICE_Label_GetString(ICE_Label* ptr);
-ICE_Label * ICE_Label_Get(ICE_State * state, unsigned int man, unsigned int nb);
+ICE_Label * ICE_Label_Get(ICE_State * state, size_t man, size_t nb);
 int ICE_Label_GetWidth(ICE_Label * label);
 int ICE_Label_GetHeight(ICE_Label * label);
 ICE_Float ICE_Label_GetX(ICE_Label * label);

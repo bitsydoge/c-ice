@@ -160,8 +160,8 @@ struct ICE_LabelManager
 {
 	ICE_Bool isFree;
 
-	unsigned int label_size;
-	unsigned int label_contain;
+	size_t label_size;
+	size_t label_contain;
 	ICE_Label* label;
 
 }; typedef struct ICE_LabelManager ICE_LabelManager;
@@ -192,11 +192,11 @@ struct ICE_Entity
 
 	// Texture location
 	ICE_Bool have_texture;
-	unsigned int man;
-	unsigned int text;
+	size_t texture_mngr_index;
+	size_t texture_index;
 
 	// Data Array
-	unsigned int data_nb;
+	size_t data_nb;
 	void **data;
 
 }; typedef struct ICE_Entity ICE_Entity;
@@ -208,37 +208,39 @@ struct ICE_EntityManager
 {
 	ICE_Bool isFree;
 
-	unsigned int entity_size;
-	unsigned int entity_contain;
+	size_t entity_size;
+	size_t entity_contain;
 	ICE_Entity* entity;
 
 }; typedef struct ICE_EntityManager ICE_EntityManager;
 
 // BIG OBJECT
 // --------------------------------------
-// --------------------------------------
-// --------------------------------------
 
 struct ICE_ObjectManager
 {
 	// Camera
-	ICE_Camera camera;
+	ICE_Camera				camera;
 
 	// Label
-	unsigned int label_mngr_nb;
-	ICE_LabelManager *label_mngr;
+	size_t					label_mngr_nb;
+	ICE_LabelManager *		label_mngr;
 	
 	// Gui
-	unsigned int gui_mngr_nb;
-	ICE_GuiManager *gui_mngr;
+	size_t					gui_mngr_nb;
+	ICE_GuiManager *		gui_mngr;
 
 	// Entity
-	unsigned int entity_mngr_nb;
-	ICE_EntityManager *entity_mngr;
+	size_t					entity_mngr_nb;
+	ICE_EntityManager *		entity_mngr;
+
+	// Sprite
+	size_t					sprite_mngr_nb;
+	ICE_SpriteManager *		sprite_mngr;
 
 	// Data
-	unsigned int data_nb;
-	void** data;
+	size_t					data_nb;
+	void**					data;
 
 }; typedef struct ICE_ObjectManager ICE_ObjectManager;
 
@@ -268,15 +270,6 @@ struct ICE_State
 
 
 /**
-* \brief Manager of State
-*/
-struct ICE_StateManager
-{
-	ICE_State * current;
-
-}; typedef struct ICE_StateManager ICE_StateManager;
-
-/**
  * \brief The god object of the game with everything in it exept for Assets
  */
 struct ICE_Game {
@@ -287,14 +280,12 @@ struct ICE_Game {
 
 	// State
 	ICE_State state_main;
-	ICE_StateManager state_mngr;
+	ICE_State*current;
 
 }; typedef struct ICE_Game ICE_Game;
 
 
 
-// --------------------------------------
-// --------------------------------------
 // --------------------------------------
 
 
@@ -305,19 +296,19 @@ struct ICE_Game {
 struct ICE_Asset
 {
 	// Font
-	unsigned int font_mngr_nb; // TO DO
+	size_t font_mngr_nb; // todo
 	ICE_Font font;
 
 	// Texture
-	unsigned int texture_mngr_nb;
+	size_t texture_mngr_nb;
 	ICE_TextureManager *texture_mngr;
 
 	// Sound
-	unsigned int sound_mngr_nb;
+	size_t sound_mngr_nb;
 	ICE_SoundManager *sound_mngr;
 
 	// Music
-	unsigned int music_mngr_nb;
+	size_t music_mngr_nb;
 	ICE_MusicManager *music_mngr;
 
 }; typedef struct ICE_Asset ICE_Asset;

@@ -22,5 +22,5 @@ void ICE_Render_AutoClear(ICE_Bool yn)
 }
 
 void ICE_Render_Color(const ICE_Color rgba_hex) {
-	game.state_mngr.current->background = rgba_hex;
+	game.current->background = rgba_hex;
 }

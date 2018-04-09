@@ -11,32 +11,32 @@ extern ICE_Game game;
 void ICE_Camera_SetPos(ICE_Vect vect)
 {
 	
-	game.state_mngr.current->object.camera.x = vect.x;
-	game.state_mngr.current->object.camera.y = vect.y;
+	game.current->object.camera.x = vect.x;
+	game.current->object.camera.y = vect.y;
 }
 
 void ICE_Camera_MovePos(ICE_Vect vect, ICE_Float r)
 {
-	float xdif = vect.x - game.state_mngr.current->object.camera.x;
-	float ydif = vect.y - game.state_mngr.current->object.camera.y;
+	float xdif = vect.x - game.current->object.camera.x;
+	float ydif = vect.y - game.current->object.camera.y;
 
 	float angle = atan2(ydif, xdif);
 	float distance_r_r = xdif * xdif + ydif * ydif;
 
-	game.state_mngr.current->object.camera.x += r * cos(angle);
-	game.state_mngr.current->object.camera.y += r * sin(angle);
+	game.current->object.camera.x += r * cos(angle);
+	game.current->object.camera.y += r * sin(angle);
 
 	if (distance_r_r < r)
 	{
-		game.state_mngr.current->object.camera.x = vect.x;
-		game.state_mngr.current->object.camera.y = vect.y;
+		game.current->object.camera.x = vect.x;
+		game.current->object.camera.y = vect.y;
 	}
 }
 
 void ICE_Camera_ShiftPos(ICE_Vect Dvect)
 {
-	game.state_mngr.current->object.camera.x += Dvect.x;
-	game.state_mngr.current->object.camera.y += Dvect.y;
+	game.current->object.camera.x += Dvect.x;
+	game.current->object.camera.y += Dvect.y;
 }
 
 // Camera return
@@ -64,8 +64,8 @@ ICE_Vect ICE_Camera_GetVect()
 ICE_Box ICE_Camera_WorldScreen(ICE_Box rect)
 {
 	ICE_Box rect2 = {
-		(game.window.w / 2) + rect.x - game.state_mngr.current->object.camera.x,
-		(game.window.h / 2) + rect.y - game.state_mngr.current->object.camera.y,
+		(game.window.w / 2) + rect.x - game.current->object.camera.x,
+		(game.window.h / 2) + rect.y - game.current->object.camera.y,
 		rect.w,
 		rect.h
 	};
@@ -75,8 +75,8 @@ ICE_Box ICE_Camera_WorldScreen(ICE_Box rect)
 ICE_Box ICE_Camera_ScreenWorld(ICE_Box rect)
 {
 	ICE_Box rect2 = {
-		-game.window.w / 2 + game.state_mngr.current->object.camera.x + rect.x,
-		-game.window.h / 2 + game.state_mngr.current->object.camera.y + rect.y,
+		-game.window.w / 2 + game.current->object.camera.x + rect.x,
+		-game.window.h / 2 + game.current->object.camera.y + rect.y,
 		rect.w,
 		rect.h
 	};

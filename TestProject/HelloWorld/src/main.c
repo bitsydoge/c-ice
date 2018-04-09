@@ -3,17 +3,17 @@
 
 struct Game_Weapon
 {
-	ICE_String name;
-	ICE_Float damage;
-	ICE_Float speed;
-	ICE_Float weight;
+	ICE_String			name;
+	ICE_Float			damage;
+	ICE_Float			speed;
+	ICE_Float			weight;
 };
 
 struct DATA1
 {
-	int			life, speed;
-	ICE_State	inventory;
-	struct Game_Weapon current_weapon;
+	int					life, speed;
+	ICE_State			inventory;
+	struct Game_Weapon	current_weapon;
 
 }; typedef struct DATA1 DATA1;
 
@@ -30,16 +30,14 @@ void Game_Weapon_Destroy(struct Game_Weapon *weapon)
 
 // STATE ///////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////
 
 void inventory_create()
 {
 	ICE_Render_Color(ICE_Color_New(50, 50, 50));
 
 	DATA1 * data = ICE_Data_Get(ICE_State_GetParent(NULL), 0);
-	unsigned int man = ICE_LabelManager_Insert(NULL);
-	unsigned int nb = ICE_Label_Insert(NULL, 0, "", ICE_Vect_New(50, 20));
+	size_t man = ICE_LabelManager_Insert(NULL);
+	size_t nb = ICE_Label_Insert(NULL, 0, "", ICE_Vect_New(50, 20));
 	ICE_Label_SetString(ICE_Label_Get(NULL, man, nb), "Name : %s     Damage : %.1f     Speed : %.1f", data->current_weapon.name, data->current_weapon.damage, data->current_weapon.speed);
 	ICE_Label_SetSize(ICE_Label_Get(NULL, man, nb), 12);
 	ICE_Label_SetWrapWidth(ICE_Label_Get(NULL, man, nb), 100);
@@ -98,17 +96,17 @@ void inventory_destroy()
 enum
 {
 
-	texture_Pic = 0,
-	texture_Gui = 1,
-	texture_Widow = 2,
-	texture_Sprite = 3,
-	texture_Logo = 4
+	texture_Pic		=	0,
+	texture_Gui		=	1,
+	texture_Widow	=	2,
+	texture_Sprite	=	3,
+	texture_Logo	=	4
 
 };
 
 ICE_PRELOAD()
 {
-	unsigned int man = 0;
+	size_t man =		0;
 
 	// Texture
 	man = ICE_TextureManager_Insert();
@@ -135,8 +133,8 @@ ICE_CREATE()
 	ICE_Debug_FontSetColorBg(100, 100, 100);
 	ICE_Debug_FontSetColorFg(255, 255, 255);
 
-	unsigned int manager = 0;
-	unsigned int nb = 0;
+	size_t manager	=	0;
+	size_t nb			=	0;
 
 	// Entity
 	manager = ICE_EntityManager_Insert(NULL);
