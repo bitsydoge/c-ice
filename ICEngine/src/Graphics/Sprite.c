@@ -3,7 +3,8 @@
 #include "../Framework/Memory_.h"
 #include "../Framework/Log.h"
 
-extern ICE_Game game;
+extern ICE_Game game; 
+extern ICE_Asset asset;
 
 /* SPRITEMANAGER */
 
@@ -62,30 +63,30 @@ void ICE_SpriteManager_DestroyAll(ICE_State * state)
 
 /* SPRITE */
 
-/* GUI */
-
-ICE_Sprite ICE_Sprite_Create(size_t man_texture, size_t nb_texture)
+ICE_Sprite ICE_Sprite_Create(size_t man_texture, size_t nb_texture, unsigned int number_sprite_w, unsigned int number_sprite_h)
 {
 	ICE_Sprite sprite = { 0 };
 
-
-	sprite.have_texture_defined = ICE_True;
 	sprite.exist = ICE_True;
 
+	sprite.have_texture_defined = ICE_True;
 	sprite.texturemanager_index = man_texture;
 	sprite.texture_index = nb_texture;
+
+	sprite.size_w = asset.texture_mngr[man_texture].texture[nb_texture].w/number_sprite_w;
+	sprite.size_h = asset.texture_mngr[man_texture].texture[nb_texture].h/number_sprite_h;
 
 	return sprite;
 }
 
-size_t ICE_Sprite_Insert(ICE_State* state, const size_t man, const ICE_Box box, size_t texture_manager,
-						 size_t texture_nb)
+size_t ICE_Sprite_Insert(ICE_State* state, const size_t man, size_t texture_manager,
+						 size_t texture_nb, unsigned int number_sprite_w, unsigned int number_sprite_h)
 {
 	if (!state)
 		state = game.current;
 
-	// Insert label in array
-	state->object.sprite_mngr[man].sprite[state->object.sprite_mngr[man].sprite_contain] = ICE_Sprite_Create(texture_manager, texture_nb);
+	// Insert sprite in array
+	state->object.sprite_mngr[man].sprite[state->object.sprite_mngr[man].sprite_contain] = ICE_Sprite_Create(texture_manager, texture_nb, number_sprite_w, number_sprite_h);
 	state->object.sprite_mngr[man].sprite_contain++;
 
 	ICE_Log(ICE_LOG_SUCCES, "SpriteManager]::[%d]::[Sprite]::[%d]::[Create", texture_manager, state->object.sprite_mngr[man].sprite_contain - 1);

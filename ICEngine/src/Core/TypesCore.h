@@ -53,29 +53,29 @@ struct ICE_Time {
 /**
  * \brief Input struct where every key state are kept
  */
-struct ICE_Input {
+struct ICE_Input 
+{
 
-	int key[512];
-	int wheelup;
-	int wheeldown;
-	int quit;
-	int leftclic;
-	int leftclic_position_x;
-	int leftclic_position_y;
-	int leftclic_position_x_old;
-	int leftclic_position_y_old;
-	int leftclic_trigger;
-	int rightclic;
-	int rightclic_position_x;
-	int rightclic_position_y;
-	int rightclic_position_x_old;
-	int rightclic_position_y_old;
-	int rightclic_trigger;
-	int mousex;
-	int mousey;
-	int focus;
-	char *filedrop;
-	int substate_quit;
+	ICE_Bool				key[512];
+	ICE_Bool				wheelup;
+	ICE_Bool				wheeldown;
+	ICE_Bool				quit;
+	ICE_Bool				leftclic;
+	ICE_Bool				leftclic_position_x;
+	ICE_Bool				leftclic_position_y;
+	ICE_Bool				leftclic_position_x_old;
+	ICE_Bool				leftclic_position_y_old;
+	ICE_Bool				leftclic_trigger;
+	ICE_Bool				rightclic;
+	ICE_Bool				rightclic_position_x;
+	ICE_Bool				rightclic_position_y;
+	ICE_Bool				rightclic_position_x_old;
+	ICE_Bool				rightclic_position_y_old;
+	ICE_Bool				rightclic_trigger;
+	ICE_Bool				mousex;
+	ICE_Bool				mousey;
+	ICE_Bool				focus;
+	ICE_String *			filedrop;
 
 }; typedef struct ICE_Input ICE_Input;
 
@@ -86,14 +86,14 @@ struct ICE_Input {
  */
 struct ICE_Window
 {
-	ICE_String title;
-	ICE_Float w, h;
+	ICE_String				title;
+	ICE_Float				w, h;
 
-	SDL_Window *handle;
-	SDL_Renderer *render;
-	ICE_Bool auto_render;
-	ICE_Bool auto_clear;
-	ICE_Input input;
+	SDL_Window *			handle;
+	SDL_Renderer *			render;
+	ICE_Bool				auto_render;
+	ICE_Bool				auto_clear;
+	ICE_Input				input;
 
 }; typedef struct ICE_Window ICE_Window;
 
@@ -104,7 +104,7 @@ struct ICE_Window
  */
 struct ICE_Camera
 {
-	ICE_Float x, y;
+	ICE_Float				x, y;
 
 }; typedef struct ICE_Camera ICE_Camera;
 
@@ -115,7 +115,7 @@ struct ICE_Camera
  */
 struct ICE_Font
 {
-	TTF_Font* size[256];
+	TTF_Font*				size[256];
 
 }; typedef struct ICE_Font ICE_Font;
 
@@ -127,28 +127,28 @@ struct ICE_Font
 struct ICE_Label
 {
 	// Main
-	ICE_Bool active;
-	ICE_Float x, y;
+	ICE_Bool				active;
+	ICE_Float				x, y;
 
 	// Label Value
-	ICE_String text;
-	int size;
-	ICE_Color color;
-	int wrap_width;
+	ICE_String				text;
+	int						size;
+	ICE_Color				color;
+	int						wrap_width;
 
-	ICE_String old_text;
-	int old_size;
-	ICE_Color old_color;
-	int wrap_width_old;
+	ICE_String				old_text;
+	int						old_size;
+	ICE_Color				old_color;
+	int						wrap_width_old;
 
-	ICE_Float angle;
+	ICE_Float				angle;
 
 
 
 	//ICE_Texture texture;
-	ICE_Bool isFixedToWorld;
+	ICE_Bool				isFixedToWorld;
 
-	ICE_Texture texture;
+	ICE_Texture				texture;
 
 
 }; typedef struct ICE_Label ICE_Label;
@@ -158,11 +158,11 @@ struct ICE_Label
  */
 struct ICE_LabelManager
 {
-	ICE_Bool isFree;
+	ICE_Bool				isFree;
 
-	size_t label_size;
-	size_t label_contain;
-	ICE_Label* label;
+	size_t					label_size;
+	size_t					label_contain;
+	ICE_Label*				label;
 
 }; typedef struct ICE_LabelManager ICE_LabelManager;
 
@@ -174,30 +174,32 @@ struct ICE_LabelManager
 struct ICE_Entity
 {
 	// Main
-	ICE_Bool active;
+	ICE_Bool				active;
 
-	ICE_Float x, y;
-	ICE_Float w, h;
-	ICE_Float angle;
+	ICE_Float				x, y;
+	ICE_Float				w, h;
+	ICE_Float				angle;
 
 	// Polar Movement Save
-	ICE_Bool already_moved_polar;
-	ICE_Float x_polar_destination_move;
-	ICE_Float y_polar_destination_move;
-	ICE_Float r_polar_destination_move;
-	ICE_Float x_polar_shift_move;
-	ICE_Float y_polar_shift_move;
-	ICE_Float polar_distance_r_r;
+	ICE_Bool				already_moved_polar;
+	ICE_Float				x_polar_destination_move;
+	ICE_Float				y_polar_destination_move;
+	ICE_Float				r_polar_destination_move;
+	ICE_Float				x_polar_shift_move;
+	ICE_Float				y_polar_shift_move;
+	ICE_Float				polar_distance_r_r;
 	////////////////////////////
 
+	ICE_Bool				have_graphics;
+	ICE_Bool				use_sprite;
+
 	// Texture location
-	ICE_Bool have_texture;
-	size_t texture_mngr_index;
-	size_t texture_index;
+	size_t					graphics_mngr_index;
+	size_t					graphics_index;
 
 	// Data Array
-	size_t data_nb;
-	void **data;
+	size_t					data_nb;
+	void **					data;
 
 }; typedef struct ICE_Entity ICE_Entity;
 
@@ -206,11 +208,11 @@ struct ICE_Entity
 */
 struct ICE_EntityManager
 {
-	ICE_Bool isFree;
+	ICE_Bool				isFree;
 
-	size_t entity_size;
-	size_t entity_contain;
-	ICE_Entity* entity;
+	size_t					entity_size;
+	size_t					entity_contain;
+	ICE_Entity*				entity;
 
 }; typedef struct ICE_EntityManager ICE_EntityManager;
 
@@ -249,22 +251,22 @@ struct ICE_ObjectManager
 */
 struct ICE_State
 {
-	ICE_Bool quit;
-	ICE_Bool isPaused;
-	ICE_Bool isFree;
+	ICE_Bool				quit;
+	ICE_Bool				isPaused;
+	ICE_Bool				isFree;
 
-	void (*func_create)(void);
-	void (*func_update)(void);
-	void (*func_destroy)(void);
+	void					(*func_create)(void);
+	void					(*func_update)(void);
+	void					(*func_destroy)(void);
 
-	void(*func_resume)(void);
-	void(*func_pause)(void);
+	void					(*func_resume)(void);
+	void					(*func_pause)(void);
 
-	ICE_ObjectManager object;
+	ICE_ObjectManager		object;
 
-	ICE_Color background;
+	ICE_Color				background;
 
-	struct ICE_State * parent;
+	struct ICE_State *		parent;
 
 }; typedef struct ICE_State ICE_State;
 
@@ -275,12 +277,12 @@ struct ICE_State
 struct ICE_Game {
 	
 	// Main
-	ICE_Window window;
-	ICE_Time time;
+	ICE_Window				window;
+	ICE_Time				time;
 
 	// State
-	ICE_State state_main;
-	ICE_State*current;
+	ICE_State				state_main;
+	ICE_State*				current;
 
 }; typedef struct ICE_Game ICE_Game;
 
@@ -296,20 +298,20 @@ struct ICE_Game {
 struct ICE_Asset
 {
 	// Font
-	size_t font_mngr_nb; // todo
-	ICE_Font font;
+	size_t					font_mngr_nb; // todo
+	ICE_Font				font;
 
 	// Texture
-	size_t texture_mngr_nb;
-	ICE_TextureManager *texture_mngr;
+	size_t					texture_mngr_nb;
+	ICE_TextureManager *	texture_mngr;
 
 	// Sound
-	size_t sound_mngr_nb;
-	ICE_SoundManager *sound_mngr;
+	size_t					sound_mngr_nb;
+	ICE_SoundManager *		sound_mngr;
 
 	// Music
-	size_t music_mngr_nb;
-	ICE_MusicManager *music_mngr;
+	size_t					music_mngr_nb;
+	ICE_MusicManager *		music_mngr;
 
 }; typedef struct ICE_Asset ICE_Asset;
 

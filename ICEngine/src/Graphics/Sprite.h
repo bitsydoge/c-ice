@@ -12,9 +12,9 @@ void ICE_SpriteManager_DestroyAll(ICE_State * state);
 
 /* SPRITE */
 
-ICE_Sprite ICE_Sprite_Create(size_t man_texture, size_t nb_texture);
-size_t ICE_Sprite_Insert(ICE_State* state, const size_t man, const ICE_Box box, size_t texture_manager,
-                         size_t texture_nb);
+ICE_Sprite ICE_Sprite_Create(size_t man_texture, size_t nb_texture, unsigned int number_sprite_w, unsigned int number_sprite_h);
+size_t ICE_Sprite_Insert(ICE_State* state, const size_t man, size_t texture_manager,
+                         size_t texture_nb, unsigned int number_sprite_w, unsigned int number_sprite_h);
 void ICE_Sprite_Clear(ICE_Sprite * label);
 void ICE_Sprite_Destroy(ICE_Sprite * ptr);
 
