@@ -7,10 +7,9 @@
 			-Etiré
 			-Repeat X, Y ou XY
 
-
-- Ajouter Zoom
 - Ajouter Sprites
+- Ajouter Zoom
 - Ajouter Maps/Tileset
 - Ajouter Physics
 
-Faire une deuxieme fenetre avec toutes les entité dans la scene
+Faire une deuxieme fenetre avec toutes les entité dans la scene (<3)
