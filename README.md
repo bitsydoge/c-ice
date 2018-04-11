@@ -1,6 +1,6 @@
 
 # ICE : Indie "C" Engine
-<img alt="ICE Logo" src="docs/logo.png" width=20% height=20%> 
+<img alt="ICE Logo" src="docs/logo_hq.png" width=20% height=20%> 
 
 _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
 	
