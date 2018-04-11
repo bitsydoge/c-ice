@@ -116,7 +116,7 @@ void ICE_Draw_Entity()
 	for (int i = 0; i < current->object.entity_mngr_nb; i++)
 		for (int j = 0; j < current->object.entity_mngr[i].entity_contain; j++)
 		{
-			if (current->object.entity_mngr[i].entity[j].have_texture && current->object.entity_mngr[i].entity[j].active)
+			if (current->object.entity_mngr[i].entity[j].have_graphics && current->object.entity_mngr[i].entity[j].active)
 			{
 				ICE_Box rect = ICE_Camera_WorldScreen(ICE_Box_New(
 					current->object.entity_mngr[i].entity[j].x,
@@ -125,7 +125,7 @@ void ICE_Draw_Entity()
 					current->object.entity_mngr[i].entity[j].h));
 
 				ICE_Texture_RenderExCentered(
-					ICE_Texture_Get(current->object.entity_mngr[i].entity[j].texture_mngr_index, current->object.entity_mngr[i].entity[j].texture_index),
+					ICE_Texture_Get(current->object.entity_mngr[i].entity[j].graphics_mngr_index, current->object.entity_mngr[i].entity[j].graphics_index),
 					NULL, 
 					&rect, 
 					current->object.entity_mngr[i].entity[j].angle

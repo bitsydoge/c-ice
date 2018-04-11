@@ -149,14 +149,14 @@ ICE_Vect ICE_Entity_GetPosition(ICE_Entity * entity)
 
 void ICE_Entity_SetTexture(ICE_Entity * entity, size_t texture_manager, size_t texture_nb)
 {
-	entity->texture_mngr_index = texture_manager;
-	entity->texture_index = texture_nb;
-	entity->have_texture = ICE_True;
+	entity->graphics_mngr_index = texture_manager;
+	entity->graphics_index = texture_nb;
+	entity->have_graphics = ICE_True;
 }
 
 void ICE__Entity_RemoveTexture(ICE_Entity * entity)
 {
-	entity->have_texture = ICE_False;
+	entity->have_graphics = ICE_False;
 }
 
 void ICE_Entity_SetPos(ICE_Entity * entity, ICE_Float x, ICE_Float y)
