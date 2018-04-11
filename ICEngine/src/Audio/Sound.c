@@ -66,7 +66,7 @@ ICE_Sound ICE_Sound_Create(char *path)
 	return sound;
 }
 
-size_t ICE_Sound_Insert(size_t man, char *path) 
+size_t ICE_Sound_Load(size_t man, char *path) 
 {
 	// Insert label in array
 	asset.sound_mngr[man].sound[asset.sound_mngr[man].sound_contain] = ICE_Sound_Create(path);

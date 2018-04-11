@@ -23,7 +23,7 @@ Uint32 static const bmask = 0x00ff0000;
 Uint32 static const amask = 0xff000000;
 #endif
 
-ICE_Texture* ICE_Texture_Load(char *path)
+ICE_Texture* ICE_Texture_LoadFromFile(char *path)
 {
 	SDL_Surface* surf;
 	int req_format = STBI_rgb_alpha;

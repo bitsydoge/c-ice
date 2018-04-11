@@ -110,22 +110,22 @@ ICE_PRELOAD()
 
 	// Texture
 	man = ICE_TextureManager_Insert();
-	ICE_Texture_Insert(man, "res//img//pic.png");
-	ICE_Texture_Insert(man, "res//img//gui.png");
-	ICE_Texture_Insert(man, "res//img//widow.png");
-	ICE_Texture_Insert(man, "res//img//sprite.png");
-	ICE_Texture_Insert(man, "res//img//ice_logo.png");
+	ICE_Texture_Load(man, "res//img//pic.png");
+	ICE_Texture_Load(man, "res//img//gui.png");
+	ICE_Texture_Load(man, "res//img//widow.png");
+	ICE_Texture_Load(man, "res//img//sprite.png");
+	ICE_Texture_Load(man, "res//img//ice_logo.png");
 
 	// Sound
 	man = ICE_SoundManager_Insert();
-	ICE_Sound_Insert(man, "res//snd//explosion.wav");
+	ICE_Sound_Load(man, "res//snd//explosion.wav");
 
 	// Music
 	man = ICE_MusicManager_Insert();
-	ICE_Music_Insert(man, "res//snd//music.ogg");
+	ICE_Music_Load(man, "res//snd//music.ogg");
 
 	// Font
-	ICE_Font_Insert("res//ttf//FiraSans-Medium.ttf");
+	ICE_Font_Load("res//ttf//FiraSans-Medium.ttf");
 }
 
 ICE_CREATE()
