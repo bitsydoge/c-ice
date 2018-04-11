@@ -16,7 +16,7 @@ void ICE_SoundManager_DestroyAll();
 
 ICE_Sound ICE_Sound_Create(char *path);
 
-size_t ICE_Sound_Insert(size_t man, char *path);
+size_t ICE_Sound_Load(size_t man, char *path);
 
 void ICE_Sound_Clear(ICE_Sound * sound);
 

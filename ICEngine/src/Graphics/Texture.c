@@ -51,9 +51,9 @@ void ICE_TextureManager_DestroyAll()
 	free(manager);
 }
 
-size_t ICE_Texture_Insert(int manager, char* path) 
+size_t ICE_Texture_Load(int manager, char* path) 
 {
-	ICE_Texture *text = ICE_Texture_Load(path);
+	ICE_Texture *text = ICE_Texture_LoadFromFile(path);
 	text->exist = 1;
 
 	SDL_QueryTexture(text->handle, NULL, NULL, &text->w, &text->h);

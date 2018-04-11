@@ -70,7 +70,7 @@ ICE_Music ICE_Music_Create(char *path)
 	return music;
 }
 
-size_t ICE_Music_Insert(size_t man, char *path)
+size_t ICE_Music_Load(size_t man, char *path)
 {
 	// Insert label in array
 	asset.music_mngr[man].music[asset.music_mngr[man].music_contain] = ICE_Music_Create(path);
