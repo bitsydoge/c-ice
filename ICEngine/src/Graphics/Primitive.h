@@ -11,7 +11,7 @@
  * \param color Color of the pixel
  * \return 1
  */
-int ICE_Draw_Point(ICE_Vect vect, const ICE_Color color);
+int ICE_Draw_Point(const ICE_Vect vect, const ICE_Color color);
 
 
 /**
@@ -21,8 +21,7 @@ int ICE_Draw_Point(ICE_Vect vect, const ICE_Color color);
  * \param color Color of the line
  * \return 0
  */
-int ICE_Draw_Line(ICE_Vect vect1, ICE_Vect vect2, const ICE_Color color);
-
+int ICE_Draw_Line(const ICE_Vect vect1, const ICE_Vect vect2, const ICE_Color color);
 
 /**
  * \brief Draw a rectangle of pixel on the screen with a defined color

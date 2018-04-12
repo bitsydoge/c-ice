@@ -61,21 +61,11 @@ struct ICE_Input
 	ICE_Bool				wheeldown;
 	ICE_Bool				quit;
 	ICE_Bool				leftclic;
-	ICE_Bool				leftclic_position_x;
-	ICE_Bool				leftclic_position_y;
-	ICE_Bool				leftclic_position_x_old;
-	ICE_Bool				leftclic_position_y_old;
-	ICE_Bool				leftclic_trigger;
 	ICE_Bool				rightclic;
-	ICE_Bool				rightclic_position_x;
-	ICE_Bool				rightclic_position_y;
-	ICE_Bool				rightclic_position_x_old;
-	ICE_Bool				rightclic_position_y_old;
-	ICE_Bool				rightclic_trigger;
-	ICE_Bool				mousex;
-	ICE_Bool				mousey;
+	unsigned int			mousex;
+	unsigned int			mousey;
 	ICE_Bool				focus;
-	ICE_String *			filedrop;
+	ICE_String				filedrop;
 
 }; typedef struct ICE_Input ICE_Input;
 

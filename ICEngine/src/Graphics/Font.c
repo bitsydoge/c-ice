@@ -35,7 +35,7 @@ void ICE_Font_Draw(char* text, ICE_Vect vect, ICE_Color fg, ICE_Color bg)
 		if (size < 12)
 			size = 12;
 		SDL_Surface *surf = TTF_RenderText_Shaded(asset.font.size[size], text, ICE_Color_ToSdl(fg), ICE_Color_ToSdl(bg));
-		SDL_Rect rect; rect.x = vect.x; rect.y = vect.y;
+		SDL_Rect rect; rect.x = (int)vect.x; rect.y = (int)vect.y;
 		rect.w = surf->w; rect.h = surf->h;
 		SDL_Texture *texture = SDL_CreateTextureFromSurface(game.window.render, surf);
 		SDL_RenderCopy(game.window.render, texture, NULL, &rect);

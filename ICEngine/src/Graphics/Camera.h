@@ -38,18 +38,6 @@ ICE_Box ICE_Camera_WorldScreen(ICE_Box rect);
 ICE_Box ICE_Camera_ScreenWorld(ICE_Box rect);
 
 /**
- * \brief Return the Camera x position
- * \return 
- */
-int ICE_Camera_GetW();
-
-/**
- * \brief Return the Camera y position
- * \return 
- */
-int ICE_Camera_GetH();
-
-/**
  * \brief Return a Vector with Camera Coordinate
  * \return 
  */

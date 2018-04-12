@@ -17,8 +17,9 @@
  * \param b The blue value
  * \return The new created Color
  */
-inline ICE_Color ICE_Color_New(const size_t r, const size_t g, const size_t b) {
-	return (r << 24) + (g << 16) + (b << 8) + 255;
+inline ICE_Color ICE_Color_New(const uint8_t r, const uint8_t g, const uint8_t b) 
+{
+	return (ICE_Color)(r << 24) + (g << 16) + (b << 8) + 255;
 }
 
 /**
@@ -29,10 +30,10 @@ inline ICE_Color ICE_Color_New(const size_t r, const size_t g, const size_t b) {
 * \param a the alpha value
 * \return The new created Color
 */
-inline ICE_Color ICE_Color_New_Rgba(const size_t r, const size_t g, const size_t b,
-									const size_t a)
+inline ICE_Color ICE_Color_New_Rgba(const uint8_t r, const uint8_t g, const uint8_t b,
+									const uint8_t a)
 {
-	return (r << 24) + (g << 16) + (b << 8) + a;
+	return (ICE_Color)((r << 24) + (g << 16) + (b << 8) + a);
 }
 
 #endif

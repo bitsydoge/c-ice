@@ -26,10 +26,12 @@
 
 #include <math.h>
 
+#include "../Framework/TypesFramework.h"
+
 static const double Pi = 3.14159265358979323846264338328;
 static const double Pi_2 = 3.14159265358979323846264338328 * 2;
 
-float ICE_Interpolate(float from, float to, float amount, float(*easing)(float))
+ICE_Float ICE_Interpolate(ICE_Float from, ICE_Float to, ICE_Float amount, ICE_Float(*easing)(ICE_Float))
 {
 	return from + (to - from) * (easing(amount));
 }
@@ -40,19 +42,19 @@ float ICE_Interpolate(float from, float to, float amount, float(*easing)(float))
 */
 
 /* modeled after the line y = x */
-float ICE_Interpolate_Linear(float p)
+ICE_Float ICE_Interpolate_Linear(ICE_Float p)
 {
 	return p;
 }
 
 /* modeled after the parabola y = x^2 */
-float ICE_Interpolate_QuadraticIn(float p)
+ICE_Float ICE_Interpolate_QuadraticIn(ICE_Float p)
 {
 	return p * p;
 }
 
 /* modeled after the parabola y = -x^2 + 2x */
-float ICE_Interpolate_QuadraticOut(float p)
+ICE_Float ICE_Interpolate_QuadraticOut(ICE_Float p)
 {
 	return -(p * (p - 2));
 }
@@ -60,7 +62,7 @@ float ICE_Interpolate_QuadraticOut(float p)
 /* modeled after the piecewise quadratic */
 /* y = (1/2)((2x)^2)             ; [0, 0.5) */
 /* y = -(1/2)((2x-1)*(2x-3) - 1) ; [0.5, 1] */
-float ICE_Interpolate_QuadraticInOut(float p)
+ICE_Float ICE_Interpolate_QuadraticInOut(ICE_Float p)
 {
 	if (p < 0.5) {
 		return 2 * p * p;
@@ -71,112 +73,112 @@ float ICE_Interpolate_QuadraticInOut(float p)
 }
 
 /* modeled after the cubic y = x^3 */
-float ICE_Interpolate_CubicIn(float p)
+ICE_Float ICE_Interpolate_CubicIn(ICE_Float p)
 {
 	return p * p * p;
 }
 
 /* modeled after the cubic y = (x - 1)^3 + 1 */
-float ICE_Interpolate_CubicOut(float p)
+ICE_Float ICE_Interpolate_CubicOut(ICE_Float p)
 {
-	float f = (p - 1);
+	ICE_Float f = (p - 1);
 	return f * f * f + 1;
 }
 
 /* modeled after the piecewise cubic */
 /* y = (1/2)((2x)^3)       ; [0, 0.5) */
 /* y = (1/2)((2x-2)^3 + 2) ; [0.5, 1] */
-float ICE_Interpolate_CubicInOut(float p)
+ICE_Float ICE_Interpolate_CubicInOut(ICE_Float p)
 {
 	if (p < 0.5) {
 		return 4 * p * p * p;
 	}
 	else {
-		float f = ((2 * p) - 2);
+		ICE_Float f = ((2 * p) - 2);
 		return 0.5 * f * f * f + 1;
 	}
 }
 
 /* modeled after the quartic x^4 */
-float ICE_Interpolate_QuarticIn(float p)
+ICE_Float ICE_Interpolate_QuarticIn(ICE_Float p)
 {
 	return p * p * p * p;
 }
 
 /* modeled after the quartic y = 1 - (x - 1)^4 */
-float ICE_Interpolate_QuarticOut(float p)
+ICE_Float ICE_Interpolate_QuarticOut(ICE_Float p)
 {
-	float f = (p - 1);
+	ICE_Float f = (p - 1);
 	return f * f * f * (1 - p) + 1;
 }
 
 /* modeled after the piecewise quartic */
 /* y = (1/2)((2x)^4)        ; [0, 0.5) */
 /* y = -(1/2)((2x-2)^4 - 2) ; [0.5, 1] */
-float ICE_Interpolate_QuarticInOut(float p)
+ICE_Float ICE_Interpolate_QuarticInOut(ICE_Float p)
 {
 	if (p < 0.5) {
 		return 8 * p * p * p * p;
 	}
 	else {
-		float f = (p - 1);
+		ICE_Float f = (p - 1);
 		return -8 * f * f * f * f + 1;
 	}
 }
 
 /* modeled after the quintic y = x^5 */
-float ICE_Interpolate_QuinticIn(float p)
+ICE_Float ICE_Interpolate_QuinticIn(ICE_Float p)
 {
 	return p * p * p * p * p;
 }
 
 /* modeled after the quintic y = (x - 1)^5 + 1 */
-float ICE_Interpolate_QuinticOut(float p)
+ICE_Float ICE_Interpolate_QuinticOut(ICE_Float p)
 {
-	float f = (p - 1);
+	ICE_Float f = (p - 1);
 	return f * f * f * f * f + 1;
 }
 
 /* modeled after the piecewise quintic */
 /* y = (1/2)((2x)^5)       ; [0, 0.5) */
 /* y = (1/2)((2x-2)^5 + 2) ; [0.5, 1] */
-float ICE_Interpolate_QuinticInOut(float p)
+ICE_Float ICE_Interpolate_QuinticInOut(ICE_Float p)
 {
 	if (p < 0.5) {
 		return 16 * p * p * p * p * p;
 	}
 	else {
-		float f = ((2 * p) - 2);
+		ICE_Float f = ((2 * p) - 2);
 		return 0.5 * f * f * f * f * f + 1;
 	}
 }
 
 /* modeled after quarter-cycle of sine wave */
-float ICE_Interpolate_SineIn(float p)
+ICE_Float ICE_Interpolate_SineIn(ICE_Float p)
 {
 	return sin((p - 1) * Pi_2) + 1;
 }
 
 /* modeled after quarter-cycle of sine wave (different phase) */
-float ICE_Interpolate_SineOut(float p)
+ICE_Float ICE_Interpolate_SineOut(ICE_Float p)
 {
 	return sin(p * Pi_2);
 }
 
 /* modeled after half sine wave */
-float ICE_Interpolate_SineInOut(float p)
+ICE_Float ICE_Interpolate_SineInOut(ICE_Float p)
 {
 	return 0.5 * (1 - cos(p * Pi));
 }
 
 /* modeled after shifted quadrant iV of unit circle */
-float ICE_Interpolate_CircularIn(float p)
+ICE_Float ICE_Interpolate_CircularIn(ICE_Float p)
 {
 	return 1 - sqrt(1 - (p * p));
 }
 
 /* modeled after shifted quadrant iI of unit circle */
-float ICE_Interpolate_CircularOut(float p)
+ICE_Float ICE_Interpolate_CircularOut(ICE_Float p)
 {
 	return sqrt((2 - p) * p);
 }
@@ -184,7 +186,7 @@ float ICE_Interpolate_CircularOut(float p)
 /* modeled after the piecewise circular function */
 /* y = (1/2)(1 - sqrt(1 - 4x^2))           ; [0, 0.5) */
 /* y = (1/2)(sqrt(-(2x - 3)*(2x - 1)) + 1) ; [0.5, 1] */
-float ICE_Interpolate_CircularInOut(float p)
+ICE_Float ICE_Interpolate_CircularInOut(ICE_Float p)
 {
 	if (p < 0.5) {
 		return 0.5 * (1 - sqrt(1 - 4 * (p * p)));
@@ -195,13 +197,13 @@ float ICE_Interpolate_CircularInOut(float p)
 }
 
 /* modeled after the exponential function y = 2^(10(x - 1)) */
-float ICE_Interpolate_ExponentialIn(float p)
+ICE_Float ICE_Interpolate_ExponentialIn(ICE_Float p)
 {
 	return (p == 0.0) ? p : pow(2, 10 * (p - 1));
 }
 
 /* modeled after the exponential function y = -2^(-10x) + 1 */
-float ICE_Interpolate_ExponentialOut(float p)
+ICE_Float ICE_Interpolate_ExponentialOut(ICE_Float p)
 {
 	return (p == 1.0) ? p : 1 - pow(2, -10 * p);
 }
@@ -209,7 +211,7 @@ float ICE_Interpolate_ExponentialOut(float p)
 /* modeled after the piecewise exponential */
 /* y = (1/2)2^(10(2x - 1))         ; [0,0.5) */
 /* y = -(1/2)*2^(-10(2x - 1))) + 1 ; [0.5,1] */
-float ICE_Interpolate_ExponentialInOut(float p)
+ICE_Float ICE_Interpolate_ExponentialInOut(ICE_Float p)
 {
 	if (p == 0.0 || p == 1.0) return p;
 
@@ -222,14 +224,14 @@ float ICE_Interpolate_ExponentialInOut(float p)
 }
 
 /* modeled after the damped sine wave y = sin(13pi/2*x)*pow(2, 10 * (x - 1)) */
-float ICE_Interpolate_ElasticIn(float p)
+ICE_Float ICE_Interpolate_ElasticIn(ICE_Float p)
 {
 	return sin(13 * Pi_2 * p) * pow(2, 10 * (p - 1));
 }
 
 /* modeled after the damped sine wave y = sin(-13pi/2*(x + 1))*pow(2, -10x) + 1
 */
-float ICE_Interpolate_ElasticOut(float p)
+ICE_Float ICE_Interpolate_ElasticOut(ICE_Float p)
 {
 	return sin(-13 * Pi_2 * (p + 1)) * pow(2, -10 * p) + 1;
 }
@@ -237,7 +239,7 @@ float ICE_Interpolate_ElasticOut(float p)
 /* modeled after the piecewise exponentially-damped sine wave: */
 /* y = (1/2)*sin(13pi/2*(2*x))*pow(2, 10 * ((2*x) - 1))      ; [0,0.5) */
 /* y = (1/2)*(sin(-13pi/2*((2x-1)+1))*pow(2,-10(2*x-1)) + 2) ; [0.5, 1] */
-float ICE_Interpolate_ElasticInOut(float p)
+ICE_Float ICE_Interpolate_ElasticInOut(ICE_Float p)
 {
 	if (p < 0.5) {
 		return 0.5 * sin(13 * Pi_2 * (2 * p)) * pow(2, 10 * ((2 * p) - 1));
@@ -250,39 +252,39 @@ float ICE_Interpolate_ElasticInOut(float p)
 }
 
 /* modeled after the overshooting cubic y = x^3-x*sin(x*pi) */
-float ICE_Interpolate_BackIn(float p)
+ICE_Float ICE_Interpolate_BackIn(ICE_Float p)
 {
 	return p * p * p - p * sin(p * Pi);
 }
 
 /* modeled after overshooting cubic y = 1-((1-x)^3-(1-x)*sin((1-x)*pi)) */
-float ICE_Interpolate_BackOut(float p)
+ICE_Float ICE_Interpolate_BackOut(ICE_Float p)
 {
-	float f = (1 - p);
+	ICE_Float f = (1 - p);
 	return 1 - (f * f * f - f * sin(f * Pi));
 }
 
 /* modeled after the piecewise overshooting cubic function: */
 /* y = (1/2)*((2x)^3-(2x)*sin(2*x*pi))           ; [0, 0.5) */
 /* y = (1/2)*(1-((1-x)^3-(1-x)*sin((1-x)*pi))+1) ; [0.5, 1] */
-float ICE_Interpolate_BackInOut(float p)
+ICE_Float ICE_Interpolate_BackInOut(ICE_Float p)
 {
 	if (p < 0.5) {
-		float f = 2 * p;
+		ICE_Float f = 2 * p;
 		return 0.5 * (f * f * f - f * sin(f * Pi));
 	}
 	else {
-		float f = (1 - (2 * p - 1));
+		ICE_Float f = (1 - (2 * p - 1));
 		return 0.5 * (1 - (f * f * f - f * sin(f * Pi))) + 0.5;
 	}
 }
 
-float ICE_Interpolate_BounceIn(float p)
+ICE_Float ICE_Interpolate_BounceIn(ICE_Float p)
 {
 	return 1 - ICE_Interpolate_BounceOut(1 - p);
 }
 
-float ICE_Interpolate_BounceOut(float p)
+ICE_Float ICE_Interpolate_BounceOut(ICE_Float p)
 {
 	if (p < 4 / 11.0) {
 		return (121 * p * p) / 16.0;
@@ -298,7 +300,7 @@ float ICE_Interpolate_BounceOut(float p)
 	}
 }
 
-float ICE_Interpolate_BounceInOut(float p)
+ICE_Float ICE_Interpolate_BounceInOut(ICE_Float p)
 {
 	if (p < 0.5) {
 		return 0.5 * ICE_Interpolate_BounceIn(p * 2);

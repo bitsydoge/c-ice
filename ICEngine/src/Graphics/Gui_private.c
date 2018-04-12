@@ -7,10 +7,10 @@
 
 extern struct ICE_Game game;
 
-void ICE_Gui_UpdateTexture(int man, int gui)
+void ICE_Gui_UpdateTexture(size_t man, size_t gui)
 {
 	ICE_Texture texture = { 0 };
-	texture.handle = SDL_CreateTexture(game.window.render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, game.current->object.gui_mngr[man].gui[gui].box.w, game.current->object.gui_mngr[man].gui[gui].box.h);
+	texture.handle = SDL_CreateTexture(game.window.render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (int)game.current->object.gui_mngr[man].gui[gui].box.w, (int)game.current->object.gui_mngr[man].gui[gui].box.h);
 	SDL_SetRenderTarget(game.window.render, texture.handle);
 	SDL_SetTextureBlendMode(texture.handle, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(game.window.render, 0, 0, 0, 0);

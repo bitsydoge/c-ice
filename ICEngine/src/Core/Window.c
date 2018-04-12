@@ -62,9 +62,9 @@ void ICE_Window_SetIcon(char * path)
 
 int ICE_Window_GetW()
 {
-	return game.window.w;
+	return (int)game.window.w;
 }
 int ICE_Window_GetH()
 {
-	return game.window.h;
+	return (int)game.window.h;
 }

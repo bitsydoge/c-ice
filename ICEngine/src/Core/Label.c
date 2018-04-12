@@ -134,7 +134,7 @@ void ICE_Label_Destroy(ICE_Label * ptr)
 
 /* LABEL GET FUNCTION */
 
-ICE_Label * ICE_Label_Get(ICE_State * state, const unsigned man, const unsigned nb)
+ICE_Label * ICE_Label_Get(ICE_State * state, const size_t man, const size_t nb)
 {
 	if(state)
 		return &state->object.label_mngr[man].label[nb];
@@ -193,12 +193,12 @@ void ICE_Label_FixToWorld(ICE_Label * label, ICE_Bool yn)
 	label->isFixedToWorld = yn;
 }
 
-int ICE_Label_GetWidth(ICE_Label * label)
+unsigned ICE_Label_GetWidth(ICE_Label* label)
 {
 	return label->texture.w;
 }
 
-int ICE_Label_GetHeight(ICE_Label * label)
+unsigned ICE_Label_GetHeight(ICE_Label* label)
 {
 	return label->texture.h;
 }

@@ -41,7 +41,7 @@ void ICE_String_Delete(ICE_String string);
  * \brief Write string on console + header information
  * \param string String to write
  */
-void ICE_String_Write(ICE_String string);
+void ICE_String_Info(ICE_String string);
 
 /**
  * \brief Resize the string, it will troncate to the exact size writed (with `\0` counted) 
@@ -49,7 +49,10 @@ void ICE_String_Write(ICE_String string);
  * \param ptr_string Pointer of ICE_String
  * \param size Size to resize string
  */
-void ICE_String_Resize(ICE_String* ptr_string, int size);
+void ICE_String_Resize(ICE_String* ptr_string, const int size);
+
+
+void ICE_String_Set(ICE_String* ptr_string, char * value);
 
 #endif
 

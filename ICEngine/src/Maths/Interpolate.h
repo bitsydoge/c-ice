@@ -22,6 +22,8 @@
 
 /* Code can have been altered by ***REMOVED*** for integrating it */
 
+#include "../Framework/TypesFramework.h"
+
 #ifndef DEF_ICE_INTERPOLATE
 #define DEF_ICE_INTERPOLATE
 
@@ -33,7 +35,7 @@
  * \param easing Function to use
  * \return Where it is on the function
  */
-float ICE_Interpolate(float from, float to, float amount, float(*easing)(float));
+ICE_Float ICE_Interpolate(ICE_Float from, ICE_Float to, ICE_Float amount, ICE_Float(*easing)(ICE_Float));
 
 /**
 * Function Graph:
@@ -47,7 +49,7 @@ float ICE_Interpolate(float from, float to, float amount, float(*easing)(float))
 *     +---------------------------
 *
 */
-float ICE_Interpolate_Linear(float p);
+ICE_Float ICE_Interpolate_Linear(ICE_Float p);
 
 /**
 * Function Graph:
@@ -61,7 +63,7 @@ float ICE_Interpolate_Linear(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_QuadraticIn(float p);
+ICE_Float ICE_Interpolate_QuadraticIn(ICE_Float p);
 
 /**
 * Function Graph:
@@ -75,7 +77,7 @@ float ICE_Interpolate_QuadraticIn(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_QuadraticOut(float p);
+ICE_Float ICE_Interpolate_QuadraticOut(ICE_Float p);
 
 /**
 * Function Graph:
@@ -89,7 +91,7 @@ float ICE_Interpolate_QuadraticOut(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_QuadraticInOut(float p);
+ICE_Float ICE_Interpolate_QuadraticInOut(ICE_Float p);
 
 /**
 * Function Graph:
@@ -103,7 +105,7 @@ float ICE_Interpolate_QuadraticInOut(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_CubicIn(float p);
+ICE_Float ICE_Interpolate_CubicIn(ICE_Float p);
 
 /**
 * Function Graph:
@@ -117,7 +119,7 @@ float ICE_Interpolate_CubicIn(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_CubicOut(float p);
+ICE_Float ICE_Interpolate_CubicOut(ICE_Float p);
 
 /**
 * Function Graph:
@@ -131,7 +133,7 @@ float ICE_Interpolate_CubicOut(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_CubicInOut(float p);
+ICE_Float ICE_Interpolate_CubicInOut(ICE_Float p);
 
 /**
 * Function Graph:
@@ -145,7 +147,7 @@ float ICE_Interpolate_CubicInOut(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_QuarticIn(float p);
+ICE_Float ICE_Interpolate_QuarticIn(ICE_Float p);
 
 /**
 * Function Graph:
@@ -159,7 +161,7 @@ float ICE_Interpolate_QuarticIn(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_QuarticOut(float p);
+ICE_Float ICE_Interpolate_QuarticOut(ICE_Float p);
 
 /**
 * Function Graph:
@@ -173,7 +175,7 @@ float ICE_Interpolate_QuarticOut(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_QuarticInOut(float p);
+ICE_Float ICE_Interpolate_QuarticInOut(ICE_Float p);
 
 /**
 * Function Graph:
@@ -187,7 +189,7 @@ float ICE_Interpolate_QuarticInOut(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_QuinticIn(float p);
+ICE_Float ICE_Interpolate_QuinticIn(ICE_Float p);
 
 /**
 * Function Graph:
@@ -201,7 +203,7 @@ float ICE_Interpolate_QuinticIn(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_QuinticOut(float p);
+ICE_Float ICE_Interpolate_QuinticOut(ICE_Float p);
 
 /**
 * Function Graph:
@@ -215,7 +217,7 @@ float ICE_Interpolate_QuinticOut(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_QuinticInOut(float p);
+ICE_Float ICE_Interpolate_QuinticInOut(ICE_Float p);
 
 /**
 * Function Graph:
@@ -229,7 +231,7 @@ float ICE_Interpolate_QuinticInOut(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_SineIn(float p);
+ICE_Float ICE_Interpolate_SineIn(ICE_Float p);
 
 /**
 * Function Graph:
@@ -243,7 +245,7 @@ float ICE_Interpolate_SineIn(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_SineOut(float p);
+ICE_Float ICE_Interpolate_SineOut(ICE_Float p);
 
 /**
 * Function Graph:
@@ -257,7 +259,7 @@ float ICE_Interpolate_SineOut(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_SineInOut(float p);
+ICE_Float ICE_Interpolate_SineInOut(ICE_Float p);
 
 /**
 * Function Graph:
@@ -271,7 +273,7 @@ float ICE_Interpolate_SineInOut(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_CircularIn(float p);
+ICE_Float ICE_Interpolate_CircularIn(ICE_Float p);
 
 /**
 * Function Graph:
@@ -285,7 +287,7 @@ float ICE_Interpolate_CircularIn(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_CircularOut(float p);
+ICE_Float ICE_Interpolate_CircularOut(ICE_Float p);
 
 /**
 * Function Graph:
@@ -299,7 +301,7 @@ float ICE_Interpolate_CircularOut(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_CircularInOut(float p);
+ICE_Float ICE_Interpolate_CircularInOut(ICE_Float p);
 
 /**
 * Function Graph:
@@ -313,7 +315,7 @@ float ICE_Interpolate_CircularInOut(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_ExponentialIn(float p);
+ICE_Float ICE_Interpolate_ExponentialIn(ICE_Float p);
 
 /**
 * Function Graph:
@@ -327,7 +329,7 @@ float ICE_Interpolate_ExponentialIn(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_ExponentialOut(float p);
+ICE_Float ICE_Interpolate_ExponentialOut(ICE_Float p);
 
 /**
 * Function Graph:
@@ -341,7 +343,7 @@ float ICE_Interpolate_ExponentialOut(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_ExponentialInOut(float p);
+ICE_Float ICE_Interpolate_ExponentialInOut(ICE_Float p);
 
 /**
 * Function Graph:
@@ -355,7 +357,7 @@ float ICE_Interpolate_ExponentialInOut(float p);
 *     +----------`''-------+--+---
 *     |                    `-
 */
-float ICE_Interpolate_ElasticIn(float p);
+ICE_Float ICE_Interpolate_ElasticIn(ICE_Float p);
 
 /**
 * Function Graph:
@@ -370,7 +372,7 @@ float ICE_Interpolate_ElasticIn(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_ElasticOut(float p);
+ICE_Float ICE_Interpolate_ElasticOut(ICE_Float p);
 
 /**
 * Function Graph:
@@ -385,7 +387,7 @@ float ICE_Interpolate_ElasticOut(float p);
 *     +-------`=+-----------------
 *
 */
-float ICE_Interpolate_ElasticInOut(float p);
+ICE_Float ICE_Interpolate_ElasticInOut(ICE_Float p);
 
 /**
 * Function Graph:
@@ -399,7 +401,7 @@ float ICE_Interpolate_ElasticInOut(float p);
 *     +--`..=------=,,-'----------
 *     |     `'''''
 */
-float ICE_Interpolate_BackIn(float p);
+ICE_Float ICE_Interpolate_BackIn(ICE_Float p);
 
 /**
 * Function Graph:
@@ -414,7 +416,7 @@ float ICE_Interpolate_BackIn(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_BackOut(float p);
+ICE_Float ICE_Interpolate_BackOut(ICE_Float p);
 
 /**
 * Function Graph:
@@ -429,7 +431,7 @@ float ICE_Interpolate_BackOut(float p);
 *     +-`.=-----,'----------------
 *     |   ``-''
 */
-float ICE_Interpolate_BackInOut(float p);
+ICE_Float ICE_Interpolate_BackInOut(ICE_Float p);
 
 /**
 * Function Graph:
@@ -443,7 +445,7 @@ float ICE_Interpolate_BackInOut(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_BounceIn(float p);
+ICE_Float ICE_Interpolate_BounceIn(ICE_Float p);
 
 /**
 * Function Graph:
@@ -457,7 +459,7 @@ float ICE_Interpolate_BounceIn(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_BounceOut(float p);
+ICE_Float ICE_Interpolate_BounceOut(ICE_Float p);
 
 /**
 * Function Graph:
@@ -471,6 +473,6 @@ float ICE_Interpolate_BounceOut(float p);
 *     +---------------------------
 *
 */
-float ICE_Interpolate_BounceInOut(float p);
+ICE_Float ICE_Interpolate_BounceInOut(ICE_Float p);
 
 #endif
