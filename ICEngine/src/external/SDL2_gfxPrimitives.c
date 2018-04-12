@@ -1872,7 +1872,7 @@ int aaellipseRGBA(SDL_Renderer * renderer, Sint16 x, Sint16 y, Sint16 rx, Sint16
 	yc2 = 2 * y;
 
 	sab = sqrt((double)(a2 + b2));
-	od = (Sint16)lrint(sab*0.01) + 1; /* introduce some overdraw */
+	od = (Sint16)lrint((sab*0.01) + 1); /* introduce some overdraw */
 	dxt = (Sint16)lrint((double)a2 / sab) + od;
 
 	t = 0;

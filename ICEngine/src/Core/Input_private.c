@@ -9,7 +9,6 @@ void ICE_Input_Return()
 	static SDL_Event event;
 	while (SDL_PollEvent(&event))
 	{
-		int get_w, get_h;
 		switch (event.type)
 		{
 		case SDL_QUIT:
@@ -31,14 +30,10 @@ void ICE_Input_Return()
 			if (event.button.button == SDL_BUTTON_LEFT)
 			{
 				game.window.input.leftclic = 1;
-				game.window.input.leftclic_position_x = event.motion.x;
-				game.window.input.leftclic_position_y = event.motion.y;
 			}
 			if (event.button.button == SDL_BUTTON_RIGHT)
 			{
 				game.window.input.rightclic = 1;
-				game.window.input.rightclic_position_x = event.motion.x;
-				game.window.input.rightclic_position_y = event.motion.y;
 			}
 			break;
 		case SDL_MOUSEBUTTONUP:
@@ -82,18 +77,5 @@ void ICE_Input_Return()
 			game.window.input.wheelup = 0;
 			game.window.input.wheeldown = 0;
 		}
-
-		if (game.window.input.leftclic && !game.window.input.leftclic_trigger)
-		{
-			game.window.input.leftclic_trigger = 1;
-			game.window.input.leftclic_position_x_old = game.window.input.leftclic_position_x;
-			game.window.input.leftclic_position_y_old = game.window.input.leftclic_position_y;
-		}
-
-		if (!game.window.input.leftclic && game.window.input.leftclic_trigger)
-		{
-			game.window.input.leftclic_trigger = 0;
-		}
-
 	}
 }

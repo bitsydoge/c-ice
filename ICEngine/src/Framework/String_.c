@@ -71,7 +71,7 @@ void ICE_String_Delete(ICE_String string)
 }
 
 // Draw string + header informations
-void ICE_String_Write(ICE_String string)
+void ICE_String_Info(ICE_String string)
 {
 	printf("STRING : \"%s\", SIZE : %d, CONTAIN : %d \n", string, ICE_String_Size(string), ICE_String_Contain(string));
 
@@ -109,4 +109,11 @@ void ICE_String_Resize(ICE_String* ptr_string, const int size)
 		(ice_string)[contain_array - 1] = '\0';
 
 	*ptr_string = ice_string;
+}
+
+void ICE_String_Set(ICE_String* ptr_string, char* value)
+{
+	// Unoptimized
+	ICE_String_Delete(*ptr_string);
+	*ptr_string = ICE_String_Init(value);
 }

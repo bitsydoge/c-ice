@@ -17,11 +17,11 @@ void ICE_Camera_SetPos(ICE_Vect vect)
 
 void ICE_Camera_MovePos(ICE_Vect vect, ICE_Float r)
 {
-	float xdif = vect.x - game.current->object.camera.x;
-	float ydif = vect.y - game.current->object.camera.y;
+	const ICE_Float xdif = vect.x - game.current->object.camera.x;
+	const ICE_Float ydif = vect.y - game.current->object.camera.y;
 
-	float angle = atan2(ydif, xdif);
-	float distance_r_r = xdif * xdif + ydif * ydif;
+	const ICE_Float angle = atan2(ydif, xdif);
+	const ICE_Float distance_r_r = xdif * xdif + ydif * ydif;
 
 	game.current->object.camera.x += r * cos(angle);
 	game.current->object.camera.y += r * sin(angle);
@@ -41,17 +41,6 @@ void ICE_Camera_ShiftPos(ICE_Vect Dvect)
 
 // Camera return
 // ----------------------------------------------------
-
-
-int ICE_Camera_GetW()
-{
-	return game.window.w;
-}
-
-int ICE_Camera_GetH()
-{
-	return game.window.h;
-}
 
 ICE_Vect ICE_Camera_GetVect()
 {

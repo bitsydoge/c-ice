@@ -7,7 +7,7 @@
  * \param width_window The window witdh
  * \param height_window The window height
  */
-void ICE_Game_Create(char *window_title, const size_t width_window, const size_t height_window);
+void ICE_Game_Create(char *window_title, const unsigned int width_window, const unsigned int height_window);
 
 /**
  * \brief Destroy the game object

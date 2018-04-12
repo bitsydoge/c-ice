@@ -1,9 +1,9 @@
 /* GIMP RGBA C-Source image dump (raw_error.c) */
 
 static const struct {
-  size_t 	 width;
-  size_t 	 height;
-  size_t 	 bytes_per_pixel; /* 2:RGB16, 3:RGB, 4:RGBA */ 
+  unsigned int	 width;
+  unsigned int 	 height;
+  unsigned int 	 bytes_per_pixel; /* 2:RGB16, 3:RGB, 4:RGBA */ 
   unsigned char	 pixel_data[100 * 100 * 4 + 1];
 } ice_raw_img_error = {
   100, 100, 4,

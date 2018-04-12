@@ -10,7 +10,7 @@ void ICE_Random_Init()
 	static ICE_Bool triggered = ICE_False;
 	if (!triggered)
 	{
-		srand(time(NULL));
+		srand((unsigned int)time(NULL));
 		triggered = ICE_True;
 	}
 }

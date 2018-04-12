@@ -25,7 +25,7 @@ typedef int ICE_Bool;
 /**
  * \brief Color in the Engine, it's a uint32_t for 8 bits per value (R, G, B, A)
  */
-typedef Uint32 ICE_Color;
+typedef uint32_t ICE_Color;
 
 /**
  * \brief Texture struct handling sdl texture
@@ -33,7 +33,7 @@ typedef Uint32 ICE_Color;
 struct ICE_Texture
 {
 	ICE_Bool			exist;
-	size_t w, h;
+	unsigned int w, h;
 	SDL_Texture* handle;
 };
 
