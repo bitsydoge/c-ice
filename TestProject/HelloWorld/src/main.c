@@ -1,4 +1,4 @@
-#include <ICE.h>
+﻿#include <ICE.h>
 #include "Core/Entity.h"
 
 struct Game_Weapon
@@ -17,7 +17,7 @@ struct DATA1
 
 }; typedef struct DATA1 DATA1;
 
-struct Game_Weapon Game_Weapon_Init(char * name, ICE_Float damage, ICE_Float speed, ICE_Float weight)
+struct Game_Weapon Game_Weapon_Init(wchar_t* name, ICE_Float damage, ICE_Float speed, ICE_Float weight)
 {
 	struct Game_Weapon weapon = { ICE_String_Init(name), damage, speed, weight };
 	return weapon;
@@ -37,8 +37,8 @@ void inventory_create()
 
 	DATA1 * data = ICE_Data_Get(ICE_State_GetParent(NULL), 0);
 	size_t man = ICE_LabelManager_Insert(NULL);
-	size_t nb = ICE_Label_Insert(NULL, 0, "", ICE_Vect_New(50, 20));
-	ICE_Label_SetString(ICE_Label_Get(NULL, man, nb), "Name : %s     Damage : %.1f     Speed : %.1f", data->current_weapon.name, data->current_weapon.damage, data->current_weapon.speed);
+	size_t nb = ICE_Label_Insert(NULL, 0, L"", ICE_Vect_New(50, 20));
+	ICE_Label_SetString(ICE_Label_Get(NULL, man, nb), L"Name : %s     Damage : %.1f     Speed : %.1f", data->current_weapon.name, data->current_weapon.damage, data->current_weapon.speed);
 	ICE_Label_SetSize(ICE_Label_Get(NULL, man, nb), 12);
 	ICE_Label_SetWrapWidth(ICE_Label_Get(NULL, man, nb), 100);
 	ICE_GuiManager_Insert(NULL);
@@ -151,18 +151,18 @@ ICE_CREATE()
 	// Label
 	manager = ICE_LabelManager_Insert(NULL);
 	// 1
-	nb = ICE_Label_Insert(NULL, manager, "It is a me", ICE_Vect_New(0, 0));
+	nb = ICE_Label_Insert(NULL, manager, L"It is a me", ICE_Vect_New(0, 0));
 	ICE_Label_SetSize(ICE_Label_Get(NULL, manager, nb), 30);
 	ICE_Label_FixToWorld(ICE_Label_Get(NULL, manager, nb), ICE_True);
 	ICE_Label_SetAngle(ICE_Label_Get(NULL, manager, nb), 30);
 	// 2
-	nb = ICE_Label_Insert(NULL, manager, "It is a not a me !", ICE_Vect_New(5, 5));
+	nb = ICE_Label_Insert(NULL, manager, L"Привет мир", ICE_Vect_New(5, 5));
 	ICE_Label_SetSize(ICE_Label_Get(NULL, manager, nb), 30);
 
 	// Data
 	DATA1 * data = ICE_Data_Insert(NULL, sizeof(DATA1));
 	data->inventory = ICE_State_Create(inventory_create, inventory_update, inventory_destroy);
-	data->current_weapon = Game_Weapon_Init("Big Sword", 100, 1.2, 50);
+	data->current_weapon = Game_Weapon_Init(L"Big Sword", 100, 1.2, 50);
 
 	// Music
 	ICE_Music_Play(ICE_Music_Get(0, 0), 16);
@@ -204,7 +204,7 @@ ICE_UPDATE()
 
 	if (ICE_Input_Key(ICE_KEY_SPACE))
 	{
-		ICE_Label_SetString(ICE_Label_Get(NULL, 0, 0), "IT IS THE END OF THE WORLD");
+		ICE_Label_SetString(ICE_Label_Get(NULL, 0, 0), L"IT IS THE END OF THE WORLD");
 		ICE_Label_SetSize(ICE_Label_Get(NULL, 0, 0), 50);
 		ICE_Label_SetColor(ICE_Label_Get(NULL, 0, 0), ICE_Color_Red);
 		ICE_Label_SetPos(ICE_Label_Get(NULL, 0, 0), ICE_Vect_New(0, 0));

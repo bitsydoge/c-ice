@@ -71,7 +71,7 @@ void ICE_LabelManager_DestroyAll(ICE_State * state)
 
 /* LABEL */
 
-ICE_Label ICE_Label_Create(char* text, ICE_Vect pos)
+ICE_Label ICE_Label_Create(wchar_t* text, ICE_Vect pos)
 {
 	ICE_Label label = { 0 };
 
@@ -153,13 +153,13 @@ void ICE_Label_SetSize(ICE_Label *label, int size)
 	label->size = size;
 }
 
-void ICE_Label_SetString(ICE_Label * label, const char * format, ...)
+void ICE_Label_SetString(ICE_Label * label, const wchar_t * format, ...)
 {
 	va_list args;
 	va_start(args, format);
 
 	char buffer[256];
-	vsprintf(buffer, format, args);
+	vswprintf(buffer, 256, format, args);
 
 	ICE_String_Delete(label->text);
 	label->text = ICE_String_Init(buffer);
