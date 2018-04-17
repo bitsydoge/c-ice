@@ -12,7 +12,7 @@ void ICE_Label_UpdateTexture(ICE_Label * label)
 	SDL_Surface *surf;
 	if(label->wrap_width == 0)
 	{
-		surf = TTF_RenderText_Blended(
+		surf = TTF_RenderUNICODE_Blended(
 			asset.font.size[label->size],
 			label->text,
 			ICE_Color_ToSdl(label->color)
@@ -20,7 +20,7 @@ void ICE_Label_UpdateTexture(ICE_Label * label)
 	}
 	else
 	{
-		surf = TTF_RenderText_Blended_Wrapped(
+		surf = TTF_RenderUNICODE_Blended_Wrapped(
 			asset.font.size[label->size],
 			label->text,
 			ICE_Color_ToSdl(label->color),
