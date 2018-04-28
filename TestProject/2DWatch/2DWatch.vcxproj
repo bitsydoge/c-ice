@@ -148,7 +148,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\data.c" />
+    <ClCompile Include="src\inventory.c" />
     <ClCompile Include="src\main.c" />
+    <ClCompile Include="src\weapon.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\data.h" />
+    <ClInclude Include="src\inventory.h" />
+    <ClInclude Include="src\weapon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
