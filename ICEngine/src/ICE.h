@@ -1,5 +1,5 @@
-#ifndef DEF_ICE_INCLUDER
-#define DEF_ICE_INCLUDER
+#ifndef DEF_ICE_INCLUDER_0X505050
+#define DEF_ICE_INCLUDER_0X505050
 
 // Framework
 

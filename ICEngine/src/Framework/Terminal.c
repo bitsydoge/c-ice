@@ -1,6 +1,6 @@
 ﻿#include "Terminal.h"
 
-#include "../External/rlutil.h"
+#include "../External/rlutil/rlutil.h"
 
 #include "TypesFramework.h"
 #include "Log.h"

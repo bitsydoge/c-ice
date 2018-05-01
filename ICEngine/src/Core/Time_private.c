@@ -1,7 +1,7 @@
 ﻿#include "Time_private.h"
 #include "TypesCore.h"
 
-#include "../External/SDL2_framerate.h"
+#include "../External/SDL2_gfx/SDL2_framerate.h"
 
 extern ICE_Game game;
 
