@@ -4,7 +4,7 @@
 
 #include "../Core/Converter_private.h"
 #include "../Core/TypesCore.h"
-#include "../External/SDL2_gfxPrimitives.h"
+#include "../External/SDL2_gfx/SDL2_gfxPrimitives.h"
 #include "../Maths/TypesMaths.h"
 
 extern ICE_Game game;

@@ -21,13 +21,14 @@ _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
 	- SDL2 (Main lib for the engine)  
 	- SDL2_mixer (for the sound)   
 	- SDL2_ttf (for the text)   
-	- chipmunk2d (for physics)
 
 ## Included : 
 
-	- stb_image (image decode)
-	- rlutil.h (console color)
-	- SDL2_gfx (AA primitives)
+	- stb_image ( Image decode : https://github.com/nothings/stb )
+	- rlutil.h ( Crossplatform terminal color : https://github.com/tapio/rlutil )
+	- SDL2_gfx ( AA primitives : https://sourceforge.net/projects/sdl2gfx/ )
+	- rnd.h ( Random algorithm : https://github.com/mattiasgustavsson/libs )
+	- chipmunk2d ( Physics : https://github.com/slembcke/Chipmunk2D )
 
 ## Hello World
 
@@ -36,15 +37,15 @@ _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
 
 ICE_PRELOAD()
 {
-	ICE_Font_Load("res//ttf//FiraSans-Medium.ttf");
+	ICE_Font_Load("font.ttf");
 }
 
 ICE_CREATE()
 {
 	ICE_Render_Color(ICE_Color_New(100, 200, 80));
 
-	size_t man	=		ICE_LabelManager_Insert(NULL);
-	size_t nb		=		ICE_Label_Insert(NULL, man, "Hello World", ICE_Vect_New(0, 0));
+	size_t man	=	ICE_LabelManager_Insert(NULL);
+	size_t nb	=	ICE_Label_Insert(NULL, man, "Hello World", ICE_Vect_New(0, 0));
 
 	ICE_Label_SetSize(ICE_Label_Get(NULL, man, nb), 30);
 	ICE_Label_FixToWorld(ICE_Label_Get(NULL, man, nb), ICE_True);

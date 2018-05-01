@@ -1,6 +1,8 @@
 #ifndef DEF_ICE_TYPESFRAMEWORK
 #define DEF_ICE_TYPESFRAMEWORK
 
+#include <stddef.h>
+
 #ifndef ICE_BOOL_DEFINED
 #define ICE_BOOL_DEFINED
 

@@ -104,7 +104,8 @@ ICE_UPDATE()
 	ICE_Debug_DrawFps(5);
 
 	// Gui Resize
-	ICE_Gui_SetSize(ICE_Gui_Get(NULL, 0, 0), ICE_Vect_New(ICE_Window_GetW(), 50));
+	ICE_Gui * gui_main = ICE_Gui_Get(NULL, 0, 0);
+	ICE_Gui_SetSize(gui_main, ICE_Vect_New(ICE_Window_GetW(), 50));
 
 	DATA1 * data = ICE_Data_Get(NULL, 0);
 	ICE_Debug_CameraControl();
@@ -114,7 +115,6 @@ ICE_UPDATE()
 		ICE_Sound_Play(ICE_Sound_Get(0, 0), 16);
 		ICE_Substate_Start(&data->inventory);
 	}
-
 	if (ICE_Input_Key(ICE_KEY_SPACE))
 	{
 		ICE_Label_SetString(ICE_Label_Get(NULL, 0, 0), L"IT IS THE END OF THE WORLD");
@@ -122,7 +122,6 @@ ICE_UPDATE()
 		ICE_Label_SetColor(ICE_Label_Get(NULL, 0, 0), ICE_Color_Red);
 		ICE_Label_SetPos(ICE_Label_Get(NULL, 0, 0), ICE_Vect_New(0, 0));
 	}
-
 	if (ICE_Input_Key(ICE_KEY_RETURN))
 		ICE_Camera_SetPos(ICE_Vect_New(0, 0));
 }
@@ -134,9 +133,9 @@ ICE_DESTROY()
 	Game_Weapon_Destroy(&data->current_weapon);
 }
 
-int main()
+int main(int argc, char** argv)
 {
 	ICE_Debug_Set(ICE_True);
-	ICE_START("Hello World", 500, 500);
+	ICE_START("2DWatch", 800, 480);
 	return 0;
 }
