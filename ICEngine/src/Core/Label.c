@@ -90,7 +90,7 @@ ICE_Label ICE_Label_Create(wchar_t* text, ICE_Vect pos)
 	return label;
 }
 
-size_t ICE_Label_Insert(ICE_State * state, const size_t man, char *text, const ICE_Vect pos)
+size_t ICE_Label_Insert(ICE_State * state, const size_t man, wchar_t *text, const ICE_Vect pos)
 {
 	if (!state)
 		state = game.current;
