@@ -16,13 +16,10 @@
 #include "../Audio/Music.h"
 #include "Data.h"
 #include "Entity.h"
-#include "Debug.h"
 
 extern ICE_Game game;
 
 int ICE_Core_Init() {
-
-	ICE_Debug_Set(ICE_True);
 
 	// Other
 	ICE_Term_SaveColor();

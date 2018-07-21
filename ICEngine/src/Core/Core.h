@@ -30,6 +30,6 @@ ICE_Core_Main(NAME, WIDTH, HEIGHT, ICE_User_Preload, ICE_User_Create, ICE_User_U
  * \param call_destroy The destroy function called at the end
  * \return 0
  */
-int ICE_Core_Main(const ICE_String title, const int window_width, const int window_height, void(*call_preload)(void), void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void));
+int ICE_Core_Main(char * title, const int window_width, const int window_height, void(*call_preload)(void), void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void));
 
 #endif

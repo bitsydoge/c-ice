@@ -14,9 +14,9 @@ typedef int ICE_Bool;
 #define ICE_False 0
 #define ICE_FALSE 0
 #define ICE_false 0
-#define ICE_BOOLNONE -1	
-#define ICE_BoolNone -1
-#define ICE_boolnone -1
+#define ICE_BOOLSPECIAL -1	
+#define ICE_BoolSpecial -1
+#define ICE_boolSpecial -1
 
 #endif
 

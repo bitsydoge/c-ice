@@ -7,7 +7,9 @@
  * \param yn Bool, ICE_True or ICE_False. Use ICE_BoolNone if you just want to know the state
  * \return The actual state
  */
-ICE_Bool ICE_Debug_Set(const ICE_Bool yn);
+void ICE_Debug_Set(const ICE_Bool yn);
+
+ICE_Bool ICE_Debug();
 
 /**
  * \brief Draw the mouse coordinate
@@ -53,5 +55,12 @@ void ICE_Debug_FontDraw(int y, const char* format, ...);
  * \brief Basic control for camera (WQSD, ARROW)
  */
 void ICE_Debug_CameraControl();
+
+
+/**
+ * \brief 
+ * \param callback Callback to the function to debug draw
+ */
+void ICE_Debug_CallbackDraw(void(*callback)());
 
 #endif

@@ -16,12 +16,17 @@
 extern ICE_Game game;
 extern ICE_Asset asset;
 
-ICE_Bool debug_ok = ICE_False;
+volatile ICE_Bool debug_ok = ICE_False;
 
-ICE_Bool ICE_Debug_Set(const ICE_Bool yn){
-	if(yn != -1)
+void ICE_Debug_Set(const ICE_Bool yn){
 		debug_ok = yn;
-	return debug_ok;
+}
+
+ICE_Bool ICE_Debug()
+{
+	if (debug_ok == ICE_True)
+		return ICE_True;
+	return ICE_False;
 }
 
 void ICE_Debug_DrawCoordinate(){
@@ -110,4 +115,9 @@ void ICE_Debug_CameraControl()
 		if (ICE_Input_Key(ICE_KEY_SPACE))
 			ICE_Camera_MovePos(ICE_Vect_Null, 1000 * ICE_Game_GetDelta());
 	}
+}
+
+void ICE_Debug_CallbackDraw(void(*callback)())
+{
+	game.lateDrawDebug = callback;
 }
