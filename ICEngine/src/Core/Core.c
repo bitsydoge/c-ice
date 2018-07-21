@@ -11,12 +11,13 @@
 #include "../Graphics/Render_private.h"
 #include "../Framework/String_.h"
 #include "../Framework/Log.h"
+#include "../Core/Debug.h"
 
 #include <stdio.h>
 
 extern ICE_Game game;
 
-int ICE_Core_Main(const ICE_String title, const int window_width, const int window_height, void(*call_preload)(void), void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void)) 
+int ICE_Core_Main(char * title, const int window_width, const int window_height, void(*call_preload)(void), void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void)) 
 {
 	ICE_Core_Init();
 	ICE_Game_Create(title, window_width, window_height);
@@ -42,6 +43,10 @@ int ICE_Core_Main(const ICE_String title, const int window_width, const int wind
 		ICE_Draw_LabelWorld();
 		ICE_Draw_Gui();
 		ICE_Draw_LabelScreen();
+
+		if (game.lateDrawDebug && ICE_Debug())
+			game.lateDrawDebug();
+	
 		if(game.window.auto_render)
 			ICE_Render_Now();
 

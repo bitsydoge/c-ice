@@ -274,6 +274,9 @@ struct ICE_Game {
 	ICE_State				state_main;
 	ICE_State*				current;
 
+	// Debug
+	void(*lateDrawDebug)();
+
 }; typedef struct ICE_Game ICE_Game;
 
 

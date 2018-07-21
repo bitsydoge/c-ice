@@ -22,7 +22,9 @@ void ICE_Game_Create(char *window_title, const unsigned int width_window, const 
 	);
 	game.window.render = SDL_CreateRenderer(game.window.handle, -1, SDL_RENDERER_ACCELERATED);
 	SDL_SetRenderDrawBlendMode(game.window.render, SDL_BLENDMODE_BLEND);
-	
+
+	game.lateDrawDebug = NULL;
+
 	game.current = &game.state_main;
 	game.window.w = (ICE_Float)width_window; game.window.h = (ICE_Float)height_window;
 

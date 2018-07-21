@@ -11,5 +11,7 @@ void ICE_TextureManager_DestroyAll();
 size_t ICE_Texture_Load(int manager, char* path);
 void ICE_Texture_Destroy(ICE_Texture *tex);
 ICE_Texture * ICE_Texture_Get(size_t man, size_t nb);
+unsigned int ICE_Texture_GetW(ICE_Texture * text);
+unsigned int ICE_Texture_GetH(ICE_Texture * text);
 
 #endif
