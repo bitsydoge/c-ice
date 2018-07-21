@@ -9,14 +9,14 @@
 
 /* GUIMANAGER */
 
-size_t ICE_GuiManager_Insert(ICE_State * state);
-void ICE_GuiManager_Destroy(ICE_State * state, const size_t man);
+ICE_Index ICE_GuiManager_Insert(ICE_State * state);
+void ICE_GuiManager_Destroy(ICE_State * state, const ICE_Index man);
 void ICE_GuiManager_DestroyAll(ICE_State * state);
 
 /* GUI */
 
-ICE_Gui ICE_Gui_Create(ICE_Box box, size_t man_texture, size_t nb_texture);
-size_t ICE_Gui_Insert(ICE_State * state, const size_t man, const ICE_Box box, size_t texture_manager, size_t texture_nb);
+ICE_Gui ICE_Gui_Create(ICE_Box box, ICE_Index man_texture, ICE_Index nb_texture);
+ICE_Index ICE_Gui_Insert(ICE_State * state, const ICE_Index man, const ICE_Box box, ICE_Index texture_manager, ICE_Index texture_nb);
 void ICE_Gui_Clear(ICE_Gui * label);
 void ICE_Gui_Destroy(ICE_Gui * ptr);
 

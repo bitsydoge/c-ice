@@ -2,6 +2,7 @@
 #define DEF_ICE_TYPESGRAPHICS
 #include <SDL2/SDL.h>
 #include "../Maths/TypesMaths.h"
+#include "../Framework/TypesFramework.h"
 
 #ifndef ICE_BOOL_DEFINED
 #define ICE_BOOL_DEFINED
@@ -32,7 +33,7 @@ typedef uint32_t ICE_Color;
  */
 struct ICE_Texture
 {
-	ICE_Bool			exist;
+	ICE_Bool	 exist;
 	unsigned int w, h;
 	SDL_Texture* handle;
 };
@@ -46,11 +47,10 @@ struct ICE_TextureManager
 {
 	ICE_Bool isFree;
 
-	size_t texture_size;
-	size_t texture_contain;
+	ICE_Index texture_size;
+	ICE_Index texture_contain;
 	ICE_Texture* texture;
 };
-
 typedef struct ICE_TextureManager ICE_TextureManager;
 
 typedef struct
@@ -64,9 +64,8 @@ typedef struct
 typedef struct
 {
 	unsigned int actual_step;
-
-	size_t step_size;
-	size_t step_contain;
+	ICE_Index step_size;
+	ICE_Index step_contain;
 	ICE_AnimationStep * step;
 
 } ICE_Animation;
@@ -76,13 +75,13 @@ typedef struct
 	ICE_Bool exist;
 
 	ICE_Bool have_texture_defined;
-	size_t texture_index;
-	size_t texturemanager_index;
+	ICE_Index texture_index;
+	ICE_Index texturemanager_index;
 
 	unsigned int size_w, size_h;
 
-	size_t animation_size;
-	size_t animation_contain;
+	ICE_Index animation_size;
+	ICE_Index animation_contain;
 	ICE_Animation * animation;
 
 } ICE_Sprite;
@@ -91,8 +90,8 @@ typedef struct
 {
 	ICE_Bool isFree;
 
-	size_t sprite_size;
-	size_t sprite_contain;
+	ICE_Index sprite_size;
+	ICE_Index sprite_contain;
 	ICE_Sprite* sprite;
 
 } ICE_SpriteManager;
@@ -108,10 +107,10 @@ typedef struct
 {
 	ICE_Bool exist;
 	ICE_Bool have_texture_defined;
-	size_t texture_index;
-	size_t old_texture_index;
-	size_t texturemanager_index;
-	size_t old_texturemanager_index;
+	ICE_Index texture_index;
+	ICE_Index old_texture_index;
+	ICE_Index texturemanager_index;
+	ICE_Index old_texturemanager_index;
 	ICE_Box box;
 	ICE_Box old_box;
 
@@ -124,8 +123,8 @@ typedef struct
 {
 	ICE_Bool isFree;
 
-	size_t gui_size;
-	size_t gui_contain;
+	ICE_Index gui_size;
+	ICE_Index gui_contain;
 	ICE_Gui* gui;
 
 } ICE_GuiManager;

@@ -3,12 +3,13 @@
 
 #define ICE_DEFAULT_SOUND_SIZE 4
 #include "TypesAudio.h"
+#include "../Framework/TypesFramework.h"
 
 // MANAGER
 
-size_t ICE_SoundManager_Insert();
+ICE_Index ICE_SoundManager_Insert();
 
-void ICE_SoundManager_Destroy(const size_t man);
+void ICE_SoundManager_Destroy(const ICE_Index man);
 
 void ICE_SoundManager_DestroyAll();
 
@@ -16,7 +17,7 @@ void ICE_SoundManager_DestroyAll();
 
 ICE_Sound ICE_Sound_Create(char *path);
 
-size_t ICE_Sound_Load(size_t man, char *path);
+ICE_Index ICE_Sound_Load(ICE_Index man, char *path);
 
 void ICE_Sound_Clear(ICE_Sound * sound);
 
@@ -24,7 +25,7 @@ void ICE_Sound_Destroy(ICE_Sound * ptr);
 
 // GET
 
-ICE_Sound * ICE_Sound_Get(size_t man, size_t nb);
+ICE_Sound * ICE_Sound_Get(ICE_Index man, ICE_Index nb);
 
 // PLAY
 

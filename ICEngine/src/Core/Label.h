@@ -14,14 +14,14 @@
 /**
  * \brief Insert a new LabelManager in the Game
  */
-size_t ICE_LabelManager_Insert(ICE_State * state);
+ICE_Index ICE_LabelManager_Insert(ICE_State * state);
 
 /**
 * \brief Destroy a manager
 * \param state The state to destroy manager
 * \param man The manager number
 */
-void ICE_LabelManager_Destroy(ICE_State * state, const size_t man);
+void ICE_LabelManager_Destroy(ICE_State * state, const ICE_Index man);
 
 /**
 * \brief Destroy all manager
@@ -62,7 +62,7 @@ void ICE_Label_Destroy(ICE_Label * ptr);
 /////////////////////// * LABEL GET * //////////////////////////
 
 ICE_String ICE_Label_GetString(ICE_Label* ptr);
-ICE_Label * ICE_Label_Get(ICE_State * state, const size_t man, const size_t nb);
+ICE_Label * ICE_Label_Get(ICE_State * state, const ICE_Index man, const ICE_Index nb);
 unsigned ICE_Label_GetWidth(ICE_Label* label);
 unsigned ICE_Label_GetHeight(ICE_Label* label);
 ICE_Float ICE_Label_GetX(ICE_Label * label);

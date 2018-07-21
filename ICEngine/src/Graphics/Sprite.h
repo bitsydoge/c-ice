@@ -6,15 +6,15 @@
 
 /* SPRITEMANAGER */
 
-size_t ICE_SpriteManager_Insert(ICE_State* state);
-void ICE_SpriteManager_Destroy(ICE_State * state, const size_t man);
+ICE_Index ICE_SpriteManager_Insert(ICE_State* state);
+void ICE_SpriteManager_Destroy(ICE_State * state, const ICE_Index man);
 void ICE_SpriteManager_DestroyAll(ICE_State * state);
 
 /* SPRITE */
 
-ICE_Sprite ICE_Sprite_Create(size_t man_texture, size_t nb_texture, unsigned int number_sprite_w, unsigned int number_sprite_h);
-size_t ICE_Sprite_Insert(ICE_State* state, const size_t man, size_t texture_manager,
-                         size_t texture_nb, unsigned int number_sprite_w, unsigned int number_sprite_h);
+ICE_Sprite ICE_Sprite_Create(ICE_Index man_texture, ICE_Index nb_texture, unsigned int number_sprite_w, unsigned int number_sprite_h);
+ICE_Index ICE_Sprite_Insert(ICE_State* state, const ICE_Index man, ICE_Index texture_manager,
+                         ICE_Index texture_nb, unsigned int number_sprite_w, unsigned int number_sprite_h);
 void ICE_Sprite_Clear(ICE_Sprite * label);
 void ICE_Sprite_Destroy(ICE_Sprite * ptr);
 

@@ -12,7 +12,7 @@ extern ICE_Game game;
 
 /* ENTITY MANAGER */
 
-size_t ICE_EntityManager_Insert(ICE_State * state)
+ICE_Index ICE_EntityManager_Insert(ICE_State * state)
 {
 	if (!state)
 		state = game.current;
@@ -29,14 +29,14 @@ size_t ICE_EntityManager_Insert(ICE_State * state)
 	return state->object.entity_mngr_nb - 1;
 }
 
-void ICE_EntityManager_Destroy(ICE_State * state, const size_t man)
+void ICE_EntityManager_Destroy(ICE_State * state, const ICE_Index man)
 {
 	if (!state)
 		state = game.current;
 
 	ICE_EntityManager *manager = &state->object.entity_mngr[man];
 
-	for (size_t i = 0; i < manager->entity_contain; i++)
+	for (ICE_Index i = 0; i < manager->entity_contain; i++)
 	{
 		//Free everything to free in Entity
 		ICE_Entity_Destroy(&manager->entity[i]);
@@ -52,9 +52,9 @@ void ICE_EntityManager_DestroyAll(ICE_State * state)
 		state = game.current;
 
 	ICE_EntityManager *manager = state->object.entity_mngr;
-	size_t nb_manager = state->object.entity_mngr_nb;
+	ICE_Index nb_manager = state->object.entity_mngr_nb;
 
-	for (size_t i = 0; i < nb_manager; i++)
+	for (ICE_Index i = 0; i < nb_manager; i++)
 	{
 		if (!manager[i].isFree)
 		{
@@ -81,7 +81,7 @@ ICE_Entity ICE_Entity_Create(ICE_Box pos)
 	return entity;
 }
 
-size_t ICE_Entity_Insert(ICE_State * state, const size_t man, ICE_Box pos)
+ICE_Index ICE_Entity_Insert(ICE_State * state, const ICE_Index man, ICE_Box pos)
 {
 	if (!state)
 		state = game.current;
@@ -123,7 +123,7 @@ ICE_Entity * ICE_Entity_Get(ICE_State * state, const unsigned man, const unsigne
 	return &game.current->object.entity_mngr[man].entity[nb];
 }
 
-size_t ICE_Entity_GetNumber(ICE_State * state, size_t manager)
+ICE_Index ICE_Entity_GetNumber(ICE_State * state, ICE_Index manager)
 {
 	if (!state)
 		state = game.current;
@@ -131,7 +131,7 @@ size_t ICE_Entity_GetNumber(ICE_State * state, size_t manager)
 	return state->object.entity_mngr[manager].entity_contain;
 }
 
-size_t ICE_EntityManager_GetNumber(ICE_State * state)
+ICE_Index ICE_EntityManager_GetNumber(ICE_State * state)
 {
 	if (!state)
 		state = game.current;
@@ -147,7 +147,7 @@ ICE_Vect ICE_Entity_GetPosition(ICE_Entity * entity)
 
 /* ENTITY SET FUNCTION */
 
-void ICE_Entity_SetTexture(ICE_Entity * entity, size_t texture_manager, size_t texture_nb)
+void ICE_Entity_SetTexture(ICE_Entity * entity, ICE_Index texture_manager, ICE_Index texture_nb)
 {
 	entity->graphics_mngr_index = texture_manager;
 	entity->graphics_index = texture_nb;
