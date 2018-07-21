@@ -17,7 +17,7 @@ enum
 
 };
 
-ICE_PRELOAD()
+ICE_Main_Preload()
 {
 	ICE_Index man = 0;
 
@@ -41,7 +41,7 @@ ICE_PRELOAD()
 	ICE_Font_Load("res//ttf//FiraSans-Medium.ttf");
 }
 
-ICE_CREATE()
+ICE_Main_Create()
 {
 	ICE_Debug_FontSetColorBg(100, 100, 100);
 	ICE_Debug_FontSetColorFg(255, 255, 255);
@@ -64,13 +64,11 @@ ICE_CREATE()
 	// Label
 	manager = ICE_LabelManager_Insert(NULL);
 	// 1
-	nb = ICE_Label_Insert(NULL, manager, L"It is a me", ICE_Vect_New(0, 0));
-	ICE_Label_SetSize(ICE_Label_Get(NULL, manager, nb), 30);
+	nb = ICE_Label_Insert(NULL, manager, L"It is a me", ICE_Vect_New(0, 0), 30);
 	ICE_Label_FixToWorld(ICE_Label_Get(NULL, manager, nb), ICE_True);
 	ICE_Label_SetAngle(ICE_Label_Get(NULL, manager, nb), 30);
 	// 2
-	nb = ICE_Label_Insert(NULL, manager, L"Привет мир", ICE_Vect_New(5, 5));
-	ICE_Label_SetSize(ICE_Label_Get(NULL, manager, nb), 30);
+	nb = ICE_Label_Insert(NULL, manager, L"Привет мир", ICE_Vect_New(5, 5), 30);
 
 	// Data
 	DATA1 * data = ICE_Data_Insert(NULL, sizeof(DATA1));
@@ -97,7 +95,7 @@ void Screen_Update()
 	ICE_Entity_AddAngle(ICE_Entity_Get(NULL, 0, 0), 50 * ICE_Game_GetDelta());
 }
 
-ICE_UPDATE()
+ICE_Main_Update()
 {
 	Screen_Update();
 
@@ -126,7 +124,7 @@ ICE_UPDATE()
 		ICE_Camera_SetPos(ICE_Vect_New(0, 0));
 }
 
-ICE_DESTROY()
+ICE_Main_Destroy()
 {
 	DATA1 * data = ICE_Data_Get(NULL, 0);
 	ICE_State_Destroy(&data->inventory);
@@ -136,6 +134,6 @@ ICE_DESTROY()
 int main(int argc, char** argv)
 {
 	ICE_Debug_Set(ICE_True);
-	ICE_START("2DWatch", 800, 480);
+	ICE_Start("2DWatch", 800, 480);
 	return 0;
 }

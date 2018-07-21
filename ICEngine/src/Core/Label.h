@@ -4,6 +4,7 @@
 
 #include "TypesCore.h"
 #include "../Framework/String_.h"
+#include "../Framework/TypesFramework.h"
 #include "../Maths/TypesMaths.h"
 
 #define ICE_DEFAULT_LABEL_MNGR_SIZE 4
@@ -35,7 +36,7 @@ void ICE_LabelManager_DestroyAll(ICE_State * state);
  * \param pos The position of the Label 
  * \return The new Label
  */
-ICE_Label ICE_Label_Create(char* text, ICE_Vect pos);
+ICE_Label ICE_Label_Create(ICE_StringSTD text, ICE_Vect pos, int size);
 
 /**
  * \brief Insert a new Label in a manager
@@ -44,7 +45,7 @@ ICE_Label ICE_Label_Create(char* text, ICE_Vect pos);
  * \param text The text of the Label
  * \param pos The position of the Label
  */
-size_t ICE_Label_Insert(ICE_State * state, const size_t man, wchar_t *text, const ICE_Vect pos);
+ICE_Index ICE_Label_Insert(ICE_State * state, const ICE_Index man, ICE_StringSTD text, const ICE_Vect pos, int size);
 
 /**
  * \brief Clear a Label and put everything to 0

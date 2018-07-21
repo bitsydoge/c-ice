@@ -1,31 +1,26 @@
 ﻿#include <ICE.h>
 
-ICE_PRELOAD()
+ICE_Main_Preload()
 {
 	ICE_Font_Load("res//ttf//SoukouMincho.ttf");
 }
 
-ICE_CREATE()
+ICE_Main_Create()
 {
-	ICE_Render_Color(ICE_Color_New(100, 200, 80));
-
-	size_t man = ICE_LabelManager_Insert(NULL);
-	size_t nb = ICE_Label_Insert(NULL, man, L"Hello World こんにちは世界", ICE_Vect_New(0, 0));
-
-	ICE_Label_SetSize(ICE_Label_Get(NULL, man, nb), 120);
-	ICE_Label_FixToWorld(ICE_Label_Get(NULL, man, nb), ICE_True);
+	ICE_Index man =		ICE_LabelManager_Insert(NULL);
+	ICE_Index nb  =		ICE_Label_Insert(NULL, man, L"Hello World こんにちは世界", ICE_Vect_Null, 30);
 }
 
-ICE_UPDATE()
+ICE_Main_Update()
 {
 	if (ICE_Input_Key(ICE_KEY_ESCAPE))
 		ICE_Input_Quit();
 }
 
-ICE_DESTROY() {}
+ICE_Main_Destroy() {}
 
 int main()
 {
-	ICE_START("Hello World", 800, 480);
+	ICE_Start("Hello World", 800, 480);
 	return 0;
 }
