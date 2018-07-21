@@ -150,8 +150,8 @@ struct ICE_LabelManager
 {
 	ICE_Bool				isFree;
 
-	size_t					label_size;
-	size_t					label_contain;
+	ICE_Index					label_size;
+	ICE_Index					label_contain;
 	ICE_Label*				label;
 
 }; typedef struct ICE_LabelManager ICE_LabelManager;
@@ -184,11 +184,11 @@ struct ICE_Entity
 	ICE_Bool				use_sprite;
 
 	// Texture location
-	size_t					graphics_mngr_index;
-	size_t					graphics_index;
+	ICE_Index					graphics_mngr_index;
+	ICE_Index					graphics_index;
 
 	// Data Array
-	size_t					data_nb;
+	ICE_Index					data_nb;
 	void **					data;
 
 }; typedef struct ICE_Entity ICE_Entity;
@@ -200,8 +200,8 @@ struct ICE_EntityManager
 {
 	ICE_Bool				isFree;
 
-	size_t					entity_size;
-	size_t					entity_contain;
+	ICE_Index					entity_size;
+	ICE_Index					entity_contain;
 	ICE_Entity*				entity;
 
 }; typedef struct ICE_EntityManager ICE_EntityManager;
@@ -215,23 +215,23 @@ struct ICE_ObjectManager
 	ICE_Camera				camera;
 
 	// Label
-	size_t					label_mngr_nb;
+	ICE_Index					label_mngr_nb;
 	ICE_LabelManager *		label_mngr;
 	
 	// Gui
-	size_t					gui_mngr_nb;
+	ICE_Index					gui_mngr_nb;
 	ICE_GuiManager *		gui_mngr;
 
 	// Entity
-	size_t					entity_mngr_nb;
+	ICE_Index					entity_mngr_nb;
 	ICE_EntityManager *		entity_mngr;
 
 	// Sprite
-	size_t					sprite_mngr_nb;
+	ICE_Index					sprite_mngr_nb;
 	ICE_SpriteManager *		sprite_mngr;
 
 	// Data
-	size_t					data_nb;
+	ICE_Index					data_nb;
 	void**					data;
 
 }; typedef struct ICE_ObjectManager ICE_ObjectManager;
@@ -291,19 +291,19 @@ struct ICE_Game {
 struct ICE_Asset
 {
 	// Font
-	size_t					font_mngr_nb; // todo
+	ICE_Index					font_mngr_nb; // todo
 	ICE_Font				font;
 
 	// Texture
-	size_t					texture_mngr_nb;
+	ICE_Index					texture_mngr_nb;
 	ICE_TextureManager *	texture_mngr;
 
 	// Sound
-	size_t					sound_mngr_nb;
+	ICE_Index					sound_mngr_nb;
 	ICE_SoundManager *		sound_mngr;
 
 	// Music
-	size_t					music_mngr_nb;
+	ICE_Index					music_mngr_nb;
 	ICE_MusicManager *		music_mngr;
 
 }; typedef struct ICE_Asset ICE_Asset;

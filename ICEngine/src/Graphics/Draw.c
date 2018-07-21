@@ -13,8 +13,8 @@ void ICE_Draw_LabelWorld()
 {
 	ICE_State * current = game.current;
 
-	for (size_t i = 0; i < current->object.label_mngr_nb; i++)
-		for (size_t j = 0; j < current->object.label_mngr[i].label_contain; j++)
+	for (ICE_Index i = 0; i < current->object.label_mngr_nb; i++)
+		for (ICE_Index j = 0; j < current->object.label_mngr[i].label_contain; j++)
 		{
 			if (current->object.label_mngr[i].label[j].active)
 			{
@@ -50,8 +50,8 @@ void ICE_Draw_LabelWorld()
 void ICE_Draw_LabelScreen() {
 	ICE_State * current = game.current;
 
-	for (size_t i = 0; i < current->object.label_mngr_nb; i++)
-		for (size_t j = 0; j < current->object.label_mngr[i].label_contain; j++)
+	for (ICE_Index i = 0; i < current->object.label_mngr_nb; i++)
+		for (ICE_Index j = 0; j < current->object.label_mngr[i].label_contain; j++)
 		{
 			if (current->object.label_mngr[i].label[j].active)
 			{
@@ -87,8 +87,8 @@ void ICE_Draw_Gui()
 {
 	ICE_State * current = game.current;
 
-	for (size_t i = 0; i < current->object.gui_mngr_nb; i++)
-		for (size_t j = 0; j < current->object.gui_mngr[i].gui_contain; j++)
+	for (ICE_Index i = 0; i < current->object.gui_mngr_nb; i++)
+		for (ICE_Index j = 0; j < current->object.gui_mngr[i].gui_contain; j++)
 		{
 			if (current->object.gui_mngr[i].gui[j].exist && current->object.gui_mngr[i].gui[j].have_texture_defined)
 			{
@@ -113,8 +113,8 @@ void ICE_Draw_Entity()
 {
 	ICE_State * current = game.current;
 
-	for (size_t i = 0; i < current->object.entity_mngr_nb; i++)
-		for (size_t j = 0; j < current->object.entity_mngr[i].entity_contain; j++)
+	for (ICE_Index i = 0; i < current->object.entity_mngr_nb; i++)
+		for (ICE_Index j = 0; j < current->object.entity_mngr[i].entity_contain; j++)
 		{
 			if (current->object.entity_mngr[i].entity[j].have_graphics && current->object.entity_mngr[i].entity[j].active)
 			{

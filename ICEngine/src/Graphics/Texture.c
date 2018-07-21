@@ -10,7 +10,7 @@
 extern ICE_Asset asset;
 extern ICE_Game game;
 
-size_t ICE_TextureManager_Insert() 
+ICE_Index ICE_TextureManager_Insert() 
 {
 	ICE_TextureManager texture_manager = { 0 };
 	texture_manager.texture_size = ICE_DEFAULT_TEXTURE_SIZE;
@@ -24,11 +24,11 @@ size_t ICE_TextureManager_Insert()
 	return asset.texture_mngr_nb - 1;
 }
 
-void ICE_TextureManager_Destroy(const size_t man)
+void ICE_TextureManager_Destroy(const ICE_Index man)
 {
 	ICE_TextureManager * manager = &asset.texture_mngr[man];
 	
-	for (size_t i = 0; i < asset.texture_mngr[man].texture_contain; i++)
+	for (ICE_Index i = 0; i < asset.texture_mngr[man].texture_contain; i++)
 		ICE_Texture_Destroy(ICE_Texture_Get(man, i));
 
 	ICE_Free(manager->texture);
@@ -38,9 +38,9 @@ void ICE_TextureManager_Destroy(const size_t man)
 void ICE_TextureManager_DestroyAll()
 {
 	ICE_TextureManager *manager = asset.texture_mngr;
-	size_t nb_manager = asset.texture_mngr_nb;
+	ICE_Index nb_manager = asset.texture_mngr_nb;
 
-	for (size_t i = 0; i < nb_manager; i++)
+	for (ICE_Index i = 0; i < nb_manager; i++)
 	{
 		if (!manager[i].isFree)
 		{
@@ -51,7 +51,7 @@ void ICE_TextureManager_DestroyAll()
 	free(manager);
 }
 
-size_t ICE_Texture_Load(int manager, char* path) 
+ICE_Index ICE_Texture_Load(int manager, char* path) 
 {
 	ICE_Texture *text = ICE_Texture_LoadFromFile(path);
 	text->exist = 1;
@@ -76,7 +76,7 @@ void ICE_Texture_Destroy(ICE_Texture *tex) {
 	SDL_DestroyTexture(tex->handle);
 }
 
-ICE_Texture * ICE_Texture_Get(size_t man, size_t nb)
+ICE_Texture * ICE_Texture_Get(ICE_Index man, ICE_Index nb)
 {
 	return &asset.texture_mngr[man].texture[nb];
 }
