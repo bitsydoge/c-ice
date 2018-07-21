@@ -4,16 +4,18 @@
 #define ICE_VERSION "105<dev>"
 #define ICE_DEBUG_BUILD 1;
 
-#define ICE_START(NAME, WIDTH, HEIGHT) ICE_Core_Main(NAME, WIDTH, HEIGHT, ICE_User_Preload, ICE_User_Create, ICE_User_Update, ICE_User_Destroy)
-
-#define ICE_PRELOAD() void ICE_User_Preload(void)
-#define ICE_CREATE() void ICE_User_Create(void)
-#define ICE_UPDATE() void ICE_User_Update(void)
-#define ICE_DESTROY() void ICE_User_Destroy(void)
-
-#if defined(_MSC_VER) && defined(_DEBUG)
-	#include <vld.h>
+#if defined(_DEBUG)
+#define ICE_Start(NAME, WIDTH, HEIGHT) ICE_Debug_Set(ICE_True);\
+ICE_Core_Main(NAME, WIDTH, HEIGHT, ICE_User_Preload, ICE_User_Create, ICE_User_Update, ICE_User_Destroy)
+#else
+#define ICE_Start(NAME, WIDTH, HEIGHT) ICE_Debug_Set(ICE_False);\
+ICE_Core_Main(NAME, WIDTH, HEIGHT, ICE_User_Preload, ICE_User_Create, ICE_User_Update, ICE_User_Destroy)
 #endif
+
+#define ICE_Main_Preload() void ICE_User_Preload(void)
+#define ICE_Main_Create() void ICE_User_Create(void)
+#define ICE_Main_Update() void ICE_User_Update(void)
+#define ICE_Main_Destroy() void ICE_User_Destroy(void)
 
 #include "../Framework/String_.h"
 

@@ -71,7 +71,7 @@ void ICE_LabelManager_DestroyAll(ICE_State * state)
 
 /* LABEL */
 
-ICE_Label ICE_Label_Create(wchar_t* text, ICE_Vect pos)
+ICE_Label ICE_Label_Create(ICE_StringSTD text, ICE_Vect pos, int size)
 {
 	ICE_Label label = { 0 };
 
@@ -82,7 +82,7 @@ ICE_Label ICE_Label_Create(wchar_t* text, ICE_Vect pos)
 	label.old_color = ICE_Color_New(255, 255, 255);
 	label.text = ICE_String_Init(text);
 	label.old_text = ICE_String_Init(text);
-	label.size = 200;
+	label.size = size;
 	label.old_size = 200;
 	label.x = pos.x;
 	label.y = pos.y;
@@ -90,13 +90,13 @@ ICE_Label ICE_Label_Create(wchar_t* text, ICE_Vect pos)
 	return label;
 }
 
-size_t ICE_Label_Insert(ICE_State * state, const size_t man, wchar_t *text, const ICE_Vect pos)
+size_t ICE_Label_Insert(ICE_State * state, const ICE_Index man, ICE_StringSTD text, const ICE_Vect pos, int size)
 {
 	if (!state)
 		state = game.current;
 
 	// Insert label in array
-	state->object.label_mngr[man].label[state->object.label_mngr[man].label_contain] = ICE_Label_Create(text, pos);
+	state->object.label_mngr[man].label[state->object.label_mngr[man].label_contain] = ICE_Label_Create(text, pos, size);
 	ICE_Label_UpdateTexture(ICE_Label_Get(state, man, state->object.label_mngr[man].label_contain));
 	state->object.label_mngr[man].label_contain++;
 

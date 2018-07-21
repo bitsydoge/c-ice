@@ -6,12 +6,12 @@
 #include "Memory_.h"
 
 // Number of wchar_t per int on that platform
-static const int cpi = sizeof(int) / sizeof(wchar_t);
+static const int cpi = sizeof(int) / sizeof(ICE_Char);
 
 // Return size of a standard string (work on ICE_String too)
-int ICE_String_STDSize(wchar_t * string)
+int ICE_String_STDSize(ICE_StringSTD string)
 {
-	wchar_t actual; int size_string = 0;
+	ICE_Char actual; int size_string = 0;
 	if (string)
 	{
 		do
@@ -39,7 +39,7 @@ int ICE_String_Contain(ICE_String string)
 }
 
 // Init a string with header int with information about the array and the string
-ICE_String ICE_String_Init(wchar_t* stdstring)
+ICE_String ICE_String_Init(ICE_StringSTD stdstring)
 {
 	const int size_string = ICE_String_STDSize(stdstring);
 	int nb_int_to_malloc = size_string / cpi;
@@ -50,7 +50,7 @@ ICE_String ICE_String_Init(wchar_t* stdstring)
 	nb_int_to_malloc += 2;
 
 	int * tmp = (int*)ICE_Malloc(sizeof(int)*nb_int_to_malloc);
-	wchar_t* string = (wchar_t*)(tmp + 2);
+	ICE_Char* string = (ICE_Char*)(tmp + 2);
 
 	int* size_array = (int*)(string - (2 * cpi));
 	int* contain_array = (int*)(string - (1 * cpi));
@@ -73,7 +73,7 @@ void ICE_String_Delete(ICE_String string)
 // Draw string + header informations
 void ICE_String_Info(ICE_String string)
 {
-	printf("STRING : \"%s\", SIZE : %d, CONTAIN : %d \n", string, ICE_String_Size(string), ICE_String_Contain(string));
+	wprintf(L"STRING : \"%s\", SIZE : %d, CONTAIN : %d \n", string, ICE_String_Size(string), ICE_String_Contain(string));
 
 }
 
@@ -104,14 +104,14 @@ void ICE_String_Resize(ICE_String* ptr_string, const int size)
 	tmp = (int*)ICE_Realloc(tmp, sizeof(int)*(2 + nb_int_to_realloc));
 	tmp[0] = nb_int_to_realloc * cpi;
 	tmp[1] = bool_tronc ? size : contain_array;
-	ice_string = (wchar_t*)(tmp + 2);
+	ice_string = (ICE_Char*)(tmp + 2);
 	if (bool_tronc)
 		(ice_string)[contain_array - 1] = '\0';
 
 	*ptr_string = ice_string;
 }
 
-void ICE_String_Set(ICE_String* ptr_string, wchar_t* value)
+void ICE_String_Set(ICE_String* ptr_string, ICE_StringSTD value)
 {
 	// Unoptimized
 	ICE_String_Delete(*ptr_string);

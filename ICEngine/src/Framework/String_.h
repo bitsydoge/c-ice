@@ -3,14 +3,16 @@
 
 #include <wchar.h>
 
-typedef wchar_t* ICE_String;
+typedef wchar_t ICE_Char;
+typedef ICE_Char* ICE_String;
+typedef ICE_Char* ICE_StringSTD;
 
 /**
  * \brief Return the size of a std string (Work on ICE_String but is less faster)
  * \param string String evaluated
  * \return Size of the string
  */
-int ICE_String_STDSize(wchar_t * string);
+int ICE_String_STDSize(ICE_StringSTD string);
 
 /**
  * \brief Return size of the array of a ICE_String (dont work on std char*) (it's multiple of int)
@@ -31,7 +33,7 @@ int ICE_String_Contain(ICE_String string);
  * \param stdstring String to init into ICE_String
  * \return A ICE_String that need to be Delete
  */
-ICE_String ICE_String_Init(wchar_t* stdstring);
+ICE_String ICE_String_Init(ICE_StringSTD stdstring);
 
 /**
  * \brief Free everything from the string
@@ -54,7 +56,7 @@ void ICE_String_Info(ICE_String string);
 void ICE_String_Resize(ICE_String* ptr_string, const int size);
 
 
-void ICE_String_Set(ICE_String* ptr_string, wchar_t * value);
+void ICE_String_Set(ICE_String* ptr_string, ICE_StringSTD value);
 
 #endif
 
