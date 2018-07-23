@@ -1,5 +1,5 @@
-﻿#ifndef DEF_ICE_ASSET
-#define DEF_ICE_ASSET
+﻿#ifndef DEF_ICE_ASSET_PRIVATE
+#define DEF_ICE_ASSET_PRIVATE
 
 void ICE_Asset_Init();
 void ICE_Asset_Quit();

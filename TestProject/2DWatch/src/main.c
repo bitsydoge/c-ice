@@ -17,7 +17,7 @@ enum
 
 };
 
-ICE_Main_Create()
+void ICE_Game_Create("2DWatch", 800, 480)
 {
 	// Texture
 	ICE_Index manager = ICE_TextureManager_Insert();
@@ -91,7 +91,7 @@ void Screen_Update()
 	ICE_Entity_AddAngle(ICE_Entity_Get(NULL, 0, 0), 50 * ICE_Game_GetDelta());
 }
 
-ICE_Main_Update()
+void ICE_Game_Update()
 {
 	Screen_Update();
 
@@ -120,16 +120,9 @@ ICE_Main_Update()
 		ICE_Camera_SetPos(ICE_Vect_New(0, 0));
 }
 
-ICE_Main_Destroy()
+void ICE_Game_Destroy()
 {
 	DATA1 * data = ICE_Data_Get(NULL, 0);
 	ICE_State_Destroy(&data->inventory);
 	Game_Weapon_Destroy(&data->current_weapon);
-}
-
-int main(int argc, char** argv)
-{
-	ICE_Debug_Set(ICE_True);
-	ICE_Start("2DWatch", 800, 480);
-	return 0;
 }

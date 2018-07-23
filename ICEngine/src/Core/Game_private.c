@@ -9,7 +9,7 @@
 
 ICE_Game game = { 0 };
 
-void ICE_Game_Create(char *window_title, const unsigned int width_window, const unsigned int height_window, int argc, char **argv)
+void ICE_GameObject_Create(char *window_title, const unsigned int width_window, const unsigned int height_window, int argc, char **argv)
 {
 	game.argc = argc;
 	game.argv = argv;
@@ -42,7 +42,7 @@ void ICE_Game_Create(char *window_title, const unsigned int width_window, const 
 	printf("\n");
 }
 
-void ICE_Game_Destroy()
+void ICE_GameObject_Destroy()
 {
 	SDL_DestroyWindow(game.window.handle);
 	SDL_DestroyRenderer(game.window.render);

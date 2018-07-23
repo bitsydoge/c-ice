@@ -4,17 +4,32 @@
 #define ICE_VERSION "105<dev>"
 #define ICE_DEBUG_BUILD 1;
 
+#define ICE_Game_Update() ICE_User_Update(void)
+#define ICE_Game_Destroy() ICE_User_Destroy(void)
+
 #if defined(_DEBUG)
-#define ICE_Start(NAME, WIDTH, HEIGHT) ICE_Debug_Set(ICE_True);\
-ICE_Core_Main(NAME, WIDTH, HEIGHT, ICE_User_Create, ICE_User_Update, ICE_User_Destroy, argc, argv)
+#define ICE_Game_Create(NAME, WIDTH, HEIGHT) ICE_User_Create(void);\
+	void ICE_Game_Update();\
+	void ICE_Game_Destroy();\
+	int main(int argc, char ** argv)\
+	{\
+		ICE_Debug_Set(ICE_True);\
+		ICE_Core_Main(NAME, WIDTH, HEIGHT, ICE_User_Create, ICE_User_Update, ICE_User_Destroy, argc, argv);\
+	}\
+	void ICE_User_Create(void)
 #else
-#define ICE_Start(NAME, WIDTH, HEIGHT) ICE_Debug_Set(ICE_False);\
-ICE_Core_Main(NAME, WIDTH, HEIGHT, ICE_User_Create, ICE_User_Update, ICE_User_Destroy, argc, argv)
+#define ICE_Game_Create(NAME, WIDTH, HEIGHT) ICE_User_Create(void); \
+	void ICE_Game_Update(); \
+	void ICE_Game_Destroy(); \
+	int main(int argc, char ** argv)\
+	{\
+		ICE_Debug_Set(ICE_False); \
+		ICE_Core_Main(NAME, WIDTH, HEIGHT, ICE_User_Create, ICE_User_Update, ICE_User_Destroy, argc, argv); \
+	}\
+	void ICE_User_Create(void)
 #endif
 
-#define ICE_Main_Create() void ICE_User_Create(void)
-#define ICE_Main_Update() void ICE_User_Update(void)
-#define ICE_Main_Destroy() void ICE_User_Destroy(void)
+
 
 #include "../Framework/String_.h"
 
