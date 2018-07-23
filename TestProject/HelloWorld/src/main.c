@@ -1,12 +1,8 @@
 ﻿#include <ICE.h>
 
-ICE_Main_Preload()
-{
-	ICE_Font_Load("res//ttf//SoukouMincho.ttf");
-}
-
 ICE_Main_Create()
 {
+	ICE_Font_Load("res//ttf//SoukouMincho.ttf");
 	ICE_Index man =		ICE_LabelManager_Insert(NULL);
 	ICE_Index nb  =		ICE_Label_Insert(NULL, man, L"Hello World こんにちは世界", ICE_Vect_Null, 30);
 }

@@ -24,10 +24,6 @@ void ICE_Debug_Update()
 	ICE_Draw_Rectangle(converter, ICE_Color_Red);
 }
 
-ICE_Main_Preload()
-{
-}
-
 ICE_Main_Create()
 {
 	// Debug
@@ -66,7 +62,7 @@ ICE_Main_Update()
 
 ICE_Main_Destroy() {}
 
-int main()
+int main(int argc, char* argv[])
 {
 	ICE_Start("Spritesheet", 1280, 720);
 	return 0;

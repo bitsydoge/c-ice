@@ -9,8 +9,11 @@
 
 ICE_Game game = { 0 };
 
-void ICE_Game_Create(char *window_title, const unsigned int width_window, const unsigned int height_window)
+void ICE_Game_Create(char *window_title, const unsigned int width_window, const unsigned int height_window, int argc, char **argv)
 {
+	game.argc = argc;
+	game.argv = argv;
+
 	// Window and Render
 	game.window.handle = SDL_CreateWindow(
 		window_title,
