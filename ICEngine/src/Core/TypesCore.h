@@ -111,6 +111,13 @@ struct ICE_Font
 
 // --------------------------------------
 
+
+enum ICE_LabelType
+{
+	ICE_LabelType_Screen = 0,
+	ICE_LabelType_World = 1
+};
+
 /**
  * \brief A struct that is a text on screen, contain Size, Color and String in it
  */
@@ -136,7 +143,7 @@ struct ICE_Label
 
 
 	//ICE_Texture texture;
-	ICE_Bool				isFixedToWorld;
+	enum ICE_LabelType		labelType;
 
 	ICE_Texture				texture;
 

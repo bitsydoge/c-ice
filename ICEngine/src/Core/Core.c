@@ -63,5 +63,6 @@ int ICE_Core_Main(char * title, const int window_width, const int window_height,
 	ICE_Log(ICE_LOG_SUCCES, "Game]::[Destroy]::[Finish");
 	
 	ICE_Core_Close();
+
 	return 0;
 }

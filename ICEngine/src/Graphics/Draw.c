@@ -41,7 +41,7 @@ void ICE_Draw_LabelWorld()
 					current->object.label_mngr[i].label[j].texture.h
 				);
  
-				if (current->object.label_mngr[i].label[j].isFixedToWorld)
+				if (current->object.label_mngr[i].label[j].labelType)
 					ICE_Texture_RenderExCentered(&current->object.label_mngr[i].label[j].texture, NULL, (ICE_Box[]) { ICE_Camera_WorldScreen(box) }, current->object.label_mngr[i].label[j].angle);
 			}
 		}
@@ -77,7 +77,7 @@ void ICE_Draw_LabelScreen() {
 				);
 
 				// Fixed to screen
-				if (!current->object.label_mngr[i].label[j].isFixedToWorld)
+				if (!current->object.label_mngr[i].label[j].labelType)
 					ICE_Texture_RenderEx(&current->object.label_mngr[i].label[j].texture, NULL, &box, current->object.label_mngr[i].label[j].angle);
 			}
 		}
