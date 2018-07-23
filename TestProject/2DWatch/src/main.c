@@ -17,36 +17,32 @@ enum
 
 };
 
-ICE_Main_Preload()
+ICE_Main_Create()
 {
-	ICE_Index man = 0;
-
 	// Texture
-	man = ICE_TextureManager_Insert();
-	ICE_Texture_Load(man, "res//img//pic.png");
-	ICE_Texture_Load(man, "res//img//gui.png");
-	ICE_Texture_Load(man, "res//img//widow.png");
-	ICE_Texture_Load(man, "res//img//sprite.png");
-	ICE_Texture_Load(man, "res//img//ice_logo.png");
+	ICE_Index manager = ICE_TextureManager_Insert();
+	ICE_Texture_Load(manager, "res//img//pic.png");
+	ICE_Texture_Load(manager, "res//img//gui.png");
+	ICE_Texture_Load(manager, "res//img//widow.png");
+	ICE_Texture_Load(manager, "res//img//sprite.png");
+	ICE_Texture_Load(manager, "res//img//ice_logo.png");
 
 	// Sound
-	man = ICE_SoundManager_Insert();
-	ICE_Sound_Load(man, "res//snd//explosion.wav");
+	manager = ICE_SoundManager_Insert();
+	ICE_Sound_Load(manager, "res//snd//explosion.wav");
 
 	// Music
-	man = ICE_MusicManager_Insert();
-	ICE_Music_Load(man, "res//snd//music.ogg");
+	manager = ICE_MusicManager_Insert();
+	ICE_Music_Load(manager, "res//snd//music.ogg");
 
 	// Font
 	ICE_Font_Load("res//ttf//FiraSans-Medium.ttf");
-}
 
-ICE_Main_Create()
-{
+	// Debug
+
 	ICE_Debug_FontSetColorBg(100, 100, 100);
 	ICE_Debug_FontSetColorFg(255, 255, 255);
 
-	ICE_Index manager = 0;
 	ICE_Index nb = 0;
 
 	// Entity

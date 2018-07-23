@@ -277,6 +277,10 @@ struct ICE_Game {
 	// Debug
 	void(*lateDrawDebug)();
 
+	// Args
+	int argc; 
+	char **argv;
+
 }; typedef struct ICE_Game ICE_Game;
 
 

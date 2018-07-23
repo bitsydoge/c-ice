@@ -1,6 +1,10 @@
 #ifndef DEF_ICE_INCLUDER_0X505050
 #define DEF_ICE_INCLUDER_0X505050
 
+#if defined(_DEBUG) && defined (_MSC_VER)
+	#include <vld.h>
+#endif
+
 // Framework
 
 #include "Framework/TypesFramework.h"

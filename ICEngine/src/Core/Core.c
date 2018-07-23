@@ -5,25 +5,28 @@
 #include "Game_private.h"
 #include "Input_private.h"
 #include "Time_private.h"
+#include "Asset_private.h"
 
 #include "../Graphics/Draw.h"
 #include "../Graphics/Render.h"
 #include "../Graphics/Render_private.h"
-#include "../Framework/String_.h"
 #include "../Framework/Log.h"
 #include "../Core/Debug.h"
 
 #include <stdio.h>
 
+
 extern ICE_Game game;
 
-int ICE_Core_Main(char * title, const int window_width, const int window_height, void(*call_preload)(void), void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void)) 
+int ICE_Core_Main(char * title, const int window_width, const int window_height, void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void), int argc, char **argv)
 {
-	ICE_Core_Init();
-	ICE_Game_Create(title, window_width, window_height);
-	call_preload();
+#if defined(_DEBUG) && defined (_MSC_VER)
+	puts("");
+#endif
 
-	
+	ICE_Core_Init();
+	ICE_Game_Create(title, window_width, window_height, argc, argv);
+	ICE_Asset_Init();
 	ICE_Log(ICE_LOG_RUNNING, "Game]::[Create]::[Start");
 	call_create();
 	ICE_Log(ICE_LOG_SUCCES, "Game]::[Create]::[Finish");
