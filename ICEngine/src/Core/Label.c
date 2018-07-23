@@ -71,7 +71,7 @@ void ICE_LabelManager_DestroyAll(ICE_State * state)
 
 /* LABEL */
 
-ICE_Label ICE_Label_Create(ICE_StringSTD text, ICE_Vect pos, int size, enum ICE_LabelType type)
+ICE_Label ICE_Label_Create(ICE_WStringStd text, ICE_Vect pos, int size, enum ICE_LabelType type)
 {
 	ICE_Label label = { 0 };
 
@@ -79,8 +79,8 @@ ICE_Label ICE_Label_Create(ICE_StringSTD text, ICE_Vect pos, int size, enum ICE_
 	label.active = ICE_True;
 	label.color = ICE_Color_New(255, 255, 255);
 	label.old_color = ICE_Color_New(255, 255, 255);
-	label.text = ICE_String_Init(text);
-	label.old_text = ICE_String_Init(text);
+	label.text = ICE_WString_Init(text);
+	label.old_text = ICE_WString_Init(text);
 	label.size = size;
 	label.old_size = 200;
 	label.x = pos.x;
@@ -90,7 +90,7 @@ ICE_Label ICE_Label_Create(ICE_StringSTD text, ICE_Vect pos, int size, enum ICE_
 	return label;
 }
 
-ICE_Index ICE_Label_Insert(ICE_State * state, const ICE_Index man, ICE_StringSTD text, const ICE_Vect pos, int size, enum ICE_LabelType type)
+ICE_Index ICE_Label_Insert(ICE_State * state, const ICE_Index man, ICE_WStringStd text, const ICE_Vect pos, int size, enum ICE_LabelType type)
 {
 	if (!state)
 		state = game.current;
@@ -116,19 +116,19 @@ ICE_Index ICE_Label_Insert(ICE_State * state, const ICE_Index man, ICE_StringSTD
 
 void ICE_Label_Clear(ICE_Label * label)
 {
-	ICE_String temp = label->text;
-	ICE_String temp2 = label->old_text;
+	ICE_WString temp = label->text;
+	ICE_WString temp2 = label->old_text;
 	memset(label, 0, sizeof(ICE_Label));
 	label->text = temp;
 	label->old_text = temp2;
-	ICE_String_Resize(&temp, 1);
-	ICE_String_Resize(&temp2, 1);
+	ICE_WString_Resize(&temp, 1);
+	ICE_WString_Resize(&temp2, 1);
 }
 
 void ICE_Label_Destroy(ICE_Label * ptr)
 {
-	ICE_String_Delete(ptr->text);
-	ICE_String_Delete(ptr->old_text);
+	ICE_WString_Delete(ptr->text);
+	ICE_WString_Delete(ptr->old_text);
 	ICE_Texture_Destroy(&ptr->texture);
 }
 
@@ -141,7 +141,7 @@ ICE_Label * ICE_Label_Get(ICE_State * state, const ICE_Index man, const ICE_Inde
 	return &game.current->object.label_mngr[man].label[nb];
 }
 
-ICE_String ICE_Label_GetString(ICE_Label* ptr)
+ICE_WString ICE_Label_GetString(ICE_Label* ptr)
 {
 	return ptr->text;
 }
@@ -161,8 +161,8 @@ void ICE_Label_SetString(ICE_Label * label, const wchar_t * format, ...)
 	char buffer[256];
 	vswprintf(buffer, 256, format, args);
 
-	ICE_String_Delete(label->text);
-	label->text = ICE_String_Init(buffer);
+	ICE_WString_Delete(label->text);
+	label->text = ICE_WString_Init(buffer);
 
 	va_end(args);
 }

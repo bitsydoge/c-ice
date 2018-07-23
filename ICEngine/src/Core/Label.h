@@ -36,7 +36,7 @@ void ICE_LabelManager_DestroyAll(ICE_State * state);
  * \param pos The position of the Label 
  * \return The new Label
  */
-ICE_Label ICE_Label_Create(ICE_StringSTD text, ICE_Vect pos, int size, enum ICE_LabelType type);
+ICE_Label ICE_Label_Create(ICE_WStringStd text, ICE_Vect pos, int size, enum ICE_LabelType type);
 
 /**
  * \brief Insert a new Label in a manager
@@ -45,7 +45,7 @@ ICE_Label ICE_Label_Create(ICE_StringSTD text, ICE_Vect pos, int size, enum ICE_
  * \param text The text of the Label
  * \param pos The position of the Label
  */
-ICE_Index ICE_Label_Insert(ICE_State * state, const ICE_Index man, ICE_StringSTD text, const ICE_Vect pos, int size, enum ICE_LabelType type);
+ICE_Index ICE_Label_Insert(ICE_State * state, const ICE_Index man, ICE_WStringStd text, const ICE_Vect pos, int size, enum ICE_LabelType type);
 
 /**
  * \brief Clear a Label and put everything to 0
@@ -61,7 +61,7 @@ void ICE_Label_Destroy(ICE_Label * ptr);
 
 /////////////////////// * LABEL GET * //////////////////////////
 
-ICE_String ICE_Label_GetString(ICE_Label* ptr);
+ICE_WString ICE_Label_GetString(ICE_Label* ptr);
 ICE_Label * ICE_Label_Get(ICE_State * state, const ICE_Index man, const ICE_Index nb);
 unsigned ICE_Label_GetWidth(ICE_Label* label);
 unsigned ICE_Label_GetHeight(ICE_Label* label);

@@ -6,7 +6,7 @@
 struct Game_Weapon
 {
 
-	ICE_String			name;
+	ICE_WString			name;
 	ICE_Float			damage;
 	ICE_Float			speed;
 	ICE_Float			weight;
