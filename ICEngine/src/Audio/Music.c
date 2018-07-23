@@ -60,7 +60,7 @@ ICE_Music ICE_Music_Create(char *path)
 	ICE_Music music = { 0 };
 
 	// Assigne
-	music.filename = ICE_String_Init(path);
+	music.filename = ICE_WString_Init(path);
 	music.music = Mix_LoadMUS(path);
 	if(music.music == NULL)
 	{
@@ -97,7 +97,7 @@ void ICE_Music_Clear(ICE_Music * music)
 
 void ICE_Music_Destroy(ICE_Music * ptr)
 {
-	ICE_String_Delete(ptr->filename);
+	ICE_WString_Delete(ptr->filename);
 	Mix_FreeMusic(ptr->music);
 }
 

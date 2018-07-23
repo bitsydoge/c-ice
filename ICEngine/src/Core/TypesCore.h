@@ -65,7 +65,7 @@ struct ICE_Input
 	unsigned int			mousex;
 	unsigned int			mousey;
 	ICE_Bool				focus;
-	ICE_String				filedrop;
+	ICE_WString				filedrop;
 
 }; typedef struct ICE_Input ICE_Input;
 
@@ -76,7 +76,7 @@ struct ICE_Input
  */
 struct ICE_Window
 {
-	ICE_String				title;
+	ICE_WString				title;
 	ICE_Float				w, h;
 
 	SDL_Window *			handle;
@@ -128,12 +128,12 @@ struct ICE_Label
 	ICE_Float				x, y;
 
 	// Label Value
-	ICE_String				text;
+	ICE_WString				text;
 	int						size;
 	ICE_Color				color;
 	int						wrap_width;
 
-	ICE_String				old_text;
+	ICE_WString				old_text;
 	int						old_size;
 	ICE_Color				old_color;
 	int						wrap_width_old;

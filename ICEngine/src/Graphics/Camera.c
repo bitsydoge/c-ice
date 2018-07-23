@@ -42,7 +42,7 @@ void ICE_Camera_ShiftPos(ICE_Vect Dvect)
 // Camera return
 // ----------------------------------------------------
 
-ICE_Vect ICE_Camera_GetVect()
+ICE_Vect ICE_Camera_GetPos()
 {
 	return ICE_Vect_New(game.window.w, game.window.h);
 }

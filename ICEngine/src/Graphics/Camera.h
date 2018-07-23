@@ -41,6 +41,6 @@ ICE_Box ICE_Camera_ScreenWorld(ICE_Box rect);
  * \brief Return a Vector with Camera Coordinate
  * \return 
  */
-ICE_Vect ICE_Camera_GetVect();
+ICE_Vect ICE_Camera_GetPos();
 
 #endif

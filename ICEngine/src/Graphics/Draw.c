@@ -29,8 +29,8 @@ void ICE_Draw_LabelWorld()
 					current->object.label_mngr[i].label[j].old_color = current->object.label_mngr[i].label[j].color;
 					current->object.label_mngr[i].label[j].old_size = current->object.label_mngr[i].label[j].size;
 
-					ICE_String_Delete(current->object.label_mngr[i].label[j].old_text);
-					current->object.label_mngr[i].label[j].old_text = ICE_String_Init(current->object.label_mngr[i].label[j].text);
+					ICE_WString_Delete(current->object.label_mngr[i].label[j].old_text);
+					current->object.label_mngr[i].label[j].old_text = ICE_WString_Init(current->object.label_mngr[i].label[j].text);
 					current->object.label_mngr[i].label[j].wrap_width_old = current->object.label_mngr[i].label[j].wrap_width;
 				}
 
@@ -65,8 +65,8 @@ void ICE_Draw_LabelScreen() {
 					current->object.label_mngr[i].label[j].old_color = current->object.label_mngr[i].label[j].color;
 					current->object.label_mngr[i].label[j].old_size = current->object.label_mngr[i].label[j].size;
 
-					ICE_String_Delete(current->object.label_mngr[i].label[j].old_text);
-					current->object.label_mngr[i].label[j].old_text = ICE_String_Init(current->object.label_mngr[i].label[j].text);
+					ICE_WString_Delete(current->object.label_mngr[i].label[j].old_text);
+					current->object.label_mngr[i].label[j].old_text = ICE_WString_Init(current->object.label_mngr[i].label[j].text);
 				}
 
 				ICE_Box box = ICE_Box_New(
