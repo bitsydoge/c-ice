@@ -31,6 +31,7 @@
 #include "Core/Window.h"
 #include "Core/Data.h"
 #include "Core/Entity.h"
+#include "Core/Asset.h"
 
 // Graphics
 
