@@ -71,13 +71,12 @@ void ICE_LabelManager_DestroyAll(ICE_State * state)
 
 /* LABEL */
 
-ICE_Label ICE_Label_Create(ICE_StringSTD text, ICE_Vect pos, int size)
+ICE_Label ICE_Label_Create(ICE_StringSTD text, ICE_Vect pos, int size, enum ICE_LabelType type)
 {
 	ICE_Label label = { 0 };
 
 	// Assigne
 	label.active = ICE_True;
-	label.isFixedToWorld = ICE_False;
 	label.color = ICE_Color_New(255, 255, 255);
 	label.old_color = ICE_Color_New(255, 255, 255);
 	label.text = ICE_String_Init(text);
@@ -86,21 +85,22 @@ ICE_Label ICE_Label_Create(ICE_StringSTD text, ICE_Vect pos, int size)
 	label.old_size = 200;
 	label.x = pos.x;
 	label.y = pos.y;
+	label.labelType = type;
 
 	return label;
 }
 
-ICE_Index ICE_Label_Insert(ICE_State * state, const ICE_Index man, ICE_StringSTD text, const ICE_Vect pos, int size)
+ICE_Index ICE_Label_Insert(ICE_State * state, const ICE_Index man, ICE_StringSTD text, const ICE_Vect pos, int size, enum ICE_LabelType type)
 {
 	if (!state)
 		state = game.current;
 
 	// Insert label in array
-	state->object.label_mngr[man].label[state->object.label_mngr[man].label_contain] = ICE_Label_Create(text, pos, size);
+	state->object.label_mngr[man].label[state->object.label_mngr[man].label_contain] = ICE_Label_Create(text, pos, size, type);
 	ICE_Label_UpdateTexture(ICE_Label_Get(state, man, state->object.label_mngr[man].label_contain));
 	state->object.label_mngr[man].label_contain++;
 
-	ICE_Log(ICE_LOG_SUCCES, "LabelManager]::[%d]::[Label]::[%d]::[Create]::[String=\"%s\"", man, state->object.label_mngr[man].label_contain - 1, text);
+	ICE_Log(ICE_LOG_SUCCES, "LabelManager]::[%d]::[Label]::[%d]::[Create]::[String=\"%ls\"", man, state->object.label_mngr[man].label_contain - 1, text);
 
 	// Test size to realloc more space
 	if (state->object.label_mngr[man].label_size <= state->object.label_mngr[man].label_contain) {
@@ -190,7 +190,7 @@ void ICE_Label_SetWrapWidth(ICE_Label * label, int wrap_width)
 
 void ICE_Label_FixToWorld(ICE_Label * label, ICE_Bool yn)
 {
-	label->isFixedToWorld = yn;
+	label->labelType = yn;
 }
 
 unsigned ICE_Label_GetWidth(ICE_Label* label)

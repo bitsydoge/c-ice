@@ -36,7 +36,7 @@ void ICE_LabelManager_DestroyAll(ICE_State * state);
  * \param pos The position of the Label 
  * \return The new Label
  */
-ICE_Label ICE_Label_Create(ICE_StringSTD text, ICE_Vect pos, int size);
+ICE_Label ICE_Label_Create(ICE_StringSTD text, ICE_Vect pos, int size, enum ICE_LabelType type);
 
 /**
  * \brief Insert a new Label in a manager
@@ -45,7 +45,7 @@ ICE_Label ICE_Label_Create(ICE_StringSTD text, ICE_Vect pos, int size);
  * \param text The text of the Label
  * \param pos The position of the Label
  */
-ICE_Index ICE_Label_Insert(ICE_State * state, const ICE_Index man, ICE_StringSTD text, const ICE_Vect pos, int size);
+ICE_Index ICE_Label_Insert(ICE_State * state, const ICE_Index man, ICE_StringSTD text, const ICE_Vect pos, int size, enum ICE_LabelType type);
 
 /**
  * \brief Clear a Label and put everything to 0
