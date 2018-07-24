@@ -15,7 +15,7 @@ typedef struct
 
 void ICE_Debug_Update()
 {
-	ICE_Debug_FontDraw(1, "%s :: Sprite Implement", ICE_VERSION);
+	ICE_Debug_FontDraw(1, "%s :: Sprite Implement", ICE_VERSION_COMPILED);
 	ICE_Debug_DrawFps(2);
 
 	DATA * data = ICE_Data_Get(NULL, 0);
@@ -29,7 +29,7 @@ void ICE_Debug_Update()
 	ICE_Debug_CameraControl();
 }
 
-void ICE_Game_Create("Spritesheet", 1280, 720)
+ICE_Game_Create("Spritesheet", 1280, 720)
 {
 	// Debug
 
@@ -63,13 +63,13 @@ void ICE_Game_Create("Spritesheet", 1280, 720)
 	ICE_Entity_SetTexture(ICE_Entity_Get(NULL, data->main_entity_manager, data->entity_test), data->main_texture_manager, data->spritesheet_texture);
 }
 
-void ICE_Game_Update()
+ICE_Game_Update()
 {
 	if (ICE_Input_Key(ICE_KEY_ESCAPE))
 		ICE_Input_Quit();
 }
 
-void ICE_Game_Destroy()
+ICE_Game_Destroy()
 {
 	
 }

@@ -15,7 +15,6 @@
 
 #include <stdio.h>
 
-
 extern ICE_Game game;
 
 int ICE_Core_Main(char * title, const int window_width, const int window_height, void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void), int argc, char **argv)
@@ -66,3 +65,9 @@ int ICE_Core_Main(char * title, const int window_width, const int window_height,
 
 	return 0;
 }
+
+ICE_StringStd ICE_Core_GetLinkedVersion()
+{
+	return ICE_VERSION;
+}
+

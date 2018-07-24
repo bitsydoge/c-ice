@@ -197,6 +197,7 @@
     <ClInclude Include="src\Framework\Terminal.h" />
     <ClInclude Include="src\Framework\Terminal_private.h" />
     <ClInclude Include="src\Framework\TypesFramework.h" />
+    <ClInclude Include="src\Graphics\Animation.h" />
     <ClInclude Include="src\Graphics\Camera.h" />
     <ClInclude Include="src\Graphics\Color.h" />
     <ClInclude Include="src\Graphics\Color_private.h" />
@@ -285,6 +286,7 @@
     <ClCompile Include="src\Framework\String_.c" />
     <ClCompile Include="src\Framework\Terminal.c" />
     <ClCompile Include="src\Framework\Terminal_private.c" />
+    <ClCompile Include="src\Graphics\Animation.c" />
     <ClCompile Include="src\Graphics\Camera.c" />
     <ClCompile Include="src\Graphics\Draw.c" />
     <ClCompile Include="src\Graphics\Font.c" />

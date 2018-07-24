@@ -1,8 +1,7 @@
 #ifndef DEF_ICE_CORE
 #define DEF_ICE_CORE
 
-#define ICE_VERSION "105<dev>"
-#define ICE_DEBUG_BUILD 1;
+#define ICE_VERSION (ICE_StringStd)"105<dev>"
 
 #define ICE_Game_Update() void ICE_User_Update(void)
 #define ICE_Game_Destroy() void ICE_User_Destroy(void)
@@ -42,5 +41,16 @@
  * \return 0
  */
 int ICE_Core_Main(char * title, const int window_width, const int window_height, void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void), int argc, char **argv);
+
+
+/**
+ * \brief 
+ * \return 
+ */
+ICE_StringStd ICE_Core_GetLinkedVersion();
+inline ICE_StringStd ICE_Core_GetCompiledVersion()
+{
+	return ICE_VERSION;
+}
 
 #endif
