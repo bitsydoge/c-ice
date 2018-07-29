@@ -2,6 +2,7 @@
 #define DEF_ICE_TYPESFRAMEWORK
 
 #include <stddef.h>
+#include <stdint.h>
 
 
 #ifndef ICE_BOOL_DEFINED
@@ -17,7 +18,7 @@ typedef int ICE_Bool;
 #define ICE_true 1
 #define ICE_False 0
 #define ICE_FALSE 0
-#define ICE_false 0²²
+#define ICE_false 0
 #endif
 
 #ifndef ICE_FLOAT_DEFINED
@@ -33,15 +34,15 @@ typedef size_t ICE_Index;
 #ifndef ICE_SIZED_INT_DEFINED
 #define ICE_SIZED_INT_DEFINED
 
-typedef signed __int8 ICE_Int8;
-typedef signed __int16 ICE_Int16;
-typedef signed __int32 ICE_Int32;
-typedef signed __int64 ICE_Int64;
+typedef int8_t ICE_Int8;
+typedef int16_t ICE_Int16;
+typedef int32_t ICE_Int32;
+typedef int64_t ICE_Int64;
 
-typedef unsigned __int8 ICE_Uint8;
-typedef unsigned __int16 ICE_Uint16;
-typedef unsigned __int32 ICE_Uint32;
-typedef unsigned __int64 ICE_Uint64;
+typedef uint8_t ICE_Uint8;
+typedef uint16_t ICE_Uint16;
+typedef uint32_t ICE_Uint32;
+typedef uint64_t ICE_Uint64;
 
 
 #endif

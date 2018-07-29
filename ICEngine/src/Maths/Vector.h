@@ -1,4 +1,4 @@
-﻿#ifndef DEF_ICE_VECTOR
+#ifndef DEF_ICE_VECTOR
 #define DEF_ICE_VECTOR
 
 #include "TypesMaths.h"
@@ -10,7 +10,7 @@
  * \param y Y value
  * \return The created Vector
  */
-inline ICE_Vect ICE_Vect_New(ICE_Float x, ICE_Float y) {
+static inline ICE_Vect ICE_Vect_New(ICE_Float x, ICE_Float y) {
 	ICE_Vect vect = { x,y };
 	return vect;
 }
@@ -21,7 +21,7 @@ inline ICE_Vect ICE_Vect_New(ICE_Float x, ICE_Float y) {
  * \param vect2 Vector 2
  * \return Sum of the two Vector
  */
-inline ICE_Vect ICE_Vect_Sum(ICE_Vect vect1, ICE_Vect vect2) {
+static inline ICE_Vect ICE_Vect_Sum(ICE_Vect vect1, ICE_Vect vect2) {
 	return ICE_Vect_New(vect1.x + vect2.x, vect1.y + vect2.y);
 }
 
@@ -31,7 +31,7 @@ inline ICE_Vect ICE_Vect_Sum(ICE_Vect vect1, ICE_Vect vect2) {
  * \param vect2 Vector 2
  * \return Vect1-Vect2
  */
-inline ICE_Vect ICE_Vect_Sub(ICE_Vect vect1, ICE_Vect vect2) {
+static inline ICE_Vect ICE_Vect_Sub(ICE_Vect vect1, ICE_Vect vect2) {
 	return ICE_Vect_New(vect1.x - vect2.x, vect1.y - vect2.y);
 }
 
@@ -41,7 +41,7 @@ inline ICE_Vect ICE_Vect_Sub(ICE_Vect vect1, ICE_Vect vect2) {
  * \param value Scaling value
  * \return Vector scaled
  */
-inline ICE_Vect ICE_Vect_Scale(ICE_Vect vect1, ICE_Float value) {
+static inline ICE_Vect ICE_Vect_Scale(ICE_Vect vect1, ICE_Float value) {
 	return ICE_Vect_New(vect1.x * value, vect1.y * value);
 }
 
@@ -51,7 +51,7 @@ inline ICE_Vect ICE_Vect_Scale(ICE_Vect vect1, ICE_Float value) {
  * \param vect2 Vector2
  * \return Vector1 * Vector2
  */
-inline ICE_Vect ICE_Vect_Multi(ICE_Vect vect1, ICE_Vect vect2) {
+static inline ICE_Vect ICE_Vect_Multi(ICE_Vect vect1, ICE_Vect vect2) {
 	return ICE_Vect_New(vect1.x * vect2.x, vect1.y * vect2.y);
 }
 
@@ -60,7 +60,7 @@ inline ICE_Vect ICE_Vect_Multi(ICE_Vect vect1, ICE_Vect vect2) {
  * \param vect Vector1
  * \return Magnitude of Vector1
  */
-inline ICE_Float ICE_Vect_Magn(ICE_Vect vect) {
+static inline ICE_Float ICE_Vect_Magn(ICE_Vect vect) {
 	return sqrt((vect.x*vect.x) + (vect.y*vect.y));
 }
 

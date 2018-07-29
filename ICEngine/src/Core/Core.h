@@ -17,9 +17,9 @@
 	}\
 	void ICE_User_Create(void)
 #else
-#define ICE_Game_Create(NAME, WIDTH, HEIGHT) ICE_User_Create(void); \
-	void ICE_Game_Update(); \
-	void ICE_Game_Destroy(); \
+#define ICE_Game_Create(NAME, WIDTH, HEIGHT) void ICE_User_Create(void); \
+	ICE_Game_Update(); \
+	ICE_Game_Destroy(); \
 	int main(int argc, char ** argv)\
 	{\
 		ICE_Debug_Set(ICE_False); \

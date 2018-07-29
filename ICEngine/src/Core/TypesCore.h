@@ -1,4 +1,4 @@
-﻿#ifndef DEF_ICE_TYPESCORE
+#ifndef DEF_ICE_TYPESCORE
 #define DEF_ICE_TYPESCORE
 
 #include "../Framework/String_.h"
@@ -6,7 +6,12 @@
 #include "../Audio/TypesAudio.h"
 
 #include <SDL2/SDL.h>
+
+#if defined(__APPLE__)
+#include <SDL2_ttf/SDL_ttf.h>
+#else
 #include <SDL2/SDL_ttf.h>
+#endif
 
 // Typedef
 // --------------------------------------

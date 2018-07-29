@@ -1,4 +1,4 @@
-﻿#include "Core_private.h"
+#include "Core_private.h"
 
 #include "Time_private.h"
 #include "TypesCore.h"
@@ -10,7 +10,9 @@
 #include "../Graphics/Texture.h"
 
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
+
+#include <SDL2_ttf/SDL_ttf.h>
+
 #include "../Audio/Audio.h"
 #include "../Audio/Sound.h"
 #include "../Audio/Music.h"
