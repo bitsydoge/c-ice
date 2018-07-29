@@ -1,4 +1,4 @@
-﻿#ifndef DEF_ICE_CONVERTER_PRIVATE
+#ifndef DEF_ICE_CONVERTER_PRIVATE
 #define DEF_ICE_CONVERTER_PRIVATE
 
 ////////////////////////////////////
@@ -14,7 +14,7 @@
  * \param rect The SDL_Rect to convert
  * \return The converted ICE_Box
  */
-inline ICE_Box ICE_Convert_SDLtoBox(SDL_Rect *rect)
+static inline ICE_Box ICE_Convert_SDLtoBox(SDL_Rect *rect)
 {
 	ICE_Box ice = { 0 };
 	if (rect)
@@ -32,7 +32,7 @@ inline ICE_Box ICE_Convert_SDLtoBox(SDL_Rect *rect)
  * \param box The ICE_Box to convert
  * \return The converted SDL_Rect
  */
-inline SDL_Rect ICE_Convert_BoxToSDL(ICE_Box *box)
+static inline SDL_Rect ICE_Convert_BoxToSDL(ICE_Box *box)
 {
 	SDL_Rect sdl = { 0 };
 	if (box)

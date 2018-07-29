@@ -1,6 +1,6 @@
-﻿#include "Font.h"
+#include "Font.h"
 
-#include <SDL2/SDL_ttf.h>
+#include <SDL2_ttf/SDL_ttf.h>
 
 #include "TypesGraphics.h"
 #include "Color_private.h"

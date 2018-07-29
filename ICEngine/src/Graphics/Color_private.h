@@ -1,4 +1,4 @@
-﻿#ifndef DEF_ICE_COLOR_PRIVATE
+#ifndef DEF_ICE_COLOR_PRIVATE
 #define DEF_ICE_COLOR_PRIVATE
 
 #include <SDL2/SDL.h>
@@ -10,7 +10,7 @@
  * \param ice_color The ICE_Color to convert
  * \return A SDL_Color converted from a ICE one
  */
-inline SDL_Color ICE_Color_ToSdl(const ICE_Color ice_color) {
+static inline SDL_Color ICE_Color_ToSdl(const ICE_Color ice_color) {
 	SDL_Color sdl_color;
 	sdl_color.r = ice_color >> 24 & 255;
 	sdl_color.g = ice_color >> 16 & 255;

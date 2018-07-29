@@ -1,9 +1,14 @@
-﻿#ifndef DEF_ICE_DYNSTRING
+#ifndef DEF_ICE_DYNSTRING
 #define DEF_ICE_DYNSTRING
 
 #include <wchar.h>
+#include "TypesFramework.h"
 
+#if defined(__APPLE__)
+typedef ICE_Uint16 ICE_WChar;
+#else
 typedef wchar_t ICE_WChar;
+#endif
 typedef char ICE_Char;
 
 typedef ICE_WChar* ICE_WString;

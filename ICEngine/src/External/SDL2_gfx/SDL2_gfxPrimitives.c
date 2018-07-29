@@ -145,21 +145,10 @@ int pixelRGBAWeight(SDL_Renderer * renderer, Sint16 x, Sint16 y, Uint8 r, Uint8 
 
 /* ---- Hline */
 
-/*!
-\brief Draw horizontal line in currently set color
-
-\param renderer The renderer to draw on.
-\param x1 X coordinate of the first point (i.e. left) of the line.
-\param x2 X coordinate of the second point (i.e. right) of the line.
-\param y Y coordinate of the points of the line.
-
-\returns Returns 0 on success, -1 on failure.
-*/
-int hline(SDL_Renderer * renderer, Sint16 x1, Sint16 x2, Sint16 y)
+int gfx_hline(SDL_Renderer * renderer, Sint16 x1, Sint16 x2, Sint16 y)
 {
-	return SDL_RenderDrawLine(renderer, x1, y, x2, y);;
+    return SDL_RenderDrawLine(renderer, x1, y, x2, y);;
 }
-
 
 /*!
 \brief Draw horizontal line with blending.
@@ -213,7 +202,7 @@ int hlineRGBA(SDL_Renderer * renderer, Sint16 x1, Sint16 x2, Sint16 y, Uint8 r, 
 
 \returns Returns 0 on success, -1 on failure.
 */
-int vline(SDL_Renderer * renderer, Sint16 x, Sint16 y1, Sint16 y2)
+int gfx_vline(SDL_Renderer * renderer, Sint16 x, Sint16 y1, Sint16 y2)
 {
 	return SDL_RenderDrawLine(renderer, x, y1, x, y2);;
 }
@@ -648,10 +637,10 @@ int roundedBoxRGBA(SDL_Renderer * renderer, Sint16 x1, Sint16 y1, Sint16 x2,
 			if (cy > 0) {
 				ypcy = y + cy;
 				ymcy = y - cy;
-				result |= hline(renderer, xmcx, xpcx + dx, ypcy + dy);
-				result |= hline(renderer, xmcx, xpcx + dx, ymcy);
+				result |= gfx_hline(renderer, xmcx, xpcx + dx, ypcy + dy);
+				result |= gfx_hline(renderer, xmcx, xpcx + dx, ymcy);
 			} else {
-				result |= hline(renderer, xmcx, xpcx + dx, y);
+				result |= gfx_hline(renderer, xmcx, xpcx + dx, y);
 			}
 			ocy = cy;
 		}
@@ -660,10 +649,10 @@ int roundedBoxRGBA(SDL_Renderer * renderer, Sint16 x1, Sint16 y1, Sint16 x2,
 				if (cx > 0) {
 					ypcx = y + cx;
 					ymcx = y - cx;
-					result |= hline(renderer, xmcy, xpcy + dx, ymcx);
-					result |= hline(renderer, xmcy, xpcy + dx, ypcx + dy);
+					result |= gfx_hline(renderer, xmcy, xpcy + dx, ymcx);
+					result |= gfx_hline(renderer, xmcy, xpcy + dx, ypcx + dy);
 				} else {
-					result |= hline(renderer, xmcy, xpcy + dx, y);
+					result |= gfx_hline(renderer, xmcy, xpcy + dx, y);
 				}
 			}
 			ocx = cx;
@@ -1485,7 +1474,7 @@ int _drawQuadrants(SDL_Renderer * renderer,  Sint16 x, Sint16 y, Sint16 dx, Sint
 			ypdy = y + dy;
 			ymdy = y - dy;
 			if (f) {
-				result |= vline(renderer, x, ymdy, ypdy);
+				result |= gfx_vline(renderer, x, ymdy, ypdy);
 			} else {
 				result |= pixel(renderer, x, ypdy);
 				result |= pixel(renderer, x, ymdy);
@@ -1497,8 +1486,8 @@ int _drawQuadrants(SDL_Renderer * renderer,  Sint16 x, Sint16 y, Sint16 dx, Sint
 		ypdy = y + dy;
 		ymdy = y - dy;
 		if (f) {
-				result |= vline(renderer, xpdx, ymdy, ypdy);
-				result |= vline(renderer, xmdx, ymdy, ypdy);
+				result |= gfx_vline(renderer, xpdx, ymdy, ypdy);
+				result |= gfx_vline(renderer, xmdx, ymdy, ypdy);
 		} else {
 				result |= pixel(renderer, xpdx, ypdy);
 				result |= pixel(renderer, xmdx, ypdy);
@@ -1559,11 +1548,11 @@ int _ellipseRGBA(SDL_Renderer * renderer, Sint16 x, Sint16 y, Sint16 rx, Sint16 
 		if (ry == 0) {
 			return (pixel(renderer, x, y));
 		} else {
-			return (vline(renderer, x, y - ry, y + ry));
+			return (gfx_vline(renderer, x, y - ry, y + ry));
 		}
 	} else {
 		if (ry == 0) {
-			return (hline(renderer, x - rx, x + rx, y));
+			return (gfx_hline(renderer, x - rx, x + rx, y));
 		}
 	}
 	
@@ -2878,7 +2867,7 @@ int filledPolygonRGBAMT(SDL_Renderer * renderer, const Sint16 * vx, const Sint16
 			xa = (xa >> 16) + ((xa & 32768) >> 15);
 			xb = gfxPrimitivesPolyInts[i+1] - 1;
 			xb = (xb >> 16) + ((xb & 32768) >> 15);
-			result |= hline(renderer, xa, xb, y);
+			result |= gfx_hline(renderer, xa, xb, y);
 		}
 	}
 

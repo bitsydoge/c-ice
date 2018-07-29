@@ -1,4 +1,4 @@
-﻿#ifndef DEF_ICE_COLOR
+#ifndef DEF_ICE_COLOR
 #define DEF_ICE_COLOR
 
 #include "TypesGraphics.h"
@@ -17,7 +17,7 @@
  * \param b The blue value
  * \return The new created Color
  */
-inline ICE_Color ICE_Color_New(const ICE_Uint8 r, const ICE_Uint8 g, const ICE_Uint8 b)
+static inline ICE_Color ICE_Color_New(const ICE_Uint8 r, const ICE_Uint8 g, const ICE_Uint8 b)
 {
 	return (ICE_Color)(r << 24) + (g << 16) + (b << 8) + 255;
 }
@@ -30,7 +30,7 @@ inline ICE_Color ICE_Color_New(const ICE_Uint8 r, const ICE_Uint8 g, const ICE_U
 * \param a the alpha value
 * \return The new created Color
 */
-inline ICE_Color ICE_Color_New_Rgba(const ICE_Uint8 r, const ICE_Uint8 g, const ICE_Uint8 b,
+static inline ICE_Color ICE_Color_New_Rgba(const ICE_Uint8 r, const ICE_Uint8 g, const ICE_Uint8 b,
 									const ICE_Uint8 a)
 {
 	return (ICE_Color)((r << 24) + (g << 16) + (b << 8) + a);
