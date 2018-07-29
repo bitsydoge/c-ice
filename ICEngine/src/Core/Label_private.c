@@ -1,5 +1,10 @@
 #include <SDL2/SDL.h>
+
+#if defined(__APPLE__)
 #include <SDL2_ttf/SDL_ttf.h>
+#else
+#include <SDL2/SDL_ttf.h>
+#endif
 
 #include "TypesCore.h"
 #include "../Graphics/Color_private.h"

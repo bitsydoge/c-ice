@@ -11,7 +11,11 @@
 
 #include <SDL2/SDL.h>
 
-#include <SDL2_ttf/SDL_ttf.h>
+#if defined(__APPLE__)
+#include <SDL2_mixer/SDL_mixer.h>
+#else
+#include <SDL2/SDL_mixer.h>
+#endif
 
 #include "../Audio/Audio.h"
 #include "../Audio/Sound.h"
