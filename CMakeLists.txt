@@ -8,8 +8,6 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
 IF (WIN32)
-    execute_process(COMMAND powershell "${CMAKE_SOURCE_DIR}/cmake/downloader.ps1")
-
     add_definitions(-DICE_NO_VLD)
 
     include_directories(
