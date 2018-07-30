@@ -1,7 +1,7 @@
 #ifndef DEF_ICE_INCLUDER_0X505050
 #define DEF_ICE_INCLUDER_0X505050
 
-#if defined(_DEBUG) && defined (_MSC_VER)
+#if defined(_DEBUG) && defined (_MSC_VER) && !defined(ICE_NO_VLD)
 	#include <vld.h>
 #endif
 

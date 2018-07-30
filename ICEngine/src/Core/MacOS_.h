@@ -14,7 +14,7 @@ ICE_Char * ICE_MacOS_GetResourcesDirectory();
 ICE_Bool ICE_MacOS_SetWorkingDirectory();
 #else
 ICE_Char * ICE_MacOS_GetResourcesDirectory();
-ICE_Bool ICE_MacOS_SetWorkingDirectory();
+ICE_Bool ICE_MacOS_SetWorkingDirectory(ICE_StringStd path);
 #endif
 
 #endif //ICENGINE_MACOS_H
