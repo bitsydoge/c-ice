@@ -9,7 +9,8 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
 IF (WIN32)
     add_definitions(-DICE_NO_VLD)
-
+    add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+    
     include_directories(
             ${CMAKE_SOURCE_DIR}/external/SDL2/include/
     )
