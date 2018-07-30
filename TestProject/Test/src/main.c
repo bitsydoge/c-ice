@@ -33,13 +33,7 @@ void ICE_Debug_Update()
 
 ICE_Game_Create("Spritesheet", 1280, 720)
 {
-	// Debug
-
 	ICE_Debug_CallbackDraw(ICE_Debug_Update);
-
-	// Asset
-
-	ICE_Asset_LoadPack("res//pack.7z");
 
 	// Font
 

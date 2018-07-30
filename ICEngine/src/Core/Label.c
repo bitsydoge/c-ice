@@ -153,12 +153,12 @@ void ICE_Label_SetSize(ICE_Label *label, int size)
 	label->size = size;
 }
 
-void ICE_Label_SetString(ICE_Label * label, const wchar_t * format, ...)
+void ICE_Label_SetString(ICE_Label * label, ICE_WStringStd format, ...)
 {
 	va_list args;
 	va_start(args, format);
 
-	char buffer[256];
+	ICE_WChar buffer[256];
 	vswprintf(buffer, 256, format, args);
 
 	ICE_WString_Delete(label->text);
