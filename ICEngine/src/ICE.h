@@ -32,6 +32,7 @@
 #include "Core/Data.h"
 #include "Core/Entity.h"
 #include "Core/Asset.h"
+#include "Core/MacOS_.h"
 
 // Graphics
 

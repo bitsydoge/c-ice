@@ -71,7 +71,7 @@ ICE_Float ICE_Label_GetY(ICE_Label * label);
 /////////////////////// * LABEL SET * //////////////////////////
 
 void ICE_Label_SetSize(ICE_Label *label, int size);
-void ICE_Label_SetString(ICE_Label * label, const wchar_t * format, ...);
+void ICE_Label_SetString(ICE_Label * label, ICE_WStringStd format, ...);
 void ICE_Label_SetPos(ICE_Label * label, ICE_Vect vect);
 void ICE_Label_SetColor(ICE_Label * label, ICE_Color color);
 void ICE_Label_SetWrapWidth(ICE_Label * label, int wrap_width);

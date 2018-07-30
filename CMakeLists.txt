@@ -199,7 +199,9 @@ add_library(ICEngine
         ICEngine/src/Physics/TypesPhysics.h
         ICEngine/src/Raw/Error.c
         ICEngine/src/Raw/Icon.c
-        ICEngine/src/ICE.h)
+        ICEngine/src/ICE.h
+        ICEngine/src/Core/MacOS_.c
+        ICEngine/src/Core/MacOS_.h ICEngine/src/External/stb/SDL_stbimage.h)
 
 target_link_libraries(ICEngine ${SDL2_LIBRARY}
         ${SDL2_MIXER_LIBRARIES}

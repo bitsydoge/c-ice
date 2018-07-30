@@ -3,6 +3,7 @@
 #include "Time_private.h"
 #include "TypesCore.h"
 #include "Label.h"
+#include "MacOS_.h"
 
 #include "../Framework/Terminal_private.h"
 #include "../Framework/Log.h"
@@ -51,8 +52,9 @@ void ICE_Core_Info()
 {
 		// SDL
 		printf("\nExecution Path: %s\n", SDL_GetBasePath());
-		printf("Data Path: %s\n\n", SDL_GetPrefPath("coldragon", "ice"));
-
+		printf("Data Path: %s\n", SDL_GetPrefPath("coldragon", "ice"));
+        //ICE_MacOS_SetWorkingDirectory(SDL_GetBasePath());
+		printf("MacOS Resources Directory: %s\n\n", ICE_MacOS_GetResourcesDirectory());
 		printf("SDL Compiled: %d.%d.%d\n", SDL_MAJOR_VERSION, SDL_MINOR_VERSION, SDL_PATCHLEVEL);
 		SDL_version linked;
 		SDL_GetVersion(&linked);
