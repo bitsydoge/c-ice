@@ -1,8 +1,12 @@
 var searchData=
 [
+  ['ice_5fanimation',['ICE_Animation',['../struct_i_c_e___animation.html',1,'']]],
+  ['ice_5fanimationstep',['ICE_AnimationStep',['../struct_i_c_e___animation_step.html',1,'']]],
   ['ice_5fasset',['ICE_Asset',['../struct_i_c_e___asset.html',1,'']]],
   ['ice_5fbox',['ICE_Box',['../struct_i_c_e___box.html',1,'']]],
   ['ice_5fcamera',['ICE_Camera',['../struct_i_c_e___camera.html',1,'']]],
+  ['ice_5fentity',['ICE_Entity',['../struct_i_c_e___entity.html',1,'']]],
+  ['ice_5fentitymanager',['ICE_EntityManager',['../struct_i_c_e___entity_manager.html',1,'']]],
   ['ice_5ffont',['ICE_Font',['../struct_i_c_e___font.html',1,'']]],
   ['ice_5fgame',['ICE_Game',['../struct_i_c_e___game.html',1,'']]],
   ['ice_5fgui',['ICE_Gui',['../struct_i_c_e___gui.html',1,'']]],
@@ -15,8 +19,9 @@ var searchData=
   ['ice_5fobjectmanager',['ICE_ObjectManager',['../struct_i_c_e___object_manager.html',1,'']]],
   ['ice_5fsound',['ICE_Sound',['../struct_i_c_e___sound.html',1,'']]],
   ['ice_5fsoundmanager',['ICE_SoundManager',['../struct_i_c_e___sound_manager.html',1,'']]],
+  ['ice_5fsprite',['ICE_Sprite',['../struct_i_c_e___sprite.html',1,'']]],
+  ['ice_5fspritemanager',['ICE_SpriteManager',['../struct_i_c_e___sprite_manager.html',1,'']]],
   ['ice_5fstate',['ICE_State',['../struct_i_c_e___state.html',1,'']]],
-  ['ice_5fstatemanager',['ICE_StateManager',['../struct_i_c_e___state_manager.html',1,'']]],
   ['ice_5ftexture',['ICE_Texture',['../struct_i_c_e___texture.html',1,'']]],
   ['ice_5ftexturemanager',['ICE_TextureManager',['../struct_i_c_e___texture_manager.html',1,'']]],
   ['ice_5ftime',['ICE_Time',['../struct_i_c_e___time.html',1,'']]],
