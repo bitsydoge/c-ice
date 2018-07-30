@@ -42,7 +42,40 @@ int ICE_Core_Init() {
 	// SDL_gfx
 	ICE_Time_Init();
 
+	ICE_Core_Info();
+
 	return 0;
+}
+
+void ICE_Core_Info()
+{
+		// SDL
+		printf("\nExecution Path: %s\n", SDL_GetBasePath());
+		printf("Data Path: %s\n\n", SDL_GetPrefPath("coldragon", "ice"));
+
+		printf("SDL Compiled: %d.%d.%d\n", SDL_MAJOR_VERSION, SDL_MINOR_VERSION, SDL_PATCHLEVEL);
+		SDL_version linked;
+		SDL_GetVersion(&linked);
+		printf("SDL Compiled: %d.%d.%d\n", linked.major, linked.minor, linked.patch);
+
+		printf("Platform: %s\n", SDL_GetPlatform());
+		printf("CPU: %d CORE %d MB L1\n", SDL_GetCPUCount(), SDL_GetCPUCacheLineSize());
+		printf("RAM: %d MB \n", SDL_GetSystemRAM());
+
+
+		int mode = 0; const char * profile;
+		SDL_GL_GetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, &mode);
+		if (mode == SDL_GL_CONTEXT_PROFILE_CORE)
+			profile = "Core";
+		else if (mode == SDL_GL_CONTEXT_PROFILE_COMPATIBILITY)
+			profile = "Compatibility";
+		else if (mode == SDL_GL_CONTEXT_PROFILE_ES)
+			profile = "ES";
+		else
+			profile = "Unknown";
+
+		printf("OpenGL Profile: %s\n", profile);
+		printf("Screen: %d\n\n", SDL_GetNumVideoDisplays());
 }
 
 int ICE_Core_Close() 

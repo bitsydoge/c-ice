@@ -9,7 +9,7 @@
  */
 void ICE_Debug_Set(const ICE_Bool yn);
 
-ICE_Bool ICE_Debug();
+ICE_Bool ICE_Debug_Get();
 
 /**
  * \brief Draw the mouse coordinate

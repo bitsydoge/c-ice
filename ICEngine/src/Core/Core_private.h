@@ -7,6 +7,8 @@
  */
 int ICE_Core_Init();
 
+void ICE_Core_Info();
+
 /**
  * \brief Close everything for the engine
  * \return 0
