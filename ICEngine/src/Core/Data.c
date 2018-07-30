@@ -1,7 +1,7 @@
 ﻿#include "Data.h"
 #include <stdlib.h>
 #include "Game.h"
-#include "Framework/Assert_.h"
+#include "../Framework/Assert_.h"
 #include "../Framework/Memory_.h"
 
 extern ICE_Game game;

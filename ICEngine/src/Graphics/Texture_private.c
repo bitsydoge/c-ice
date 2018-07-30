@@ -71,7 +71,7 @@ ICE_Texture* ICE_Texture_LoadFromFile(char *path)
 	ICE_Texture *text = (ICE_Texture*)malloc(sizeof(ICE_Texture));
 	text->handle = SDL_CreateTextureFromSurface(game.window.render, surf);
 	if (text->handle == NULL)
-		printf("CRITICAL : Can't create Texture from Surface \"%s\" : %s \n", path, SDL_GetError());
+		SDL_Log("CRITICAL : Can't create Texture from Surface \"%s\" : %s \n", path, SDL_GetError());
 	text->w = surf->w; text->h = surf->h;
 
 	SDL_FreeSurface(surf);
