@@ -22,7 +22,7 @@ void ICE_Debug_Set(const ICE_Bool yn){
 		debug_ok = yn;
 }
 
-ICE_Bool ICE_Debug()
+ICE_Bool ICE_Debug_Get()
 {
 	if (debug_ok == ICE_True)
 		return ICE_True;

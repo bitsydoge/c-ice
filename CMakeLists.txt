@@ -202,5 +202,5 @@ add_library(ICEngine
         ICEngine/src/ICE.h)
 
 target_link_libraries(ICEngine ${SDL2_LIBRARY}
-        ${SDL2_IMAGE_LIBRARIES}
+        ${SDL2_MIXER_LIBRARIES}
         ${SDL2_TTF_LIBRARIES})

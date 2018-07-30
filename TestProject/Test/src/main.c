@@ -1,4 +1,6 @@
-﻿#include <ICE.h>
+﻿#define _DEBUG 1
+
+#include <ICE.h>
 
 typedef struct
 {
@@ -15,7 +17,7 @@ typedef struct
 
 void ICE_Debug_Update()
 {
-	ICE_Debug_FontDraw(1, "%s :: Sprite Implement", ICE_Core_GetCompiledVersion());
+	ICE_Debug_FontDraw(1, "%s :: Sprite Implement", ICE_VERSION);
 	ICE_Debug_DrawFps(2);
 
 	DATA * data = ICE_Data_Get(NULL, 0);
