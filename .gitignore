@@ -16,8 +16,6 @@ ICEngine/CMakeCache\.txt
 
 *.includecache
 
-*.cmake
-
 *.make
 
 ICEngine/CMakeFiles/2inside\.dir/
@@ -31,3 +29,7 @@ Release/
 *.TMP
 
 ICECore/\.vs/
+
+\.idea/
+
+cmake-build-debug/
