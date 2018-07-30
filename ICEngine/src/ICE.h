@@ -9,7 +9,7 @@
 
 #include "Framework/TypesFramework.h"
 
-#include "Framework/Assert.h"
+#include "Framework/Assert_.h"
 #include "Framework/Log.h"
 #include "Framework/Memory_.h"
 #include "Framework/Random.h"
