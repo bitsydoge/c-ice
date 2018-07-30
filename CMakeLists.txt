@@ -7,13 +7,27 @@ set(CMAKE_C_STANDARD 11)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
-find_package(SDL2 REQUIRED)
-find_package(SDL2_mixer REQUIRED)
-find_package(SDL2_ttf REQUIRED)
+IF (WIN32)
+    execute_process(COMMAND powershell "${CMAKE_SOURCE_DIR}/cmake/downloader.ps1")
 
-include_directories(${SDL2_INCLUDE_DIR}
-        ${SDL2_MIXER_INCLUDE_DIR}
-        ${SDL2_TTF_INCLUDE_DIR})
+    add_definitions(-DICE_NO_VLD)
+
+    include_directories(
+            ${CMAKE_SOURCE_DIR}/external/SDL2/include/
+    )
+
+ELSE()
+    find_package(SDL2 REQUIRED)
+    find_package(SDL2_mixer REQUIRED)
+    find_package(SDL2_ttf REQUIRED)
+
+    include_directories(
+            ${SDL2_INCLUDE_DIR}
+            ${SDL2_MIXER_INCLUDE_DIR}
+            ${SDL2_TTF_INCLUDE_DIR}
+    )
+ENDIF()
+
 
 #### ICE ENGINE ####     ########################################################################
 ####################     ########################################################################
@@ -208,10 +222,6 @@ add_library(ICEngine
         ICEngine/src/Core/MacOS_.c
         ICEngine/src/Core/MacOS_.h ICEngine/src/External/stb/SDL_stbimage.h)
 
-target_link_libraries(ICEngine ${SDL2_LIBRARY}
-        ${SDL2_MIXER_LIBRARIES}
-        ${SDL2_TTF_LIBRARIES})
-
 #### TEST PROJECTS #     ########################################################################
 ####################     ########################################################################
 #### TEST PROJECTS #     ########################################################################
@@ -230,10 +240,19 @@ add_executable(HelloWorld
 
 add_dependencies(HelloWorld ICEngine)
 
-target_link_libraries(HelloWorld ${SDL2_LIBRARY}
-        ${SDL2_MIXER_LIBRARIES}
-        ${SDL2_TTF_LIBRARIES}
-        ${CMAKE_SOURCE_DIR}/cmake-build-debug/libICEngine.a)
+IF (WIN32)
+    target_link_libraries(HelloWorld ${CMAKE_SOURCE_DIR}/cmake-build-debug/ICEngine.lib)
+    target_link_libraries(HelloWorld ${CMAKE_SOURCE_DIR}/external/SDL2/lib/x86/SDL2.lib)
+    target_link_libraries(HelloWorld ${CMAKE_SOURCE_DIR}/external/SDL2/lib/x86/SDL2main.lib)
+    target_link_libraries(HelloWorld ${CMAKE_SOURCE_DIR}/external/SDL2/lib/x86/SDL2_ttf.lib)
+    target_link_libraries(HelloWorld ${CMAKE_SOURCE_DIR}/external/SDL2/lib/x86/SDL2_mixer.lib)
+ELSE()
+    target_link_libraries(HelloWorld
+            ${SDL2_LIBRARY}
+            ${SDL2_MIXER_LIBRARIES}
+            ${SDL2_TTF_LIBRARIES})
+    target_link_libraries(HelloWorld ${CMAKE_SOURCE_DIR}/cmake-build-debug/libICEngine.a)
+ENDIF()
 
 
 #### 2DWatch    ####     ########################################################################
@@ -250,10 +269,19 @@ add_executable(2DWatch
 
 add_dependencies(2DWatch ICEngine)
 
-target_link_libraries(2DWatch ${SDL2_LIBRARY}
-        ${SDL2_MIXER_LIBRARIES}
-        ${SDL2_TTF_LIBRARIES}
-        ${CMAKE_SOURCE_DIR}/cmake-build-debug/libICEngine.a)
+IF (WIN32)
+    target_link_libraries(2DWatch ${CMAKE_SOURCE_DIR}/cmake-build-debug/ICEngine.lib)
+    target_link_libraries(2DWatch ${CMAKE_SOURCE_DIR}/external/SDL2/lib/x86/SDL2.lib)
+    target_link_libraries(2DWatch ${CMAKE_SOURCE_DIR}/external/SDL2/lib/x86/SDL2main.lib)
+    target_link_libraries(2DWatch ${CMAKE_SOURCE_DIR}/external/SDL2/lib/x86/SDL2_ttf.lib)
+    target_link_libraries(2DWatch ${CMAKE_SOURCE_DIR}/external/SDL2/lib/x86/SDL2_mixer.lib)
+ELSE()
+    target_link_libraries(2DWatch
+            ${SDL2_LIBRARY}
+            ${SDL2_MIXER_LIBRARIES}
+            ${SDL2_TTF_LIBRARIES})
+    target_link_libraries(2DWatch ${CMAKE_SOURCE_DIR}/cmake-build-debug/libICEngine.a)
+ENDIF()
 
 
 #### Test       ####     ########################################################################
@@ -264,7 +292,16 @@ add_executable(Test
 
 add_dependencies(Test ICEngine)
 
-target_link_libraries(Test ${SDL2_LIBRARY}
-        ${SDL2_MIXER_LIBRARIES}
-        ${SDL2_TTF_LIBRARIES}
-        ${CMAKE_SOURCE_DIR}/cmake-build-debug/libICEngine.a)
+IF (WIN32)
+    target_link_libraries(Test ${CMAKE_SOURCE_DIR}/cmake-build-debug/ICEngine.lib)
+    target_link_libraries(Test ${CMAKE_SOURCE_DIR}/external/SDL2/lib/x86/SDL2.lib)
+    target_link_libraries(Test ${CMAKE_SOURCE_DIR}/external/SDL2/lib/x86/SDL2main.lib)
+    target_link_libraries(Test ${CMAKE_SOURCE_DIR}/external/SDL2/lib/x86/SDL2_ttf.lib)
+    target_link_libraries(Test ${CMAKE_SOURCE_DIR}/external/SDL2/lib/x86/SDL2_mixer.lib)
+ELSE()
+    target_link_libraries(Test
+            ${SDL2_LIBRARY}
+            ${SDL2_MIXER_LIBRARIES}
+            ${SDL2_TTF_LIBRARIES})
+    target_link_libraries(Test ${CMAKE_SOURCE_DIR}/cmake-build-debug/libICEngine.a)
+ENDIF()

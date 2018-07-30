@@ -2,6 +2,8 @@
 
 Debug/
 
+\external/
+
 ICEngine/CMakeFiles/
 
 \.vs/ICEngine/v15/
@@ -35,3 +37,5 @@ ICECore/\.vs/
 \.idea/
 
 cmake-build-debug/
+
+*.dll

@@ -10,23 +10,23 @@
 ICE_Char * ICE_MacOS_GetResourcesDirectory()
 {
     CFURLRef url = CFBundleCopyResourcesDirectoryURL(CFBundleGetMainBundle());
-    char path[PATH_MAX];
-    CFURLGetFileSystemRepresentation(url, true, (UInt8*)path, sizeof(path));
+    char * returner = (char*)malloc(sizeof(char)*PATH_MAX)
+    CFURLGetFileSystemRepresentation(url, true, (UInt8*)returner, sizeof(sizeof(char)*PATH_MAX));
     //chdir(path) != 0)
     CFRelease(url);
-    return path;
+    return returner;
 }
 ICE_Bool ICE_MacOS_SetWorkingDirectory(ICE_StringStd path)
 {
     return chdir(path);
 }
 #else
-ICE_Char * ICE_MacOS_GetWorkingDirectory()
+ICE_Char * ICE_MacOS_GetResourcesDirectory()
 {
     return "NOT_MACOS";
 }
-ICE_Bool ICE_MacOS_SetWorkingDirectory()
+ICE_Bool ICE_MacOS_SetWorkingDirectory(ICE_StringStd path)
 {
-    return ICE_False; // Return False caus' nothing changed
+    ICE_False;
 }
 #endif
