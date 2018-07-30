@@ -1,4 +1,6 @@
-﻿#include <ICE.h>
+﻿#define _DEBUG 1
+
+#include <ICE.h>
 
 ICE_Game_Create("Hello World", 800, 480)
 {

@@ -1,4 +1,6 @@
-﻿// Engine
+﻿#define _DEBUG 1
+
+// Engine
 #include <ICE.h>
 
 // Game
@@ -17,7 +19,7 @@ enum
 
 };
 
-void ICE_Game_Create("2DWatch", 800, 480)
+ICE_Game_Create("2DWatch", 800, 480)
 {
 	// Texture
 	ICE_Index manager = ICE_TextureManager_Insert();
@@ -60,11 +62,10 @@ void ICE_Game_Create("2DWatch", 800, 480)
 	// Label
 	manager = ICE_LabelManager_Insert(NULL);
 	// 1
-	nb = ICE_Label_Insert(NULL, manager, L"It is a me", ICE_Vect_New(0, 0), 30);
-	ICE_Label_FixToWorld(ICE_Label_Get(NULL, manager, nb), ICE_True);
+	nb = ICE_Label_Insert(NULL, manager, L"It is a me", ICE_Vect_New(0, 0), 30, ICE_LabelType_World);
 	ICE_Label_SetAngle(ICE_Label_Get(NULL, manager, nb), 30);
 	// 2
-	nb = ICE_Label_Insert(NULL, manager, L"Привет мир", ICE_Vect_New(5, 5), 30);
+	nb = ICE_Label_Insert(NULL, manager, L"Привет мир", ICE_Vect_New(5, 5), 30, ICE_LabelType_Screen);
 
 	// Data
 	DATA1 * data = ICE_Data_Insert(NULL, sizeof(DATA1));
@@ -91,7 +92,7 @@ void Screen_Update()
 	ICE_Entity_AddAngle(ICE_Entity_Get(NULL, 0, 0), 50 * ICE_Game_GetDelta());
 }
 
-void ICE_Game_Update()
+ICE_Game_Update()
 {
 	Screen_Update();
 
@@ -120,7 +121,7 @@ void ICE_Game_Update()
 		ICE_Camera_SetPos(ICE_Vect_New(0, 0));
 }
 
-void ICE_Game_Destroy()
+ICE_Game_Destroy()
 {
 	DATA1 * data = ICE_Data_Get(NULL, 0);
 	ICE_State_Destroy(&data->inventory);
