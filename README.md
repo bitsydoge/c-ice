@@ -1,3 +1,4 @@
+<img alt="Appveyor_status" src="https://ci.appveyor.com/api/projects/status/403d2539ebdvglj7?svg=true">
 
 # ICE : Indie "C" Engine
 <img alt="ICE Logo" src="docs/logo_hq.png" width=20% height=20%> 
