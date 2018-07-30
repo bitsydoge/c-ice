@@ -11,5 +11,5 @@ var searchData=
   ['core_2eh',['Core.h',['../_core_8h.html',1,'']]],
   ['core_5fprivate_2ec',['Core_private.c',['../_core__private_8c.html',1,'']]],
   ['core_5fprivate_2eh',['Core_private.h',['../_core__private_8h.html',1,'']]],
-  ['current',['current',['../struct_i_c_e___state_manager.html#aefc7434632799547cd4cb2eaa7b39d44',1,'ICE_StateManager']]]
+  ['current',['current',['../struct_i_c_e___game.html#a60a36cdbbf19f3e2270747a58e4d0833',1,'ICE_Game']]]
 ];
