@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.12)
 project(ICEngine C)
-
 set(CMAKE_C_STANDARD 11)
+
+#### SDL2       ####     ########################################################################
+####################     ########################################################################
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
@@ -12,6 +14,9 @@ find_package(SDL2_ttf REQUIRED)
 include_directories(${SDL2_INCLUDE_DIR}
         ${SDL2_MIXER_INCLUDE_DIR}
         ${SDL2_TTF_INCLUDE_DIR})
+
+#### ICE ENGINE ####     ########################################################################
+####################     ########################################################################
 
 include_directories(ICEngine/src)
 include_directories(ICEngine/src/Audio)
@@ -206,3 +211,60 @@ add_library(ICEngine
 target_link_libraries(ICEngine ${SDL2_LIBRARY}
         ${SDL2_MIXER_LIBRARIES}
         ${SDL2_TTF_LIBRARIES})
+
+#### TEST PROJECTS #     ########################################################################
+####################     ########################################################################
+#### TEST PROJECTS #     ########################################################################
+####################     ########################################################################
+#### TEST PROJECTS #     ########################################################################
+####################     ########################################################################
+
+
+
+#### HelloWorld ####     ########################################################################
+####################     ########################################################################
+
+
+add_executable(HelloWorld
+        TestProject/HelloWorld/src/main.c)
+
+add_dependencies(HelloWorld ICEngine)
+
+target_link_libraries(HelloWorld ${SDL2_LIBRARY}
+        ${SDL2_MIXER_LIBRARIES}
+        ${SDL2_TTF_LIBRARIES}
+        ${CMAKE_SOURCE_DIR}/cmake-build-debug/libICEngine.a)
+
+
+#### 2DWatch    ####     ########################################################################
+####################     ########################################################################
+
+add_executable(2DWatch
+        TestProject/2DWatch/src/main.c
+        TestProject/2DWatch/src/data.c
+        TestProject/2DWatch/src/data.h
+        TestProject/2DWatch/src/inventory.c
+        TestProject/2DWatch/src/inventory.h
+        TestProject/2DWatch/src/weapon.c
+        TestProject/2DWatch/src/weapon.h)
+
+add_dependencies(2DWatch ICEngine)
+
+target_link_libraries(2DWatch ${SDL2_LIBRARY}
+        ${SDL2_MIXER_LIBRARIES}
+        ${SDL2_TTF_LIBRARIES}
+        ${CMAKE_SOURCE_DIR}/cmake-build-debug/libICEngine.a)
+
+
+#### Test       ####     ########################################################################
+####################     ########################################################################
+
+add_executable(Test
+        TestProject/Test/src/main.c)
+
+add_dependencies(Test ICEngine)
+
+target_link_libraries(Test ${SDL2_LIBRARY}
+        ${SDL2_MIXER_LIBRARIES}
+        ${SDL2_TTF_LIBRARIES}
+        ${CMAKE_SOURCE_DIR}/cmake-build-debug/libICEngine.a)
