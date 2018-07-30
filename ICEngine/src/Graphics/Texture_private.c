@@ -51,7 +51,7 @@ ICE_Texture* ICE_Texture_LoadFromFile(char *path)
 			depth, pitch, pixel_format);
 	}
 	if (surf == NULL) {
-		SDL_Log("CRITICAL : Can't create Surface from image ", SDL_GetError());
+		SDL_Log("CRITICAL : Can't create Surface from image : %s", SDL_GetError());
 		stbi_image_free(data);
 
 	#include "../Raw/Error.c"
