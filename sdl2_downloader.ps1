@@ -16,7 +16,8 @@ function Unzip
     [System.IO.Compression.ZipFile]::ExtractToDirectory($zipfile, $outpath)
 }
 
-$PathFolder = "./external/"
+$PathNow = Get-Location
+$PathFolder = $PathFolder+"/external/"
 
 #PRECLEAN
 
