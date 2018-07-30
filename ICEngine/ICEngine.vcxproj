@@ -144,6 +144,7 @@
     <ClInclude Include="src\Core\Input_private.h" />
     <ClInclude Include="src\Core\Label.h" />
     <ClInclude Include="src\Core\Label_private.h" />
+    <ClInclude Include="src\Core\MacOS_.h" />
     <ClInclude Include="src\Core\State.h" />
     <ClInclude Include="src\Core\Time_.h" />
     <ClInclude Include="src\Core\Time_private.h" />
@@ -188,7 +189,7 @@
     <ClInclude Include="src\External\SDL2_gfx\SDL2_imageFilter.h" />
     <ClInclude Include="src\External\SDL2_gfx\SDL2_rotozoom.h" />
     <ClInclude Include="src\External\stb\stb_image.h" />
-    <ClInclude Include="src\Framework\Assert.h" />
+    <ClInclude Include="src\Framework\Assert_.h" />
     <ClInclude Include="src\Framework\Log.h" />
     <ClInclude Include="src\Framework\Memory_.h" />
     <ClInclude Include="src\Framework\Random.h" />
@@ -237,6 +238,7 @@
     <ClCompile Include="src\Core\Input_private.c" />
     <ClCompile Include="src\Core\Label.c" />
     <ClCompile Include="src\Core\Label_private.c" />
+    <ClCompile Include="src\Core\MacOS_.c" />
     <ClCompile Include="src\Core\State.c" />
     <ClCompile Include="src\Core\Time_.c" />
     <ClCompile Include="src\Core\Time_private.c" />
@@ -278,7 +280,7 @@
     <ClCompile Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.c" />
     <ClCompile Include="src\External\SDL2_gfx\SDL2_imageFilter.c" />
     <ClCompile Include="src\External\SDL2_gfx\SDL2_rotozoom.c" />
-    <ClCompile Include="src\Framework\Assert.c" />
+    <ClCompile Include="src\Framework\Assert_.c" />
     <ClCompile Include="src\Framework\Log.c" />
     <ClCompile Include="src\Framework\Memory_.c" />
     <ClCompile Include="src\Framework\Random.c" />

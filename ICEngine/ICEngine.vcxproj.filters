@@ -148,9 +148,6 @@
     <ClInclude Include="src\Physics\TypesPhysics.h">
       <Filter>6 - Physics</Filter>
     </ClInclude>
-    <ClInclude Include="src\Framework\Assert.h">
-      <Filter>1 - Framework</Filter>
-    </ClInclude>
     <ClInclude Include="src\Core\Time_private.h">
       <Filter>2 - Core</Filter>
     </ClInclude>
@@ -319,6 +316,12 @@
     <ClInclude Include="src\Graphics\Animation.h">
       <Filter>3 - Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="src\Core\MacOS_.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Assert_.h">
+      <Filter>1 - Framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Asset_private.c">
@@ -401,9 +404,6 @@
     </ClCompile>
     <ClCompile Include="src\Raw\Icon.c">
       <Filter>7 - Raw</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Framework\Assert.c">
-      <Filter>1 - Framework</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Time_.c">
       <Filter>2 - Core</Filter>
@@ -560,6 +560,12 @@
     </ClCompile>
     <ClCompile Include="src\Graphics\Animation.c">
       <Filter>3 - Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\MacOS_.c">
+      <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\Assert_.c">
+      <Filter>1 - Framework</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

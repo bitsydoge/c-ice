@@ -27,6 +27,6 @@ ICE_Char * ICE_MacOS_GetResourcesDirectory()
 }
 ICE_Bool ICE_MacOS_SetWorkingDirectory(ICE_StringStd path)
 {
-    ICE_False;
+    return ICE_False;
 }
 #endif
