@@ -82,7 +82,7 @@ before_install:
 
 script:
   - cmake CMakeLists.txt
-  - make .
+  - make
 
 notifications:
   email:
