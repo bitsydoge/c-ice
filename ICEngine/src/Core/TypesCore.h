@@ -5,13 +5,10 @@
 #include "../Graphics/TypesGraphics.h"
 #include "../Audio/TypesAudio.h"
 
-#include <SDL2/SDL.h>
+#include "SDL2_Includer.h"
 
-#if defined(__APPLE__)
-#include <SDL2_ttf/SDL_ttf.h>
-#else
-#include <SDL2/SDL_ttf.h>
-#endif
+#include ICE_INCLUDE_SDL2
+#include ICE_INCLUDE_SDL2_ttf
 
 // Typedef
 // --------------------------------------

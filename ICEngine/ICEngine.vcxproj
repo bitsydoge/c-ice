@@ -145,6 +145,7 @@
     <ClInclude Include="src\Core\Label.h" />
     <ClInclude Include="src\Core\Label_private.h" />
     <ClInclude Include="src\Core\MacOS_.h" />
+    <ClInclude Include="src\Core\SDL2_Includer.h" />
     <ClInclude Include="src\Core\State.h" />
     <ClInclude Include="src\Core\Time_.h" />
     <ClInclude Include="src\Core\Time_private.h" />

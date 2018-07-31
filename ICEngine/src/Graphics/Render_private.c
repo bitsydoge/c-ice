@@ -1,6 +1,5 @@
 ﻿#include "Render_private.h"
 
-#include <SDL2/SDL.h>
 #include "../Core/TypesCore.h"
 
 extern ICE_Game game;

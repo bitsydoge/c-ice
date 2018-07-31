@@ -322,6 +322,9 @@
     <ClInclude Include="src\Framework\Assert_.h">
       <Filter>1 - Framework</Filter>
     </ClInclude>
+    <ClInclude Include="src\Core\SDL2_Includer.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Asset_private.c">

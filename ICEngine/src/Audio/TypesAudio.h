@@ -1,11 +1,8 @@
 #ifndef DEF_ICE_TYPESAUDIO
 #define DEF_ICE_TYPESAUDIO
 
-#if defined(__APPLE__)
-#include <SDL2_mixer/SDL_mixer.h>
-#else
-#include <SDL2/SDL_mixer.h>
-#endif
+#include "../Core/SDL2_Includer.h"
+#include ICE_INCLUDE_SDL2_mixer
 
 #include "../Framework/String_.h"
 

@@ -1,8 +1,11 @@
 ﻿#ifndef DEF_ICE_TYPESGRAPHICS
 #define DEF_ICE_TYPESGRAPHICS
-#include <SDL2/SDL.h>
+
 #include "../Maths/TypesMaths.h"
 #include "../Framework/TypesFramework.h"
+#include "../Core/SDL2_Includer.h"
+
+#include ICE_INCLUDE_SDL2_ttf
 
 #ifndef ICE_BOOL_DEFINED
 #define ICE_BOOL_DEFINED

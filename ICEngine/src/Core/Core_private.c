@@ -4,21 +4,17 @@
 #include "TypesCore.h"
 #include "Label.h"
 #include "MacOS_.h"
+#include "SDL2_Includer.h"
 
 #include "../Framework/Terminal_private.h"
 #include "../Framework/Log.h"
 #include "../Graphics/Gui.h"
 #include "../Graphics/Texture.h"
 
-#include <SDL2/SDL.h>
+#include ICE_INCLUDE_SDL2
+#include ICE_INCLUDE_SDL2_ttf
 
-#if defined(__APPLE__)
-#include <SDL2_mixer/SDL_mixer.h>
-#else
-#include <SDL2/SDL_mixer.h>
 #include <stdio.h>
-
-#endif
 
 #include "../Audio/Audio.h"
 #include "../Audio/Sound.h"

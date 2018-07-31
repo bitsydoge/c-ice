@@ -36,8 +36,8 @@ extern "C" {
 #endif
 
 	/* --- */
-
-#include <SDL2/SDL.h>
+#include "../../Core/SDL2_Includer.h"
+#include ICE_INCLUDE_SDL2_mixer
 
 	/* --------- Definitions */
 

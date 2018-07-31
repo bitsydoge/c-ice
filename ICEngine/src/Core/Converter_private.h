@@ -1,11 +1,12 @@
 #ifndef DEF_ICE_CONVERTER_PRIVATE
 #define DEF_ICE_CONVERTER_PRIVATE
+#include "SDL2_Includer.h"
 
 ////////////////////////////////////
 //      Converter ice<->sdl       //
 ////////////////////////////////////
 
-#include <SDL2/SDL.h>
+#include ICE_INCLUDE_SDL2
 
 #include "../Maths/TypesMaths.h"
 
