@@ -6,11 +6,11 @@
 
 #if defined(__APPLE__)
 #include <unistd.h>
-#include <CoreFoundation/CoreFoundation.h> // I UNDERSTAND NO SHIT
+#include <CoreFoundation/CoreFoundation.h> 
 ICE_Char * ICE_MacOS_GetResourcesDirectory()
 {
     CFURLRef url = CFBundleCopyResourcesDirectoryURL(CFBundleGetMainBundle());
-    char * returner = (char*)malloc(sizeof(char)*PATH_MAX)
+	char * returner = (char*)malloc(sizeof(char)*PATH_MAX);
     CFURLGetFileSystemRepresentation(url, true, (UInt8*)returner, sizeof(sizeof(char)*PATH_MAX));
     //chdir(path) != 0)
     CFRelease(url);

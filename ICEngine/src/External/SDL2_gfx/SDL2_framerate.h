@@ -37,7 +37,7 @@ extern "C" {
 
 	/* --- */
 #include "../../Core/SDL2_Includer.h"
-#include ICE_INCLUDE_SDL2_mixer
+#include ICE_INCLUDE_SDL2
 
 	/* --------- Definitions */
 
