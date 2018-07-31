@@ -1,7 +1,6 @@
 ﻿#include "Window.h"
-
-#include <SDL2/SDL.h>
 #include "TypesCore.h"
+#include ICE_INCLUDE_SDL2
 
 extern ICE_Game game;
 

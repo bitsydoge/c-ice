@@ -1,10 +1,7 @@
 #include "Font.h"
 
-#if defined(__APPLE__)
-#include <SDL2_ttf/SDL_ttf.h>
-#else
-#include <SDL2/SDL_ttf.h>
-#endif
+#include "../Core/SDL2_Includer.h"
+#include ICE_INCLUDE_SDL2_ttf
 
 #include "TypesGraphics.h"
 #include "Color_private.h"

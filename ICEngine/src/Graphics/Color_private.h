@@ -1,7 +1,7 @@
 #ifndef DEF_ICE_COLOR_PRIVATE
 #define DEF_ICE_COLOR_PRIVATE
 
-#include <SDL2/SDL.h>
+#include ICE_INCLUDE_SDL2
 
 #include "TypesGraphics.h"
 
