@@ -60,7 +60,7 @@ ICE_Sound ICE_Sound_Create(char *path)
 	ICE_Sound sound = { 0 };
 
 	// Assigne
-	sound.filename = ICE_WString_Init(path);
+	sound.filename = ICE_String_Init(path);
 	sound.sound = Mix_LoadWAV(path);
 
 	return sound;
@@ -93,7 +93,7 @@ void ICE_Sound_Clear(ICE_Sound * sound)
 
 void ICE_Sound_Destroy(ICE_Sound * ptr)
 {
-	ICE_WString_Delete(ptr->filename);
+	ICE_String_Delete(ptr->filename);
 	Mix_FreeChunk(ptr->sound);
 }
 

@@ -325,6 +325,9 @@
     <ClInclude Include="src\Core\SDL2_Includer.h">
       <Filter>2 - Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Graphics\Sprite_private.h">
+      <Filter>3 - Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Asset_private.c">
@@ -569,6 +572,9 @@
     </ClCompile>
     <ClCompile Include="src\Framework\Assert_.c">
       <Filter>1 - Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Sprite_private.c">
+      <Filter>3 - Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
