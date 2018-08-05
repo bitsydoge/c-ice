@@ -43,7 +43,7 @@ him for his work.
 #include <string.h>
 
 #include "../../Core/SDL2_Includer.h"
-#include ICE_INCLUDE_SDL2_mixer
+#include ICE_INCLUDE_SDL2_MIXER
 
 /* Use GCC intrinsics if available: they support both i386 and x86_64,
    provide ASM-grade performances, and lift the PUSHA/POPA issues. */

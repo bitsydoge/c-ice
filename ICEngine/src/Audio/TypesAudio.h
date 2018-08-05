@@ -2,7 +2,7 @@
 #define DEF_ICE_TYPESAUDIO
 
 #include "../Core/SDL2_Includer.h"
-#include ICE_INCLUDE_SDL2_mixer
+#include ICE_INCLUDE_SDL2_MIXER
 
 #include "../Framework/String_.h"
 

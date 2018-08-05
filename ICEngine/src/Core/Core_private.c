@@ -12,7 +12,7 @@
 #include "../Graphics/Texture.h"
 
 #include ICE_INCLUDE_SDL2
-#include ICE_INCLUDE_SDL2_ttf
+#include ICE_INCLUDE_SDL2_TTF
 
 #include <stdio.h>
 

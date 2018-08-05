@@ -1,7 +1,7 @@
 #include "Font.h"
 
 #include "../Core/SDL2_Includer.h"
-#include ICE_INCLUDE_SDL2_ttf
+#include ICE_INCLUDE_SDL2_TTF
 
 #include "TypesGraphics.h"
 #include "Color_private.h"
