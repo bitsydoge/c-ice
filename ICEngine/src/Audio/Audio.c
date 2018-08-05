@@ -1,7 +1,7 @@
 #include "Audio.h"
 
 #include "../Core/SDL2_Includer.h"
-#include ICE_INCLUDE_SDL2_mixer
+#include ICE_INCLUDE_SDL2_MIXER
 
 void ICE_Audio_Init()
 {

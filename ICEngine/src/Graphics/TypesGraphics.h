@@ -5,7 +5,7 @@
 #include "../Framework/TypesFramework.h"
 #include "../Core/SDL2_Includer.h"
 
-#include ICE_INCLUDE_SDL2_ttf
+#include ICE_INCLUDE_SDL2_TTF
 
 #ifndef ICE_BOOL_DEFINED
 #define ICE_BOOL_DEFINED

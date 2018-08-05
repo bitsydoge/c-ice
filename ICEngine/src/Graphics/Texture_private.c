@@ -1,11 +1,7 @@
 ﻿#include "Texture_private.h"
 
-/*
 #define STB_IMAGE_IMPLEMENTATION
 #include "../External/stb/stb_image.h"
-*/
-#define SDL_STBIMAGE_IMPLEMENTATION 1
-#include "../External/stb/SDL_stbimage.h"
 #include "../Core/TypesCore.h"
 
 #include "TypesGraphics.h"
@@ -29,7 +25,6 @@ Uint32 static const amask = 0xff000000;
 ICE_Texture* ICE_Texture_LoadFromFile(char *path)
 {
 	SDL_Surface* surf;
-	/*
 	int req_format = STBI_rgb_alpha;
 	int width, height, orig_format;
 	unsigned char* data = stbi_load(path, &width, &height, &orig_format, req_format);
@@ -54,8 +49,6 @@ ICE_Texture* ICE_Texture_LoadFromFile(char *path)
 		surf = SDL_CreateRGBSurfaceWithFormatFrom((void*)data, width, height,
 			depth, pitch, pixel_format);
 	}
-	*/
-    surf = STBIMG_Load(path);
 
 	if (surf == NULL) {
 		SDL_Log("CRITICAL : Can't create Surface from image : %s", SDL_GetError());
@@ -75,7 +68,7 @@ ICE_Texture* ICE_Texture_LoadFromFile(char *path)
 	text->w = surf->w; text->h = surf->h;
 
 	SDL_FreeSurface(surf);
-	//stbi_image_free(data);
+	stbi_image_free(data);
 	return text;
 }
 
