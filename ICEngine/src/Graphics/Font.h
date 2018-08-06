@@ -10,6 +10,8 @@
  */
 void ICE_Font_Load(char *path);
 
+
+#if defined(_DEBUG)
 /**
  * \brief Unoptimized font drawing
  * \param text Text to draw
@@ -18,5 +20,8 @@ void ICE_Font_Load(char *path);
  * \param bg Color of the background
  */
 void ICE_Font_Draw(char* text, ICE_Vect vect, ICE_Color fg, ICE_Color bg);
+#else
+#define ICE_Font_Draw(...)
+#endif
 
 #endif

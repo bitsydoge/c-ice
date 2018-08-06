@@ -1,19 +1,17 @@
 ﻿#include "Log.h"
 
+#if defined(_DEBUG)
+
 #include "Terminal.h"
 #include "TypesFramework.h"
 
 #include <stdarg.h>
 #include <stdio.h>
 
-extern ICE_Bool debug_ok;
-
 // Log
 
 void ICE_Log(ICE_LogTypes type, const char * format, ...)
 {
-	if (debug_ok)
-	{
 		va_list args;
 		va_start(args, format);
 
@@ -60,13 +58,10 @@ void ICE_Log(ICE_LogTypes type, const char * format, ...)
 		printf("]");
 		printf("\n");
 		va_end(args);
-	}
 }
 
 void ICE_Log_NoReturn(ICE_LogTypes type, const char * format, ...)
 {
-	if (debug_ok)
-	{
 		va_list args;
 		va_start(args, format);
 
@@ -107,5 +102,6 @@ void ICE_Log_NoReturn(ICE_LogTypes type, const char * format, ...)
 		vprintf(format, args);
 		printf("]");
 		va_end(args);
-	}
 }
+
+#endif

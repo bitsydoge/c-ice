@@ -4,7 +4,9 @@
 #include "Log.h"
 #include "Assert_.h"
 
+#if defined(_DEBUG)
 size_t _thing_to_free_ = 0;
+#endif
 
 void* ICE_Malloc(size_t _Size)
 {
@@ -14,7 +16,9 @@ void* ICE_Malloc(size_t _Size)
 		ICE_Log(ICE_LOG_CRITICAL, "Memory]::[Malloc]::[Failed");
 		ICE_Assert(ptr != NULL, "(Malloc) Failed to allocate memory");
 	}
+#if defined(_DEBUG)
 	_thing_to_free_++;
+#endif
 	return ptr;
 }
 
@@ -26,7 +30,9 @@ void* ICE_Calloc(size_t _Nb_Elem, size_t _Size)
 		ICE_Log(ICE_LOG_CRITICAL, "Memory]::[Calloc]::[Failed");
 		ICE_Assert(ptr != NULL, "(Calloc) Failed to allocate memory");
 	}
+#if defined(_DEBUG)
 	_thing_to_free_++;
+#endif
 	return ptr;
 }
 
@@ -44,9 +50,12 @@ void* ICE_Realloc(void* _Block, size_t _Size)
 void ICE_Free(void* _Block)
 {
 	free(_Block);
+#if defined(_DEBUG)
 	_thing_to_free_--;
+#endif
 }
 
+#if defined(_DEBUG)
 size_t ICE_ThingToFree()
 {
 	if(_thing_to_free_ > 0)
@@ -59,3 +68,4 @@ size_t ICE_ThingToFree()
 	}
 	return _thing_to_free_;
 }
+#endif

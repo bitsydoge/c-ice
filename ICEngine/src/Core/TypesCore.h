@@ -279,8 +279,10 @@ struct ICE_Game {
 	ICE_State				state_main;
 	ICE_State*				current;
 
+#if defined(_DEBUG)
 	// Debug
 	void(*lateDrawDebug)();
+#endif
 
 	// Args
 	int argc; 

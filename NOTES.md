@@ -1,16 +1,27 @@
 ﻿Notes are in FRENCH *terrible noise*
 
-- More Background
-	Image : -Taille original centré
-			-Zoomé mais qui entre dans tous l'écran (cropé)
-			-Zoomé jusqu'a touché l'écran (non cropé)
-			-Etiré
-			-Repeat X, Y ou XY
+:: Graphisme :: 
 
-- Ajouter Sprites (no far)
-- Ajouter Zoom (:o :o :o :o :o)
-- Ajouter Maps/Tileset (EZ PZ LEMON SQUEAZY)
-- Ajouter Physics (CHIPUMUNKUN)
+	- More Background
+		Image : -Taille original centré
+				-Zoomé mais qui entre dans tous l'écran (cropé)
+				-Zoomé jusqu'a touché l'écran (non cropé)
+				-Etiré
+				-Repeat X, Y ou XY
+		Couleur
+	- Ajouter Sprites (no far)
+	- Ajouter Zoom (:o :o :o :o :o)
 
-Faire une deuxieme fenetre avec toutes les entité dans la scene ????
-(Define pour la compile en debug)
+:: Loader :: 
+
+	- Ajouter Maps/Tileset
+	- Assets Zippé Packé
+
+:: Physique :: 
+
+	- Implementer Chipmunk
+
+:: Debug :: 
+
+	- Rendre le debug vraiment macroisé
+	- Faire une fenêtre séparé avec des infos de débugs
