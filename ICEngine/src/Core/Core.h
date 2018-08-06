@@ -6,29 +6,15 @@
 #define ICE_Game_Update() void ICE_User_Update(void)
 #define ICE_Game_Destroy() void ICE_User_Destroy(void)
 
-#if defined(_DEBUG)
 #define ICE_Game_Create(NAME, WIDTH, HEIGHT) void ICE_User_Create(void);\
 	ICE_Game_Update();\
 	ICE_Game_Destroy();\
 	int main(int argc, char ** argv)\
 	{\
-		ICE_Debug_Set(ICE_True);\
 		ICE_Core_Main(NAME, WIDTH, HEIGHT, ICE_User_Create, ICE_User_Update, ICE_User_Destroy, argc, argv);\
 		return 0;\
 	}\
 	void ICE_User_Create(void)
-#else
-#define ICE_Game_Create(NAME, WIDTH, HEIGHT) void ICE_User_Create(void); \
-	ICE_Game_Update(); \
-	ICE_Game_Destroy(); \
-	int main(int argc, char ** argv)\
-	{\
-		ICE_Debug_Set(ICE_False); \
-		ICE_Core_Main(NAME, WIDTH, HEIGHT, ICE_User_Create, ICE_User_Update, ICE_User_Destroy, argc, argv); \
-		return 0;\
-	}\
-	void ICE_User_Create(void)
-#endif
 
 #include "../Framework/String_.h"
 

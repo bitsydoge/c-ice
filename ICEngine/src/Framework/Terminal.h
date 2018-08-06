@@ -23,6 +23,8 @@ enum ICE_TermColor {
 	ICE_T_WHITE
 };
 
+#if defined(_DEBUG)
+
 /**
  * \brief Reset color to default terminal color
  */
@@ -54,5 +56,17 @@ void ICE_Term_Clock();
  * \brief Wait a key to continue with message 
  */
 void ICE_Term_Wait();
+
+#else
+
+#define ICE_Term_ResetColor()
+#define ICE_Term_SetColor(INT)
+#define ICE_Term_SetBgColor(INT)
+#define ICE_Term_Clear()
+#define ICE_Term_Clock()
+#define ICE_Term_Wait()
+
+#endif
+
 
 #endif

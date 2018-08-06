@@ -46,9 +46,10 @@ int ICE_Core_Main(char * title, const int window_width, const int window_height,
 		ICE_Draw_Gui();
 		ICE_Draw_LabelScreen();
 
-		if (game.lateDrawDebug && ICE_Debug_Get())
+#if defined(_DEBUG)
+		if (game.lateDrawDebug)
 			game.lateDrawDebug();
-	
+#endif
 		if(game.window.auto_render)
 			ICE_Render_Now();
 

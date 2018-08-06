@@ -7,6 +7,10 @@ void* ICE_Malloc(size_t _Size);
 void* ICE_Calloc(size_t _Nb_Elem, size_t _Size);
 void* ICE_Realloc(void* _Block, size_t _Size);
 void ICE_Free(void* _Block);
+#if defined(_DEBUG)
 size_t ICE_ThingToFree();
+#else
+#define ICE_ThingToFree();
+#endif
 
 #endif

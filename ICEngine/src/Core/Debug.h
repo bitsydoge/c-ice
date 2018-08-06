@@ -1,15 +1,23 @@
 ﻿#ifndef DEF_ICE_DEBUG
 #define DEF_ICE_DEBUG
+
 #include "TypesCore.h"
+#include "../Framework/Inline.h"
 
-/**
- * \brief Set if the debug is On or Off
- * \param yn Bool, ICE_True or ICE_False. Use ICE_BoolNone if you just want to know the state
- * \return The actual state
- */
-void ICE_Debug_Set(const ICE_Bool yn);
+// Get the Header and User debug mode
+ICE_INLINE ICE_Bool ICE_Debug_Get_Compiled()
+{
+#if defined(_DEBUG)
+	return ICE_True;
+#else
+	return ICE_False;
+#endif
+}
 
-ICE_Bool ICE_Debug_Get();
+// Get the Library Debug
+ICE_Bool ICE_Debug_Get_Linked();
+
+#if defined(_DEBUG)
 
 /**
  * \brief Draw the mouse coordinate
@@ -63,4 +71,16 @@ void ICE_Debug_CameraControl();
  */
 void ICE_Debug_CallbackDraw(void(*callback)());
 
+#else
+#define ICE_Debug_DrawCoordinate();
+#define ICE_Debug_DrawFps(...);
+#define ICE_Debug_TitleFps();
+#define ICE_Debug_FontSetColorBg(...);
+#define ICE_Debug_FontSetColorFg(...);
+#define ICE_Debug_FontDraw(...);
+#define ICE_Debug_CameraControl();
+#define ICE_Debug_CallbackDraw(...);
 #endif
+
+#endif
+

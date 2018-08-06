@@ -6,6 +6,8 @@
 #include "Log.h"
 #include "Terminal.h"
 
+#if defined(_DEBUG)
+
 void ICE_Assert_(const char* expr_str, int expr, const char* file, int line, const char* msg)
 {
 	if (!expr)
@@ -35,3 +37,5 @@ void ICE_Assert_(const char* expr_str, int expr, const char* file, int line, con
 		abort();
 	}
 }
+
+#endif

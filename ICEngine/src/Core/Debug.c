@@ -1,5 +1,16 @@
 ﻿#include "Debug.h"
 
+ICE_Bool ICE_Debug_Get_Linked()
+{
+#if defined(_DEBUG)
+	return ICE_True;
+#else
+	return ICE_False;
+#endif
+}
+
+#if defined(_DEBUG)
+
 #include "TypesCore.h"
 #include "Window.h"
 #include "Input.h"
@@ -15,19 +26,6 @@
 
 extern ICE_Game game;
 extern ICE_Asset asset;
-
-volatile ICE_Bool debug_ok = ICE_False;
-
-void ICE_Debug_Set(const ICE_Bool yn){
-		debug_ok = yn;
-}
-
-ICE_Bool ICE_Debug_Get()
-{
-	if (debug_ok == ICE_True)
-		return ICE_True;
-	return ICE_False;
-}
 
 void ICE_Debug_DrawCoordinate(){
 	if (debug_ok && SDL_GetMouseFocus()){
@@ -121,3 +119,5 @@ void ICE_Debug_CallbackDraw(void(*callback)())
 {
 	game.lateDrawDebug = callback;
 }
+
+#endif

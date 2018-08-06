@@ -17,6 +17,8 @@ enum ICE_LogTypes
 	ICE_LOG_RUNNING = 2
 }; typedef enum ICE_LogTypes ICE_LogTypes;
 
+#if defined(_DEBUG)
+
 /**
  * \brief Show a log with time and can be formated
  * \param type Log type
@@ -25,5 +27,10 @@ enum ICE_LogTypes
  */
 void ICE_Log(ICE_LogTypes type, const char * format, ...);
 void ICE_Log_NoReturn(ICE_LogTypes type, const char * format, ...);
+
+#else
+#define ICE_Log(...)
+#define ICE_Log_NoReturn()
+#endif
 
 #endif
