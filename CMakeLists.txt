@@ -88,6 +88,7 @@ add_library(ICEngine
         ICEngine/src/Core/TypesCore.h
         ICEngine/src/Core/Window.c
         ICEngine/src/Core/Window.h
+	ICEngine/src/Core/Get.h
         ICEngine/src/External/chipmunk/chipmunk.c
         ICEngine/src/External/chipmunk/chipmunk.h
         ICEngine/src/External/chipmunk/chipmunk_ffi.h

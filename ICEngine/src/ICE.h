@@ -33,6 +33,7 @@
 #include "Core/Entity.h"
 #include "Core/Asset.h"
 #include "Core/MacOS_.h"
+#include "Core/Get.h"
 
 // Graphics
 

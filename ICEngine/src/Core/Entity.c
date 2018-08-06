@@ -52,7 +52,7 @@ void ICE_EntityManager_DestroyAll(ICE_State * state)
 		state = game.current;
 
 	ICE_EntityManager *manager = state->object.entity_mngr;
-	ICE_Index nb_manager = state->object.entity_mngr_nb;
+	const ICE_Index nb_manager = state->object.entity_mngr_nb;
 
 	for (ICE_Index i = 0; i < nb_manager; i++)
 	{
@@ -141,7 +141,7 @@ ICE_Index ICE_EntityManager_GetNumber(ICE_State * state)
 
 ICE_Vect ICE_Entity_GetPosition(ICE_Entity * entity)
 {
-	ICE_Vect vect = { entity->x , entity->y };
+	const ICE_Vect vect = { entity->x , entity->y };
 	return vect;
 }
 
@@ -183,9 +183,9 @@ void ICE_Entity_MovePos(ICE_Entity * entity, ICE_Vect pos, ICE_Float r)
 		)
 	{
 		// Calculate the movement
-		ICE_Float xdif = pos.x - entity->x;
-		ICE_Float ydif = pos.y - entity->y;
-		ICE_Float angle = atan2(ydif, xdif);
+		const ICE_Float xdif = pos.x - entity->x;
+		const ICE_Float ydif = pos.y - entity->y;
+		const ICE_Float angle = atan2(ydif, xdif);
 		entity->x_polar_shift_move = cos(angle);
 		entity->y_polar_shift_move = sin(angle);
 		entity->polar_distance_r_r = xdif * xdif + ydif * ydif;
@@ -248,14 +248,14 @@ void ICE_Entity_AddAngle(ICE_Entity * entity, ICE_Float angle)
 
 void ICE_Entity_LookAt(ICE_Entity * entity, ICE_Vect pos)
 {
-	ICE_Float result = ICE_Maths_AngleCalculatDegree(entity->x,
+	const ICE_Float result = ICE_Maths_AngleCalculatDegree(entity->x,
 		entity->y, pos.x, pos.y);
 	entity->angle = result;
 }
 
 ICE_Box ICE_Entity_GetBox(ICE_Entity * entity)
 {
-	ICE_Box rect =
+	const ICE_Box rect =
 	{
 		entity->x,
 		entity->y,

@@ -40,7 +40,7 @@ void ICE_SoundManager_Destroy(const ICE_Index man)
 void ICE_SoundManager_DestroyAll()
 {
 	ICE_SoundManager *manager = asset.sound_mngr;
-	ICE_Index nb_manager = asset.sound_mngr_nb;
+	const ICE_Index nb_manager = asset.sound_mngr_nb;
 
 	for (ICE_Index i = 0; i < nb_manager; i++)
 	{

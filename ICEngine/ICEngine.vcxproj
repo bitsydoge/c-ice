@@ -140,6 +140,7 @@
     <ClInclude Include="src\Core\Entity.h" />
     <ClInclude Include="src\Core\Game.h" />
     <ClInclude Include="src\Core\Game_private.h" />
+    <ClInclude Include="src\Core\Get.h" />
     <ClInclude Include="src\Core\Input.h" />
     <ClInclude Include="src\Core\Input_private.h" />
     <ClInclude Include="src\Core\Label.h" />

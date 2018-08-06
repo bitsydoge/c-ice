@@ -37,7 +37,7 @@ void ICE_Debug_DrawCoordinate(){
 			coordinate = ICE_Camera_ScreenWorld(coordinate);
 		sprintf(coo, "%0.0f, %0.0f", coordinate.x, coordinate.y);
 
-		ICE_Vect vect = { game.window.input.mousex + 10, game.window.input.mousey + 10 };
+		const ICE_Vect vect = { game.window.input.mousex + 10, game.window.input.mousey + 10 };
 		ICE_Font_Draw(coo, vect, ICE_Color_New(255,255,255), ICE_Color_New(0,0,0));
 	}
 }

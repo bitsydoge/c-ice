@@ -334,6 +334,9 @@
     <ClInclude Include="src\External\stb\SDL_stbimage.h">
       <Filter>8 - External\stb</Filter>
     </ClInclude>
+    <ClInclude Include="src\Core\Get.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Asset_private.c">

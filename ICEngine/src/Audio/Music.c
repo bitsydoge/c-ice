@@ -40,7 +40,7 @@ void ICE_MusicManager_Destroy(const ICE_Index man)
 void ICE_MusicManager_DestroyAll()
 {
 	ICE_MusicManager *manager = asset.music_mngr;
-	ICE_Index nb_manager = asset.music_mngr_nb;
+	const ICE_Index nb_manager = asset.music_mngr_nb;
 
 	for (ICE_Index i = 0; i < nb_manager; i++)
 	{
@@ -57,7 +57,7 @@ void ICE_MusicManager_DestroyAll()
 
 ICE_Music ICE_Music_Create(char *path)
 {
-	ICE_Music music = { 0 };
+	ICE_Music music;
 
 	// Assigne
 	music.filename = ICE_String_Init(path);
