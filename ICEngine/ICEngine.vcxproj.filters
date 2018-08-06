@@ -337,6 +337,9 @@
     <ClInclude Include="src\Core\Get.h">
       <Filter>2 - Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Core\DebugGUI.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Asset_private.c">
@@ -584,6 +587,9 @@
     </ClCompile>
     <ClCompile Include="src\Graphics\Sprite_private.c">
       <Filter>3 - Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\DebugGUI.c">
+      <Filter>2 - Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
