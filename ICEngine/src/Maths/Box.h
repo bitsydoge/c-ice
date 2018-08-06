@@ -2,6 +2,7 @@
 #define DEF_ICE_BOX
 
 #include "TypesMaths.h"
+#include "../Framework/Inline.h"
 
 /**
  * \brief Create a new Box
@@ -11,7 +12,7 @@
  * \param h Height
  * \return The new Box
  */
-static inline ICE_Box ICE_Box_New(const ICE_Float x, const ICE_Float y, const ICE_Float w, const ICE_Float h) {
+ICE_INLINE ICE_Box ICE_Box_New(const ICE_Float x, const ICE_Float y, const ICE_Float w, const ICE_Float h) {
 	ICE_Box box = { x,y,w,h };
 	return box;
 }
@@ -22,7 +23,7 @@ static inline ICE_Box ICE_Box_New(const ICE_Float x, const ICE_Float y, const IC
  * \param scale Value to scale (<1 reduce size, >1 enlarge size)
  * \return The scaled box
  */
-static inline ICE_Box ICE_Box_Scale(ICE_Box rect, ICE_Float scale)
+ICE_INLINE ICE_Box ICE_Box_Scale(ICE_Box rect, ICE_Float scale)
 {
 	return ICE_Box_New(rect.x, rect.y, rect.w * scale, rect.h * scale);
 }
@@ -33,7 +34,7 @@ static inline ICE_Box ICE_Box_Scale(ICE_Box rect, ICE_Float scale)
  * \param box2 Second Box
  * \return ICE_True or ICE_False
  */
-static inline ICE_Bool ICE_Box_Compare(ICE_Box box1, ICE_Box box2)
+ICE_INLINE ICE_Bool ICE_Box_Compare(ICE_Box box1, ICE_Box box2)
 {
 	if (box1.x != box2.x ||
 		box1.y != box2.y ||
@@ -49,7 +50,7 @@ static inline ICE_Bool ICE_Box_Compare(ICE_Box box1, ICE_Box box2)
 * \param box2 Second Box
 * \return ICE_True or ICE_False
 */
-static inline ICE_Bool ICE_Box_CompareSize(ICE_Box box1, ICE_Box box2)
+ICE_INLINE ICE_Bool ICE_Box_CompareSize(ICE_Box box1, ICE_Box box2)
 {
 	if (box1.w != box2.w ||
 		box1.h != box2.h)
@@ -63,7 +64,7 @@ static inline ICE_Bool ICE_Box_CompareSize(ICE_Box box1, ICE_Box box2)
 * \param box2 Second Box
 * \return ICE_True or ICE_False
 */
-static inline ICE_Bool ICE_Box_ComparePos(ICE_Box box1, ICE_Box box2)
+ICE_INLINE ICE_Bool ICE_Box_ComparePos(ICE_Box box1, ICE_Box box2)
 {
 	if (box1.x != box2.x ||
 		box1.y != box2.y)
@@ -76,7 +77,7 @@ static inline ICE_Bool ICE_Box_ComparePos(ICE_Box box1, ICE_Box box2)
  * \param box The Box to change position
  * \param vect The Vector that is the new position
  */
-static inline void ICE_Box_SetPos(ICE_Box *box, ICE_Vect vect)
+ICE_INLINE void ICE_Box_SetPos(ICE_Box *box, ICE_Vect vect)
 {
 	box->x = vect.x; box->y = vect.y;
 
@@ -88,7 +89,7 @@ static inline void ICE_Box_SetPos(ICE_Box *box, ICE_Vect vect)
  * \param w The width value
  * \param h The height value
  */
-static inline void ICE_Box_SetSize(ICE_Box *box, ICE_Float w, ICE_Float h)
+ICE_INLINE void ICE_Box_SetSize(ICE_Box *box, ICE_Float w, ICE_Float h)
 {
 	box->w = w; box->h = h;
 }
@@ -99,7 +100,7 @@ static inline void ICE_Box_SetSize(ICE_Box *box, ICE_Float w, ICE_Float h)
  * \param x The X value added to position
  * \param y The Y value added to position
  */
-static inline void ICE_Box_Shift(ICE_Box *box, ICE_Float x, ICE_Float y)
+ICE_INLINE void ICE_Box_Shift(ICE_Box *box, ICE_Float x, ICE_Float y)
 {
 	box->x += x; box->y += y;
 }

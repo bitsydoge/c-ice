@@ -4,13 +4,14 @@
 #include ICE_INCLUDE_SDL2
 
 #include "TypesGraphics.h"
+#include "../Framework/Inline.h"
 
 /**
  * \brief Convert a ICE_Color to a SDL one
  * \param ice_color The ICE_Color to convert
  * \return A SDL_Color converted from a ICE one
  */
-static inline SDL_Color ICE_Color_ToSdl(const ICE_Color ice_color) {
+ICE_INLINE SDL_Color ICE_Color_ToSdl(const ICE_Color ice_color) {
 	SDL_Color sdl_color;
 	sdl_color.r = ice_color >> 24 & 255;
 	sdl_color.g = ice_color >> 16 & 255;

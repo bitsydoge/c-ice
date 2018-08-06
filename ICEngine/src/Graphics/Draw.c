@@ -19,7 +19,7 @@ void ICE_Draw_LabelWorld()
 			if (current->object.label_mngr[i].label[j].active)
 			{
 				if (
-					wcscmp(current->object.label_mngr[i].label[j].text, current->object.label_mngr[i].label[j].old_text) ||
+				    strcmp(current->object.label_mngr[i].label[j].text, current->object.label_mngr[i].label[j].old_text) ||
 					current->object.label_mngr[i].label[j].size != current->object.label_mngr[i].label[j].old_size ||
 					current->object.label_mngr[i].label[j].color != current->object.label_mngr[i].label[j].old_color ||
 					current->object.label_mngr[i].label->wrap_width != current->object.label_mngr[i].label->wrap_width_old
@@ -56,7 +56,7 @@ void ICE_Draw_LabelScreen() {
 			if (current->object.label_mngr[i].label[j].active)
 			{
 				if (
-					wcscmp(current->object.label_mngr[i].label[j].text, current->object.label_mngr[i].label[j].old_text) ||
+					strcmp(current->object.label_mngr[i].label[j].text, current->object.label_mngr[i].label[j].old_text) ||
 					current->object.label_mngr[i].label[j].size != current->object.label_mngr[i].label[j].old_size ||
 					current->object.label_mngr[i].label[j].color != current->object.label_mngr[i].label[j].old_color
 					)

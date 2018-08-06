@@ -191,6 +191,7 @@
     <ClInclude Include="src\External\SDL2_gfx\SDL2_rotozoom.h" />
     <ClInclude Include="src\External\stb\stb_image.h" />
     <ClInclude Include="src\Framework\Assert_.h" />
+    <ClInclude Include="src\Framework\Inline.h" />
     <ClInclude Include="src\Framework\Log.h" />
     <ClInclude Include="src\Framework\Memory_.h" />
     <ClInclude Include="src\Framework\Random.h" />
