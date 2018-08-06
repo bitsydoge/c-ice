@@ -13,7 +13,6 @@
 #include "../Framework/Log.h"
 
 #include <stdio.h>
-#include "DebugGUI.h"
 
 extern ICE_Game game;
 
@@ -23,7 +22,6 @@ int ICE_Core_Main(char * title, const int window_width, const int window_height,
 	puts("");
 #endif
 	ICE_Core_Init();
-	
 	ICE_GameObject_Create(title, window_width, window_height, argc, argv);
 	ICE_Asset_Init();
 	ICE_Log(ICE_LOG_RUNNING, "Game]::[Create]::[Start");
@@ -31,7 +29,6 @@ int ICE_Core_Main(char * title, const int window_width, const int window_height,
 	ICE_Log(ICE_LOG_SUCCES, "Game]::[Create]::[Finish");
 	printf("\n");
 	ICE_Log(ICE_LOG_RUNNING, "Game]::[Update]::[Start");
-	ICE_DebugGUI_ThreadStart();
 	while (!game.window.input.quit)
 	{	
 		ICE_Time_Start();
@@ -62,7 +59,7 @@ int ICE_Core_Main(char * title, const int window_width, const int window_height,
 	call_destroy();
 	ICE_GameObject_Destroy();
 	ICE_Log(ICE_LOG_SUCCES, "Game]::[Destroy]::[Finish");
-	ICE_DebugGUI_Close();
+	
 	ICE_Core_Close();
 
 	return 0;
