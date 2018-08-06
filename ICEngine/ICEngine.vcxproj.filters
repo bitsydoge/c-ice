@@ -328,6 +328,9 @@
     <ClInclude Include="src\Graphics\Sprite_private.h">
       <Filter>3 - Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="src\Framework\Inline.h">
+      <Filter>1 - Framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Asset_private.c">

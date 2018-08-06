@@ -22,10 +22,11 @@
 
 /* Code can have been altered by ***REMOVED*** for integrating it */
 
-#include "../Framework/TypesFramework.h"
 
 #ifndef DEF_ICE_INTERPOLATE
 #define DEF_ICE_INTERPOLATE
+
+#include "../Framework/TypesFramework.h"
 
 /**
  * \brief 

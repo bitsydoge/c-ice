@@ -2,6 +2,7 @@
 #define DEF_ICE_COLOR
 
 #include "TypesGraphics.h"
+#include "../Framework/Inline.h"
 
 #define ICE_Color_Red ICE_Color_New(255,0,0)
 #define ICE_Color_Blue ICE_Color_New(0,0,255)
@@ -17,7 +18,7 @@
  * \param b The blue value
  * \return The new created Color
  */
-static inline ICE_Color ICE_Color_New(const ICE_Uint8 r, const ICE_Uint8 g, const ICE_Uint8 b)
+ICE_INLINE ICE_Color ICE_Color_New(const ICE_Uint8 r, const ICE_Uint8 g, const ICE_Uint8 b)
 {
 	return (ICE_Color)(r << 24) + (g << 16) + (b << 8) + 255;
 }
@@ -30,7 +31,7 @@ static inline ICE_Color ICE_Color_New(const ICE_Uint8 r, const ICE_Uint8 g, cons
 * \param a the alpha value
 * \return The new created Color
 */
-static inline ICE_Color ICE_Color_New_Rgba(const ICE_Uint8 r, const ICE_Uint8 g, const ICE_Uint8 b,
+ICE_INLINE ICE_Color ICE_Color_New_Rgba(const ICE_Uint8 r, const ICE_Uint8 g, const ICE_Uint8 b,
 									const ICE_Uint8 a)
 {
 	return (ICE_Color)((r << 24) + (g << 16) + (b << 8) + a);

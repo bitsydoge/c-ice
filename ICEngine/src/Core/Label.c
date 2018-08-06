@@ -158,8 +158,8 @@ void ICE_Label_SetString(ICE_Label * label, ICE_StringStd format, ...)
 	va_list args;
 	va_start(args, format);
 
-	ICE_Char buffer[256];
-	vswprintf(buffer, 256, format, args);
+	ICE_Char buffer[512];
+	vsprintf(buffer, format, args);
 
 	ICE_String_Delete(label->text);
 	label->text = ICE_String_Init(buffer);
