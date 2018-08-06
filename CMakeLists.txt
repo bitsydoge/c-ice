@@ -164,6 +164,7 @@ add_library(ICEngine
         ICEngine/src/External/SDL2_gfx/SDL2_rotozoom.c
         ICEngine/src/External/SDL2_gfx/SDL2_rotozoom.h
         ICEngine/src/External/stb/stb_image.h
+        ICEngine/src/External/stb/SDL_stbimage.h
         ICEngine/src/Framework/Assert_.c
         ICEngine/src/Framework/Assert_.h
         ICEngine/src/Framework/Log.c

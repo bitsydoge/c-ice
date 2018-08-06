@@ -331,6 +331,9 @@
     <ClInclude Include="src\Framework\Inline.h">
       <Filter>1 - Framework</Filter>
     </ClInclude>
+    <ClInclude Include="src\External\stb\SDL_stbimage.h">
+      <Filter>8 - External\stb</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Asset_private.c">

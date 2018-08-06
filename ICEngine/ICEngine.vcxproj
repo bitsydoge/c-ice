@@ -189,6 +189,7 @@
     <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives_font.h" />
     <ClInclude Include="src\External\SDL2_gfx\SDL2_imageFilter.h" />
     <ClInclude Include="src\External\SDL2_gfx\SDL2_rotozoom.h" />
+    <ClInclude Include="src\External\stb\SDL_stbimage.h" />
     <ClInclude Include="src\External\stb\stb_image.h" />
     <ClInclude Include="src\Framework\Assert_.h" />
     <ClInclude Include="src\Framework\Inline.h" />
