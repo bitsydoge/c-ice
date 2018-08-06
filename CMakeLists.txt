@@ -219,7 +219,7 @@ add_library(ICEngine
         ICEngine/src/Raw/Icon.c
         ICEngine/src/ICE.h
         ICEngine/src/Core/MacOS_.c
-        ICEngine/src/Core/MacOS_.h ICEngine/src/External/stb/SDL_stbimage.h)
+        ICEngine/src/Core/MacOS_.h)
 
 
 #[[
