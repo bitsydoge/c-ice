@@ -6,6 +6,7 @@
 
 #include <stdio.h>
 #include "../Core/Window.h"
+#include "DebugGUI.h"
 
 ICE_Game game = { 0 };
 
@@ -38,13 +39,17 @@ void ICE_GameObject_Create(char *window_title, const unsigned int width_window, 
 	SDL_SetRenderDrawBlendMode(game.window.render, SDL_BLENDMODE_BLEND);
 
 	ICE_Window_SetIcon(0);
-
+	// Debug
+	ICE_DebugGUI_ThreadStart();
 	ICE_Log(ICE_LOG_SUCCES, "Engine]::[Init]::[Finish");
 	printf("\n");
 }
 
 void ICE_GameObject_Destroy()
 {
+	// Debug
+	ICE_DebugGUI_Close();
+
 	SDL_DestroyWindow(game.window.handle);
 	SDL_DestroyRenderer(game.window.render);
 }
