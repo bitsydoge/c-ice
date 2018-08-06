@@ -83,7 +83,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_IUP_DEBUGUI_USE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -92,7 +92,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_IUP_DEBUGUI_USE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -143,6 +143,7 @@
     <ClInclude Include="src\Core\Get.h" />
     <ClInclude Include="src\Core\Input.h" />
     <ClInclude Include="src\Core\Input_private.h" />
+    <ClInclude Include="src\Core\DebugGUI.h" />
     <ClInclude Include="src\Core\Label.h" />
     <ClInclude Include="src\Core\Label_private.h" />
     <ClInclude Include="src\Core\MacOS_.h" />
@@ -241,6 +242,7 @@
     <ClCompile Include="src\Core\Game_private.c" />
     <ClCompile Include="src\Core\Input.c" />
     <ClCompile Include="src\Core\Input_private.c" />
+    <ClCompile Include="src\Core\DebugGUI.c" />
     <ClCompile Include="src\Core\Label.c" />
     <ClCompile Include="src\Core\Label_private.c" />
     <ClCompile Include="src\Core\MacOS_.c" />

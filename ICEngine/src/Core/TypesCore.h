@@ -282,6 +282,7 @@ struct ICE_Game {
 #if defined(_DEBUG)
 	// Debug
 	void(*lateDrawDebug)();
+	SDL_Thread * guiDebugThread;
 #endif
 
 	// Args
