@@ -28,7 +28,7 @@ extern ICE_Game game;
 extern ICE_Asset asset;
 
 void ICE_Debug_DrawCoordinate(){
-	if (debug_ok && SDL_GetMouseFocus()){
+	if (SDL_GetMouseFocus()){
 		char coo[20];
 		ICE_Box coordinate = { game.window.input.mousex, game.window.input.mousey };
 		if (game.window.input.leftclic)
@@ -42,20 +42,15 @@ void ICE_Debug_DrawCoordinate(){
 
 void ICE_Debug_DrawFps(int y_pos)
 {
-	if (debug_ok)
-	{
 		char gh[20];
 		sprintf(gh, " FPS : [%.0f] ", game.time.fps);
 		ICE_Debug_FontDraw(y_pos, gh);
-	}
 }
 
 void ICE_Debug_TitleFps(){
-	if (debug_ok){
 		char buffer[20];
 		sprintf(buffer, "FPS : [%.0f]", game.time.fps);
 		ICE_Window_SetTitle(buffer);
-	}
 }
 
 ICE_Color font_color_background_set = 0xFF0000FF;
@@ -63,23 +58,15 @@ ICE_Color font_color_foreground_set = 0xFFFFFFFF;
 
 void ICE_Debug_FontSetColorBg(int r, int g, int b)
 {
-	if (debug_ok)
-	{
 		font_color_background_set = ICE_Color_New(r,g,b);
-	}
 }
 
 void ICE_Debug_FontSetColorFg(int r, int g, int b)
 {
-	if (debug_ok)
-	{
 		font_color_foreground_set = ICE_Color_New(r, g, b);
-	}
 }
 
 void ICE_Debug_FontDraw(int y, const char* format, ...) {
-	if(debug_ok)
-	{
 		char buffer[512];
 		va_list args;
 		va_start(args, format);
@@ -95,13 +82,10 @@ void ICE_Debug_FontDraw(int y, const char* format, ...) {
 		SDL_FreeSurface(surf);
 		SDL_DestroyTexture(texture);
 		va_end(args);
-	}
 }
 
 void ICE_Debug_CameraControl()
 {
-	if(debug_ok)
-	{
 		if (ICE_Input_Key(ICE_KEY_W))
 			ICE_Camera_ShiftPos(ICE_Vect_New(0, -1000 * ICE_Game_GetDelta()));
 		if (ICE_Input_Key(ICE_KEY_S))
@@ -112,7 +96,6 @@ void ICE_Debug_CameraControl()
 			ICE_Camera_ShiftPos(ICE_Vect_New(1000 * ICE_Game_GetDelta(), 0));
 		if (ICE_Input_Key(ICE_KEY_SPACE))
 			ICE_Camera_MovePos(ICE_Vect_Null, 1000 * ICE_Game_GetDelta());
-	}
 }
 
 void ICE_Debug_CallbackDraw(void(*callback)())
