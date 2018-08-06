@@ -20,13 +20,4 @@ ICE_Bool ICE_MacOS_SetWorkingDirectory(ICE_StringStd path)
 {
     return chdir(path);
 }
-#else
-ICE_Char * ICE_MacOS_GetResourcesDirectory()
-{
-    return "NOT_MACOS";
-}
-ICE_Bool ICE_MacOS_SetWorkingDirectory(ICE_StringStd path)
-{
-    return ICE_False;
-}
 #endif
