@@ -60,15 +60,15 @@ ICE_Game_Create("2DWatch", 800, 480)
 	// Label
 	manager = ICE_LabelManager_Insert(NULL);
 	// 1
-	nb = ICE_Label_Insert(NULL, manager, L"It is a me", ICE_Vect_New(0, 0), 30, ICE_LabelType_World);
+	nb = ICE_Label_Insert(NULL, manager, "It is a me", ICE_Vect_New(0, 0), 30, ICE_LabelType_World);
 	ICE_Label_SetAngle(ICE_Label_Get(NULL, manager, nb), 30);
 	// 2
-	nb = ICE_Label_Insert(NULL, manager, L"Привет мир", ICE_Vect_New(5, 5), 30, ICE_LabelType_Screen);
+	nb = ICE_Label_Insert(NULL, manager, "Russian Pawa", ICE_Vect_New(5, 5), 30, ICE_LabelType_Screen);
 
 	// Data
 	DATA1 * data = ICE_Data_Insert(NULL, sizeof(DATA1));
 	data->inventory = ICE_State_Create(inventory_create, inventory_update, inventory_destroy);
-	data->current_weapon = Game_Weapon_Init(L"Big Sword", 100, 1.2, 50);
+	data->current_weapon = Game_Weapon_Init("Big Sword", 100, 1.2, 50);
 
 	// Music
 	ICE_Music_Play(ICE_Music_Get(0, 0), 16);
@@ -110,7 +110,7 @@ ICE_Game_Update()
 	}
 	if (ICE_Input_Key(ICE_KEY_SPACE))
 	{
-		ICE_Label_SetString(ICE_Label_Get(NULL, 0, 0), L"IT IS THE END OF THE WORLD");
+		ICE_Label_SetString(ICE_Label_Get(NULL, 0, 0), "IT IS THE END OF THE WORLD");
 		ICE_Label_SetSize(ICE_Label_Get(NULL, 0, 0), 50);
 		ICE_Label_SetColor(ICE_Label_Get(NULL, 0, 0), ICE_Color_Red);
 		ICE_Label_SetPos(ICE_Label_Get(NULL, 0, 0), ICE_Vect_New(0, 0));

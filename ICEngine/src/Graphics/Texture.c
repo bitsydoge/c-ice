@@ -51,7 +51,7 @@ void ICE_TextureManager_DestroyAll()
 	free(manager);
 }
 
-ICE_Index ICE_Texture_Load(int manager, char* path) 
+ICE_Index ICE_Texture_Load(ICE_Index manager, char* path) 
 {
 	ICE_Texture *text = ICE_Texture_LoadFromFile(path);
 	text->exist = 1;
