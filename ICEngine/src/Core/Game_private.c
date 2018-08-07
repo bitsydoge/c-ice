@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include "../Core/Window.h"
 #include "DebugGUI.h"
+#include "Core_private.h"
 
 ICE_Game game = { 0 };
 
@@ -41,6 +42,9 @@ void ICE_GameObject_Create(char *window_title, const unsigned int width_window, 
 	ICE_Window_SetIcon(0);
 	// Debug
 	ICE_DebugGUI_ThreadStart();
+
+	ICE_Core_Info();
+
 	ICE_Log(ICE_LOG_SUCCES, "Engine]::[Init]::[Finish");
 	printf("\n");
 }

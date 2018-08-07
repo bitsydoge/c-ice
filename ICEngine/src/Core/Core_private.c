@@ -4,13 +4,13 @@
 #include "TypesCore.h"
 #include "Label.h"
 #include "MacOS_.h"
-#include "SDL2_Includer.h"
 
 #include "../Framework/Terminal_private.h"
 #include "../Framework/Log.h"
 #include "../Graphics/Gui.h"
 #include "../Graphics/Texture.h"
 
+#include "SDL2_Includer.h"
 #include ICE_INCLUDE_SDL2
 #include ICE_INCLUDE_SDL2_TTF
 
@@ -22,6 +22,7 @@
 #include "Data.h"
 #include "Entity.h"
 #include "Asset_private.h"
+#include <string.h>
 
 extern ICE_Game game;
 
@@ -41,20 +42,29 @@ int ICE_Core_Init() {
 	// SDL_gfx
 	ICE_Time_Init();
 
-	// Info
-	ICE_Core_Info();
-
 	return 0;
 }
 
+#if defined(_DEBUG)
 void ICE_Core_Info()
 {
+	char * basePath = SDL_GetBasePath();
+	char * dataPath = SDL_GetPrefPath("coldragon", "ice");
+
+	strcpy(game.basePath, basePath);
+	strcpy(game.dataPath, dataPath);
+
+	SDL_free(basePath);
+	SDL_free(dataPath);
+
 	// SDL
-	printf("\nExecution Path: %s\n", SDL_GetBasePath());
-	printf("Data Path: %s\n", SDL_GetPrefPath("coldragon", "ice"));
-    //ICE_MacOS_SetWorkingDirectory(SDL_GetBasePath());
+	printf("\nExecution Path: %s\n", game.basePath);
+	printf("Data Path: %s\n", game.dataPath);
+    
+#if defined(__APPLE__)
+	//ICE_MacOS_SetWorkingDirectory(SDL_GetBasePath());
 	printf("MacOS Resources Directory: %s\n\n", ICE_MacOS_GetResourcesDirectory());
-		
+#endif
 	
 	//SDL_Version
 	printf("SDL Compiled: %d.%d.%d\n", SDL_MAJOR_VERSION, SDL_MINOR_VERSION, SDL_PATCHLEVEL);
@@ -75,21 +85,22 @@ void ICE_Core_Info()
 	printf("CPU: %d CORE %d MB L1\n", SDL_GetCPUCount(), SDL_GetCPUCacheLineSize());
 	printf("RAM: %d MB \n", SDL_GetSystemRAM());
 
+	SDL_RendererInfo info_renderer;
+	SDL_GetRendererInfo(game.window.render, &info_renderer);
 
-	int mode = 0; const char * profile;
-	SDL_GL_GetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, &mode);
-	if (mode == SDL_GL_CONTEXT_PROFILE_CORE)
-		profile = "Core";
-	else if (mode == SDL_GL_CONTEXT_PROFILE_COMPATIBILITY)
-		profile = "Compatibility";
-	else if (mode == SDL_GL_CONTEXT_PROFILE_ES)
-		profile = "ES";
-	else
-		profile = "Unknown";
-
-	printf("OpenGL Profile: %s\n", profile);
-	printf("Screen: %d\n\n", SDL_GetNumVideoDisplays());
+	printf("Renderer : %s \n", info_renderer.name);
+	if (info_renderer.flags |= SDL_RENDERER_ACCELERATED)
+		printf("\t- Accelerated\n");
+	if (info_renderer.flags |= SDL_RENDERER_SOFTWARE)
+		printf("\t- Software\n");
+	if (info_renderer.flags |= SDL_RENDERER_PRESENTVSYNC)
+		printf("\t- VSYNC\n");
+	if (info_renderer.flags |= SDL_RENDERER_TARGETTEXTURE)
+		printf("\t- Target Texture\n");
+	printf("Max Texture Size : %dx%d\n", info_renderer.max_texture_width, info_renderer.max_texture_height);
+	printf("Number Screen: %d\n\n", SDL_GetNumVideoDisplays());
 }
+#endif
 
 int ICE_Core_Close() 
 {

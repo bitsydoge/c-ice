@@ -34,4 +34,5 @@ ICE_INLINE ICE_Object ICE_Object_New(ICE_State * state, const ICE_Index manager,
 	return returner;
 }
 */
+
 #endif

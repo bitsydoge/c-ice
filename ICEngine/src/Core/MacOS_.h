@@ -10,12 +10,12 @@
 
 #if defined(__APPLE__)
 #include <unistd.h>
-#include <CoreFoundation/CoreFoundation.h> // I UNDERSTAND NO SHIT
+#include <CoreFoundation/CoreFoundation.h> //
 ICE_Char * ICE_MacOS_GetResourcesDirectory();
 ICE_Bool ICE_MacOS_SetWorkingDirectory(ICE_StringStd path);
 #else
-#define ICE_MacOS_GetResourcesDirectory() "NOT MACOS"
-#define ICE_MacOS_SetWorkingDirectory(...) ICE_False
+#define ICE_MacOS_GetResourcesDirectory()
+#define ICE_MacOS_SetWorkingDirectory(...)
 #endif
 
 #endif //ICENGINE_MACOS_H

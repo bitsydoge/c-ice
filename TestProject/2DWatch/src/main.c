@@ -1,6 +1,4 @@
-﻿#define _DEBUG 1
-
-// Engine
+﻿// Engine
 #include <ICE.h>
 
 // Game
