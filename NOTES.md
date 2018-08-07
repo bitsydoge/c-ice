@@ -23,5 +23,4 @@
 
 :: Debug :: 
 
-	- Rendre le debug vraiment macroisé
 	- Faire une fenêtre séparé avec des infos de débugs

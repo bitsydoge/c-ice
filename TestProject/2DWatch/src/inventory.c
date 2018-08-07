@@ -20,7 +20,7 @@ void inventory_create()
 	ICE_Label_SetString
 	(
 		ICE_Label_Get(NULL, man, nb), 
-		L"Name : %s     Damage : %.1f     Speed : %.1f", 
+		"Name : %s     Damage : %.1f     Speed : %.1f", 
 		data->current_weapon.name, 
 		data->current_weapon.damage, 
 		data->current_weapon.speed
