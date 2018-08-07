@@ -275,19 +275,25 @@ struct ICE_Game {
 	ICE_Window				window;
 	ICE_Time				time;
 
+	// Path
+	ICE_Char				basePath[1024];
+	ICE_Char				dataPath[1024];
+
 	// State
 	ICE_State				state_main;
 	ICE_State*				current;
 
-#if defined(_DEBUG)
-	// Debug
-	void(*lateDrawDebug)();
-	SDL_Thread * guiDebugThread;
-#endif
-
 	// Args
-	int argc; 
-	char **argv;
+	int						argc; 
+	char					**argv;
+
+#if defined(_DEBUG)
+
+	// Debug
+	void					(*lateDrawDebug)();
+	SDL_Thread				*guiDebugThread;
+
+#endif
 
 }; typedef struct ICE_Game ICE_Game;
 
@@ -303,19 +309,19 @@ struct ICE_Game {
 struct ICE_Asset
 {
 	// Font
-	ICE_Index					font_mngr_nb; // todo
+	ICE_Index				font_mngr_nb; // todo
 	ICE_Font				font;
 
 	// Texture
-	ICE_Index					texture_mngr_nb;
+	ICE_Index				texture_mngr_nb;
 	ICE_TextureManager *	texture_mngr;
 
 	// Sound
-	ICE_Index					sound_mngr_nb;
+	ICE_Index				sound_mngr_nb;
 	ICE_SoundManager *		sound_mngr;
 
 	// Music
-	ICE_Index					music_mngr_nb;
+	ICE_Index				music_mngr_nb;
 	ICE_MusicManager *		music_mngr;
 
 }; typedef struct ICE_Asset ICE_Asset;

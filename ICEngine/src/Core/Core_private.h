@@ -7,8 +7,11 @@
  */
 int ICE_Core_Init();
 
-
+#if defined(_DEBUG)
 void ICE_Core_Info();
+#else
+#define ICE_Core_Info()
+#endif
 
 /**
  * \brief Close everything for the engine

@@ -6,12 +6,12 @@
 #define ICE_Game_Update() void ICE_User_Update(void)
 #define ICE_Game_Destroy() void ICE_User_Destroy(void)
 
-#define ICE_Game_Create(NAME, WIDTH, HEIGHT) void ICE_User_Create(void);\
+#define ICE_Game_Create(TITLE, WIDTH, HEIGHT) void ICE_User_Create(void);\
 	ICE_Game_Update();\
 	ICE_Game_Destroy();\
 	int main(int argc, char ** argv)\
 	{\
-		ICE_Core_Main(NAME, WIDTH, HEIGHT, ICE_User_Create, ICE_User_Update, ICE_User_Destroy, argc, argv);\
+		ICE_Core_Main(TITLE, WIDTH, HEIGHT, ICE_User_Create, ICE_User_Update, ICE_User_Destroy, argc, argv);\
 		return 0;\
 	}\
 	void ICE_User_Create(void)

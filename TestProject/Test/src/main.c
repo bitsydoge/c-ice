@@ -1,5 +1,4 @@
-﻿#define _DEBUG 1
-
+﻿#define ICE_DEBUG_FORCE
 #include <ICE.h>
 
 typedef struct
