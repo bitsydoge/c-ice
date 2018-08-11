@@ -112,8 +112,8 @@ struct ICE_Font
 
 enum ICE_LabelType
 {
-	ICE_LabelType_Screen = 0,
-	ICE_LabelType_World = 1
+	ICE_LABELTYPE_SCREEN = 0,
+	ICE_LABELTYPE_WORLD = 1
 };
 
 /**

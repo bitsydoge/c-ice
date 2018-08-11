@@ -23,7 +23,7 @@ void ICE_Term_Clear(){
 }
 
 void ICE_Term_Clock(){
-	ICE_Term_SetColor(ICE_T_LIGHTCYAN);
+	ICE_Term_SetColor(ICE_TERMCOLOR_LIGHTCYAN);
 	printf("[%.3f s]", (ICE_Float)clock()/1000.0f);
 	ICE_Term_ResetColor();
 	printf("");
