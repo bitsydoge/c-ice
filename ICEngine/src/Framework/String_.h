@@ -65,5 +65,20 @@ void ICE_String_Resize(ICE_String* ptr_string, const int size);
 */
 void ICE_String_Set(ICE_String* ptr_string, ICE_StringStd value);
 
+/**
+ * \brief Set all the string to upper character
+ * \param string string to edit to upper character
+ */
+void ICE_String_ToUpper(ICE_String string);
+
+/**
+ * \brief Return a string containing the extention of a path/file (ex "file.ext" will return ext)
+ * you need to ICE_String_Delete the returning string but the input string can be a ICE_String or a ICE_StringStd
+ * \param string String to get the extention from, it can be any kind of ICE_String
+ * \return 
+ */
+ICE_String ICE_String_GetExtension(ICE_StringStd string);
+
+
 #endif
 

@@ -154,9 +154,6 @@
     <ClInclude Include="src\Core\Time_.h">
       <Filter>2 - Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Framework\Std_.h">
-      <Filter>1 - Framework</Filter>
-    </ClInclude>
     <ClInclude Include="src\Core\Converter_private.h">
       <Filter>2 - Core</Filter>
     </ClInclude>
@@ -340,6 +337,9 @@
     <ClInclude Include="src\Core\DebugGUI.h">
       <Filter>2 - Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Framework\File_.h">
+      <Filter>1 - Framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Asset_private.c">
@@ -428,9 +428,6 @@
     </ClCompile>
     <ClCompile Include="src\Core\Time_private.c">
       <Filter>2 - Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Framework\Std_.c">
-      <Filter>1 - Framework</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Label_private.c">
       <Filter>2 - Core</Filter>
@@ -590,6 +587,9 @@
     </ClCompile>
     <ClCompile Include="src\Core\DebugGUI.c">
       <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\File_.c">
+      <Filter>1 - Framework</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

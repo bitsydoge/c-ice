@@ -53,7 +53,7 @@ void ICE_Log(ICE_LogTypes type, const char * format, ...)
 			break;
 		}
 		ICE_Term_ResetColor();
-		printf("::[");
+		printf("[");
 		vprintf(format, args);
 		printf("]");
 		printf("\n");

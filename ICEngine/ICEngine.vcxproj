@@ -194,11 +194,11 @@
     <ClInclude Include="src\External\stb\SDL_stbimage.h" />
     <ClInclude Include="src\External\stb\stb_image.h" />
     <ClInclude Include="src\Framework\Assert_.h" />
+    <ClInclude Include="src\Framework\File_.h" />
     <ClInclude Include="src\Framework\Inline.h" />
     <ClInclude Include="src\Framework\Log.h" />
     <ClInclude Include="src\Framework\Memory_.h" />
     <ClInclude Include="src\Framework\Random.h" />
-    <ClInclude Include="src\Framework\Std_.h" />
     <ClInclude Include="src\Framework\String_.h" />
     <ClInclude Include="src\Framework\Terminal.h" />
     <ClInclude Include="src\Framework\Terminal_private.h" />
@@ -288,10 +288,10 @@
     <ClCompile Include="src\External\SDL2_gfx\SDL2_imageFilter.c" />
     <ClCompile Include="src\External\SDL2_gfx\SDL2_rotozoom.c" />
     <ClCompile Include="src\Framework\Assert_.c" />
+    <ClCompile Include="src\Framework\File_.c" />
     <ClCompile Include="src\Framework\Log.c" />
     <ClCompile Include="src\Framework\Memory_.c" />
     <ClCompile Include="src\Framework\Random.c" />
-    <ClCompile Include="src\Framework\Std_.c" />
     <ClCompile Include="src\Framework\String_.c" />
     <ClCompile Include="src\Framework\Terminal.c" />
     <ClCompile Include="src\Framework\Terminal_private.c" />
