@@ -8,9 +8,9 @@
 #include "../Framework/String_.h"
 #include "../Maths/TypesMaths.h"
 #include "Label_private.h"
-
+#include "../Graphics/Texture.h"
 #include <string.h>
-#include "../ICE.h"
+#include <stdio.h>
 
 extern ICE_Game game;
 

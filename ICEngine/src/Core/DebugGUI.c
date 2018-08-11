@@ -7,7 +7,7 @@
 
 extern ICE_Game game;
 
-void ICE_DebugGUI_ThreadStart()
+void ICE_DebugGUI_Init()
 {
 	IupOpen(&game.argc, &game.argv);
 	game.guiDebugThread = SDL_CreateThread(ICE_DebugGUI_ThreadFunction, "DebugGUI_IUP", NULL);

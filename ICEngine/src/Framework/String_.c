@@ -1,6 +1,8 @@
 ﻿#include "String_.h"
 #include "Memory_.h"
 #include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
 
 // Number of char per int on that platform
 static const int cpi = sizeof(int) / sizeof(ICE_Char);
@@ -117,4 +119,23 @@ void ICE_String_Set(ICE_String* ptr_string, ICE_StringStd value)
 	// Unoptimized
 	ICE_String_Delete(*ptr_string);
 	*ptr_string = ICE_String_Init(value);
+}
+
+void ICE_String_ToUpper(ICE_String string)
+{
+	for (int i = 0; i < ICE_String_Contain(string); i++)
+		string[i] = toupper(string[i]);
+}
+
+ICE_String ICE_String_GetExtension(ICE_StringStd string)
+{
+	ICE_StringStd ex = strrchr(string, '.');
+	if (!ex || ex == string)
+	{
+		free(ex);
+		return ICE_String_Init("");
+	}
+	ICE_String string_returned = ICE_String_Init(ex + 1);
+	free(ex);
+	return string_returned;
 }

@@ -44,11 +44,11 @@ ICE_Game_Create("Hello World", 800, 480)
 	ICE_Index man = ICE_LabelManager_Insert(NULL);
 	ICE_Index nbr = ICE_Label_Insert
 	(
-		NULL, 
-		man, 
+		NULL,
+		man,
 		"Hello World", 
 		ICE_Vect_Null, 
-		50, 
+		50,
 		ICE_LabelType_World
 	);
 }

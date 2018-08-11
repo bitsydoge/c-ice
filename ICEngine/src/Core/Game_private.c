@@ -41,7 +41,7 @@ void ICE_GameObject_Create(char *window_title, const unsigned int width_window, 
 
 	ICE_Window_SetIcon(0);
 	// Debug
-	ICE_DebugGUI_ThreadStart();
+	ICE_DebugGUI_Init();
 
 	ICE_Core_Info();
 
