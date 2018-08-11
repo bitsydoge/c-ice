@@ -72,7 +72,7 @@ ICE_Gui ICE_Gui_Create(ICE_Box box, ICE_Index man_texture, ICE_Index nb_texture)
 {
 	ICE_Gui gui = { 0 };
 
-	gui.type = ICE_GUI_RECTANGLE;
+	gui.type = ICE_GUITYPE_RECTANGLE;
 
 	gui.have_texture_defined = ICE_True;
 	gui.exist = ICE_True;

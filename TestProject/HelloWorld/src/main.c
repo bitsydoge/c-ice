@@ -11,7 +11,7 @@ ICE_Game_Create("Hello World", 800, 480)
 		"Hello World", 
 		ICE_Vect_Null, 
 		50, 
-		ICE_LabelType_World
+		ICE_LABELTYPE_WORLD
 	);
 }
 
