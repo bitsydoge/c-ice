@@ -6,7 +6,7 @@
 
 extern ICE_Game game;
 
-ICE_Bool ICE_Input_Key(enum ICE_InputKey button)
+ICE_Bool ICE_Input_Key(enum ICE_Key button)
 {
 	if (button < 512)
 	{
