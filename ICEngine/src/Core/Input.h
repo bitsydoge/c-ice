@@ -6,7 +6,7 @@
 /**
  * \brief The key value of the input
  */
-enum ICE_InputKey
+enum ICE_Key
 {
 	// FROM SDL JUST RENAMED
 	ICE_KEY_UNKNOWN = 0,
@@ -268,7 +268,7 @@ enum ICE_InputKey
  * \param button The key value
  * \return ICE_True or ICE_False
  */
-ICE_Bool ICE_Input_Key(enum ICE_InputKey button);
+ICE_Bool ICE_Input_Key(enum ICE_Key button);
 /**
  * \brief Send the Quit instruction to the engine
  */
