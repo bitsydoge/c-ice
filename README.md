@@ -33,6 +33,12 @@ _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
 	- rnd.h ( Random algorithm : https://github.com/mattiasgustavsson/libs )
 	- chipmunk2d ( Physics : https://github.com/slembcke/Chipmunk2D )
 
+## TODO :
+	- Sprite
+	- Map Load
+	- Physics
+	- Better GUI
+
 ## Hello World
 
 ```c
