@@ -2,8 +2,10 @@
 #define DEF_ICE_DATA
 #include "State.h"
 
+#define ICE_Data_Insert(STATE, DATATYPE) ICE_Data_Insert_(STATE, sizeof(DATATYPE))
+
 // Make a Data and create a pointer in the game->data array (return the pointer created)
-void* ICE_Data_Insert(ICE_State * state, ICE_Index _size);
+void* ICE_Data_Insert_(ICE_State * state, ICE_Index _size);
 
 /// Return pointer to a Data
 void* ICE_Data_Get(ICE_State * state, ICE_Index nb_data);

@@ -23,6 +23,7 @@
 #include "Entity.h"
 #include "Asset_private.h"
 #include <string.h>
+#include "Core.h"
 
 extern ICE_Game game;
 
@@ -46,10 +47,10 @@ int ICE_Core_Init() {
 }
 
 #if defined(_DEBUG)
-void ICE_Core_Info()
+void ICE_Core_Info(char * title)
 {
 	char * basePath = SDL_GetBasePath();
-	char * dataPath = SDL_GetPrefPath("coldragon", "ice");
+	char * dataPath = SDL_GetPrefPath("ice", title);
 
 	strcpy(game.basePath, basePath);
 	strcpy(game.dataPath, dataPath);
@@ -65,7 +66,10 @@ void ICE_Core_Info()
 	//ICE_MacOS_SetWorkingDirectory(SDL_GetBasePath());
 	printf("MacOS Resources Directory: %s\n\n", ICE_MacOS_GetResourcesDirectory());
 #endif
-	
+
+	printf("ICE Compiled : %s\n", ICE_Core_GetCompiledVersion());
+	printf("ICE Linked : %s\n", ICE_Core_GetLinkedVersion());
+
 	//SDL_Version
 	printf("SDL Compiled: %d.%d.%d\n", SDL_MAJOR_VERSION, SDL_MINOR_VERSION, SDL_PATCHLEVEL);
 	SDL_version linked;

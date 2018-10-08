@@ -1,5 +1,21 @@
 ﻿Notes are in FRENCH *terrible noise*
 
+
+Ajouter le manager et numero dans tous les asset pour utiliser seulement GET
+
+
+
+- Ajouter aux input les Push et Release pour gérer un event unique de pression et de relachement et avoir une state pour EnTrainDePresser et PasEnTrainDePresser
+- Sprite faire comme le projet test pour que les fonction fonctionnes (olol)
+
+
+
+///////////////////////////////////////////////////////
+
+
+OLD
+
+
 :: Update/Upgrade ::
 
 	- Refaire le systeme de GUI completement bugué et pas utile à fusioner avec les Label

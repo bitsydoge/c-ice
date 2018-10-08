@@ -123,7 +123,7 @@ ICE_Entity * ICE_Entity_Get(ICE_State * state, const unsigned man, const unsigne
 	return &game.current->object.entity_mngr[man].entity[nb];
 }
 
-ICE_Index ICE_Entity_GetNumber(ICE_State * state, ICE_Index manager)
+ICE_Index ICE_Entity_GetQuantity(ICE_State * state, ICE_Index manager)
 {
 	if (!state)
 		state = game.current;
@@ -131,7 +131,7 @@ ICE_Index ICE_Entity_GetNumber(ICE_State * state, ICE_Index manager)
 	return state->object.entity_mngr[manager].entity_contain;
 }
 
-ICE_Index ICE_EntityManager_GetNumber(ICE_State * state)
+ICE_Index ICE_EntityManager_GetQuantity(ICE_State * state)
 {
 	if (!state)
 		state = game.current;
@@ -145,19 +145,35 @@ ICE_Vect ICE_Entity_GetPosition(ICE_Entity * entity)
 	return vect;
 }
 
+ICE_Box ICE_Entity_GetBox(ICE_Entity * entity)
+{
+	const ICE_Box rect =
+	{
+		entity->x,
+		entity->y,
+		entity->w,
+		entity->h
+	};
+	return rect;
+}
+
 /* ENTITY SET FUNCTION */
 
-void ICE_Entity_SetTexture(ICE_Entity * entity, ICE_Index texture_manager, ICE_Index texture_nb)
+// TEXTURE
+
+void ICE_Entity_SetTexture(ICE_Entity * entity, ICE_Texture * texture)
 {
-	entity->graphics_mngr_index = texture_manager;
-	entity->graphics_index = texture_nb;
-	entity->have_graphics = ICE_True;
+	entity->graphics_mngr_index = texture->manager_index;
+	entity->graphics_index = texture->index;
+	entity->graphics_type = ICE_ENTITYGRAPHICSTYPES_TEXTURE;
 }
 
-void ICE__Entity_RemoveTexture(ICE_Entity * entity)
+void ICE_Entity_RemoveGraphics(ICE_Entity * entity)
 {
-	entity->have_graphics = ICE_False;
+	entity->graphics_type = ICE_ENTITYGRAPHICSTYPES_NONE;
 }
+
+// POSITION
 
 void ICE_Entity_SetPos(ICE_Entity * entity, ICE_Float x, ICE_Float y)
 {
@@ -225,12 +241,7 @@ void ICE_Entity_MovePos(ICE_Entity * entity, ICE_Vect pos, ICE_Float r)
 #endif
 }
 
-void ICE_Entity_SetSize(ICE_Entity * entity, ICE_Vect size)
-{
-	entity->w = size.x;
-	entity->h = size.y;
-}
-
+// ROTATION	
 
 void ICE_Entity_SetAngle(ICE_Entity * entity, ICE_Float angle)
 {
@@ -253,14 +264,26 @@ void ICE_Entity_LookAt(ICE_Entity * entity, ICE_Vect pos)
 	entity->angle = result;
 }
 
-ICE_Box ICE_Entity_GetBox(ICE_Entity * entity)
+// SIZE
+
+void ICE_Entity_SetSize(ICE_Entity * entity, ICE_Vect size)
 {
-	const ICE_Box rect =
-	{
-		entity->x,
-		entity->y,
-		entity->w,
-		entity->h
-	};
-	return rect;
+	entity->w = size.x;
+	entity->h = size.y;
+}
+
+void ICE_Entity_Scale(ICE_Entity * entity, ICE_Float scale)
+{
+	entity->w = entity->w * scale;
+	entity->h = entity->h * scale;
+}
+
+// SPRITE
+
+void ICE_Entity_SetSprite(ICE_Entity * entity, ICE_Sprite * sprite)
+{
+	entity->graphics_type = ICE_ENTITYGRAPHICSTYPES_SPRITE;
+	entity->graphics_index = sprite->index;
+	entity->graphics_mngr_index = sprite->manager_index;
+	entity->sprite_frame = 0;
 }
