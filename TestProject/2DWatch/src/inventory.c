@@ -15,7 +15,7 @@ void inventory_create()
 		L"", 
 		ICE_Vect_New(50, 20), 
 		12, 
-		ICE_LabelType_Screen
+		ICE_LABELTYPE_SCREEN
 	);
 	ICE_Label_SetString
 	(
