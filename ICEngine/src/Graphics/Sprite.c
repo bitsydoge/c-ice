@@ -97,7 +97,7 @@ void ICE_Sprite_Clear(ICE_Sprite * label)
 
 void ICE_Sprite_Destroy(ICE_Sprite * ptr)
 {
-
+	
 }
 
 ICE_Sprite * ICE_Sprite_Get(ICE_Index man, ICE_Index nb)
