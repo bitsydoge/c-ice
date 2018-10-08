@@ -43,7 +43,7 @@ void ICE_GameObject_Create(char *window_title, const unsigned int width_window, 
 	// Debug
 	ICE_DebugGUI_Init();
 
-	ICE_Core_Info();
+	ICE_Core_Info(window_title);
 
 	ICE_Log(ICE_LOG_SUCCES, "Engine]::[Init]::[Finish");
 	printf("\n");

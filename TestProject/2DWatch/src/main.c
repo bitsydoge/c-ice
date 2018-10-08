@@ -66,7 +66,7 @@ ICE_Game_Create("2DWatch", 800, 480)
 	nb = ICE_Label_Insert(NULL, manager, "Russian Pawa", ICE_Vect_New(5, 5), 30, ICE_LabelType_Screen);
 
 	// Data
-	DATA1 * data = ICE_Data_Insert(NULL, sizeof(DATA1));
+	DATA1 * data = ICE_Data_Insert_(NULL, sizeof(DATA1));
 	data->inventory = ICE_State_Create(inventory_create, inventory_update, inventory_destroy);
 	data->current_weapon = Game_Weapon_Init("Big Sword", 100, 1.2, 50);
 

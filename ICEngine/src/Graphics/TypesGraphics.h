@@ -32,6 +32,9 @@ typedef uint32_t ICE_Color;
  */
 struct ICE_Texture
 {
+	ICE_Index index;
+	ICE_Index manager_index;
+
 	ICE_Bool	 exist;
 	unsigned int w, h;
 	SDL_Texture* handle;
@@ -71,6 +74,8 @@ typedef struct
 
 typedef struct
 {
+	ICE_Index index;
+	ICE_Index manager_index;
 	ICE_Bool exist;
 
 	ICE_Bool have_texture_defined;

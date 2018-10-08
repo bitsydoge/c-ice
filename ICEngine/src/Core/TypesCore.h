@@ -155,13 +155,22 @@ struct ICE_LabelManager
 {
 	ICE_Bool				isFree;
 
-	ICE_Index					label_size;
-	ICE_Index					label_contain;
+	ICE_Index				label_size;
+	ICE_Index				label_contain;
 	ICE_Label*				label;
 
 }; typedef struct ICE_LabelManager ICE_LabelManager;
 
 // --------------------------------------
+
+enum ICE_EntityGraphicsType
+{
+	ICE_ENTITYGRAPHICSTYPES_NONE = 0,
+	ICE_ENTITYGRAPHICSTYPES_TEXTURE = 1,
+	ICE_ENTITYGRAPHICSTYPES_SPRITE = 2,
+	ICE_ENTITYGRAPHICSTYPES_TEXT = 3
+
+}; typedef enum ICE_EntityGraphicsType ICE_EntityGraphicsType;
 
 /**
 * \brief A struct that is a text on screen, contain Size, Color and String in it
@@ -183,17 +192,17 @@ struct ICE_Entity
 	ICE_Float				x_polar_shift_move;
 	ICE_Float				y_polar_shift_move;
 	ICE_Float				polar_distance_r_r;
+	
 	////////////////////////////
+	// Graphics
 
-	ICE_Bool				have_graphics;
-	ICE_Bool				use_sprite;
-
-	// Texture location
-	ICE_Index					graphics_mngr_index;
-	ICE_Index					graphics_index;
+	ICE_EntityGraphicsType  graphics_type;
+	ICE_Index				graphics_mngr_index;
+	ICE_Index				graphics_index;	
+	ICE_Index				sprite_frame;	
 
 	// Data Array
-	ICE_Index					data_nb;
+	ICE_Index				data_nb;
 	void **					data;
 
 }; typedef struct ICE_Entity ICE_Entity;
@@ -205,8 +214,8 @@ struct ICE_EntityManager
 {
 	ICE_Bool				isFree;
 
-	ICE_Index					entity_size;
-	ICE_Index					entity_contain;
+	ICE_Index				entity_size;
+	ICE_Index				entity_contain;
 	ICE_Entity*				entity;
 
 }; typedef struct ICE_EntityManager ICE_EntityManager;
@@ -214,32 +223,28 @@ struct ICE_EntityManager
 // BIG OBJECT
 // --------------------------------------
 
-struct ICE_ObjectManager
+struct ICE_GameObjectManager
 {
 	// Camera
 	ICE_Camera				camera;
 
 	// Label
-	ICE_Index					label_mngr_nb;
+	ICE_Index				label_mngr_nb;
 	ICE_LabelManager *		label_mngr;
 	
 	// Gui
-	ICE_Index					gui_mngr_nb;
+	ICE_Index				gui_mngr_nb;
 	ICE_GuiManager *		gui_mngr;
 
 	// Entity
-	ICE_Index					entity_mngr_nb;
+	ICE_Index				entity_mngr_nb;
 	ICE_EntityManager *		entity_mngr;
 
-	// Sprite
-	ICE_Index					sprite_mngr_nb;
-	ICE_SpriteManager *		sprite_mngr;
-
 	// Data
-	ICE_Index					data_nb;
+	ICE_Index				data_nb;
 	void**					data;
 
-}; typedef struct ICE_ObjectManager ICE_ObjectManager;
+}; typedef struct ICE_GameObjectManager ICE_ObjectManager;
 
 /**
 * \brief Current function used by the engine
@@ -308,6 +313,9 @@ struct ICE_Game {
  */
 struct ICE_Asset
 {
+
+				// GRAPHICS //
+
 	// Font
 	ICE_Index				font_mngr_nb; // todo
 	ICE_Font				font;
@@ -315,6 +323,12 @@ struct ICE_Asset
 	// Texture
 	ICE_Index				texture_mngr_nb;
 	ICE_TextureManager *	texture_mngr;
+
+	// Sprite
+	ICE_Index				sprite_mngr_nb;
+	ICE_SpriteManager *		sprite_mngr;
+
+				// AUDIO //
 
 	// Sound
 	ICE_Index				sound_mngr_nb;

@@ -7,7 +7,7 @@
 extern ICE_Game game;
 
 // Make a Data and create a pointer in the game->data array (return the pointer created)
-void* ICE_Data_Insert(ICE_State * state, ICE_Index _size)
+void* ICE_Data_Insert_(ICE_State * state, ICE_Index _size)
 {
 	if (!state)
 		state = game.current;
