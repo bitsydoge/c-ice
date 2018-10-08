@@ -13,8 +13,8 @@ enum ICE_LogTypes
 	ICE_LOG_NONE = 0,
 
 	ICE_LOG_SUCCES = 1,
-
 	ICE_LOG_RUNNING = 2
+
 }; typedef enum ICE_LogTypes ICE_LogTypes;
 
 #if defined(_DEBUG)
