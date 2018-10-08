@@ -48,7 +48,11 @@ ICE_Game_Create("2DWatch", 800, 480)
 	// Entity
 	manager = ICE_EntityManager_Insert(NULL);
 	nb = ICE_Entity_Insert(NULL, manager, ICE_Box_New(0, 0, 375, 250));
-	ICE_Entity_SetTexture(ICE_Entity_Get(NULL, 0, 0), 0, texture_Widow);
+	ICE_Entity_SetTexture
+	(
+		ICE_Entity_Get(NULL, 0, 0), 
+		ICE_Texture_Get(0, texture_Widow)
+	);
 
 	// Gui
 	manager = ICE_GuiManager_Insert(NULL);
@@ -63,7 +67,7 @@ ICE_Game_Create("2DWatch", 800, 480)
 	nb = ICE_Label_Insert(NULL, manager, "It is a me", ICE_Vect_New(0, 0), 30, ICE_LABELTYPE_WORLD);
 	ICE_Label_SetAngle(ICE_Label_Get(NULL, manager, nb), 30);
 	// 2
-	nb = ICE_Label_Insert(NULL, manager, "Russian Pawa", ICE_Vect_New(5, 5), 30, ICE_LabelType_Screen);
+	nb = ICE_Label_Insert(NULL, manager, "Russian Pawa", ICE_Vect_New(5, 5), 30, ICE_LABELTYPE_SCREEN);
 
 	// Data
 	DATA1 * data = ICE_Data_Insert_(NULL, sizeof(DATA1));

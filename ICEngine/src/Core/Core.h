@@ -1,7 +1,7 @@
 #ifndef DEF_ICE_CORE
 #define DEF_ICE_CORE
 
-#define ICE_VERSION (ICE_StringStd)"DEV.1807.30"
+#define ICE_VERSION (ICE_StringStd)"DEV.1810.02"
 
 #define ICE_Game_Update() void ICE_User_Update(void)
 #define ICE_Game_Destroy() void ICE_User_Destroy(void)
