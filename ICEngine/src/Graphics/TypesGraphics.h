@@ -83,6 +83,7 @@ typedef struct
 	ICE_Index texturemanager_index;
 
 	unsigned int size_w, size_h;
+	ICE_Index number_frame_w, number_frame_h;
 
 	ICE_Index animation_size;
 	ICE_Index animation_contain;

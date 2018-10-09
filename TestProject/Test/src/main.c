@@ -51,10 +51,6 @@ ICE_Game_Create("Spritesheet", 1280, 720)
 		"res//img//spritesheet.png"
 	);
 
-	ICE_Texture * temp = ICE_Texture_Get(data->main_texture_manager, data->spritesheet_texture);
-	data->w_spritesheet = ICE_Texture_GetW(temp);
-	data->h_spritesheet = ICE_Texture_GetH(temp);
-
 	// Sprite
 	data->main_sprite_manager = ICE_SpriteManager_Insert();
 	data->sprite_test = ICE_Sprite_Insert
@@ -66,20 +62,40 @@ ICE_Game_Create("Spritesheet", 1280, 720)
 
 	// Entity
 	data->main_entity_manager = ICE_EntityManager_Insert(NULL);
-	data->entity_test = ICE_Entity_Insert(NULL, data->main_entity_manager, ICE_Box_New(0, 0, 30, 30));
+	data->entity_test = ICE_Entity_Insert(NULL, data->main_entity_manager, ICE_Box_New(0, 0, 64, 64));
 	ICE_Entity_SetSprite
 	(
 		ICE_Entity_Get(NULL, data->main_entity_manager, data->entity_test),
 		ICE_Sprite_Get(data->main_sprite_manager, data->sprite_test)
 	);
 
-
+	data->w_spritesheet = 64;
+	data->h_spritesheet = 64;
 }
 
 ICE_Game_Update()
 {
 	if (ICE_Input_Key(ICE_KEY_ESCAPE))
 		ICE_Input_Quit();
+
+
+	static ICE_Float last = 0;
+	static ICE_Float now = 0;
+	now = ICE_Time_Clock();
+
+	DATA * data = ICE_Data_Get(NULL, 0);
+	static int frame_number = 0;
+
+	if (last+2 < now)
+	{
+		ICE_Entity_SetSpriteFrame
+		(
+			ICE_Entity_Get(NULL, data->main_entity_manager, data->entity_test),
+			frame_number
+		);
+		frame_number++;
+		last = ICE_Time_Clock();
+	}	
 }
 
 ICE_Game_Destroy()

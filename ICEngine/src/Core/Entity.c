@@ -5,6 +5,7 @@
 #include "../Framework/Memory_.h"
 #include "../Framework/Log.h"
 #include "../Maths/Maths.h"
+#include "../Graphics/Sprite.h"
 
 #define _POLAR_MOVEMENT_TYPE_1
 
@@ -166,6 +167,10 @@ void ICE_Entity_SetTexture(ICE_Entity * entity, ICE_Texture * texture)
 	entity->graphics_mngr_index = texture->manager_index;
 	entity->graphics_index = texture->index;
 	entity->graphics_type = ICE_ENTITYGRAPHICSTYPES_TEXTURE;
+	entity->graphics_box_render.x = 0;
+	entity->graphics_box_render.y = 0;
+	entity->graphics_box_render.w = texture->w;
+	entity->graphics_box_render.h = texture->h;
 }
 
 void ICE_Entity_RemoveGraphics(ICE_Entity * entity)
@@ -286,4 +291,20 @@ void ICE_Entity_SetSprite(ICE_Entity * entity, ICE_Sprite * sprite)
 	entity->graphics_index = sprite->index;
 	entity->graphics_mngr_index = sprite->manager_index;
 	entity->sprite_frame = 0;
+	entity->graphics_box_render.x = 0;
+	entity->graphics_box_render.y = 4*sprite->size_h;
+	entity->graphics_box_render.w = sprite->size_w;
+	entity->graphics_box_render.h = sprite->size_h;
+}
+
+void ICE_Entity_SetSpriteFrame(ICE_Entity * entity, ICE_Index frame)
+{
+	ICE_Sprite * sprite = ICE_Sprite_Get(entity->graphics_mngr_index, entity->graphics_index);
+	entity->sprite_frame = frame;
+
+	ICE_Index size_in_h = frame / sprite->size_w;
+	ICE_Index size_in_w = frame % sprite->size_w;
+
+	entity->graphics_box_render.x = size_in_w * sprite->size_w;
+	entity->graphics_box_render.y = size_in_h * sprite->size_h;
 }

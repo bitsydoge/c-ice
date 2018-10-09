@@ -6,6 +6,8 @@
 #include "../Graphics/Camera.h"
 #include "Gui_private.h"
 #include "Texture_private.h"
+#include "Sprite.h"
+#include "../Core/Converter_private.h"
 
 extern ICE_Game game;
 
@@ -116,6 +118,7 @@ void ICE_Draw_Entity()
 	for (ICE_Index i = 0; i < current->object.entity_mngr_nb; i++)
 		for (ICE_Index j = 0; j < current->object.entity_mngr[i].entity_contain; j++)
 		{
+			// With just texture
 			if (current->object.entity_mngr[i].entity[j].graphics_type == ICE_ENTITYGRAPHICSTYPES_TEXTURE && current->object.entity_mngr[i].entity[j].active)
 			{
 				ICE_Box rect = ICE_Camera_WorldScreen(ICE_Box_New(
@@ -132,6 +135,7 @@ void ICE_Draw_Entity()
 				);
 			}
 
+			// With a sprite
 			if (current->object.entity_mngr[i].entity[j].graphics_type == ICE_ENTITYGRAPHICSTYPES_SPRITE && current->object.entity_mngr[i].entity[j].active)
 			{
 				ICE_Box rect = ICE_Camera_WorldScreen(ICE_Box_New(
@@ -143,10 +147,12 @@ void ICE_Draw_Entity()
 				ICE_Texture_RenderExCentered
 				(
 					ICE_Texture_Get(current->object.entity_mngr[i].entity[j].graphics_mngr_index, current->object.entity_mngr[i].entity[j].graphics_index),
-					NULL,
+					&current->object.entity_mngr[i].entity[j].graphics_box_render,
 					&rect,
 					current->object.entity_mngr[i].entity[j].angle
 				);
 			}
+
+			// With a label
 		}
 }
