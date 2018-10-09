@@ -64,8 +64,11 @@ ICE_Sprite ICE_Sprite_Create(ICE_Texture * texture, ICE_Vect size_frame_sprite)
 	sprite.texturemanager_index = texture->manager_index;
 	sprite.texture_index = texture->index;
 
-	sprite.size_w = asset.texture_mngr[sprite.texturemanager_index].texture[sprite.texture_index].w/size_frame_sprite.x;
-	sprite.size_h = asset.texture_mngr[sprite.texturemanager_index].texture[sprite.texture_index].h/size_frame_sprite.y;
+	sprite.size_w = size_frame_sprite.x;
+	sprite.size_h = size_frame_sprite.y;
+
+	sprite.number_frame_w = texture->w / size_frame_sprite.x;
+	sprite.number_frame_h = texture->h / size_frame_sprite.y;
 
 	return sprite;
 }

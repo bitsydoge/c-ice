@@ -168,7 +168,8 @@ enum ICE_EntityGraphicsType
 	ICE_ENTITYGRAPHICSTYPES_NONE = 0,
 	ICE_ENTITYGRAPHICSTYPES_TEXTURE = 1,
 	ICE_ENTITYGRAPHICSTYPES_SPRITE = 2,
-	ICE_ENTITYGRAPHICSTYPES_TEXT = 3
+	ICE_ENTITYGRAPHICSTYPES_TEXT = 3,
+	ICE_ENTITYGRAPHICSTYPES_PRIMITIVES = 4
 
 }; typedef enum ICE_EntityGraphicsType ICE_EntityGraphicsType;
 
@@ -199,7 +200,8 @@ struct ICE_Entity
 	ICE_EntityGraphicsType  graphics_type;
 	ICE_Index				graphics_mngr_index;
 	ICE_Index				graphics_index;	
-	ICE_Index				sprite_frame;	
+	ICE_Index				sprite_frame;
+	ICE_Box					graphics_box_render;
 
 	// Data Array
 	ICE_Index				data_nb;
