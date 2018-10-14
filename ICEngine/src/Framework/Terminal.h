@@ -52,6 +52,8 @@ void ICE_Term_Clear();
  */
 void ICE_Term_Clock();
 
+void ICE_Term_Date();
+
 /**
  * \brief Wait a key to continue with message 
  */

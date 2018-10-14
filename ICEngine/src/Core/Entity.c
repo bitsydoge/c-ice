@@ -91,13 +91,13 @@ ICE_Index ICE_Entity_Insert(ICE_State * state, const ICE_Index man, ICE_Box pos)
 	state->object.entity_mngr[man].entity[state->object.entity_mngr[man].entity_contain] = ICE_Entity_Create(pos);
 	state->object.entity_mngr[man].entity_contain++;
 
-	ICE_Log(ICE_LOG_SUCCES, "EntityManager]::[%d]::[Entity]::[%d]::[Create", man, state->object.entity_mngr[man].entity_contain - 1);
+	ICE_Log(ICE_LOG_SUCCES, "EntityManager :: %d :: Entity :: %d :: Create", man, state->object.entity_mngr[man].entity_contain - 1);
 
 	// Test size to realloc more space
 	if (state->object.entity_mngr[man].entity_size <= state->object.entity_mngr[man].entity_contain) {
 		ICE_Entity* tmp = ICE_Realloc(state->object.entity_mngr[man].entity, sizeof(ICE_Entity)*(state->object.entity_mngr[man].entity_size * 2));
 		// Test if realloc succes
-		ICE_Log(ICE_LOG_WARNING, "EntityManager]::[%d]::[Resized]::[%d", man, state->object.entity_mngr[man].entity_size * 2);
+		ICE_Log(ICE_LOG_WARNING, "EntityManager :: %d :: Resized :: %d", man, state->object.entity_mngr[man].entity_size * 2);
 		state->object.entity_mngr[man].entity = tmp;
 		state->object.entity_mngr[man].entity_size *= 2;
 	}
@@ -299,12 +299,19 @@ void ICE_Entity_SetSprite(ICE_Entity * entity, ICE_Sprite * sprite)
 
 void ICE_Entity_SetSpriteFrame(ICE_Entity * entity, ICE_Index frame)
 {
-	ICE_Sprite * sprite = ICE_Sprite_Get(entity->graphics_mngr_index, entity->graphics_index);
-	entity->sprite_frame = frame;
+	if (entity->graphics_type == ICE_ENTITYGRAPHICSTYPES_SPRITE)
+	{
+		ICE_Sprite * sprite = ICE_Sprite_Get(entity->graphics_mngr_index, entity->graphics_index);
+		entity->sprite_frame = frame;
 
-	ICE_Index size_in_h = frame / sprite->size_w;
-	ICE_Index size_in_w = frame % sprite->size_w;
+		const ICE_Index size_in_h = frame / sprite->size_w;
+		const ICE_Index size_in_w = frame % sprite->size_w;
 
-	entity->graphics_box_render.x = size_in_w * sprite->size_w;
-	entity->graphics_box_render.y = size_in_h * sprite->size_h;
+		entity->graphics_box_render.x = size_in_w * sprite->size_w;
+		entity->graphics_box_render.y = size_in_h * sprite->size_h;
+	}
+	else
+	{
+		ICE_Log(ICE_LOG_ERROR, "");
+	}
 }

@@ -24,9 +24,17 @@ void ICE_Term_Clear(){
 
 void ICE_Term_Clock(){
 	ICE_Term_SetColor(ICE_TERMCOLOR_LIGHTCYAN);
-	printf("[%.3f s]", (ICE_Float)clock()/1000.0f);
+	printf("%.3f s", (ICE_Float)clock()/1000.0f);
 	ICE_Term_ResetColor();
 	printf("");
+}
+
+void ICE_Term_Date()
+{
+	ICE_Term_SetColor(ICE_TERMCOLOR_CYAN);
+	time_t t = time(NULL);
+	struct tm tm = *localtime(&t);
+	printf("%d-%d-%d %d:%d:%d", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
 }
 
 void ICE_Term_Wait(){

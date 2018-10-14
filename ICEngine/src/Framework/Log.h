@@ -19,18 +19,18 @@ enum ICE_LogTypes
 
 #if defined(_DEBUG)
 
-/**
- * \brief Show a log with time and can be formated
- * \param type Log type
- * \param format Formated string
- * \param ... Args of the formated string
- */
-void ICE_Log(ICE_LogTypes type, const char * format, ...);
-void ICE_Log_NoReturn(ICE_LogTypes type, const char * format, ...);
+	#define ICE_Log(TYPE, FORMAT, ...) \
+		ICE_Log__(0, __FILE__, __LINE__, TYPE, FORMAT, __VA_ARGS__)
 
-#else
-#define ICE_Log(...)
-#define ICE_Log_NoReturn()
-#endif
+	#define ICE_Log_NoReturn(TYPE, FORMAT, ...) \
+		ICE_Log_NoReturn__(__FILE__, __LINE__, TYPE, FORMAT, __VA_ARGS__)
+
+    void ICE_Log__(int nb_tab, const char* file, int line, ICE_LogTypes type, const char * format, ...);
+	void ICE_Log_NoReturn__(const char* file, int line, ICE_LogTypes type, const char * format, ...);
+
+	#else
+		#define ICE_Log(...)
+		#define ICE_Log_NoReturn()
+	#endif
 
 #endif
