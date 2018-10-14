@@ -45,7 +45,8 @@ void ICE_GameObject_Create(char *window_title, const unsigned int width_window, 
 
 	ICE_Core_Info(window_title);
 
-	ICE_Log(ICE_LOG_SUCCES, "Engine]::[Init]::[Finish");
+	ICE_Log(ICE_LOG_FINISH, "Engine :: Init :: Ok");
+	ICE_Log_Line();
 	printf("\n");
 }
 

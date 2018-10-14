@@ -24,11 +24,13 @@ int ICE_Core_Main(char * title, const int window_width, const int window_height,
 	ICE_Core_Init();
 	ICE_GameObject_Create(title, window_width, window_height, argc, argv);
 	ICE_Asset_Init();
-	ICE_Log(ICE_LOG_RUNNING, "Game :: Create :: Start");
+	ICE_Log_Line();
+	ICE_Log(ICE_LOG_RUNNING, "Game :: Create ...");
 	call_create();
-	ICE_Log(ICE_LOG_SUCCES, "Game :: Create :: Finish");
+	ICE_Log(ICE_LOG_FINISH, "Game :: Create :: Ok");
 	printf("\n");
-	ICE_Log(ICE_LOG_RUNNING, "Game :: Update :: Start");
+	ICE_Log_Line();
+	ICE_Log(ICE_LOG_RUNNING, "Game :: Update ...");
 	while (!game.window.input.quit)
 	{	
 		ICE_Time_Start();
@@ -53,12 +55,13 @@ int ICE_Core_Main(char * title, const int window_width, const int window_height,
 
 		ICE_Time_End();
 	}
-	ICE_Log(ICE_LOG_SUCCES, "Game :: Update :: Finish");
+	ICE_Log(ICE_LOG_FINISH, "Game :: Update :: Ok");
 	printf("\n");
-	ICE_Log(ICE_LOG_RUNNING, "Game :: Destroy :: Start");
+	ICE_Log_Line();
+	ICE_Log(ICE_LOG_RUNNING, "Game :: Destroy ...");
 	call_destroy();
 	ICE_GameObject_Destroy();
-	ICE_Log(ICE_LOG_SUCCES, "Game :: Destroy :: Finish");
+	ICE_Log(ICE_LOG_FINISH, "Game :: Destroy :: Ok");
 	
 	ICE_Core_Close();
 
