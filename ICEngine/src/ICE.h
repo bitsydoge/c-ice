@@ -44,6 +44,7 @@
 #include "Graphics/Primitive.h"
 #include "Graphics/Render.h"
 #include "Graphics/Texture.h"
+#include "Graphics/Sprite.h"
 #include "Graphics/Gui.h"
 
 // Audio

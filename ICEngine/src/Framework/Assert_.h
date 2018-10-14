@@ -4,15 +4,9 @@
 #define ICE_DEBUG_GET_GAME_OBJECT extern ICE_Game game;
 
 #if defined(_DEBUG)
-/**
-* \brief Stylised assert
-* \param Expr The condition you want to try
-* \param Msg A message you want to show
-*/
-#   define ICE_Assert(Expr, Msg) \
-	ICE_Assert_(#Expr, Expr, __FILE__, __LINE__, Msg)
+	#define ICE_Assert(Expr, Msg) ICE_Assert_(#Expr, Expr, __FILE__, __LINE__, Msg)
 #else
-#   define ICE_Assert(Expr, Msg) ;
+	#define ICE_Assert(Expr, Msg) ;
 #endif
 
 #if defined(_DEBUG)

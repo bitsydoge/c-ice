@@ -32,7 +32,7 @@ int ICE_Core_Init() {
 
 	// Other
 	ICE_Term_SaveColor();
-	ICE_Log(ICE_LOG_RUNNING, "Engine]::[Init]::[Start");
+	ICE_Log(ICE_LOG_RUNNING, "Engine :: Init :: Start");
 	ICE_Term_HideCursor();
 
 	// SDL
@@ -109,7 +109,7 @@ void ICE_Core_Info(char * title)
 
 int ICE_Core_Close() 
 {
-	ICE_Log(ICE_LOG_RUNNING, "Engine]::[Close]::[Start");
+	ICE_Log(ICE_LOG_RUNNING, "Engine :: Close :: Start");
 	
 	// Manager Clean
 		//GameObject

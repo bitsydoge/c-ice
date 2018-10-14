@@ -1,6 +1,5 @@
 ﻿#define ICE_DEBUG_FORCE
 #include <ICE.h>
-#include "Graphics/Sprite.h"
 
 typedef struct
 {
