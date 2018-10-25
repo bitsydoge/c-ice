@@ -17,7 +17,7 @@ ICE_Game_Create("Hello World", 800, 480)
 
 ICE_Game_Update()
 {
-	if (ICE_Input_Key(ICE_KEY_ESCAPE)) 
+	if (ICE_Input_IsPressed(ICE_KEY_ESCAPE)) 
 		ICE_Input_Quit();
 }
 

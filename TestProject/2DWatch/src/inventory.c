@@ -70,7 +70,7 @@ void inventory_update()
 	);
 	ICE_Debug_CameraControl();
 
-	if (ICE_Input_Key(ICE_KEY_ESCAPE))
+	if (ICE_Input_IsPressed(ICE_KEY_ESCAPE))
 		ICE_State_Pause();
 }
 

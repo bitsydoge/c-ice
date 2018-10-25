@@ -31,7 +31,7 @@ void ICE_Debug_DrawCoordinate(){
 	if (SDL_GetMouseFocus()){
 		char coo[20];
 		ICE_Box coordinate = { game.window.input.mousex, game.window.input.mousey };
-		if (game.window.input.leftclic)
+		if (game.window.input.leftclic_pressed)
 			coordinate = ICE_Camera_ScreenWorld(coordinate);
 		sprintf(coo, "%0.0f, %0.0f", coordinate.x, coordinate.y);
 
@@ -86,15 +86,15 @@ void ICE_Debug_FontDraw(int y, const char* format, ...) {
 
 void ICE_Debug_CameraControl()
 {
-		if (ICE_Input_Key(ICE_KEY_W))
+		if (ICE_Input_IsPressed(ICE_KEY_W))
 			ICE_Camera_ShiftPos(ICE_Vect_New(0, -1000 * ICE_Game_GetDelta()));
-		if (ICE_Input_Key(ICE_KEY_S))
+		if (ICE_Input_IsPressed(ICE_KEY_S))
 			ICE_Camera_ShiftPos(ICE_Vect_New(0, 1000 * ICE_Game_GetDelta()));
-		if (ICE_Input_Key(ICE_KEY_A))
+		if (ICE_Input_IsPressed(ICE_KEY_A))
 			ICE_Camera_ShiftPos(ICE_Vect_New(-1000 * ICE_Game_GetDelta(), 0));
-		if (ICE_Input_Key(ICE_KEY_D))
+		if (ICE_Input_IsPressed(ICE_KEY_D))
 			ICE_Camera_ShiftPos(ICE_Vect_New(1000 * ICE_Game_GetDelta(), 0));
-		if (ICE_Input_Key(ICE_KEY_SPACE))
+		if (ICE_Input_IsPressed(ICE_KEY_SPACE))
 			ICE_Camera_MovePos(ICE_Vect_Null, 1000 * ICE_Game_GetDelta());
 }
 
