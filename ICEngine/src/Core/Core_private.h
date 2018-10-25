@@ -10,7 +10,7 @@ int ICE_Core_Init();
 #if defined(_DEBUG)
 void ICE_Core_Info(char * title);
 #else
-void ICE_Core_Info(char * title);
+#define ICE_Core_Info(...)
 #endif
 
 /**

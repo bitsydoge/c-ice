@@ -32,7 +32,8 @@ int ICE_Core_Init() {
 
 	// Other
 	ICE_Term_SaveColor();
-	ICE_Log(ICE_LOG_RUNNING, "Engine :: Init :: Start");
+	ICE_Log_Line();
+	ICE_Log(ICE_LOG_RUNNING, "Engine :: Init ...");
 	ICE_Term_HideCursor();
 
 	// SDL
@@ -62,7 +63,7 @@ void ICE_Core_Info(char * title)
 	// SDL
 	printf("\nExecution Path: %s\n", game.basePath);
 	printf("Data Path: %s\n", game.dataPath);
-    
+	
 #if defined(__APPLE__)
 	//ICE_MacOS_SetWorkingDirectory(SDL_GetBasePath());
 	printf("MacOS Resources Directory: %s\n\n", ICE_MacOS_GetResourcesDirectory());
@@ -109,7 +110,7 @@ void ICE_Core_Info(char * title)
 
 int ICE_Core_Close() 
 {
-	ICE_Log(ICE_LOG_RUNNING, "Engine :: Close :: Start");
+	ICE_Log(ICE_LOG_RUNNING, "Engine :: Close ...");
 	
 	// Manager Clean
 		//GameObject
@@ -132,7 +133,8 @@ int ICE_Core_Close()
 	ICE_Audio_Close();
 	SDL_Quit();
 
-	ICE_Log(ICE_LOG_SUCCES, "Engine]::[Close]::[Finish");
+	ICE_Log(ICE_LOG_FINISH, "Engine :: Close :: Done");
+	ICE_Log_Line();
 
 	return 0;
 }
