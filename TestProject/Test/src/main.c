@@ -74,16 +74,9 @@ ICE_Game_Create("Spritesheet", 1280, 720)
 
 ICE_Game_Update()
 {
-	if (ICE_Input_IsPressed(ICE_KEY_ESCAPE))
-		ICE_Input_Quit();
-
-
 	static ICE_Float last = 0;
 	static ICE_Float now = 0;
 	now = ICE_Time_Clock();
-
-	DATA * data = ICE_Data_Get(NULL, 0);
-	static int frame_number = 0;
 
 	if (ICE_Input_OnPress(ICE_KEY_LEFTCLICK))
 		ICE_Log(ICE_LOG_SUCCES, "YOU PRESSED THAT FUCKING KEY !!!");
@@ -93,8 +86,10 @@ ICE_Game_Update()
 
 	if (ICE_Input_OnRelease(ICE_KEY_LEFTCLICK))
 		ICE_Log(ICE_LOG_SUCCES, "YOU RELEASED THAT FUCKING KEY !!!");
-	
 
+	DATA * data = ICE_Data_Get(NULL, 0);
+
+	static int frame_number = 0;
 	if (last+2 < now)
 	{
 		ICE_Entity_SetSpriteFrame
