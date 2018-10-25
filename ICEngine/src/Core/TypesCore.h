@@ -54,12 +54,20 @@ struct ICE_Time {
 struct ICE_Input 
 {
 
-	ICE_Bool				key[512];
+	ICE_Bool				Pressed[512];
+	ICE_Bool				OnPress[512];
+	ICE_Bool				OnRelease[512];
 	ICE_Bool				wheelup;
 	ICE_Bool				wheeldown;
 	ICE_Bool				quit;
-	ICE_Bool				leftclic;
-	ICE_Bool				rightclic;
+
+	ICE_Bool				leftclic_pressed;
+	ICE_Bool				rightclic_pressed;
+	ICE_Bool				leftclic_OnPress;
+	ICE_Bool				rightclic_OnPress;
+	ICE_Bool				leftclic_OnRelease;
+	ICE_Bool				rightclic_OnRelease;
+
 	unsigned int			mousex;
 	unsigned int			mousey;
 	ICE_Bool				focus;

@@ -6,21 +6,21 @@
 
 extern ICE_Game game;
 
-ICE_Bool ICE_Input_Key(enum ICE_Key button)
+ICE_Bool ICE_Input_IsPressed(enum ICE_Key button)
 {
 	if (button < 512)
 	{
-		return game.window.input.key[button];
+		return game.window.input.Pressed[button];
 	}
 	if (button > 600 && button < ICE_KEY_MAX)
 	{
 		if (button == ICE_KEY_LEFTCLICK)
 		{
-			return game.window.input.leftclic;
+			return game.window.input.leftclic_pressed;
 		}
 		if (button == ICE_KEY_RIGHTCLICK)
 		{
-			return game.window.input.rightclic;
+			return game.window.input.rightclic_pressed;
 		}
 		if (button == ICE_KEY_WHEELUP)
 		{
@@ -37,6 +37,48 @@ ICE_Bool ICE_Input_Key(enum ICE_Key button)
 		return ICE_False;
 	}
 
+	return ICE_False;
+}
+
+ICE_Bool ICE_Input_OnPress(enum ICE_Key button)
+{
+	if (button < 512)
+	{
+		return game.window.input.OnPress[button];
+	}
+	if (button > 600 && button < ICE_KEY_MAX)
+	{
+		if (button == ICE_KEY_LEFTCLICK)
+		{
+			return game.window.input.leftclic_OnPress;
+		}
+		if (button == ICE_KEY_RIGHTCLICK)
+		{
+			return game.window.input.rightclic_OnPress;
+		}
+	}
+	ICE_Log(ICE_LOG_WARNING, "INPUT]::[NOKEY]::[%d", button);
+	return ICE_False;
+}
+
+ICE_Bool ICE_Input_OnRelease(enum ICE_Key button)
+{
+	if (button < 512)
+	{
+		return game.window.input.OnRelease[button];
+	}
+	if (button > 600 && button < ICE_KEY_MAX)
+	{
+		if (button == ICE_KEY_LEFTCLICK)
+		{
+			return game.window.input.leftclic_OnRelease;
+		}
+		if (button == ICE_KEY_RIGHTCLICK)
+		{
+			return game.window.input.rightclic_OnRelease;
+		}
+	}
+	ICE_Log(ICE_LOG_WARNING, "INPUT]::[NOKEY]::[%d", button);
 	return ICE_False;
 }
 

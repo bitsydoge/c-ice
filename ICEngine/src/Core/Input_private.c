@@ -7,6 +7,19 @@ extern ICE_Game game;
 void ICE_Input_Return()
 {
 	static SDL_Event event;
+
+	// Reset one time event
+	for(int i = 0; i < 512; i++)
+	{
+			game.window.input.OnPress[i] = 0;
+			game.window.input.OnRelease[i] = 0;
+	}
+
+	game.window.input.leftclic_OnPress = 0;
+	game.window.input.leftclic_OnRelease = 0;
+	game.window.input.rightclic_OnPress = 0;
+	game.window.input.rightclic_OnRelease = 0;
+
 	while (SDL_PollEvent(&event))
 	{
 		switch (event.type)
@@ -15,10 +28,19 @@ void ICE_Input_Return()
 			game.window.input.quit = 1;
 			break;
 		case SDL_KEYDOWN:
-			game.window.input.key[event.key.keysym.scancode] = 1;
+			
+			if (game.window.input.Pressed[event.key.keysym.scancode] == 0)
+			{
+				game.window.input.Pressed[event.key.keysym.scancode] = 1;
+				game.window.input.OnPress[event.key.keysym.scancode] = 1;
+			}
 			break;
 		case SDL_KEYUP:
-			game.window.input.key[event.key.keysym.scancode] = 0;
+			if (game.window.input.Pressed[event.key.keysym.scancode] == 1)
+			{
+				game.window.input.Pressed[event.key.keysym.scancode] = 0;
+				game.window.input.OnRelease[event.key.keysym.scancode] = 1;
+			}	
 			break;
 		case SDL_MOUSEWHEEL:
 			if (event.wheel.y > 0)
@@ -29,21 +51,37 @@ void ICE_Input_Return()
 		case SDL_MOUSEBUTTONDOWN:
 			if (event.button.button == SDL_BUTTON_LEFT)
 			{
-				game.window.input.leftclic = 1;
+				if (game.window.input.leftclic_pressed == 0)
+				{
+					game.window.input.leftclic_pressed = 1;
+					game.window.input.leftclic_OnPress = 1;
+				}
 			}
 			if (event.button.button == SDL_BUTTON_RIGHT)
 			{
-				game.window.input.rightclic = 1;
+				if (game.window.input.rightclic_pressed == 0)
+				{
+					game.window.input.rightclic_pressed = 1;
+					game.window.input.rightclic_OnPress = 1;
+				}
 			}
 			break;
 		case SDL_MOUSEBUTTONUP:
 			if (event.button.button == SDL_BUTTON_LEFT)
 			{
-				game.window.input.leftclic = 0;
+				if (game.window.input.leftclic_pressed == 1)
+				{
+					game.window.input.leftclic_pressed = 0;
+					game.window.input.leftclic_OnRelease = 1;
+				}
 			}
 			if (event.button.button == SDL_BUTTON_RIGHT)
 			{
-				game.window.input.rightclic = 0;
+				if (game.window.input.rightclic_pressed == 1)
+				{
+					game.window.input.rightclic_pressed = 0;
+					game.window.input.rightclic_OnRelease = 1;
+				}
 			}
 			break;
 		case SDL_MOUSEMOTION:
