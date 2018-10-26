@@ -1,12 +1,9 @@
 ﻿#ifndef DEF_ICE_TIME
 #define DEF_ICE_TIME
 
-#include "TypesCore.h"
+#include "../Framework/TypesFramework.h"
 
-/**
- * \brief Get the current time since the start of the game
- * \return Current time in float
- */
-ICE_Float ICE_Time_Clock();
+ICE_Uint64 ICE_Time_GetMS();
+ICE_Float ICE_Time_GetS();
 
 #endif
