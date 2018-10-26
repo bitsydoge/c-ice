@@ -33,7 +33,7 @@ ICE_Bool ICE_Input_IsPressed(enum ICE_Key button)
 	}
 	else
 	{
-		ICE_Log(ICE_LOG_WARNING, "INPUT]::[NOKEY]::[%d", button);
+		ICE_Log(ICE_LOG_WARNING, "No key corresponding : %d", button);
 		return ICE_False;
 	}
 
@@ -57,7 +57,7 @@ ICE_Bool ICE_Input_OnPress(enum ICE_Key button)
 			return game.window.input.rightclic_OnPress;
 		}
 	}
-	ICE_Log(ICE_LOG_WARNING, "INPUT]::[NOKEY]::[%d", button);
+	ICE_Log(ICE_LOG_WARNING, "No key corresponding : %d", button);
 	return ICE_False;
 }
 
@@ -78,7 +78,7 @@ ICE_Bool ICE_Input_OnRelease(enum ICE_Key button)
 			return game.window.input.rightclic_OnRelease;
 		}
 	}
-	ICE_Log(ICE_LOG_WARNING, "INPUT]::[NOKEY]::[%d", button);
+	ICE_Log(ICE_LOG_WARNING, "No key corresponding : %d", button);
 	return ICE_False;
 }
 

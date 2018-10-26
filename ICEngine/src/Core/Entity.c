@@ -1,4 +1,4 @@
-﻿#include "Entity.h"
+#include "Entity.h"
 
 #include "TypesCore.h"
 
@@ -312,6 +312,6 @@ void ICE_Entity_SetSpriteFrame(ICE_Entity * entity, ICE_Index frame)
 	}
 	else
 	{
-		ICE_Log(ICE_LOG_ERROR, "");
+		ICE_Log(ICE_LOG_ERROR, "This entity doesn't have a Sprite graphics");
 	}
 }
