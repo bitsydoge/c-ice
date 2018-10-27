@@ -2,16 +2,17 @@
 #define DEF_ICE_CORE
 
 #define ICE_VERSION "DEV.1810.02"
+#include "Config.h"
 
 #define ICE_Game_Update() void ICE_User_Update(void)
 #define ICE_Game_Destroy() void ICE_User_Destroy(void)
 
-#define ICE_Game_Create(TITLE, WIDTH, HEIGHT) void ICE_User_Create(void);\
+#define ICE_Game_Create() void ICE_User_Create(void);\
 	ICE_Game_Update();\
 	ICE_Game_Destroy();\
 	int main(int argc, char ** argv)\
 	{\
-		ICE_Core_Main(TITLE, WIDTH, HEIGHT, ICE_User_Create, ICE_User_Update, ICE_User_Destroy, argc, argv);\
+		ICE_Core_Main(ICE_CONFIG_TITLE, ICE_CONFIG_WINDOW_W, ICE_CONFIG_WINDOW_H, ICE_User_Create, ICE_User_Update, ICE_User_Destroy, argc, argv);\
 		return 0;\
 	}\
 	void ICE_User_Create(void)

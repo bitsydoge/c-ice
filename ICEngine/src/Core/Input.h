@@ -268,7 +268,7 @@ enum ICE_Key
  * \param button The key value
  * \return ICE_True or ICE_False
  */
-ICE_Bool ICE_Input_IsPressed(enum ICE_Key button);
+ICE_Bool ICE_Input_Pressed(enum ICE_Key button);
 ICE_Bool ICE_Input_OnPress(enum ICE_Key button);
 ICE_Bool ICE_Input_OnRelease(enum ICE_Key button);
 

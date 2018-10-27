@@ -8,7 +8,7 @@
 extern ICE_Game game;
 extern ICE_Core core;
 
-ICE_Bool ICE_Input_IsPressed(enum ICE_Key button)
+ICE_Bool ICE_Input_Pressed(enum ICE_Key button)
 {
 	if (button < 512)
 	{

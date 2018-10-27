@@ -28,8 +28,10 @@ extern ICE_Core core;
 extern ICE_Game game;
 extern ICE_Asset asset;
 
-void ICE_Debug_DrawCoordinate(){
-	if (SDL_GetMouseFocus()){
+void ICE_Debug_DrawCoordinate()
+{
+	if (SDL_GetMouseFocus())
+	{
 		char coo[20];
 		ICE_Box coordinate = { core.window.input.mousex, core.window.input.mousey };
 		if (core.window.input.leftclic_pressed)
@@ -43,15 +45,16 @@ void ICE_Debug_DrawCoordinate(){
 
 void ICE_Debug_DrawFps(int y_pos)
 {
-		char gh[20];
-		sprintf(gh, " FPS : [%.0f] ", core.time.fps);
-		ICE_Debug_FontDraw(y_pos, gh);
+	char gh[20];
+	sprintf(gh, " FPS : [%.0f] ", core.time.fps);
+	ICE_Debug_FontDraw(y_pos, gh);
 }
 
-void ICE_Debug_TitleFps(){
-		char buffer[20];
-		sprintf(buffer, "FPS : [%.0f]", core.time.fps);
-		ICE_Window_SetTitle(buffer);
+void ICE_Debug_TitleFps()
+{
+	char buffer[20];
+	sprintf(buffer, "FPS : [%.0f]", core.time.fps);
+	ICE_Window_SetTitle(buffer);
 }
 
 ICE_Color font_color_background_set = 0xFF0000FF;
@@ -64,39 +67,40 @@ void ICE_Debug_FontSetColorBg(int r, int g, int b)
 
 void ICE_Debug_FontSetColorFg(int r, int g, int b)
 {
-		font_color_foreground_set = ICE_Color_New(r, g, b);
+	font_color_foreground_set = ICE_Color_New(r, g, b);
 }
 
-void ICE_Debug_FontDraw(int y, const char* format, ...) {
-		char buffer[512];
-		va_list args;
-		va_start(args, format);
-		vsprintf(buffer, format, args);
-		int size = (int)((ICE_Float)ICE_Window_GetH() / 50.0);
-		if (size < 12)
-			size = 12;
-		SDL_Surface *surf = TTF_RenderText_Shaded(asset.font.size[size], buffer, ICE_Color_ToSdl(font_color_foreground_set), ICE_Color_ToSdl(font_color_background_set));
-		SDL_Rect rect; rect.x = 0; rect.y = surf->h * y;
-		rect.w = surf->w; rect.h = surf->h;
-		SDL_Texture *texture = SDL_CreateTextureFromSurface(core.window.render, surf);
-		SDL_RenderCopy(core.window.render, texture, NULL, &rect);
-		SDL_FreeSurface(surf);
-		SDL_DestroyTexture(texture);
-		va_end(args);
+void ICE_Debug_FontDraw(int y, const char* format, ...) 
+{
+	char buffer[512];
+	va_list args;
+	va_start(args, format);
+	vsprintf(buffer, format, args);
+	int size = (int)((ICE_Float)ICE_Window_GetH() / 50.0);
+	if (size < 12)
+		size = 12;
+	SDL_Surface *surf = TTF_RenderText_Shaded(asset.font.size[size], buffer, ICE_Color_ToSdl(font_color_foreground_set), ICE_Color_ToSdl(font_color_background_set));
+	SDL_Rect rect; rect.x = 0; rect.y = surf->h * y;
+	rect.w = surf->w; rect.h = surf->h;
+	SDL_Texture *texture = SDL_CreateTextureFromSurface(core.window.render, surf);
+	SDL_RenderCopy(core.window.render, texture, NULL, &rect);
+	SDL_FreeSurface(surf);
+	SDL_DestroyTexture(texture);
+	va_end(args);
 }
 
 void ICE_Debug_CameraControl()
 {
-		if (ICE_Input_IsPressed(ICE_KEY_W))
-			ICE_Camera_ShiftPos(ICE_Vect_New(0, -1000 * ICE_Game_GetDelta()));
-		if (ICE_Input_IsPressed(ICE_KEY_S))
-			ICE_Camera_ShiftPos(ICE_Vect_New(0, 1000 * ICE_Game_GetDelta()));
-		if (ICE_Input_IsPressed(ICE_KEY_A))
-			ICE_Camera_ShiftPos(ICE_Vect_New(-1000 * ICE_Game_GetDelta(), 0));
-		if (ICE_Input_IsPressed(ICE_KEY_D))
-			ICE_Camera_ShiftPos(ICE_Vect_New(1000 * ICE_Game_GetDelta(), 0));
-		if (ICE_Input_IsPressed(ICE_KEY_SPACE))
-			ICE_Camera_MovePos(ICE_Vect_Null, 1000 * ICE_Game_GetDelta());
+	if (ICE_Input_Pressed(ICE_KEY_W))
+		ICE_Camera_ShiftPos(ICE_Vect_New(0, -1000 * ICE_Game_GetDelta()));
+	if (ICE_Input_Pressed(ICE_KEY_S))
+		ICE_Camera_ShiftPos(ICE_Vect_New(0, 1000 * ICE_Game_GetDelta()));
+	if (ICE_Input_Pressed(ICE_KEY_A))
+		ICE_Camera_ShiftPos(ICE_Vect_New(-1000 * ICE_Game_GetDelta(), 0));
+	if (ICE_Input_Pressed(ICE_KEY_D))
+		ICE_Camera_ShiftPos(ICE_Vect_New(1000 * ICE_Game_GetDelta(), 0));
+	if (ICE_Input_Pressed(ICE_KEY_SPACE))
+		ICE_Camera_MovePos(ICE_Vect_Null, 1000 * ICE_Game_GetDelta());
 }
 
 void ICE_Debug_CallbackDraw(void(*callback)())
