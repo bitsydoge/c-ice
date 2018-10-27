@@ -15,6 +15,7 @@
 #include <stdio.h>
 
 extern ICE_Game game;
+extern ICE_Core core;
 
 int ICE_Core_Main(char * title, const int window_width, const int window_height, void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void), int argc, char **argv)
 {
@@ -31,12 +32,12 @@ int ICE_Core_Main(char * title, const int window_width, const int window_height,
 	printf("\n");
 	ICE_Log_Line();
 	ICE_Log(ICE_LOG_RUNNING, "Game :: Update ...");
-	while (!game.window.input.quit)
+	while (!core.window.input.quit)
 	{	
 		ICE_Time_Start();
 		ICE_Input_Return();
 		ICE_Render_SetColor(game.current->background);
-		if(game.window.auto_clear)
+		if(core.window.auto_clear)
 			ICE_Render_Clear();
 		call_update();
 
@@ -47,10 +48,10 @@ int ICE_Core_Main(char * title, const int window_width, const int window_height,
 		ICE_Draw_LabelScreen();
 
 #if defined(_DEBUG)
-		if (game.lateDrawDebug)
-			game.lateDrawDebug();
+		if (core.lateDrawDebug)
+			core.lateDrawDebug();
 #endif
-		if(game.window.auto_render)
+		if(core.window.auto_render)
 			ICE_Render_Now();
 
 		ICE_Time_End();

@@ -24,18 +24,19 @@ ICE_Bool ICE_Debug_Get_Linked()
 
 #include <stdio.h>
 
+extern ICE_Core core;
 extern ICE_Game game;
 extern ICE_Asset asset;
 
 void ICE_Debug_DrawCoordinate(){
 	if (SDL_GetMouseFocus()){
 		char coo[20];
-		ICE_Box coordinate = { game.window.input.mousex, game.window.input.mousey };
-		if (game.window.input.leftclic_pressed)
+		ICE_Box coordinate = { core.window.input.mousex, core.window.input.mousey };
+		if (core.window.input.leftclic_pressed)
 			coordinate = ICE_Camera_ScreenWorld(coordinate);
 		sprintf(coo, "%0.0f, %0.0f", coordinate.x, coordinate.y);
 
-		const ICE_Vect vect = { game.window.input.mousex + 10, game.window.input.mousey + 10 };
+		const ICE_Vect vect = { core.window.input.mousex + 10, core.window.input.mousey + 10 };
 		ICE_Font_Draw(coo, vect, ICE_Color_New(255,255,255), ICE_Color_New(0,0,0));
 	}
 }
@@ -43,13 +44,13 @@ void ICE_Debug_DrawCoordinate(){
 void ICE_Debug_DrawFps(int y_pos)
 {
 		char gh[20];
-		sprintf(gh, " FPS : [%.0f] ", game.time.fps);
+		sprintf(gh, " FPS : [%.0f] ", core.time.fps);
 		ICE_Debug_FontDraw(y_pos, gh);
 }
 
 void ICE_Debug_TitleFps(){
 		char buffer[20];
-		sprintf(buffer, "FPS : [%.0f]", game.time.fps);
+		sprintf(buffer, "FPS : [%.0f]", core.time.fps);
 		ICE_Window_SetTitle(buffer);
 }
 
@@ -77,8 +78,8 @@ void ICE_Debug_FontDraw(int y, const char* format, ...) {
 		SDL_Surface *surf = TTF_RenderText_Shaded(asset.font.size[size], buffer, ICE_Color_ToSdl(font_color_foreground_set), ICE_Color_ToSdl(font_color_background_set));
 		SDL_Rect rect; rect.x = 0; rect.y = surf->h * y;
 		rect.w = surf->w; rect.h = surf->h;
-		SDL_Texture *texture = SDL_CreateTextureFromSurface(game.window.render, surf);
-		SDL_RenderCopy(game.window.render, texture, NULL, &rect);
+		SDL_Texture *texture = SDL_CreateTextureFromSurface(core.window.render, surf);
+		SDL_RenderCopy(core.window.render, texture, NULL, &rect);
 		SDL_FreeSurface(surf);
 		SDL_DestroyTexture(texture);
 		va_end(args);
@@ -100,7 +101,7 @@ void ICE_Debug_CameraControl()
 
 void ICE_Debug_CallbackDraw(void(*callback)())
 {
-	game.lateDrawDebug = callback;
+	core.lateDrawDebug = callback;
 }
 
 #endif

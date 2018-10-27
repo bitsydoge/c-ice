@@ -4,6 +4,7 @@
 
 
 extern ICE_Game game;
+extern ICE_Core core;
 
 // Camera edit
 // ----------------------------------------------------
@@ -44,7 +45,7 @@ void ICE_Camera_ShiftPos(ICE_Vect Dvect)
 
 ICE_Vect ICE_Camera_GetPos()
 {
-	return ICE_Vect_New(game.window.w, game.window.h);
+	return ICE_Vect_New(core.window.w, core.window.h);
 }
 
 // Converter
@@ -53,8 +54,8 @@ ICE_Vect ICE_Camera_GetPos()
 ICE_Box ICE_Camera_WorldScreen(ICE_Box rect)
 {
 	ICE_Box rect2 = {
-		(game.window.w / 2) + rect.x - game.current->object.camera.x,
-		(game.window.h / 2) + rect.y - game.current->object.camera.y,
+		(core.window.w / 2) + rect.x - game.current->object.camera.x,
+		(core.window.h / 2) + rect.y - game.current->object.camera.y,
 		rect.w,
 		rect.h
 	};
@@ -64,8 +65,8 @@ ICE_Box ICE_Camera_WorldScreen(ICE_Box rect)
 ICE_Box ICE_Camera_ScreenWorld(ICE_Box rect)
 {
 	ICE_Box rect2 = {
-		-game.window.w / 2 + game.current->object.camera.x + rect.x,
-		-game.window.h / 2 + game.current->object.camera.y + rect.y,
+		-core.window.w / 2 + game.current->object.camera.x + rect.x,
+		-core.window.h / 2 + game.current->object.camera.y + rect.y,
 		rect.w,
 		rect.h
 	};

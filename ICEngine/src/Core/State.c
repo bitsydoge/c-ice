@@ -16,6 +16,7 @@
 #include "Data.h"
 
 extern ICE_Game game;
+extern ICE_Core core;
 
 ICE_State ICE_State_Create(void (*func_create)(void), void (* func_update)(void), void (* func_destroy)(void))
 {
@@ -114,12 +115,12 @@ void ICE_Substate_Loop()
 	ICE_Log(ICE_LOG_SUCCES, "Substate]::[Create]::[Finish");
 	printf("\n");
 	ICE_Log(ICE_LOG_RUNNING, "Substate]::[Update]::[Start");
-	while (!game.window.input.quit && !game.current->quit)
+	while (!core.window.input.quit && !game.current->quit)
 	{
 		ICE_Time_Start();
 		ICE_Input_Return();
 		ICE_Render_SetColor(current->background);
-		if (game.window.auto_clear)
+		if (core.window.auto_clear)
 			ICE_Render_Clear();
 		current->func_update();
 
@@ -129,7 +130,7 @@ void ICE_Substate_Loop()
 		ICE_Draw_Gui();
 		ICE_Draw_LabelScreen();
 
-		if (game.window.auto_render)
+		if (core.window.auto_render)
 			ICE_Render_Now();
 
 		ICE_Time_End();

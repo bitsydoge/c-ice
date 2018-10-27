@@ -26,6 +26,7 @@
 #include "Core.h"
 #include "../Graphics/Sprite.h"
 
+ICE_Core core = { 0 } ;
 extern ICE_Game game;
 
 int ICE_Core_Init() {
@@ -54,15 +55,15 @@ void ICE_Core_Info(char * title)
 	char * basePath = SDL_GetBasePath();
 	char * dataPath = SDL_GetPrefPath("ice", title);
 
-	strcpy(game.basePath, basePath);
-	strcpy(game.dataPath, dataPath);
+	strcpy(core.basePath, basePath);
+	strcpy(core.dataPath, dataPath);
 
 	SDL_free(basePath);
 	SDL_free(dataPath);
 
 	// SDL
-	printf("\nExecution Path: %s\n", game.basePath);
-	printf("Data Path: %s\n", game.dataPath);
+	printf("\nExecution Path: %s\n", core.basePath);
+	printf("Data Path: %s\n", core.dataPath);
 	
 #if defined(__APPLE__)
 	//ICE_MacOS_SetWorkingDirectory(SDL_GetBasePath());
@@ -92,7 +93,7 @@ void ICE_Core_Info(char * title)
 	printf("RAM: %d MB \n", SDL_GetSystemRAM());
 
 	SDL_RendererInfo info_renderer;
-	SDL_GetRendererInfo(game.window.render, &info_renderer);
+	SDL_GetRendererInfo(core.window.render, &info_renderer);
 
 	printf("Renderer : %s \n", info_renderer.name);
 	if (info_renderer.flags |= SDL_RENDERER_ACCELERATED)

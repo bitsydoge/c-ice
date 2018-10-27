@@ -5,16 +5,17 @@
 #include "../Graphics/Texture.h"
 #include "Texture_private.h"
 
-extern struct ICE_Game game;
+extern ICE_Game game;
+extern ICE_Core core;
 
 void ICE_Gui_UpdateTexture(ICE_Index man, ICE_Index gui)
 {
 	ICE_Texture texture = { 0 };
-	texture.handle = SDL_CreateTexture(game.window.render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (int)game.current->object.gui_mngr[man].gui[gui].box.w, (int)game.current->object.gui_mngr[man].gui[gui].box.h);
-	SDL_SetRenderTarget(game.window.render, texture.handle);
+	texture.handle = SDL_CreateTexture(core.window.render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (int)game.current->object.gui_mngr[man].gui[gui].box.w, (int)game.current->object.gui_mngr[man].gui[gui].box.h);
+	SDL_SetRenderTarget(core.window.render, texture.handle);
 	SDL_SetTextureBlendMode(texture.handle, SDL_BLENDMODE_BLEND);
-	SDL_SetRenderDrawColor(game.window.render, 0, 0, 0, 0);
-	SDL_RenderClear(game.window.render);
+	SDL_SetRenderDrawColor(core.window.render, 0, 0, 0, 0);
+	SDL_RenderClear(core.window.render);
 	ICE_Box box2 = game.current->object.gui_mngr[man].gui[gui].box;
 	box2.x = 0; box2.y = 0;
 
@@ -30,7 +31,7 @@ void ICE_Gui_UpdateTexture(ICE_Index man, ICE_Index gui)
 			0
 		);
 	
-	SDL_SetRenderTarget(game.window.render, NULL);
+	SDL_SetRenderTarget(core.window.render, NULL);
 	if (game.current->object.gui_mngr[man].gui[gui].texture_cache.handle)
 		SDL_DestroyTexture(game.current->object.gui_mngr[man].gui[gui].texture_cache.handle);
 	game.current->object.gui_mngr[man].gui[gui].texture_cache = texture;

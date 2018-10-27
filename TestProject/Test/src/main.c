@@ -78,26 +78,30 @@ ICE_Game_Update()
 	static ICE_Float now = 0;
 	now = ICE_Time_GetS();
 
-	if (ICE_Input_OnPress(ICE_KEY_RIGHTCLICK))
-		ICE_Log(ICE_LOG_SUCCES, "You pressed : rightclick");
+	if (ICE_Input_OnPress(ICE_KEY_LEFTCLICK))
+		ICE_Log(ICE_LOG_SUCCES, "You pressed : lectclick at position <%d,%d>", ICE_Input_MouseX(), ICE_Input_MouseY());
 	
+	if (ICE_Input_IsPressed(ICE_KEY_LEFTCLICK))
+		ICE_Log(ICE_LOG_SUCCES, "You are pressing : lectclick at position <%d,%d>", ICE_Input_MouseX(), ICE_Input_MouseY());
+
+	if (ICE_Input_OnRelease(ICE_KEY_LEFTCLICK))
+		ICE_Log(ICE_LOG_SUCCES, "You released : lectclick at position <%d,%d>", ICE_Input_MouseX(), ICE_Input_MouseY());
+
+	if (ICE_Input_OnPress(ICE_KEY_RIGHTCLICK))
+		ICE_Log(ICE_LOG_SUCCES, "You pressed : rightclick at position <%d,%d>", ICE_Input_MouseX_World(), ICE_Input_MouseY_World());
+
 	if (ICE_Input_IsPressed(ICE_KEY_RIGHTCLICK))
-		ICE_Log(ICE_LOG_SUCCES, "You are pressing : rightclick");
+		ICE_Log(ICE_LOG_SUCCES, "You are pressing : rightclick at position <%d,%d>", ICE_Input_MouseX_World(), ICE_Input_MouseY_World());
 
 	if (ICE_Input_OnRelease(ICE_KEY_RIGHTCLICK))
-		ICE_Log(ICE_LOG_SUCCES, "You released : rightclick");
+		ICE_Log(ICE_LOG_SUCCES, "You released : rightclick at position <%d,%d>", ICE_Input_MouseX_World(), ICE_Input_MouseY_World());
 
 	
 
 	DATA * data = ICE_Data_Get(NULL, 0);
-
-
 	ICE_Entity * entity = ICE_Entity_Get(NULL, data->entity_test, data->entity_test);
 	ICE_Sprite * sprite = ICE_Entity_GetSprite(entity);
 	
-
-
-
 	static int frame_number = 1;
 	if (last+0.23f < now)
 	{

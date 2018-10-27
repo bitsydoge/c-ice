@@ -2,14 +2,14 @@
 
 #include "TypesCore.h"
 
-extern ICE_Game game;
+extern ICE_Core core;
 
 ICE_Float ICE_Game_GetDelta()
 {
-	return game.time.delta;
+	return core.time.delta;
 }
 
 ICE_Float ICE_Game_GetFps()
 {
-	return game.time.fps;
+	return core.time.fps;
 }

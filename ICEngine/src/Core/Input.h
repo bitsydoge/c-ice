@@ -283,7 +283,8 @@ void ICE_Input_Quit();
 void ICE_Input_Reset();
 
 int ICE_Input_MouseX();
-
 int ICE_Input_MouseY();
+int ICE_Input_MouseX_World();
+int ICE_Input_MouseY_World();
 
 #endif
