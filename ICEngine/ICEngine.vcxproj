@@ -132,6 +132,7 @@
     <ClInclude Include="src\Audio\TypesAudio.h" />
     <ClInclude Include="src\Core\Asset.h" />
     <ClInclude Include="src\Core\Asset_private.h" />
+    <ClInclude Include="src\Core\Config.h" />
     <ClInclude Include="src\Core\Converter_private.h" />
     <ClInclude Include="src\Core\Core.h" />
     <ClInclude Include="src\Core\Core_private.h" />
