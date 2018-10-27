@@ -6,6 +6,7 @@
 #include "../Framework/Log.h"
 #include "../Maths/Maths.h"
 #include "../Graphics/Sprite.h"
+#include "../Graphics/Texture.h"
 
 #define _POLAR_MOVEMENT_TYPE_1
 
@@ -304,14 +305,30 @@ void ICE_Entity_SetSpriteFrame(ICE_Entity * entity, ICE_Index frame)
 		ICE_Sprite * sprite = ICE_Sprite_Get(entity->graphics_mngr_index, entity->graphics_index);
 		entity->sprite_frame = frame;
 
-		const ICE_Index size_in_h = frame / sprite->size_w;
-		const ICE_Index size_in_w = frame % sprite->size_w;
+		const ICE_Index size_in_w = (frame+1) % sprite->number_frame_w;
+		const ICE_Index size_in_h = (frame+1) / sprite->number_frame_w;
 
 		entity->graphics_box_render.x = size_in_w * sprite->size_w;
 		entity->graphics_box_render.y = size_in_h * sprite->size_h;
 	}
 	else
-	{
 		ICE_Log(ICE_LOG_ERROR, "This entity doesn't have a Sprite graphics");
-	}
+}
+
+ICE_Sprite * ICE_Entity_GetSprite(ICE_Entity * _entity)
+{
+	if(_entity->graphics_type == ICE_ENTITYGRAPHICSTYPES_SPRITE)
+		return ICE_Sprite_Get(_entity->graphics_mngr_index, _entity->graphics_index);
+
+	ICE_Log(ICE_LOG_WARNING, "This entity doesn't have Sprite graphics");
+	return NULL;
+}
+
+ICE_Texture * ICE_Entity_GetTexture(ICE_Entity * _entity)
+{
+	if(_entity->graphics_type == ICE_ENTITYGRAPHICSTYPES_TEXTURE)
+		return ICE_Texture_Get(_entity->graphics_mngr_index, _entity->graphics_mngr_index);
+	
+	ICE_Log(ICE_LOG_WARNING, "This entity doesn't have Texture graphics");
+	return NULL;
 }

@@ -17,5 +17,6 @@ ICE_Index ICE_Sprite_Insert(const ICE_Index man, ICE_Texture * texture, ICE_Vect
 void ICE_Sprite_Clear(ICE_Sprite * label);
 void ICE_Sprite_Destroy(ICE_Sprite * ptr);
 ICE_Sprite * ICE_Sprite_Get(ICE_Index man, ICE_Index nb);
+ICE_Uint64 ICE_Sprite_GetFrameQuantity(ICE_Sprite * _sprite);
 
 #endif

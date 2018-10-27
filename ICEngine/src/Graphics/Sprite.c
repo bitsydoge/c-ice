@@ -107,3 +107,8 @@ ICE_Sprite * ICE_Sprite_Get(ICE_Index man, ICE_Index nb)
 {
 	return &asset.sprite_mngr[man].sprite[nb];
 }
+
+ICE_Uint64 ICE_Sprite_GetFrameQuantity(ICE_Sprite * _sprite)
+{
+	return _sprite->number_frame_h * _sprite->number_frame_w;
+}

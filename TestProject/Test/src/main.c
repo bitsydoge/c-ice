@@ -91,8 +91,15 @@ ICE_Game_Update()
 
 	DATA * data = ICE_Data_Get(NULL, 0);
 
+
+	ICE_Entity * entity = ICE_Entity_Get(NULL, data->entity_test, data->entity_test);
+	ICE_Sprite * sprite = ICE_Entity_GetSprite(entity);
+	
+
+
+
 	static int frame_number = 1;
-	if (last+0.2f < now)
+	if (last+0.23f < now)
 	{
 		ICE_Entity_SetSpriteFrame
 		(
@@ -100,7 +107,7 @@ ICE_Game_Update()
 			frame_number
 		);
 		frame_number++;
-		if (frame_number > 30)
+		if(frame_number > ICE_Sprite_GetFrameQuantity ( ICE_Entity_GetSprite ( ICE_Entity_Get( NULL, data->entity_test, data->entity_test))))
 			frame_number = 1;
 		last = ICE_Time_GetS();
 	}	
