@@ -1,6 +1,8 @@
 ﻿#define ICE_DEBUG_FORCE
 #include <ICE.h>
 
+
+
 typedef struct
 {
 	ICE_Index main_texture_manager;
@@ -33,7 +35,11 @@ void Debug_Update()
 	ICE_Debug_CameraControl();
 }
 
-ICE_Game_Create("Spritesheet", 1280, 720)
+#define ICE_CONFIG_WINDOW_W 1280
+#define ICE_CONFIG_WINDOW_H 720
+#define ICE_CONFIG_TITLE "Test"
+
+ICE_Game_Create(ICE_CONFIG_TITLE, ICE_CONFIG_WINDOW_W, ICE_CONFIG_WINDOW_H)
 {
 	ICE_Debug_CallbackDraw(Debug_Update);
 	
@@ -79,24 +85,17 @@ ICE_Game_Update()
 	now = ICE_Time_GetS();
 
 	if (ICE_Input_OnPress(ICE_KEY_LEFTCLICK))
-		ICE_Log(ICE_LOG_SUCCES, "You pressed : lectclick at position <%d,%d>", ICE_Input_MouseX(), ICE_Input_MouseY());
-	
+		ICE_Log(ICE_LOG_SUCCES, "You pressed : lectclick at position <%d,%d>", ICE_Input_MouseX_World(), ICE_Input_MouseY_World());
 	if (ICE_Input_IsPressed(ICE_KEY_LEFTCLICK))
-		ICE_Log(ICE_LOG_SUCCES, "You are pressing : lectclick at position <%d,%d>", ICE_Input_MouseX(), ICE_Input_MouseY());
-
+		ICE_Log(ICE_LOG_SUCCES, "You are pressing : lectclick at position <%d,%d>", ICE_Input_MouseX_World(), ICE_Input_MouseY_World());
 	if (ICE_Input_OnRelease(ICE_KEY_LEFTCLICK))
-		ICE_Log(ICE_LOG_SUCCES, "You released : lectclick at position <%d,%d>", ICE_Input_MouseX(), ICE_Input_MouseY());
-
+		ICE_Log(ICE_LOG_SUCCES, "You released : lectclick at position <%d,%d>", ICE_Input_MouseX_World(), ICE_Input_MouseY_World());
 	if (ICE_Input_OnPress(ICE_KEY_RIGHTCLICK))
-		ICE_Log(ICE_LOG_SUCCES, "You pressed : rightclick at position <%d,%d>", ICE_Input_MouseX_World(), ICE_Input_MouseY_World());
-
+		ICE_Log(ICE_LOG_SUCCES, "You pressed : rightclick at position <%d,%d>", ICE_Input_MouseX(), ICE_Input_MouseY());
 	if (ICE_Input_IsPressed(ICE_KEY_RIGHTCLICK))
-		ICE_Log(ICE_LOG_SUCCES, "You are pressing : rightclick at position <%d,%d>", ICE_Input_MouseX_World(), ICE_Input_MouseY_World());
-
+		ICE_Log(ICE_LOG_SUCCES, "You are pressing : rightclick at position <%d,%d>", ICE_Input_MouseX(), ICE_Input_MouseY());
 	if (ICE_Input_OnRelease(ICE_KEY_RIGHTCLICK))
-		ICE_Log(ICE_LOG_SUCCES, "You released : rightclick at position <%d,%d>", ICE_Input_MouseX_World(), ICE_Input_MouseY_World());
-
-	
+		ICE_Log(ICE_LOG_SUCCES, "You released : rightclick at position <%d,%d>", ICE_Input_MouseX(), ICE_Input_MouseY());
 
 	DATA * data = ICE_Data_Get(NULL, 0);
 	ICE_Entity * entity = ICE_Entity_Get(NULL, data->entity_test, data->entity_test);

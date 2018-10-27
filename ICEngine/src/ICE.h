@@ -5,6 +5,8 @@
 	#include <vld.h>
 #endif
 
+#include "Core/Config.h"
+
 // Framework
 
 #include "Framework/TypesFramework.h"
