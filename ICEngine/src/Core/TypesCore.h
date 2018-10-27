@@ -281,11 +281,8 @@ struct ICE_State
 }; typedef struct ICE_State ICE_State;
 
 
-/**
- * \brief The god object of the game with everything in it exept for Assets
- */
-struct ICE_Game {
-	
+struct ICE_Core
+{
 	// Main
 	ICE_Window				window;
 	ICE_Time				time;
@@ -294,21 +291,28 @@ struct ICE_Game {
 	ICE_Char				basePath[1024];
 	ICE_Char				dataPath[1024];
 
-	// State
-	ICE_State				state_main;
-	ICE_State*				current;
-
 	// Args
-	int						argc; 
+	int						argc;
 	char					**argv;
 
 #if defined(_DEBUG)
 
 	// Debug
-	void					(*lateDrawDebug)();
-	SDL_Thread				*guiDebugThread;
+	void(*lateDrawDebug)();
 
 #endif
+
+}; typedef struct ICE_Core ICE_Core;
+
+
+/**
+ * \brief The god object of the game with everything in it exept for Assets
+ */
+struct ICE_Game {
+	
+	// State
+	ICE_State				state_main;
+	ICE_State*				current;
 
 }; typedef struct ICE_Game ICE_Game;
 

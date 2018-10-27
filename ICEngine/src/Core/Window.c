@@ -3,26 +3,27 @@
 #include ICE_INCLUDE_SDL2
 
 extern ICE_Game game;
+extern ICE_Core core;
 
 void ICE_Window_SetSize(int w, int h)
 {
-	SDL_SetWindowSize(game.window.handle, w, h);
-	game.window.w = w; game.window.h = h;
+	SDL_SetWindowSize(core.window.handle, w, h);
+	core.window.w = w; core.window.h = h;
 }
 
 void ICE_Window_SetResizable(ICE_Bool yn)
 {
-	SDL_SetWindowResizable(game.window.handle, yn);
+	SDL_SetWindowResizable(core.window.handle, yn);
 }
 
 void ICE_Window_SetFullscreen(ICE_Bool yn)
 {
-	SDL_SetWindowFullscreen(game.window.handle, yn);
+	SDL_SetWindowFullscreen(core.window.handle, yn);
 }
 
 void ICE_Window_SetTitle(const char *title)
 {
-	SDL_SetWindowTitle(game.window.handle, title);
+	SDL_SetWindowTitle(core.window.handle, title);
 }
 
 void ICE_Window_SetIcon(char * path)
@@ -47,23 +48,23 @@ void ICE_Window_SetIcon(char * path)
 			ice_raw_img_icon.height, ice_raw_img_icon.bytes_per_pixel * 8, ice_raw_img_icon.bytes_per_pixel*ice_raw_img_icon.width,
 			rmask, gmask, bmask, amask);
 
-		SDL_SetWindowIcon(game.window.handle, icon);
+		SDL_SetWindowIcon(core.window.handle, icon);
 
 		SDL_FreeSurface(icon);
 	}
 	else
 	{
 		SDL_Surface *icon = SDL_LoadBMP(path);
-		SDL_SetWindowIcon(game.window.handle, icon);
+		SDL_SetWindowIcon(core.window.handle, icon);
 		SDL_FreeSurface(icon);
 	}
 }
 
 int ICE_Window_GetW()
 {
-	return (int)game.window.w;
+	return (int)core.window.w;
 }
 int ICE_Window_GetH()
 {
-	return (int)game.window.h;
+	return (int)core.window.h;
 }
