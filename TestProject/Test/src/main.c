@@ -35,11 +35,12 @@ void Debug_Update()
 	ICE_Debug_CameraControl();
 }
 
+
 #define ICE_CONFIG_WINDOW_W 1280
 #define ICE_CONFIG_WINDOW_H 720
 #define ICE_CONFIG_TITLE "Test"
 
-ICE_Game_Create(ICE_CONFIG_TITLE, ICE_CONFIG_WINDOW_W, ICE_CONFIG_WINDOW_H)
+ICE_Game_Create()
 {
 	ICE_Debug_CallbackDraw(Debug_Update);
 	
@@ -86,13 +87,13 @@ ICE_Game_Update()
 
 	if (ICE_Input_OnPress(ICE_KEY_LEFTCLICK))
 		ICE_Log(ICE_LOG_SUCCES, "You pressed : lectclick at position <%d,%d>", ICE_Input_MouseX_World(), ICE_Input_MouseY_World());
-	if (ICE_Input_IsPressed(ICE_KEY_LEFTCLICK))
+	if (ICE_Input_Pressed(ICE_KEY_LEFTCLICK))
 		ICE_Log(ICE_LOG_SUCCES, "You are pressing : lectclick at position <%d,%d>", ICE_Input_MouseX_World(), ICE_Input_MouseY_World());
 	if (ICE_Input_OnRelease(ICE_KEY_LEFTCLICK))
 		ICE_Log(ICE_LOG_SUCCES, "You released : lectclick at position <%d,%d>", ICE_Input_MouseX_World(), ICE_Input_MouseY_World());
 	if (ICE_Input_OnPress(ICE_KEY_RIGHTCLICK))
 		ICE_Log(ICE_LOG_SUCCES, "You pressed : rightclick at position <%d,%d>", ICE_Input_MouseX(), ICE_Input_MouseY());
-	if (ICE_Input_IsPressed(ICE_KEY_RIGHTCLICK))
+	if (ICE_Input_Pressed(ICE_KEY_RIGHTCLICK))
 		ICE_Log(ICE_LOG_SUCCES, "You are pressing : rightclick at position <%d,%d>", ICE_Input_MouseX(), ICE_Input_MouseY());
 	if (ICE_Input_OnRelease(ICE_KEY_RIGHTCLICK))
 		ICE_Log(ICE_LOG_SUCCES, "You released : rightclick at position <%d,%d>", ICE_Input_MouseX(), ICE_Input_MouseY());

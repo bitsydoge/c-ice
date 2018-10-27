@@ -107,19 +107,19 @@ ICE_Game_Update()
 	DATA1 * data = ICE_Data_Get(NULL, 0);
 	ICE_Debug_CameraControl();
 
-	if (ICE_Input_IsPressed(ICE_KEY_ESCAPE))
+	if (ICE_Input_Pressed(ICE_KEY_ESCAPE))
 	{
 		ICE_Sound_Play(ICE_Sound_Get(0, 0), 16);
 		ICE_Substate_Start(&data->inventory);
 	}
-	if (ICE_Input_IsPressed(ICE_KEY_SPACE))
+	if (ICE_Input_Pressed(ICE_KEY_SPACE))
 	{
 		ICE_Label_SetString(ICE_Label_Get(NULL, 0, 0), "IT IS THE END OF THE WORLD");
 		ICE_Label_SetSize(ICE_Label_Get(NULL, 0, 0), 50);
 		ICE_Label_SetColor(ICE_Label_Get(NULL, 0, 0), ICE_Color_Red);
 		ICE_Label_SetPos(ICE_Label_Get(NULL, 0, 0), ICE_Vect_New(0, 0));
 	}
-	if (ICE_Input_IsPressed(ICE_KEY_RETURN))
+	if (ICE_Input_Pressed(ICE_KEY_RETURN))
 		ICE_Camera_SetPos(ICE_Vect_New(0, 0));
 }
 
