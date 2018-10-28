@@ -3,7 +3,7 @@
 #include "../Framework/Memory_.h"
 #include "../Framework/Log.h"
 
-extern ICE_Game game; 
+extern ICE_Game GAME; 
 extern ICE_Asset asset;
 
 /* SPRITEMANAGER */

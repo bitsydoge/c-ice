@@ -4,7 +4,7 @@
 
 #define ICE_Data_Insert(STATE, DATATYPE) ICE_Data_Insert_(STATE, sizeof(DATATYPE))
 
-// Make a Data and create a pointer in the game->data array (return the pointer created)
+// Make a Data and create a pointer in the GAME->data array (return the pointer created)
 void* ICE_Data_Insert_(ICE_State * state, ICE_Index _size);
 
 /// Return pointer to a Data

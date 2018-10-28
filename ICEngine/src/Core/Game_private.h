@@ -5,7 +5,7 @@
 void ICE_Render_Init();
 
 /**
- * \brief Destroy the game object
+ * \brief Destroy the GAME object
  */
 void ICE_Render_Quit();
 

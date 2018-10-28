@@ -3,6 +3,6 @@
 
 #include "TypesCore.h"
 
-ICE_Config config = { 0 };
+ICE_Config CONFIG = { 0 };
 
 #endif

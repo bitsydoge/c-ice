@@ -7,7 +7,7 @@
 #include "../Graphics/Color_private.h"
 
 extern ICE_Asset asset;
-extern ICE_Core core;
+extern ICE_Core CORE;
 
 void ICE_Label_UpdateTexture(ICE_Label * label)
 {
@@ -32,7 +32,7 @@ void ICE_Label_UpdateTexture(ICE_Label * label)
 
 	ICE_Texture texture = { 0 };
 
-	texture.handle = SDL_CreateTextureFromSurface(core.window.render, surf);
+	texture.handle = SDL_CreateTextureFromSurface(CORE.window.render, surf);
 	if (texture.handle)
 	{
 		texture.w = surf->w; texture.h = surf->h;

@@ -12,7 +12,7 @@ void ICE_Time_Init();
 void ICE_Time_Start();
 
 /**
- * \brief Return and calcul everything in need for time in game
+ * \brief Return and calcul everything in need for time in GAME
  */
 void ICE_Time_End();
 

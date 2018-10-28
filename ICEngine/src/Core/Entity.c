@@ -10,14 +10,14 @@
 
 #define _POLAR_MOVEMENT_TYPE_1
 
-extern ICE_Game game;
+extern ICE_Game GAME;
 
 /* ENTITY MANAGER */
 
 ICE_Index ICE_EntityManager_Insert(ICE_State * state)
 {
 	if (!state)
-		state = game.current;
+		state = GAME.current;
 
 	ICE_EntityManager text_manager = { 0 };
 	text_manager.entity_size = ICE_DEFAULT_ENTITY_MNGR_SIZE;
@@ -34,7 +34,7 @@ ICE_Index ICE_EntityManager_Insert(ICE_State * state)
 void ICE_EntityManager_Destroy(ICE_State * state, const ICE_Index man)
 {
 	if (!state)
-		state = game.current;
+		state = GAME.current;
 
 	ICE_EntityManager *manager = &state->object.entity_mngr[man];
 
@@ -51,7 +51,7 @@ void ICE_EntityManager_Destroy(ICE_State * state, const ICE_Index man)
 void ICE_EntityManager_DestroyAll(ICE_State * state)
 {
 	if (!state)
-		state = game.current;
+		state = GAME.current;
 
 	ICE_EntityManager *manager = state->object.entity_mngr;
 	const ICE_Index nb_manager = state->object.entity_mngr_nb;
@@ -86,7 +86,7 @@ ICE_Entity ICE_Entity_Create(ICE_Box pos)
 ICE_Index ICE_Entity_Insert(ICE_State * state, const ICE_Index man, ICE_Box pos)
 {
 	if (!state)
-		state = game.current;
+		state = GAME.current;
 
 	// Insert entity in array
 	state->object.entity_mngr[man].entity[state->object.entity_mngr[man].entity_contain] = ICE_Entity_Create(pos);
@@ -122,13 +122,13 @@ ICE_Entity * ICE_Entity_Get(ICE_State * state, const unsigned man, const unsigne
 {
 	if (state)
 		return &state->object.entity_mngr[man].entity[nb];
-	return &game.current->object.entity_mngr[man].entity[nb];
+	return &GAME.current->object.entity_mngr[man].entity[nb];
 }
 
 ICE_Index ICE_Entity_GetQuantity(ICE_State * state, ICE_Index manager)
 {
 	if (!state)
-		state = game.current;
+		state = GAME.current;
 
 	return state->object.entity_mngr[manager].entity_contain;
 }
@@ -136,7 +136,7 @@ ICE_Index ICE_Entity_GetQuantity(ICE_State * state, ICE_Index manager)
 ICE_Index ICE_EntityManager_GetQuantity(ICE_State * state)
 {
 	if (!state)
-		state = game.current;
+		state = GAME.current;
 
 	return state->object.entity_mngr_nb;
 }

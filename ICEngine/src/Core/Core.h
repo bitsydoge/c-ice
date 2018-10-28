@@ -11,18 +11,20 @@
 #define ICE_Game_Create() void ICE_User_Create(void);\
 	ICE_Game_Update();\
 	ICE_Game_Destroy();\
-	extern ICE_Config config;\
+	extern ICE_Config CONFIG;\
 	int main(int argc, char ** argv)\
 	{\
-		config.argc = argc;\
-		config.argv = argv;\
-		config.title = ICE_CONFIG_TITLE;\
-		config.editor_name = ICE_CONFIG_EDITORNAME;\
-		config.product_name = ICE_CONFIG_PRODUCTNAME;\
-		config.window_w = ICE_CONFIG_WINDOW_W;\
-		config.window_h = ICE_CONFIG_WINDOW_H;\
-		config.fullscreen = ICE_CONFIG_FULLSCREEN;\
-		config.resizable = ICE_CONFIG_RESIZABLE;\
+		CONFIG.argc = argc;\
+		CONFIG.argv = argv;\
+		CONFIG.title = ICE_CONFIG_TITLE;\
+		CONFIG.editor_name = ICE_CONFIG_EDITORNAME;\
+		CONFIG.product_name = ICE_CONFIG_PRODUCTNAME;\
+		CONFIG.window_w = ICE_CONFIG_WINDOW_W;\
+		CONFIG.window_h = ICE_CONFIG_WINDOW_H;\
+		CONFIG.window_icon = ICE_CONFIG_WINDOW_ICON;\
+		CONFIG.refresh_rate = ICE_CONFIG_REFRESHRATE;\
+		CONFIG.fullscreen = ICE_CONFIG_FULLSCREEN;\
+		CONFIG.resizable = ICE_CONFIG_RESIZABLE;\
 		ICE_Core_Main(ICE_User_Create, ICE_User_Update, ICE_User_Destroy);\
 		return 0;\
 	}\
