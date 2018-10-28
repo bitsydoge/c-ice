@@ -21,7 +21,7 @@
 #include "Core/TypesCore.h"
 
 #include "Core/Config.h"
-#include "Core/CORE.h"
+#include "Core/Core.h"
 #include "Core/Debug.h"
 #include "Core/Game.h"
 #include "Core/Input.h"

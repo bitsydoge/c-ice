@@ -60,9 +60,9 @@ void ICE_Render_Init()
 
 	CORE.window.w = (ICE_Float)CONFIG.window_w; CORE.window.h = (ICE_Float)CONFIG.window_h;
 
+	ICE_Window_Config();
 
 	ICE_Render_Info();
-	ICE_Window_Config();
 	
 	ICE_Log(ICE_LOG_FINISH, "Render init");
 	ICE_Log_Line();
@@ -103,6 +103,15 @@ void ICE_Render_Info()
 	if (info_renderer.flags |= SDL_RENDERER_TARGETTEXTURE)
 		ICE_Log_Printf("  - Target Texture\n");
 
+	int display_index = SDL_GetWindowDisplayIndex(CORE.window.handle);
+	ICE_Log_Printf(" Window on Screen : %d", display_index);
+	int screen_count = SDL_GetNumVideoDisplays();
+	for(int i = 0; i < screen_count; i++)
+	{
+		SDL_Rect screen_size;
+		SDL_GetDisplayBounds(i, &screen_size);
+		ICE_Log_Printf(" Screen %d : %d x %d\n", i, screen_size.w, screen_size.h);
+	}
 	puts("");
 }
 #endif

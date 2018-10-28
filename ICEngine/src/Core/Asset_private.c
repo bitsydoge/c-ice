@@ -2,4 +2,4 @@
 
 #include "TypesCore.h"
 
-ICE_Asset asset = { 0 };
+ICE_Asset ASSET = { 0 };

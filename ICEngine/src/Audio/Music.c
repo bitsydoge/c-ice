@@ -4,7 +4,7 @@
 #include "../Framework/Memory_.h"
 #include "../Framework/Log.h"
 
-extern ICE_Asset asset;
+extern ICE_Asset ASSET;
 
 // MANAGER
 
@@ -14,18 +14,18 @@ ICE_Index ICE_MusicManager_Insert()
 	musicmanager.music_size = ICE_DEFAULT_MUSIC_SIZE;
 	musicmanager.music = ICE_Calloc(musicmanager.music_size, sizeof(ICE_Music));
 
-	asset.music_mngr_nb++;
-	asset.music_mngr = ICE_Realloc(asset.music_mngr, asset.music_mngr_nb * sizeof(ICE_MusicManager));
-	asset.music_mngr[asset.music_mngr_nb - 1] = musicmanager;
+	ASSET.music_mngr_nb++;
+	ASSET.music_mngr = ICE_Realloc(ASSET.music_mngr, ASSET.music_mngr_nb * sizeof(ICE_MusicManager));
+	ASSET.music_mngr[ASSET.music_mngr_nb - 1] = musicmanager;
 
-	ICE_Log(ICE_LOG_SUCCES, "Create MusicManager : %d", asset.music_mngr_nb - 1);
+	ICE_Log(ICE_LOG_SUCCES, "Create MusicManager : %d", ASSET.music_mngr_nb - 1);
 
-	return asset.music_mngr_nb - 1;
+	return ASSET.music_mngr_nb - 1;
 }
 
 void ICE_MusicManager_Destroy(const ICE_Index man)
 {
-	ICE_MusicManager *manager = &asset.music_mngr[man];
+	ICE_MusicManager *manager = &ASSET.music_mngr[man];
 
 	for (ICE_Index i = 0; i < manager->music_contain; i++)
 	{
@@ -39,8 +39,8 @@ void ICE_MusicManager_Destroy(const ICE_Index man)
 
 void ICE_MusicManager_DestroyAll()
 {
-	ICE_MusicManager *manager = asset.music_mngr;
-	const ICE_Index nb_manager = asset.music_mngr_nb;
+	ICE_MusicManager *manager = ASSET.music_mngr;
+	const ICE_Index nb_manager = ASSET.music_mngr_nb;
 
 	for (ICE_Index i = 0; i < nb_manager; i++)
 	{
@@ -73,21 +73,21 @@ ICE_Music ICE_Music_Create(char *path)
 ICE_Index ICE_Music_Load(ICE_Index man, char *path)
 {
 	// Insert label in array
-	asset.music_mngr[man].music[asset.music_mngr[man].music_contain] = ICE_Music_Create(path);
-	asset.music_mngr[man].music_contain++;
+	ASSET.music_mngr[man].music[ASSET.music_mngr[man].music_contain] = ICE_Music_Create(path);
+	ASSET.music_mngr[man].music_contain++;
 
-	ICE_Log(ICE_LOG_SUCCES, "MusicManager]::[%d]::[Label]::[%d]::[Create", man, asset.music_mngr[man].music_contain - 1);
+	ICE_Log(ICE_LOG_SUCCES, "MusicManager]::[%d]::[Label]::[%d]::[Create", man, ASSET.music_mngr[man].music_contain - 1);
 
 	// Test size to realloc more space
-	if (asset.music_mngr[man].music_size <= asset.music_mngr[man].music_contain) {
-		ICE_Music* tmp = ICE_Realloc(asset.music_mngr[man].music, sizeof(ICE_Music)*(asset.music_mngr[man].music_size * 2));
+	if (ASSET.music_mngr[man].music_size <= ASSET.music_mngr[man].music_contain) {
+		ICE_Music* tmp = ICE_Realloc(ASSET.music_mngr[man].music, sizeof(ICE_Music)*(ASSET.music_mngr[man].music_size * 2));
 		// Test if realloc succes
-		ICE_Log(ICE_LOG_WARNING, "MusicManager]::[%d]::[Resized]::[%d", man, asset.music_mngr[man].music_size * 2);
-		asset.music_mngr[man].music = tmp;
-		asset.music_mngr[man].music_size *= 2;
+		ICE_Log(ICE_LOG_WARNING, "MusicManager]::[%d]::[Resized]::[%d", man, ASSET.music_mngr[man].music_size * 2);
+		ASSET.music_mngr[man].music = tmp;
+		ASSET.music_mngr[man].music_size *= 2;
 	}
 
-	return asset.music_mngr[man].music_contain - 1;
+	return ASSET.music_mngr[man].music_contain - 1;
 }
 
 void ICE_Music_Clear(ICE_Music * music)
@@ -105,7 +105,7 @@ void ICE_Music_Destroy(ICE_Music * ptr)
 
 ICE_Music * ICE_Music_Get(ICE_Index man, ICE_Index nb)
 {
-	return &asset.music_mngr[man].music[nb];
+	return &ASSET.music_mngr[man].music[nb];
 }
 
 // PLAY

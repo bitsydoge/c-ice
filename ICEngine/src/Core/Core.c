@@ -1,4 +1,4 @@
-﻿#include "CORE.h"
+﻿#include "Core.h"
 #include "TypesCore.h"
 #include "Core_private.h"
 #include "Game_private.h"

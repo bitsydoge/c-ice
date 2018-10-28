@@ -22,7 +22,7 @@
 #include "Data.h"
 #include "Entity.h"
 #include <string.h>
-#include "CORE.h"
+#include "Core.h"
 #include "../Graphics/Sprite.h"
 #include "../Framework/Random.h"
 
