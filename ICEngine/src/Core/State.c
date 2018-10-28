@@ -5,7 +5,6 @@
 #include "Input_private.h"
 #include "Input.h"
 
-#include "../Graphics/Render.h"
 #include "../Graphics/Render_private.h"
 #include "../Framework/Log.h"
 #include "../Core/Label.h"
@@ -15,8 +14,8 @@
 #include <stdio.h>
 #include "Data.h"
 
-extern ICE_Game game;
-extern ICE_Core core;
+extern ICE_Game GAME;
+extern ICE_Core CORE;
 
 ICE_State ICE_State_Create(void (*func_create)(void), void (* func_update)(void), void (* func_destroy)(void))
 {
@@ -32,24 +31,24 @@ ICE_State ICE_State_Create(void (*func_create)(void), void (* func_update)(void)
 
 void ICE_State_Change(ICE_State * state)
 {
-	game.current = state;
+	GAME.current = state;
 }
 
 void ICE_State_Quit()
 {
-	game.current->quit = ICE_True;
+	GAME.current->quit = ICE_True;
 }
 
 void ICE_State_Pause()
 {
-	game.current->quit = ICE_True;
-	game.current->isPaused = ICE_True;
+	GAME.current->quit = ICE_True;
+	GAME.current->isPaused = ICE_True;
 }
 
 void ICE_State_ResumeCallback(ICE_State * state, void(*func_resume)(void))
 {
 	if (!state)
-		state = game.current;
+		state = GAME.current;
 
 	state->func_resume = func_resume;
 }
@@ -57,36 +56,36 @@ void ICE_State_ResumeCallback(ICE_State * state, void(*func_resume)(void))
 void ICE_State_PauseCallback(ICE_State * state, void(*func_pause)(void))
 {
 	if (!state)
-		state = game.current;
+		state = GAME.current;
 
 	state->func_pause = func_pause;
 }
 
 ICE_Bool ICE_State_WasPaused()
 {
-	return game.current->isPaused;
+	return GAME.current->isPaused;
 }
 
 void ICE_Substate_Start(ICE_State *state)
 {
-	state->parent = game.current;
-	game.current = state;
+	state->parent = GAME.current;
+	GAME.current = state;
 
-	if(game.current->isPaused)
+	if(GAME.current->isPaused)
 	{
-		game.current->quit = ICE_False;
+		GAME.current->quit = ICE_False;
 	}
 
 	ICE_Substate_Loop();
 
-	game.current = state->parent;
+	GAME.current = state->parent;
 	
 
 }
 
 ICE_State * ICE_State_Main()
 {
-	return &game.state_main;
+	return &GAME.state_main;
 }
 
 void ICE_State_Destroy(ICE_State * state)
@@ -102,9 +101,9 @@ void ICE_State_Destroy(ICE_State * state)
 void ICE_Substate_Loop()
 {
 	ICE_Input_Reset();
-	ICE_State * current = game.current;
+	ICE_State * current = GAME.current;
 
-	ICE_Log(ICE_LOG_RUNNING, "Substate]::[Create]::[Start");
+	ICE_Log(ICE_LOG_RUNNING, "Entering substate");
 	
 	if (!current->isPaused)
 		current->func_create();
@@ -112,16 +111,12 @@ void ICE_Substate_Loop()
 		if (current->func_resume != NULL)
 			current->func_resume();
 
-	ICE_Log(ICE_LOG_SUCCES, "Substate]::[Create]::[Finish");
-	printf("\n");
-	ICE_Log(ICE_LOG_RUNNING, "Substate]::[Update]::[Start");
-	while (!core.window.input.quit && !game.current->quit)
+	while (!CORE.window.input.quit && !GAME.current->quit)
 	{
 		ICE_Time_Start();
 		ICE_Input_Return();
 		ICE_Render_SetColor(current->background);
-		if (core.window.auto_clear)
-			ICE_Render_Clear();
+		ICE_Render_Clear();
 		current->func_update();
 
 		// RENDER HERE
@@ -129,15 +124,10 @@ void ICE_Substate_Loop()
 		ICE_Draw_LabelWorld();
 		ICE_Draw_Gui();
 		ICE_Draw_LabelScreen();
-
-		if (core.window.auto_render)
-			ICE_Render_Now();
-
+		ICE_Render_Now();
 		ICE_Time_End();
 	}
-	ICE_Log(ICE_LOG_SUCCES, "Substate]::[Update]::[Finish");
-	printf("\n");
-	ICE_Log(ICE_LOG_RUNNING, "Substate]::[Destroy]::[Start");
+
 	if (!current->isPaused)
 	{
 		current->func_destroy();
@@ -152,13 +142,15 @@ void ICE_Substate_Loop()
 		if(current->func_pause != NULL)
 			current->func_pause();
 
+	ICE_Log(ICE_LOG_RUNNING, "Leaving substate");
+
 	ICE_Input_Reset();
 }
 
 ICE_State * ICE_State_GetParent(ICE_State * state)
 {
 	if (!state)
-		state = game.current;
+		state = GAME.current;
 
 
 	if(state->parent)

@@ -1,35 +1,37 @@
 ﻿#include "Window.h"
 #include "TypesCore.h"
 #include ICE_INCLUDE_SDL2
+#include "../External/stb/SDL_stbimage.h"
+#include "../Framework/Log.h"
 
-extern ICE_Game game;
-extern ICE_Core core;
+extern ICE_Game GAME;
+extern ICE_Core CORE;
 
 void ICE_Window_SetSize(int w, int h)
 {
-	SDL_SetWindowSize(core.window.handle, w, h);
-	core.window.w = w; core.window.h = h;
+	SDL_SetWindowSize(CORE.window.handle, w, h);
+	CORE.window.w = w; CORE.window.h = h;
 }
 
 void ICE_Window_SetResizable(ICE_Bool yn)
 {
-	SDL_SetWindowResizable(core.window.handle, yn);
+	SDL_SetWindowResizable(CORE.window.handle, yn);
 }
 
-void ICE_Window_SetFullscreen(ICE_Bool yn)
+void ICE_Window_SetFullscreen(ICE_Uint8 yn)
 {
-	SDL_SetWindowFullscreen(core.window.handle, yn);
+	SDL_SetWindowFullscreen(CORE.window.handle, yn);
 }
 
 void ICE_Window_SetTitle(const char *title)
 {
-	SDL_SetWindowTitle(core.window.handle, title);
+	SDL_SetWindowTitle(CORE.window.handle, title);
 }
 
 void ICE_Window_SetIcon(char * path)
 {
-	if (!path) {
-
+	if (!path) 
+	{
 #include "../Raw/Icon.c"
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN
 		int shift = (ice_raw_img_icon.bytes_per_pixel == 3) ? 8 : 0;
@@ -48,23 +50,27 @@ void ICE_Window_SetIcon(char * path)
 			ice_raw_img_icon.height, ice_raw_img_icon.bytes_per_pixel * 8, ice_raw_img_icon.bytes_per_pixel*ice_raw_img_icon.width,
 			rmask, gmask, bmask, amask);
 
-		SDL_SetWindowIcon(core.window.handle, icon);
+		SDL_SetWindowIcon(CORE.window.handle, icon);
 
 		SDL_FreeSurface(icon);
 	}
 	else
 	{
-		SDL_Surface *icon = SDL_LoadBMP(path);
-		SDL_SetWindowIcon(core.window.handle, icon);
+		SDL_Surface *icon = STBIMG_Load(path);
+
+		if (icon == NULL)
+			ICE_Log(ICE_LOG_ERROR, "ICE_Window_SetIcon : %s", SDL_GetError);
+		
+		SDL_SetWindowIcon(CORE.window.handle, icon);
 		SDL_FreeSurface(icon);
 	}
 }
 
 int ICE_Window_GetW()
 {
-	return (int)core.window.w;
+	return (int)CORE.window.w;
 }
 int ICE_Window_GetH()
 {
-	return (int)core.window.h;
+	return (int)CORE.window.h;
 }

@@ -12,14 +12,14 @@
 #include <string.h>
 #include <stdio.h>
 
-extern ICE_Game game;
+extern ICE_Game GAME;
 
 /* LABEL MANAGER */
 
 ICE_Index ICE_LabelManager_Insert(ICE_State * state)
 {
 	if (!state)
-		state = game.current;
+		state = GAME.current;
 
 	ICE_LabelManager text_manager = { 0 };
 	text_manager.label_size = ICE_DEFAULT_LABEL_MNGR_SIZE;
@@ -29,14 +29,14 @@ ICE_Index ICE_LabelManager_Insert(ICE_State * state)
 	state->object.label_mngr = ICE_Realloc(state->object.label_mngr, state->object.label_mngr_nb * sizeof(ICE_LabelManager)); // Manager Array
 	state->object.label_mngr[state->object.label_mngr_nb - 1] = text_manager;
 
-	ICE_Log(ICE_LOG_SUCCES, "LabelManager]::[%d]::[Create", state->object.label_mngr_nb - 1);
+	ICE_Log(ICE_LOG_SUCCES, "Create LabelManager : %d", state->object.label_mngr_nb - 1);
 	return state->object.label_mngr_nb - 1;
 }
 
 void ICE_LabelManager_Destroy(ICE_State * state, const ICE_Index man)
 {
 	if (!state)
-		state = game.current;
+		state = GAME.current;
 
 	ICE_LabelManager *manager = &state->object.label_mngr[man];
 
@@ -47,13 +47,13 @@ void ICE_LabelManager_Destroy(ICE_State * state, const ICE_Index man)
 	}
 
 	ICE_Free(manager->label);
-	ICE_Log(ICE_LOG_SUCCES, "LabelManager]::[%d]::[Free", man);
+	ICE_Log(ICE_LOG_SUCCES, "Free LabelManager : %d", man);
 }
 
 void ICE_LabelManager_DestroyAll(ICE_State * state)
 {
 	if (!state)
-		state = game.current;
+		state = GAME.current;
 
 	ICE_LabelManager *manager = state->object.label_mngr;
 	ICE_Index nb_manager = state->object.label_mngr_nb;
@@ -93,7 +93,7 @@ ICE_Label ICE_Label_Create(ICE_StringStd text, ICE_Vect pos, int size, enum ICE_
 ICE_Index ICE_Label_Insert(ICE_State * state, const ICE_Index man, ICE_StringStd text, const ICE_Vect pos, int size, enum ICE_LabelType type)
 {
 	if (!state)
-		state = game.current;
+		state = GAME.current;
 
 	// Insert label in array
 	state->object.label_mngr[man].label[state->object.label_mngr[man].label_contain] = ICE_Label_Create(text, pos, size, type);
@@ -138,7 +138,7 @@ ICE_Label * ICE_Label_Get(ICE_State * state, const ICE_Index man, const ICE_Inde
 {
 	if(state)
 		return &state->object.label_mngr[man].label[nb];
-	return &game.current->object.label_mngr[man].label[nb];
+	return &GAME.current->object.label_mngr[man].label[nb];
 }
 
 ICE_String ICE_Label_GetString(ICE_Label* ptr)

@@ -12,10 +12,9 @@ void ICE_Assert_(const char* expr_str, int expr, const char* file, int line, con
 {
 	if (!expr)
 	{
+		ICE_Log_Line();
+		puts("");
 		ICE_Log(ICE_LOG_CRITICAL, "ASSERT");
-		//ICE_Term_SetColor(ICE_TERMCOLOR_LIGHTRED);
-		//printf("\n\n\t\t-------------------[ERROR]-------------------\t\t\n\n");
-		//ICE_Term_ResetColor();
 		printf("Assert Msg\t:\t");
 		ICE_Term_SetColor(ICE_TERMCOLOR_LIGHTGREEN);
 		printf("%s\n", msg);
@@ -32,8 +31,7 @@ void ICE_Assert_(const char* expr_str, int expr, const char* file, int line, con
 		ICE_Term_SetColor(ICE_TERMCOLOR_LIGHTCYAN);
 		printf("%d\n\n", line);
 		ICE_Term_ResetColor();
-		//ICE_Term_SetColor(ICE_TERMCOLOR_LIGHTRED);
-		//printf("\t\t-------------------[ERROR]-------------------\t\t\n");
+		ICE_Log_Line();
 		abort();
 	}
 }

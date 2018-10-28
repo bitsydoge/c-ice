@@ -9,11 +9,11 @@
 #include "Sprite.h"
 #include "../Core/Converter_private.h"
 
-extern ICE_Game game;
+extern ICE_Game GAME;
 
 void ICE_Draw_LabelWorld()
 {
-	ICE_State * current = game.current;
+	ICE_State * current = GAME.current;
 
 	for (ICE_Index i = 0; i < current->object.label_mngr_nb; i++)
 		for (ICE_Index j = 0; j < current->object.label_mngr[i].label_contain; j++)
@@ -50,7 +50,7 @@ void ICE_Draw_LabelWorld()
 
 }
 void ICE_Draw_LabelScreen() {
-	ICE_State * current = game.current;
+	ICE_State * current = GAME.current;
 
 	for (ICE_Index i = 0; i < current->object.label_mngr_nb; i++)
 		for (ICE_Index j = 0; j < current->object.label_mngr[i].label_contain; j++)
@@ -87,7 +87,7 @@ void ICE_Draw_LabelScreen() {
 
 void ICE_Draw_Gui()
 {
-	ICE_State * current = game.current;
+	ICE_State * current = GAME.current;
 
 	for (ICE_Index i = 0; i < current->object.gui_mngr_nb; i++)
 		for (ICE_Index j = 0; j < current->object.gui_mngr[i].gui_contain; j++)
@@ -113,7 +113,7 @@ void ICE_Draw_Gui()
 
 void ICE_Draw_Entity()
 {
-	ICE_State * current = game.current;
+	ICE_State * current = GAME.current;
 
 	for (ICE_Index i = 0; i < current->object.entity_mngr_nb; i++)
 		for (ICE_Index j = 0; j < current->object.entity_mngr[i].entity_contain; j++)
