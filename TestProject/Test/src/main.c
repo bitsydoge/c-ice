@@ -1,7 +1,11 @@
-﻿#define ICE_DEBUG_FORCE
+#define ICE_DEBUG_FORCE
 #include <ICE.h>
 
-
+#define ICE_CONFIG_WINDOW_W 1280
+#define ICE_CONFIG_WINDOW_H 720
+#define ICE_CONFIG_TITLE "Test"
+#define ICE_CONFIG_RESIZABLE 1
+#define ICE_CONFIG_FULLSCREEN 0
 
 typedef struct
 {
@@ -34,11 +38,6 @@ void Debug_Update()
 	ICE_Debug_DrawCoordinate();
 	ICE_Debug_CameraControl();
 }
-
-
-#define ICE_CONFIG_WINDOW_W 1280
-#define ICE_CONFIG_WINDOW_H 720
-#define ICE_CONFIG_TITLE "Test"
 
 ICE_Game_Create()
 {
