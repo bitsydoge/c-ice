@@ -23,6 +23,7 @@ void ICE_Gui_UpdateTexture(ICE_Index man, ICE_Index gui)
 
 	if(game.current->object.gui_mngr[man].gui[gui].type == ICE_GUITYPE_RECTANGLE)
 		ICE_Gui_Rect(ICE_Texture_Get(game.current->object.gui_mngr[man].gui[gui].texturemanager_index, game.current->object.gui_mngr[man].gui[gui].texture_index), box2);
+
 	if (game.current->object.gui_mngr[man].gui[gui].type == ICE_GUITYPE_IMAGE)
 		ICE_Texture_RenderEx(
 			ICE_Texture_Get(game.current->object.gui_mngr[man].gui[gui].texturemanager_index, game.current->object.gui_mngr[man].gui[gui].texture_index),

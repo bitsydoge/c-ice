@@ -97,13 +97,13 @@ int ICE_Input_MouseY()
 int ICE_Input_MouseX_World()
 {
 	ICE_Box translating  = ICE_Camera_ScreenWorld(ICE_Box_New(core.window.input.mousex, core.window.input.mousey,1, 1));
-	return translating.x;
+	return (int)translating.x;
 }
 
 int ICE_Input_MouseY_World()
 {
 	ICE_Box translating = ICE_Camera_ScreenWorld(ICE_Box_New(core.window.input.mousex, core.window.input.mousey, 1, 1));
-	return translating.y;
+	return (int)translating.y;
 }
 
 void ICE_Input_Quit()

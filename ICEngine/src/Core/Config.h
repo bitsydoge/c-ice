@@ -1,12 +1,12 @@
 ﻿#ifndef DEF_ICE_CONFIG
 #define DEF_ICE_CONFIG
 
-#include "Core.h"
-
 #define ICE_CONFIG_WINDOW_W 500
 #define ICE_CONFIG_WINDOW_H 500
 #define ICE_CONFIG_TITLE "ICE"
 #define ICE_CONFIG_FULLSCREEN 0
 #define ICE_CONFIG_RESIZABLE 0
+#define ICE_CONFIG_EDITORNAME "ice"
+#define ICE_CONFIG_PRODUCTNAME "engine"
 
 #endif

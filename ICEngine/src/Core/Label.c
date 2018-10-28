@@ -29,7 +29,7 @@ ICE_Index ICE_LabelManager_Insert(ICE_State * state)
 	state->object.label_mngr = ICE_Realloc(state->object.label_mngr, state->object.label_mngr_nb * sizeof(ICE_LabelManager)); // Manager Array
 	state->object.label_mngr[state->object.label_mngr_nb - 1] = text_manager;
 
-	ICE_Log(ICE_LOG_SUCCES, "LabelManager]::[%d]::[Create", state->object.label_mngr_nb - 1);
+	ICE_Log(ICE_LOG_SUCCES, "Create LabelManager : %d", state->object.label_mngr_nb - 1);
 	return state->object.label_mngr_nb - 1;
 }
 
@@ -47,7 +47,7 @@ void ICE_LabelManager_Destroy(ICE_State * state, const ICE_Index man)
 	}
 
 	ICE_Free(manager->label);
-	ICE_Log(ICE_LOG_SUCCES, "LabelManager]::[%d]::[Free", man);
+	ICE_Log(ICE_LOG_SUCCES, "Free LabelManager : %d", man);
 }
 
 void ICE_LabelManager_DestroyAll(ICE_State * state)

@@ -27,7 +27,7 @@ ICE_Index ICE_EntityManager_Insert(ICE_State * state)
 	state->object.entity_mngr = ICE_Realloc(state->object.entity_mngr, state->object.entity_mngr_nb * sizeof(ICE_EntityManager)); // Manager Array
 	state->object.entity_mngr[state->object.entity_mngr_nb - 1] = text_manager;
 
-	ICE_Log(ICE_LOG_SUCCES, "EntityManager]::[%d]::[Create", state->object.entity_mngr_nb - 1);
+	ICE_Log(ICE_LOG_SUCCES, "Create EntityManager %d", state->object.entity_mngr_nb - 1);
 	return state->object.entity_mngr_nb - 1;
 }
 
@@ -45,7 +45,7 @@ void ICE_EntityManager_Destroy(ICE_State * state, const ICE_Index man)
 	}
 
 	ICE_Free(manager->entity);
-	ICE_Log(ICE_LOG_SUCCES, "EntityManager]::[%d]::[Free", man);
+	ICE_Log(ICE_LOG_SUCCES, "Free EntityManager : %d", man);
 }
 
 void ICE_EntityManager_DestroyAll(ICE_State * state)

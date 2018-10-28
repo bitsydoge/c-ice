@@ -2,7 +2,7 @@
 
 #if defined(_DEBUG)
 
-#include "../External/rlutil/rlutil.h"
+#include "external/rlutil.h"
 
 void ICE_Term_SaveColor()
 {

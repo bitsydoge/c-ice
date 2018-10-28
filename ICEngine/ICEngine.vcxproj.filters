@@ -31,14 +31,14 @@
     <Filter Include="8 - External\SDL2_gfx">
       <UniqueIdentifier>{c592188c-f8a8-4357-a76a-4f8ce650ec45}</UniqueIdentifier>
     </Filter>
-    <Filter Include="8 - External\rlutil">
-      <UniqueIdentifier>{5bb9ae89-e51c-46c3-ada8-f838f4bc7671}</UniqueIdentifier>
-    </Filter>
     <Filter Include="8 - External\mattiasgustavsson">
       <UniqueIdentifier>{c4611adc-db68-4710-877d-65e573e2e9a1}</UniqueIdentifier>
     </Filter>
     <Filter Include="8 - External\chipmunk">
       <UniqueIdentifier>{1cab3837-eb7e-4ad2-a98f-219aebb10a7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1 - Framework\external">
+      <UniqueIdentifier>{f80d7410-eb81-41f6-88f4-b4239d7a832d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -152,9 +152,6 @@
       <Filter>2 - Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Time_.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Converter_private.h">
       <Filter>2 - Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Label_private.h">
@@ -286,9 +283,6 @@
     <ClInclude Include="src\External\mattiasgustavsson\rnd.h">
       <Filter>8 - External\mattiasgustavsson</Filter>
     </ClInclude>
-    <ClInclude Include="src\External\rlutil\rlutil.h">
-      <Filter>8 - External\rlutil</Filter>
-    </ClInclude>
     <ClInclude Include="src\External\SDL2_gfx\SDL2_framerate.h">
       <Filter>8 - External\SDL2_gfx</Filter>
     </ClInclude>
@@ -306,9 +300,6 @@
     </ClInclude>
     <ClInclude Include="src\External\stb\stb_image.h">
       <Filter>8 - External\stb</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Asset.h">
-      <Filter>2 - Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Graphics\Animation.h">
       <Filter>3 - Graphics</Filter>
@@ -331,13 +322,16 @@
     <ClInclude Include="src\External\stb\SDL_stbimage.h">
       <Filter>8 - External\stb</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\Get.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
     <ClInclude Include="src\Framework\File_.h">
       <Filter>1 - Framework</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Config.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\external\rlutil.h">
+      <Filter>1 - Framework\external</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Converter_private.h">
       <Filter>2 - Core</Filter>
     </ClInclude>
   </ItemGroup>
@@ -555,9 +549,6 @@
     <ClCompile Include="src\External\chipmunk\cpSweep1D.c">
       <Filter>8 - External\chipmunk</Filter>
     </ClCompile>
-    <ClCompile Include="src\External\rlutil\rlutil.c">
-      <Filter>8 - External\rlutil</Filter>
-    </ClCompile>
     <ClCompile Include="src\External\SDL2_gfx\SDL2_framerate.c">
       <Filter>8 - External\SDL2_gfx</Filter>
     </ClCompile>
@@ -569,9 +560,6 @@
     </ClCompile>
     <ClCompile Include="src\External\SDL2_gfx\SDL2_rotozoom.c">
       <Filter>8 - External\SDL2_gfx</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\Asset.c">
-      <Filter>2 - Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Graphics\Animation.c">
       <Filter>3 - Graphics</Filter>
@@ -587,6 +575,12 @@
     </ClCompile>
     <ClCompile Include="src\Framework\File_.c">
       <Filter>1 - Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\external\rlutil.c">
+      <Filter>1 - Framework\external</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Config_private.c">
+      <Filter>2 - Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

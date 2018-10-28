@@ -2,6 +2,7 @@
 #include "TypesCore.h"
 
 #include "../External/SDL2_gfx/SDL2_framerate.h"
+#include "../Framework/Log.h"
 
 extern ICE_Game game;
 extern ICE_Core core;
@@ -11,7 +12,8 @@ FPSmanager fps_manager_global;
 void ICE_Time_Init()
 {
 	SDL_initFramerate(&fps_manager_global);
-	SDL_setFramerate(&fps_manager_global, 144);
+	if(SDL_setFramerate(&fps_manager_global, 144) == -1)
+		ICE_Log(ICE_LOG_ERROR, "SDL_Gfx -> SDL_setFramerate");
 }
 
 void ICE_Time_Start()

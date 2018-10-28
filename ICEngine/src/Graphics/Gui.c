@@ -26,7 +26,7 @@ ICE_Index ICE_GuiManager_Insert(ICE_State * state)
 	state->object.gui_mngr = ICE_Realloc(state->object.gui_mngr, state->object.gui_mngr_nb * sizeof(ICE_GuiManager)); // Manager Array
 	state->object.gui_mngr[state->object.gui_mngr_nb - 1] = gui_manager;
 
-	ICE_Log(ICE_LOG_SUCCES, "GuiManager]::[%d]::[Create", state->object.gui_mngr_nb - 1);
+	ICE_Log(ICE_LOG_SUCCES, "Create GuiManager : %d", state->object.gui_mngr_nb - 1);
 	return state->object.gui_mngr_nb - 1;
 }
 
@@ -44,7 +44,7 @@ void ICE_GuiManager_Destroy(ICE_State * state, const ICE_Index man)
 	}
 
 	ICE_Free(manager->gui);
-	ICE_Log(ICE_LOG_SUCCES, "GuiManager]::[%d]::[Free", man);
+	ICE_Log(ICE_LOG_SUCCES, "Free GuiManager : %d", man);
 }
 
 void ICE_GuiManager_DestroyAll(ICE_State * state)
