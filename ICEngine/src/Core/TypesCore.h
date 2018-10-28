@@ -87,8 +87,6 @@ struct ICE_Window
 
 	SDL_Window *			handle;
 	SDL_Renderer *			render;
-	ICE_Bool				auto_render;
-	ICE_Bool				auto_clear;
 	ICE_Input				input;
 
 }; typedef struct ICE_Window ICE_Window;
@@ -320,7 +318,21 @@ struct ICE_Game {
 
 // --------------------------------------
 
+struct ICE_Config
+{
+	unsigned int window_w, window_h;
 
+	ICE_Bool fullscreen;
+	ICE_Bool resizable;
+
+	ICE_StringStd editor_name;
+	ICE_StringStd product_name;
+	ICE_StringStd title;
+
+	int argc;
+	char ** argv;
+
+}; typedef struct ICE_Config ICE_Config;
 
 /**
  * \brief Assets of the game (Image, Sound, Font ...)

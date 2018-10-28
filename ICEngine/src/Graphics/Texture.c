@@ -20,7 +20,7 @@ ICE_Index ICE_TextureManager_Insert()
 	asset.texture_mngr = ICE_Realloc(asset.texture_mngr, asset.texture_mngr_nb * sizeof(ICE_TextureManager));
 	asset.texture_mngr[asset.texture_mngr_nb - 1] = texture_manager;
 
-	ICE_Log(ICE_LOG_SUCCES, "TextureManager]::[%d]::[Create", asset.texture_mngr_nb - 1);
+	ICE_Log(ICE_LOG_SUCCES, "Create TextureManager : %d", asset.texture_mngr_nb - 1);
 	return asset.texture_mngr_nb - 1;
 }
 
@@ -32,7 +32,7 @@ void ICE_TextureManager_Destroy(const ICE_Index man)
 		ICE_Texture_Destroy(ICE_Texture_Get(man, i));
 
 	ICE_Free(manager->texture);
-	ICE_Log(ICE_LOG_SUCCES, "TextureManager]::[%d]::[Free", man);
+	ICE_Log(ICE_LOG_SUCCES, "Free TextureManager : %d", man);
 }
 
 void ICE_TextureManager_DestroyAll()

@@ -18,7 +18,7 @@ ICE_Index ICE_SpriteManager_Insert()
 	asset.sprite_mngr = ICE_Realloc(asset.sprite_mngr, asset.sprite_mngr_nb * sizeof(ICE_SpriteManager)); // Manager Array
 	asset.sprite_mngr[asset.sprite_mngr_nb - 1] = sprite_manager;
 
-	ICE_Log(ICE_LOG_SUCCES, "SpriteManager]::[%d]::[Create", asset.sprite_mngr_nb - 1);
+	ICE_Log(ICE_LOG_SUCCES, "Create SpriteManager : %d", asset.sprite_mngr_nb - 1);
 	return asset.sprite_mngr_nb - 1;
 }
 
@@ -33,7 +33,7 @@ void ICE_SpriteManager_Destroy(const ICE_Index man)
 	}
 
 	ICE_Free(manager->sprite);
-	ICE_Log(ICE_LOG_SUCCES, "SpriteManager]::[%d]::[Free", man);
+	ICE_Log(ICE_LOG_SUCCES, "Free SpriteManager : %d", man);
 }
 
 void ICE_SpriteManager_DestroyAll()

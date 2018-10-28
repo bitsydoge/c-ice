@@ -15,9 +15,28 @@
  * See <License>
  */
 
+// https://github.com/tapio/rlutil
+
+/*Title: License
+
+> DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+> Version 2, December 2004
+>
+> Copyright(C) 2010 Tapio Vierros
+>
+> Everyone is permitted to copy and distribute verbatim or modified
+> copies of this license document, and changing it is allowed as long
+> as the name is changed.
+>
+> DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+> TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+>
+> 0. You just DO WHAT THE FUCK YOU WANT TO.
+
+*/
 
  /// Define: RLUTIL_USE_ANSI
- /// Define this to use ANSI escape sequences also on Windows
+ /// Define this to use ANSI escape sequences also o²n Windows
  /// (defaults to using WinAPI instead).
 #if 0
 #define RLUTIL_USE_ANSI

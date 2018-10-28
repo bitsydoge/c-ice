@@ -18,7 +18,7 @@ ICE_Index ICE_SoundManager_Insert()
 	asset.sound_mngr = ICE_Realloc(asset.sound_mngr, asset.sound_mngr_nb * sizeof(ICE_SoundManager));
 	asset.sound_mngr[asset.sound_mngr_nb - 1] = soundmanager;
 
-	ICE_Log(ICE_LOG_SUCCES, "SoundManager]::[%d]::[Create", asset.sound_mngr_nb-1);
+	ICE_Log(ICE_LOG_SUCCES, "Create SoundManager : %d", asset.sound_mngr_nb-1);
 
 	return asset.sound_mngr_nb - 1;
 }
@@ -34,7 +34,7 @@ void ICE_SoundManager_Destroy(const ICE_Index man)
 	}
 
 	ICE_Free(manager->sound);
-	ICE_Log(ICE_LOG_SUCCES, "SoundManager]::[%d]::[Free", man);
+	ICE_Log(ICE_LOG_SUCCES, "Free SoundManager : %d", man);
 }
 
 void ICE_SoundManager_DestroyAll()

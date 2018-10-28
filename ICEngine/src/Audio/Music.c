@@ -18,7 +18,7 @@ ICE_Index ICE_MusicManager_Insert()
 	asset.music_mngr = ICE_Realloc(asset.music_mngr, asset.music_mngr_nb * sizeof(ICE_MusicManager));
 	asset.music_mngr[asset.music_mngr_nb - 1] = musicmanager;
 
-	ICE_Log(ICE_LOG_SUCCES, "MusicManager]::[%d]::[Create", asset.music_mngr_nb - 1);
+	ICE_Log(ICE_LOG_SUCCES, "Create MusicManager : %d", asset.music_mngr_nb - 1);
 
 	return asset.music_mngr_nb - 1;
 }
@@ -34,7 +34,7 @@ void ICE_MusicManager_Destroy(const ICE_Index man)
 	}
 
 	ICE_Free(manager->music);
-	ICE_Log(ICE_LOG_SUCCES, "MusicManager]::[%d]::[Free", man);
+	ICE_Log(ICE_LOG_SUCCES, "Free MusicManager : %d", man);
 }
 
 void ICE_MusicManager_DestroyAll()

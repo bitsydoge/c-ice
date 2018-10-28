@@ -5,7 +5,6 @@
 #include "Input_private.h"
 #include "Input.h"
 
-#include "../Graphics/Render.h"
 #include "../Graphics/Render_private.h"
 #include "../Framework/Log.h"
 #include "../Core/Label.h"
@@ -104,7 +103,7 @@ void ICE_Substate_Loop()
 	ICE_Input_Reset();
 	ICE_State * current = game.current;
 
-	ICE_Log(ICE_LOG_RUNNING, "Substate]::[Create]::[Start");
+	ICE_Log(ICE_LOG_RUNNING, "Entering substate");
 	
 	if (!current->isPaused)
 		current->func_create();
@@ -112,16 +111,12 @@ void ICE_Substate_Loop()
 		if (current->func_resume != NULL)
 			current->func_resume();
 
-	ICE_Log(ICE_LOG_SUCCES, "Substate]::[Create]::[Finish");
-	printf("\n");
-	ICE_Log(ICE_LOG_RUNNING, "Substate]::[Update]::[Start");
 	while (!core.window.input.quit && !game.current->quit)
 	{
 		ICE_Time_Start();
 		ICE_Input_Return();
 		ICE_Render_SetColor(current->background);
-		if (core.window.auto_clear)
-			ICE_Render_Clear();
+		ICE_Render_Clear();
 		current->func_update();
 
 		// RENDER HERE
@@ -129,15 +124,10 @@ void ICE_Substate_Loop()
 		ICE_Draw_LabelWorld();
 		ICE_Draw_Gui();
 		ICE_Draw_LabelScreen();
-
-		if (core.window.auto_render)
-			ICE_Render_Now();
-
+		ICE_Render_Now();
 		ICE_Time_End();
 	}
-	ICE_Log(ICE_LOG_SUCCES, "Substate]::[Update]::[Finish");
-	printf("\n");
-	ICE_Log(ICE_LOG_RUNNING, "Substate]::[Destroy]::[Start");
+
 	if (!current->isPaused)
 	{
 		current->func_destroy();
@@ -151,6 +141,8 @@ void ICE_Substate_Loop()
 	else
 		if(current->func_pause != NULL)
 			current->func_pause();
+
+	ICE_Log(ICE_LOG_RUNNING, "Leaving substate");
 
 	ICE_Input_Reset();
 }

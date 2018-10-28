@@ -5,8 +5,6 @@
 	#include <vld.h>
 #endif
 
-#include "Core/Config.h"
-
 // Framework
 
 #include "Framework/TypesFramework.h"
@@ -22,6 +20,7 @@
 
 #include "Core/TypesCore.h"
 
+#include "Core/Config.h"
 #include "Core/Core.h"
 #include "Core/Debug.h"
 #include "Core/Game.h"
@@ -32,9 +31,7 @@
 #include "Core/Window.h"
 #include "Core/Data.h"
 #include "Core/Entity.h"
-#include "Core/Asset.h"
 #include "Core/MacOS_.h"
-#include "Core/Get.h"
 
 // Graphics
 
