@@ -324,7 +324,7 @@ struct ICE_Config
 
 	unsigned int refresh_rate;
 
-	ICE_Bool fullscreen;
+	ICE_Uint8 fullscreen;
 	ICE_Bool resizable;
 
 	ICE_StringStd editor_name;

@@ -26,7 +26,7 @@ ICE_Bool ICE_Debug_Get_Linked()
 
 extern ICE_Core CORE;
 extern ICE_Game GAME;
-extern ICE_Asset asset;
+extern ICE_Asset ASSET;
 
 void ICE_Debug_DrawCoordinate()
 {
@@ -79,7 +79,7 @@ void ICE_Debug_FontDraw(int y, const char* format, ...)
 	int size = (int)((ICE_Float)ICE_Window_GetH() / 50.0);
 	if (size < 12)
 		size = 12;
-	SDL_Surface *surf = TTF_RenderText_Shaded(asset.font.size[size], buffer, ICE_Color_ToSdl(font_color_foreground_set), ICE_Color_ToSdl(font_color_background_set));
+	SDL_Surface *surf = TTF_RenderText_Shaded(ASSET.font.size[size], buffer, ICE_Color_ToSdl(font_color_foreground_set), ICE_Color_ToSdl(font_color_background_set));
 	SDL_Rect rect; rect.x = 0; rect.y = surf->h * y;
 	rect.w = surf->w; rect.h = surf->h;
 	SDL_Texture *texture = SDL_CreateTextureFromSurface(CORE.window.render, surf);

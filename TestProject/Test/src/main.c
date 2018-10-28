@@ -5,7 +5,7 @@
 #define ICE_CONFIG_TITLE "Test Project"
 #define ICE_CONFIG_WINDOW_W 1280
 #define ICE_CONFIG_WINDOW_H 720
-#define ICE_CONFIG_FULLSCREEN 0
+#define ICE_CONFIG_FULLSCREEN 2
 #define ICE_CONFIG_RESIZABLE 0
 #define ICE_CONFIG_REFRESHRATE 144
 #define ICE_CONFIG_WINDOW_ICON "res//img//pic_64x64.png"
@@ -28,7 +28,7 @@ typedef struct
 
 void Debug_Update()
 {
-	ICE_Debug_FontDraw(1, "%s :: Sprite Implement", ICE_VERSION);
+	ICE_Debug_FontDraw(1, "%s :: Test", ICE_VERSION);
 	ICE_Debug_DrawFps(2);
 
 	DATA * data = ICE_Data_Get(NULL, 0);
