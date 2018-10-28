@@ -1,6 +1,6 @@
 ﻿#include "Terminal.h"
 
-#include "../External/rlutil/rlutil.h"
+#include "external/rlutil.h"
 
 #include "TypesFramework.h"
 #include "Log.h"
@@ -22,23 +22,23 @@ void ICE_Term_Clear(){
 	cls();
 }
 
-void ICE_Term_Clock(){
-	ICE_Term_SetColor(ICE_TERMCOLOR_LIGHTCYAN);
-	printf("%.3f s", (ICE_Float)clock()/1000.0f);
+void ICE_Term_Clock(int color){
+	ICE_Term_SetColor(color);
+	printf("%08.3fs", (ICE_Float)clock()/1000.0f);
 	ICE_Term_ResetColor();
 	printf("");
 }
 
-void ICE_Term_Date()
+void ICE_Term_Hour()
 {
 	ICE_Term_SetColor(ICE_TERMCOLOR_CYAN);
 	time_t t = time(NULL);
 	struct tm tm = *localtime(&t);
-	printf("%d:%d:%f", tm.tm_hour, tm.tm_min, tm.tm_sec);
+	printf("%d:%d:%d", tm.tm_hour, tm.tm_min, tm.tm_sec);
 }
 
 void ICE_Term_Wait(){
-	ICE_Log_NoReturn(ICE_LOG_NONE, "TERMINAL]::[PRESSRETURNTOCONTINUE");
+	ICE_Log_NoReturn(ICE_LOG_INFO, "TERMINAL]::[PRESSRETURNTOCONTINUE");
 	#ifdef getch
 	getch();
 	puts("");

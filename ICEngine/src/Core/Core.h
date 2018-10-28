@@ -1,43 +1,38 @@
 #ifndef DEF_ICE_CORE
 #define DEF_ICE_CORE
 
-#define ICE_VERSION "DEV.1810.02"
-#include "Config.h"
+#define ICE_VERSION "DEV.1810.28"
+
+#include "../Framework/String_.h"
+#include "../Framework/Inline.h"
 
 #define ICE_Game_Update() void ICE_User_Update(void)
 #define ICE_Game_Destroy() void ICE_User_Destroy(void)
-
 #define ICE_Game_Create() void ICE_User_Create(void);\
 	ICE_Game_Update();\
 	ICE_Game_Destroy();\
+	extern ICE_Config CONFIG;\
 	int main(int argc, char ** argv)\
 	{\
-		ICE_Core_Main(ICE_CONFIG_TITLE, ICE_CONFIG_WINDOW_W, ICE_CONFIG_WINDOW_H, ICE_User_Create, ICE_User_Update, ICE_User_Destroy, argc, argv);\
+		CONFIG.argc = argc;\
+		CONFIG.argv = argv;\
+		CONFIG.title = ICE_CONFIG_TITLE;\
+		CONFIG.editor_name = ICE_CONFIG_EDITORNAME;\
+		CONFIG.product_name = ICE_CONFIG_PRODUCTNAME;\
+		CONFIG.window_w = ICE_CONFIG_WINDOW_W;\
+		CONFIG.window_h = ICE_CONFIG_WINDOW_H;\
+		CONFIG.window_icon = ICE_CONFIG_WINDOW_ICON;\
+		CONFIG.refresh_rate = ICE_CONFIG_REFRESHRATE;\
+		CONFIG.fullscreen = ICE_CONFIG_FULLSCREEN;\
+		CONFIG.resizable = ICE_CONFIG_RESIZABLE;\
+		ICE_Core_Main(ICE_User_Create, ICE_User_Update, ICE_User_Destroy);\
 		return 0;\
 	}\
 	void ICE_User_Create(void)
 
-#include "../Framework/String_.h"
-
-/**
- * \brief The main loop of the engine
- * \param title The Title of the game
- * \param window_width The width of the window
- * \param window_height The height of the window
- * \param call_create The create function where you create entitys 
- * \param call_update The update function called every frames
- * \param call_destroy The destroy function called at the end
- * \return 0
- */
-int ICE_Core_Main(char * title, const int window_width, const int window_height, void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void), int argc, char **argv);
-
-
-/**
- * \brief 
- * \return 
- */
+void ICE_Core_Main(void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void));
 ICE_StringStd ICE_Core_GetLinkedVersion();
-inline ICE_StringStd ICE_Core_GetCompiledVersion()
+ICE_INLINE ICE_StringStd ICE_Core_GetCompiledVersion()
 {
 	return ICE_VERSION;
 }

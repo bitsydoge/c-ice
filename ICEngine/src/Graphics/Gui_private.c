@@ -5,36 +5,37 @@
 #include "../Graphics/Texture.h"
 #include "Texture_private.h"
 
-extern ICE_Game game;
-extern ICE_Core core;
+extern ICE_Game GAME;
+extern ICE_Core CORE;
 
 void ICE_Gui_UpdateTexture(ICE_Index man, ICE_Index gui)
 {
 	ICE_Texture texture = { 0 };
-	texture.handle = SDL_CreateTexture(core.window.render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (int)game.current->object.gui_mngr[man].gui[gui].box.w, (int)game.current->object.gui_mngr[man].gui[gui].box.h);
-	SDL_SetRenderTarget(core.window.render, texture.handle);
+	texture.handle = SDL_CreateTexture(CORE.window.render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (int)GAME.current->object.gui_mngr[man].gui[gui].box.w, (int)GAME.current->object.gui_mngr[man].gui[gui].box.h);
+	SDL_SetRenderTarget(CORE.window.render, texture.handle);
 	SDL_SetTextureBlendMode(texture.handle, SDL_BLENDMODE_BLEND);
-	SDL_SetRenderDrawColor(core.window.render, 0, 0, 0, 0);
-	SDL_RenderClear(core.window.render);
-	ICE_Box box2 = game.current->object.gui_mngr[man].gui[gui].box;
+	SDL_SetRenderDrawColor(CORE.window.render, 0, 0, 0, 0);
+	SDL_RenderClear(CORE.window.render);
+	ICE_Box box2 = GAME.current->object.gui_mngr[man].gui[gui].box;
 	box2.x = 0; box2.y = 0;
 
 	// TYPE DRAW
 
-	if(game.current->object.gui_mngr[man].gui[gui].type == ICE_GUITYPE_RECTANGLE)
-		ICE_Gui_Rect(ICE_Texture_Get(game.current->object.gui_mngr[man].gui[gui].texturemanager_index, game.current->object.gui_mngr[man].gui[gui].texture_index), box2);
-	if (game.current->object.gui_mngr[man].gui[gui].type == ICE_GUITYPE_IMAGE)
+	if(GAME.current->object.gui_mngr[man].gui[gui].type == ICE_GUITYPE_RECTANGLE)
+		ICE_Gui_Rect(ICE_Texture_Get(GAME.current->object.gui_mngr[man].gui[gui].texturemanager_index, GAME.current->object.gui_mngr[man].gui[gui].texture_index), box2);
+
+	if (GAME.current->object.gui_mngr[man].gui[gui].type == ICE_GUITYPE_IMAGE)
 		ICE_Texture_RenderEx(
-			ICE_Texture_Get(game.current->object.gui_mngr[man].gui[gui].texturemanager_index, game.current->object.gui_mngr[man].gui[gui].texture_index),
+			ICE_Texture_Get(GAME.current->object.gui_mngr[man].gui[gui].texturemanager_index, GAME.current->object.gui_mngr[man].gui[gui].texture_index),
 			NULL,
-			&game.current->object.gui_mngr[man].gui[gui].box,
+			&GAME.current->object.gui_mngr[man].gui[gui].box,
 			0
 		);
 	
-	SDL_SetRenderTarget(core.window.render, NULL);
-	if (game.current->object.gui_mngr[man].gui[gui].texture_cache.handle)
-		SDL_DestroyTexture(game.current->object.gui_mngr[man].gui[gui].texture_cache.handle);
-	game.current->object.gui_mngr[man].gui[gui].texture_cache = texture;
+	SDL_SetRenderTarget(CORE.window.render, NULL);
+	if (GAME.current->object.gui_mngr[man].gui[gui].texture_cache.handle)
+		SDL_DestroyTexture(GAME.current->object.gui_mngr[man].gui[gui].texture_cache.handle);
+	GAME.current->object.gui_mngr[man].gui[gui].texture_cache = texture;
 }
 
 // Deprecated

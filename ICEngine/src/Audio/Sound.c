@@ -4,7 +4,7 @@
 #include "../Framework/Memory_.h"
 #include "../Framework/Log.h"
 
-extern ICE_Asset asset;
+extern ICE_Asset ASSET;
 
 // MANAGER
 
@@ -14,18 +14,18 @@ ICE_Index ICE_SoundManager_Insert()
 	soundmanager.sound_size = ICE_DEFAULT_SOUND_SIZE;
 	soundmanager.sound = ICE_Calloc(soundmanager.sound_size, sizeof(ICE_Sound));
 
-	asset.sound_mngr_nb++;
-	asset.sound_mngr = ICE_Realloc(asset.sound_mngr, asset.sound_mngr_nb * sizeof(ICE_SoundManager));
-	asset.sound_mngr[asset.sound_mngr_nb - 1] = soundmanager;
+	ASSET.sound_mngr_nb++;
+	ASSET.sound_mngr = ICE_Realloc(ASSET.sound_mngr, ASSET.sound_mngr_nb * sizeof(ICE_SoundManager));
+	ASSET.sound_mngr[ASSET.sound_mngr_nb - 1] = soundmanager;
 
-	ICE_Log(ICE_LOG_SUCCES, "SoundManager]::[%d]::[Create", asset.sound_mngr_nb-1);
+	ICE_Log(ICE_LOG_SUCCES, "Create SoundManager : %d", ASSET.sound_mngr_nb-1);
 
-	return asset.sound_mngr_nb - 1;
+	return ASSET.sound_mngr_nb - 1;
 }
 
 void ICE_SoundManager_Destroy(const ICE_Index man)
 {
-	ICE_SoundManager *manager = &asset.sound_mngr[man];
+	ICE_SoundManager *manager = &ASSET.sound_mngr[man];
 
 	for (ICE_Index i = 0; i < manager->sound_contain; i++)
 	{
@@ -34,13 +34,13 @@ void ICE_SoundManager_Destroy(const ICE_Index man)
 	}
 
 	ICE_Free(manager->sound);
-	ICE_Log(ICE_LOG_SUCCES, "SoundManager]::[%d]::[Free", man);
+	ICE_Log(ICE_LOG_SUCCES, "Free SoundManager : %d", man);
 }
 
 void ICE_SoundManager_DestroyAll()
 {
-	ICE_SoundManager *manager = asset.sound_mngr;
-	const ICE_Index nb_manager = asset.sound_mngr_nb;
+	ICE_SoundManager *manager = ASSET.sound_mngr;
+	const ICE_Index nb_manager = ASSET.sound_mngr_nb;
 
 	for (ICE_Index i = 0; i < nb_manager; i++)
 	{
@@ -69,21 +69,21 @@ ICE_Sound ICE_Sound_Create(char *path)
 ICE_Index ICE_Sound_Load(ICE_Index man, char *path) 
 {
 	// Insert label in array
-	asset.sound_mngr[man].sound[asset.sound_mngr[man].sound_contain] = ICE_Sound_Create(path);
-	asset.sound_mngr[man].sound_contain++;
+	ASSET.sound_mngr[man].sound[ASSET.sound_mngr[man].sound_contain] = ICE_Sound_Create(path);
+	ASSET.sound_mngr[man].sound_contain++;
 
-	ICE_Log(ICE_LOG_SUCCES, "SoundManager]::[%d]::[Label]::[%d]::[Create", man, asset.sound_mngr[man].sound_contain - 1);
+	ICE_Log(ICE_LOG_SUCCES, "SoundManager]::[%d]::[Label]::[%d]::[Create", man, ASSET.sound_mngr[man].sound_contain - 1);
 
 	// Test size to realloc more space
-	if (asset.sound_mngr[man].sound_size <= asset.sound_mngr[man].sound_contain) {
-		ICE_Sound* tmp = ICE_Realloc(asset.sound_mngr[man].sound, sizeof(ICE_Sound)*(asset.sound_mngr[man].sound_size * 2));
+	if (ASSET.sound_mngr[man].sound_size <= ASSET.sound_mngr[man].sound_contain) {
+		ICE_Sound* tmp = ICE_Realloc(ASSET.sound_mngr[man].sound, sizeof(ICE_Sound)*(ASSET.sound_mngr[man].sound_size * 2));
 		// Test if realloc succes
-		ICE_Log(ICE_LOG_WARNING, "SoundManager]::[%d]::[Resized]::[%d", man, asset.sound_mngr[man].sound_size * 2);
-		asset.sound_mngr[man].sound = tmp;
-		asset.sound_mngr[man].sound_size *= 2;
+		ICE_Log(ICE_LOG_WARNING, "SoundManager]::[%d]::[Resized]::[%d", man, ASSET.sound_mngr[man].sound_size * 2);
+		ASSET.sound_mngr[man].sound = tmp;
+		ASSET.sound_mngr[man].sound_size *= 2;
 	}
 
-	return asset.sound_mngr[man].sound_contain - 1;
+	return ASSET.sound_mngr[man].sound_contain - 1;
 }
 
 void ICE_Sound_Clear(ICE_Sound * sound)
@@ -101,7 +101,7 @@ void ICE_Sound_Destroy(ICE_Sound * ptr)
 
 ICE_Sound * ICE_Sound_Get(ICE_Index man, ICE_Index nb)
 {
-	return &asset.sound_mngr[man].sound[nb];
+	return &ASSET.sound_mngr[man].sound[nb];
 }
 
 // PLAY

@@ -15,8 +15,8 @@
 #include "../Maths/TypesMaths.h"
 #include "../Core/Converter_private.h"
 
-extern ICE_Game game;
-extern ICE_Core core;
+extern ICE_Game GAME;
+extern ICE_Core CORE;
 
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN
 ICE_Uint32 static const rmask = 0xff000000;
@@ -74,7 +74,7 @@ ICE_Texture* ICE_Texture_LoadFromFile(char *path)
 
 
 	ICE_Texture *text = (ICE_Texture*)malloc(sizeof(ICE_Texture));
-	text->handle = SDL_CreateTextureFromSurface(core.window.render, surf);
+	text->handle = SDL_CreateTextureFromSurface(CORE.window.render, surf);
 	if (text->handle == NULL)
 		SDL_Log("CRITICAL : Can't create Texture from Surface \"%s\" : %s \n", path, SDL_GetError());
 	text->w = surf->w; text->h = surf->h;
@@ -89,20 +89,20 @@ int ICE_Texture_RenderEx(const ICE_Texture *texture, ICE_Box* src, ICE_Box* dst,
 	if (!src && dst)
 	{
 		SDL_Rect s_dst = ICE_Convert_BoxToSDL(dst);
-		return SDL_RenderCopyEx(core.window.render, texture->handle, NULL, &s_dst, angle, NULL, SDL_FLIP_NONE);
+		return SDL_RenderCopyEx(CORE.window.render, texture->handle, NULL, &s_dst, angle, NULL, SDL_FLIP_NONE);
 	}
 	if (src && !dst)
 	{
 		SDL_Rect s_src = ICE_Convert_BoxToSDL(src);
-		return SDL_RenderCopyEx(core.window.render, texture->handle, &s_src, NULL, angle, NULL, SDL_FLIP_NONE);
+		return SDL_RenderCopyEx(CORE.window.render, texture->handle, &s_src, NULL, angle, NULL, SDL_FLIP_NONE);
 	}
 	if (!src && !dst)
 	{
-		return SDL_RenderCopyEx(core.window.render, texture->handle, NULL, NULL, angle, NULL, SDL_FLIP_NONE);
+		return SDL_RenderCopyEx(CORE.window.render, texture->handle, NULL, NULL, angle, NULL, SDL_FLIP_NONE);
 	}
 	SDL_Rect s_dst = ICE_Convert_BoxToSDL(dst);
 	SDL_Rect s_src = ICE_Convert_BoxToSDL(src);
-	return SDL_RenderCopyEx(core.window.render, texture->handle, &s_src, &s_dst, angle, NULL, SDL_FLIP_NONE);
+	return SDL_RenderCopyEx(CORE.window.render, texture->handle, &s_src, &s_dst, angle, NULL, SDL_FLIP_NONE);
 }
 
 int ICE_Texture_RenderExCentered(const ICE_Texture* tex, ICE_Box* src, ICE_Box* dst, const ICE_Float angle)
@@ -111,19 +111,19 @@ int ICE_Texture_RenderExCentered(const ICE_Texture* tex, ICE_Box* src, ICE_Box* 
 	{
 		SDL_Rect s_dst = ICE_Convert_BoxToSDL(dst);
 		s_dst.x -= s_dst.w / 2; s_dst.y -= s_dst.h / 2;
-		return SDL_RenderCopyEx(core.window.render, tex->handle, NULL, &s_dst, angle, NULL, SDL_FLIP_NONE);
+		return SDL_RenderCopyEx(CORE.window.render, tex->handle, NULL, &s_dst, angle, NULL, SDL_FLIP_NONE);
 	}
 	if (src && !dst)
 	{
 		SDL_Rect s_src = ICE_Convert_BoxToSDL(src);
-		return SDL_RenderCopyEx(core.window.render, tex->handle, &s_src, NULL, angle, NULL, SDL_FLIP_NONE);
+		return SDL_RenderCopyEx(CORE.window.render, tex->handle, &s_src, NULL, angle, NULL, SDL_FLIP_NONE);
 	}
 	if (!src && !dst)
 	{
-		return SDL_RenderCopyEx(core.window.render, tex->handle, NULL, NULL, angle, NULL, SDL_FLIP_NONE);
+		return SDL_RenderCopyEx(CORE.window.render, tex->handle, NULL, NULL, angle, NULL, SDL_FLIP_NONE);
 	}
 	SDL_Rect s_dst = ICE_Convert_BoxToSDL(dst);
 	s_dst.x -= s_dst.w / 2; s_dst.y -= s_dst.h / 2;
 	SDL_Rect s_src = ICE_Convert_BoxToSDL(src);
-	return SDL_RenderCopyEx(core.window.render, tex->handle, &s_src, &s_dst, angle, NULL, SDL_FLIP_NONE);
+	return SDL_RenderCopyEx(CORE.window.render, tex->handle, &s_src, &s_dst, angle, NULL, SDL_FLIP_NONE);
 }

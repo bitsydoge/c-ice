@@ -4,6 +4,7 @@
 #include <stdlib.h>
 
 #include "TypesFramework.h"
+#include "Log.h"
 
 void ICE_Random_Init()
 {
@@ -11,6 +12,7 @@ void ICE_Random_Init()
 	if (!triggered)
 	{
 		srand((unsigned int)time(NULL));
+		ICE_Log(ICE_LOG_SUCCES, "Init ICE_Random");
 		triggered = ICE_True;
 	}
 }

@@ -130,7 +130,6 @@
     <ClInclude Include="src\Audio\Music.h" />
     <ClInclude Include="src\Audio\Sound.h" />
     <ClInclude Include="src\Audio\TypesAudio.h" />
-    <ClInclude Include="src\Core\Asset.h" />
     <ClInclude Include="src\Core\Asset_private.h" />
     <ClInclude Include="src\Core\Config.h" />
     <ClInclude Include="src\Core\Converter_private.h" />
@@ -141,7 +140,6 @@
     <ClInclude Include="src\Core\Entity.h" />
     <ClInclude Include="src\Core\Game.h" />
     <ClInclude Include="src\Core\Game_private.h" />
-    <ClInclude Include="src\Core\Get.h" />
     <ClInclude Include="src\Core\Input.h" />
     <ClInclude Include="src\Core\Input_private.h" />
     <ClInclude Include="src\Core\Label.h" />
@@ -153,6 +151,7 @@
     <ClInclude Include="src\Core\Time_private.h" />
     <ClInclude Include="src\Core\TypesCore.h" />
     <ClInclude Include="src\Core\Window.h" />
+    <ClInclude Include="src\Core\Window_private.h" />
     <ClInclude Include="src\External\chipmunk\chipmunk.h" />
     <ClInclude Include="src\External\chipmunk\chipmunk_ffi.h" />
     <ClInclude Include="src\External\chipmunk\chipmunk_private.h" />
@@ -185,7 +184,6 @@
     <ClInclude Include="src\External\chipmunk\cpVect.h" />
     <ClInclude Include="src\External\chipmunk\prime.h" />
     <ClInclude Include="src\External\mattiasgustavsson\rnd.h" />
-    <ClInclude Include="src\External\rlutil\rlutil.h" />
     <ClInclude Include="src\External\SDL2_gfx\SDL2_framerate.h" />
     <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.h" />
     <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives_font.h" />
@@ -194,6 +192,7 @@
     <ClInclude Include="src\External\stb\SDL_stbimage.h" />
     <ClInclude Include="src\External\stb\stb_image.h" />
     <ClInclude Include="src\Framework\Assert_.h" />
+    <ClInclude Include="src\Framework\external\rlutil.h" />
     <ClInclude Include="src\Framework\File_.h" />
     <ClInclude Include="src\Framework\Inline.h" />
     <ClInclude Include="src\Framework\Log.h" />
@@ -231,8 +230,8 @@
     <ClCompile Include="src\Audio\Audio.c" />
     <ClCompile Include="src\Audio\Music.c" />
     <ClCompile Include="src\Audio\Sound.c" />
-    <ClCompile Include="src\Core\Asset.c" />
     <ClCompile Include="src\Core\Asset_private.c" />
+    <ClCompile Include="src\Core\Config_private.c" />
     <ClCompile Include="src\Core\Core.c" />
     <ClCompile Include="src\Core\Core_private.c" />
     <ClCompile Include="src\Core\Data.c" />
@@ -249,6 +248,7 @@
     <ClCompile Include="src\Core\Time_.c" />
     <ClCompile Include="src\Core\Time_private.c" />
     <ClCompile Include="src\Core\Window.c" />
+    <ClCompile Include="src\Core\Window_private.c" />
     <ClCompile Include="src\External\chipmunk\chipmunk.c" />
     <ClCompile Include="src\External\chipmunk\cpArbiter.c" />
     <ClCompile Include="src\External\chipmunk\cpArray.c" />
@@ -281,12 +281,12 @@
     <ClCompile Include="src\External\chipmunk\cpSpaceStep.c" />
     <ClCompile Include="src\External\chipmunk\cpSpatialIndex.c" />
     <ClCompile Include="src\External\chipmunk\cpSweep1D.c" />
-    <ClCompile Include="src\External\rlutil\rlutil.c" />
     <ClCompile Include="src\External\SDL2_gfx\SDL2_framerate.c" />
     <ClCompile Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.c" />
     <ClCompile Include="src\External\SDL2_gfx\SDL2_imageFilter.c" />
     <ClCompile Include="src\External\SDL2_gfx\SDL2_rotozoom.c" />
     <ClCompile Include="src\Framework\Assert_.c" />
+    <ClCompile Include="src\Framework\external\rlutil.c" />
     <ClCompile Include="src\Framework\File_.c" />
     <ClCompile Include="src\Framework\Log.c" />
     <ClCompile Include="src\Framework\Memory_.c" />

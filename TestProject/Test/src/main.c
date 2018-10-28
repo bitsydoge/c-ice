@@ -1,11 +1,14 @@
-#define ICE_DEBUG_FORCE
 #include <ICE.h>
 
+#define ICE_CONFIG_EDITORNAME "coldragon"
+#define ICE_CONFIG_PRODUCTNAME "test"
+#define ICE_CONFIG_TITLE "Test Project"
 #define ICE_CONFIG_WINDOW_W 1280
 #define ICE_CONFIG_WINDOW_H 720
-#define ICE_CONFIG_TITLE "Test"
-#define ICE_CONFIG_RESIZABLE 1
-#define ICE_CONFIG_FULLSCREEN 0
+#define ICE_CONFIG_FULLSCREEN 2
+#define ICE_CONFIG_RESIZABLE 0
+#define ICE_CONFIG_REFRESHRATE 144
+#define ICE_CONFIG_WINDOW_ICON "res//img//pic_64x64.png"
 
 typedef struct
 {
@@ -25,7 +28,7 @@ typedef struct
 
 void Debug_Update()
 {
-	ICE_Debug_FontDraw(1, "%s :: Sprite Implement", ICE_VERSION);
+	ICE_Debug_FontDraw(1, "%s :: Test", ICE_VERSION);
 	ICE_Debug_DrawFps(2);
 
 	DATA * data = ICE_Data_Get(NULL, 0);
@@ -42,7 +45,7 @@ void Debug_Update()
 ICE_Game_Create()
 {
 	ICE_Debug_CallbackDraw(Debug_Update);
-	
+
 	// Font
 	ICE_Font_Load("res//ttf//FiraSans-Medium.ttf");
 
@@ -51,8 +54,8 @@ ICE_Game_Create()
 
 	// Texture
 	data->main_texture_manager = ICE_TextureManager_Insert();
-	data->spritesheet_texture = ICE_Texture_Load(
-		data->main_texture_manager, 
+	data->spritesheet_texture = ICE_Texture_Load (
+		data->main_texture_manager,
 		"res//img//spritesheet.png"
 	);
 
@@ -60,7 +63,7 @@ ICE_Game_Create()
 	data->main_sprite_manager = ICE_SpriteManager_Insert();
 	data->sprite_test = ICE_Sprite_Insert
 	(
-		data->main_sprite_manager, 
+		data->main_sprite_manager,
 		ICE_Texture_Get(data->main_texture_manager, data->spritesheet_texture),
 		ICE_Vect_New(64, 64)
 	);
@@ -84,6 +87,9 @@ ICE_Game_Update()
 	static ICE_Float now = 0;
 	now = ICE_Time_GetS();
 
+	if (ICE_Input_OnPress(ICE_KEY_ESCAPE))
+		ICE_Input_Quit();
+
 	if (ICE_Input_OnPress(ICE_KEY_LEFTCLICK))
 		ICE_Log(ICE_LOG_SUCCES, "You pressed : lectclick at position <%d,%d>", ICE_Input_MouseX_World(), ICE_Input_MouseY_World());
 	if (ICE_Input_Pressed(ICE_KEY_LEFTCLICK))
@@ -100,9 +106,9 @@ ICE_Game_Update()
 	DATA * data = ICE_Data_Get(NULL, 0);
 	ICE_Entity * entity = ICE_Entity_Get(NULL, data->entity_test, data->entity_test);
 	ICE_Sprite * sprite = ICE_Entity_GetSprite(entity);
-	
+
 	static int frame_number = 1;
-	if (last+0.23f < now)
+	if (last + 0.23f < now)
 	{
 		ICE_Entity_SetSpriteFrame
 		(
@@ -110,10 +116,10 @@ ICE_Game_Update()
 			frame_number
 		);
 		frame_number++;
-		if(frame_number > ICE_Sprite_GetFrameQuantity ( ICE_Entity_GetSprite ( ICE_Entity_Get( NULL, data->entity_test, data->entity_test))))
+		if (frame_number > ICE_Sprite_GetFrameQuantity(ICE_Entity_GetSprite(ICE_Entity_Get(NULL, data->entity_test, data->entity_test))))
 			frame_number = 1;
 		last = ICE_Time_GetS();
-	}	
+	}
 }
 
 ICE_Game_Destroy()
