@@ -304,7 +304,7 @@ struct ICE_Core
 
 
 /**
- * \brief The god object of the game with everything in it exept for Assets
+ * \brief The god object of the GAME with everything in it exept for Assets
  */
 struct ICE_Game {
 	
@@ -322,12 +322,15 @@ struct ICE_Config
 {
 	unsigned int window_w, window_h;
 
+	unsigned int refresh_rate;
+
 	ICE_Bool fullscreen;
 	ICE_Bool resizable;
 
 	ICE_StringStd editor_name;
 	ICE_StringStd product_name;
 	ICE_StringStd title;
+	ICE_StringStd window_icon;
 
 	int argc;
 	char ** argv;
@@ -335,7 +338,7 @@ struct ICE_Config
 }; typedef struct ICE_Config ICE_Config;
 
 /**
- * \brief Assets of the game (Image, Sound, Font ...)
+ * \brief Assets of the GAME (Image, Sound, Font ...)
  */
 struct ICE_Asset
 {

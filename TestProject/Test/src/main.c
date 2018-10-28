@@ -6,7 +6,9 @@
 #define ICE_CONFIG_WINDOW_W 1280
 #define ICE_CONFIG_WINDOW_H 720
 #define ICE_CONFIG_FULLSCREEN 0
-#define ICE_CONFIG_RESIZABLE 1
+#define ICE_CONFIG_RESIZABLE 0
+#define ICE_CONFIG_REFRESHRATE 144
+#define ICE_CONFIG_WINDOW_ICON "res//img//pic_64x64.png"
 
 typedef struct
 {
@@ -84,6 +86,9 @@ ICE_Game_Update()
 	static ICE_Float last = 0;
 	static ICE_Float now = 0;
 	now = ICE_Time_GetS();
+
+	if (ICE_Input_OnPress(ICE_KEY_ESCAPE))
+		ICE_Input_Quit();
 
 	if (ICE_Input_OnPress(ICE_KEY_LEFTCLICK))
 		ICE_Log(ICE_LOG_SUCCES, "You pressed : lectclick at position <%d,%d>", ICE_Input_MouseX_World(), ICE_Input_MouseY_World());

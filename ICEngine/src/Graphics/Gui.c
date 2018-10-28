@@ -9,14 +9,14 @@
 #include "../Framework/Log.h"
 #include "../ICE.h"
 
-extern ICE_Game game;
+extern ICE_Game GAME;
 
 /* GUIMANAGER */
 
 ICE_Index ICE_GuiManager_Insert(ICE_State * state)
 {
 	if (!state)
-		state = game.current;
+		state = GAME.current;
 
 	ICE_GuiManager gui_manager = { 0 };
 	gui_manager.gui_size = ICE_DEFAULT_GUI_MNGR_SIZE;
@@ -33,7 +33,7 @@ ICE_Index ICE_GuiManager_Insert(ICE_State * state)
 void ICE_GuiManager_Destroy(ICE_State * state, const ICE_Index man)
 {
 	if (!state)
-		state = game.current;
+		state = GAME.current;
 
 	ICE_GuiManager *manager = &state->object.gui_mngr[man];
 
@@ -50,7 +50,7 @@ void ICE_GuiManager_Destroy(ICE_State * state, const ICE_Index man)
 void ICE_GuiManager_DestroyAll(ICE_State * state)
 {
 	if (!state)
-		state = game.current;
+		state = GAME.current;
 
 	ICE_GuiManager *manager = state->object.gui_mngr;
 	ICE_Index nb_manager = state->object.gui_mngr_nb;
@@ -86,7 +86,7 @@ ICE_Gui ICE_Gui_Create(ICE_Box box, ICE_Index man_texture, ICE_Index nb_texture)
 ICE_Index ICE_Gui_Insert(ICE_State * state, const ICE_Index man, const ICE_Box box, ICE_Index texture_manager, ICE_Index texture_nb)
 {
 	if (!state)
-		state = game.current;
+		state = GAME.current;
 
 	// Insert label in array
 	state->object.gui_mngr[man].gui[state->object.gui_mngr[man].gui_contain] = ICE_Gui_Create(box, texture_manager, texture_nb);
@@ -123,7 +123,7 @@ void ICE_Gui_Destroy(ICE_Gui * ptr)
 ICE_Gui * ICE_Gui_Get(ICE_State *state, int man, int gui)
 {
 	if (!state)
-		state = game.current;
+		state = GAME.current;
 
 	return &state->object.gui_mngr[man].gui[gui];
 }

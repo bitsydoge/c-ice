@@ -10,6 +10,6 @@
 #include "Config.h"
 #include "../Graphics/Render_private.h"
 
-ICE_Game game = { 0 };
-extern ICE_Core core;
-extern ICE_Config config;
+ICE_Game GAME = { 0 };
+extern ICE_Core CORE;
+extern ICE_Config CONFIG;

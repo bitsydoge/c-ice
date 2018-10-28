@@ -334,6 +334,9 @@
     <ClInclude Include="src\Core\Converter_private.h">
       <Filter>2 - Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Core\Window_private.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Asset_private.c">
@@ -580,6 +583,9 @@
       <Filter>1 - Framework\external</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Config_private.c">
+      <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Window_private.c">
       <Filter>2 - Core</Filter>
     </ClCompile>
   </ItemGroup>

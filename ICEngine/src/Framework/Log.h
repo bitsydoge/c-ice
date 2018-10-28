@@ -26,15 +26,15 @@ enum ICE_LogTypes
 	#define ICE_Log_NoReturn(TYPE, FORMAT, ...) ICE_Log_NoReturn__(__FILE__, __LINE__, TYPE, FORMAT, __VA_ARGS__)
 	void ICE_Log_NoReturn__(const char* file, int line, ICE_LogTypes type, const char * format, ...);
 
-	#define ICE_Log_Printf(A, ...) printf(A, __VA_ARGS__);
+	#define ICE_Log_Printf(A, ...) printf(A, __VA_ARGS__)
 	
 	void ICE_Log_Line();
 
 #else
 	#define ICE_Log(...)
-	#define ICE_Log_NoReturn()
+	#define ICE_Log_NoReturn(...)
 	#define ICE_Log_Line()	
-	#define ICE_Log_Printf()
+	#define ICE_Log_Printf(...)
 #endif
 
 

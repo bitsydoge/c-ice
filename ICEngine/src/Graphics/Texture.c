@@ -8,7 +8,7 @@
 #include "../Framework/Memory_.h"
 
 extern ICE_Asset asset;
-extern ICE_Game game;
+extern ICE_Game GAME;
 
 ICE_Index ICE_TextureManager_Insert() 
 {

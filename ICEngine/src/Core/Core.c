@@ -1,4 +1,4 @@
-﻿#include "Core.h"
+﻿#include "CORE.h"
 #include "TypesCore.h"
 #include "Core_private.h"
 #include "Game_private.h"
@@ -9,14 +9,14 @@
 #include "../Framework/Log.h"
 #include <stdio.h>
 
-extern ICE_Game game;
-extern ICE_Core core;
+extern ICE_Game GAME;
+extern ICE_Core CORE;
 
 void ICE_Core_Main(void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void))
 {
 	ICE_Core_Init();
 	ICE_Render_Init();
-	game.current = &game.state_main;
+	GAME.current = &GAME.state_main;
 
 	ICE_Log_Line();
 	ICE_Log(ICE_LOG_RUNNING, "Main Create ...");
@@ -26,11 +26,11 @@ void ICE_Core_Main(void(*call_create)(void), void(*call_update)(void), void(*cal
 
 	ICE_Log_Line();
 	ICE_Log(ICE_LOG_RUNNING, "Main Update ...");
-	while (!core.window.input.quit)
+	while (!CORE.window.input.quit)
 	{
 		ICE_Time_Start();
 		ICE_Input_Return();
-		ICE_Render_SetColor(game.current->background);
+		ICE_Render_SetColor(GAME.current->background);
 		ICE_Render_Clear();
 		
 		
@@ -44,8 +44,8 @@ void ICE_Core_Main(void(*call_create)(void), void(*call_update)(void), void(*cal
 		ICE_Draw_LabelScreen();
 
 #if defined(_DEBUG)
-		if (core.lateDrawDebug)
-			core.lateDrawDebug();
+		if (CORE.lateDrawDebug)
+			CORE.lateDrawDebug();
 #endif
 
 		ICE_Render_Now();

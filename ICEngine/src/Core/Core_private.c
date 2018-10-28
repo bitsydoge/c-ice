@@ -22,13 +22,13 @@
 #include "Data.h"
 #include "Entity.h"
 #include <string.h>
-#include "Core.h"
+#include "CORE.h"
 #include "../Graphics/Sprite.h"
 #include "../Framework/Random.h"
 
-ICE_Core core = { 0 } ;
-extern ICE_Game game;
-extern ICE_Config config;
+ICE_Core CORE = { 0 } ;
+extern ICE_Game GAME;
+extern ICE_Config CONFIG;
 
 int ICE_Core_Init() 
 {
@@ -66,9 +66,9 @@ int ICE_Core_Init()
 
 	// Path
 	char * basePath = SDL_GetBasePath();
-	char * dataPath = SDL_GetPrefPath(config.editor_name, config.product_name);
-	strcpy(core.basePath, basePath);
-	strcpy(core.dataPath, dataPath);
+	char * dataPath = SDL_GetPrefPath(CONFIG.editor_name, CONFIG.product_name);
+	strcpy(CORE.basePath, basePath);
+	strcpy(CORE.dataPath, dataPath);
 	SDL_free(basePath);
 	SDL_free(dataPath);
 
@@ -94,8 +94,8 @@ int ICE_Core_Init()
 	SDL_GetVersion(&linked);
 	ICE_Log_Printf(" Linked: %d.%d.%d\n\n", linked.major, linked.minor, linked.patch);
 	// SDL
-	ICE_Log_Printf(" Execution Path: %s\n", core.basePath);
-	ICE_Log_Printf(" Data Path: %s\n", core.dataPath);
+	ICE_Log_Printf(" Execution Path: %s\n", CORE.basePath);
+	ICE_Log_Printf(" Data Path: %s\n", CORE.dataPath);
 
 #if defined(__APPLE__)
 	//ICE_MacOS_SetWorkingDirectory(SDL_GetBasePath());
