@@ -33,7 +33,6 @@ typedef uint32_t ICE_Color;
 struct ICE_Texture
 {
 	ICE_Id index;
-	ICE_Id manager_index;
 
 	ICE_Bool	 exist;
 	unsigned int w, h;
@@ -75,12 +74,10 @@ typedef struct
 typedef struct
 {
 	ICE_Id index;
-	ICE_Id manager_index;
 	ICE_Bool exist;
 
 	ICE_Bool have_texture_defined;
 	ICE_Id texture_index;
-	ICE_Id texturemanager_index;
 
 	unsigned int size_w, size_h;
 	ICE_Id number_frame_w, number_frame_h;

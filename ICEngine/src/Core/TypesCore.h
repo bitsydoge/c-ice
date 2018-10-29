@@ -343,29 +343,19 @@ struct ICE_Config
 struct ICE_Asset
 {
 
-				// GRAPHICS //
-
+	// GRAPHICS //
 	// Font
-	ICE_Id				font_mngr_nb; // todo
-	ICE_Font				font;
-
+	ICE_Font font;
 	// Texture
-	ICE_Id				texture_mngr_nb;
-	ICE_TextureManager *	texture_mngr;
-
+	ICE_TextureManager texture_mngr;
 	// Sprite
-	ICE_Id				sprite_mngr_nb;
-	ICE_SpriteManager *		sprite_mngr;
+	ICE_SpriteManager sprite_mngr;
 
-				// AUDIO //
-
+	// AUDIO //
 	// Sound
-	ICE_Id				sound_mngr_nb;
-	ICE_SoundManager *		sound_mngr;
-
+	ICE_SoundManager sound_mngr;
 	// Music
-	ICE_Id				music_mngr_nb;
-	ICE_MusicManager *		music_mngr;
+	ICE_MusicManager music_mngr;
 
 }; typedef struct ICE_Asset ICE_Asset;
 

@@ -20,7 +20,7 @@ enum
 ICE_Game_Create("2DWatch", 800, 480)
 {
 	// Texture
-	ICE_Id manager = ICE_TextureManager_Insert();
+	ICE_Id manager = ICE_TextureManager_Init();
 	ICE_Texture_Load(manager, "res//img//pic.png");
 	ICE_Texture_Load(manager, "res//img//gui.png");
 	ICE_Texture_Load(manager, "res//img//widow.png");
@@ -28,11 +28,11 @@ ICE_Game_Create("2DWatch", 800, 480)
 	ICE_Texture_Load(manager, "res//img//ice_logo.png");
 
 	// Sound
-	manager = ICE_SoundManager_Insert();
+	manager = ICE_SoundManager_Create();
 	ICE_Sound_Load(manager, "res//snd//explosion.wav");
 
 	// Music
-	manager = ICE_MusicManager_Insert();
+	manager = ICE_MusicManager_Create();
 	ICE_Music_Load(manager, "res//snd//music.ogg");
 
 	// Font
