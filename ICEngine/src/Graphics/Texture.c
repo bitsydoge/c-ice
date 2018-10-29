@@ -67,3 +67,8 @@ unsigned int ICE_Texture_GetH(ICE_Id texture_)
 {
 	return ASSET.texture_mngr.texture[texture_].h;
 }
+
+ICE_Texture * ICE_Texture_Get(ICE_Id texture_)
+{
+	return &ASSET.texture_mngr.texture[texture_];
+}

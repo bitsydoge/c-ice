@@ -16,6 +16,7 @@ ICE_Sound ICE_Sound_Create(char *path);
 ICE_Id ICE_Sound_Load(ICE_Id man, char *path);
 void ICE_Sound_Clear(ICE_Id sound_);
 void ICE_Sound_Destroy(ICE_Id sound_);
+ICE_Sound* ICE_Sound_Get(ICE_Id sound_);
 
 // PLAY
 

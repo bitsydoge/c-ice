@@ -6,17 +6,18 @@
 
 /* SPRITEMANAGER */
 
-ICE_Id ICE_SpriteManager_Insert();
-void ICE_SpriteManager_Destroy(const ICE_Id man);
-void ICE_SpriteManager_DestroyAll();
+void ICE_SpriteManager_Insert();
+void ICE_SpriteManager_Destroy();
 
 /* SPRITE */
 
-ICE_Sprite ICE_Sprite_Create(ICE_Texture * texture, ICE_Vect size_frame_sprite);
-ICE_Id ICE_Sprite_Insert(const ICE_Id man, ICE_Texture * texture, ICE_Vect size_frame_sprite);
-void ICE_Sprite_Clear(ICE_Sprite * label);
-void ICE_Sprite_Destroy(ICE_Sprite * ptr);
-ICE_Sprite * ICE_Sprite_Get(ICE_Id man, ICE_Id nb);
-ICE_Uint64 ICE_Sprite_GetFrameQuantity(ICE_Sprite * _sprite);
+ICE_Sprite ICE_Sprite_Create(ICE_Id texture_, ICE_Vect size_frame_sprite_);
+ICE_Id ICE_Sprite_Insert(ICE_Id texture_, ICE_Vect size_frame_sprite_);
+void ICE_Sprite_Clear(ICE_Id sprite_);
+void ICE_Sprite_Destroy(ICE_Id sprite_);
+
+ICE_Sprite * ICE_Sprite_Get(ICE_Id sprite_);
+
+ICE_Uint64 ICE_Sprite_GetFrameQuantity(ICE_Id sprite_);
 
 #endif
