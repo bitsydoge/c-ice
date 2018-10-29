@@ -5,8 +5,8 @@
 ICE_Game_Create()
 {
 	ICE_Font_Load("res\\ttf\\FiraSans-Medium.ttf");
-	ICE_Id man = ICE_LabelManager_Insert(NULL);
-	ICE_Id nbr = ICE_Label_Insert
+	ICE_ID man = ICE_LabelManager_Insert(NULL);
+	ICE_ID nbr = ICE_Label_Insert
 	(
 		NULL, 
 		man, 

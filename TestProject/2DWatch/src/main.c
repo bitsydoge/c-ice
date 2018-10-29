@@ -20,7 +20,7 @@ enum
 ICE_Game_Create("2DWatch", 800, 480)
 {
 	// Texture
-	ICE_Id manager = ICE_TextureManager_Init();
+	ICE_ID manager = ICE_TextureManager_Init();
 	ICE_Texture_Load(manager, "res//img//pic.png");
 	ICE_Texture_Load(manager, "res//img//gui.png");
 	ICE_Texture_Load(manager, "res//img//widow.png");
@@ -43,7 +43,7 @@ ICE_Game_Create("2DWatch", 800, 480)
 	ICE_Debug_FontSetColorBg(100, 100, 100);
 	ICE_Debug_FontSetColorFg(255, 255, 255);
 
-	ICE_Id nb = 0;
+	ICE_ID nb = 0;
 
 	// Entity
 	manager = ICE_EntityManager_Insert(NULL);

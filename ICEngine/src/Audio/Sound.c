@@ -19,7 +19,7 @@ void ICE_SoundManager_Init()
 
 void ICE_SoundManager_Free()
 {
-	for (ICE_Id i = 0; i < ASSET.sound_mngr.sound_contain; i++)
+	for (ICE_ID i = 0; i < ASSET.sound_mngr.sound_contain; i++)
 		ICE_Sound_Destroy(i);
 
 	ICE_Free(ASSET.sound_mngr.sound);
@@ -37,7 +37,7 @@ ICE_Sound ICE_Sound_Create(char *path)
 	return sound;
 }
 
-ICE_Id ICE_Sound_Load(char *path_) 
+ICE_ID ICE_Sound_Load(char *path_) 
 {
 	// Insert label in array
 	ASSET.sound_mngr.sound[ASSET.sound_mngr.sound_contain] = ICE_Sound_Create(path_);
@@ -54,12 +54,12 @@ ICE_Id ICE_Sound_Load(char *path_)
 	return ASSET.sound_mngr.sound_contain - 1;
 }
 
-void ICE_Sound_Clear(ICE_Id sound_)
+void ICE_Sound_Clear(ICE_ID sound_)
 {
 	memset(ASSET.sound_mngr.sound[sound_].sdl_handle, 0, sizeof(ICE_Sound));
 }
 
-void ICE_Sound_Destroy(ICE_Id sound_)
+void ICE_Sound_Destroy(ICE_ID sound_)
 {
 	ICE_String_Delete(ASSET.sound_mngr.sound[sound_].filename);
 	Mix_FreeChunk(ASSET.sound_mngr.sound[sound_].sdl_handle);
@@ -67,7 +67,7 @@ void ICE_Sound_Destroy(ICE_Id sound_)
 
 // PLAY
 
-int ICE_Sound_Play(ICE_Id sound_, const int volume_) 
+int ICE_Sound_Play(ICE_ID sound_, const int volume_) 
 {
 	if (ASSET.sound_mngr.sound[sound_].sdl_handle != NULL) 
 	{
@@ -77,7 +77,7 @@ int ICE_Sound_Play(ICE_Id sound_, const int volume_)
 	return -1;
 }
 
-ICE_Sound* ICE_Sound_Get(ICE_Id sound_)
+ICE_Sound* ICE_Sound_Get(ICE_ID sound_)
 {
 	return &ASSET.sound_mngr.sound[sound_];
 }
