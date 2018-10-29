@@ -285,26 +285,28 @@ void ICE_Entity_Scale(ICE_Entity * entity, ICE_Float scale)
 
 // SPRITE
 
-void ICE_Entity_SetSprite(ICE_Entity * entity, ICE_Sprite * sprite)
+void ICE_Entity_SetSprite(ICE_Entity * entity_, ICE_ID sprite_)
 {
-	entity->graphics_type = ICE_ENTITYGRAPHICSTYPES_SPRITE;
-	entity->graphics_index = sprite->index;
-	entity->sprite_frame = 0;
-	entity->graphics_box_render.x = 0;
-	entity->graphics_box_render.y = 4*sprite->size_h;
-	entity->graphics_box_render.w = sprite->size_w;
-	entity->graphics_box_render.h = sprite->size_h;
+	ICE_Sprite * sprite = ICE_Sprite_Get(sprite_);
+	entity_->graphics_type = ICE_ENTITYGRAPHICSTYPES_SPRITE;
+	entity_->graphics_index = sprite->index;
+	entity_->sprite_frame = 0;
+	entity_->graphics_box_render.x = 0;
+	entity_->graphics_box_render.y = 0;
+	entity_->graphics_box_render.w = sprite->size_w;
+	entity_->graphics_box_render.h = sprite->size_h;
 }
 
 void ICE_Entity_SetSpriteFrame(ICE_Entity * entity, ICE_ID frame)
 {
 	if (entity->graphics_type == ICE_ENTITYGRAPHICSTYPES_SPRITE)
 	{
-		ICE_Sprite * sprite = ICE_Sprite_Get(entity->graphics_mngr_index, entity->graphics_index);
+		ICE_Sprite * sprite = ICE_Sprite_Get(entity->graphics_index);
+		frame--;
 		entity->sprite_frame = frame;
 
-		const ICE_ID size_in_w = (frame+1) % sprite->number_frame_w;
-		const ICE_ID size_in_h = (frame+1) / sprite->number_frame_w;
+		const ICE_ID size_in_w = (frame) % sprite->number_frame_w;
+		const ICE_ID size_in_h = (frame) / sprite->number_frame_w;
 
 		entity->graphics_box_render.x = size_in_w * sprite->size_w;
 		entity->graphics_box_render.y = size_in_h * sprite->size_h;
@@ -316,7 +318,7 @@ void ICE_Entity_SetSpriteFrame(ICE_Entity * entity, ICE_ID frame)
 ICE_Sprite * ICE_Entity_GetSprite(ICE_Entity * _entity)
 {
 	if(_entity->graphics_type == ICE_ENTITYGRAPHICSTYPES_SPRITE)
-		return ICE_Sprite_Get(_entity->graphics_mngr_index, _entity->graphics_index);
+		return ICE_Sprite_Get(_entity->graphics_index);
 
 	ICE_Log(ICE_LOG_WARNING, "This entity doesn't have Sprite graphics");
 	return NULL;
@@ -325,7 +327,7 @@ ICE_Sprite * ICE_Entity_GetSprite(ICE_Entity * _entity)
 ICE_Texture * ICE_Entity_GetTexture(ICE_Entity * _entity)
 {
 	if(_entity->graphics_type == ICE_ENTITYGRAPHICSTYPES_TEXTURE)
-		return ICE_Texture_Get(_entity->graphics_mngr_index, _entity->graphics_mngr_index);
+		return ICE_Texture_Get(_entity->graphics_mngr_index);
 	
 	ICE_Log(ICE_LOG_WARNING, "This entity doesn't have Texture graphics");
 	return NULL;

@@ -20,6 +20,6 @@ ICE_Sound* ICE_Sound_Get(ICE_ID sound_);
 
 // PLAY
 
-int ICE_Sound_Play(ICE_ID sound_, const int volume_);
+int ICE_Sound_Play(ICE_ID sound_, ICE_Float volume_);
 
 #endif

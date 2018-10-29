@@ -19,7 +19,7 @@ ICE_Music* ICE_Music_Get(ICE_ID music_);
 
 // PLAY
 
-int ICE_Music_Play(ICE_ID music_, const int volume_);
+int ICE_Music_Play(ICE_ID music_, ICE_Float volume_);
 void ICE_Music_Pause();
 void ICE_Music_Resume();
 

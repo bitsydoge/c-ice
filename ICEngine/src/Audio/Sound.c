@@ -66,11 +66,11 @@ void ICE_Sound_Destroy(ICE_ID sound_)
 
 // PLAY
 
-int ICE_Sound_Play(ICE_ID sound_, const int volume_) 
+int ICE_Sound_Play(ICE_ID sound_, ICE_Float volume_) 
 {
 	if (ASSET.sound_mngr.sound[sound_].sdl_handle != NULL) 
 	{
-		Mix_Volume(Mix_PlayChannel(-1, ASSET.sound_mngr.sound[sound_].sdl_handle, 0), volume_);
+		Mix_Volume(Mix_PlayChannel(-1, ASSET.sound_mngr.sound[sound_].sdl_handle, 0), volume_*128);
 		return 1;
 	}
 	return -1;
