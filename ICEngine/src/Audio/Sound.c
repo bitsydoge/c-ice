@@ -8,7 +8,7 @@ extern ICE_Asset ASSET;
 
 // MANAGER
 
-ICE_Index ICE_SoundManager_Insert()
+ICE_Id ICE_SoundManager_Insert()
 {
 	ICE_SoundManager soundmanager = { 0 };
 	soundmanager.sound_size = ICE_DEFAULT_SOUND_SIZE;
@@ -23,11 +23,11 @@ ICE_Index ICE_SoundManager_Insert()
 	return ASSET.sound_mngr_nb - 1;
 }
 
-void ICE_SoundManager_Destroy(const ICE_Index man)
+void ICE_SoundManager_Destroy(const ICE_Id man)
 {
 	ICE_SoundManager *manager = &ASSET.sound_mngr[man];
 
-	for (ICE_Index i = 0; i < manager->sound_contain; i++)
+	for (ICE_Id i = 0; i < manager->sound_contain; i++)
 	{
 		//Free everything to free in Label
 		ICE_Sound_Destroy(&manager->sound[i]);
@@ -40,9 +40,9 @@ void ICE_SoundManager_Destroy(const ICE_Index man)
 void ICE_SoundManager_DestroyAll()
 {
 	ICE_SoundManager *manager = ASSET.sound_mngr;
-	const ICE_Index nb_manager = ASSET.sound_mngr_nb;
+	const ICE_Id nb_manager = ASSET.sound_mngr_nb;
 
-	for (ICE_Index i = 0; i < nb_manager; i++)
+	for (ICE_Id i = 0; i < nb_manager; i++)
 	{
 		if (!manager[i].isFree)
 		{
@@ -66,7 +66,7 @@ ICE_Sound ICE_Sound_Create(char *path)
 	return sound;
 }
 
-ICE_Index ICE_Sound_Load(ICE_Index man, char *path) 
+ICE_Id ICE_Sound_Load(ICE_Id man, char *path) 
 {
 	// Insert label in array
 	ASSET.sound_mngr[man].sound[ASSET.sound_mngr[man].sound_contain] = ICE_Sound_Create(path);
@@ -99,7 +99,7 @@ void ICE_Sound_Destroy(ICE_Sound * ptr)
 
 // GET
 
-ICE_Sound * ICE_Sound_Get(ICE_Index man, ICE_Index nb)
+ICE_Sound * ICE_Sound_Get(ICE_Id man, ICE_Id nb)
 {
 	return &ASSET.sound_mngr[man].sound[nb];
 }

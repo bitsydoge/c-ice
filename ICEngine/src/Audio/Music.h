@@ -6,20 +6,20 @@
 #include "TypesAudio.h"
 #include "../Framework/TypesFramework.h"
 
-ICE_Index ICE_MusicManager_Insert();
-void ICE_MusicManager_Destroy(const ICE_Index man);
+ICE_Id ICE_MusicManager_Insert();
+void ICE_MusicManager_Destroy(const ICE_Id man);
 void ICE_MusicManager_DestroyAll();
 
 // MUSIC
 
 ICE_Music ICE_Music_Create(char *path);
-ICE_Index ICE_Music_Load(ICE_Index man, char *path);
+ICE_Id ICE_Music_Load(ICE_Id man, char *path);
 void ICE_Music_Clear(ICE_Music * music);
 void ICE_Music_Destroy(ICE_Music * ptr);
 
 // GET
 
-ICE_Music * ICE_Music_Get(ICE_Index man, ICE_Index nb);
+ICE_Music * ICE_Music_Get(ICE_Id man, ICE_Id nb);
 
 // PLAY
 

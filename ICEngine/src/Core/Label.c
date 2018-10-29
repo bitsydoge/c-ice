@@ -16,7 +16,7 @@ extern ICE_Game GAME;
 
 /* LABEL MANAGER */
 
-ICE_Index ICE_LabelManager_Insert(ICE_State * state)
+ICE_Id ICE_LabelManager_Insert(ICE_State * state)
 {
 	if (!state)
 		state = GAME.current;
@@ -33,14 +33,14 @@ ICE_Index ICE_LabelManager_Insert(ICE_State * state)
 	return state->object.label_mngr_nb - 1;
 }
 
-void ICE_LabelManager_Destroy(ICE_State * state, const ICE_Index man)
+void ICE_LabelManager_Destroy(ICE_State * state, const ICE_Id man)
 {
 	if (!state)
 		state = GAME.current;
 
 	ICE_LabelManager *manager = &state->object.label_mngr[man];
 
-	for (ICE_Index i = 0; i < manager->label_contain; i++)
+	for (ICE_Id i = 0; i < manager->label_contain; i++)
 	{
 		//Free everything to free in Label
 		ICE_Label_Destroy(&manager->label[i]);
@@ -56,9 +56,9 @@ void ICE_LabelManager_DestroyAll(ICE_State * state)
 		state = GAME.current;
 
 	ICE_LabelManager *manager = state->object.label_mngr;
-	ICE_Index nb_manager = state->object.label_mngr_nb;
+	ICE_Id nb_manager = state->object.label_mngr_nb;
 	
-	for (ICE_Index i = 0; i < nb_manager; i++)
+	for (ICE_Id i = 0; i < nb_manager; i++)
 	{
 		if (!manager[i].isFree)
 		{
@@ -90,7 +90,7 @@ ICE_Label ICE_Label_Create(ICE_StringStd text, ICE_Vect pos, int size, enum ICE_
 	return label;
 }
 
-ICE_Index ICE_Label_Insert(ICE_State * state, const ICE_Index man, ICE_StringStd text, const ICE_Vect pos, int size, enum ICE_LabelType type)
+ICE_Id ICE_Label_Insert(ICE_State * state, const ICE_Id man, ICE_StringStd text, const ICE_Vect pos, int size, enum ICE_LabelType type)
 {
 	if (!state)
 		state = GAME.current;
@@ -134,7 +134,7 @@ void ICE_Label_Destroy(ICE_Label * ptr)
 
 /* LABEL GET FUNCTION */
 
-ICE_Label * ICE_Label_Get(ICE_State * state, const ICE_Index man, const ICE_Index nb)
+ICE_Label * ICE_Label_Get(ICE_State * state, const ICE_Id man, const ICE_Id nb)
 {
 	if(state)
 		return &state->object.label_mngr[man].label[nb];

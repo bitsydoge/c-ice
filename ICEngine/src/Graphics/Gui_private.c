@@ -8,7 +8,7 @@
 extern ICE_Game GAME;
 extern ICE_Core CORE;
 
-void ICE_Gui_UpdateTexture(ICE_Index man, ICE_Index gui)
+void ICE_Gui_UpdateTexture(ICE_Id man, ICE_Id gui)
 {
 	ICE_Texture texture = { 0 };
 	texture.handle = SDL_CreateTexture(CORE.window.render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (int)GAME.current->object.gui_mngr[man].gui[gui].box.w, (int)GAME.current->object.gui_mngr[man].gui[gui].box.h);

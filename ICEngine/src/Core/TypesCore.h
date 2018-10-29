@@ -161,8 +161,8 @@ struct ICE_LabelManager
 {
 	ICE_Bool				isFree;
 
-	ICE_Index				label_size;
-	ICE_Index				label_contain;
+	ICE_Id				label_size;
+	ICE_Id				label_contain;
 	ICE_Label*				label;
 
 }; typedef struct ICE_LabelManager ICE_LabelManager;
@@ -204,13 +204,13 @@ struct ICE_Entity
 	// Graphics
 
 	ICE_EntityGraphicsType  graphics_type;
-	ICE_Index				graphics_mngr_index;
-	ICE_Index				graphics_index;	
-	ICE_Index				sprite_frame;
+	ICE_Id				graphics_mngr_index;
+	ICE_Id				graphics_index;	
+	ICE_Id				sprite_frame;
 	ICE_Box					graphics_box_render;
 
 	// Data Array
-	ICE_Index				data_nb;
+	ICE_Id				data_nb;
 	void **					data;
 
 }; typedef struct ICE_Entity ICE_Entity;
@@ -222,8 +222,8 @@ struct ICE_EntityManager
 {
 	ICE_Bool				isFree;
 
-	ICE_Index				entity_size;
-	ICE_Index				entity_contain;
+	ICE_Id				entity_size;
+	ICE_Id				entity_contain;
 	ICE_Entity*				entity;
 
 }; typedef struct ICE_EntityManager ICE_EntityManager;
@@ -237,19 +237,19 @@ struct ICE_GameObjectManager
 	ICE_Camera				camera;
 
 	// Label
-	ICE_Index				label_mngr_nb;
+	ICE_Id				label_mngr_nb;
 	ICE_LabelManager *		label_mngr;
 	
 	// Gui
-	ICE_Index				gui_mngr_nb;
+	ICE_Id				gui_mngr_nb;
 	ICE_GuiManager *		gui_mngr;
 
 	// Entity
-	ICE_Index				entity_mngr_nb;
+	ICE_Id				entity_mngr_nb;
 	ICE_EntityManager *		entity_mngr;
 
 	// Data
-	ICE_Index				data_nb;
+	ICE_Id				data_nb;
 	void**					data;
 
 }; typedef struct ICE_GameObjectManager ICE_ObjectManager;
@@ -346,25 +346,25 @@ struct ICE_Asset
 				// GRAPHICS //
 
 	// Font
-	ICE_Index				font_mngr_nb; // todo
+	ICE_Id				font_mngr_nb; // todo
 	ICE_Font				font;
 
 	// Texture
-	ICE_Index				texture_mngr_nb;
+	ICE_Id				texture_mngr_nb;
 	ICE_TextureManager *	texture_mngr;
 
 	// Sprite
-	ICE_Index				sprite_mngr_nb;
+	ICE_Id				sprite_mngr_nb;
 	ICE_SpriteManager *		sprite_mngr;
 
 				// AUDIO //
 
 	// Sound
-	ICE_Index				sound_mngr_nb;
+	ICE_Id				sound_mngr_nb;
 	ICE_SoundManager *		sound_mngr;
 
 	// Music
-	ICE_Index				music_mngr_nb;
+	ICE_Id				music_mngr_nb;
 	ICE_MusicManager *		music_mngr;
 
 }; typedef struct ICE_Asset ICE_Asset;
