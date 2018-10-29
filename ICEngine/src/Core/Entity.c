@@ -14,7 +14,7 @@ extern ICE_Game GAME;
 
 /* ENTITY MANAGER */
 
-ICE_ID ICE_EntityManager_Insert(ICE_State * state)
+ICE_Id ICE_EntityManager_Insert(ICE_State * state)
 {
 	if (!state)
 		state = GAME.current;
@@ -31,14 +31,14 @@ ICE_ID ICE_EntityManager_Insert(ICE_State * state)
 	return state->object.entity_mngr_nb - 1;
 }
 
-void ICE_EntityManager_Destroy(ICE_State * state, const ICE_ID man)
+void ICE_EntityManager_Destroy(ICE_State * state, const ICE_Id man)
 {
 	if (!state)
 		state = GAME.current;
 
 	ICE_EntityManager *manager = &state->object.entity_mngr[man];
 
-	for (ICE_ID i = 0; i < manager->entity_contain; i++)
+	for (ICE_Id i = 0; i < manager->entity_contain; i++)
 	{
 		//Free everything to free in Entity
 		ICE_Entity_Destroy(&manager->entity[i]);
@@ -54,9 +54,9 @@ void ICE_EntityManager_DestroyAll(ICE_State * state)
 		state = GAME.current;
 
 	ICE_EntityManager *manager = state->object.entity_mngr;
-	const ICE_ID nb_manager = state->object.entity_mngr_nb;
+	const ICE_Id nb_manager = state->object.entity_mngr_nb;
 
-	for (ICE_ID i = 0; i < nb_manager; i++)
+	for (ICE_Id i = 0; i < nb_manager; i++)
 	{
 		if (!manager[i].isFree)
 		{
@@ -83,7 +83,7 @@ ICE_Entity ICE_Entity_Create(ICE_Box pos)
 	return entity;
 }
 
-ICE_ID ICE_Entity_Insert(ICE_State * state, const ICE_ID man, ICE_Box pos)
+ICE_Id ICE_Entity_Insert(ICE_State * state, const ICE_Id man, ICE_Box pos)
 {
 	if (!state)
 		state = GAME.current;
@@ -125,7 +125,7 @@ ICE_Entity * ICE_Entity_Get(ICE_State * state, const unsigned man, const unsigne
 	return &GAME.current->object.entity_mngr[man].entity[nb];
 }
 
-ICE_ID ICE_Entity_GetQuantity(ICE_State * state, ICE_ID manager)
+ICE_Id ICE_Entity_GetQuantity(ICE_State * state, ICE_Id manager)
 {
 	if (!state)
 		state = GAME.current;
@@ -133,7 +133,7 @@ ICE_ID ICE_Entity_GetQuantity(ICE_State * state, ICE_ID manager)
 	return state->object.entity_mngr[manager].entity_contain;
 }
 
-ICE_ID ICE_EntityManager_GetQuantity(ICE_State * state)
+ICE_Id ICE_EntityManager_GetQuantity(ICE_State * state)
 {
 	if (!state)
 		state = GAME.current;
@@ -298,15 +298,15 @@ void ICE_Entity_SetSprite(ICE_Entity * entity, ICE_Sprite * sprite)
 	entity->graphics_box_render.h = sprite->size_h;
 }
 
-void ICE_Entity_SetSpriteFrame(ICE_Entity * entity, ICE_ID frame)
+void ICE_Entity_SetSpriteFrame(ICE_Entity * entity, ICE_Id frame)
 {
 	if (entity->graphics_type == ICE_ENTITYGRAPHICSTYPES_SPRITE)
 	{
 		ICE_Sprite * sprite = ICE_Sprite_Get(entity->graphics_mngr_index, entity->graphics_index);
 		entity->sprite_frame = frame;
 
-		const ICE_ID size_in_w = (frame+1) % sprite->number_frame_w;
-		const ICE_ID size_in_h = (frame+1) / sprite->number_frame_w;
+		const ICE_Id size_in_w = (frame+1) % sprite->number_frame_w;
+		const ICE_Id size_in_h = (frame+1) / sprite->number_frame_w;
 
 		entity->graphics_box_render.x = size_in_w * sprite->size_w;
 		entity->graphics_box_render.y = size_in_h * sprite->size_h;

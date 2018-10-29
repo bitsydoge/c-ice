@@ -8,7 +8,7 @@ extern ICE_Asset ASSET;
 
 /* SPRITEMANAGER */
 
-ICE_ID ICE_SpriteManager_Insert()
+ICE_Id ICE_SpriteManager_Insert()
 {
 	ICE_SpriteManager sprite_manager = { 0 };
 	sprite_manager.sprite_size = ICE_DEFAULT_SPRITE_MNGR_SIZE;
@@ -22,11 +22,11 @@ ICE_ID ICE_SpriteManager_Insert()
 	return ASSET.sprite_mngr_nb - 1;
 }
 
-void ICE_SpriteManager_Destroy(const ICE_ID man)
+void ICE_SpriteManager_Destroy(const ICE_Id man)
 {
 	ICE_SpriteManager *manager = &ASSET.sprite_mngr[man];
 
-	for (ICE_ID i = 0; i < manager->sprite_contain; i++)
+	for (ICE_Id i = 0; i < manager->sprite_contain; i++)
 	{
 		//Free everything to free in Label
 		ICE_Sprite_Destroy(&manager->sprite[i]);
@@ -39,9 +39,9 @@ void ICE_SpriteManager_Destroy(const ICE_ID man)
 void ICE_SpriteManager_DestroyAll()
 {
 	ICE_SpriteManager *manager = ASSET.sprite_mngr;
-	ICE_ID nb_manager = ASSET.sprite_mngr_nb;
+	ICE_Id nb_manager = ASSET.sprite_mngr_nb;
 
-	for (ICE_ID i = 0; i < nb_manager; i++)
+	for (ICE_Id i = 0; i < nb_manager; i++)
 	{
 		if (!manager[i].isFree)
 		{
@@ -73,7 +73,7 @@ ICE_Sprite ICE_Sprite_Create(ICE_Texture * texture, ICE_Vect size_frame_sprite)
 	return sprite;
 }
 
-ICE_ID ICE_Sprite_Insert(const ICE_ID man, ICE_Texture * texture, ICE_Vect size_frame_sprite)
+ICE_Id ICE_Sprite_Insert(const ICE_Id man, ICE_Texture * texture, ICE_Vect size_frame_sprite)
 {
 	// Insert sprite in array
 	ASSET.sprite_mngr[man].sprite[ASSET.sprite_mngr[man].sprite_contain] = ICE_Sprite_Create(texture, size_frame_sprite);
@@ -103,7 +103,7 @@ void ICE_Sprite_Destroy(ICE_Sprite * ptr)
 	
 }
 
-ICE_Sprite * ICE_Sprite_Get(ICE_ID man, ICE_ID nb)
+ICE_Sprite * ICE_Sprite_Get(ICE_Id man, ICE_Id nb)
 {
 	return &ASSET.sprite_mngr[man].sprite[nb];
 }
