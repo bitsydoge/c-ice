@@ -53,7 +53,7 @@ void ICE_Entity_AddAngle(ICE_Entity * entity, ICE_Float angle);
 void ICE_Entity_LookAt(ICE_Entity * entity, ICE_Vect pos);
 
 	//Sprite
-void ICE_Entity_SetSprite(ICE_Entity * entity, ICE_Sprite * sprite);
+void ICE_Entity_SetSprite(ICE_Entity * entity_, ICE_ID sprite_);
 void ICE_Entity_SetSpriteFrame(ICE_Entity * entity, ICE_ID frame);
 
 ICE_Sprite * ICE_Entity_GetSprite(ICE_Entity * _entity);

@@ -67,12 +67,12 @@ void ICE_Music_Destroy(ICE_ID music_)
 
 // PLAY
 
-int ICE_Music_Play(ICE_ID music_, const int volume_)
+int ICE_Music_Play(ICE_ID music_, ICE_Float volume_)
 {
 	if (ASSET.music_mngr.music[music_].sdl_handle != NULL) 
 	{
 		Mix_PlayMusic(ASSET.music_mngr.music[music_].sdl_handle, -1);
-		Mix_VolumeMusic(volume_);
+		Mix_VolumeMusic(volume_*128);
 		return 1;
 	}
 	return -1;
