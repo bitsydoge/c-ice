@@ -165,7 +165,6 @@ ICE_Box ICE_Entity_GetBox(ICE_Entity * entity)
 
 void ICE_Entity_SetTexture(ICE_Entity * entity, ICE_Texture * texture)
 {
-	entity->graphics_mngr_index = texture->manager_index;
 	entity->graphics_index = texture->index;
 	entity->graphics_type = ICE_ENTITYGRAPHICSTYPES_TEXTURE;
 	entity->graphics_box_render.x = 0;
@@ -290,7 +289,6 @@ void ICE_Entity_SetSprite(ICE_Entity * entity, ICE_Sprite * sprite)
 {
 	entity->graphics_type = ICE_ENTITYGRAPHICSTYPES_SPRITE;
 	entity->graphics_index = sprite->index;
-	entity->graphics_mngr_index = sprite->manager_index;
 	entity->sprite_frame = 0;
 	entity->graphics_box_render.x = 0;
 	entity->graphics_box_render.y = 4*sprite->size_h;

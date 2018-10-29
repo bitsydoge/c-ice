@@ -15,6 +15,7 @@ ICE_Music ICE_Music_Create(char *path);
 ICE_Id ICE_Music_Load(char *path);
 void ICE_Music_Clear(ICE_Id music_);
 void ICE_Music_Destroy(ICE_Id music_);
+ICE_Music* ICE_Music_Get(ICE_Id music_);
 
 // PLAY
 

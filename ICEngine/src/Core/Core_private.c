@@ -122,10 +122,10 @@ int ICE_Core_Quit()
 	ICE_Data_DestroyAll(NULL);
 
 	//Assets
-	ICE_TextureManager_DestroyAll();
-	ICE_SpriteManager_DestroyAll();
-	ICE_SoundManager_DestroyAll();
-	ICE_MusicManager_DestroyAll();
+	ICE_TextureManager_Destroy();
+	ICE_SpriteManager_Destroy();
+	ICE_SoundManager_Destroy();
+	ICE_MusicManager_Destroy();
 	
 	// SDL
 	TTF_Quit();

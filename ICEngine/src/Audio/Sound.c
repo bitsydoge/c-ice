@@ -78,3 +78,8 @@ int ICE_Sound_Play(ICE_Id sound_, const int volume_)
 	}
 	return -1;
 }
+
+ICE_Sound* ICE_Sound_Get(ICE_Id sound_)
+{
+	return &ASSET.sound_mngr.sound[sound_];
+}

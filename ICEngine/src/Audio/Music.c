@@ -91,3 +91,8 @@ void ICE_Music_Resume()
 {
 	Mix_ResumeMusic();
 }
+
+ICE_Music* ICE_Music_Get(ICE_Id music_)
+{
+	return &ASSET.music_mngr.music[music_];
+}
