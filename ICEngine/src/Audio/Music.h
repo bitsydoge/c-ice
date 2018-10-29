@@ -6,8 +6,8 @@
 #include "TypesAudio.h"
 #include "../Framework/TypesFramework.h"
 
-void ICE_MusicManager_Create();
-void ICE_MusicManager_Destroy();
+void ICE_MusicManager_Init();
+void ICE_MusicManager_Free();
 
 // MUSIC
 

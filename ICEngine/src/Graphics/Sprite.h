@@ -6,13 +6,13 @@
 
 /* SPRITEMANAGER */
 
-void ICE_SpriteManager_Insert();
-void ICE_SpriteManager_Destroy();
+void ICE_SpriteManager_Init();
+void ICE_SpriteManager_Free();
 
 /* SPRITE */
 
 ICE_Sprite ICE_Sprite_Create(ICE_Id texture_, ICE_Vect size_frame_sprite_);
-ICE_Id ICE_Sprite_Insert(ICE_Id texture_, ICE_Vect size_frame_sprite_);
+ICE_Id ICE_Sprite_Load(ICE_Id texture_, ICE_Vect size_frame_sprite_);
 void ICE_Sprite_Clear(ICE_Id sprite_);
 void ICE_Sprite_Destroy(ICE_Id sprite_);
 

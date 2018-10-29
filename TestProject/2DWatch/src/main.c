@@ -28,11 +28,11 @@ ICE_Game_Create("2DWatch", 800, 480)
 	ICE_Texture_Load(manager, "res//img//ice_logo.png");
 
 	// Sound
-	manager = ICE_SoundManager_Create();
+	manager = ICE_SoundManager_Init();
 	ICE_Sound_Load(manager, "res//snd//explosion.wav");
 
 	// Music
-	manager = ICE_MusicManager_Create();
+	manager = ICE_MusicManager_Init();
 	ICE_Music_Load(manager, "res//snd//music.ogg");
 
 	// Font

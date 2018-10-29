@@ -16,6 +16,8 @@ void ICE_Core_Main(void(*call_create)(void), void(*call_update)(void), void(*cal
 {
 	ICE_Core_Init();
 	ICE_Render_Init();
+	ICE_Game_Init();
+
 	GAME.current = &GAME.state_main;
 
 	ICE_Log_Line();
@@ -59,8 +61,9 @@ void ICE_Core_Main(void(*call_create)(void), void(*call_update)(void), void(*cal
 	call_destroy();
 	ICE_Log(ICE_LOG_FINISH, "Main Destroy");
 	ICE_Log_Line();
-	
-	
+
+	ICE_Game_Quit();
+	ICE_Render_Quit();
 	ICE_Core_Quit();
 }
 

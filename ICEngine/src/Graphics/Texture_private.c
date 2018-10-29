@@ -30,7 +30,7 @@ ICE_Uint32 static const bmask = 0x00ff0000;
 ICE_Uint32 static const amask = 0xff000000;
 #endif
 
-ICE_Texture* ICE_Texture_LoadFromFile(char *path)
+ICE_Texture ICE_Texture_LoadFromFile(char *path)
 {
 	SDL_Surface* surf;
 	/*
@@ -73,11 +73,11 @@ ICE_Texture* ICE_Texture_LoadFromFile(char *path)
 	}
 
 
-	ICE_Texture *text = (ICE_Texture*)malloc(sizeof(ICE_Texture));
-	text->handle = SDL_CreateTextureFromSurface(CORE.window.render, surf);
-	if (text->handle == NULL)
+	ICE_Texture text = {0};
+	text.handle = SDL_CreateTextureFromSurface(CORE.window.render, surf);
+	if (text.handle == NULL)
 		SDL_Log("CRITICAL : Can't create Texture from Surface \"%s\" : %s \n", path, SDL_GetError());
-	text->w = surf->w; text->h = surf->h;
+	text.w = surf->w; text.h = surf->h;
 
 	SDL_FreeSurface(surf);
 	//stbi_image_free(data);

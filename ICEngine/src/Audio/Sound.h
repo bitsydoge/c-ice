@@ -7,13 +7,13 @@
 
 // MANAGER
 
-void ICE_SoundManager_Create();
-void ICE_SoundManager_Destroy();
+void ICE_SoundManager_Init();
+void ICE_SoundManager_Free();
 
 // SOUND
 
 ICE_Sound ICE_Sound_Create(char *path);
-ICE_Id ICE_Sound_Load(ICE_Id man, char *path);
+ICE_Id ICE_Sound_Load(char *path);
 void ICE_Sound_Clear(ICE_Id sound_);
 void ICE_Sound_Destroy(ICE_Id sound_);
 ICE_Sound* ICE_Sound_Get(ICE_Id sound_);
