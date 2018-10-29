@@ -1,8 +1,6 @@
 ﻿#include <ICE.h>
 
 #define ICE_CONFIG_TITLE "Hello World"
-#define ICE_CONFIG_WINDOW_W 840
-#define ICE_CONFIG_WINDOW_H 480
 
 ICE_Game_Create()
 {

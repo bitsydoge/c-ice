@@ -8,114 +8,75 @@ extern ICE_Asset ASSET;
 
 // MANAGER
 
-ICE_Id ICE_MusicManager_Insert()
+void ICE_MusicManager_Create()
 {
 	ICE_MusicManager musicmanager = { 0 };
 	musicmanager.music_size = ICE_DEFAULT_MUSIC_SIZE;
 	musicmanager.music = ICE_Calloc(musicmanager.music_size, sizeof(ICE_Music));
-
-	ASSET.music_mngr_nb++;
-	ASSET.music_mngr = ICE_Realloc(ASSET.music_mngr, ASSET.music_mngr_nb * sizeof(ICE_MusicManager));
-	ASSET.music_mngr[ASSET.music_mngr_nb - 1] = musicmanager;
-
-	ICE_Log(ICE_LOG_SUCCES, "Create MusicManager : %d", ASSET.music_mngr_nb - 1);
-
-	return ASSET.music_mngr_nb - 1;
+	ASSET.music_mngr = musicmanager;
+	ICE_Log(ICE_LOG_SUCCES, "Create MusicManager");
 }
 
-void ICE_MusicManager_Destroy(const ICE_Id man)
+void ICE_MusicManager_Destroy()
 {
-	ICE_MusicManager *manager = &ASSET.music_mngr[man];
-
-	for (ICE_Id i = 0; i < manager->music_contain; i++)
+	for (ICE_Id i = 0; i < ASSET.music_mngr.music_contain; i++)
 	{
 		//Free everything to free in Label
-		ICE_Music_Destroy(&manager->music[i]);
+		ICE_Music_Destroy(i);
 	}
-
-	ICE_Free(manager->music);
-	ICE_Log(ICE_LOG_SUCCES, "Free MusicManager : %d", man);
-}
-
-void ICE_MusicManager_DestroyAll()
-{
-	ICE_MusicManager *manager = ASSET.music_mngr;
-	const ICE_Id nb_manager = ASSET.music_mngr_nb;
-
-	for (ICE_Id i = 0; i < nb_manager; i++)
-	{
-		if (!manager[i].isFree)
-		{
-			ICE_MusicManager_Destroy(i);
-			manager[i].isFree = ICE_True;
-		}
-	}
-	free(manager);
+	ICE_Free(ASSET.music_mngr.music);
+	ICE_Log(ICE_LOG_SUCCES, "Destroy MusicManager");
 }
 
 // MUSIC
 
-ICE_Music ICE_Music_Create(char *path)
+ICE_Music ICE_Music_Create(char *path_)
 {
 	ICE_Music music;
-
 	// Assigne
-	music.filename = ICE_String_Init(path);
-	music.music = Mix_LoadMUS(path);
-	if(music.music == NULL)
-	{
+	music.filename = ICE_String_Init(path_);
+	music.sdl_handle = Mix_LoadMUS(path_);
+	if(music.sdl_handle == NULL)
 		ICE_Log(ICE_LOG_ERROR, "%s", Mix_GetError());
-	}
-
 	return music;
 }
 
-ICE_Id ICE_Music_Load(ICE_Id man, char *path)
+ICE_Id ICE_Music_Load(char *path_)
 {
 	// Insert label in array
-	ASSET.music_mngr[man].music[ASSET.music_mngr[man].music_contain] = ICE_Music_Create(path);
-	ASSET.music_mngr[man].music_contain++;
-
-	ICE_Log(ICE_LOG_SUCCES, "MusicManager]::[%d]::[Label]::[%d]::[Create", man, ASSET.music_mngr[man].music_contain - 1);
-
+	ASSET.music_mngr.music[ASSET.music_mngr.music_contain] = ICE_Music_Create(path_);
+	ASSET.music_mngr.music_contain++;
+	ICE_Log(ICE_LOG_SUCCES, "Create Music %d from %s", ASSET.music_mngr.music_contain - 1, path_);
 	// Test size to realloc more space
-	if (ASSET.music_mngr[man].music_size <= ASSET.music_mngr[man].music_contain) {
-		ICE_Music* tmp = ICE_Realloc(ASSET.music_mngr[man].music, sizeof(ICE_Music)*(ASSET.music_mngr[man].music_size * 2));
+	if (ASSET.music_mngr.music_size <= ASSET.music_mngr.music_contain) {
+		ICE_Music* tmp = ICE_Realloc(ASSET.music_mngr.music, sizeof(ICE_Music)*(ASSET.music_mngr.music_size * 2));
 		// Test if realloc succes
-		ICE_Log(ICE_LOG_WARNING, "MusicManager]::[%d]::[Resized]::[%d", man, ASSET.music_mngr[man].music_size * 2);
-		ASSET.music_mngr[man].music = tmp;
-		ASSET.music_mngr[man].music_size *= 2;
+		ICE_Log(ICE_LOG_WARNING, "MusicManager Resized to %d", ASSET.music_mngr.music_size * 2);
+		ASSET.music_mngr.music = tmp;
+		ASSET.music_mngr.music_size *= 2;
 	}
-
-	return ASSET.music_mngr[man].music_contain - 1;
+	return ASSET.music_mngr.music_contain - 1;
 }
 
-void ICE_Music_Clear(ICE_Music * music)
+void ICE_Music_Clear(ICE_Id music_)
 {
-	memset(music, 0, sizeof(ICE_Music));
+	memset(ASSET.music_mngr.music, 0, sizeof(ICE_Music));
 }
 
-void ICE_Music_Destroy(ICE_Music * ptr)
+void ICE_Music_Destroy(ICE_Id music_)
 {
-	ICE_String_Delete(ptr->filename);
-	Mix_FreeMusic(ptr->music);
-}
-
-// GET
-
-ICE_Music * ICE_Music_Get(ICE_Id man, ICE_Id nb)
-{
-	return &ASSET.music_mngr[man].music[nb];
+	ICE_String_Delete(ASSET.music_mngr.music[music_].filename);
+	Mix_FreeMusic(ASSET.music_mngr.music[music_].sdl_handle);
 }
 
 // PLAY
 
-int ICE_Music_Play(ICE_Music * music, const int volume)
+int ICE_Music_Play(ICE_Id music_, const int volume_)
 {
-	if (music->music != NULL) 
+	if (ASSET.music_mngr.music[music_].sdl_handle != NULL) 
 	{
-		Mix_PlayMusic(music->music, -1);
-		Mix_VolumeMusic(volume);
+		Mix_PlayMusic(ASSET.music_mngr.music[music_].sdl_handle, -1);
+		Mix_VolumeMusic(volume_);
 		return 1;
 	}
 	return -1;
