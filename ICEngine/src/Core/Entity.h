@@ -9,14 +9,14 @@
 
 /* ENTITY MANAGER */
 
-ICE_Index ICE_EntityManager_Insert(ICE_State * state);
-void ICE_EntityManager_Destroy(ICE_State * state, const ICE_Index man);
+ICE_Id ICE_EntityManager_Insert(ICE_State * state);
+void ICE_EntityManager_Destroy(ICE_State * state, const ICE_Id man);
 void ICE_EntityManager_DestroyAll(ICE_State * state);
 
 /* ENTITY */
 
 ICE_Entity ICE_Entity_Create(ICE_Box pos);
-ICE_Index ICE_Entity_Insert(ICE_State * state, const ICE_Index man, ICE_Box pos);
+ICE_Id ICE_Entity_Insert(ICE_State * state, const ICE_Id man, ICE_Box pos);
 void ICE_Entity_Clear(ICE_Entity * entity);
 void ICE_Entity_Destroy(ICE_Entity * ptr);
 
@@ -26,8 +26,8 @@ void ICE_Entity_Destroy(ICE_Entity * ptr);
 
 	//Simple
 ICE_Entity * ICE_Entity_Get(ICE_State * state, const unsigned man, const unsigned nb);
-ICE_Index ICE_Entity_GetQuantity(ICE_State * state, ICE_Index manager);
-ICE_Index ICE_EntityManager_GetQuantity(ICE_State * state);
+ICE_Id ICE_Entity_GetQuantity(ICE_State * state, ICE_Id manager);
+ICE_Id ICE_EntityManager_GetQuantity(ICE_State * state);
 
 ICE_Vect ICE_Entity_GetPosition(ICE_Entity * entity);
 ICE_Box ICE_Entity_GetBox(ICE_Entity * entity);
@@ -54,7 +54,7 @@ void ICE_Entity_LookAt(ICE_Entity * entity, ICE_Vect pos);
 
 	//Sprite
 void ICE_Entity_SetSprite(ICE_Entity * entity, ICE_Sprite * sprite);
-void ICE_Entity_SetSpriteFrame(ICE_Entity * entity, ICE_Index frame);
+void ICE_Entity_SetSpriteFrame(ICE_Entity * entity, ICE_Id frame);
 
 ICE_Sprite * ICE_Entity_GetSprite(ICE_Entity * _entity);
 

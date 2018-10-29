@@ -12,17 +12,12 @@
 
 typedef struct
 {
-	ICE_Index main_texture_manager;
-	ICE_Index spritesheet_texture;
-
 	int w_spritesheet;
 	int h_spritesheet;
 
-	ICE_Index main_entity_manager;
-	ICE_Index entity_test;
-
-	ICE_Index main_sprite_manager;
-	ICE_Index sprite_test;
+	ICE_Id spritesheet_texture;
+	ICE_Id entity_test;
+	ICE_Id sprite_test;
 
 } DATA;
 
@@ -53,28 +48,24 @@ ICE_Game_Create()
 	DATA * data = ICE_Data_Insert(NULL, DATA);
 
 	// Texture
-	data->main_texture_manager = ICE_TextureManager_Insert();
-	data->spritesheet_texture = ICE_Texture_Load (
-		data->main_texture_manager,
+	data->spritesheet_texture = ICE_Texture_Load 
+	(
 		"res//img//spritesheet.png"
 	);
 
 	// Sprite
-	data->main_sprite_manager = ICE_SpriteManager_Insert();
 	data->sprite_test = ICE_Sprite_Insert
 	(
-		data->main_sprite_manager,
-		ICE_Texture_Get(data->main_texture_manager, data->spritesheet_texture),
+		data->spritesheet_texture,
 		ICE_Vect_New(64, 64)
 	);
 
 	// Entity
-	data->main_entity_manager = ICE_EntityManager_Insert(NULL);
-	data->entity_test = ICE_Entity_Insert(NULL, data->main_entity_manager, ICE_Box_New(0, 0, 64, 64));
+	data->entity_test = ICE_Entity_Insert(NULL, ICE_Box_New(0, 0, 64, 64));
 	ICE_Entity_SetSprite
 	(
-		ICE_Entity_Get(NULL, data->main_entity_manager, data->entity_test),
-		ICE_Sprite_Get(data->main_sprite_manager, data->sprite_test)
+		ICE_Entity_Get(NULL, data->entity_test),
+		data->sprite_test
 	);
 
 	data->w_spritesheet = 64;
@@ -104,7 +95,7 @@ ICE_Game_Update()
 		ICE_Log(ICE_LOG_SUCCES, "You released : rightclick at position <%d,%d>", ICE_Input_MouseX(), ICE_Input_MouseY());
 
 	DATA * data = ICE_Data_Get(NULL, 0);
-	ICE_Entity * entity = ICE_Entity_Get(NULL, data->entity_test, data->entity_test);
+	ICE_Entity * entity = ICE_Entity_Get(NULL, data->entity_test);
 	ICE_Sprite * sprite = ICE_Entity_GetSprite(entity);
 
 	static int frame_number = 1;

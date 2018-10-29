@@ -8,7 +8,7 @@ extern ICE_Asset ASSET;
 
 // MANAGER
 
-ICE_Index ICE_MusicManager_Insert()
+ICE_Id ICE_MusicManager_Insert()
 {
 	ICE_MusicManager musicmanager = { 0 };
 	musicmanager.music_size = ICE_DEFAULT_MUSIC_SIZE;
@@ -23,11 +23,11 @@ ICE_Index ICE_MusicManager_Insert()
 	return ASSET.music_mngr_nb - 1;
 }
 
-void ICE_MusicManager_Destroy(const ICE_Index man)
+void ICE_MusicManager_Destroy(const ICE_Id man)
 {
 	ICE_MusicManager *manager = &ASSET.music_mngr[man];
 
-	for (ICE_Index i = 0; i < manager->music_contain; i++)
+	for (ICE_Id i = 0; i < manager->music_contain; i++)
 	{
 		//Free everything to free in Label
 		ICE_Music_Destroy(&manager->music[i]);
@@ -40,9 +40,9 @@ void ICE_MusicManager_Destroy(const ICE_Index man)
 void ICE_MusicManager_DestroyAll()
 {
 	ICE_MusicManager *manager = ASSET.music_mngr;
-	const ICE_Index nb_manager = ASSET.music_mngr_nb;
+	const ICE_Id nb_manager = ASSET.music_mngr_nb;
 
-	for (ICE_Index i = 0; i < nb_manager; i++)
+	for (ICE_Id i = 0; i < nb_manager; i++)
 	{
 		if (!manager[i].isFree)
 		{
@@ -70,7 +70,7 @@ ICE_Music ICE_Music_Create(char *path)
 	return music;
 }
 
-ICE_Index ICE_Music_Load(ICE_Index man, char *path)
+ICE_Id ICE_Music_Load(ICE_Id man, char *path)
 {
 	// Insert label in array
 	ASSET.music_mngr[man].music[ASSET.music_mngr[man].music_contain] = ICE_Music_Create(path);
@@ -103,7 +103,7 @@ void ICE_Music_Destroy(ICE_Music * ptr)
 
 // GET
 
-ICE_Music * ICE_Music_Get(ICE_Index man, ICE_Index nb)
+ICE_Music * ICE_Music_Get(ICE_Id man, ICE_Id nb)
 {
 	return &ASSET.music_mngr[man].music[nb];
 }
