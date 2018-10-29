@@ -9,10 +9,10 @@
 
 ICE_Game_Create()
 {
-	ICE_Id tx_spritesheet = ICE_Texture_Load("res//img//spritesheet.png");
-	ICE_Id sp_main_sprite = ICE_Sprite_Load(tx_spritesheet, ICE_Vect_New(64,64));
-	ICE_Id ms_main_theme = ICE_Music_Load("res//snd//music.ogg");
-	ICE_Id sn_explosion = ICE_Sound_Load("res//snd//explosion.wav");
+	ICE_ID tx_spritesheet = ICE_Texture_Load("res//img//spritesheet.png");
+	ICE_ID sp_main_sprite = ICE_Sprite_Load(tx_spritesheet, ICE_Vect_New(64,64));
+	ICE_ID ms_main_theme = ICE_Music_Load("res//snd//music.ogg");
+	ICE_ID sn_explosion = ICE_Sound_Load("res//snd//explosion.wav");
 }
 
 ICE_Game_Update()

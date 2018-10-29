@@ -161,8 +161,8 @@ struct ICE_LabelManager
 {
 	ICE_Bool				isFree;
 
-	ICE_Id				label_size;
-	ICE_Id				label_contain;
+	ICE_ID				label_size;
+	ICE_ID				label_contain;
 	ICE_Label*				label;
 
 }; typedef struct ICE_LabelManager ICE_LabelManager;
@@ -204,13 +204,13 @@ struct ICE_Entity
 	// Graphics
 
 	ICE_EntityGraphicsType  graphics_type;
-	ICE_Id				graphics_mngr_index;
-	ICE_Id				graphics_index;	
-	ICE_Id				sprite_frame;
+	ICE_ID				graphics_mngr_index;
+	ICE_ID				graphics_index;	
+	ICE_ID				sprite_frame;
 	ICE_Box					graphics_box_render;
 
 	// Data Array
-	ICE_Id				data_nb;
+	ICE_ID				data_nb;
 	void **					data;
 
 }; typedef struct ICE_Entity ICE_Entity;
@@ -222,8 +222,8 @@ struct ICE_EntityManager
 {
 	ICE_Bool				isFree;
 
-	ICE_Id				entity_size;
-	ICE_Id				entity_contain;
+	ICE_ID				entity_size;
+	ICE_ID				entity_contain;
 	ICE_Entity*				entity;
 
 }; typedef struct ICE_EntityManager ICE_EntityManager;
@@ -237,19 +237,19 @@ struct ICE_GameObjectManager
 	ICE_Camera				camera;
 
 	// Label
-	ICE_Id				label_mngr_nb;
+	ICE_ID				label_mngr_nb;
 	ICE_LabelManager *		label_mngr;
 	
 	// Gui
-	ICE_Id				gui_mngr_nb;
+	ICE_ID				gui_mngr_nb;
 	ICE_GuiManager *		gui_mngr;
 
 	// Entity
-	ICE_Id				entity_mngr_nb;
+	ICE_ID				entity_mngr_nb;
 	ICE_EntityManager *		entity_mngr;
 
 	// Data
-	ICE_Id				data_nb;
+	ICE_ID				data_nb;
 	void**					data;
 
 }; typedef struct ICE_GameObjectManager ICE_ObjectManager;

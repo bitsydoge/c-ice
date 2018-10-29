@@ -19,7 +19,7 @@ void ICE_MusicManager_Init()
 
 void ICE_MusicManager_Free()
 {
-	for (ICE_Id i = 0; i < ASSET.music_mngr.music_contain; i++)
+	for (ICE_ID i = 0; i < ASSET.music_mngr.music_contain; i++)
 	{
 		//Free everything to free in Label
 		ICE_Music_Destroy(i);
@@ -41,7 +41,7 @@ ICE_Music ICE_Music_Create(char *path_)
 	return music;
 }
 
-ICE_Id ICE_Music_Load(char *path_)
+ICE_ID ICE_Music_Load(char *path_)
 {
 	// Insert label in array
 	ASSET.music_mngr.music[ASSET.music_mngr.music_contain] = ICE_Music_Create(path_);
@@ -58,12 +58,12 @@ ICE_Id ICE_Music_Load(char *path_)
 	return ASSET.music_mngr.music_contain - 1;
 }
 
-void ICE_Music_Clear(ICE_Id music_)
+void ICE_Music_Clear(ICE_ID music_)
 {
 	memset(ASSET.music_mngr.music, 0, sizeof(ICE_Music));
 }
 
-void ICE_Music_Destroy(ICE_Id music_)
+void ICE_Music_Destroy(ICE_ID music_)
 {
 	ICE_String_Delete(ASSET.music_mngr.music[music_].filename);
 	Mix_FreeMusic(ASSET.music_mngr.music[music_].sdl_handle);
@@ -71,7 +71,7 @@ void ICE_Music_Destroy(ICE_Id music_)
 
 // PLAY
 
-int ICE_Music_Play(ICE_Id music_, const int volume_)
+int ICE_Music_Play(ICE_ID music_, const int volume_)
 {
 	if (ASSET.music_mngr.music[music_].sdl_handle != NULL) 
 	{
@@ -92,7 +92,7 @@ void ICE_Music_Resume()
 	Mix_ResumeMusic();
 }
 
-ICE_Music* ICE_Music_Get(ICE_Id music_)
+ICE_Music* ICE_Music_Get(ICE_ID music_)
 {
 	return &ASSET.music_mngr.music[music_];
 }

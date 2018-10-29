@@ -13,7 +13,7 @@ extern ICE_Game GAME;
 
 /* GUIMANAGER */
 
-ICE_Id ICE_GuiManager_Insert(ICE_State * state)
+ICE_ID ICE_GuiManager_Insert(ICE_State * state)
 {
 	if (!state)
 		state = GAME.current;
@@ -30,14 +30,14 @@ ICE_Id ICE_GuiManager_Insert(ICE_State * state)
 	return state->object.gui_mngr_nb - 1;
 }
 
-void ICE_GuiManager_Destroy(ICE_State * state, const ICE_Id man)
+void ICE_GuiManager_Destroy(ICE_State * state, const ICE_ID man)
 {
 	if (!state)
 		state = GAME.current;
 
 	ICE_GuiManager *manager = &state->object.gui_mngr[man];
 
-	for (ICE_Id i = 0; i < manager->gui_contain; i++)
+	for (ICE_ID i = 0; i < manager->gui_contain; i++)
 	{
 		//Free everything to free in Label
 		ICE_Gui_Destroy(&manager->gui[i]);
@@ -53,9 +53,9 @@ void ICE_GuiManager_DestroyAll(ICE_State * state)
 		state = GAME.current;
 
 	ICE_GuiManager *manager = state->object.gui_mngr;
-	ICE_Id nb_manager = state->object.gui_mngr_nb;
+	ICE_ID nb_manager = state->object.gui_mngr_nb;
 
-	for (ICE_Id i = 0; i < nb_manager; i++)
+	for (ICE_ID i = 0; i < nb_manager; i++)
 	{
 		if (!manager[i].isFree)
 		{
@@ -68,7 +68,7 @@ void ICE_GuiManager_DestroyAll(ICE_State * state)
 
 /* GUI */
 
-ICE_Gui ICE_Gui_Create(ICE_Box box, ICE_Id man_texture, ICE_Id nb_texture)
+ICE_Gui ICE_Gui_Create(ICE_Box box, ICE_ID man_texture, ICE_ID nb_texture)
 {
 	ICE_Gui gui = { 0 };
 
@@ -83,7 +83,7 @@ ICE_Gui ICE_Gui_Create(ICE_Box box, ICE_Id man_texture, ICE_Id nb_texture)
 	return gui;
 }
 
-ICE_Id ICE_Gui_Insert(ICE_State * state, const ICE_Id man, const ICE_Box box, ICE_Id texture_manager, ICE_Id texture_nb)
+ICE_ID ICE_Gui_Insert(ICE_State * state, const ICE_ID man, const ICE_Box box, ICE_ID texture_manager, ICE_ID texture_nb)
 {
 	if (!state)
 		state = GAME.current;

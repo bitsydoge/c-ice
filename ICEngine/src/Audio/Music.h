@@ -12,14 +12,14 @@ void ICE_MusicManager_Free();
 // MUSIC
 
 ICE_Music ICE_Music_Create(char *path);
-ICE_Id ICE_Music_Load(char *path);
-void ICE_Music_Clear(ICE_Id music_);
-void ICE_Music_Destroy(ICE_Id music_);
-ICE_Music* ICE_Music_Get(ICE_Id music_);
+ICE_ID ICE_Music_Load(char *path);
+void ICE_Music_Clear(ICE_ID music_);
+void ICE_Music_Destroy(ICE_ID music_);
+ICE_Music* ICE_Music_Get(ICE_ID music_);
 
 // PLAY
 
-int ICE_Music_Play(ICE_Id music_, const int volume_);
+int ICE_Music_Play(ICE_ID music_, const int volume_);
 void ICE_Music_Pause();
 void ICE_Music_Resume();
 
