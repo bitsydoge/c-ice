@@ -27,6 +27,7 @@ void ICE_TextureManager_Free()
 		ICE_Texture_Destroy(i);
 
 	ICE_Free(ASSET.texture_mngr.texture);
+	ASSET.texture_mngr.texture = NULL;
 	ICE_Log(ICE_LOG_SUCCES, "Free TextureManager");
 }
 
@@ -48,7 +49,7 @@ ICE_ID ICE_Texture_Load(char* path_)
 {
 	ASSET.texture_mngr.texture[ASSET.texture_mngr.texture_contain] = ICE_Texture_Create(path_);
 	ASSET.texture_mngr.texture_contain++;
-	ICE_Log(ICE_LOG_SUCCES, "Load Texture %d from Path=\"%s\"", ASSET.texture_mngr.texture_contain - 1, path_);
+	ICE_Log(ICE_LOG_SUCCES, "Load Texture %d from \"%s\"", ASSET.texture_mngr.texture_contain - 1, path_);
 	
 	if (ASSET.texture_mngr.texture_size <= ASSET.texture_mngr.texture_contain) 
 	{

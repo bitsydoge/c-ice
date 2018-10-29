@@ -20,11 +20,10 @@ void ICE_MusicManager_Init()
 void ICE_MusicManager_Free()
 {
 	for (ICE_ID i = 0; i < ASSET.music_mngr.music_contain; i++)
-	{
-		//Free everything to free in Label
 		ICE_Music_Destroy(i);
-	}
+
 	ICE_Free(ASSET.music_mngr.music);
+	ASSET.music_mngr.music = NULL;
 	ICE_Log(ICE_LOG_SUCCES, "Free MusicManager");
 }
 
@@ -37,21 +36,18 @@ ICE_Music ICE_Music_Create(char *path_)
 	music.filename = ICE_String_Init(path_);
 	music.sdl_handle = Mix_LoadMUS(path_);
 	if(music.sdl_handle == NULL)
-		ICE_Log(ICE_LOG_ERROR, "%s", Mix_GetError());
+		ICE_Log(ICE_LOG_ERROR, "Load Music : %s", Mix_GetError());
 	return music;
 }
 
 ICE_ID ICE_Music_Load(char *path_)
 {
-	// Insert label in array
 	ASSET.music_mngr.music[ASSET.music_mngr.music_contain] = ICE_Music_Create(path_);
 	ASSET.music_mngr.music_contain++;
-	ICE_Log(ICE_LOG_SUCCES, "Create Music %d from %s", ASSET.music_mngr.music_contain - 1, path_);
-	// Test size to realloc more space
+	ICE_Log(ICE_LOG_SUCCES, "Load Music %d from \"%s\"", ASSET.music_mngr.music_contain - 1, path_);
+
 	if (ASSET.music_mngr.music_size <= ASSET.music_mngr.music_contain) {
 		ICE_Music* tmp = ICE_Realloc(ASSET.music_mngr.music, sizeof(ICE_Music)*(ASSET.music_mngr.music_size * 2));
-		// Test if realloc succes
-		ICE_Log(ICE_LOG_WARNING, "MusicManager Resized to %d", ASSET.music_mngr.music_size * 2);
 		ASSET.music_mngr.music = tmp;
 		ASSET.music_mngr.music_size *= 2;
 	}
