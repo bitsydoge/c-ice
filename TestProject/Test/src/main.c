@@ -103,7 +103,7 @@ ICE_Game_Update()
 	{
 		ICE_Entity_SetSpriteFrame
 		(
-			ICE_Entity_Get(NULL, data->main_entity_manager, data->entity_test),
+			ICE_Entity_Get(NULL, data->entity_test),
 			frame_number
 		);
 		frame_number++;
