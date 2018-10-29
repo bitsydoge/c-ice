@@ -8,16 +8,16 @@ extern ICE_Asset ASSET;
 
 /* SPRITEMANAGER */
 
-void ICE_SpriteManager_Insert()
+void ICE_SpriteManager_Init()
 {
 	ICE_SpriteManager sprite_manager = { 0 };
 	sprite_manager.sprite_size = ICE_DEFAULT_SPRITE_MNGR_SIZE;
 	sprite_manager.sprite = ICE_Calloc(sprite_manager.sprite_size, sizeof(ICE_Sprite)); // Label Array
 	ASSET.sprite_mngr = sprite_manager;
-	ICE_Log(ICE_LOG_SUCCES, "Create SpriteManager");
+	ICE_Log(ICE_LOG_SUCCES, "Init SpriteManager");
 }
 
-void ICE_SpriteManager_Destroy()
+void ICE_SpriteManager_Free()
 {
 	for (ICE_Id i = 0; i < ASSET.sprite_mngr.sprite_contain; i++)
 	{
@@ -25,7 +25,7 @@ void ICE_SpriteManager_Destroy()
 		ICE_Sprite_Destroy(i);
 	}
 	ICE_Free(ASSET.sprite_mngr.sprite);
-	ICE_Log(ICE_LOG_SUCCES, "Destroy SpriteManager : %d");
+	ICE_Log(ICE_LOG_SUCCES, "Free SpriteManager");
 }
 
 /* SPRITE */
@@ -38,7 +38,7 @@ ICE_Sprite ICE_Sprite_Create(ICE_Id texture_, ICE_Vect size_frame_sprite_)
 	sprite.exist = ICE_True;
 	
 	sprite.have_texture_defined = ICE_True;
-	sprite.texture_index = texture_get->index;
+	sprite.texture_index = texture_get->id;
 
 	sprite.size_w = size_frame_sprite_.x;
 	sprite.size_h = size_frame_sprite_.y;
@@ -49,7 +49,7 @@ ICE_Sprite ICE_Sprite_Create(ICE_Id texture_, ICE_Vect size_frame_sprite_)
 	return sprite;
 }
 
-ICE_Id ICE_Sprite_Insert(ICE_Id texture_, ICE_Vect size_frame_sprite_)
+ICE_Id ICE_Sprite_Load(ICE_Id texture_, ICE_Vect size_frame_sprite_)
 {
 	// Insert sprite in array
 	ASSET.sprite_mngr.sprite[ASSET.sprite_mngr.sprite_contain] = ICE_Sprite_Create(texture_, size_frame_sprite_);

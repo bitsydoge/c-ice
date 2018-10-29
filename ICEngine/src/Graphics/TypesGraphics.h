@@ -32,7 +32,7 @@ typedef uint32_t ICE_Color;
  */
 struct ICE_Texture
 {
-	ICE_Id index;
+	ICE_Id id;
 
 	ICE_Bool	 exist;
 	unsigned int w, h;

@@ -8,16 +8,16 @@ extern ICE_Asset ASSET;
 
 // MANAGER
 
-void ICE_MusicManager_Create()
+void ICE_MusicManager_Init()
 {
 	ICE_MusicManager musicmanager = { 0 };
 	musicmanager.music_size = ICE_DEFAULT_MUSIC_SIZE;
 	musicmanager.music = ICE_Calloc(musicmanager.music_size, sizeof(ICE_Music));
 	ASSET.music_mngr = musicmanager;
-	ICE_Log(ICE_LOG_SUCCES, "Create MusicManager");
+	ICE_Log(ICE_LOG_SUCCES, "Init MusicManager");
 }
 
-void ICE_MusicManager_Destroy()
+void ICE_MusicManager_Free()
 {
 	for (ICE_Id i = 0; i < ASSET.music_mngr.music_contain; i++)
 	{
@@ -25,7 +25,7 @@ void ICE_MusicManager_Destroy()
 		ICE_Music_Destroy(i);
 	}
 	ICE_Free(ASSET.music_mngr.music);
-	ICE_Log(ICE_LOG_SUCCES, "Destroy MusicManager");
+	ICE_Log(ICE_LOG_SUCCES, "Free MusicManager");
 }
 
 // MUSIC

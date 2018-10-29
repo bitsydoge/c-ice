@@ -8,24 +8,22 @@ extern ICE_Asset ASSET;
 
 // MANAGER
 
-void ICE_SoundManager_Create()
+void ICE_SoundManager_Init()
 {
 	ICE_SoundManager soundmanager = { 0 };
 	soundmanager.sound_size = ICE_DEFAULT_SOUND_SIZE;
 	soundmanager.sound = ICE_Calloc(soundmanager.sound_size, sizeof(ICE_Sound));
 	ASSET.sound_mngr = soundmanager;
-	ICE_Log(ICE_LOG_SUCCES, "Create SoundManager");
+	ICE_Log(ICE_LOG_SUCCES, "Init SoundManager");
 }
 
-void ICE_SoundManager_Destroy()
+void ICE_SoundManager_Free()
 {
 	for (ICE_Id i = 0; i < ASSET.sound_mngr.sound_contain; i++)
-	{
-		//Free everything to free in Label
 		ICE_Sound_Destroy(i);
-	}
+
 	ICE_Free(ASSET.sound_mngr.sound);
-	ICE_Log(ICE_LOG_SUCCES, "Destroy SoundManager");
+	ICE_Log(ICE_LOG_SUCCES, "Free SoundManager");
 }
 
 // SOUND
@@ -39,7 +37,7 @@ ICE_Sound ICE_Sound_Create(char *path)
 	return sound;
 }
 
-ICE_Id ICE_Sound_Load(ICE_Id man, char *path_) 
+ICE_Id ICE_Sound_Load(char *path_) 
 {
 	// Insert label in array
 	ASSET.sound_mngr.sound[ASSET.sound_mngr.sound_contain] = ICE_Sound_Create(path_);

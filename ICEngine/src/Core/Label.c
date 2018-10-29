@@ -129,7 +129,7 @@ void ICE_Label_Destroy(ICE_Label * ptr)
 {
 	ICE_String_Delete(ptr->text);
 	ICE_String_Delete(ptr->old_text);
-	ICE_Texture_Destroy(&ptr->texture);
+	ICE_Texture_Free(&ptr->texture);
 }
 
 /* LABEL GET FUNCTION */
