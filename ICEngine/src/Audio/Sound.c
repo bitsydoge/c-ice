@@ -6,7 +6,7 @@
 
 extern ICE_Asset ASSET;
 
-// MANAGER
+/* SOUNDMANAGER */
 
 void ICE_SoundManager_Init()
 {
@@ -23,31 +23,30 @@ void ICE_SoundManager_Free()
 		ICE_Sound_Destroy(i);
 
 	ICE_Free(ASSET.sound_mngr.sound);
+	ASSET.sound_mngr.sound = NULL;
 	ICE_Log(ICE_LOG_SUCCES, "Free SoundManager");
 }
 
-// SOUND
+/* SOUND */
 
 ICE_Sound ICE_Sound_Create(char *path)
 {
 	ICE_Sound sound = { 0 };
-	// Assigne
+
 	sound.filename = ICE_String_Init(path);
 	sound.sdl_handle = Mix_LoadWAV(path);
+
 	return sound;
 }
 
 ICE_ID ICE_Sound_Load(char *path_) 
 {
-	// Insert label in array
 	ASSET.sound_mngr.sound[ASSET.sound_mngr.sound_contain] = ICE_Sound_Create(path_);
 	ASSET.sound_mngr.sound_contain++;
-	ICE_Log(ICE_LOG_SUCCES, "Create Sound %d from %s", ASSET.sound_mngr.sound_contain - 1, path_);
-	// Test size to realloc more space
+	ICE_Log(ICE_LOG_SUCCES, "Load Sound %d from \"%s\"", ASSET.sound_mngr.sound_contain - 1, path_);
+	
 	if (ASSET.sound_mngr.sound_size <= ASSET.sound_mngr.sound_contain) {
 		ICE_Sound* tmp = ICE_Realloc(ASSET.sound_mngr.sound, sizeof(ICE_Sound)*(ASSET.sound_mngr.sound_size * 2));
-		// Test if realloc succes
-		ICE_Log(ICE_LOG_WARNING, "SoundManager Resized to %d", ASSET.sound_mngr.sound_size * 2);
 		ASSET.sound_mngr.sound = tmp;
 		ASSET.sound_mngr.sound_size *= 2;
 	}
