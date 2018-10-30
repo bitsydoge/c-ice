@@ -56,9 +56,9 @@ ICE_Game_Create("2DWatch", 800, 480)
 
 	// Gui
 	manager = ICE_GuiManager_Insert(NULL);
-	nb = ICE_Gui_Insert(NULL, manager, ICE_Box_New(0, 0, ICE_Window_GetW(), 50), 0, 1);
+	nb = ICE_Gui_Insert(NULL, manager, ICE_Box_New(0, 0, ICE_Window_GetW(), 50), 1);
 
-	nb = ICE_Gui_Insert(NULL, manager, ICE_Box_New(0, 0, 50, 70), 0, texture_Logo);
+	nb = ICE_Gui_Insert(NULL, manager, ICE_Box_New(0, 0, 50, 70), texture_Logo);
 	ICE_Gui_SetType(ICE_Gui_Get(NULL, 0, nb), ICE_GUITYPE_IMAGE);
 
 	// Label

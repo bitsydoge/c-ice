@@ -22,11 +22,11 @@ void ICE_Gui_UpdateTexture(ICE_ID man, ICE_ID gui)
 	// TYPE DRAW
 
 	if(GAME.current->object.gui_mngr[man].gui[gui].type == ICE_GUITYPE_RECTANGLE)
-		ICE_Gui_Rect(ICE_Texture_Get(GAME.current->object.gui_mngr[man].gui[gui].texturemanager_index, GAME.current->object.gui_mngr[man].gui[gui].texture_index), box2);
+		ICE_Gui_Rect(ICE_Texture_Get(GAME.current->object.gui_mngr[man].gui[gui].texture_index), box2);
 
 	if (GAME.current->object.gui_mngr[man].gui[gui].type == ICE_GUITYPE_IMAGE)
 		ICE_Texture_RenderEx(
-			ICE_Texture_Get(GAME.current->object.gui_mngr[man].gui[gui].texturemanager_index, GAME.current->object.gui_mngr[man].gui[gui].texture_index),
+			ICE_Texture_Get(GAME.current->object.gui_mngr[man].gui[gui].texture_index),
 			NULL,
 			&GAME.current->object.gui_mngr[man].gui[gui].box,
 			0

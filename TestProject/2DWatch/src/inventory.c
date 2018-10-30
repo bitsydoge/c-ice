@@ -38,7 +38,6 @@ void inventory_create()
 			ICE_Label_GetWidth(ICE_Label_Get(NULL, man, nb)) + 10,
 			ICE_Label_GetHeight(ICE_Label_Get(NULL, man, nb) + 2)
 		),
-		0,
 		1
 	);
 }
