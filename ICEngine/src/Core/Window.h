@@ -20,7 +20,7 @@ void ICE_Window_SetResizable(ICE_Bool yn);
  * \brief Set the window fullscreen or not
  * \param yn A Bool with the answer
  */
-void ICE_Window_SetFullscreen(ICE_Uint8 yn);
+void ICE_Window_SetFullscreen(int yn);
 
 /**
  * \brief Set the window title
