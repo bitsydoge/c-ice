@@ -128,7 +128,7 @@ void ICE_Draw_Entity()
 					current->object.entity_mngr[i].entity[j].h));
 
 				ICE_Texture_RenderExCentered(
-					ICE_Texture_Get(current->object.entity_mngr[i].entity[j].graphics_mngr_index, current->object.entity_mngr[i].entity[j].graphics_index),
+					ICE_Texture_Get(current->object.entity_mngr[i].entity[j].graphics_index),
 					NULL, 
 					&rect, 
 					current->object.entity_mngr[i].entity[j].angle
@@ -146,7 +146,7 @@ void ICE_Draw_Entity()
 
 				ICE_Texture_RenderExCentered
 				(
-					ICE_Texture_Get(current->object.entity_mngr[i].entity[j].graphics_mngr_index, current->object.entity_mngr[i].entity[j].graphics_index),
+					ICE_Texture_Get(current->object.entity_mngr[i].entity[j].graphics_index),
 					&current->object.entity_mngr[i].entity[j].graphics_box_render,
 					&rect,
 					current->object.entity_mngr[i].entity[j].angle
