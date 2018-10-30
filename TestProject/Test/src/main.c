@@ -19,12 +19,16 @@
 typedef struct
 {
 	//Assets
-	ICE_ID tx_spritesheet, tx_gui, sp_main_sprite; 
-	ICE_ID ms_main_theme, sn_explosion;
+	ICE_TextureID tx_spritesheet, tx_gui, sp_main_sprite; 
+	ICE_MusicID ms_main_theme;
+	ICE_SoundID sn_explosion;
 
 	//GameObject
-	ICE_ID en_player;
-	ICE_ID gi_rectangle;
+	ICE_EntityID en_player;
+	ICE_GuiID gi_rectangle;
+
+
+	//Variable
 	int player_speed;
 
 } Data;
