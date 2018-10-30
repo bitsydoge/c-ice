@@ -260,8 +260,7 @@ struct ICE_GameObjectManager
 	ICE_GuiManager *		gui_mngr;
 
 	// Entity
-	ICE_ID				entity_mngr_nb;
-	ICE_EntityManager *		entity_mngr;
+	ICE_EntityManager entity_mngr;
 
 	// Data
 	ICE_ID				data_nb;
@@ -274,6 +273,7 @@ struct ICE_GameObjectManager
 */
 struct ICE_State
 {
+	ICE_String name;
 	ICE_Bool				quit;
 	ICE_Bool				isPaused;
 	ICE_Bool				isFree;
@@ -324,8 +324,8 @@ struct ICE_Core
 struct ICE_Game {
 	
 	// State
-	ICE_State				state_main;
-	ICE_State*				current;
+	ICE_State state_main;
+	ICE_State* current;
 
 }; typedef struct ICE_Game ICE_Game;
 

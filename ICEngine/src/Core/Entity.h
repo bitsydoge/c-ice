@@ -9,14 +9,13 @@
 
 /* ENTITY MANAGER */
 
-ICE_ID ICE_EntityManager_Insert(ICE_State * state);
-void ICE_EntityManager_Destroy(ICE_State * state, const ICE_ID man);
-void ICE_EntityManager_DestroyAll(ICE_State * state);
+void ICE_EntityManager_Create(ICE_State* state);
+void ICE_EntityManager_Destroy(ICE_State * state);
 
 /* ENTITY */
 
-ICE_Entity ICE_Entity_Create(ICE_Box pos);
-ICE_ID ICE_Entity_Insert(ICE_State * state, const ICE_ID man, ICE_Box pos);
+ICE_Entity ICE_Entity_Build(ICE_Box pos);
+ICE_ID ICE_Entity_Create(ICE_State * state, ICE_Box pos);
 void ICE_Entity_Clear(ICE_Entity * entity);
 void ICE_Entity_Destroy(ICE_Entity * ptr);
 
@@ -25,7 +24,7 @@ void ICE_Entity_Destroy(ICE_Entity * ptr);
 /* ENTITY INFO */
 
 	//Simple
-ICE_Entity * ICE_Entity_Get(ICE_State * state, const unsigned man, const unsigned nb);
+ICE_Entity * ICE_Entity_Get(ICE_State * state, ICE_EntityID entity_id);
 ICE_ID ICE_Entity_GetQuantity(ICE_State * state, ICE_ID manager);
 ICE_ID ICE_EntityManager_GetQuantity(ICE_State * state);
 

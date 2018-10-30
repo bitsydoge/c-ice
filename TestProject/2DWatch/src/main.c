@@ -46,11 +46,11 @@ ICE_Game_Create("2DWatch", 800, 480)
 	ICE_ID nb = 0;
 
 	// Entity
-	manager = ICE_EntityManager_Insert(NULL);
-	nb = ICE_Entity_Insert(NULL, manager, ICE_Box_New(0, 0, 375, 250));
+	manager = ICE_EntityManager_Create();
+	nb = ICE_Entity_Create(NULL, ICE_Box_New(0, 0, 375, 250));
 	ICE_Entity_SetTexture
 	(
-		ICE_Entity_Get(NULL, 0, 0), 
+		ICE_Entity_Get(NULL, 0), 
 		ICE_Texture_Get(0, texture_Widow)
 	);
 
@@ -91,7 +91,7 @@ void Screen_Update()
 	if (amount >= 10.0f)
 		amount = 0;
 
-	ICE_Entity_AddAngle(ICE_Entity_Get(NULL, 0, 0), 50 * ICE_Game_GetDelta());
+	ICE_Entity_AddAngle(ICE_Entity_Get(NULL, 0), 50 * ICE_Game_GetDelta());
 }
 
 ICE_Game_Update()

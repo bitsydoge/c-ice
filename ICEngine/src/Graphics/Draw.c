@@ -115,44 +115,48 @@ void ICE_Draw_Entity()
 {
 	ICE_State * current = GAME.current;
 
-	for (ICE_ID i = 0; i < current->object.entity_mngr_nb; i++)
-		for (ICE_ID j = 0; j < current->object.entity_mngr[i].entity_contain; j++)
+	for (ICE_ID j = 0; j < current->object.entity_mngr.entity_contain; j++)
+	{
+		// With just texture
+		if (current->object.entity_mngr.entity[j].graphics_type == ICE_ENTITYGRAPHICSTYPES_TEXTURE && current->object.entity_mngr.entity[j].active)
 		{
-			// With just texture
-			if (current->object.entity_mngr[i].entity[j].graphics_type == ICE_ENTITYGRAPHICSTYPES_TEXTURE && current->object.entity_mngr[i].entity[j].active)
-			{
-				ICE_Box rect = ICE_Camera_WorldScreen(ICE_Box_New(
-					current->object.entity_mngr[i].entity[j].x,
-					current->object.entity_mngr[i].entity[j].y,
-					current->object.entity_mngr[i].entity[j].w,
-					current->object.entity_mngr[i].entity[j].h));
-
-				ICE_Texture_RenderExCentered(
-					ICE_Texture_Get(current->object.entity_mngr[i].entity[j].graphics_index),
-					NULL, 
-					&rect, 
-					current->object.entity_mngr[i].entity[j].angle
-				);
-			}
-
-			// With a sprite
-			if (current->object.entity_mngr[i].entity[j].graphics_type == ICE_ENTITYGRAPHICSTYPES_SPRITE && current->object.entity_mngr[i].entity[j].active)
-			{
-				ICE_Box rect = ICE_Camera_WorldScreen(ICE_Box_New(
-					current->object.entity_mngr[i].entity[j].x,
-					current->object.entity_mngr[i].entity[j].y,
-					current->object.entity_mngr[i].entity[j].w,
-					current->object.entity_mngr[i].entity[j].h));
-
-				ICE_Texture_RenderExCentered
+			ICE_Box rect = ICE_Camera_WorldScreen
+			(
+				ICE_Box_New
 				(
-					ICE_Texture_Get(current->object.entity_mngr[i].entity[j].graphics_index),
-					&current->object.entity_mngr[i].entity[j].graphics_box_render,
-					&rect,
-					current->object.entity_mngr[i].entity[j].angle
-				);
-			}
+					current->object.entity_mngr.entity[j].x,
+					current->object.entity_mngr.entity[j].y,
+					current->object.entity_mngr.entity[j].w,
+					current->object.entity_mngr.entity[j].h
+				)
+			);
 
-			// With a label
+			ICE_Texture_RenderExCentered
+			(
+				ICE_Texture_Get(current->object.entity_mngr.entity[j].graphics_index),
+				NULL,
+				&rect,
+				current->object.entity_mngr.entity[j].angle
+			);
 		}
+
+		// With a sprite
+		if (current->object.entity_mngr.entity[j].graphics_type == ICE_ENTITYGRAPHICSTYPES_SPRITE && current->object.entity_mngr.entity[j].active)
+		{
+			ICE_Box rect = ICE_Camera_WorldScreen(ICE_Box_New(
+				current->object.entity_mngr.entity[j].x,
+				current->object.entity_mngr.entity[j].y,
+				current->object.entity_mngr.entity[j].w,
+				current->object.entity_mngr.entity[j].h));
+
+			ICE_Texture_RenderExCentered
+			(
+				ICE_Texture_Get(current->object.entity_mngr.entity[j].graphics_index),
+				&current->object.entity_mngr.entity[j].graphics_box_render,
+				&rect,
+				current->object.entity_mngr.entity[j].angle
+			);
+		}
+	}
+			// With a label
 }

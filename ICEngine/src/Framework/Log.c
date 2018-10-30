@@ -17,7 +17,7 @@ void ICE_Log_Line()
 	printf("\n");
 }
 
-void ICE_Log__(int nb_tab, const char* file, int line, ICE_LogTypes type, const char * format, ...)
+void ICE_Log_(int nb_tab, const char* file, int line, ICE_LogTypes type, const char * format, ...)
 {
 		va_list args;
 		va_start(args, format);
@@ -70,7 +70,7 @@ void ICE_Log__(int nb_tab, const char* file, int line, ICE_LogTypes type, const 
 		va_end(args);
 }
 
-void ICE_Log_NoReturn__(ICE_LogTypes type, const char * format, ...)
+void ICE_Log_NoReturn_(ICE_LogTypes type, const char * format, ...)
 {
 		va_list args;
 		va_start(args, format);
