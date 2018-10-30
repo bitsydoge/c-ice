@@ -7,26 +7,16 @@
 #define ICE_CONFIG_WINDOW_H 720
 #define ICE_CONFIG_WINDOW_ICON "res//img//pic_64x64.png"
 
-/*
- *
- * tx = Texture		sp = Sprite
- * sn = Sound		ms = Music
- * en = Entity
- * gi = Gui			lb = Label
- * 
- */
-
 typedef struct
 {
 	//Assets
-	ICE_TextureID tx_spritesheet, tx_gui, sp_main_sprite; 
-	ICE_MusicID ms_main_theme;
-	ICE_SoundID sn_explosion;
+	ICE_TextureID spritesheet, texture_gui, main_sprite; 
+	ICE_MusicID main_theme;
+	ICE_SoundID explosion;
 
 	//GameObject
-	ICE_EntityID en_player;
-	ICE_GuiID gi_rectangle;
-
+	ICE_EntityID player;
+	ICE_GuiID rectangle;
 
 	//Variable
 	int player_speed;
@@ -37,21 +27,20 @@ ICE_Game_Create()
 {
 	Data * D = ICE_Data_Insert(NULL, Data);
 
-	D->tx_spritesheet = ICE_Texture_Load("res//img//spritesheet.png");
-	D->tx_gui = ICE_Texture_Load("res//img//gui.png");
-	D->sp_main_sprite = ICE_Sprite_Load(D->tx_spritesheet, ICE_Vect_New(64, 64));
-	D->ms_main_theme = ICE_Music_Load("res//snd//music.ogg");
-	D->sn_explosion = ICE_Sound_Load("res//snd//explosion.wav");
+	D->spritesheet = ICE_Texture_Load("res//img//spritesheet.png");
+	D->texture_gui = ICE_Texture_Load("res//img//gui.png");
+	D->main_sprite = ICE_Sprite_Load(D->spritesheet, ICE_Vect_New(64, 64));
+	D->main_theme = ICE_Music_Load("res//snd//music.ogg");
+	D->explosion = ICE_Sound_Load("res//snd//explosion.wav");
 
-	ICE_EntityManager_Insert(NULL);
-	D->en_player = ICE_Entity_Insert(NULL, 0, ICE_Box_New(0,0,64,64));
+	D->player = ICE_Entity_Create(NULL, ICE_Box_New(0,0,64,64));
 	D->player_speed = 190;
 
-	ICE_Entity_SetSprite(ICE_Entity_Get(NULL, 0, D->en_player), D->sp_main_sprite); // Set Sprite to Entity
-	ICE_Entity_SetSpriteFrame(ICE_Entity_Get(NULL, 0, D->en_player), 53); // Select Frame
+	ICE_Entity_SetSprite(ICE_Entity_Get(NULL, D->player), D->main_sprite); // Set Sprite to Entity
+	ICE_Entity_SetSpriteFrame(ICE_Entity_Get(NULL, D->player), 53); // Select Frame
 
 	ICE_GuiManager_Insert(NULL);
-	ICE_Gui_Insert(NULL, 0, ICE_Box_New(0, 0, 1280, 50), D->tx_gui);
+	ICE_Gui_Insert(NULL, 0, ICE_Box_New(0, 0, 1280, 50), D->texture_gui);
 
 	ICE_Music_Play(0, 0.1);
 }
@@ -59,7 +48,7 @@ ICE_Game_Create()
 ICE_Game_Update()
 {
 	Data * D = ICE_Data_Get(NULL, 0);
-	ICE_Entity * player = ICE_Entity_Get(NULL, 0, D->en_player);
+	ICE_Entity * player = ICE_Entity_Get(NULL, D->player);
 
 	if (ICE_Input_Pressed(ICE_KEY_D))
 	{

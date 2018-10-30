@@ -20,11 +20,11 @@ enum ICE_LogTypes
 
 #if defined(_DEBUG)
 
-	#define ICE_Log(TYPE, FORMAT, ...) ICE_Log__(0, __FILE__, __LINE__, TYPE, FORMAT, __VA_ARGS__)
-	void ICE_Log__(int nb_tab, const char* file, int line, ICE_LogTypes type, const char * format, ...);
+	#define ICE_Log(TYPE, FORMAT, ...) ICE_Log_(0, __FILE__, __LINE__, TYPE, FORMAT, __VA_ARGS__)
+	void ICE_Log_(int nb_tab, const char* file, int line, ICE_LogTypes type, const char * format, ...);
 
-	#define ICE_Log_NoReturn(TYPE, FORMAT, ...) ICE_Log_NoReturn__(__FILE__, __LINE__, TYPE, FORMAT, __VA_ARGS__)
-	void ICE_Log_NoReturn__(const char* file, int line, ICE_LogTypes type, const char * format, ...);
+	#define ICE_Log_NoReturn(TYPE, FORMAT, ...) ICE_Log_NoReturn_(__FILE__, __LINE__, TYPE, FORMAT, __VA_ARGS__)
+	void ICE_Log_NoReturn_(const char* file, int line, ICE_LogTypes type, const char * format, ...);
 
 	#define ICE_Log_Printf(A, ...) printf(A, __VA_ARGS__)
 	

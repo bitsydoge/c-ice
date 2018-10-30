@@ -14,29 +14,26 @@ extern ICE_Game GAME;
 
 /* ENTITY MANAGER */
 
-ICE_ID ICE_EntityManager_Insert(ICE_State * state)
+void ICE_EntityManager_Create(ICE_State* state)
 {
 	if (!state)
 		state = GAME.current;
 
-	ICE_EntityManager text_manager = { 0 };
-	text_manager.entity_size = ICE_DEFAULT_ENTITY_MNGR_SIZE;
-	text_manager.entity = ICE_Calloc(text_manager.entity_size, sizeof(ICE_Entity)); // Entity Array
+	ICE_EntityManager entity_manager = { 0 };
+	entity_manager.entity_size = ICE_DEFAULT_ENTITY_MNGR_SIZE;
+	entity_manager.entity = ICE_Calloc(entity_manager.entity_size, sizeof(ICE_Entity));
 
-	state->object.entity_mngr_nb++;
-	state->object.entity_mngr = ICE_Realloc(state->object.entity_mngr, state->object.entity_mngr_nb * sizeof(ICE_EntityManager)); // Manager Array
-	state->object.entity_mngr[state->object.entity_mngr_nb - 1] = text_manager;
+	state->object.entity_mngr = entity_manager;
 
-	ICE_Log(ICE_LOG_SUCCES, "Create EntityManager %d", state->object.entity_mngr_nb - 1);
-	return state->object.entity_mngr_nb - 1;
+	ICE_Log(ICE_LOG_SUCCES, "Create EntityManager");
 }
 
-void ICE_EntityManager_Destroy(ICE_State * state, const ICE_ID man)
+void ICE_EntityManager_Destroy(ICE_State * state)
 {
 	if (!state)
 		state = GAME.current;
 
-	ICE_EntityManager *manager = &state->object.entity_mngr[man];
+	ICE_EntityManager *manager = &state->object.entity_mngr;
 
 	for (ICE_ID i = 0; i < manager->entity_contain; i++)
 	{
@@ -45,31 +42,12 @@ void ICE_EntityManager_Destroy(ICE_State * state, const ICE_ID man)
 	}
 
 	ICE_Free(manager->entity);
-	ICE_Log(ICE_LOG_SUCCES, "Free EntityManager : %d", man);
-}
-
-void ICE_EntityManager_DestroyAll(ICE_State * state)
-{
-	if (!state)
-		state = GAME.current;
-
-	ICE_EntityManager *manager = state->object.entity_mngr;
-	const ICE_ID nb_manager = state->object.entity_mngr_nb;
-
-	for (ICE_ID i = 0; i < nb_manager; i++)
-	{
-		if (!manager[i].isFree)
-		{
-			ICE_EntityManager_Destroy(state, i);
-			manager[i].isFree = ICE_True;
-		}
-	}
-	free(manager);
+	ICE_Log(ICE_LOG_SUCCES, "Free EntityManager");
 }
 
 /* ENTITY */
 
-ICE_Entity ICE_Entity_Create(ICE_Box pos)
+ICE_Entity ICE_Entity_Build(ICE_Box pos)
 {
 	ICE_Entity entity = { 0 };
 
@@ -83,27 +61,24 @@ ICE_Entity ICE_Entity_Create(ICE_Box pos)
 	return entity;
 }
 
-ICE_ID ICE_Entity_Insert(ICE_State * state, const ICE_ID man, ICE_Box pos)
+ICE_ID ICE_Entity_Create(ICE_State * state, ICE_Box pos)
 {
 	if (!state)
 		state = GAME.current;
 
 	// Insert entity in array
-	state->object.entity_mngr[man].entity[state->object.entity_mngr[man].entity_contain] = ICE_Entity_Create(pos);
-	state->object.entity_mngr[man].entity_contain++;
+	state->object.entity_mngr.entity[state->object.entity_mngr.entity_contain] = ICE_Entity_Build(pos);
+	state->object.entity_mngr.entity_contain++;
 
-	ICE_Log(ICE_LOG_SUCCES, "EntityManager :: %d :: Entity :: %d :: Create", man, state->object.entity_mngr[man].entity_contain - 1);
+	ICE_Log(ICE_LOG_SUCCES, "Create Entity %d in state %s", state->object.entity_mngr.entity_contain - 1, state->name);
 
-	// Test size to realloc more space
-	if (state->object.entity_mngr[man].entity_size <= state->object.entity_mngr[man].entity_contain) {
-		ICE_Entity* tmp = ICE_Realloc(state->object.entity_mngr[man].entity, sizeof(ICE_Entity)*(state->object.entity_mngr[man].entity_size * 2));
-		// Test if realloc succes
-		ICE_Log(ICE_LOG_WARNING, "EntityManager :: %d :: Resized :: %d", man, state->object.entity_mngr[man].entity_size * 2);
-		state->object.entity_mngr[man].entity = tmp;
-		state->object.entity_mngr[man].entity_size *= 2;
+	if (state->object.entity_mngr.entity_size <= state->object.entity_mngr.entity_contain) 
+	{
+		ICE_Entity* tmp = ICE_Realloc(state->object.entity_mngr.entity, sizeof(ICE_Entity)*(state->object.entity_mngr.entity_size * 2));
+		state->object.entity_mngr.entity = tmp;
+		state->object.entity_mngr.entity_size *= 2;
 	}
-
-	return state->object.entity_mngr[man].entity_contain - 1;
+	return state->object.entity_mngr.entity_contain - 1;
 }
 
 void ICE_Entity_Clear(ICE_Entity * entity)
@@ -118,11 +93,11 @@ void ICE_Entity_Destroy(ICE_Entity * ptr)
 
 /* ENTITY GET FUNCTION */
 
-ICE_Entity * ICE_Entity_Get(ICE_State * state, const unsigned man, const unsigned nb)
+ICE_Entity * ICE_Entity_Get(ICE_State * state, ICE_EntityID entity_id)
 {
 	if (state)
-		return &state->object.entity_mngr[man].entity[nb];
-	return &GAME.current->object.entity_mngr[man].entity[nb];
+		return &state->object.entity_mngr.entity[entity_id];
+	return &GAME.current->object.entity_mngr.entity[entity_id];
 }
 
 ICE_ID ICE_Entity_GetQuantity(ICE_State * state, ICE_ID manager)
@@ -130,15 +105,7 @@ ICE_ID ICE_Entity_GetQuantity(ICE_State * state, ICE_ID manager)
 	if (!state)
 		state = GAME.current;
 
-	return state->object.entity_mngr[manager].entity_contain;
-}
-
-ICE_ID ICE_EntityManager_GetQuantity(ICE_State * state)
-{
-	if (!state)
-		state = GAME.current;
-
-	return state->object.entity_mngr_nb;
+	return state->object.entity_mngr.entity_contain;
 }
 
 ICE_Vect ICE_Entity_GetPosition(ICE_Entity * entity)

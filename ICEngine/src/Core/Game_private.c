@@ -18,14 +18,26 @@ ICE_Game GAME = { 0 };
 
 void ICE_Game_Init()
 {
+	GAME.current = &GAME.state_main;
+	GAME.state_main.name = ICE_String_Init("Main_State");
+	
+	// Asset
 	ICE_TextureManager_Init();
 	ICE_SpriteManager_Init();
 	ICE_SoundManager_Init();
 	ICE_MusicManager_Init();
+
+	// Items
+	ICE_EntityManager_Create(NULL);
+	ICE_GuiManager_Insert(NULL);
+	ICE_LabelManager_Insert(NULL);
+
 }
 
 void ICE_Game_Quit()
 {
+	ICE_String_Delete(GAME.state_main.name);
+
 	ICE_TextureManager_Free();
 	ICE_SpriteManager_Free();
 	ICE_SoundManager_Free();
@@ -33,6 +45,6 @@ void ICE_Game_Quit()
 
 	ICE_LabelManager_DestroyAll(NULL);
 	ICE_GuiManager_DestroyAll(NULL);
-	ICE_EntityManager_DestroyAll(NULL);
+	ICE_EntityManager_Destroy(NULL);
 	ICE_Data_DestroyAll(NULL);
 }
