@@ -68,7 +68,7 @@ void ICE_GuiManager_DestroyAll(ICE_State * state)
 
 /* GUI */
 
-ICE_Gui ICE_Gui_Create(ICE_Box box, ICE_ID man_texture, ICE_ID nb_texture)
+ICE_Gui ICE_Gui_Create(ICE_Box box, ICE_ID nb_texture)
 {
 	ICE_Gui gui = { 0 };
 
@@ -77,28 +77,26 @@ ICE_Gui ICE_Gui_Create(ICE_Box box, ICE_ID man_texture, ICE_ID nb_texture)
 	gui.have_texture_defined = ICE_True;
 	gui.exist = ICE_True;
 	gui.box = box;
-	gui.texturemanager_index = man_texture;
 	gui.texture_index = nb_texture;
 
 	return gui;
 }
 
-ICE_ID ICE_Gui_Insert(ICE_State * state, const ICE_ID man, const ICE_Box box, ICE_ID texture_manager, ICE_ID texture_nb)
+ICE_ID ICE_Gui_Insert(ICE_State * state, const ICE_ID man, const ICE_Box box, ICE_ID texture_nb)
 {
 	if (!state)
 		state = GAME.current;
 
 	// Insert label in array
-	state->object.gui_mngr[man].gui[state->object.gui_mngr[man].gui_contain] = ICE_Gui_Create(box, texture_manager, texture_nb);
+	state->object.gui_mngr[man].gui[state->object.gui_mngr[man].gui_contain] = ICE_Gui_Create(box, texture_nb);
 	state->object.gui_mngr[man].gui_contain++;
 
-	ICE_Log(ICE_LOG_SUCCES, "GuiManager]::[%d]::[Gui]::[%d]::[Create", texture_manager, state->object.gui_mngr[man].gui_contain-1);
+	ICE_Log(ICE_LOG_SUCCES, "Create Gui %d ", state->object.gui_mngr[man].gui_contain-1);
 
 	// Test size to realloc more space
-	if (state->object.gui_mngr[man].gui_size <= state->object.gui_mngr[man].gui_contain) {
+	if (state->object.gui_mngr[man].gui_size <= state->object.gui_mngr[man].gui_contain) 
+	{
 		ICE_Gui* tmp = ICE_Realloc(state->object.gui_mngr[man].gui, sizeof(ICE_Gui)*(state->object.gui_mngr[man].gui_size * 2));
-		// Test if realloc succes
-		ICE_Log(ICE_LOG_WARNING, "GuiManager]::[%d]::[Resized]::[%d", man, state->object.gui_mngr[man].gui_size * 2);
 		state->object.gui_mngr[man].gui = tmp;
 		state->object.gui_mngr[man].gui_size *= 2;
 	}
@@ -115,7 +113,7 @@ void ICE_Gui_Clear(ICE_Gui * label)
 }
 void ICE_Gui_Destroy(ICE_Gui * ptr)
 {
-	ICE_Texture_Destroy(&ptr->texture_cache);
+	ICE_Texture_Free(&ptr->texture_cache);
 }
 
 /* GUI GET */
