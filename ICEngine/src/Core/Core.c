@@ -7,6 +7,7 @@
 #include "Time_private.h"
 #include "Input_private.h"
 #include "../Framework/Log.h"
+#include "Entity.h"
 
 extern ICE_Game GAME;
 extern ICE_Core CORE;
@@ -30,12 +31,13 @@ void ICE_Core_Main(void(*call_create)(void), void(*call_update)(void), void(*cal
 		// LOGIC HERE
 		ICE_Time_Start();
 		ICE_Input_Return();
-		ICE_Render_SetColor(GAME.current->background);
-		ICE_Render_Clear();
-		
+
+		ICE_Entity_FunctionUpdate(NULL);
 		call_update();
 
 		// RENDER HERE
+		ICE_Render_SetColor(GAME.current->background);
+		ICE_Render_Clear();
 		ICE_Draw_Entity();
 		ICE_Draw_LabelWorld();
 		ICE_Draw_Gui();

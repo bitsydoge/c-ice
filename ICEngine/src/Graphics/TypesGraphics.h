@@ -19,6 +19,7 @@ typedef ICE_ID ICE_TextureID;
 typedef ICE_ID ICE_FontID;
 typedef ICE_ID ICE_SoundID;
 typedef ICE_ID ICE_MusicID;
+typedef ICE_ID ICE_DataID;
 
 #endif
 

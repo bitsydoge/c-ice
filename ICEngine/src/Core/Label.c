@@ -16,7 +16,7 @@ extern ICE_Game GAME;
 
 /* LABEL MANAGER */
 
-ICE_ID ICE_LabelManager_Insert(ICE_State * state)
+void ICE_LabelManager_Create(ICE_State* state)
 {
 	if (!state)
 		state = GAME.current;
@@ -25,53 +25,26 @@ ICE_ID ICE_LabelManager_Insert(ICE_State * state)
 	text_manager.label_size = ICE_DEFAULT_LABEL_MNGR_SIZE;
 	text_manager.label = ICE_Calloc(text_manager.label_size, sizeof(ICE_Label)); // Label Array
 
-	state->object.label_mngr_nb++;
-	state->object.label_mngr = ICE_Realloc(state->object.label_mngr, state->object.label_mngr_nb * sizeof(ICE_LabelManager)); // Manager Array
-	state->object.label_mngr[state->object.label_mngr_nb - 1] = text_manager;
+	state->object.label_mngr = text_manager;
 
-	ICE_Log(ICE_LOG_SUCCES, "Create LabelManager : %d", state->object.label_mngr_nb - 1);
-	return state->object.label_mngr_nb - 1;
+	ICE_Log(ICE_LOG_SUCCES, "Create LabelManager in state %s", state->name);
 }
 
-void ICE_LabelManager_Destroy(ICE_State * state, const ICE_ID man)
+void ICE_LabelManager_Destroy(ICE_State * state)
 {
 	if (!state)
 		state = GAME.current;
 
-	ICE_LabelManager *manager = &state->object.label_mngr[man];
+	for (ICE_ID i = 0; i < state->object.label_mngr.label_contain; i++)
+		ICE_Label_Destroy(&state->object.label_mngr.label[i]);
 
-	for (ICE_ID i = 0; i < manager->label_contain; i++)
-	{
-		//Free everything to free in Label
-		ICE_Label_Destroy(&manager->label[i]);
-	}
-
-	ICE_Free(manager->label);
-	ICE_Log(ICE_LOG_SUCCES, "Free LabelManager : %d", man);
-}
-
-void ICE_LabelManager_DestroyAll(ICE_State * state)
-{
-	if (!state)
-		state = GAME.current;
-
-	ICE_LabelManager *manager = state->object.label_mngr;
-	ICE_ID nb_manager = state->object.label_mngr_nb;
-	
-	for (ICE_ID i = 0; i < nb_manager; i++)
-	{
-		if (!manager[i].isFree)
-		{
-			ICE_LabelManager_Destroy(state, i);
-			manager[i].isFree = ICE_True;
-		}
-	}
-	free(manager);
+	ICE_Free(state->object.label_mngr.label);
+	ICE_Log(ICE_LOG_SUCCES, "Free LabelManager in state %s", state->name);
 }
 
 /* LABEL */
 
-ICE_Label ICE_Label_Create(ICE_StringStd text, ICE_Vect pos, int size, enum ICE_LabelType type)
+ICE_Label ICE_Label_Build(ICE_StringStd text, ICE_Vect pos, int size, enum ICE_LabelType type)
 {
 	ICE_Label label = { 0 };
 
@@ -90,28 +63,27 @@ ICE_Label ICE_Label_Create(ICE_StringStd text, ICE_Vect pos, int size, enum ICE_
 	return label;
 }
 
-ICE_ID ICE_Label_Insert(ICE_State * state, const ICE_ID man, ICE_StringStd text, const ICE_Vect pos, int size, enum ICE_LabelType type)
+ICE_ID ICE_Label_Create(ICE_State * state, ICE_StringStd text, const ICE_Vect pos, int size, enum ICE_LabelType type)
 {
 	if (!state)
 		state = GAME.current;
 
 	// Insert label in array
-	state->object.label_mngr[man].label[state->object.label_mngr[man].label_contain] = ICE_Label_Create(text, pos, size, type);
-	ICE_Label_UpdateTexture(ICE_Label_Get(state, man, state->object.label_mngr[man].label_contain));
-	state->object.label_mngr[man].label_contain++;
+	state->object.label_mngr.label[state->object.label_mngr.label_contain] = ICE_Label_Build(text, pos, size, type);
+	ICE_Label_UpdateTexture(ICE_Label_Get(state, state->object.label_mngr.label_contain));
+	state->object.label_mngr.label_contain++;
 
-	ICE_Log(ICE_LOG_SUCCES, "LabelManager]::[%d]::[Label]::[%d]::[Create]::[String=\"%ls\"", man, state->object.label_mngr[man].label_contain - 1, text);
+	ICE_Log(ICE_LOG_SUCCES, "Create Label %d with text \"%s\" in State %s", state->object.label_mngr.label_contain - 1, text, state->name);
 
 	// Test size to realloc more space
-	if (state->object.label_mngr[man].label_size <= state->object.label_mngr[man].label_contain) {
-		ICE_Label* tmp = ICE_Realloc(state->object.label_mngr[man].label, sizeof(ICE_Label)*(state->object.label_mngr[man].label_size * 2));
-		// Test if realloc succes
-		ICE_Log(ICE_LOG_WARNING, "LabelManager]::[%d]::[Resized]::[%d", man, state->object.label_mngr[man].label_size * 2);
-		state->object.label_mngr[man].label = tmp;
-		state->object.label_mngr[man].label_size *= 2;
+	if (state->object.label_mngr.label_size <= state->object.label_mngr.label_contain) 
+	{
+		ICE_Label* tmp = ICE_Realloc(state->object.label_mngr.label, sizeof(ICE_Label)*(state->object.label_mngr.label_size * 2));
+		state->object.label_mngr.label = tmp;
+		state->object.label_mngr.label_size *= 2;
 	}
 
-	return state->object.label_mngr[man].label_contain - 1;
+	return state->object.label_mngr.label_contain - 1;
 }
 
 void ICE_Label_Clear(ICE_Label * label)
@@ -134,11 +106,11 @@ void ICE_Label_Destroy(ICE_Label * ptr)
 
 /* LABEL GET FUNCTION */
 
-ICE_Label * ICE_Label_Get(ICE_State * state, const ICE_ID man, const ICE_ID nb)
+ICE_Label * ICE_Label_Get(ICE_State * state, const ICE_ID nb)
 {
 	if(state)
-		return &state->object.label_mngr[man].label[nb];
-	return &GAME.current->object.label_mngr[man].label[nb];
+		return &state->object.label_mngr.label[nb];
+	return &GAME.current->object.label_mngr.label[nb];
 }
 
 ICE_String ICE_Label_GetString(ICE_Label* ptr)
