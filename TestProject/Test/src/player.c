@@ -3,7 +3,7 @@
 #include "game.h"
 #include "control.h"
 
-void GAME_Player_Create()
+void GAME_Player_Create(ICE_Entity*  this_)
 {
 	GAME_DATA * D = ICE_Data_Get(NULL, 0);
 	GAME_DATA_PLAYER * D_player = ICE_Entity_DataAdd(ICE_Entity_Get(NULL, D->player), GAME_DATA_PLAYER);
@@ -20,7 +20,7 @@ void GAME_Player_Create()
 	ICE_Label_SetString(ICE_Label_Get(NULL, D->hello_world), D_player->name);
 }
 
-void GAME_Player_Update()
+void GAME_Player_Update(ICE_Entity*  this_)
 {
 	GAME_DATA * D = ICE_Data_Get(NULL, 0);
 	ICE_Vect vect = ICE_Entity_GetPosition(ICE_Entity_Get(NULL, D->player));
@@ -29,9 +29,9 @@ void GAME_Player_Update()
 	GAME_Control();
 }
 
-void GAME_Player_Destroy()
+void GAME_Player_Destroy(ICE_Entity*  this_)
 {
-	GAME_DATA_PLAYER * D_player = ICE_Entity_DataGet(NULL, 0);
+	GAME_DATA_PLAYER * D_player = ICE_Entity_DataGet(this_, 0);
 	ICE_String_Delete(D_player->name);
 }
 
