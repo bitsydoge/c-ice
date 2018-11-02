@@ -4,7 +4,8 @@
 typedef struct
 {
 	int dx, dy;
-	int speed;
+	ICE_Float speed;
+	ICE_Float speedDiag;
 	ICE_Float timer;
 
 } GAME_DATA_PROJECTILE;

@@ -201,6 +201,7 @@ enum ICE_EntityGraphicsType
 struct ICE_Entity
 {
 	// Main
+	ICE_EntityID			id;
 	ICE_Bool				active;
 
 	ICE_Float				x, y;
@@ -220,21 +221,21 @@ struct ICE_Entity
 	// Graphics
 
 	ICE_EntityGraphicsType  graphics_type;
-	ICE_ID				graphics_mngr_index;
-	ICE_ID				graphics_index;	
-	ICE_ID				sprite_frame;
+	ICE_ID					graphics_mngr_index;
+	ICE_ID					graphics_index;	
+	ICE_ID					sprite_frame;
 	ICE_Box					graphics_box_render;
 
 	// Data Array
-	ICE_ID				data_nb;
+	ICE_ID					data_nb;
 	void **					data;
 
 	// Function
-	ICE_Bool haveFunctionDefined;
-	ICE_Bool alreadyRunnedCreate;
-	void(*func_create)(void*);
-	void(*func_update)(void*);
-	void(*func_destroy)(void*);
+	ICE_Bool				haveFunctionDefined;
+	ICE_Bool				alreadyRunnedCreate;
+	void					(*func_create)(void*);
+	void					(*func_update)(void*);
+	void					(*func_destroy)(void*);
 
 }; typedef struct ICE_Entity ICE_Entity;
 

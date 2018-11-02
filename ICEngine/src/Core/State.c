@@ -11,7 +11,6 @@
 #include "../Graphics/Draw.h"
 #include "../Graphics/Gui.h"
 
-#include <stdio.h>
 #include "Data.h"
 
 extern ICE_Game GAME;
@@ -92,7 +91,7 @@ void ICE_State_Destroy(ICE_State * state)
 {
 	if(!state->isFree)
 	{
-		ICE_LabelManager_DestroyAll(state);
+		ICE_LabelManager_Destroy(state);
 		ICE_GuiManager_DestroyAll(state);
 		ICE_Data_DestroyAll(state);
 	}
@@ -132,7 +131,7 @@ void ICE_Substate_Loop()
 	{
 		current->func_destroy();
 		current->isFree = ICE_True;
-		ICE_LabelManager_DestroyAll(NULL);
+		ICE_LabelManager_Destroy(NULL);
 		ICE_GuiManager_DestroyAll(NULL);
 		ICE_Data_DestroyAll(NULL);
 		ICE_ObjectManager obj = { 0 };
@@ -157,4 +156,9 @@ ICE_State * ICE_State_GetParent(ICE_State * state)
 		return state->parent;
 	ICE_Log(ICE_LOG_CRITICAL, "No Parent State");
 	return state;
+}
+
+ICE_String ICE_State_CurrentName()
+{
+	return GAME.current->name;
 }

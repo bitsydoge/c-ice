@@ -5,7 +5,7 @@
 typedef struct
 {
 	ICE_EntityID id;
-	int speed;
+	ICE_Float speed;
 	int dx, dy;
 
 	int frame_up, frame_down,
