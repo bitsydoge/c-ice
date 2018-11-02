@@ -258,21 +258,21 @@ struct ICE_EntityManager
 struct ICE_GameObjectManager
 {
 	// Camera
-	ICE_Camera				camera;
+	ICE_Camera			camera;
 
 	// Label
 	ICE_LabelManager 	label_mngr;
 	
 	// Gui
 	ICE_ID				gui_mngr_nb;
-	ICE_GuiManager *		gui_mngr;
+	ICE_GuiManager *	gui_mngr;
 
 	// Entity
 	ICE_EntityManager entity_mngr;
 
 	// Data
 	ICE_ID				data_nb;
-	void**					data;
+	void**				data;
 
 }; typedef struct ICE_GameObjectManager ICE_ObjectManager;
 
