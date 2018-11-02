@@ -1,0 +1,37 @@
+﻿#include <ICE.h>
+#include "player.h"
+#include "game.h"
+
+void GAME_Player_Create()
+{
+	GAME_DATA * D = ICE_Data_Get(NULL, 0);
+	GAME_DATA_PLAYER * D_player = ICE_Entity_DataAdd(ICE_Entity_Get(NULL, D->player), GAME_DATA_PLAYER);
+	
+	D_player->speed = 190;
+	D_player->frame_down = 53;
+	D_player->frame_up = 56;
+	D_player->frame_left = 82;
+	D_player->frame_right = 79;
+	ICE_Entity_SetSprite(ICE_Entity_Get(NULL, D->player), D->main_sprite); // Set Sprite to Entity
+	ICE_Entity_SetSpriteFrame(ICE_Entity_Get(NULL, D->player), D_player->frame_down); // Select Frame
+}
+
+void GAME_Player_Update()
+{
+	GAME_DATA * D = ICE_Data_Get(NULL, 0);
+	ICE_Vect vect = ICE_Entity_GetPosition(ICE_Entity_Get(NULL, D->player));
+	vect.y -= 50;
+	ICE_Label_SetPos(ICE_Label_Get(NULL, D->hello_world), vect);
+}
+
+void GAME_Player_Destroy()
+{
+	
+}
+
+void GAME_Player_Init()
+{
+	GAME_DATA * D = ICE_Data_Get(NULL, 0);
+	D->player = ICE_Entity_Create(NULL, ICE_Box_New(0, 0, 64, 64));
+	ICE_Entity_SetFunction(ICE_Entity_Get(NULL, D->player), GAME_Player_Create, GAME_Player_Update, GAME_Player_Destroy);
+}
