@@ -12,8 +12,11 @@ void GAME_Player_Create()
 	D_player->frame_up = 56;
 	D_player->frame_left = 82;
 	D_player->frame_right = 79;
+	D_player->name = ICE_String_Init("***REMOVED***");
 	ICE_Entity_SetSprite(ICE_Entity_Get(NULL, D->player), D->main_sprite); // Set Sprite to Entity
 	ICE_Entity_SetSpriteFrame(ICE_Entity_Get(NULL, D->player), D_player->frame_down); // Select Frame
+
+	ICE_Label_SetString(ICE_Label_Get(NULL, D->hello_world), D_player->name);
 }
 
 void GAME_Player_Update()

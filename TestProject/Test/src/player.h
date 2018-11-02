@@ -11,6 +11,8 @@ typedef struct
 	int frame_up, frame_down,
 		frame_left, frame_right;
 
+	ICE_String name;
+
 } GAME_DATA_PLAYER;
 
 void GAME_Player_Init();
