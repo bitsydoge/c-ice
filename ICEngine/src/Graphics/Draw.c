@@ -15,36 +15,35 @@ void ICE_Draw_LabelWorld()
 {
 	ICE_State * current = GAME.current;
 
-	for (ICE_ID i = 0; i < current->object.label_mngr_nb; i++)
-		for (ICE_ID j = 0; j < current->object.label_mngr[i].label_contain; j++)
+		for (ICE_ID j = 0; j < current->object.label_mngr.label_contain; j++)
 		{
-			if (current->object.label_mngr[i].label[j].active)
+			if (current->object.label_mngr.label[j].active)
 			{
 				if (
-				    strcmp(current->object.label_mngr[i].label[j].text, current->object.label_mngr[i].label[j].old_text) ||
-					current->object.label_mngr[i].label[j].size != current->object.label_mngr[i].label[j].old_size ||
-					current->object.label_mngr[i].label[j].color != current->object.label_mngr[i].label[j].old_color ||
-					current->object.label_mngr[i].label->wrap_width != current->object.label_mngr[i].label->wrap_width_old
+				    strcmp(current->object.label_mngr.label[j].text, current->object.label_mngr.label[j].old_text) ||
+					current->object.label_mngr.label[j].size != current->object.label_mngr.label[j].old_size ||
+					current->object.label_mngr.label[j].color != current->object.label_mngr.label[j].old_color ||
+					current->object.label_mngr.label->wrap_width != current->object.label_mngr.label->wrap_width_old
 					)
 				{
-					ICE_Label_UpdateTexture(ICE_Label_Get(NULL, i, j));
-					current->object.label_mngr[i].label[j].old_color = current->object.label_mngr[i].label[j].color;
-					current->object.label_mngr[i].label[j].old_size = current->object.label_mngr[i].label[j].size;
+					ICE_Label_UpdateTexture(ICE_Label_Get(NULL, j));
+					current->object.label_mngr.label[j].old_color = current->object.label_mngr.label[j].color;
+					current->object.label_mngr.label[j].old_size = current->object.label_mngr.label[j].size;
 
-					ICE_String_Delete(current->object.label_mngr[i].label[j].old_text);
-					current->object.label_mngr[i].label[j].old_text = ICE_String_Init(current->object.label_mngr[i].label[j].text);
-					current->object.label_mngr[i].label[j].wrap_width_old = current->object.label_mngr[i].label[j].wrap_width;
+					ICE_String_Delete(current->object.label_mngr.label[j].old_text);
+					current->object.label_mngr.label[j].old_text = ICE_String_Init(current->object.label_mngr.label[j].text);
+					current->object.label_mngr.label[j].wrap_width_old = current->object.label_mngr.label[j].wrap_width;
 				}
 
 				ICE_Box box = ICE_Box_New(
-					current->object.label_mngr[i].label[j].x,
-					current->object.label_mngr[i].label[j].y,
-					current->object.label_mngr[i].label[j].texture.w,
-					current->object.label_mngr[i].label[j].texture.h
+					current->object.label_mngr.label[j].x,
+					current->object.label_mngr.label[j].y,
+					current->object.label_mngr.label[j].texture.w,
+					current->object.label_mngr.label[j].texture.h
 				);
  
-				if (current->object.label_mngr[i].label[j].labelType)
-					ICE_Texture_RenderExCentered(&current->object.label_mngr[i].label[j].texture, NULL, (ICE_Box[]) { ICE_Camera_WorldScreen(box) }, current->object.label_mngr[i].label[j].angle);
+				if (current->object.label_mngr.label[j].labelType)
+					ICE_Texture_RenderExCentered(&current->object.label_mngr.label[j].texture, NULL, (ICE_Box[]) { ICE_Camera_WorldScreen(box) }, current->object.label_mngr.label[j].angle);
 			}
 		}
 
@@ -52,35 +51,34 @@ void ICE_Draw_LabelWorld()
 void ICE_Draw_LabelScreen() {
 	ICE_State * current = GAME.current;
 
-	for (ICE_ID i = 0; i < current->object.label_mngr_nb; i++)
-		for (ICE_ID j = 0; j < current->object.label_mngr[i].label_contain; j++)
+		for (ICE_ID j = 0; j < current->object.label_mngr.label_contain; j++)
 		{
-			if (current->object.label_mngr[i].label[j].active)
+			if (current->object.label_mngr.label[j].active)
 			{
 				if (
-					strcmp(current->object.label_mngr[i].label[j].text, current->object.label_mngr[i].label[j].old_text) ||
-					current->object.label_mngr[i].label[j].size != current->object.label_mngr[i].label[j].old_size ||
-					current->object.label_mngr[i].label[j].color != current->object.label_mngr[i].label[j].old_color
+					strcmp(current->object.label_mngr.label[j].text, current->object.label_mngr.label[j].old_text) ||
+					current->object.label_mngr.label[j].size != current->object.label_mngr.label[j].old_size ||
+					current->object.label_mngr.label[j].color != current->object.label_mngr.label[j].old_color
 					)
 				{
-					ICE_Label_UpdateTexture(ICE_Label_Get(NULL, i, j));
-					current->object.label_mngr[i].label[j].old_color = current->object.label_mngr[i].label[j].color;
-					current->object.label_mngr[i].label[j].old_size = current->object.label_mngr[i].label[j].size;
+					ICE_Label_UpdateTexture(ICE_Label_Get(NULL, j));
+					current->object.label_mngr.label[j].old_color = current->object.label_mngr.label[j].color;
+					current->object.label_mngr.label[j].old_size = current->object.label_mngr.label[j].size;
 
-					ICE_String_Delete(current->object.label_mngr[i].label[j].old_text);
-					current->object.label_mngr[i].label[j].old_text = ICE_String_Init(current->object.label_mngr[i].label[j].text);
+					ICE_String_Delete(current->object.label_mngr.label[j].old_text);
+					current->object.label_mngr.label[j].old_text = ICE_String_Init(current->object.label_mngr.label[j].text);
 				}
 
 				ICE_Box box = ICE_Box_New(
-					current->object.label_mngr[i].label[j].x,
-					current->object.label_mngr[i].label[j].y,
-					current->object.label_mngr[i].label[j].texture.w,
-					current->object.label_mngr[i].label[j].texture.h
+					current->object.label_mngr.label[j].x,
+					current->object.label_mngr.label[j].y,
+					current->object.label_mngr.label[j].texture.w,
+					current->object.label_mngr.label[j].texture.h
 				);
 
 				// Fixed to screen
-				if (!current->object.label_mngr[i].label[j].labelType)
-					ICE_Texture_RenderEx(&current->object.label_mngr[i].label[j].texture, NULL, &box, current->object.label_mngr[i].label[j].angle);
+				if (!current->object.label_mngr.label[j].labelType)
+					ICE_Texture_RenderEx(&current->object.label_mngr.label[j].texture, NULL, &box, current->object.label_mngr.label[j].angle);
 			}
 		}
 }

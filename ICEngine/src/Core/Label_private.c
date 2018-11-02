@@ -5,12 +5,14 @@
 
 #include "TypesCore.h"
 #include "../Graphics/Color_private.h"
+#include "../Framework/Assert_.h"
 
 extern ICE_Asset ASSET;
 extern ICE_Core CORE;
 
 void ICE_Label_UpdateTexture(ICE_Label * label)
 {
+	ICE_Assert(ASSET.font.size[100] != 0, "Font is probably not loaded or with an error");
 	SDL_Surface *surf;
 	if(label->wrap_width == 0)
 	{

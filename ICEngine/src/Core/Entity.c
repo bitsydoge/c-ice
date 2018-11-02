@@ -7,6 +7,7 @@
 #include "../Maths/Maths.h"
 #include "../Graphics/Sprite.h"
 #include "../Graphics/Texture.h"
+#include "../Framework/Assert_.h"
 
 #define _POLAR_MOVEMENT_TYPE_1
 
@@ -88,7 +89,10 @@ void ICE_Entity_Clear(ICE_Entity * entity)
 
 void ICE_Entity_Destroy(ICE_Entity * ptr)
 {
+	if(ptr->func_destroy != 0)
+		ptr->func_destroy(ptr);
 
+	ICE_Entity_DataDestroyAll(ptr);
 }
 
 /* ENTITY GET FUNCTION */
@@ -298,4 +302,112 @@ ICE_Texture * ICE_Entity_GetTexture(ICE_Entity * _entity)
 	
 	ICE_Log(ICE_LOG_WARNING, "This entity doesn't have Texture graphics");
 	return NULL;
+}
+
+ICE_ID ICE_Entity_GetSpriteFrame(ICE_Entity * entity)
+{
+	if (entity->graphics_type == ICE_ENTITYGRAPHICSTYPES_SPRITE)
+		return entity->sprite_frame+1;
+	ICE_Log(ICE_LOG_ERROR, "This entity doesn't have a Sprite graphics");
+	return 0;
+}
+
+void ICE_Entity_SetFunction(ICE_Entity * entity, void(*call_create)(void*), void(*call_update)(void*), void(*call_destroy)(void*))
+{
+	entity->haveFunctionDefined = ICE_True;
+	entity->func_create = call_create;
+	entity->func_update = call_update;
+	entity->func_destroy = call_destroy;
+}
+
+void ICE_Entity_FunctionUpdate(ICE_State * state)
+{
+	if (state == NULL)
+		state = GAME.current;
+
+	for(int i = 0; i < state->object.entity_mngr.entity_contain; i++)
+	{
+		if(state->object.entity_mngr.entity[i].active)
+		{
+			if (state->object.entity_mngr.entity[i].haveFunctionDefined)
+			{
+				if (!state->object.entity_mngr.entity[i].alreadyRunnedCreate)
+				{
+					state->object.entity_mngr.entity[i].func_create(&state->object.entity_mngr.entity[i]);
+					state->object.entity_mngr.entity[i].alreadyRunnedCreate = ICE_True;
+				}
+				else
+				{
+					state->object.entity_mngr.entity[i].func_update(&state->object.entity_mngr.entity[i]);
+				}
+			}
+				
+		}
+	}
+}
+
+void * ICE_Entity_DataAdd_(ICE_Entity * entity_, ICE_ID size_)
+{
+	entity_->data_nb++;
+	entity_->data = ICE_Realloc(entity_->data, sizeof(void*)*(entity_->data_nb));
+	entity_->data[entity_->data_nb - 1] = ICE_Calloc(1, size_);
+	void * _pointer = entity_->data[entity_->data_nb - 1];
+	return _pointer;
+}
+
+void * ICE_Entity_DataGet(ICE_Entity * entity_, ICE_DataID id_data_)
+{
+	void * _pointer;
+
+	if (id_data_ <= entity_->data_nb)
+		_pointer = entity_->data[id_data_];
+
+	////////////////////////////////////////////
+	//                                        //
+	// If you see this assert, you choosed    //
+	// a data that doesn't exist              //
+	//                                        //
+	////////////////////////////////////////////
+
+	else
+	{
+		_pointer = NULL;
+		//assert(("Pointer is null so there is no data at this number", _pointer));
+		ICE_Assert(_pointer != NULL, "Pointer is null so there is no data at this number");
+	}
+
+	return _pointer;
+}
+
+void ICE_Entity_DataDestroy(ICE_Entity * entity_, ICE_DataID id_data_)
+{
+	void * _pointer;
+
+	if (id_data_ <=entity_->data_nb)
+		_pointer = entity_->data[id_data_];
+
+	////////////////////////////////////////////
+	//                                        //
+	// If you see this assert, you choosed    //
+	// a data that doesn't exist              //
+	//                                        //
+	////////////////////////////////////////////
+
+	else
+	{
+		_pointer = NULL;
+		//assert("Pointer is null so there is no data at this number", _pointer);
+		ICE_Assert(_pointer != NULL, "Pointer is null so there is no data at this number");
+	}
+
+	ICE_Free(_pointer);
+}
+
+void ICE_Entity_DataDestroyAll(ICE_Entity * entity_)
+{
+	for (ICE_ID i = 0; i < entity_->data_nb; i++)
+	{
+		ICE_Free(entity_->data[i]);
+	}
+	ICE_Free(entity_->data);
 }

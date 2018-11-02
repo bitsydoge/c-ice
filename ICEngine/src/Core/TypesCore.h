@@ -25,6 +25,7 @@ typedef ICE_ID ICE_TextureID;
 typedef ICE_ID ICE_FontID;
 typedef ICE_ID ICE_SoundID;
 typedef ICE_ID ICE_MusicID;
+typedef ICE_ID ICE_DataID;
 
 #endif
 
@@ -228,6 +229,13 @@ struct ICE_Entity
 	ICE_ID				data_nb;
 	void **					data;
 
+	// Function
+	ICE_Bool haveFunctionDefined;
+	ICE_Bool alreadyRunnedCreate;
+	void(*func_create)(void*);
+	void(*func_update)(void*);
+	void(*func_destroy)(void*);
+
 }; typedef struct ICE_Entity ICE_Entity;
 
 /**
@@ -252,8 +260,7 @@ struct ICE_GameObjectManager
 	ICE_Camera				camera;
 
 	// Label
-	ICE_ID				label_mngr_nb;
-	ICE_LabelManager *		label_mngr;
+	ICE_LabelManager 	label_mngr;
 	
 	// Gui
 	ICE_ID				gui_mngr_nb;
@@ -282,8 +289,8 @@ struct ICE_State
 	void					(*func_update)(void);
 	void					(*func_destroy)(void);
 
-	void					(*func_resume)(void);
-	void					(*func_pause)(void);
+	void					(*func_OnResume)(void);
+	void					(*func_OnPause)(void);
 
 	ICE_ObjectManager		object;
 
