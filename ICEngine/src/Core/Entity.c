@@ -134,14 +134,16 @@ ICE_Box ICE_Entity_GetBox(ICE_Entity * entity)
 
 // TEXTURE
 
-void ICE_Entity_SetTexture(ICE_Entity * entity, ICE_Texture * texture)
+extern ICE_Asset ASSET;
+
+void ICE_Entity_SetTexture(ICE_Entity * entity, ICE_TextureID texture)
 {
-	entity->graphics_index = texture->id;
+	entity->graphics_index = texture;
 	entity->graphics_type = ICE_ENTITYGRAPHICSTYPES_TEXTURE;
 	entity->graphics_box_render.x = 0;
 	entity->graphics_box_render.y = 0;
-	entity->graphics_box_render.w = texture->w;
-	entity->graphics_box_render.h = texture->h;
+	entity->graphics_box_render.w = ASSET.texture_mngr.texture[texture].w;
+	entity->graphics_box_render.h = ASSET.texture_mngr.texture[texture].h;
 }
 
 void ICE_Entity_RemoveGraphics(ICE_Entity * entity)
