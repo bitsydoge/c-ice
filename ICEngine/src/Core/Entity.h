@@ -34,7 +34,7 @@ ICE_Box ICE_Entity_GetBox(ICE_Entity* entity);
 /* ENTITY MODIFIER */
 
 //Texture
-void ICE_Entity_SetTexture(ICE_Entity* entity, ICE_Texture* texture);
+void ICE_Entity_SetTexture(ICE_Entity* entity, ICE_TextureID texture);
 void ICE_Entity_RemoveTexture(ICE_Entity* entity);
 
 //Position
