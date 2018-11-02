@@ -411,11 +411,12 @@ void ICE_Entity_DataDestroyAll(ICE_Entity * entity_)
 {
 	for (ICE_ID i = 0; i < entity_->data_nb; i++)
 	{
-		if(entity_->data[i])
-		{
-			ICE_Free(entity_->data[i]);
-			entity_->data[i] = NULL;
-		}
+		if(entity_->data)
+			if(entity_->data[i])
+			{
+				ICE_Free(entity_->data[i]);
+				entity_->data[i] = NULL;
+			}
 	}
 	if(entity_->data)
 	{
