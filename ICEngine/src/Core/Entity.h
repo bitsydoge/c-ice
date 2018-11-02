@@ -70,5 +70,6 @@ void * ICE_Entity_DataAdd_(ICE_Entity * entity_, ICE_ID size_);
 void * ICE_Entity_DataGet(ICE_Entity * entity_, ICE_DataID id_data_);
 void ICE_Entity_DataDestroy(ICE_Entity * entity_, ICE_DataID id_data_);
 void ICE_Entity_DataDestroyAll(ICE_Entity * entity_);
+ICE_EntityID ICE_Entity_GetID(ICE_Entity * entity_);
 
 #endif

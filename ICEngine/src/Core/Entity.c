@@ -69,6 +69,7 @@ ICE_ID ICE_Entity_Create(ICE_State * state, ICE_Box pos)
 
 	// Insert entity in array
 	state->object.entity_mngr.entity[state->object.entity_mngr.entity_contain] = ICE_Entity_Build(pos);
+	state->object.entity_mngr.entity[state->object.entity_mngr.entity_contain].id = state->object.entity_mngr.entity_contain;
 	state->object.entity_mngr.entity_contain++;
 
 	ICE_Log(ICE_LOG_SUCCES, "Create Entity %d in state %s", state->object.entity_mngr.entity_contain - 1, state->name);
@@ -90,11 +91,15 @@ void ICE_Entity_Clear(ICE_Entity * entity)
 void ICE_Entity_Destroy(ICE_Entity * ptr)
 {
 	ptr->active = ICE_False;
-
+	ptr->func_create = NULL;
+	ptr->func_update = NULL;
 	if(ptr->func_destroy != 0)
 		ptr->func_destroy(ptr);
 
 	ICE_Entity_DataDestroyAll(ptr);
+
+	ptr->haveFunctionDefined = ICE_False;
+	ptr->func_destroy = NULL;
 }
 
 /* ENTITY GET FUNCTION */
@@ -423,4 +428,9 @@ void ICE_Entity_DataDestroyAll(ICE_Entity * entity_)
 		ICE_Free(entity_->data);
 		entity_->data = NULL;
 	}
+}
+
+ICE_EntityID ICE_Entity_GetID(ICE_Entity * entity_)
+{
+	return entity_->id;
 }
