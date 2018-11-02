@@ -89,6 +89,8 @@ void ICE_Entity_Clear(ICE_Entity * entity)
 
 void ICE_Entity_Destroy(ICE_Entity * ptr)
 {
+	ptr->active = ICE_False;
+
 	if(ptr->func_destroy != 0)
 		ptr->func_destroy(ptr);
 
@@ -409,7 +411,15 @@ void ICE_Entity_DataDestroyAll(ICE_Entity * entity_)
 {
 	for (ICE_ID i = 0; i < entity_->data_nb; i++)
 	{
-		ICE_Free(entity_->data[i]);
+		if(entity_->data[i])
+		{
+			ICE_Free(entity_->data[i]);
+			entity_->data[i] = NULL;
+		}
 	}
-	ICE_Free(entity_->data);
+	if(entity_->data)
+	{
+		ICE_Free(entity_->data);
+		entity_->data = NULL;
+	}
 }

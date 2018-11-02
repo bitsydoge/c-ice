@@ -5,6 +5,7 @@ typedef struct
 {
 	int dx, dy;
 	int speed;
+	ICE_Float timer;
 
 } GAME_DATA_PROJECTILE;
 

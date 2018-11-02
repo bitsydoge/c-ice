@@ -1,6 +1,7 @@
 ﻿#include <ICE.h>
 #include "player.h"
 #include "game.h"
+#include "control.h"
 
 void GAME_Player_Create()
 {
@@ -25,11 +26,13 @@ void GAME_Player_Update()
 	ICE_Vect vect = ICE_Entity_GetPosition(ICE_Entity_Get(NULL, D->player));
 	vect.y -= 50;
 	ICE_Label_SetPos(ICE_Label_Get(NULL, D->hello_world), vect);
+	GAME_Control();
 }
 
 void GAME_Player_Destroy()
 {
-	
+	GAME_DATA_PLAYER * D_player = ICE_Entity_DataGet(NULL, 0);
+	ICE_String_Delete(D_player->name);
 }
 
 void GAME_Player_Init()
