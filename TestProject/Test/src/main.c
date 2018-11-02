@@ -2,7 +2,6 @@
 
 #include "config.h"
 #include "game.h"
-#include "control.h"
 #include "player.h"
 #include "debug.h"
 
@@ -26,12 +25,13 @@ ICE_Game_Create()
 
 	ICE_Debug_CallbackDraw(GAME_Debug_LateDraw);
 	ICE_Music_Play(0, 0.1);
+
 	GAME_Player_Init();
 }
 
 ICE_Game_Update()
 {
-	GAME_Control();
+
 }
 
 ICE_Game_Destroy()

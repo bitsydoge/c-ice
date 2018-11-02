@@ -19,6 +19,7 @@ void GAME_Projectile_Create(ICE_Entity * this_)
 	D_entity->speed = 600;
 	D_entity->dx = D_player->dx;
 	D_entity->dy = D_player->dy;
+	D_entity->timer = 1.500;
 }
 
 void GAME_Projectile_Update(ICE_Entity * this_)
@@ -29,6 +30,10 @@ void GAME_Projectile_Update(ICE_Entity * this_)
 		D_entity->dx * D_entity->speed * ICE_Game_GetDelta(),
 		D_entity->dy * D_entity->speed * ICE_Game_GetDelta()
 	);
+
+	D_entity->timer -= ICE_Game_GetDelta();
+	if (D_entity->timer < 0)
+		ICE_Entity_Destroy(this_);
 }
 
 void GAME_Projectile_Destroy(ICE_Entity * this_)
