@@ -4,6 +4,7 @@
 #include "game.h"
 #include "control.h"
 #include "player.h"
+#include "debug.h"
 
 ICE_Game_Create()
 {
@@ -14,10 +15,12 @@ ICE_Game_Create()
 	D->main_theme = ICE_Music_Load("res//snd//music.ogg");
 	D->explosion = ICE_Sound_Load("res//snd//explosion.wav");
 	ICE_Font_Load("res//ttf//FiraSans-Medium.ttf");
-
+	
 	D->rectangle = ICE_Gui_Insert(NULL, 0, ICE_Box_New(0, 0, 1280, 50), D->texture_gui);
 	D->hello_world = ICE_Label_Create(NULL, "Player", ICE_Vect_Zero, 15, ICE_LABELTYPE_WORLD);
 	ICE_Music_Play(0, 0.1);
+
+	ICE_Debug_CallbackDraw(GAME_Debug_LateDraw);
 
 	GAME_Player_Init();
 }
