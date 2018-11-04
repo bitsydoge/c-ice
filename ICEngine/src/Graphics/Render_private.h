@@ -27,4 +27,7 @@ void ICE_Render_Info();
 #define ICE_Render_Info(...)
 #endif
 
+void ICE_Render_Init();
+void ICE_Render_Quit();
+
 #endif

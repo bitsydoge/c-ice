@@ -60,11 +60,11 @@ size_t ICE_ThingToFree()
 {
 	if(_thing_to_free_ > 0)
 	{
-		ICE_Log(ICE_LOG_ERROR, "Memory]::[Free]::[ThereIsThingToFree]::[%d]", _thing_to_free_);
+		ICE_Log(ICE_LOG_ERROR, "There is %d heap to free", _thing_to_free_);
 	}
 	else
 	{
-		ICE_Log(ICE_LOG_SUCCES, "Memory]::[Free]::[NothingToFree");
+		ICE_Log(ICE_LOG_SUCCES, "Everything has been free");
 	}
 	return _thing_to_free_;
 }

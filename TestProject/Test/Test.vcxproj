@@ -148,7 +148,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\control.c" />
+    <ClCompile Include="src\debug.c" />
     <ClCompile Include="src\main.c" />
+    <ClCompile Include="src\player.c" />
+    <ClCompile Include="src\projectile.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\config.h" />
+    <ClInclude Include="src\control.h" />
+    <ClInclude Include="src\debug.h" />
+    <ClInclude Include="src\game.h" />
+    <ClInclude Include="src\player.h" />
+    <ClInclude Include="src\projectile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

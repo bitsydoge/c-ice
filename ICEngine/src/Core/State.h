@@ -18,5 +18,6 @@ void ICE_Substate_Start(ICE_State * state);
 void ICE_State_Destroy(ICE_State * state);
 void ICE_Substate_Loop();
 ICE_State * ICE_State_GetParent(ICE_State * state);
+ICE_String ICE_State_CurrentName();
 
 #endif

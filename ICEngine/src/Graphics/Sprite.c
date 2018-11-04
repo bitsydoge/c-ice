@@ -8,107 +8,74 @@ extern ICE_Asset ASSET;
 
 /* SPRITEMANAGER */
 
-ICE_Index ICE_SpriteManager_Insert()
+void ICE_SpriteManager_Init()
 {
 	ICE_SpriteManager sprite_manager = { 0 };
-	sprite_manager.sprite_size = ICE_DEFAULT_SPRITE_MNGR_SIZE;
-	sprite_manager.sprite = ICE_Calloc(sprite_manager.sprite_size, sizeof(ICE_Sprite)); // Label Array
-
-	ASSET.sprite_mngr_nb++;
-	ASSET.sprite_mngr = ICE_Realloc(ASSET.sprite_mngr, ASSET.sprite_mngr_nb * sizeof(ICE_SpriteManager)); // Manager Array
-	ASSET.sprite_mngr[ASSET.sprite_mngr_nb - 1] = sprite_manager;
-
-	ICE_Log(ICE_LOG_SUCCES, "Create SpriteManager : %d", ASSET.sprite_mngr_nb - 1);
-	return ASSET.sprite_mngr_nb - 1;
+	sprite_manager.sprite_size = ICE_DEFAULT_SPRITEMNGR_SIZE;
+	sprite_manager.sprite = ICE_Calloc(ICE_DEFAULT_SPRITEMNGR_SIZE, sizeof(ICE_Sprite));
+	ASSET.sprite_mngr = sprite_manager;
+	ICE_Log(ICE_LOG_SUCCES, "Init SpriteManager");
 }
 
-void ICE_SpriteManager_Destroy(const ICE_Index man)
+void ICE_SpriteManager_Free()
 {
-	ICE_SpriteManager *manager = &ASSET.sprite_mngr[man];
+	for (ICE_ID i = 0; i < ASSET.sprite_mngr.sprite_contain; i++)
+		ICE_Sprite_Destroy(i);
 
-	for (ICE_Index i = 0; i < manager->sprite_contain; i++)
-	{
-		//Free everything to free in Label
-		ICE_Sprite_Destroy(&manager->sprite[i]);
-	}
-
-	ICE_Free(manager->sprite);
-	ICE_Log(ICE_LOG_SUCCES, "Free SpriteManager : %d", man);
-}
-
-void ICE_SpriteManager_DestroyAll()
-{
-	ICE_SpriteManager *manager = ASSET.sprite_mngr;
-	ICE_Index nb_manager = ASSET.sprite_mngr_nb;
-
-	for (ICE_Index i = 0; i < nb_manager; i++)
-	{
-		if (!manager[i].isFree)
-		{
-			ICE_SpriteManager_Destroy(i);
-			manager[i].isFree = ICE_True;
-		}
-	}
-	free(manager);
+	ICE_Free(ASSET.sprite_mngr.sprite);
+	ASSET.sprite_mngr.sprite = NULL;
+	ICE_Log(ICE_LOG_SUCCES, "Free SpriteManager");
 }
 
 /* SPRITE */
 
-ICE_Sprite ICE_Sprite_Create(ICE_Texture * texture, ICE_Vect size_frame_sprite)
+ICE_Sprite ICE_Sprite_Create(ICE_ID texture_, ICE_Vect size_frame_sprite_)
 {
 	ICE_Sprite sprite = { 0 };
-
-	sprite.exist = ICE_True;
+	ICE_Texture * texture_get = &ASSET.texture_mngr.texture[texture_];
 	
+	sprite.exist = ICE_True;
 	sprite.have_texture_defined = ICE_True;
-	sprite.texturemanager_index = texture->manager_index;
-	sprite.texture_index = texture->index;
-
-	sprite.size_w = size_frame_sprite.x;
-	sprite.size_h = size_frame_sprite.y;
-
-	sprite.number_frame_w = texture->w / size_frame_sprite.x;
-	sprite.number_frame_h = texture->h / size_frame_sprite.y;
+	sprite.texture_index = texture_get->id;
+	sprite.size_w = size_frame_sprite_.x;
+	sprite.size_h = size_frame_sprite_.y;
+	sprite.number_frame_w = texture_get->w / size_frame_sprite_.x;
+	sprite.number_frame_h = texture_get->h / size_frame_sprite_.y;
 
 	return sprite;
 }
 
-ICE_Index ICE_Sprite_Insert(const ICE_Index man, ICE_Texture * texture, ICE_Vect size_frame_sprite)
+ICE_ID ICE_Sprite_Load(ICE_ID texture_, ICE_Vect size_frame_sprite_)
 {
-	// Insert sprite in array
-	ASSET.sprite_mngr[man].sprite[ASSET.sprite_mngr[man].sprite_contain] = ICE_Sprite_Create(texture, size_frame_sprite);
-	ASSET.sprite_mngr[man].sprite_contain++;
+	ASSET.sprite_mngr.sprite[ASSET.sprite_mngr.sprite_contain] = ICE_Sprite_Create(texture_, size_frame_sprite_);
+	ASSET.sprite_mngr.sprite_contain++;
+	ICE_Log(ICE_LOG_SUCCES, "Create Sprite %d from Texture %d (%d*%d)", ASSET.sprite_mngr.sprite_contain - 1, texture_, ASSET.sprite_mngr.sprite[ASSET.sprite_mngr.sprite_contain-1].size_w, ASSET.sprite_mngr.sprite[ASSET.sprite_mngr.sprite_contain-1].size_h);
 
-	ICE_Log(ICE_LOG_SUCCES, "SpriteManager]::[%d]::[Sprite]::[%d]::[Create", man, ASSET.sprite_mngr[man].sprite_contain - 1);
-
-	// Test size to realloc more space
-	if (ASSET.sprite_mngr[man].sprite_size <= ASSET.sprite_mngr[man].sprite_contain) {
-		ICE_Sprite* tmp = ICE_Realloc(ASSET.sprite_mngr[man].sprite, sizeof(ICE_Sprite)*(ASSET.sprite_mngr[man].sprite_size * 2));
-		// Test if realloc succes
-		ICE_Log(ICE_LOG_WARNING, "SpriteManager]::[%d]::[Resized]::[%d", man, ASSET.sprite_mngr[man].sprite_size * 2);
-		ASSET.sprite_mngr[man].sprite = tmp;
-		ASSET.sprite_mngr[man].sprite_size *= 2;
+	if (ASSET.sprite_mngr.sprite_size <= ASSET.sprite_mngr.sprite_contain) 
+	{
+		ASSET.sprite_mngr.sprite = ICE_Realloc(ASSET.sprite_mngr.sprite, sizeof(ICE_Sprite)*(ASSET.sprite_mngr.sprite_size * 2));;
+		ASSET.sprite_mngr.sprite_size *= 2;
 	}
 
-	return ASSET.sprite_mngr[man].sprite_contain - 1;
+	return ASSET.sprite_mngr.sprite_contain - 1;
 }
 
-void ICE_Sprite_Clear(ICE_Sprite * label)
+void ICE_Sprite_Clear(ICE_ID sprite_)
 {
-	memset(label, 0, sizeof(ICE_Sprite));
+	memset(&ASSET.sprite_mngr.sprite[sprite_], 0, sizeof(ICE_Sprite));
 }
 
-void ICE_Sprite_Destroy(ICE_Sprite * ptr)
+ICE_Sprite * ICE_Sprite_Get(ICE_ID sprite_)
 {
-	
+	return &ASSET.sprite_mngr.sprite[sprite_];
 }
 
-ICE_Sprite * ICE_Sprite_Get(ICE_Index man, ICE_Index nb)
+void ICE_Sprite_Destroy(ICE_ID sprite_)
 {
-	return &ASSET.sprite_mngr[man].sprite[nb];
+
 }
 
-ICE_Uint64 ICE_Sprite_GetFrameQuantity(ICE_Sprite * _sprite)
+ICE_Uint64 ICE_Sprite_GetFrameQuantity(ICE_ID _sprite)
 {
-	return _sprite->number_frame_h * _sprite->number_frame_w;
+	return ASSET.sprite_mngr.sprite[_sprite].number_frame_h * ASSET.sprite_mngr.sprite[_sprite].number_frame_w;
 }

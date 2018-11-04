@@ -13,6 +13,22 @@
 // Typedef
 // --------------------------------------
 
+#ifndef ICE_INDEX_CORETYPE_DEFINED
+#define ICE_INDEX_CORETYPE_DEFINED
+
+typedef ICE_ID ICE_EntityID;
+typedef ICE_ID ICE_LabelID;
+typedef ICE_ID ICE_GuiID;
+
+typedef ICE_ID ICE_SpriteID;
+typedef ICE_ID ICE_TextureID;
+typedef ICE_ID ICE_FontID;
+typedef ICE_ID ICE_SoundID;
+typedef ICE_ID ICE_MusicID;
+typedef ICE_ID ICE_DataID;
+
+#endif
+
 #ifndef ICE_BOOL_DEFINED
 #define ICE_BOOL_DEFINED
 /**
@@ -161,8 +177,8 @@ struct ICE_LabelManager
 {
 	ICE_Bool				isFree;
 
-	ICE_Index				label_size;
-	ICE_Index				label_contain;
+	ICE_ID				label_size;
+	ICE_ID				label_contain;
 	ICE_Label*				label;
 
 }; typedef struct ICE_LabelManager ICE_LabelManager;
@@ -185,6 +201,7 @@ enum ICE_EntityGraphicsType
 struct ICE_Entity
 {
 	// Main
+	ICE_EntityID			id;
 	ICE_Bool				active;
 
 	ICE_Float				x, y;
@@ -204,14 +221,21 @@ struct ICE_Entity
 	// Graphics
 
 	ICE_EntityGraphicsType  graphics_type;
-	ICE_Index				graphics_mngr_index;
-	ICE_Index				graphics_index;	
-	ICE_Index				sprite_frame;
+	ICE_ID					graphics_mngr_index;
+	ICE_ID					graphics_index;	
+	ICE_ID					sprite_frame;
 	ICE_Box					graphics_box_render;
 
 	// Data Array
-	ICE_Index				data_nb;
+	ICE_ID					data_nb;
 	void **					data;
+
+	// Function
+	ICE_Bool				haveFunctionDefined;
+	ICE_Bool				alreadyRunnedCreate;
+	void					(*func_create)(void*);
+	void					(*func_update)(void*);
+	void					(*func_destroy)(void*);
 
 }; typedef struct ICE_Entity ICE_Entity;
 
@@ -222,8 +246,8 @@ struct ICE_EntityManager
 {
 	ICE_Bool				isFree;
 
-	ICE_Index				entity_size;
-	ICE_Index				entity_contain;
+	ICE_ID				entity_size;
+	ICE_ID				entity_contain;
 	ICE_Entity*				entity;
 
 }; typedef struct ICE_EntityManager ICE_EntityManager;
@@ -234,23 +258,20 @@ struct ICE_EntityManager
 struct ICE_GameObjectManager
 {
 	// Camera
-	ICE_Camera				camera;
+	ICE_Camera			camera;
 
 	// Label
-	ICE_Index				label_mngr_nb;
-	ICE_LabelManager *		label_mngr;
+	ICE_LabelManager 	label_mngr;
 	
 	// Gui
-	ICE_Index				gui_mngr_nb;
-	ICE_GuiManager *		gui_mngr;
+	ICE_GuiManager	gui_mngr;
 
 	// Entity
-	ICE_Index				entity_mngr_nb;
-	ICE_EntityManager *		entity_mngr;
+	ICE_EntityManager entity_mngr;
 
 	// Data
-	ICE_Index				data_nb;
-	void**					data;
+	ICE_ID				data_nb;
+	void**				data;
 
 }; typedef struct ICE_GameObjectManager ICE_ObjectManager;
 
@@ -259,6 +280,7 @@ struct ICE_GameObjectManager
 */
 struct ICE_State
 {
+	ICE_String name;
 	ICE_Bool				quit;
 	ICE_Bool				isPaused;
 	ICE_Bool				isFree;
@@ -267,8 +289,8 @@ struct ICE_State
 	void					(*func_update)(void);
 	void					(*func_destroy)(void);
 
-	void					(*func_resume)(void);
-	void					(*func_pause)(void);
+	void					(*func_OnResume)(void);
+	void					(*func_OnPause)(void);
 
 	ICE_ObjectManager		object;
 
@@ -309,8 +331,8 @@ struct ICE_Core
 struct ICE_Game {
 	
 	// State
-	ICE_State				state_main;
-	ICE_State*				current;
+	ICE_State state_main;
+	ICE_State* current;
 
 }; typedef struct ICE_Game ICE_Game;
 
@@ -343,29 +365,19 @@ struct ICE_Config
 struct ICE_Asset
 {
 
-				// GRAPHICS //
-
+	// GRAPHICS //
 	// Font
-	ICE_Index				font_mngr_nb; // todo
-	ICE_Font				font;
-
+	ICE_Font font;
 	// Texture
-	ICE_Index				texture_mngr_nb;
-	ICE_TextureManager *	texture_mngr;
-
+	ICE_TextureManager texture_mngr;
 	// Sprite
-	ICE_Index				sprite_mngr_nb;
-	ICE_SpriteManager *		sprite_mngr;
+	ICE_SpriteManager sprite_mngr;
 
-				// AUDIO //
-
+	// AUDIO //
 	// Sound
-	ICE_Index				sound_mngr_nb;
-	ICE_SoundManager *		sound_mngr;
-
+	ICE_SoundManager sound_mngr;
 	// Music
-	ICE_Index				music_mngr_nb;
-	ICE_MusicManager *		music_mngr;
+	ICE_MusicManager music_mngr;
 
 }; typedef struct ICE_Asset ICE_Asset;
 

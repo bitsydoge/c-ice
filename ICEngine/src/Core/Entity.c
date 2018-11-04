@@ -7,6 +7,7 @@
 #include "../Maths/Maths.h"
 #include "../Graphics/Sprite.h"
 #include "../Graphics/Texture.h"
+#include "../Framework/Assert_.h"
 
 #define _POLAR_MOVEMENT_TYPE_1
 
@@ -14,62 +15,40 @@ extern ICE_Game GAME;
 
 /* ENTITY MANAGER */
 
-ICE_Index ICE_EntityManager_Insert(ICE_State * state)
+void ICE_EntityManager_Create(ICE_State* state)
 {
 	if (!state)
 		state = GAME.current;
 
-	ICE_EntityManager text_manager = { 0 };
-	text_manager.entity_size = ICE_DEFAULT_ENTITY_MNGR_SIZE;
-	text_manager.entity = ICE_Calloc(text_manager.entity_size, sizeof(ICE_Entity)); // Entity Array
+	ICE_EntityManager entity_manager = { 0 };
+	entity_manager.entity_size = ICE_DEFAULT_ENTITY_MNGR_SIZE;
+	entity_manager.entity = ICE_Calloc(entity_manager.entity_size, sizeof(ICE_Entity));
 
-	state->object.entity_mngr_nb++;
-	state->object.entity_mngr = ICE_Realloc(state->object.entity_mngr, state->object.entity_mngr_nb * sizeof(ICE_EntityManager)); // Manager Array
-	state->object.entity_mngr[state->object.entity_mngr_nb - 1] = text_manager;
+	state->object.entity_mngr = entity_manager;
 
-	ICE_Log(ICE_LOG_SUCCES, "Create EntityManager %d", state->object.entity_mngr_nb - 1);
-	return state->object.entity_mngr_nb - 1;
+	ICE_Log(ICE_LOG_SUCCES, "Create EntityManager");
 }
 
-void ICE_EntityManager_Destroy(ICE_State * state, const ICE_Index man)
+void ICE_EntityManager_Destroy(ICE_State * state)
 {
 	if (!state)
 		state = GAME.current;
 
-	ICE_EntityManager *manager = &state->object.entity_mngr[man];
+	ICE_EntityManager *manager = &state->object.entity_mngr;
 
-	for (ICE_Index i = 0; i < manager->entity_contain; i++)
+	for (ICE_ID i = 0; i < manager->entity_contain; i++)
 	{
 		//Free everything to free in Entity
 		ICE_Entity_Destroy(&manager->entity[i]);
 	}
 
 	ICE_Free(manager->entity);
-	ICE_Log(ICE_LOG_SUCCES, "Free EntityManager : %d", man);
-}
-
-void ICE_EntityManager_DestroyAll(ICE_State * state)
-{
-	if (!state)
-		state = GAME.current;
-
-	ICE_EntityManager *manager = state->object.entity_mngr;
-	const ICE_Index nb_manager = state->object.entity_mngr_nb;
-
-	for (ICE_Index i = 0; i < nb_manager; i++)
-	{
-		if (!manager[i].isFree)
-		{
-			ICE_EntityManager_Destroy(state, i);
-			manager[i].isFree = ICE_True;
-		}
-	}
-	free(manager);
+	ICE_Log(ICE_LOG_SUCCES, "Free EntityManager");
 }
 
 /* ENTITY */
 
-ICE_Entity ICE_Entity_Create(ICE_Box pos)
+ICE_Entity ICE_Entity_Build(ICE_Box pos)
 {
 	ICE_Entity entity = { 0 };
 
@@ -83,27 +62,25 @@ ICE_Entity ICE_Entity_Create(ICE_Box pos)
 	return entity;
 }
 
-ICE_Index ICE_Entity_Insert(ICE_State * state, const ICE_Index man, ICE_Box pos)
+ICE_ID ICE_Entity_Create(ICE_State * state, ICE_Box pos)
 {
 	if (!state)
 		state = GAME.current;
 
 	// Insert entity in array
-	state->object.entity_mngr[man].entity[state->object.entity_mngr[man].entity_contain] = ICE_Entity_Create(pos);
-	state->object.entity_mngr[man].entity_contain++;
+	state->object.entity_mngr.entity[state->object.entity_mngr.entity_contain] = ICE_Entity_Build(pos);
+	state->object.entity_mngr.entity[state->object.entity_mngr.entity_contain].id = state->object.entity_mngr.entity_contain;
+	state->object.entity_mngr.entity_contain++;
 
-	ICE_Log(ICE_LOG_SUCCES, "EntityManager :: %d :: Entity :: %d :: Create", man, state->object.entity_mngr[man].entity_contain - 1);
+	ICE_Log(ICE_LOG_SUCCES, "Create Entity %d in state %s", state->object.entity_mngr.entity_contain - 1, state->name);
 
-	// Test size to realloc more space
-	if (state->object.entity_mngr[man].entity_size <= state->object.entity_mngr[man].entity_contain) {
-		ICE_Entity* tmp = ICE_Realloc(state->object.entity_mngr[man].entity, sizeof(ICE_Entity)*(state->object.entity_mngr[man].entity_size * 2));
-		// Test if realloc succes
-		ICE_Log(ICE_LOG_WARNING, "EntityManager :: %d :: Resized :: %d", man, state->object.entity_mngr[man].entity_size * 2);
-		state->object.entity_mngr[man].entity = tmp;
-		state->object.entity_mngr[man].entity_size *= 2;
+	if (state->object.entity_mngr.entity_size <= state->object.entity_mngr.entity_contain) 
+	{
+		ICE_Entity* tmp = ICE_Realloc(state->object.entity_mngr.entity, sizeof(ICE_Entity)*(state->object.entity_mngr.entity_size * 2));
+		state->object.entity_mngr.entity = tmp;
+		state->object.entity_mngr.entity_size *= 2;
 	}
-
-	return state->object.entity_mngr[man].entity_contain - 1;
+	return state->object.entity_mngr.entity_contain - 1;
 }
 
 void ICE_Entity_Clear(ICE_Entity * entity)
@@ -113,32 +90,33 @@ void ICE_Entity_Clear(ICE_Entity * entity)
 
 void ICE_Entity_Destroy(ICE_Entity * ptr)
 {
+	ptr->active = ICE_False;
+	ptr->func_create = NULL;
+	ptr->func_update = NULL;
+	if(ptr->func_destroy != 0)
+		ptr->func_destroy(ptr);
 
+	ICE_Entity_DataDestroyAll(ptr);
+
+	ptr->haveFunctionDefined = ICE_False;
+	ptr->func_destroy = NULL;
 }
 
 /* ENTITY GET FUNCTION */
 
-ICE_Entity * ICE_Entity_Get(ICE_State * state, const unsigned man, const unsigned nb)
+ICE_Entity * ICE_Entity_Get(ICE_State * state, ICE_EntityID entity_id)
 {
 	if (state)
-		return &state->object.entity_mngr[man].entity[nb];
-	return &GAME.current->object.entity_mngr[man].entity[nb];
+		return &state->object.entity_mngr.entity[entity_id];
+	return &GAME.current->object.entity_mngr.entity[entity_id];
 }
 
-ICE_Index ICE_Entity_GetQuantity(ICE_State * state, ICE_Index manager)
+ICE_ID ICE_Entity_GetQuantity(ICE_State * state, ICE_ID manager)
 {
 	if (!state)
 		state = GAME.current;
 
-	return state->object.entity_mngr[manager].entity_contain;
-}
-
-ICE_Index ICE_EntityManager_GetQuantity(ICE_State * state)
-{
-	if (!state)
-		state = GAME.current;
-
-	return state->object.entity_mngr_nb;
+	return state->object.entity_mngr.entity_contain;
 }
 
 ICE_Vect ICE_Entity_GetPosition(ICE_Entity * entity)
@@ -163,15 +141,16 @@ ICE_Box ICE_Entity_GetBox(ICE_Entity * entity)
 
 // TEXTURE
 
-void ICE_Entity_SetTexture(ICE_Entity * entity, ICE_Texture * texture)
+extern ICE_Asset ASSET;
+
+void ICE_Entity_SetTexture(ICE_Entity * entity, ICE_TextureID texture)
 {
-	entity->graphics_mngr_index = texture->manager_index;
-	entity->graphics_index = texture->index;
+	entity->graphics_index = texture;
 	entity->graphics_type = ICE_ENTITYGRAPHICSTYPES_TEXTURE;
 	entity->graphics_box_render.x = 0;
 	entity->graphics_box_render.y = 0;
-	entity->graphics_box_render.w = texture->w;
-	entity->graphics_box_render.h = texture->h;
+	entity->graphics_box_render.w = ASSET.texture_mngr.texture[texture].w;
+	entity->graphics_box_render.h = ASSET.texture_mngr.texture[texture].h;
 }
 
 void ICE_Entity_RemoveGraphics(ICE_Entity * entity)
@@ -286,27 +265,28 @@ void ICE_Entity_Scale(ICE_Entity * entity, ICE_Float scale)
 
 // SPRITE
 
-void ICE_Entity_SetSprite(ICE_Entity * entity, ICE_Sprite * sprite)
+void ICE_Entity_SetSprite(ICE_Entity * entity_, ICE_ID sprite_)
 {
-	entity->graphics_type = ICE_ENTITYGRAPHICSTYPES_SPRITE;
-	entity->graphics_index = sprite->index;
-	entity->graphics_mngr_index = sprite->manager_index;
-	entity->sprite_frame = 0;
-	entity->graphics_box_render.x = 0;
-	entity->graphics_box_render.y = 4*sprite->size_h;
-	entity->graphics_box_render.w = sprite->size_w;
-	entity->graphics_box_render.h = sprite->size_h;
+	ICE_Sprite * sprite = ICE_Sprite_Get(sprite_);
+	entity_->graphics_type = ICE_ENTITYGRAPHICSTYPES_SPRITE;
+	entity_->graphics_index = sprite->index;
+	entity_->sprite_frame = 0;
+	entity_->graphics_box_render.x = 0;
+	entity_->graphics_box_render.y = 0;
+	entity_->graphics_box_render.w = sprite->size_w;
+	entity_->graphics_box_render.h = sprite->size_h;
 }
 
-void ICE_Entity_SetSpriteFrame(ICE_Entity * entity, ICE_Index frame)
+void ICE_Entity_SetSpriteFrame(ICE_Entity * entity, ICE_ID frame)
 {
 	if (entity->graphics_type == ICE_ENTITYGRAPHICSTYPES_SPRITE)
 	{
-		ICE_Sprite * sprite = ICE_Sprite_Get(entity->graphics_mngr_index, entity->graphics_index);
+		ICE_Sprite * sprite = ICE_Sprite_Get(entity->graphics_index);
+		frame--;
 		entity->sprite_frame = frame;
 
-		const ICE_Index size_in_w = (frame+1) % sprite->number_frame_w;
-		const ICE_Index size_in_h = (frame+1) / sprite->number_frame_w;
+		const ICE_ID size_in_w = (frame) % sprite->number_frame_w;
+		const ICE_ID size_in_h = (frame) / sprite->number_frame_w;
 
 		entity->graphics_box_render.x = size_in_w * sprite->size_w;
 		entity->graphics_box_render.y = size_in_h * sprite->size_h;
@@ -318,7 +298,7 @@ void ICE_Entity_SetSpriteFrame(ICE_Entity * entity, ICE_Index frame)
 ICE_Sprite * ICE_Entity_GetSprite(ICE_Entity * _entity)
 {
 	if(_entity->graphics_type == ICE_ENTITYGRAPHICSTYPES_SPRITE)
-		return ICE_Sprite_Get(_entity->graphics_mngr_index, _entity->graphics_index);
+		return ICE_Sprite_Get(_entity->graphics_index);
 
 	ICE_Log(ICE_LOG_WARNING, "This entity doesn't have Sprite graphics");
 	return NULL;
@@ -327,8 +307,130 @@ ICE_Sprite * ICE_Entity_GetSprite(ICE_Entity * _entity)
 ICE_Texture * ICE_Entity_GetTexture(ICE_Entity * _entity)
 {
 	if(_entity->graphics_type == ICE_ENTITYGRAPHICSTYPES_TEXTURE)
-		return ICE_Texture_Get(_entity->graphics_mngr_index, _entity->graphics_mngr_index);
+		return ICE_Texture_Get(_entity->graphics_mngr_index);
 	
 	ICE_Log(ICE_LOG_WARNING, "This entity doesn't have Texture graphics");
 	return NULL;
+}
+
+ICE_ID ICE_Entity_GetSpriteFrame(ICE_Entity * entity)
+{
+	if (entity->graphics_type == ICE_ENTITYGRAPHICSTYPES_SPRITE)
+		return entity->sprite_frame+1;
+	ICE_Log(ICE_LOG_ERROR, "This entity doesn't have a Sprite graphics");
+	return 0;
+}
+
+void ICE_Entity_SetFunction(ICE_Entity * entity, void(*call_create)(void*), void(*call_update)(void*), void(*call_destroy)(void*))
+{
+	entity->haveFunctionDefined = ICE_True;
+	entity->func_create = call_create;
+	entity->func_update = call_update;
+	entity->func_destroy = call_destroy;
+}
+
+void ICE_Entity_FunctionUpdate(ICE_State * state)
+{
+	if (state == NULL)
+		state = GAME.current;
+
+	for(int i = 0; i < state->object.entity_mngr.entity_contain; i++)
+	{
+		if(state->object.entity_mngr.entity[i].active)
+		{
+			if (state->object.entity_mngr.entity[i].haveFunctionDefined)
+			{
+				if (!state->object.entity_mngr.entity[i].alreadyRunnedCreate)
+				{
+					state->object.entity_mngr.entity[i].func_create(&state->object.entity_mngr.entity[i]);
+					state->object.entity_mngr.entity[i].alreadyRunnedCreate = ICE_True;
+				}
+				else
+				{
+					state->object.entity_mngr.entity[i].func_update(&state->object.entity_mngr.entity[i]);
+				}
+			}
+				
+		}
+	}
+}
+
+void * ICE_Entity_DataAdd_(ICE_Entity * entity_, ICE_ID size_)
+{
+	entity_->data_nb++;
+	entity_->data = ICE_Realloc(entity_->data, sizeof(void*)*(entity_->data_nb));
+	entity_->data[entity_->data_nb - 1] = ICE_Calloc(1, size_);
+	void * _pointer = entity_->data[entity_->data_nb - 1];
+	return _pointer;
+}
+
+void * ICE_Entity_DataGet(ICE_Entity * entity_, ICE_DataID id_data_)
+{
+	void * _pointer;
+
+	if (id_data_ <= entity_->data_nb)
+		_pointer = entity_->data[id_data_];
+
+	////////////////////////////////////////////
+	//                                        //
+	// If you see this assert, you choosed    //
+	// a data that doesn't exist              //
+	//                                        //
+	////////////////////////////////////////////
+
+	else
+	{
+		_pointer = NULL;
+		//assert(("Pointer is null so there is no data at this number", _pointer));
+		ICE_Assert(_pointer != NULL, "Pointer is null so there is no data at this number");
+	}
+
+	return _pointer;
+}
+
+void ICE_Entity_DataDestroy(ICE_Entity * entity_, ICE_DataID id_data_)
+{
+	void * _pointer;
+
+	if (id_data_ <=entity_->data_nb)
+		_pointer = entity_->data[id_data_];
+
+	////////////////////////////////////////////
+	//                                        //
+	// If you see this assert, you choosed    //
+	// a data that doesn't exist              //
+	//                                        //
+	////////////////////////////////////////////
+
+	else
+	{
+		_pointer = NULL;
+		//assert("Pointer is null so there is no data at this number", _pointer);
+		ICE_Assert(_pointer != NULL, "Pointer is null so there is no data at this number");
+	}
+
+	ICE_Free(_pointer);
+}
+
+void ICE_Entity_DataDestroyAll(ICE_Entity * entity_)
+{
+	for (ICE_ID i = 0; i < entity_->data_nb; i++)
+	{
+		if(entity_->data)
+			if(entity_->data[i])
+			{
+				ICE_Free(entity_->data[i]);
+				entity_->data[i] = NULL;
+			}
+	}
+	if(entity_->data)
+	{
+		ICE_Free(entity_->data);
+		entity_->data = NULL;
+	}
+}
+
+ICE_EntityID ICE_Entity_GetID(ICE_Entity * entity_)
+{
+	return entity_->id;
 }

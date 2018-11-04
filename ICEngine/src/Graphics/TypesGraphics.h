@@ -7,6 +7,22 @@
 
 #include ICE_INCLUDE_SDL2_TTF
 
+#ifndef ICE_INDEX_CORETYPE_DEFINED
+#define ICE_INDEX_CORETYPE_DEFINED
+
+typedef ICE_ID ICE_EntityID;
+typedef ICE_ID ICE_LabelID;
+typedef ICE_ID ICE_GuiID;
+
+typedef ICE_ID ICE_SpriteID;
+typedef ICE_ID ICE_TextureID;
+typedef ICE_ID ICE_FontID;
+typedef ICE_ID ICE_SoundID;
+typedef ICE_ID ICE_MusicID;
+typedef ICE_ID ICE_DataID;
+
+#endif
+
 #ifndef ICE_BOOL_DEFINED
 #define ICE_BOOL_DEFINED
 /**
@@ -32,8 +48,7 @@ typedef uint32_t ICE_Color;
  */
 struct ICE_Texture
 {
-	ICE_Index index;
-	ICE_Index manager_index;
+	ICE_ID id;
 
 	ICE_Bool	 exist;
 	unsigned int w, h;
@@ -49,8 +64,8 @@ struct ICE_TextureManager
 {
 	ICE_Bool isFree;
 
-	ICE_Index texture_size;
-	ICE_Index texture_contain;
+	ICE_ID texture_size;
+	ICE_ID texture_contain;
 	ICE_Texture* texture;
 };
 typedef struct ICE_TextureManager ICE_TextureManager;
@@ -66,27 +81,25 @@ typedef struct
 typedef struct
 {
 	unsigned int actual_step;
-	ICE_Index step_size;
-	ICE_Index step_contain;
+	ICE_ID step_size;
+	ICE_ID step_contain;
 	ICE_AnimationStep * step;
 
 } ICE_Animation;
 
 typedef struct
 {
-	ICE_Index index;
-	ICE_Index manager_index;
+	ICE_ID index;
 	ICE_Bool exist;
 
 	ICE_Bool have_texture_defined;
-	ICE_Index texture_index;
-	ICE_Index texturemanager_index;
+	ICE_ID texture_index;
 
 	unsigned int size_w, size_h;
-	ICE_Index number_frame_w, number_frame_h;
+	ICE_ID number_frame_w, number_frame_h;
 
-	ICE_Index animation_size;
-	ICE_Index animation_contain;
+	ICE_ID animation_size;
+	ICE_ID animation_contain;
 	ICE_Animation * animation;
 
 } ICE_Sprite;
@@ -95,9 +108,9 @@ typedef struct
 {
 	ICE_Bool isFree;
 
-	ICE_Index sprite_size;
-	ICE_Index sprite_contain;
-	ICE_Sprite* sprite;
+	ICE_ID sprite_size;
+	ICE_ID sprite_contain;
+	ICE_Sprite * sprite;
 
 } ICE_SpriteManager;
 
@@ -112,10 +125,10 @@ typedef struct
 {
 	ICE_Bool exist;
 	ICE_Bool have_texture_defined;
-	ICE_Index texture_index;
-	ICE_Index old_texture_index;
-	ICE_Index texturemanager_index;
-	ICE_Index old_texturemanager_index;
+	ICE_ID texture_index;
+	ICE_ID old_texture_index;
+	ICE_ID texturemanager_index;
+	ICE_ID old_texturemanager_index;
 	ICE_Box box;
 	ICE_Box old_box;
 
@@ -128,8 +141,8 @@ typedef struct
 {
 	ICE_Bool isFree;
 
-	ICE_Index gui_size;
-	ICE_Index gui_contain;
+	ICE_ID gui_size;
+	ICE_ID gui_contain;
 	ICE_Gui* gui;
 
 } ICE_GuiManager;

@@ -100,7 +100,7 @@ void ICE_Debug_CameraControl()
 	if (ICE_Input_Pressed(ICE_KEY_D))
 		ICE_Camera_ShiftPos(ICE_Vect_New(1000 * ICE_Game_GetDelta(), 0));
 	if (ICE_Input_Pressed(ICE_KEY_SPACE))
-		ICE_Camera_MovePos(ICE_Vect_Null, 1000 * ICE_Game_GetDelta());
+		ICE_Camera_MovePos(ICE_Vect_Zero, 1000 * ICE_Game_GetDelta());
 }
 
 void ICE_Debug_CallbackDraw(void(*callback)())
