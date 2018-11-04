@@ -9,20 +9,19 @@
 
 /* GUIMANAGER */
 
-ICE_ID ICE_GuiManager_Insert(ICE_State * state);
-void ICE_GuiManager_Destroy(ICE_State * state, const ICE_ID man);
-void ICE_GuiManager_DestroyAll(ICE_State * state);
+void ICE_GuiManager_Insert(ICE_State* state);
+void ICE_GuiManager_Destroy(ICE_State * state);
 
 /* GUI */
 
-ICE_Gui ICE_Gui_Create(ICE_Box box, ICE_ID nb_texture);
-ICE_ID ICE_Gui_Insert(ICE_State * state, const ICE_ID man, const ICE_Box box, ICE_ID texture_nb);
+ICE_Gui ICE_Gui_Build(ICE_Box box, ICE_TextureID nb_texture);
+ICE_ID ICE_Gui_Create(ICE_State * state, const ICE_Box box, ICE_TextureID texture_nb);
 void ICE_Gui_Clear(ICE_Gui * label);
 void ICE_Gui_Destroy(ICE_Gui * ptr);
 
 /* GUI GET */
 
-ICE_Gui * ICE_Gui_Get(ICE_State *state, int man, int gui);
+ICE_Gui * ICE_Gui_Get(ICE_State *state, ICE_GuiID gui);
 
 /* GUI SET */
 

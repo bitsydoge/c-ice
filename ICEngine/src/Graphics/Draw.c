@@ -87,24 +87,23 @@ void ICE_Draw_Gui()
 {
 	ICE_State * current = GAME.current;
 
-	for (ICE_ID i = 0; i < current->object.gui_mngr_nb; i++)
-		for (ICE_ID j = 0; j < current->object.gui_mngr[i].gui_contain; j++)
+		for (ICE_ID j = 0; j < current->object.gui_mngr.gui_contain; j++)
 		{
-			if (current->object.gui_mngr[i].gui[j].exist && current->object.gui_mngr[i].gui[j].have_texture_defined)
+			if (current->object.gui_mngr.gui[j].exist && current->object.gui_mngr.gui[j].have_texture_defined)
 			{
 
 				if (
-					!ICE_Box_CompareSize(current->object.gui_mngr[i].gui[j].box, current->object.gui_mngr[i].gui[j].old_box) ||
-					current->object.gui_mngr[i].gui[j].texturemanager_index != current->object.gui_mngr[i].gui[j].old_texturemanager_index ||
-					current->object.gui_mngr[i].gui[j].texture_index != current->object.gui_mngr[i].gui[j].old_texture_index)
+					!ICE_Box_CompareSize(current->object.gui_mngr.gui[j].box, current->object.gui_mngr.gui[j].old_box) ||
+					current->object.gui_mngr.gui[j].texturemanager_index != current->object.gui_mngr.gui[j].old_texturemanager_index ||
+					current->object.gui_mngr.gui[j].texture_index != current->object.gui_mngr.gui[j].old_texture_index)
 				{
-					ICE_Gui_UpdateTexture(i, j);
+					ICE_Gui_UpdateTexture(current, j);
 
-					current->object.gui_mngr[i].gui[j].old_texturemanager_index = current->object.gui_mngr[i].gui[j].texturemanager_index;
-					current->object.gui_mngr[i].gui[j].old_texture_index = current->object.gui_mngr[i].gui[j].texture_index;
-					current->object.gui_mngr[i].gui[j].old_box = current->object.gui_mngr[i].gui[j].box;
+					current->object.gui_mngr.gui[j].old_texturemanager_index = current->object.gui_mngr.gui[j].texturemanager_index;
+					current->object.gui_mngr.gui[j].old_texture_index = current->object.gui_mngr.gui[j].texture_index;
+					current->object.gui_mngr.gui[j].old_box = current->object.gui_mngr.gui[j].box;
 				}
-				ICE_Texture_RenderEx(&current->object.gui_mngr[i].gui[j].texture_cache, NULL, &current->object.gui_mngr[i].gui[j].box, 0);
+				ICE_Texture_RenderEx(&current->object.gui_mngr.gui[j].texture_cache, NULL, &current->object.gui_mngr.gui[j].box, 0);
 			}
 		}
 }

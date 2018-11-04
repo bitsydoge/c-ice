@@ -8,7 +8,7 @@
  * \brief Load the font
  * \param path Path to the font file
  */
-void ICE_Font_Load(char *path);
+ICE_FontID ICE_Font_Load(char *path);
 
 
 #if defined(_DEBUG)

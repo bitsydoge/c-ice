@@ -5,6 +5,7 @@ typedef struct
 {
 	//Assets
 	ICE_TextureID spritesheet, texture_gui, background;
+	ICE_FontID font;
 	ICE_SpriteID main_sprite; 
 	ICE_MusicID main_theme;
 	ICE_SoundID explosion;

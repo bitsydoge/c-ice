@@ -56,10 +56,10 @@ ICE_Game_Create("2DWatch", 800, 480)
 
 	// Gui
 	manager = ICE_GuiManager_Insert(NULL);
-	nb = ICE_Gui_Insert(NULL, manager, ICE_Box_New(0, 0, ICE_Window_GetW(), 50), 1);
+	nb = ICE_Gui_Create(NULL, ICE_Box_New(0, 0, ICE_Window_GetW(), 50), 1);
 
-	nb = ICE_Gui_Insert(NULL, manager, ICE_Box_New(0, 0, 50, 70), texture_Logo);
-	ICE_Gui_SetType(ICE_Gui_Get(NULL, 0, nb), ICE_GUITYPE_IMAGE);
+	nb = ICE_Gui_Create(NULL, ICE_Box_New(0, 0, 50, 70), texture_Logo);
+	ICE_Gui_SetType(ICE_Gui_Get(NULL, nb), ICE_GUITYPE_IMAGE);
 
 	// Label
 	manager = ICE_LabelManager_Create(NULL);
@@ -101,7 +101,7 @@ ICE_Game_Update()
 	ICE_Debug_DrawFps(5);
 
 	// Gui Resize
-	ICE_Gui * gui_main = ICE_Gui_Get(NULL, 0, 0);
+	ICE_Gui * gui_main = ICE_Gui_Get(NULL, 0);
 	ICE_Gui_SetSize(gui_main, ICE_Vect_New(ICE_Window_GetW(), 50));
 
 	DATA1 * data = ICE_Data_Get(NULL, 0);

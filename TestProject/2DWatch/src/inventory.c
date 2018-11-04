@@ -26,10 +26,9 @@ void inventory_create()
 	);
 	ICE_Label_SetWrapWidth(ICE_Label_Get(NULL, nb), 100);
 	ICE_GuiManager_Insert(NULL);
-	ICE_Gui_Insert
+	ICE_Gui_Create
 	(
 		NULL,
-		0,
 		ICE_Box_New
 		(
 			ICE_Label_GetX(ICE_Label_Get(NULL, nb)) - 5,
@@ -49,7 +48,7 @@ void inventory_update()
 	DATA1 * data = ICE_Data_Get(ICE_State_GetParent(NULL), 0);
 	ICE_Gui_SetSize
 	(
-		ICE_Gui_Get(NULL, 0, 0),
+		ICE_Gui_Get(NULL, 0),
 		ICE_Vect_New
 		(
 			ICE_Label_GetWidth(ICE_Label_Get(NULL, 0)) + 10,
@@ -59,7 +58,7 @@ void inventory_update()
 
 	ICE_Gui_SetPos
 	(
-		ICE_Gui_Get(NULL, 0, 0),
+		ICE_Gui_Get(NULL, 0),
 		ICE_Vect_New
 		(
 			ICE_Label_GetX(ICE_Label_Get(NULL, 0)) - 5,
