@@ -7,7 +7,7 @@
 extern ICE_Game GAME;
 
 // Make a Data and create a pointer in the GAME->data array (return the pointer created)
-void* ICE_Data_Insert_(ICE_State * state, ICE_Index _size)
+void* ICE_Data_Insert_(ICE_State * state, ICE_ID _size)
 {
 	if (!state)
 		state = GAME.current;
@@ -20,7 +20,7 @@ void* ICE_Data_Insert_(ICE_State * state, ICE_Index _size)
 }
 
 /// Return pointer to a Data
-void* ICE_Data_Get(ICE_State * state, ICE_Index nb_data)
+void* ICE_Data_Get(ICE_State * state, ICE_ID nb_data)
 {
 	if (!state)
 		state = GAME.current;
@@ -48,7 +48,7 @@ void* ICE_Data_Get(ICE_State * state, ICE_Index nb_data)
 }
 
 /// Destroy a Data
-void ICE_Data_Destroy(ICE_State * state, ICE_Index nb_data)
+void ICE_Data_Destroy(ICE_State * state, ICE_ID nb_data)
 {
 	if (!state)
 		state = GAME.current;
@@ -80,7 +80,7 @@ void ICE_Data_DestroyAll(ICE_State * state)
 	if (!state)
 		state = GAME.current;
 
-	for(ICE_Index i = 0; i < state->object.data_nb; i++)
+	for(ICE_ID i = 0; i < state->object.data_nb; i++)
 	{
 		ICE_Free(state->object.data[i]);
 	}

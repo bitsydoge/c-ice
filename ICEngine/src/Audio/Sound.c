@@ -6,111 +6,77 @@
 
 extern ICE_Asset ASSET;
 
-// MANAGER
+/* SOUNDMANAGER */
 
-ICE_Index ICE_SoundManager_Insert()
+void ICE_SoundManager_Init()
 {
 	ICE_SoundManager soundmanager = { 0 };
 	soundmanager.sound_size = ICE_DEFAULT_SOUND_SIZE;
 	soundmanager.sound = ICE_Calloc(soundmanager.sound_size, sizeof(ICE_Sound));
-
-	ASSET.sound_mngr_nb++;
-	ASSET.sound_mngr = ICE_Realloc(ASSET.sound_mngr, ASSET.sound_mngr_nb * sizeof(ICE_SoundManager));
-	ASSET.sound_mngr[ASSET.sound_mngr_nb - 1] = soundmanager;
-
-	ICE_Log(ICE_LOG_SUCCES, "Create SoundManager : %d", ASSET.sound_mngr_nb-1);
-
-	return ASSET.sound_mngr_nb - 1;
+	ASSET.sound_mngr = soundmanager;
+	ICE_Log(ICE_LOG_SUCCES, "Init SoundManager");
 }
 
-void ICE_SoundManager_Destroy(const ICE_Index man)
+void ICE_SoundManager_Free()
 {
-	ICE_SoundManager *manager = &ASSET.sound_mngr[man];
+	for (ICE_ID i = 0; i < ASSET.sound_mngr.sound_contain; i++)
+		ICE_Sound_Destroy(i);
 
-	for (ICE_Index i = 0; i < manager->sound_contain; i++)
-	{
-		//Free everything to free in Label
-		ICE_Sound_Destroy(&manager->sound[i]);
-	}
-
-	ICE_Free(manager->sound);
-	ICE_Log(ICE_LOG_SUCCES, "Free SoundManager : %d", man);
+	ICE_Free(ASSET.sound_mngr.sound);
+	ASSET.sound_mngr.sound = NULL;
+	ICE_Log(ICE_LOG_SUCCES, "Free SoundManager");
 }
 
-void ICE_SoundManager_DestroyAll()
-{
-	ICE_SoundManager *manager = ASSET.sound_mngr;
-	const ICE_Index nb_manager = ASSET.sound_mngr_nb;
-
-	for (ICE_Index i = 0; i < nb_manager; i++)
-	{
-		if (!manager[i].isFree)
-		{
-			ICE_SoundManager_Destroy(i);
-			manager[i].isFree = ICE_True;
-		}
-	}
-	free(manager);
-}
-
-// SOUND
+/* SOUND */
 
 ICE_Sound ICE_Sound_Create(char *path)
 {
 	ICE_Sound sound = { 0 };
 
-	// Assigne
 	sound.filename = ICE_String_Init(path);
-	sound.sound = Mix_LoadWAV(path);
+	sound.sdl_handle = Mix_LoadWAV(path);
 
 	return sound;
 }
 
-ICE_Index ICE_Sound_Load(ICE_Index man, char *path) 
+ICE_ID ICE_Sound_Load(char *path_) 
 {
-	// Insert label in array
-	ASSET.sound_mngr[man].sound[ASSET.sound_mngr[man].sound_contain] = ICE_Sound_Create(path);
-	ASSET.sound_mngr[man].sound_contain++;
-
-	ICE_Log(ICE_LOG_SUCCES, "SoundManager]::[%d]::[Label]::[%d]::[Create", man, ASSET.sound_mngr[man].sound_contain - 1);
-
-	// Test size to realloc more space
-	if (ASSET.sound_mngr[man].sound_size <= ASSET.sound_mngr[man].sound_contain) {
-		ICE_Sound* tmp = ICE_Realloc(ASSET.sound_mngr[man].sound, sizeof(ICE_Sound)*(ASSET.sound_mngr[man].sound_size * 2));
-		// Test if realloc succes
-		ICE_Log(ICE_LOG_WARNING, "SoundManager]::[%d]::[Resized]::[%d", man, ASSET.sound_mngr[man].sound_size * 2);
-		ASSET.sound_mngr[man].sound = tmp;
-		ASSET.sound_mngr[man].sound_size *= 2;
+	ASSET.sound_mngr.sound[ASSET.sound_mngr.sound_contain] = ICE_Sound_Create(path_);
+	ASSET.sound_mngr.sound_contain++;
+	ICE_Log(ICE_LOG_SUCCES, "Load Sound %d from \"%s\"", ASSET.sound_mngr.sound_contain - 1, path_);
+	
+	if (ASSET.sound_mngr.sound_size <= ASSET.sound_mngr.sound_contain) {
+		ICE_Sound* tmp = ICE_Realloc(ASSET.sound_mngr.sound, sizeof(ICE_Sound)*(ASSET.sound_mngr.sound_size * 2));
+		ASSET.sound_mngr.sound = tmp;
+		ASSET.sound_mngr.sound_size *= 2;
 	}
-
-	return ASSET.sound_mngr[man].sound_contain - 1;
+	return ASSET.sound_mngr.sound_contain - 1;
 }
 
-void ICE_Sound_Clear(ICE_Sound * sound)
+void ICE_Sound_Clear(ICE_ID sound_)
 {
-	memset(sound, 0, sizeof(ICE_Sound));
+	memset(ASSET.sound_mngr.sound[sound_].sdl_handle, 0, sizeof(ICE_Sound));
 }
 
-void ICE_Sound_Destroy(ICE_Sound * ptr)
+void ICE_Sound_Destroy(ICE_ID sound_)
 {
-	ICE_String_Delete(ptr->filename);
-	Mix_FreeChunk(ptr->sound);
-}
-
-// GET
-
-ICE_Sound * ICE_Sound_Get(ICE_Index man, ICE_Index nb)
-{
-	return &ASSET.sound_mngr[man].sound[nb];
+	ICE_String_Delete(ASSET.sound_mngr.sound[sound_].filename);
+	Mix_FreeChunk(ASSET.sound_mngr.sound[sound_].sdl_handle);
 }
 
 // PLAY
 
-int ICE_Sound_Play(ICE_Sound * sound, const int volume) 
+int ICE_Sound_Play(ICE_ID sound_, ICE_Float volume_) 
 {
-	if (sound->sound != NULL) {
-		Mix_Volume(Mix_PlayChannel(-1, sound->sound, 0), volume);
+	if (ASSET.sound_mngr.sound[sound_].sdl_handle != NULL) 
+	{
+		Mix_Volume(Mix_PlayChannel(-1, ASSET.sound_mngr.sound[sound_].sdl_handle, 0), volume_*128);
 		return 1;
 	}
 	return -1;
+}
+
+ICE_Sound* ICE_Sound_Get(ICE_ID sound_)
+{
+	return &ASSET.sound_mngr.sound[sound_];
 }

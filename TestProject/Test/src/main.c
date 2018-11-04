@@ -1,128 +1,39 @@
 #include <ICE.h>
 
-#define ICE_CONFIG_EDITORNAME "coldragon"
-#define ICE_CONFIG_PRODUCTNAME "test"
-#define ICE_CONFIG_TITLE "Test Project"
-#define ICE_CONFIG_WINDOW_W 1280
-#define ICE_CONFIG_WINDOW_H 720
-#define ICE_CONFIG_FULLSCREEN 2
-#define ICE_CONFIG_RESIZABLE 0
-#define ICE_CONFIG_REFRESHRATE 144
-#define ICE_CONFIG_WINDOW_ICON "res//img//pic_64x64.png"
-
-typedef struct
-{
-	ICE_Index main_texture_manager;
-	ICE_Index spritesheet_texture;
-
-	int w_spritesheet;
-	int h_spritesheet;
-
-	ICE_Index main_entity_manager;
-	ICE_Index entity_test;
-
-	ICE_Index main_sprite_manager;
-	ICE_Index sprite_test;
-
-} DATA;
-
-void Debug_Update()
-{
-	ICE_Debug_FontDraw(1, "%s :: Test", ICE_VERSION);
-	ICE_Debug_DrawFps(2);
-
-	DATA * data = ICE_Data_Get(NULL, 0);
-	ICE_Box converter = ICE_Camera_WorldScreen(ICE_Box_New(-(data->w_spritesheet / 2), -(data->h_spritesheet / 2), data->w_spritesheet, data->h_spritesheet));
-	ICE_Draw_Rectangle(converter, ICE_Color_Red);
-
-	converter = ICE_Camera_WorldScreen(ICE_Box_New(-(data->w_spritesheet / 2) - 1, -(data->h_spritesheet / 2) - 1, data->w_spritesheet + 2, data->h_spritesheet + 2));
-	ICE_Draw_Rectangle(converter, ICE_Color_Red);
-
-	ICE_Debug_DrawCoordinate();
-	ICE_Debug_CameraControl();
-}
+#include "config.h"
+#include "game.h"
+#include "player.h"
+#include "debug.h"
 
 ICE_Game_Create()
 {
-	ICE_Debug_CallbackDraw(Debug_Update);
+	GAME_DATA * D = ICE_Data_Insert(NULL, GAME_DATA);
+	D->spritesheet = ICE_Texture_Load("res//img//spritesheet.png");
+	D->texture_gui = ICE_Texture_Load("res//img//gui.png");
+	D->background = ICE_Texture_Load("res//img//background.png");
+	D->main_theme = ICE_Music_Load("res//snd//music.ogg");
+	D->explosion = ICE_Sound_Load("res//snd//explosion.wav");
+	D->font = ICE_Font_Load("res//ttf//FiraSans-Medium.ttf");
+	D->main_sprite = ICE_Sprite_Load(D->spritesheet, ICE_Vect_New(64, 64));
 
-	// Font
-	ICE_Font_Load("res//ttf//FiraSans-Medium.ttf");
+	D->rectangle = ICE_Gui_Create(NULL, ICE_Box_New(0, 0, 1280, 50), D->texture_gui);
 
-	// Data
-	DATA * data = ICE_Data_Insert(NULL, DATA);
+	// Map	
+	ICE_Entity_SetTexture(ICE_Entity_Get(NULL, ICE_Entity_Create(NULL, ICE_Box_New(0, 0, 1920, 1920))), D->background);
+	//
 
-	// Texture
-	data->main_texture_manager = ICE_TextureManager_Insert();
-	data->spritesheet_texture = ICE_Texture_Load (
-		data->main_texture_manager,
-		"res//img//spritesheet.png"
-	);
+	ICE_Debug_CallbackDraw(GAME_Debug_LateDraw);
+	ICE_Music_Play(0, 0.1);
 
-	// Sprite
-	data->main_sprite_manager = ICE_SpriteManager_Insert();
-	data->sprite_test = ICE_Sprite_Insert
-	(
-		data->main_sprite_manager,
-		ICE_Texture_Get(data->main_texture_manager, data->spritesheet_texture),
-		ICE_Vect_New(64, 64)
-	);
-
-	// Entity
-	data->main_entity_manager = ICE_EntityManager_Insert(NULL);
-	data->entity_test = ICE_Entity_Insert(NULL, data->main_entity_manager, ICE_Box_New(0, 0, 64, 64));
-	ICE_Entity_SetSprite
-	(
-		ICE_Entity_Get(NULL, data->main_entity_manager, data->entity_test),
-		ICE_Sprite_Get(data->main_sprite_manager, data->sprite_test)
-	);
-
-	data->w_spritesheet = 64;
-	data->h_spritesheet = 64;
+	GAME_Player_Init();
 }
 
 ICE_Game_Update()
 {
-	static ICE_Float last = 0;
-	static ICE_Float now = 0;
-	now = ICE_Time_GetS();
 
-	if (ICE_Input_OnPress(ICE_KEY_ESCAPE))
-		ICE_Input_Quit();
-
-	if (ICE_Input_OnPress(ICE_KEY_LEFTCLICK))
-		ICE_Log(ICE_LOG_SUCCES, "You pressed : lectclick at position <%d,%d>", ICE_Input_MouseX_World(), ICE_Input_MouseY_World());
-	if (ICE_Input_Pressed(ICE_KEY_LEFTCLICK))
-		ICE_Log(ICE_LOG_SUCCES, "You are pressing : lectclick at position <%d,%d>", ICE_Input_MouseX_World(), ICE_Input_MouseY_World());
-	if (ICE_Input_OnRelease(ICE_KEY_LEFTCLICK))
-		ICE_Log(ICE_LOG_SUCCES, "You released : lectclick at position <%d,%d>", ICE_Input_MouseX_World(), ICE_Input_MouseY_World());
-	if (ICE_Input_OnPress(ICE_KEY_RIGHTCLICK))
-		ICE_Log(ICE_LOG_SUCCES, "You pressed : rightclick at position <%d,%d>", ICE_Input_MouseX(), ICE_Input_MouseY());
-	if (ICE_Input_Pressed(ICE_KEY_RIGHTCLICK))
-		ICE_Log(ICE_LOG_SUCCES, "You are pressing : rightclick at position <%d,%d>", ICE_Input_MouseX(), ICE_Input_MouseY());
-	if (ICE_Input_OnRelease(ICE_KEY_RIGHTCLICK))
-		ICE_Log(ICE_LOG_SUCCES, "You released : rightclick at position <%d,%d>", ICE_Input_MouseX(), ICE_Input_MouseY());
-
-	DATA * data = ICE_Data_Get(NULL, 0);
-	ICE_Entity * entity = ICE_Entity_Get(NULL, data->entity_test, data->entity_test);
-	ICE_Sprite * sprite = ICE_Entity_GetSprite(entity);
-
-	static int frame_number = 1;
-	if (last + 0.23f < now)
-	{
-		ICE_Entity_SetSpriteFrame
-		(
-			ICE_Entity_Get(NULL, data->main_entity_manager, data->entity_test),
-			frame_number
-		);
-		frame_number++;
-		if (frame_number > ICE_Sprite_GetFrameQuantity(ICE_Entity_GetSprite(ICE_Entity_Get(NULL, data->entity_test, data->entity_test))))
-			frame_number = 1;
-		last = ICE_Time_GetS();
-	}
 }
 
 ICE_Game_Destroy()
 {
-	
+
 }

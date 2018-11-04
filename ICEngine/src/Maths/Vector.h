@@ -68,7 +68,7 @@ ICE_INLINE ICE_Float ICE_Vect_Magn(ICE_Vect vect) {
 /**
  * \brief Vector Null (0, 0)
  */
-#define ICE_Vect_Null ICE_Vect_New(0,0)
+#define ICE_Vect_Zero ICE_Vect_New(0,0)
 
 /**
  * \brief Vector that is the size of the screen

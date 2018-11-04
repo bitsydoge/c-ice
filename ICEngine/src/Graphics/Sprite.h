@@ -1,22 +1,18 @@
 ﻿#ifndef DEF_ICE_SPRITE
 #define DEF_ICE_SPRITE
 
-#define ICE_DEFAULT_SPRITE_MNGR_SIZE 4
-#include "../Core/State.h"
+#include "TypesGraphics.h"
 
-/* SPRITEMANAGER */
+#define ICE_DEFAULT_SPRITEMNGR_SIZE 4
 
-ICE_Index ICE_SpriteManager_Insert();
-void ICE_SpriteManager_Destroy(const ICE_Index man);
-void ICE_SpriteManager_DestroyAll();
+void ICE_SpriteManager_Init();
+void ICE_SpriteManager_Free();
 
-/* SPRITE */
-
-ICE_Sprite ICE_Sprite_Create(ICE_Texture * texture, ICE_Vect size_frame_sprite);
-ICE_Index ICE_Sprite_Insert(const ICE_Index man, ICE_Texture * texture, ICE_Vect size_frame_sprite);
-void ICE_Sprite_Clear(ICE_Sprite * label);
-void ICE_Sprite_Destroy(ICE_Sprite * ptr);
-ICE_Sprite * ICE_Sprite_Get(ICE_Index man, ICE_Index nb);
-ICE_Uint64 ICE_Sprite_GetFrameQuantity(ICE_Sprite * _sprite);
+ICE_Sprite ICE_Sprite_Create(ICE_ID texture_, ICE_Vect size_frame_sprite_);
+ICE_ID ICE_Sprite_Load(ICE_ID texture_, ICE_Vect size_frame_sprite_);
+void ICE_Sprite_Clear(ICE_ID sprite_);
+void ICE_Sprite_Destroy(ICE_ID sprite_);
+ICE_Sprite * ICE_Sprite_Get(ICE_ID sprite_);
+ICE_Uint64 ICE_Sprite_GetFrameQuantity(ICE_ID sprite_);
 
 #endif

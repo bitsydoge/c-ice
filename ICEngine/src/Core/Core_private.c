@@ -112,20 +112,6 @@ int ICE_Core_Quit()
 {
 	ICE_Log_Line();
 	ICE_Log(ICE_LOG_RUNNING, "Core Quit ...");
-
-	
-	//Manager Clean
-	//GameObject
-	ICE_LabelManager_DestroyAll(NULL);
-	ICE_GuiManager_DestroyAll(NULL);
-	ICE_EntityManager_DestroyAll(NULL);
-	ICE_Data_DestroyAll(NULL);
-
-	//Assets
-	ICE_TextureManager_DestroyAll();
-	ICE_SpriteManager_DestroyAll();
-	ICE_SoundManager_DestroyAll();
-	ICE_MusicManager_DestroyAll();
 	
 	// SDL
 	TTF_Quit();

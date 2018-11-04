@@ -20,7 +20,7 @@ enum
 ICE_Game_Create("2DWatch", 800, 480)
 {
 	// Texture
-	ICE_Index manager = ICE_TextureManager_Insert();
+	ICE_ID manager = ICE_TextureManager_Init();
 	ICE_Texture_Load(manager, "res//img//pic.png");
 	ICE_Texture_Load(manager, "res//img//gui.png");
 	ICE_Texture_Load(manager, "res//img//widow.png");
@@ -28,11 +28,11 @@ ICE_Game_Create("2DWatch", 800, 480)
 	ICE_Texture_Load(manager, "res//img//ice_logo.png");
 
 	// Sound
-	manager = ICE_SoundManager_Insert();
+	manager = ICE_SoundManager_Init();
 	ICE_Sound_Load(manager, "res//snd//explosion.wav");
 
 	// Music
-	manager = ICE_MusicManager_Insert();
+	manager = ICE_MusicManager_Init();
 	ICE_Music_Load(manager, "res//snd//music.ogg");
 
 	// Font
@@ -43,31 +43,31 @@ ICE_Game_Create("2DWatch", 800, 480)
 	ICE_Debug_FontSetColorBg(100, 100, 100);
 	ICE_Debug_FontSetColorFg(255, 255, 255);
 
-	ICE_Index nb = 0;
+	ICE_ID nb = 0;
 
 	// Entity
-	manager = ICE_EntityManager_Insert(NULL);
-	nb = ICE_Entity_Insert(NULL, manager, ICE_Box_New(0, 0, 375, 250));
+	manager = ICE_EntityManager_Create();
+	nb = ICE_Entity_Create(NULL, ICE_Box_New(0, 0, 375, 250));
 	ICE_Entity_SetTexture
 	(
-		ICE_Entity_Get(NULL, 0, 0), 
+		ICE_Entity_Get(NULL, 0), 
 		ICE_Texture_Get(0, texture_Widow)
 	);
 
 	// Gui
 	manager = ICE_GuiManager_Insert(NULL);
-	nb = ICE_Gui_Insert(NULL, manager, ICE_Box_New(0, 0, ICE_Window_GetW(), 50), 0, 1);
+	nb = ICE_Gui_Create(NULL, ICE_Box_New(0, 0, ICE_Window_GetW(), 50), 1);
 
-	nb = ICE_Gui_Insert(NULL, manager, ICE_Box_New(0, 0, 50, 70), 0, texture_Logo);
-	ICE_Gui_SetType(ICE_Gui_Get(NULL, 0, nb), ICE_GUITYPE_IMAGE);
+	nb = ICE_Gui_Create(NULL, ICE_Box_New(0, 0, 50, 70), texture_Logo);
+	ICE_Gui_SetType(ICE_Gui_Get(NULL, nb), ICE_GUITYPE_IMAGE);
 
 	// Label
-	manager = ICE_LabelManager_Insert(NULL);
+	manager = ICE_LabelManager_Create(NULL);
 	// 1
-	nb = ICE_Label_Insert(NULL, manager, "It is a me", ICE_Vect_New(0, 0), 30, ICE_LABELTYPE_WORLD);
-	ICE_Label_SetAngle(ICE_Label_Get(NULL, manager, nb), 30);
+	nb = ICE_Label_Create(NULL, "It is a me", ICE_Vect_New(0, 0), 30, ICE_LABELTYPE_WORLD);
+	ICE_Label_SetAngle(ICE_Label_Get(NULL, nb), 30);
 	// 2
-	nb = ICE_Label_Insert(NULL, manager, "Russian Pawa", ICE_Vect_New(5, 5), 30, ICE_LABELTYPE_SCREEN);
+	nb = ICE_Label_Create(NULL, "Russian Pawa", ICE_Vect_New(5, 5), 30, ICE_LABELTYPE_SCREEN);
 
 	// Data
 	DATA1 * data = ICE_Data_Insert_(NULL, sizeof(DATA1));
@@ -91,7 +91,7 @@ void Screen_Update()
 	if (amount >= 10.0f)
 		amount = 0;
 
-	ICE_Entity_AddAngle(ICE_Entity_Get(NULL, 0, 0), 50 * ICE_Game_GetDelta());
+	ICE_Entity_AddAngle(ICE_Entity_Get(NULL, 0), 50 * ICE_Game_GetDelta());
 }
 
 ICE_Game_Update()
@@ -101,7 +101,7 @@ ICE_Game_Update()
 	ICE_Debug_DrawFps(5);
 
 	// Gui Resize
-	ICE_Gui * gui_main = ICE_Gui_Get(NULL, 0, 0);
+	ICE_Gui * gui_main = ICE_Gui_Get(NULL, 0);
 	ICE_Gui_SetSize(gui_main, ICE_Vect_New(ICE_Window_GetW(), 50));
 
 	DATA1 * data = ICE_Data_Get(NULL, 0);
@@ -114,10 +114,10 @@ ICE_Game_Update()
 	}
 	if (ICE_Input_Pressed(ICE_KEY_SPACE))
 	{
-		ICE_Label_SetString(ICE_Label_Get(NULL, 0, 0), "IT IS THE END OF THE WORLD");
-		ICE_Label_SetSize(ICE_Label_Get(NULL, 0, 0), 50);
-		ICE_Label_SetColor(ICE_Label_Get(NULL, 0, 0), ICE_Color_Red);
-		ICE_Label_SetPos(ICE_Label_Get(NULL, 0, 0), ICE_Vect_New(0, 0));
+		ICE_Label_SetString(ICE_Label_Get(NULL, 0), "IT IS THE END OF THE WORLD");
+		ICE_Label_SetSize(ICE_Label_Get(NULL, 0), 50);
+		ICE_Label_SetColor(ICE_Label_Get(NULL, 0), ICE_Color_Red);
+		ICE_Label_SetPos(ICE_Label_Get(NULL, 0), ICE_Vect_New(0, 0));
 	}
 	if (ICE_Input_Pressed(ICE_KEY_RETURN))
 		ICE_Camera_SetPos(ICE_Vect_New(0, 0));

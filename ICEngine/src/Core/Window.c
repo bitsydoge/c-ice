@@ -18,7 +18,7 @@ void ICE_Window_SetResizable(ICE_Bool yn)
 	SDL_SetWindowResizable(CORE.window.handle, yn);
 }
 
-void ICE_Window_SetFullscreen(ICE_Uint8 yn)
+void ICE_Window_SetFullscreen(int yn)
 {
 	SDL_SetWindowFullscreen(CORE.window.handle, yn);
 }

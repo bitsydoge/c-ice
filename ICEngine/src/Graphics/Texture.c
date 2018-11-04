@@ -10,86 +10,78 @@
 extern ICE_Asset ASSET;
 extern ICE_Game GAME;
 
-ICE_Index ICE_TextureManager_Insert() 
+/* TEXTUREMANAGER */
+
+void ICE_TextureManager_Init() 
 {
 	ICE_TextureManager texture_manager = { 0 };
-	texture_manager.texture_size = ICE_DEFAULT_TEXTURE_SIZE;
-	texture_manager.texture = ICE_Calloc(texture_manager.texture_size, sizeof(ICE_Texture));
-	
-	ASSET.texture_mngr_nb++;
-	ASSET.texture_mngr = ICE_Realloc(ASSET.texture_mngr, ASSET.texture_mngr_nb * sizeof(ICE_TextureManager));
-	ASSET.texture_mngr[ASSET.texture_mngr_nb - 1] = texture_manager;
-
-	ICE_Log(ICE_LOG_SUCCES, "Create TextureManager : %d", ASSET.texture_mngr_nb - 1);
-	return ASSET.texture_mngr_nb - 1;
+	texture_manager.texture_size = ICE_DEFAULT_TEXTUREMNGR_SIZE;
+	texture_manager.texture = ICE_Calloc(ICE_DEFAULT_TEXTUREMNGR_SIZE, sizeof(ICE_Texture));
+	ASSET.texture_mngr = texture_manager;
+	ICE_Log(ICE_LOG_SUCCES, "Init TextureManager");
 }
 
-void ICE_TextureManager_Destroy(const ICE_Index man)
+void ICE_TextureManager_Free()
 {
-	ICE_TextureManager * manager = &ASSET.texture_mngr[man];
-	
-	for (ICE_Index i = 0; i < manager->texture_contain; i++)
-		ICE_Texture_Destroy(ICE_Texture_Get(man, i));
+	for (ICE_ID i = 0; i < ASSET.texture_mngr.texture_contain; i++)
+		ICE_Texture_Destroy(i);
 
-	ICE_Free(manager->texture);
-	ICE_Log(ICE_LOG_SUCCES, "Free TextureManager : %d", man);
+	ICE_Free(ASSET.texture_mngr.texture);
+	ASSET.texture_mngr.texture = NULL;
+	ICE_Log(ICE_LOG_SUCCES, "Free TextureManager");
 }
 
-void ICE_TextureManager_DestroyAll()
-{
-	ICE_TextureManager *manager = ASSET.texture_mngr;
-	ICE_Index nb_manager = ASSET.texture_mngr_nb;
+/* TEXTURE */
 
-	for (ICE_Index i = 0; i < nb_manager; i++)
-	{
-		if (!manager[i].isFree)
-		{
-			ICE_TextureManager_Destroy(i);
-			manager[i].isFree = ICE_True;
-		}
-	}
-	free(manager);
-}
-
-ICE_Index ICE_Texture_Load(ICE_Index manager, char* path) 
+ICE_Texture ICE_Texture_Create(char* path_)
 {
-	ICE_Texture *text = ICE_Texture_LoadFromFile(path);
-	text->exist = 1;
-	text->manager_index = manager;
+	ICE_Texture texture_temp = ICE_Texture_LoadFromFile(path_);
+	texture_temp.exist = 1;
 	int w, h;
-	SDL_QueryTexture(text->handle, NULL, NULL, &w, &h);
-	text->w = w; text->h = h;
-	text->index = ASSET.texture_mngr->texture_contain;
-	ASSET.texture_mngr[manager].texture[ASSET.texture_mngr[manager].texture_contain] = *text;
-	SDL_SetTextureBlendMode(text->handle, SDL_BLENDMODE_BLEND);
+	SDL_QueryTexture(texture_temp.handle, NULL, NULL, &w, &h);
+	texture_temp.w = w; texture_temp.h = h;
+	texture_temp.id = ASSET.texture_mngr.texture_contain;
+	SDL_SetTextureBlendMode(texture_temp.handle, SDL_BLENDMODE_BLEND);
+	return texture_temp;
+}
 
-	ASSET.texture_mngr[manager].texture_contain++;
+ICE_ID ICE_Texture_Load(char* path_) 
+{
+	ASSET.texture_mngr.texture[ASSET.texture_mngr.texture_contain] = ICE_Texture_Create(path_);
+	ASSET.texture_mngr.texture_contain++;
+	ICE_Log(ICE_LOG_SUCCES, "Load Texture %d from \"%s\"", ASSET.texture_mngr.texture_contain - 1, path_);
 	
-	ICE_Log(ICE_LOG_SUCCES, "Texture]::[%d]::[Load]::[Path=\"%s\"", ASSET.texture_mngr->texture_contain - 1, path);
-	if (ASSET.texture_mngr[manager].texture_size <= ASSET.texture_mngr[manager].texture_contain) {
-		ASSET.texture_mngr[manager].texture = realloc(ASSET.texture_mngr[manager].texture, sizeof(ICE_Texture)*(ASSET.texture_mngr[manager].texture_size * 2));
-		ASSET.texture_mngr[manager].texture_size *= 2;
+	if (ASSET.texture_mngr.texture_size <= ASSET.texture_mngr.texture_contain) 
+	{
+		ASSET.texture_mngr.texture = ICE_Realloc(ASSET.texture_mngr.texture, sizeof(ICE_Texture)*(ASSET.texture_mngr.texture_size * 2));
+		ASSET.texture_mngr.texture_size *= 2;
 	}
-	free(text);
-
-	return ASSET.texture_mngr->texture_contain - 1;
+	
+	return ASSET.texture_mngr.texture_contain - 1;
 }
 
-void ICE_Texture_Destroy(ICE_Texture * tex) {
-	SDL_DestroyTexture(tex->handle);
-}
-
-ICE_Texture * ICE_Texture_Get(ICE_Index man, ICE_Index nb)
+void ICE_Texture_Destroy(ICE_ID texture_) 
 {
-	return &ASSET.texture_mngr[man].texture[nb];
+	SDL_DestroyTexture(ASSET.texture_mngr.texture[texture_].handle);
+	ICE_Log(ICE_LOG_SUCCES, "Destroy Texture %d", texture_);
 }
 
-unsigned int ICE_Texture_GetW(ICE_Texture * text)
+void ICE_Texture_Free(ICE_Texture * texture_)
 {
-	return text->w;
+	SDL_DestroyTexture(texture_->handle);
 }
 
-unsigned int ICE_Texture_GetH(ICE_Texture * text)
+unsigned int ICE_Texture_GetW(ICE_ID texture_)
 {
-	return text->h;
+	return ASSET.texture_mngr.texture[texture_].w;
+}
+
+unsigned int ICE_Texture_GetH(ICE_ID texture_)
+{
+	return ASSET.texture_mngr.texture[texture_].h;
+}
+
+ICE_Texture * ICE_Texture_Get(ICE_ID texture_)
+{
+	return &ASSET.texture_mngr.texture[texture_];
 }

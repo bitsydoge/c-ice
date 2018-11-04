@@ -28,7 +28,7 @@ typedef double ICE_Float;
 
 typedef struct {
 
-	Mix_Music* music;
+	Mix_Music* sdl_handle;
 	ICE_String filename;
 
 } ICE_Music;
@@ -44,7 +44,7 @@ typedef struct
 
 typedef struct {
 
-	Mix_Chunk* sound;
+	Mix_Chunk* sdl_handle;
 	ICE_String filename;
 
 } ICE_Sound;
