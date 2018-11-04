@@ -8,34 +8,37 @@
 extern ICE_Game GAME;
 extern ICE_Core CORE;
 
-void ICE_Gui_UpdateTexture(ICE_ID man, ICE_ID gui)
+void ICE_Gui_UpdateTexture(ICE_State* state_, ICE_ID gui)
 {
+	if (state_ == 0)
+		state_ = GAME.current;
+
 	ICE_Texture texture = { 0 };
-	texture.handle = SDL_CreateTexture(CORE.window.render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (int)GAME.current->object.gui_mngr[man].gui[gui].box.w, (int)GAME.current->object.gui_mngr[man].gui[gui].box.h);
+	texture.handle = SDL_CreateTexture(CORE.window.render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, (int)state_->object.gui_mngr.gui[gui].box.w, (int)state_->object.gui_mngr.gui[gui].box.h);
 	SDL_SetRenderTarget(CORE.window.render, texture.handle);
 	SDL_SetTextureBlendMode(texture.handle, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(CORE.window.render, 0, 0, 0, 0);
 	SDL_RenderClear(CORE.window.render);
-	ICE_Box box2 = GAME.current->object.gui_mngr[man].gui[gui].box;
+	ICE_Box box2 = state_->object.gui_mngr.gui[gui].box;
 	box2.x = 0; box2.y = 0;
 
 	// TYPE DRAW
 
-	if(GAME.current->object.gui_mngr[man].gui[gui].type == ICE_GUITYPE_RECTANGLE)
-		ICE_Gui_Rect(ICE_Texture_Get(GAME.current->object.gui_mngr[man].gui[gui].texture_index), box2);
+	if(state_->object.gui_mngr.gui[gui].type == ICE_GUITYPE_RECTANGLE)
+		ICE_Gui_Rect(ICE_Texture_Get(state_->object.gui_mngr.gui[gui].texture_index), box2);
 
-	if (GAME.current->object.gui_mngr[man].gui[gui].type == ICE_GUITYPE_IMAGE)
+	if (state_->object.gui_mngr.gui[gui].type == ICE_GUITYPE_IMAGE)
 		ICE_Texture_RenderEx(
-			ICE_Texture_Get(GAME.current->object.gui_mngr[man].gui[gui].texture_index),
+			ICE_Texture_Get(state_->object.gui_mngr.gui[gui].texture_index),
 			NULL,
-			&GAME.current->object.gui_mngr[man].gui[gui].box,
+			&state_->object.gui_mngr.gui[gui].box,
 			0
 		);
 	
 	SDL_SetRenderTarget(CORE.window.render, NULL);
-	if (GAME.current->object.gui_mngr[man].gui[gui].texture_cache.handle)
-		SDL_DestroyTexture(GAME.current->object.gui_mngr[man].gui[gui].texture_cache.handle);
-	GAME.current->object.gui_mngr[man].gui[gui].texture_cache = texture;
+	if (state_->object.gui_mngr.gui[gui].texture_cache.handle)
+		SDL_DestroyTexture(state_->object.gui_mngr.gui[gui].texture_cache.handle);
+	state_->object.gui_mngr.gui[gui].texture_cache = texture;
 }
 
 // Deprecated

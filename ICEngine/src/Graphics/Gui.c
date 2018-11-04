@@ -13,7 +13,7 @@ extern ICE_Game GAME;
 
 /* GUIMANAGER */
 
-ICE_ID ICE_GuiManager_Insert(ICE_State * state)
+void ICE_GuiManager_Insert(ICE_State* state)
 {
 	if (!state)
 		state = GAME.current;
@@ -22,53 +22,28 @@ ICE_ID ICE_GuiManager_Insert(ICE_State * state)
 	gui_manager.gui_size = ICE_DEFAULT_GUI_MNGR_SIZE;
 	gui_manager.gui = ICE_Calloc(gui_manager.gui_size, sizeof(ICE_Gui)); // Label Array
 
-	state->object.gui_mngr_nb++;
-	state->object.gui_mngr = ICE_Realloc(state->object.gui_mngr, state->object.gui_mngr_nb * sizeof(ICE_GuiManager)); // Manager Array
-	state->object.gui_mngr[state->object.gui_mngr_nb - 1] = gui_manager;
+	state->object.gui_mngr = gui_manager;
 
-	ICE_Log(ICE_LOG_SUCCES, "Create GuiManager : %d", state->object.gui_mngr_nb - 1);
-	return state->object.gui_mngr_nb - 1;
+	ICE_Log(ICE_LOG_SUCCES, "Create GuiManager in state", state->name);
 }
 
-void ICE_GuiManager_Destroy(ICE_State * state, const ICE_ID man)
+void ICE_GuiManager_Destroy(ICE_State * state)
 {
 	if (!state)
 		state = GAME.current;
 
-	ICE_GuiManager *manager = &state->object.gui_mngr[man];
+	ICE_GuiManager *manager = &state->object.gui_mngr;
 
 	for (ICE_ID i = 0; i < manager->gui_contain; i++)
-	{
-		//Free everything to free in Label
 		ICE_Gui_Destroy(&manager->gui[i]);
-	}
 
 	ICE_Free(manager->gui);
-	ICE_Log(ICE_LOG_SUCCES, "Free GuiManager : %d", man);
-}
-
-void ICE_GuiManager_DestroyAll(ICE_State * state)
-{
-	if (!state)
-		state = GAME.current;
-
-	ICE_GuiManager *manager = state->object.gui_mngr;
-	ICE_ID nb_manager = state->object.gui_mngr_nb;
-
-	for (ICE_ID i = 0; i < nb_manager; i++)
-	{
-		if (!manager[i].isFree)
-		{
-			ICE_GuiManager_Destroy(state, i);
-			manager[i].isFree = ICE_True;
-		}
-	}
-	free(manager);
+	ICE_Log(ICE_LOG_SUCCES, "Destroy GuiManager");
 }
 
 /* GUI */
 
-ICE_Gui ICE_Gui_Create(ICE_Box box, ICE_ID nb_texture)
+ICE_Gui ICE_Gui_Build(ICE_Box box, ICE_TextureID nb_texture)
 {
 	ICE_Gui gui = { 0 };
 
@@ -82,27 +57,27 @@ ICE_Gui ICE_Gui_Create(ICE_Box box, ICE_ID nb_texture)
 	return gui;
 }
 
-ICE_ID ICE_Gui_Insert(ICE_State * state, const ICE_ID man, const ICE_Box box, ICE_ID texture_nb)
+ICE_ID ICE_Gui_Create(ICE_State * state, const ICE_Box box, ICE_TextureID texture_nb)
 {
 	if (!state)
 		state = GAME.current;
 
 	// Insert label in array
-	state->object.gui_mngr[man].gui[state->object.gui_mngr[man].gui_contain] = ICE_Gui_Create(box, texture_nb);
-	state->object.gui_mngr[man].gui_contain++;
+	state->object.gui_mngr.gui[state->object.gui_mngr.gui_contain] = ICE_Gui_Build(box, texture_nb);
+	state->object.gui_mngr.gui_contain++;
 
-	ICE_Log(ICE_LOG_SUCCES, "Create Gui %d ", state->object.gui_mngr[man].gui_contain-1);
+	ICE_Log(ICE_LOG_SUCCES, "Create Gui %d ", state->object.gui_mngr.gui_contain-1);
 
 	// Test size to realloc more space
-	if (state->object.gui_mngr[man].gui_size <= state->object.gui_mngr[man].gui_contain) 
+	if (state->object.gui_mngr.gui_size <= state->object.gui_mngr.gui_contain) 
 	{
-		ICE_Gui* tmp = ICE_Realloc(state->object.gui_mngr[man].gui, sizeof(ICE_Gui)*(state->object.gui_mngr[man].gui_size * 2));
-		state->object.gui_mngr[man].gui = tmp;
-		state->object.gui_mngr[man].gui_size *= 2;
+		ICE_Gui* tmp = ICE_Realloc(state->object.gui_mngr.gui, sizeof(ICE_Gui)*(state->object.gui_mngr.gui_size * 2));
+		state->object.gui_mngr.gui = tmp;
+		state->object.gui_mngr.gui_size *= 2;
 	}
 
-	ICE_Gui_UpdateTexture(man, state->object.gui_mngr[man].gui_contain - 1);
-	return state->object.gui_mngr[man].gui_contain - 1;
+	ICE_Gui_UpdateTexture(state, state->object.gui_mngr.gui_contain - 1);
+	return state->object.gui_mngr.gui_contain - 1;
 }
 
 void ICE_Gui_Clear(ICE_Gui * label)
@@ -118,12 +93,12 @@ void ICE_Gui_Destroy(ICE_Gui * ptr)
 
 /* GUI GET */
 
-ICE_Gui * ICE_Gui_Get(ICE_State *state, int man, int gui)
+ICE_Gui * ICE_Gui_Get(ICE_State *state, ICE_GuiID gui)
 {
 	if (!state)
 		state = GAME.current;
 
-	return &state->object.gui_mngr[man].gui[gui];
+	return &state->object.gui_mngr.gui[gui];
 }
 
 /* GUI SET */

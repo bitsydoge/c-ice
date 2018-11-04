@@ -92,7 +92,7 @@ void ICE_State_Destroy(ICE_State * state)
 	if(!state->isFree)
 	{
 		ICE_LabelManager_Destroy(state);
-		ICE_GuiManager_DestroyAll(state);
+		ICE_GuiManager_Destroy(state);
 		ICE_Data_DestroyAll(state);
 	}
 }
@@ -132,7 +132,7 @@ void ICE_Substate_Loop()
 		current->func_destroy();
 		current->isFree = ICE_True;
 		ICE_LabelManager_Destroy(NULL);
-		ICE_GuiManager_DestroyAll(NULL);
+		ICE_GuiManager_Destroy(NULL);
 		ICE_Data_DestroyAll(NULL);
 		ICE_ObjectManager obj = { 0 };
 		current->object = obj;

@@ -14,13 +14,15 @@ extern ICE_Game GAME;
 extern ICE_Core CORE;
 extern ICE_Asset ASSET;
 
-void ICE_Font_Load(char *path) 
+ICE_FontID ICE_Font_Load(char *path)
 {
 	for (int i = 0; i < 256; i++) {
 		ASSET.font.size[i] = TTF_OpenFont(path, i);
 		if (!ASSET.font.size[i])
 			ICE_Log(ICE_LOG_CRITICAL, "%s\n", TTF_GetError());
 	}
+
+	return 0;
 }
 
 #if defined(_DEBUG)

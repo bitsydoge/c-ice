@@ -264,8 +264,7 @@ struct ICE_GameObjectManager
 	ICE_LabelManager 	label_mngr;
 	
 	// Gui
-	ICE_ID				gui_mngr_nb;
-	ICE_GuiManager *	gui_mngr;
+	ICE_GuiManager	gui_mngr;
 
 	// Entity
 	ICE_EntityManager entity_mngr;

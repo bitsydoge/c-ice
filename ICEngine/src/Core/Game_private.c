@@ -44,7 +44,7 @@ void ICE_Game_Quit()
 	ICE_MusicManager_Free();
 
 	ICE_LabelManager_Destroy(NULL);
-	ICE_GuiManager_DestroyAll(NULL);
+	ICE_GuiManager_Destroy(NULL);
 	ICE_EntityManager_Destroy(NULL);
 
 	ICE_Data_DestroyAll(NULL);
