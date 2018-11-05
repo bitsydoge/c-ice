@@ -28,6 +28,7 @@ _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
 ## Included : 
 
 	- stb_image ( Image decode : https://github.com/nothings/stb )
+	- SDL_stbimage ( stb_image SDL integration)
 	- rlutil.h ( Crossplatform terminal color : https://github.com/tapio/rlutil )
 	- SDL2_gfx ( AA primitives : https://sourceforge.net/projects/sdl2gfx/ )
 	- rnd.h ( Random algorithm : https://github.com/mattiasgustavsson/libs )
@@ -48,11 +49,9 @@ _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
 ICE_Game_Create()
 {
 	ICE_Font_Load("font.ttf");
-	ICE_Index man = ICE_LabelManager_Insert(NULL);
 	ICE_Index nbr = ICE_Label_Insert
 	(
 		NULL, 
-		man, 
 		"Hello World", 
 		ICE_Vect_Null, 
 		50, 
