@@ -34,10 +34,7 @@ _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
 	- chipmunk2d ( Physics : https://github.com/slembcke/Chipmunk2D )
 
 ## TODO :
-	- Sprite
-	- Map Load
-	- Physics
-	- Better GUI
+	See the Trello : https://trello.com/b/HOWcrZRM/ice
 
 ## Hello World
 
