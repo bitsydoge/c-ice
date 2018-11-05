@@ -20,7 +20,6 @@ ICE_Game_Create()
 
 	// Map	
 	ICE_Entity_SetTexture(ICE_Entity_Get(NULL, ICE_Entity_Create(NULL, ICE_Box_New(0, 0, 1920, 1920))), D->background);
-	//
 
 	ICE_Debug_CallbackDraw(GAME_Debug_LateDraw);
 	ICE_Music_Play(0, 0.1);
