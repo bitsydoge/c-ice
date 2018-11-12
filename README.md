@@ -11,33 +11,31 @@ _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
 
 **Supported Format :** 
 
-	- Image : JPG, PNG, BMP (And everything stb_image support)
-	- Sound : OGG and WAV (And everything SDL_mixer support)
-	- Font  : TTF (And everything SDL_ttf support)
+- Image : JPG, PNG, BMP (And everything stb_image support)
+- Sound : OGG and WAV (And everything SDL_mixer support)
+- Font  : TTF (And everything SDL_ttf support)
 
 **Tools** :
 
-	- Terminal Color : Crossplatform terminal color.
+- Terminal Color : Crossplatform terminal color.
 
 ## Dependancy : 
 
-	- SDL2 (Main lib for the engine)  
-	- SDL2_mixer (for the sound)   
-	- SDL2_ttf (for the text)   
+- SDL2 (Main lib for the engine)  
+- SDL2_mixer (for the sound)   
+- SDL2_ttf (for the text)   
 
 ## Included : 
 
-	- stb_image ( Image decode : https://github.com/nothings/stb )
-	- rlutil.h ( Crossplatform terminal color : https://github.com/tapio/rlutil )
-	- SDL2_gfx ( AA primitives : https://sourceforge.net/projects/sdl2gfx/ )
-	- rnd.h ( Random algorithm : https://github.com/mattiasgustavsson/libs )
-	- chipmunk2d ( Physics : https://github.com/slembcke/Chipmunk2D )
+- stb_image ( Image decode : https://github.com/nothings/stb )
+- SDL_stbimage ( stb_image SDL integration)
+- rlutil.h ( Crossplatform terminal color : https://github.com/tapio/rlutil )
+- SDL2_gfx ( AA primitives : https://sourceforge.net/projects/sdl2gfx/ )
+- rnd.h ( Random algorithm : https://github.com/mattiasgustavsson/libs )
+- chipmunk2d ( Physics : https://github.com/slembcke/Chipmunk2D )
 
 ## TODO :
-	- Sprite
-	- Map Load
-	- Physics
-	- Better GUI
+See the	[Trello](https://trello.com/b/HOWcrZRM/ice/)
 
 ## Hello World
 
@@ -51,11 +49,9 @@ _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
 ICE_Game_Create()
 {
 	ICE_Font_Load("font.ttf");
-	ICE_Index man = ICE_LabelManager_Insert(NULL);
 	ICE_Index nbr = ICE_Label_Insert
 	(
 		NULL, 
-		man, 
 		"Hello World", 
 		ICE_Vect_Null, 
 		50, 
