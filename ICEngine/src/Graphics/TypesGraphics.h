@@ -96,7 +96,7 @@ typedef struct
 	ICE_ID texture_index;
 
 	unsigned int size_w, size_h;
-	ICE_ID number_frame_w, number_frame_h;
+	ICE_Index number_frame_w, number_frame_h;
 
 	ICE_ID animation_size;
 	ICE_ID animation_contain;
@@ -124,6 +124,7 @@ typedef enum
 typedef struct
 {
 	ICE_Bool exist;
+	ICE_Bool active;
 	ICE_Bool have_texture_defined;
 	ICE_ID texture_index;
 	ICE_ID old_texture_index;

@@ -46,7 +46,7 @@ ICE_Game_Create("2DWatch", 800, 480)
 	ICE_ID nb = 0;
 
 	// Entity
-	manager = ICE_EntityManager_Create();
+	manager = ICE_EntityManager_Init();
 	nb = ICE_Entity_Create(NULL, ICE_Box_New(0, 0, 375, 250));
 	ICE_Entity_SetTexture
 	(
@@ -55,7 +55,7 @@ ICE_Game_Create("2DWatch", 800, 480)
 	);
 
 	// Gui
-	manager = ICE_GuiManager_Insert(NULL);
+	manager = ICE_GuiManager_Init(NULL);
 	nb = ICE_Gui_Create(NULL, ICE_Box_New(0, 0, ICE_Window_GetW(), 50), 1);
 
 	nb = ICE_Gui_Create(NULL, ICE_Box_New(0, 0, 50, 70), texture_Logo);

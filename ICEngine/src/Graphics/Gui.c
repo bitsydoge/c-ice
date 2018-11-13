@@ -11,51 +11,7 @@
 
 extern ICE_Game GAME;
 
-/* GUIMANAGER */
-
-void ICE_GuiManager_Insert(ICE_State* state)
-{
-	if (!state)
-		state = GAME.current;
-
-	ICE_GuiManager gui_manager = { 0 };
-	gui_manager.gui_size = ICE_DEFAULT_GUI_MNGR_SIZE;
-	gui_manager.gui = ICE_Calloc(gui_manager.gui_size, sizeof(ICE_Gui)); // Label Array
-
-	state->object.gui_mngr = gui_manager;
-
-	ICE_Log(ICE_LOG_SUCCES, "Create GuiManager in state", state->name);
-}
-
-void ICE_GuiManager_Destroy(ICE_State * state)
-{
-	if (!state)
-		state = GAME.current;
-
-	ICE_GuiManager *manager = &state->object.gui_mngr;
-
-	for (ICE_ID i = 0; i < manager->gui_contain; i++)
-		ICE_Gui_Destroy(&manager->gui[i]);
-
-	ICE_Free(manager->gui);
-	ICE_Log(ICE_LOG_SUCCES, "Destroy GuiManager");
-}
-
 /* GUI */
-
-ICE_Gui ICE_Gui_Build(ICE_Box box, ICE_TextureID nb_texture)
-{
-	ICE_Gui gui = { 0 };
-
-	gui.type = ICE_GUITYPE_RECTANGLE;
-
-	gui.have_texture_defined = ICE_True;
-	gui.exist = ICE_True;
-	gui.box = box;
-	gui.texture_index = nb_texture;
-
-	return gui;
-}
 
 ICE_ID ICE_Gui_Create(ICE_State * state, const ICE_Box box, ICE_TextureID texture_nb)
 {

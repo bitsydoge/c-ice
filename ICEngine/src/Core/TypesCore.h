@@ -202,6 +202,7 @@ struct ICE_Entity
 {
 	// Main
 	ICE_EntityID			id;
+	ICE_Bool				exist;
 	ICE_Bool				active;
 
 	ICE_Float				x, y;

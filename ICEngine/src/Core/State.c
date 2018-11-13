@@ -12,6 +12,7 @@
 #include "../Graphics/Gui.h"
 
 #include "Data.h"
+#include "../Graphics/Gui_private.h"
 
 extern ICE_Game GAME;
 extern ICE_Core CORE;

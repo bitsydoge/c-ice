@@ -8,7 +8,7 @@ typedef struct
 	ICE_Float speed;
 	int dx, dy;
 
-	int frame_up, frame_down,
+	ICE_ID frame_up, frame_down,
 		frame_left, frame_right;
 
 	ICE_String name;

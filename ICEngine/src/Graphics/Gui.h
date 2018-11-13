@@ -7,14 +7,8 @@
 
 #define ICE_DEFAULT_GUI_MNGR_SIZE 4
 
-/* GUIMANAGER */
-
-void ICE_GuiManager_Insert(ICE_State* state);
-void ICE_GuiManager_Destroy(ICE_State * state);
-
 /* GUI */
 
-ICE_Gui ICE_Gui_Build(ICE_Box box, ICE_TextureID nb_texture);
 ICE_ID ICE_Gui_Create(ICE_State * state, const ICE_Box box, ICE_TextureID texture_nb);
 void ICE_Gui_Clear(ICE_Gui * label);
 void ICE_Gui_Destroy(ICE_Gui * ptr);

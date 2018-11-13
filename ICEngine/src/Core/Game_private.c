@@ -13,6 +13,7 @@
 
 #include "../Audio/Music.h"
 #include "../Audio/Sound.h"
+#include "../Graphics/Gui_private.h"
 
 ICE_Game GAME = { 0 };
 
@@ -28,8 +29,8 @@ void ICE_Game_Init()
 	ICE_MusicManager_Init();
 
 	// Items
-	ICE_EntityManager_Create(NULL);
-	ICE_GuiManager_Insert(NULL);
+	ICE_EntityManager_Init(NULL);
+	ICE_GuiManager_Init(NULL);
 	ICE_LabelManager_Create(NULL);
 
 }
