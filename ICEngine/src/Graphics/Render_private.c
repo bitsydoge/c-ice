@@ -45,7 +45,11 @@ void ICE_Render_Init()
 	else
 		ICE_Log(ICE_LOG_CRITICAL, "Window create : %s", SDL_GetError());
 
-	CORE.window.render = SDL_CreateRenderer(CORE.window.handle, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+	if(CONFIG.vsync)
+		CORE.window.render = SDL_CreateRenderer(CORE.window.handle, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+	else
+		CORE.window.render = SDL_CreateRenderer(CORE.window.handle, -1, SDL_RENDERER_ACCELERATED);
+
 	if (CORE.window.render)
 		ICE_Log(ICE_LOG_SUCCES, "Render create");
 	else

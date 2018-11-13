@@ -25,6 +25,7 @@
 		CONFIG.refresh_rate = ICE_CONFIG_REFRESHRATE;\
 		CONFIG.fullscreen = ICE_CONFIG_FULLSCREEN;\
 		CONFIG.resizable = ICE_CONFIG_RESIZABLE;\
+		CONFIG.vsync = ICE_CONFIG_VSYNC;\
 		ICE_Core_Main(ICE_User_Create, ICE_User_Update, ICE_User_Destroy);\
 		return 0;\
 	}\
