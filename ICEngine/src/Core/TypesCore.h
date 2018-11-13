@@ -234,9 +234,9 @@ struct ICE_Entity
 	// Function
 	ICE_Bool				haveFunctionDefined;
 	ICE_Bool				alreadyRunnedCreate;
-	void					(*func_create)(void*);
-	void					(*func_update)(void*);
-	void					(*func_destroy)(void*);
+	void					(*func_create)(struct ICE_Entity*);
+	void					(*func_update)(struct ICE_Entity*);
+	void					(*func_destroy)(struct ICE_Entity*);
 
 }; typedef struct ICE_Entity ICE_Entity;
 

@@ -69,40 +69,40 @@ ICE_ID ICE_Entity_Create(ICE_State * state, ICE_Box pos)
 	if (!state)
 		state = GAME.current;
 
-	ICE_ID first_avaible = 0;
-	ICE_Bool use_first_avaible = ICE_False;
-	for(ICE_ID i = 0; i < state->object.entity_mngr.entity_contain; i++)
+	ICE_EntityID avaible_slot = 0;
+	ICE_Bool no_avaible_slot = ICE_False;
+
+	for(ICE_EntityID i = 0; i < state->object.entity_mngr.entity_contain; i++)
 	{
 		if(state->object.entity_mngr.entity[i].exist == ICE_False)
-		{
-			use_first_avaible = ICE_True;
-			first_avaible = i;
-			i = state->object.entity_mngr.entity_contain;
+		{		
+			avaible_slot = i;
+			no_avaible_slot = ICE_True;
+			break;
 		}	
 	}
-
-	// Insert entity in array
-	if(!use_first_avaible)
+	if (!no_avaible_slot)
 	{
-		state->object.entity_mngr.entity[state->object.entity_mngr.entity_contain] = ICE_Entity_Build(pos);
-		state->object.entity_mngr.entity[state->object.entity_mngr.entity_contain].id = state->object.entity_mngr.entity_contain;
+		avaible_slot = state->object.entity_mngr.entity_contain;
 		state->object.entity_mngr.entity_contain++;
 	}
-	else
-	{
-		state->object.entity_mngr.entity[first_avaible] = ICE_Entity_Build(pos);
-		state->object.entity_mngr.entity[first_avaible].id = first_avaible;
-	}
+		
 
-	ICE_Log(ICE_LOG_SUCCES, "Create Entity %d in state %s", state->object.entity_mngr.entity_contain - 1, state->name);
+	state->object.entity_mngr.entity[avaible_slot] = ICE_Entity_Build(pos);
+	state->object.entity_mngr.entity[avaible_slot].id = avaible_slot;
+		
+	ICE_Log(ICE_LOG_SUCCES, "Create Entity %d in state %s", avaible_slot, state->name);
 
+	// Resize Manager
 	if (state->object.entity_mngr.entity_size <= state->object.entity_mngr.entity_contain) 
 	{
 		ICE_Entity* tmp = ICE_Realloc(state->object.entity_mngr.entity, sizeof(ICE_Entity)*(state->object.entity_mngr.entity_size * 2));
 		state->object.entity_mngr.entity = tmp;
 		state->object.entity_mngr.entity_size *= 2;
+		ICE_Log(ICE_LOG_WARNING, "RESIZED ENTITY MANAGER");
 	}
-	return state->object.entity_mngr.entity_contain - 1;
+
+	return avaible_slot;
 }
 
 void ICE_Entity_Clear(ICE_Entity * entity)
@@ -345,7 +345,7 @@ ICE_ID ICE_Entity_GetSpriteFrame(ICE_Entity * entity)
 	return 0;
 }
 
-void ICE_Entity_SetFunction(ICE_Entity * entity, void(*call_create)(void*), void(*call_update)(void*), void(*call_destroy)(void*))
+void ICE_Entity_SetFunction(ICE_Entity * entity, void(*call_create)(ICE_Entity*), void(*call_update)(ICE_Entity*), void(*call_destroy)(ICE_Entity*))
 {
 	entity->haveFunctionDefined = ICE_True;
 	entity->func_create = call_create;
