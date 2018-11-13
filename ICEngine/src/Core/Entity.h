@@ -9,7 +9,7 @@
 
 /* ENTITY MANAGER */
 
-void ICE_EntityManager_Create(ICE_State* state);
+void ICE_EntityManager_Init(ICE_State* state);
 void ICE_EntityManager_Destroy(ICE_State* state);
 
 /* ENTITY */

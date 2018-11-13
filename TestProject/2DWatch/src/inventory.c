@@ -25,7 +25,7 @@ void inventory_create()
 		data->current_weapon.speed
 	);
 	ICE_Label_SetWrapWidth(ICE_Label_Get(NULL, nb), 100);
-	ICE_GuiManager_Insert(NULL);
+	ICE_GuiManager_Init(NULL);
 	ICE_Gui_Create
 	(
 		NULL,

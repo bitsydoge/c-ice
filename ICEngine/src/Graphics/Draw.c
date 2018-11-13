@@ -89,7 +89,7 @@ void ICE_Draw_Gui()
 
 		for (ICE_ID j = 0; j < current->object.gui_mngr.gui_contain; j++)
 		{
-			if (current->object.gui_mngr.gui[j].exist && current->object.gui_mngr.gui[j].have_texture_defined)
+			if (current->object.gui_mngr.gui[j].active && current->object.gui_mngr.gui[j].have_texture_defined)
 			{
 
 				if (

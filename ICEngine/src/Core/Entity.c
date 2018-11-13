@@ -15,7 +15,7 @@ extern ICE_Game GAME;
 
 /* ENTITY MANAGER */
 
-void ICE_EntityManager_Create(ICE_State* state)
+void ICE_EntityManager_Init(ICE_State* state)
 {
 	if (!state)
 		state = GAME.current;
@@ -26,7 +26,7 @@ void ICE_EntityManager_Create(ICE_State* state)
 
 	state->object.entity_mngr = entity_manager;
 
-	ICE_Log(ICE_LOG_SUCCES, "Create EntityManager");
+	ICE_Log(ICE_LOG_SUCCES, "Init EntityManager");
 }
 
 void ICE_EntityManager_Destroy(ICE_State * state)
@@ -54,6 +54,8 @@ ICE_Entity ICE_Entity_Build(ICE_Box pos)
 
 	// Assigne
 	entity.active = ICE_True;
+	entity.exist = ICE_True;
+
 	entity.x = pos.x;
 	entity.y = pos.y;
 	entity.w = pos.w;
@@ -67,10 +69,30 @@ ICE_ID ICE_Entity_Create(ICE_State * state, ICE_Box pos)
 	if (!state)
 		state = GAME.current;
 
+	ICE_ID first_avaible = 0;
+	ICE_Bool use_first_avaible = ICE_False;
+	for(ICE_ID i = 0; i < state->object.entity_mngr.entity_contain; i++)
+	{
+		if(state->object.entity_mngr.entity[i].exist == ICE_False)
+		{
+			use_first_avaible = ICE_True;
+			first_avaible = i;
+			i = state->object.entity_mngr.entity_contain;
+		}	
+	}
+
 	// Insert entity in array
-	state->object.entity_mngr.entity[state->object.entity_mngr.entity_contain] = ICE_Entity_Build(pos);
-	state->object.entity_mngr.entity[state->object.entity_mngr.entity_contain].id = state->object.entity_mngr.entity_contain;
-	state->object.entity_mngr.entity_contain++;
+	if(!use_first_avaible)
+	{
+		state->object.entity_mngr.entity[state->object.entity_mngr.entity_contain] = ICE_Entity_Build(pos);
+		state->object.entity_mngr.entity[state->object.entity_mngr.entity_contain].id = state->object.entity_mngr.entity_contain;
+		state->object.entity_mngr.entity_contain++;
+	}
+	else
+	{
+		state->object.entity_mngr.entity[first_avaible] = ICE_Entity_Build(pos);
+		state->object.entity_mngr.entity[first_avaible].id = first_avaible;
+	}
 
 	ICE_Log(ICE_LOG_SUCCES, "Create Entity %d in state %s", state->object.entity_mngr.entity_contain - 1, state->name);
 
@@ -91,9 +113,11 @@ void ICE_Entity_Clear(ICE_Entity * entity)
 void ICE_Entity_Destroy(ICE_Entity * ptr)
 {
 	ptr->active = ICE_False;
+	ptr->exist = ICE_False;
+
 	ptr->func_create = NULL;
 	ptr->func_update = NULL;
-	if(ptr->func_destroy != 0)
+	if(ptr->func_destroy != NULL)
 		ptr->func_destroy(ptr);
 
 	ICE_Entity_DataDestroyAll(ptr);
