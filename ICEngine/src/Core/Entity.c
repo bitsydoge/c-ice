@@ -99,7 +99,6 @@ ICE_ID ICE_Entity_Create(ICE_State * state, ICE_Box pos)
 		ICE_Entity* tmp = ICE_Realloc(state->object.entity_mngr.entity, sizeof(ICE_Entity)*(state->object.entity_mngr.entity_size * 2));
 		state->object.entity_mngr.entity = tmp;
 		state->object.entity_mngr.entity_size *= 2;
-		ICE_Log(ICE_LOG_WARNING, "RESIZED ENTITY MANAGER");
 	}
 
 	return avaible_slot;
@@ -112,18 +111,21 @@ void ICE_Entity_Clear(ICE_Entity * entity)
 
 void ICE_Entity_Destroy(ICE_Entity * ptr)
 {
-	ptr->active = ICE_False;
-	ptr->exist = ICE_False;
+	if(ptr->exist)
+	{
+		ptr->active = ICE_False;
+		ptr->exist = ICE_False;
 
-	ptr->func_create = NULL;
-	ptr->func_update = NULL;
-	if(ptr->func_destroy != NULL)
-		ptr->func_destroy(ptr);
+		ptr->func_create = NULL;
+		ptr->func_update = NULL;
+		if (ptr->func_destroy != NULL)
+			ptr->func_destroy(ptr);
 
-	ICE_Entity_DataDestroyAll(ptr);
+		ICE_Entity_DataDestroyAll(ptr);
 
-	ptr->haveFunctionDefined = ICE_False;
-	ptr->func_destroy = NULL;
+		ptr->haveFunctionDefined = ICE_False;
+		ptr->func_destroy = NULL;
+	}
 }
 
 /* ENTITY GET FUNCTION */
@@ -358,7 +360,7 @@ void ICE_Entity_FunctionUpdate(ICE_State * state)
 	if (state == NULL)
 		state = GAME.current;
 
-	for(int i = 0; i < state->object.entity_mngr.entity_contain; i++)
+	for(ICE_ID i = 0; i < state->object.entity_mngr.entity_contain; i++)
 	{
 		if(state->object.entity_mngr.entity[i].active)
 		{

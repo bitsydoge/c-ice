@@ -349,6 +349,7 @@ struct ICE_Config
 
 	ICE_Uint8 fullscreen;
 	ICE_Bool resizable;
+	ICE_Bool vsync;
 
 	ICE_StringStd editor_name;
 	ICE_StringStd product_name;
