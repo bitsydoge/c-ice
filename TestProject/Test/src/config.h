@@ -8,6 +8,6 @@
 #define ICE_CONFIG_WINDOW_H 720
 #define ICE_CONFIG_WINDOW_ICON "res//img//pic_64x64.png"
 #define ICE_CONFIG_RESIZABLE 1
-#define ICE_CONFIG_VSYNC 0
+#define ICE_CONFIG_VSYNC 1
 
 #endif

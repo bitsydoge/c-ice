@@ -34,18 +34,21 @@ void ICE_Camera_MovePos(ICE_Vect vect, ICE_Float r)
 	}
 }
 
-void ICE_Camera_ShiftPos(ICE_Vect Dvect)
+void ICE_Camera_ShiftPos(ICE_Vect delta_)
 {
-	GAME.current->object.camera.x += Dvect.x;
-	GAME.current->object.camera.y += Dvect.y;
+	GAME.current->object.camera.x += delta_.x;
+	GAME.current->object.camera.y += delta_.y;
 }
 
 // Camera return
 // ----------------------------------------------------
 
-ICE_Vect ICE_Camera_GetPos()
+ICE_Vect ICE_Camera_GetPos(ICE_State* state_)
 {
-	return ICE_Vect_New(CORE.window.w, CORE.window.h);
+	if (state_ == NULL)
+		state_ = GAME.current;
+
+	return ICE_Vect_New(state_->object.camera.x, state_->object.camera.y);
 }
 
 // Converter
