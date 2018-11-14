@@ -55,7 +55,7 @@ ICE_Entity ICE_Entity_Build(ICE_Box pos)
 	// Assigne
 	entity.active = ICE_True;
 	entity.exist = ICE_True;
-
+	entity.timestamp = SDL_GetTicks();
 	entity.x = pos.x;
 	entity.y = pos.y;
 	entity.w = pos.w;

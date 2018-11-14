@@ -29,7 +29,10 @@ typedef double ICE_Float;
 #define ICE_INDEX_DEFINED
 typedef size_t ICE_ID;
 typedef size_t ICE_Index;
+typedef size_t ICE_Timer;
 #endif
+
+
 
 #ifndef ICE_SIZED_INT_DEFINED
 #define ICE_SIZED_INT_DEFINED
