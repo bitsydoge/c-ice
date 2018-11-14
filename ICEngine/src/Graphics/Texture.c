@@ -33,7 +33,7 @@ void ICE_TextureManager_Free()
 
 /* TEXTURE */
 
-ICE_Texture ICE_Texture_Create(char* path_)
+ICE_Texture ICE_Texture_Build(char* path_)
 {
 	ICE_Texture texture_temp = ICE_Texture_LoadFromFile(path_);
 	texture_temp.exist = 1;
@@ -47,9 +47,28 @@ ICE_Texture ICE_Texture_Create(char* path_)
 
 ICE_ID ICE_Texture_Load(char* path_) 
 {
-	ASSET.texture_mngr.texture[ASSET.texture_mngr.texture_contain] = ICE_Texture_Create(path_);
-	ASSET.texture_mngr.texture_contain++;
-	ICE_Log(ICE_LOG_SUCCES, "Load Texture %d from \"%s\"", ASSET.texture_mngr.texture_contain - 1, path_);
+
+	ICE_EntityID avaible_slot = 0;
+	ICE_Bool no_avaible_slot = ICE_False;
+
+	for (ICE_EntityID i = 0; i < ASSET.texture_mngr.texture_contain; i++)
+	{
+		if (ASSET.texture_mngr.texture[i].exist == ICE_False)
+		{
+			avaible_slot = i;
+			no_avaible_slot = ICE_True;
+			break;
+		}
+	}
+	if (!no_avaible_slot)
+	{
+		avaible_slot = ASSET.texture_mngr.texture_contain;
+		ASSET.texture_mngr.texture_contain++;
+	}
+
+	ASSET.texture_mngr.texture[avaible_slot] = ICE_Texture_Build(path_);
+
+	ICE_Log(ICE_LOG_SUCCES, "Load Texture %d from \"%s\"", avaible_slot, path_);
 	
 	if (ASSET.texture_mngr.texture_size <= ASSET.texture_mngr.texture_contain) 
 	{
@@ -57,11 +76,12 @@ ICE_ID ICE_Texture_Load(char* path_)
 		ASSET.texture_mngr.texture_size *= 2;
 	}
 	
-	return ASSET.texture_mngr.texture_contain - 1;
+	return avaible_slot;
 }
 
 void ICE_Texture_Destroy(ICE_ID texture_) 
 {
+	ASSET.texture_mngr.texture[texture_].exist = ICE_False;
 	SDL_DestroyTexture(ASSET.texture_mngr.texture[texture_].handle);
 	ICE_Log(ICE_LOG_SUCCES, "Destroy Texture %d", texture_);
 }
