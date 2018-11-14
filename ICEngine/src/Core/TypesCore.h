@@ -13,6 +13,13 @@
 // Typedef
 // --------------------------------------
 
+#ifndef ICE_INDEX_DEFINED
+#define ICE_INDEX_DEFINED
+typedef size_t ICE_ID;
+typedef size_t ICE_Index;
+typedef size_t ICE_Timer;
+#endif
+
 #ifndef ICE_INDEX_CORETYPE_DEFINED
 #define ICE_INDEX_CORETYPE_DEFINED
 
@@ -202,6 +209,7 @@ struct ICE_Entity
 {
 	// Main
 	ICE_EntityID			id;
+	ICE_Timer				timestamp;
 	ICE_Bool				exist;
 	ICE_Bool				active;
 
