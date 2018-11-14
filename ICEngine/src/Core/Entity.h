@@ -58,8 +58,8 @@ void ICE_Entity_SetSpriteFrame(ICE_Entity* entity, ICE_ID frame);
 ICE_Sprite* ICE_Entity_GetSprite(ICE_Entity* _entity);
 
 
-void ICE_Entity_SetFunction(ICE_Entity* entity, void (*call_create)(void*), void (*call_update)(void*),
-                            void (*call_destroy)(void*));
+void ICE_Entity_SetFunction(ICE_Entity* entity, void (*call_create)(ICE_Entity*), void (*call_update)(ICE_Entity*),
+                            void (*call_destroy)(ICE_Entity*));
 void ICE_Entity_FunctionUpdate(ICE_State* state);
 ICE_ID ICE_Entity_GetSpriteFrame(ICE_Entity * entity);
 
