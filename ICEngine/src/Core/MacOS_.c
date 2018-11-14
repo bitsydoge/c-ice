@@ -7,17 +7,17 @@
 #if defined(__APPLE__)
 #include <unistd.h>
 #include <CoreFoundation/CoreFoundation.h> 
-ICE_Char * ICE_MacOS_GetResourcesDirectory()
+ICE_StringStd ICE_MacOS_GetResourcesDirectory()
 {
-    CFURLRef url = CFBundleCopyResourcesDirectoryURL(CFBundleGetMainBundle());
+	CFURLRef url = CFBundleCopyResourcesDirectoryURL(CFBundleGetMainBundle());
 	char * returner = (char*)malloc(sizeof(char)*PATH_MAX);
-    CFURLGetFileSystemRepresentation(url, true, (UInt8*)returner, sizeof(sizeof(char)*PATH_MAX));
-    //chdir(path) != 0)
-    CFRelease(url);
-    return returner;
+	CFURLGetFileSystemRepresentation(url, true, (UInt8*)returner, sizeof(sizeof(char)*PATH_MAX));
+	//chdir(path) != 0)
+	CFRelease(url);
+	return returner;
 }
 ICE_Bool ICE_MacOS_SetWorkingDirectory(ICE_StringStd path)
 {
-    return chdir(path);
+	return chdir(path);
 }
 #endif
