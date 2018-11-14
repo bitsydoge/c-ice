@@ -10,6 +10,23 @@ ICE_Game_Create()
 	GAME_DATA * D = ICE_Data_Insert(NULL, GAME_DATA);
 
 	D->spritesheet = ICE_Texture_Load("res//img//spritesheet.png");
+	ICE_Texture_Destroy(D->spritesheet);
+
+	D->spritesheet = ICE_Texture_Load("res//img//spritesheet.png");
+	ICE_Texture_Destroy(D->spritesheet);
+	D->spritesheet = ICE_Texture_Load("res//img//spritesheet.png");
+	ICE_Texture_Destroy(D->spritesheet);
+	D->spritesheet = ICE_Texture_Load("res//img//spritesheet.png");
+	ICE_Texture_Destroy(D->spritesheet);
+	D->spritesheet = ICE_Texture_Load("res//img//spritesheet.png");
+	ICE_Texture_Destroy(D->spritesheet);
+	D->spritesheet = ICE_Texture_Load("res//img//spritesheet.png");
+	ICE_Texture_Destroy(D->spritesheet);
+	D->spritesheet = ICE_Texture_Load("res//img//spritesheet.png");
+	ICE_Texture_Destroy(D->spritesheet);
+	D->spritesheet = ICE_Texture_Load("res//img//spritesheet.png");
+
+
 	D->texture_gui = ICE_Texture_Load("res//img//gui.png");
 	D->background = ICE_Texture_Load("res//img//background.png");
 	D->main_theme = ICE_Music_Load("res//snd//music.ogg");

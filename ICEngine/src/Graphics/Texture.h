@@ -8,7 +8,7 @@
 void ICE_TextureManager_Init();
 void ICE_TextureManager_Free();
 
-ICE_Texture ICE_Texture_Create(char* path_);
+ICE_Texture ICE_Texture_Build(char* path_);
 ICE_ID ICE_Texture_Load(char* path_);
 void ICE_Texture_Destroy(ICE_ID texture_);
 void ICE_Texture_Free(ICE_Texture * texture_);
