@@ -2,6 +2,7 @@
 #define DEF_ICE__CAMERA
 
 #include "../Maths/TypesMaths.h"
+#include "../Core/TypesCore.h"
 
 /**
  * \brief Set Camera position to a Vector
@@ -41,6 +42,6 @@ ICE_Box ICE_Camera_ScreenWorld(ICE_Box rect);
  * \brief Return a Vector with Camera Coordinate
  * \return 
  */
-ICE_Vect ICE_Camera_GetPos();
+ICE_Vect ICE_Camera_GetPos(ICE_State* state_);
 
 #endif

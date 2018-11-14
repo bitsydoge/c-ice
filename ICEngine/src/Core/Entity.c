@@ -365,7 +365,7 @@ void ICE_Entity_FunctionUpdate(ICE_State * state)
 		if(state->object.entity_mngr.entity[i].active)
 		{
 			if (state->object.entity_mngr.entity[i].haveFunctionDefined)
-			{
+			{           
 				if (!state->object.entity_mngr.entity[i].alreadyRunnedCreate)
 				{
 					state->object.entity_mngr.entity[i].func_create(&state->object.entity_mngr.entity[i]);
