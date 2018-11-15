@@ -14,7 +14,7 @@ void GAME_Player_Create(ICE_Entity*  this_)
 	D_player->frame_left = 82;
 	D_player->frame_right = 79;
 	D_player->name = ICE_String_Init("Coldragon");
-	ICE_Entity_SetSprite(ICE_Entity_Get(NULL, D->player), D->main_sprite); // Set Sprite to Entity
+	ICE_Entity_SetSprite(ICE_Entity_Get(NULL, D->player), D->sprite_player); // Set Sprite to Entity
 	ICE_Entity_SetSpriteFrame(ICE_Entity_Get(NULL, D->player), D_player->frame_down); // Select Frame
 
 	D->hello_world = ICE_Label_Create(NULL, D_player->name, ICE_Vect_New(0, 0), 50, ICE_LABELTYPE_WORLD);

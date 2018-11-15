@@ -8,8 +8,10 @@
 #include "Texture_private.h"
 #include "Sprite.h"
 #include "../Core/Converter_private.h"
+#include "../ICE.h"
 
 extern ICE_Game GAME;
+extern ICE_Asset ASSET;
 
 void ICE_Draw_LabelWorld()
 {
@@ -148,7 +150,7 @@ void ICE_Draw_Entity()
 
 			ICE_Texture_RenderExCentered
 			(
-				ICE_Texture_Get(current->object.entity_mngr.entity[j].graphics_index),
+				ICE_Texture_Get(ASSET.sprite_mngr.sprite[current->object.entity_mngr.entity[j].graphics_index].texture_index),
 				&current->object.entity_mngr.entity[j].graphics_box_render,
 				&rect,
 				current->object.entity_mngr.entity[j].angle

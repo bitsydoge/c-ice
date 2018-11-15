@@ -40,7 +40,6 @@ ICE_Texture ICE_Texture_Build(char* path_)
 	int w, h;
 	SDL_QueryTexture(texture_temp.handle, NULL, NULL, &w, &h);
 	texture_temp.w = w; texture_temp.h = h;
-	texture_temp.id = ASSET.texture_mngr.texture_contain;
 	SDL_SetTextureBlendMode(texture_temp.handle, SDL_BLENDMODE_BLEND);
 	return texture_temp;
 }
@@ -67,6 +66,7 @@ ICE_ID ICE_Texture_Load(char* path_)
 	}
 
 	ASSET.texture_mngr.texture[avaible_slot] = ICE_Texture_Build(path_);
+	ASSET.texture_mngr.texture[avaible_slot].id = avaible_slot;
 
 	ICE_Log(ICE_LOG_SUCCES, "Load Texture %d from \"%s\"", avaible_slot, path_);
 	
