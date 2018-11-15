@@ -7,9 +7,6 @@
     <Filter Include="2 - Core">
       <UniqueIdentifier>{168370c5-3986-4c02-b4e1-491595f06b82}</UniqueIdentifier>
     </Filter>
-    <Filter Include="3 - Graphics">
-      <UniqueIdentifier>{c4de349e-a88f-446e-a759-630d70ad9b2f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="4 - Maths">
       <UniqueIdentifier>{02dfc310-3a03-4719-91c3-198866493c09}</UniqueIdentifier>
     </Filter>
@@ -39,6 +36,9 @@
     </Filter>
     <Filter Include="1 - Framework\external">
       <UniqueIdentifier>{f80d7410-eb81-41f6-88f4-b4239d7a832d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3 - Graphics">
+      <UniqueIdentifier>{c4de349e-a88f-446e-a759-630d70ad9b2f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

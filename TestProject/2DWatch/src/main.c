@@ -8,34 +8,40 @@
 
 enum
 {
-
 	texture_Pic = 0,
 	texture_Gui = 1,
 	texture_Widow = 2,
 	texture_Sprite = 3,
 	texture_Logo = 4
-
 };
 
-ICE_Game_Create("2DWatch", 800, 480)
+#define ICE_CONFIG_WINDOW_W 1280
+#define ICE_CONFIG_WINDOW_H 720
+#define ICE_CONFIG_TITLE "2DWatch"
+#define ICE_CONFIG_FULLSCREEN 0
+#define ICE_CONFIG_RESIZABLE 1 
+#define ICE_CONFIG_EDITORNAME "coldragon"
+#define ICE_CONFIG_PRODUCTNAME "2dwatch"
+#define ICE_CONFIG_VSYNC 0
+#define ICE_CONFIG_REFRESHRATE 144
+#define ICE_CONFIG_WINDOW_ICON 0
+
+ICE_Game_Create()
 {
-	// Texture
-	ICE_ID manager = ICE_TextureManager_Init();
-	ICE_Texture_Load(manager, "res//img//pic.png");
-	ICE_Texture_Load(manager, "res//img//gui.png");
-	ICE_Texture_Load(manager, "res//img//widow.png");
-	ICE_Texture_Load(manager, "res//img//sprite.png");
-	ICE_Texture_Load(manager, "res//img//ice_logo.png");
+	// TEX
+	ICE_Texture_Load("res//img//pic.png");
+	ICE_Texture_Load("res//img//gui.png");
+	ICE_Texture_Load("res//img//widow.png");
+	ICE_Texture_Load("res//img//sprite.png");
+	ICE_Texture_Load("res//img//ice_logo.png");
 
-	// Sound
-	manager = ICE_SoundManager_Init();
-	ICE_Sound_Load(manager, "res//snd//explosion.wav");
+	// SND
+	ICE_Sound_Load("res//snd//explosion.wav");
 
-	// Music
-	manager = ICE_MusicManager_Init();
-	ICE_Music_Load(manager, "res//snd//music.ogg");
+	// MUS
+	ICE_Music_Load("res//snd//music.ogg");
 
-	// Font
+	// FNT
 	ICE_Font_Load("res//ttf//FiraSans-Medium.ttf");
 
 	// Debug
@@ -43,26 +49,21 @@ ICE_Game_Create("2DWatch", 800, 480)
 	ICE_Debug_FontSetColorBg(100, 100, 100);
 	ICE_Debug_FontSetColorFg(255, 255, 255);
 
-	ICE_ID nb = 0;
-
 	// Entity
-	manager = ICE_EntityManager_Init();
-	nb = ICE_Entity_Create(NULL, ICE_Box_New(0, 0, 375, 250));
+
+	ICE_EntityID nb = ICE_Entity_Create(NULL, ICE_Box_New(0, 0, 375, 250));
 	ICE_Entity_SetTexture
 	(
 		ICE_Entity_Get(NULL, 0), 
-		ICE_Texture_Get(0, texture_Widow)
+		texture_Widow
 	);
 
 	// Gui
-	manager = ICE_GuiManager_Init(NULL);
 	nb = ICE_Gui_Create(NULL, ICE_Box_New(0, 0, ICE_Window_GetW(), 50), 1);
-
 	nb = ICE_Gui_Create(NULL, ICE_Box_New(0, 0, 50, 70), texture_Logo);
 	ICE_Gui_SetType(ICE_Gui_Get(NULL, nb), ICE_GUITYPE_IMAGE);
 
 	// Label
-	manager = ICE_LabelManager_Create(NULL);
 	// 1
 	nb = ICE_Label_Create(NULL, "It is a me", ICE_Vect_New(0, 0), 30, ICE_LABELTYPE_WORLD);
 	ICE_Label_SetAngle(ICE_Label_Get(NULL, nb), 30);
@@ -75,7 +76,7 @@ ICE_Game_Create("2DWatch", 800, 480)
 	data->current_weapon = Game_Weapon_Init("Big Sword", 100, 1.2, 50);
 
 	// Music
-	ICE_Music_Play(ICE_Music_Get(0, 0), 16);
+	ICE_Music_Play(0, 16);
 }
 
 void Screen_Update()
@@ -109,7 +110,7 @@ ICE_Game_Update()
 
 	if (ICE_Input_Pressed(ICE_KEY_ESCAPE))
 	{
-		ICE_Sound_Play(ICE_Sound_Get(0, 0), 16);
+		ICE_Sound_Play( 0, 16);
 		ICE_Substate_Start(&data->inventory);
 	}
 	if (ICE_Input_Pressed(ICE_KEY_SPACE))
