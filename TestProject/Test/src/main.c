@@ -9,6 +9,12 @@ ICE_Game_Create()
 {
 	GAME_DATA * D = ICE_Data_Insert(NULL, GAME_DATA);
 
+	ICE_Texture_Load("res//img//001-SPRITESHEET");
+	ICE_Texture_Load("res//img//002-ICONS");
+	ICE_Texture_Load("res//img//003-GUI");
+	ICE_Texture_Load("res//img//004-ITEMS");
+	ICE_Texture_Load("res//img//005-BACKGROUND");
+
 	D->texture_tileset = ICE_Texture_Load("res//img//001-SPRITESHEET");
 	D->texture_gui_icons = ICE_Texture_Load("res//img//002-ICONS");
 	D->texture_gui = ICE_Texture_Load("res//img//003-GUI");
@@ -22,7 +28,6 @@ ICE_Game_Create()
 
 	D->rectangle = ICE_Gui_Create(NULL, ICE_Box_New(0, 0, 0, 50), D->texture_gui);
 
-	// Map	
 	ICE_Entity_SetTexture(ICE_Entity_Get(NULL, ICE_Entity_Create(NULL, ICE_Box_New(0, 0, 1920, 1920))), D->texture_background);
 
 	ICE_Debug_CallbackDraw(GAME_Debug_LateDraw);

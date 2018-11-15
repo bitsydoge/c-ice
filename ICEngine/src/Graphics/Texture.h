@@ -6,7 +6,7 @@
 #define ICE_DEFAULT_TEXTUREMNGR_SIZE 4
 
 void ICE_TextureManager_Init();
-void ICE_TextureManager_Free();
+void ICE_TextureManager_Destroy();
 
 ICE_Texture ICE_Texture_Build(char* path_);
 ICE_ID ICE_Texture_Load(char* path_);

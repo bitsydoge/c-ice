@@ -13,11 +13,13 @@ void GAME_Player_Create(ICE_Entity*  this_)
 	D_player->frame_up = 56;
 	D_player->frame_left = 82;
 	D_player->frame_right = 79;
+	D_player->size_text = 25;
 	D_player->name = ICE_String_Init("Coldragon");
+	
 	ICE_Entity_SetSprite(ICE_Entity_Get(NULL, D->player), D->sprite_player); // Set Sprite to Entity
 	ICE_Entity_SetSpriteFrame(ICE_Entity_Get(NULL, D->player), D_player->frame_down); // Select Frame
 
-	D->hello_world = ICE_Label_Create(NULL, D_player->name, ICE_Vect_New(0, 0), 50, ICE_LABELTYPE_WORLD);
+	D->hello_world = ICE_Label_Create(NULL, D_player->name, ICE_Vect_New(0, 0), D_player->size_text, ICE_LABELTYPE_WORLD);
 	ICE_Label_SetString(ICE_Label_Get(NULL, D->hello_world), D_player->name);
 }
 
@@ -27,7 +29,10 @@ void GAME_Player_Update(ICE_Entity*  this_)
 	ICE_Vect vect = ICE_Entity_GetPosition(ICE_Entity_Get(NULL, D->player));
 	vect.y -= 50;
 	ICE_Label_SetPos(ICE_Label_Get(NULL, D->hello_world), vect);
+	
 	GAME_Control();
+
+
 }
 
 void GAME_Player_Destroy(ICE_Entity*  this_)

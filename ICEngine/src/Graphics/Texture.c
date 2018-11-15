@@ -21,7 +21,7 @@ void ICE_TextureManager_Init()
 	ICE_Log(ICE_LOG_SUCCES, "Init TextureManager");
 }
 
-void ICE_TextureManager_Free()
+void ICE_TextureManager_Destroy()
 {
 	for (ICE_ID i = 0; i < ASSET.texture_mngr.texture_contain; i++)
 		ICE_Texture_Destroy(i);

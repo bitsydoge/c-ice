@@ -26,7 +26,6 @@ ICE_State ICE_State_Create(void (*func_create)(void), void (* func_update)(void)
 	state.func_update = func_update;
 	state.func_destroy = func_destroy;
 
-
 	return state;
 }
 
@@ -110,7 +109,7 @@ void ICE_Substate_Loop()
 	
 	if (!current->isPaused)
 	{
-		ICE_LabelManager_Create(NULL);
+		ICE_LabelManager_Init(NULL);
 		ICE_GuiManager_Init(NULL);
 		ICE_EntityManager_Init(NULL);
 		current->func_create();

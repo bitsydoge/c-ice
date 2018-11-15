@@ -8,7 +8,7 @@
 // MANAGER
 
 void ICE_SoundManager_Init();
-void ICE_SoundManager_Free();
+void ICE_SoundManager_Destroy();
 
 // SOUND
 

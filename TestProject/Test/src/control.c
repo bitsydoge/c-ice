@@ -61,4 +61,26 @@ void GAME_Control()
 		ICE_Entity * fireball = ICE_Entity_Get(NULL, ICE_Entity_Create(NULL, box));
 		ICE_Entity_SetFunction(fireball, GAME_Projectile_Create, GAME_Projectile_Update, GAME_Projectile_Destroy);
 	}
+
+	if (ICE_Input_Pressed(ICE_KEY_KP_PLUS))
+	{
+		D_player->size_text++;
+
+		if (D_player->size_text > 255)
+			D_player->size_text = 255;
+
+		ICE_Label_SetSize(ICE_Label_Get(NULL, D->hello_world), D_player->size_text);
+	}
+
+	if (ICE_Input_Pressed(ICE_KEY_KP_MINUS))
+	{
+		D_player->size_text--;
+
+		if (D_player->size_text < 1)
+			D_player->size_text = 1;
+
+		ICE_Label_SetSize(ICE_Label_Get(NULL, D->hello_world), D_player->size_text);
+	}
+
+
 }

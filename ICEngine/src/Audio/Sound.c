@@ -17,7 +17,7 @@ void ICE_SoundManager_Init()
 	ICE_Log(ICE_LOG_SUCCES, "Init SoundManager");
 }
 
-void ICE_SoundManager_Free()
+void ICE_SoundManager_Destroy()
 {
 	for (ICE_ID i = 0; i < ASSET.sound_mngr.sound_contain; i++)
 		ICE_Sound_Destroy(i);

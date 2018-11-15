@@ -17,7 +17,7 @@ void ICE_MusicManager_Init()
 	ICE_Log(ICE_LOG_SUCCES, "Init MusicManager");
 }
 
-void ICE_MusicManager_Free()
+void ICE_MusicManager_Destroy()
 {
 	for (ICE_ID i = 0; i < ASSET.music_mngr.music_contain; i++)
 		ICE_Music_Destroy(i);
@@ -29,7 +29,7 @@ void ICE_MusicManager_Free()
 
 // MUSIC
 
-ICE_Music ICE_Music_Create(char *path_)
+ICE_Music ICE_Music_Build(char *path_)
 {
 	ICE_Music music;
 	// Assigne
@@ -40,10 +40,11 @@ ICE_Music ICE_Music_Create(char *path_)
 	return music;
 }
 
-ICE_ID ICE_Music_Load(char *path_)
+ICE_MusicID ICE_Music_Load(char* path_)
 {
-	ASSET.music_mngr.music[ASSET.music_mngr.music_contain] = ICE_Music_Create(path_);
+	ASSET.music_mngr.music[ASSET.music_mngr.music_contain] = ICE_Music_Build(path_);
 	ASSET.music_mngr.music_contain++;
+
 	ICE_Log(ICE_LOG_SUCCES, "Load Music %d from \"%s\"", ASSET.music_mngr.music_contain - 1, path_);
 
 	if (ASSET.music_mngr.music_size <= ASSET.music_mngr.music_contain) {
