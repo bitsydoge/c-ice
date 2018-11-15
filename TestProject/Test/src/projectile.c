@@ -11,7 +11,7 @@ void GAME_Projectile_Create(ICE_Entity * this_)
 	ICE_Entity * player = ICE_Entity_Get(NULL, D->player);
 	GAME_DATA_PLAYER * D_player = ICE_Entity_DataGet(player, 0);
 
-	ICE_Entity_SetSprite(this_, D->spritesheet);
+	ICE_Entity_SetSprite(this_, D->texture_tileset);
 	ICE_Entity_SetSpriteFrame(this_, 39);
 	ICE_Sound_Play(D->explosion, 0.105);
 	D_entity->speed = 600;
