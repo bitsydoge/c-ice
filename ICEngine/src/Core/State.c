@@ -104,14 +104,17 @@ void ICE_Substate_Loop()
 	ICE_Input_Reset();
 	ICE_State * current = GAME.current;
 
-	ICE_LabelManager_Create(NULL);
-	ICE_GuiManager_Init(NULL);
-	ICE_EntityManager_Init(NULL);
+
 
 	ICE_Log(ICE_LOG_RUNNING, "Entering substate");
 	
 	if (!current->isPaused)
+	{
+		ICE_LabelManager_Create(NULL);
+		ICE_GuiManager_Init(NULL);
+		ICE_EntityManager_Init(NULL);
 		current->func_create();
+	}
 	else
 		if (current->func_OnResume != NULL)
 			current->func_OnResume();
@@ -140,6 +143,7 @@ void ICE_Substate_Loop()
 		current->isFree = ICE_True;
 		ICE_LabelManager_Destroy(NULL);
 		ICE_GuiManager_Destroy(NULL);
+		ICE_EntityManager_Destroy(NULL);
 		ICE_Data_DestroyAll(NULL);
 		ICE_ObjectManager obj = { 0 };
 		current->object = obj;
