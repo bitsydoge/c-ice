@@ -16,9 +16,6 @@
     <ClCompile Include="src\inventory.c">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\data.c">
-      <Filter>src</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\weapon.h">

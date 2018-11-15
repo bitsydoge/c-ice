@@ -13,6 +13,7 @@
 
 #include "Data.h"
 #include "../Graphics/Gui_private.h"
+#include "../ICE.h"
 
 extern ICE_Game GAME;
 extern ICE_Core CORE;
@@ -103,6 +104,10 @@ void ICE_Substate_Loop()
 	ICE_Input_Reset();
 	ICE_State * current = GAME.current;
 
+	ICE_LabelManager_Create(NULL);
+	ICE_GuiManager_Init(NULL);
+	ICE_EntityManager_Init(NULL);
+
 	ICE_Log(ICE_LOG_RUNNING, "Entering substate");
 	
 	if (!current->isPaused)
@@ -117,6 +122,7 @@ void ICE_Substate_Loop()
 		ICE_Input_Return();
 		ICE_Render_SetColor(current->background);
 		ICE_Render_Clear();
+
 		current->func_update();
 
 		// RENDER HERE

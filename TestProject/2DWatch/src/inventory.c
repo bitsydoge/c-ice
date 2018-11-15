@@ -7,7 +7,6 @@ void inventory_create()
 	ICE_Render_Color(ICE_Color_New(50, 50, 50));
 
 	DATA1 * data = ICE_Data_Get(ICE_State_GetParent(NULL), 0);
-	ICE_ID man = ICE_LabelManager_Create(NULL);
 	ICE_ID nb = ICE_Label_Create
 	(
 		NULL, 
@@ -25,7 +24,6 @@ void inventory_create()
 		data->current_weapon.speed
 	);
 	ICE_Label_SetWrapWidth(ICE_Label_Get(NULL, nb), 100);
-	ICE_GuiManager_Init(NULL);
 	ICE_Gui_Create
 	(
 		NULL,

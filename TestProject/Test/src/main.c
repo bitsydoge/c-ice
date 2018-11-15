@@ -10,7 +10,9 @@ ICE_Game_Create()
 	GAME_DATA * D = ICE_Data_Insert(NULL, GAME_DATA);
 
 	D->spritesheet = ICE_Texture_Load("res//img//spritesheet.png");
-	D->texture_gui = ICE_Texture_Load("res//img//gui.png");
+	D->texture_items_spritesheet = ICE_Texture_Load("res//img//001-ITEMS");
+	D->texture_gui_icons = ICE_Texture_Load("res//img//002-ICONS");
+	D->texture_gui = ICE_Texture_Load("res//img//003-GUI");
 	D->background = ICE_Texture_Load("res//img//background.png");
 	D->main_theme = ICE_Music_Load("res//snd//music.ogg");
 	D->explosion = ICE_Sound_Load("res//snd//explosion.wav");
