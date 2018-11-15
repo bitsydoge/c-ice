@@ -11,6 +11,7 @@ typedef struct
 	ICE_ID frame_up, frame_down,
 		frame_left, frame_right;
 
+	int size_text;
 	ICE_String name;
 
 } GAME_DATA_PLAYER;

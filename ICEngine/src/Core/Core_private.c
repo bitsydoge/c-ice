@@ -7,8 +7,6 @@
 
 #include "../Framework/Terminal_private.h"
 #include "../Framework/Log.h"
-#include "../Graphics/Gui.h"
-#include "../Graphics/Texture.h"
 
 #include "SDL2_Includer.h"
 #include ICE_INCLUDE_SDL2
@@ -18,12 +16,8 @@
 
 #include "../Audio/Audio.h"
 #include "../Audio/Sound.h"
-#include "../Audio/Music.h"
-#include "Data.h"
-#include "Entity.h"
 #include <string.h>
 #include "Core.h"
-#include "../Graphics/Sprite.h"
 #include "../Framework/Random.h"
 
 ICE_Core CORE = { 0 } ;

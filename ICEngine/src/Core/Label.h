@@ -14,19 +14,13 @@
 /**
  * \brief Insert a new LabelManager in the Game
  */
-void ICE_LabelManager_Create(ICE_State* state);
+void ICE_LabelManager_Init(ICE_State* state);
 
 /**
 * \brief Destroy a manager
 * \param state The state to destroy manager
-* \param man The manager number
 */
 void ICE_LabelManager_Destroy(ICE_State * state);
-
-/**
-* \brief Destroy all manager
-*/
-void ICE_LabelManager_DestroyAll(ICE_State * state);
 
 /////////////////////// * LABEL * //////////////////////////
 
@@ -41,7 +35,6 @@ ICE_Label ICE_Label_Build(ICE_StringStd text, ICE_Vect pos, int size, enum ICE_L
 /**
  * \brief Insert a new Label in a manager
  * \param state The state where the manager is
- * \param man The manager where label must be added
  * \param text The text of the Label
  * \param pos The position of the Label
  */

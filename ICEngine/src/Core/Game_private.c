@@ -31,7 +31,7 @@ void ICE_Game_Init()
 	// Items
 	ICE_EntityManager_Init(NULL);
 	ICE_GuiManager_Init(NULL);
-	ICE_LabelManager_Create(NULL);
+	ICE_LabelManager_Init(NULL);
 
 }
 
@@ -39,10 +39,10 @@ void ICE_Game_Quit()
 {
 	ICE_String_Delete(GAME.state_main.name);
 
-	ICE_TextureManager_Free();
-	ICE_SpriteManager_Free();
-	ICE_SoundManager_Free();
-	ICE_MusicManager_Free();
+	ICE_TextureManager_Destroy();
+	ICE_SpriteManager_Destroy();
+	ICE_SoundManager_Destroy();
+	ICE_MusicManager_Destroy();
 
 	ICE_LabelManager_Destroy(NULL);
 	ICE_GuiManager_Destroy(NULL);

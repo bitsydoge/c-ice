@@ -16,7 +16,7 @@ extern ICE_Game GAME;
 
 /* LABEL MANAGER */
 
-void ICE_LabelManager_Create(ICE_State* state)
+void ICE_LabelManager_Init(ICE_State* state)
 {
 	if (!state)
 		state = GAME.current;
