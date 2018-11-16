@@ -1,7 +1,7 @@
 #ifndef DEF_ICE_CORE
 #define DEF_ICE_CORE
 
-#define ICE_VERSION "DEV.1810.28"
+#define ICE_VERSION "DEV.1811.15"
 
 #include "../Framework/String_.h"
 #include "../Framework/Inline.h"
@@ -26,6 +26,7 @@
 		CONFIG.fullscreen = ICE_CONFIG_FULLSCREEN;\
 		CONFIG.resizable = ICE_CONFIG_RESIZABLE;\
 		CONFIG.vsync = ICE_CONFIG_VSYNC;\
+		CONFIG.game_version = ICE_CONFIG_GAME_VERSION;\
 		ICE_Core_Main(ICE_User_Create, ICE_User_Update, ICE_User_Destroy);\
 		return 0;\
 	}\

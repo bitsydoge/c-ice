@@ -9,5 +9,6 @@
 #define ICE_CONFIG_WINDOW_ICON "res//img//000-WINDOW_ICON"
 #define ICE_CONFIG_RESIZABLE 1
 #define ICE_CONFIG_VSYNC 1
+#define ICE_CONFIG_GAME_VERSION "0.1a"
 
 #endif
