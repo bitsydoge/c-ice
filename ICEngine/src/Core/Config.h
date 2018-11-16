@@ -12,5 +12,6 @@
 #define ICE_CONFIG_VSYNC 1
 #define ICE_CONFIG_REFRESHRATE 144
 #define ICE_CONFIG_WINDOW_ICON 0
+#define ICE_CONFIG_GAME_VERSION "Prototype"
 
 #endif

@@ -363,6 +363,7 @@ struct ICE_Config
 	ICE_StringStd product_name;
 	ICE_StringStd title;
 	ICE_StringStd window_icon;
+	ICE_StringStd game_version;
 
 	int argc;
 	char ** argv;

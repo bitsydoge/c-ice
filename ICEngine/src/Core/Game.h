@@ -15,4 +15,6 @@ ICE_Float ICE_Game_GetDelta();
  */
 ICE_Float ICE_Game_GetFps();
 
+ICE_StringStd ICE_Game_GetVersion();
+
 #endif
