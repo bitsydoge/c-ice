@@ -209,7 +209,7 @@ struct ICE_Entity
 {
 	// Main
 	ICE_EntityID			id;
-	ICE_Timer				timestamp;
+	ICE_Uint32				timestamp;
 	ICE_Bool				exist;
 	ICE_Bool				active;
 

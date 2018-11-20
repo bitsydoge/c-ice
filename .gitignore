@@ -39,3 +39,5 @@ ICECore/\.vs/
 cmake-build-debug/
 
 *.dll
+
+external/

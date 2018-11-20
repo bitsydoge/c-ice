@@ -39,22 +39,4 @@ int ICE_Draw_Rectangle(ICE_Box box, const ICE_Color color);
  */
 int ICE_Draw_RectangleFill(ICE_Box box, const ICE_Color color);
 
-/**
- * \brief Draw an antialiased line of pixel on the screen with a defined color
- * \param vect1 Vector that is the first point of the line
- * \param vect2 Vector that is the second point of the line
- * \param color Color of the line
- * \return 0
- */
-int ICE_Draw_LineAA(const ICE_Vect vect1, const ICE_Vect vect2, const ICE_Color color);
-
-/**
- * \brief Draw an antialiased circle on the screen with a defined color
- * \param vect Vector that is the position of the center of the circle
- * \param r Radius of the circle
- * \param color Color of the circle
- * \return 0
- */
-int ICE_Draw_CircleAA(ICE_Vect vect, ICE_Float r, ICE_Color color);
-
 #endif

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -147,6 +147,7 @@
     <ClInclude Include="src\Core\MacOS_.h" />
     <ClInclude Include="src\Core\SDL2_Includer.h" />
     <ClInclude Include="src\Core\State.h" />
+    <ClInclude Include="src\Core\Timer.h" />
     <ClInclude Include="src\Core\Time_.h" />
     <ClInclude Include="src\Core\Time_private.h" />
     <ClInclude Include="src\Core\TypesCore.h" />
@@ -185,10 +186,6 @@
     <ClInclude Include="src\External\chipmunk\prime.h" />
     <ClInclude Include="src\External\mattiasgustavsson\rnd.h" />
     <ClInclude Include="src\External\SDL2_gfx\SDL2_framerate.h" />
-    <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.h" />
-    <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives_font.h" />
-    <ClInclude Include="src\External\SDL2_gfx\SDL2_imageFilter.h" />
-    <ClInclude Include="src\External\SDL2_gfx\SDL2_rotozoom.h" />
     <ClInclude Include="src\External\stb\SDL_stbimage.h" />
     <ClInclude Include="src\External\stb\stb_image.h" />
     <ClInclude Include="src\Framework\Assert_.h" />
@@ -245,6 +242,7 @@
     <ClCompile Include="src\Core\Label_private.c" />
     <ClCompile Include="src\Core\MacOS_.c" />
     <ClCompile Include="src\Core\State.c" />
+    <ClCompile Include="src\Core\Timer.c" />
     <ClCompile Include="src\Core\Time_.c" />
     <ClCompile Include="src\Core\Time_private.c" />
     <ClCompile Include="src\Core\Window.c" />
@@ -282,9 +280,6 @@
     <ClCompile Include="src\External\chipmunk\cpSpatialIndex.c" />
     <ClCompile Include="src\External\chipmunk\cpSweep1D.c" />
     <ClCompile Include="src\External\SDL2_gfx\SDL2_framerate.c" />
-    <ClCompile Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.c" />
-    <ClCompile Include="src\External\SDL2_gfx\SDL2_imageFilter.c" />
-    <ClCompile Include="src\External\SDL2_gfx\SDL2_rotozoom.c" />
     <ClCompile Include="src\Framework\Assert_.c" />
     <ClCompile Include="src\Framework\external\rlutil.c" />
     <ClCompile Include="src\Framework\File_.c" />

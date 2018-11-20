@@ -1,14 +1,16 @@
-﻿#include "Time_private.h"
+#include "Time_private.h"
 #include "TypesCore.h"
 
 #include "../External/SDL2_gfx/SDL2_framerate.h"
-#include "../Framework/Log.h"
+#include "Timer.h"
 
 extern ICE_Game GAME;
 extern ICE_Core CORE;
 extern ICE_Config CONFIG;
 
 FPSmanager fps_manager_global;
+ICE_Timer limiter;
+ICE_Uint32 fps = 60;
 
 void ICE_Time_Init()
 {
@@ -19,14 +21,7 @@ void ICE_Time_Init()
 
 void ICE_Time_Start()
 {	
-	/*
-	GAME.time.actual = SDL_GetTicks(); // ticks since start of software at the start of loop
-	GAME.time.ticksEllapsed = GAME.time.actual - GAME.time.last; // calculate nb of ticks ellapsed
-	GAME.time.delta = (double)GAME.time.ticksEllapsed / 1000.0; // update the time.delta
-	//if (GAME.time.ticksEllapsed > GAME.time.ticks) {// if the ticks ellapsed is superiore to the ticks for a frame it run the loop
-	if (GAME.time.ticksEllapsed)
-		GAME.time.fps = (double)(1000.0 / GAME.time.ticksEllapsed); // calculate fps
-	*/
+	ICE_Timer_Start(&limiter);
 }
 
 void ICE_Time_End()
@@ -60,8 +55,4 @@ void ICE_Time_End()
 		CORE.time.fps = (ICE_Float)somme / NB_COUNT_FPS;
 		time_to_refresh = 0;
 	}
-	
-	/*
-	GAME.time.last = GAME.time.actual;
-	*/
 }

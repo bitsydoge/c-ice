@@ -286,18 +286,6 @@
     <ClInclude Include="src\External\SDL2_gfx\SDL2_framerate.h">
       <Filter>8 - External\SDL2_gfx</Filter>
     </ClInclude>
-    <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.h">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives_font.h">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\SDL2_gfx\SDL2_imageFilter.h">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\SDL2_gfx\SDL2_rotozoom.h">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClInclude>
     <ClInclude Include="src\External\stb\stb_image.h">
       <Filter>8 - External\stb</Filter>
     </ClInclude>
@@ -335,6 +323,9 @@
       <Filter>2 - Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Window_private.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Timer.h">
       <Filter>2 - Core</Filter>
     </ClInclude>
   </ItemGroup>
@@ -555,15 +546,6 @@
     <ClCompile Include="src\External\SDL2_gfx\SDL2_framerate.c">
       <Filter>8 - External\SDL2_gfx</Filter>
     </ClCompile>
-    <ClCompile Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.c">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\SDL2_gfx\SDL2_imageFilter.c">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\SDL2_gfx\SDL2_rotozoom.c">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClCompile>
     <ClCompile Include="src\Graphics\Animation.c">
       <Filter>3 - Graphics</Filter>
     </ClCompile>
@@ -586,6 +568,9 @@
       <Filter>2 - Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Window_private.c">
+      <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Timer.c">
       <Filter>2 - Core</Filter>
     </ClCompile>
   </ItemGroup>
