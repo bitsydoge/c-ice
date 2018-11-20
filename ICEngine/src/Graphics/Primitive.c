@@ -4,7 +4,6 @@
 
 #include "../Core/Converter_private.h"
 #include "../Core/TypesCore.h"
-#include "../External/SDL2_gfx/SDL2_gfxPrimitives.h"
 #include "../Maths/TypesMaths.h"
 
 extern ICE_Game GAME;
@@ -30,14 +29,4 @@ int ICE_Draw_Rectangle(ICE_Box box, const ICE_Color color) {
 int ICE_Draw_RectangleFill(ICE_Box box, const ICE_Color color) {
 	ICE_Render_SetColor(color);
 	return SDL_RenderFillRect(CORE.window.render, (SDL_Rect[]) {ICE_Convert_BoxToSDL(&box) });
-}
-
-// AntiAliased SDL_GFX powa
-
-int ICE_Draw_LineAA(const ICE_Vect vect1, const ICE_Vect vect2, const ICE_Color color) {
-	return aalineColor(CORE.window.render, (Sint16)vect1.x, (Sint16)vect1.y, (Sint16)vect2.x, (Sint16)vect2.y, color);
-}
-
-int ICE_Draw_CircleAA(ICE_Vect vect, ICE_Float r, ICE_Color color){	
-	return aacircleColor(CORE.window.render, (Sint16)vect.x, (Sint16)vect.y, (Sint16)r, color);
 }
