@@ -3,6 +3,7 @@
 
 #include "../External/SDL2_gfx/SDL2_framerate.h"
 #include "Timer.h"
+#include "../Framework/Log.h"
 
 extern ICE_Game GAME;
 extern ICE_Core CORE;
