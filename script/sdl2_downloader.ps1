@@ -40,9 +40,9 @@ Rename-Item -path "$($PathFolder)\SDL2-2.0.9" -NewName "_SDL2"
 Write-Output "Complete"
 ########################### SDL2_ttf ###############################################
 Write-Output "SDL2_ttf download..."
-(New-Object Net.WebClient).DownloadFile('https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-devel-2.0.14-VC.zip', "$($PathFolder)\SDL2_ttf.zip")
+(New-Object Net.WebClient).DownloadFile('https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-devel-2.0.15-VC.zip', "$($PathFolder)\SDL2_ttf.zip")
 Unzip "$($PathFolder)\SDL2_ttf.zip" $PathFolder"."
-Rename-Item -path "$($PathFolder)\SDL2_ttf-2.0.14" -NewName "_SDL2_ttf"
+Rename-Item -path "$($PathFolder)\SDL2_ttf-2.0.15" -NewName "_SDL2_ttf"
 Write-Output "Complete"
 ########################### SDL2_mixer ##########################################
 Write-Output "SDL2_mixer download..."
@@ -50,6 +50,7 @@ Write-Output "SDL2_mixer download..."
 Unzip "$($PathFolder)\SDL2_mixer.zip" "$($PathFolder)"
 Rename-Item -path "$($PathFolder)\SDL2_mixer-2.0.4" -NewName "_SDL2_mixer"
 Write-Output "Complete"
+
 #################################################################################
 #################################################################################
 Write-Output "Moving all include to SDL2 folder..."
@@ -61,14 +62,17 @@ Write-Output "Complete"
 #libs
     #x86
 Write-Output "Moving all libs to SDL2 folder..."
-Get-ChildItem -Path "$($PathFolder)\_SDL2\lib\x86" -Recurse -File | Move-Item -Destination "$($PathFolder)\SDL2\lib\x86"
-Get-ChildItem -Path "$($PathFolder)\_SDL2_ttf\lib\x86" -Recurse -File | Move-Item -Destination "$($PathFolder)\SDL2\lib\x86"
-Get-ChildItem -Path "$($PathFolder)\_SDL2_mixer\lib\x86" -Recurse -File | Move-Item -Destination "$($PathFolder)\SDL2\lib\x86"
+Get-ChildItem -Path "$($PathFolder)\_SDL2\lib\x86" -Recurse -File | Move-Item -Destination "$($PathFolder)\SDL2\lib\x86" -force 
+Get-ChildItem -Path "$($PathFolder)\_SDL2_ttf\lib\x86" -Recurse -File | Move-Item -Destination "$($PathFolder)\SDL2\lib\x86" -force 
+Get-ChildItem -Path "$($PathFolder)\_SDL2_mixer\lib\x86" -Recurse -File | Move-Item -Destination "$($PathFolder)\SDL2\lib\x86" -force 
+
     #x64
-Get-ChildItem -Path "$($PathFolder)\_SDL2\lib\x64" -Recurse -File | Move-Item -Destination "$($PathFolder)\SDL2\lib\x64"
-Get-ChildItem -Path "$($PathFolder)\_SDL2_ttf\lib\x64" -Recurse -File | Move-Item -Destination "$($PathFolder)\SDL2\lib\x64"
-Get-ChildItem -Path "$($PathFolder)\_SDL2_mixer\lib\x64" -Recurse -File | Move-Item -Destination "$($PathFolder)\SDL2\lib\x64"
+Get-ChildItem -Path "$($PathFolder)\_SDL2\lib\x64" -Recurse -File | Move-Item -Destination "$($PathFolder)\SDL2\lib\x64" -force 
+Get-ChildItem -Path "$($PathFolder)\_SDL2_ttf\lib\x64" -Recurse -File | Move-Item -Destination "$($PathFolder)\SDL2\lib\x64" -force 
+Get-ChildItem -Path "$($PathFolder)\_SDL2_mixer\lib\x64" -Recurse -File | Move-Item -Destination "$($PathFolder)\SDL2\lib\x64" -force 
 Write-Output "Complete"
+
+#############################################################################
 #CLEAN
 Write-Output "Starting cleaning..."
     #ZIP

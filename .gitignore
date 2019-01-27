@@ -39,3 +39,4 @@ ICECore/\.vs/
 cmake-build-debug/
 
 *.dll
+*.DotSettings.user
