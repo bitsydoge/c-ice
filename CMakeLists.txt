@@ -35,8 +35,8 @@ ENDIF()
 ####################     ########################################################################
 
 file(GLOB_RECURSE SOURCES
-        ICEngine/src/*.h
-        ICEngine/src/*.c
+        projects/Engine/src/*.h
+        projects/Engine/src/*.c
         )
 string(REGEX REPLACE "CMakeFiles/[^;]+;?" "" SOURCES "${SOURCES}")
-add_library(ICEngine STATIC ${SOURCES})
+add_library(ICE STATIC ${SOURCES})
