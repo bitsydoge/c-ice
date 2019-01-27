@@ -5,7 +5,6 @@
 void inventory_create()
 {
 	ICE_Render_Color(ICE_Color_New(50, 50, 50));
-
 	DATA1 * data = ICE_Data_Get(ICE_State_GetParent(NULL), 0);
 	ICE_ID nb = ICE_Label_Create
 	(
