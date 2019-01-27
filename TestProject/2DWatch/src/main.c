@@ -47,26 +47,26 @@ ICE_Game_Create()
 	ICE_ID nb = 0;
 
 	// Entity
-	nb = ICE_Entity_Create(ICE_STATE_CURRENT, ICE_Box_New(0, 0, 375, 250));
+	nb = ICE_Entity_Create(ICE_State_Current, ICE_Box_New(0, 0, 375, 250));
 	ICE_Entity_SetTexture
 	(
-		ICE_Entity_Get(ICE_STATE_CURRENT, 0), 
+		ICE_Entity_Get(ICE_State_Current, 0), 
 		0
 	);
 
 	// Gui
-	nb = ICE_Gui_Create(ICE_STATE_CURRENT, ICE_Box_New(0, 0, ICE_Window_GetW(), 50), 1);
-	nb = ICE_Gui_Create(ICE_STATE_CURRENT, ICE_Box_New(0, 0, 50, 70), texture_Logo);
-	ICE_Gui_SetType(ICE_Gui_Get(ICE_STATE_CURRENT, nb), ICE_GUITYPE_IMAGE);
+	nb = ICE_Gui_Create(ICE_State_Current, ICE_Box_New(0, 0, ICE_Window_GetW(), 50), 1);
+	nb = ICE_Gui_Create(ICE_State_Current, ICE_Box_New(0, 0, 50, 70), texture_Logo);
+	ICE_Gui_SetType(ICE_Gui_Get(ICE_State_Current, nb), ICE_GUITYPE_IMAGE);
 
 	// 1
-	nb = ICE_Label_Create(ICE_STATE_CURRENT, "It is a me", ICE_Vect_New(0, 0), 30, ICE_LABELTYPE_WORLD);
-	ICE_Label_SetAngle(ICE_Label_Get(ICE_STATE_CURRENT, nb), 30);
+	nb = ICE_Label_Create(ICE_State_Current, "It is a me", ICE_Vect_New(0, 0), 30, ICE_LABELTYPE_WORLD);
+	ICE_Label_SetAngle(ICE_Label_Get(ICE_State_Current, nb), 30);
 	// 2
-	nb = ICE_Label_Create(ICE_STATE_CURRENT, "Russian Pawa", ICE_Vect_New(5, 5), 30, ICE_LABELTYPE_SCREEN);
+	nb = ICE_Label_Create(ICE_State_Current, "Russian Pawa", ICE_Vect_New(5, 5), 30, ICE_LABELTYPE_SCREEN);
 
 	// Data
-	DATA1 * data = ICE_Data_Insert_(ICE_STATE_CURRENT, sizeof(DATA1));
+	DATA1 * data = ICE_Data_Insert_(ICE_State_Current, sizeof(DATA1));
 	data->inventory = ICE_State_Create(inventory_create, inventory_update, inventory_destroy);
 	data->current_weapon = Game_Weapon_Init("Big Sword", 100, 1.2, 50);
 
