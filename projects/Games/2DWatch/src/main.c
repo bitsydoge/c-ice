@@ -1,4 +1,4 @@
-﻿// Engine
+// Engine
 #include <ICE.h>
 
 // Game
@@ -79,7 +79,7 @@ void Screen_Update()
 	if (amount <= 5.0f)
 		result = ICE_Interpolate(0, 255, amount / 5.0f, ICE_Interpolate_CubicIn);
 	else
-		result = ICE_Interpolate(0, 255, 1 - ((amount - 5) / 5.0f), ICE_Interpolate_CubicOut);
+		result = ICE_Interpolate(0, 255, 1.0f - ((amount - 5) / 5.0f), ICE_Interpolate_CubicOut);
 	ICE_Render_Color(ICE_Color_New(result / 5, result / 2.5f + 20, result / 1.5f + 20));
 	amount += ICE_Game_GetDelta();
 	if (amount >= 10.0f)
