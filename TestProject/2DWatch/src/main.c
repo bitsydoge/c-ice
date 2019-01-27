@@ -17,23 +17,24 @@ enum
 
 };
 
-ICE_Game_Create("2DWatch", 800, 480)
+#define ICE_CONFIG_TITLE "2DWatch"
+#define ICE_CONFIG_WINDOW_W 800
+#define ICE_CONFIG_WINDOW_H 480
+
+ICE_Game_Create()
 {
 	// Texture
-	ICE_ID manager = ICE_TextureManager_Init();
-	ICE_Texture_Load(manager, "res//img//pic.png");
-	ICE_Texture_Load(manager, "res//img//gui.png");
-	ICE_Texture_Load(manager, "res//img//widow.png");
-	ICE_Texture_Load(manager, "res//img//sprite.png");
-	ICE_Texture_Load(manager, "res//img//ice_logo.png");
+	ICE_Texture_Load("res//img//pic.png");
+	ICE_Texture_Load("res//img//gui.png");
+	ICE_Texture_Load("res//img//widow.png");
+	ICE_Texture_Load("res//img//sprite.png");
+	ICE_Texture_Load("res//img//ice_logo.png");
 
 	// Sound
-	manager = ICE_SoundManager_Init();
-	ICE_Sound_Load(manager, "res//snd//explosion.wav");
+	ICE_Sound_Load("res//snd//explosion.wav");
 
 	// Music
-	manager = ICE_MusicManager_Init();
-	ICE_Music_Load(manager, "res//snd//music.ogg");
+	ICE_Music_Load("res//snd//music.ogg");
 
 	// Font
 	ICE_Font_Load("res//ttf//FiraSans-Medium.ttf");
@@ -46,36 +47,31 @@ ICE_Game_Create("2DWatch", 800, 480)
 	ICE_ID nb = 0;
 
 	// Entity
-	manager = ICE_EntityManager_Create();
-	nb = ICE_Entity_Create(NULL, ICE_Box_New(0, 0, 375, 250));
+	nb = ICE_Entity_Create(ICE_STATE_CURRENT, ICE_Box_New(0, 0, 375, 250));
 	ICE_Entity_SetTexture
 	(
-		ICE_Entity_Get(NULL, 0), 
-		ICE_Texture_Get(0, texture_Widow)
+		ICE_Entity_Get(ICE_STATE_CURRENT, 0), 
+		0
 	);
 
 	// Gui
-	manager = ICE_GuiManager_Insert(NULL);
-	nb = ICE_Gui_Create(NULL, ICE_Box_New(0, 0, ICE_Window_GetW(), 50), 1);
+	nb = ICE_Gui_Create(ICE_STATE_CURRENT, ICE_Box_New(0, 0, ICE_Window_GetW(), 50), 1);
+	nb = ICE_Gui_Create(ICE_STATE_CURRENT, ICE_Box_New(0, 0, 50, 70), texture_Logo);
+	ICE_Gui_SetType(ICE_Gui_Get(ICE_STATE_CURRENT, nb), ICE_GUITYPE_IMAGE);
 
-	nb = ICE_Gui_Create(NULL, ICE_Box_New(0, 0, 50, 70), texture_Logo);
-	ICE_Gui_SetType(ICE_Gui_Get(NULL, nb), ICE_GUITYPE_IMAGE);
-
-	// Label
-	manager = ICE_LabelManager_Create(NULL);
 	// 1
-	nb = ICE_Label_Create(NULL, "It is a me", ICE_Vect_New(0, 0), 30, ICE_LABELTYPE_WORLD);
-	ICE_Label_SetAngle(ICE_Label_Get(NULL, nb), 30);
+	nb = ICE_Label_Create(ICE_STATE_CURRENT, "It is a me", ICE_Vect_New(0, 0), 30, ICE_LABELTYPE_WORLD);
+	ICE_Label_SetAngle(ICE_Label_Get(ICE_STATE_CURRENT, nb), 30);
 	// 2
-	nb = ICE_Label_Create(NULL, "Russian Pawa", ICE_Vect_New(5, 5), 30, ICE_LABELTYPE_SCREEN);
+	nb = ICE_Label_Create(ICE_STATE_CURRENT, "Russian Pawa", ICE_Vect_New(5, 5), 30, ICE_LABELTYPE_SCREEN);
 
 	// Data
-	DATA1 * data = ICE_Data_Insert_(NULL, sizeof(DATA1));
+	DATA1 * data = ICE_Data_Insert_(ICE_STATE_CURRENT, sizeof(DATA1));
 	data->inventory = ICE_State_Create(inventory_create, inventory_update, inventory_destroy);
 	data->current_weapon = Game_Weapon_Init("Big Sword", 100, 1.2, 50);
 
 	// Music
-	ICE_Music_Play(ICE_Music_Get(0, 0), 16);
+	ICE_Music_Play(0, 16);
 }
 
 void Screen_Update()
@@ -109,7 +105,7 @@ ICE_Game_Update()
 
 	if (ICE_Input_Pressed(ICE_KEY_ESCAPE))
 	{
-		ICE_Sound_Play(ICE_Sound_Get(0, 0), 16);
+		ICE_Sound_Play(0, 16);
 		ICE_Substate_Start(&data->inventory);
 	}
 	if (ICE_Input_Pressed(ICE_KEY_SPACE))
