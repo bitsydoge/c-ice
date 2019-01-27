@@ -10,7 +10,7 @@ void inventory_create()
 	ICE_ID nb = ICE_Label_Create
 	(
 		NULL, 
-		L"", 
+		"", 
 		ICE_Vect_New(50, 20), 
 		12, 
 		ICE_LABELTYPE_SCREEN

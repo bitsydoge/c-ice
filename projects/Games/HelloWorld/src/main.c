@@ -5,8 +5,8 @@
 ICE_Game_Create()
 {
 	ICE_Font_Load("res\\ttf\\FiraSans-Medium.ttf");
-	ICE_ID nbr = ICE_Label_Create(
-		NULL, 
+	ICE_LabelID nbr = ICE_Label_Create(
+		ICE_State_Current, 
 		"Hello World",
 		ICE_Vect_Zero,
 		50, 
