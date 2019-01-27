@@ -9,7 +9,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 #### SDL2       ####     ########################################################################
 ####################     ########################################################################
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/script/cmake/")
 
 IF (WIN32)
     add_definitions(-DICE_NO_VLD)
@@ -35,8 +35,8 @@ ENDIF()
 ####################     ########################################################################
 
 file(GLOB_RECURSE SOURCES
-        ICEngine/src/*.h
-        ICEngine/src/*.c
+        projects/Engine/src/*.h
+        projects/Engine/src/*.c
         )
 string(REGEX REPLACE "CMakeFiles/[^;]+;?" "" SOURCES "${SOURCES}")
-add_library(ICEngine STATIC ${SOURCES})
+add_library(ICE STATIC ${SOURCES})

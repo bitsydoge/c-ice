@@ -4,7 +4,5 @@ clone_folder: C:\project\ICE
 build_script:
 - ps: >-
     C:\project\ICE\script\sdl2_downloader.ps1
-
     cmake "C:\project\ICE\CMakeLists.txt"
-
-    msbuild ICEngine.vcxproj
+    msbuild Engine.vcxproj

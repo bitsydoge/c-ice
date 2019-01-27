@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{CEAC8C68-C6B6-4756-82D0-C7DCD2C95330}</ProjectGuid>
+    <RootNamespace>ICEngine</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Program Files %28x86%29\Visual Leak Detector\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Visual Leak Detector\lib\Win32;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)\build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\build\.build\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\Program Files %28x86%29\Visual Leak Detector\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Visual Leak Detector\lib\Win64;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)\build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\build\.build\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)\build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\build\.build\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)\build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\build\.build\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_IUP_DEBUGUI_USE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BrowseInformation>true</BrowseInformation>
+    </ClCompile>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_IUP_DEBUGUI_USE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Audio\Audio.h" />
+    <ClInclude Include="src\Audio\Music.h" />
+    <ClInclude Include="src\Audio\Sound.h" />
+    <ClInclude Include="src\Audio\TypesAudio.h" />
+    <ClInclude Include="src\Core\Asset_private.h" />
+    <ClInclude Include="src\Core\Config.h" />
+    <ClInclude Include="src\Core\Converter_private.h" />
+    <ClInclude Include="src\Core\Core.h" />
+    <ClInclude Include="src\Core\Core_private.h" />
+    <ClInclude Include="src\Core\Data.h" />
+    <ClInclude Include="src\Core\Debug.h" />
+    <ClInclude Include="src\Core\Entity.h" />
+    <ClInclude Include="src\Core\Game.h" />
+    <ClInclude Include="src\Core\Game_private.h" />
+    <ClInclude Include="src\Core\Input.h" />
+    <ClInclude Include="src\Core\Input_private.h" />
+    <ClInclude Include="src\Core\Label.h" />
+    <ClInclude Include="src\Core\Label_private.h" />
+    <ClInclude Include="src\Core\MacOS_.h" />
+    <ClInclude Include="src\Core\SDL2_Includer.h" />
+    <ClInclude Include="src\Core\State.h" />
+    <ClInclude Include="src\Core\Time_.h" />
+    <ClInclude Include="src\Core\Time_private.h" />
+    <ClInclude Include="src\Core\TypesCore.h" />
+    <ClInclude Include="src\Core\Window.h" />
+    <ClInclude Include="src\Core\Window_private.h" />
+    <ClInclude Include="src\External\chipmunk\chipmunk.h" />
+    <ClInclude Include="src\External\chipmunk\chipmunk_ffi.h" />
+    <ClInclude Include="src\External\chipmunk\chipmunk_private.h" />
+    <ClInclude Include="src\External\chipmunk\chipmunk_structs.h" />
+    <ClInclude Include="src\External\chipmunk\chipmunk_types.h" />
+    <ClInclude Include="src\External\chipmunk\chipmunk_unsafe.h" />
+    <ClInclude Include="src\External\chipmunk\cpArbiter.h" />
+    <ClInclude Include="src\External\chipmunk\cpBB.h" />
+    <ClInclude Include="src\External\chipmunk\cpBody.h" />
+    <ClInclude Include="src\External\chipmunk\cpConstraint.h" />
+    <ClInclude Include="src\External\chipmunk\cpDampedRotarySpring.h" />
+    <ClInclude Include="src\External\chipmunk\cpDampedSpring.h" />
+    <ClInclude Include="src\External\chipmunk\cpGearJoint.h" />
+    <ClInclude Include="src\External\chipmunk\cpGrooveJoint.h" />
+    <ClInclude Include="src\External\chipmunk\cpHastySpace.h" />
+    <ClInclude Include="src\External\chipmunk\cpMarch.h" />
+    <ClInclude Include="src\External\chipmunk\cpPinJoint.h" />
+    <ClInclude Include="src\External\chipmunk\cpPivotJoint.h" />
+    <ClInclude Include="src\External\chipmunk\cpPolyline.h" />
+    <ClInclude Include="src\External\chipmunk\cpPolyShape.h" />
+    <ClInclude Include="src\External\chipmunk\cpRatchetJoint.h" />
+    <ClInclude Include="src\External\chipmunk\cpRobust.h" />
+    <ClInclude Include="src\External\chipmunk\cpRotaryLimitJoint.h" />
+    <ClInclude Include="src\External\chipmunk\cpShape.h" />
+    <ClInclude Include="src\External\chipmunk\cpSimpleMotor.h" />
+    <ClInclude Include="src\External\chipmunk\cpSlideJoint.h" />
+    <ClInclude Include="src\External\chipmunk\cpSpace.h" />
+    <ClInclude Include="src\External\chipmunk\cpSpatialIndex.h" />
+    <ClInclude Include="src\External\chipmunk\cpTransform.h" />
+    <ClInclude Include="src\External\chipmunk\cpVect.h" />
+    <ClInclude Include="src\External\chipmunk\prime.h" />
+    <ClInclude Include="src\External\mattiasgustavsson\rnd.h" />
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_framerate.h" />
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.h" />
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives_font.h" />
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_imageFilter.h" />
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_rotozoom.h" />
+    <ClInclude Include="src\External\stb\SDL_stbimage.h" />
+    <ClInclude Include="src\External\stb\stb_image.h" />
+    <ClInclude Include="src\Framework\Assert_.h" />
+    <ClInclude Include="src\Framework\external\rlutil.h" />
+    <ClInclude Include="src\Framework\File_.h" />
+    <ClInclude Include="src\Framework\Inline.h" />
+    <ClInclude Include="src\Framework\Log.h" />
+    <ClInclude Include="src\Framework\Memory_.h" />
+    <ClInclude Include="src\Framework\Random.h" />
+    <ClInclude Include="src\Framework\String_.h" />
+    <ClInclude Include="src\Framework\Terminal.h" />
+    <ClInclude Include="src\Framework\Terminal_private.h" />
+    <ClInclude Include="src\Framework\TypesFramework.h" />
+    <ClInclude Include="src\Graphics\Animation.h" />
+    <ClInclude Include="src\Graphics\Camera.h" />
+    <ClInclude Include="src\Graphics\Color.h" />
+    <ClInclude Include="src\Graphics\Color_private.h" />
+    <ClInclude Include="src\Graphics\Draw.h" />
+    <ClInclude Include="src\Graphics\Font.h" />
+    <ClInclude Include="src\Graphics\Gui.h" />
+    <ClInclude Include="src\Graphics\Gui_private.h" />
+    <ClInclude Include="src\Graphics\Primitive.h" />
+    <ClInclude Include="src\Graphics\Render.h" />
+    <ClInclude Include="src\Graphics\Render_private.h" />
+    <ClInclude Include="src\Graphics\Sprite.h" />
+    <ClInclude Include="src\Graphics\Sprite_private.h" />
+    <ClInclude Include="src\Graphics\Texture.h" />
+    <ClInclude Include="src\Graphics\Texture_private.h" />
+    <ClInclude Include="src\Graphics\TypesGraphics.h" />
+    <ClInclude Include="src\ICE.h" />
+    <ClInclude Include="src\Maths\Box.h" />
+    <ClInclude Include="src\Maths\Interpolate.h" />
+    <ClInclude Include="src\Maths\Maths.h" />
+    <ClInclude Include="src\Maths\TypesMaths.h" />
+    <ClInclude Include="src\Maths\Vector.h" />
+    <ClInclude Include="src\Physics\TypesPhysics.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Audio\Audio.c" />
+    <ClCompile Include="src\Audio\Music.c" />
+    <ClCompile Include="src\Audio\Sound.c" />
+    <ClCompile Include="src\Core\Asset_private.c" />
+    <ClCompile Include="src\Core\Config_private.c" />
+    <ClCompile Include="src\Core\Core.c" />
+    <ClCompile Include="src\Core\Core_private.c" />
+    <ClCompile Include="src\Core\Data.c" />
+    <ClCompile Include="src\Core\Debug.c" />
+    <ClCompile Include="src\Core\Entity.c" />
+    <ClCompile Include="src\Core\Game.c" />
+    <ClCompile Include="src\Core\Game_private.c" />
+    <ClCompile Include="src\Core\Input.c" />
+    <ClCompile Include="src\Core\Input_private.c" />
+    <ClCompile Include="src\Core\Label.c" />
+    <ClCompile Include="src\Core\Label_private.c" />
+    <ClCompile Include="src\Core\MacOS_.c" />
+    <ClCompile Include="src\Core\State.c" />
+    <ClCompile Include="src\Core\Time_.c" />
+    <ClCompile Include="src\Core\Time_private.c" />
+    <ClCompile Include="src\Core\Window.c" />
+    <ClCompile Include="src\Core\Window_private.c" />
+    <ClCompile Include="src\External\chipmunk\chipmunk.c" />
+    <ClCompile Include="src\External\chipmunk\cpArbiter.c" />
+    <ClCompile Include="src\External\chipmunk\cpArray.c" />
+    <ClCompile Include="src\External\chipmunk\cpBBTree.c" />
+    <ClCompile Include="src\External\chipmunk\cpBody.c" />
+    <ClCompile Include="src\External\chipmunk\cpCollision.c" />
+    <ClCompile Include="src\External\chipmunk\cpConstraint.c" />
+    <ClCompile Include="src\External\chipmunk\cpDampedRotarySpring.c" />
+    <ClCompile Include="src\External\chipmunk\cpDampedSpring.c" />
+    <ClCompile Include="src\External\chipmunk\cpGearJoint.c" />
+    <ClCompile Include="src\External\chipmunk\cpGrooveJoint.c" />
+    <ClCompile Include="src\External\chipmunk\cpHashSet.c" />
+    <ClCompile Include="src\External\chipmunk\cpHastySpace.c" />
+    <ClCompile Include="src\External\chipmunk\cpMarch.c" />
+    <ClCompile Include="src\External\chipmunk\cpPinJoint.c" />
+    <ClCompile Include="src\External\chipmunk\cpPivotJoint.c" />
+    <ClCompile Include="src\External\chipmunk\cpPolyline.c" />
+    <ClCompile Include="src\External\chipmunk\cpPolyShape.c" />
+    <ClCompile Include="src\External\chipmunk\cpRatchetJoint.c" />
+    <ClCompile Include="src\External\chipmunk\cpRobust.c" />
+    <ClCompile Include="src\External\chipmunk\cpRotaryLimitJoint.c" />
+    <ClCompile Include="src\External\chipmunk\cpShape.c" />
+    <ClCompile Include="src\External\chipmunk\cpSimpleMotor.c" />
+    <ClCompile Include="src\External\chipmunk\cpSlideJoint.c" />
+    <ClCompile Include="src\External\chipmunk\cpSpace.c" />
+    <ClCompile Include="src\External\chipmunk\cpSpaceComponent.c" />
+    <ClCompile Include="src\External\chipmunk\cpSpaceDebug.c" />
+    <ClCompile Include="src\External\chipmunk\cpSpaceHash.c" />
+    <ClCompile Include="src\External\chipmunk\cpSpaceQuery.c" />
+    <ClCompile Include="src\External\chipmunk\cpSpaceStep.c" />
+    <ClCompile Include="src\External\chipmunk\cpSpatialIndex.c" />
+    <ClCompile Include="src\External\chipmunk\cpSweep1D.c" />
+    <ClCompile Include="src\External\SDL2_gfx\SDL2_framerate.c" />
+    <ClCompile Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.c" />
+    <ClCompile Include="src\External\SDL2_gfx\SDL2_imageFilter.c" />
+    <ClCompile Include="src\External\SDL2_gfx\SDL2_rotozoom.c" />
+    <ClCompile Include="src\Framework\Assert_.c" />
+    <ClCompile Include="src\Framework\external\rlutil.c" />
+    <ClCompile Include="src\Framework\File_.c" />
+    <ClCompile Include="src\Framework\Log.c" />
+    <ClCompile Include="src\Framework\Memory_.c" />
+    <ClCompile Include="src\Framework\Random.c" />
+    <ClCompile Include="src\Framework\String_.c" />
+    <ClCompile Include="src\Framework\Terminal.c" />
+    <ClCompile Include="src\Framework\Terminal_private.c" />
+    <ClCompile Include="src\Graphics\Animation.c" />
+    <ClCompile Include="src\Graphics\Camera.c" />
+    <ClCompile Include="src\Graphics\Draw.c" />
+    <ClCompile Include="src\Graphics\Font.c" />
+    <ClCompile Include="src\Graphics\Gui.c" />
+    <ClCompile Include="src\Graphics\Gui_private.c" />
+    <ClCompile Include="src\Graphics\Primitive.c" />
+    <ClCompile Include="src\Graphics\Render.c" />
+    <ClCompile Include="src\Graphics\Render_private.c" />
+    <ClCompile Include="src\Graphics\Sprite.c" />
+    <ClCompile Include="src\Graphics\Sprite_private.c" />
+    <ClCompile Include="src\Graphics\Texture.c" />
+    <ClCompile Include="src\Graphics\Texture_private.c" />
+    <ClCompile Include="src\Maths\Interpolate.c" />
+    <ClCompile Include="src\Raw\Error.c" />
+    <ClCompile Include="src\Raw\Icon.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

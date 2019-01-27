@@ -3,7 +3,7 @@
 [![Travus CI Status](https://travis-ci.org/***REMOVED***/ICE.svg?branch=master)](https://travis-ci.org/***REMOVED***/ICE) Linux & MacOS 
 
 # ICE : Indie "C" Engine
-<img alt="ICE Logo" src="docs/logo_hq.png" width=20% height=20%> 
+<img alt="ICE Logo" src="logo/logo_hq.png" width=20% height=20%> 
 
 _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
 	
@@ -47,8 +47,7 @@ See the	[Trello](https://trello.com/b/HOWcrZRM/ice/)
 ICE_Game_Create()
 {
 	ICE_Font_Load("font.ttf");
-	ICE_LabelID nbr = ICE_Label_Create
-	(
+	ICE_LabelID nbr = ICE_Label_Create(
 		ICE_State_Current, 
 		"Hello World",
 		ICE_Vect_Zero,

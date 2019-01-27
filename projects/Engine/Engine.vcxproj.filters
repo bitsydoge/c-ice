@@ -1,0 +1,592 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="1 - Framework">
+      <UniqueIdentifier>{a8631434-0cd9-4cbd-8b74-e20e92612dc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2 - Core">
+      <UniqueIdentifier>{168370c5-3986-4c02-b4e1-491595f06b82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3 - Graphics">
+      <UniqueIdentifier>{c4de349e-a88f-446e-a759-630d70ad9b2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="4 - Maths">
+      <UniqueIdentifier>{02dfc310-3a03-4719-91c3-198866493c09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="5 - Audio">
+      <UniqueIdentifier>{d86cf02c-314e-4279-97f8-c49efe518c7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="6 - Physics">
+      <UniqueIdentifier>{6ff1e53b-7521-404b-99ba-023942d695f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="7 - Raw">
+      <UniqueIdentifier>{e9fd9301-db3d-4b26-ad6b-9ee56e5334a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="8 - External">
+      <UniqueIdentifier>{36c83cd6-08b4-4e5d-83e0-116134c5c3e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="8 - External\stb">
+      <UniqueIdentifier>{8d7b282a-454f-44be-9098-b7a791f77062}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="8 - External\SDL2_gfx">
+      <UniqueIdentifier>{c592188c-f8a8-4357-a76a-4f8ce650ec45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="8 - External\mattiasgustavsson">
+      <UniqueIdentifier>{c4611adc-db68-4710-877d-65e573e2e9a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="8 - External\chipmunk">
+      <UniqueIdentifier>{1cab3837-eb7e-4ad2-a98f-219aebb10a7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1 - Framework\external">
+      <UniqueIdentifier>{f80d7410-eb81-41f6-88f4-b4239d7a832d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\ICE.h" />
+    <ClInclude Include="src\Audio\TypesAudio.h">
+      <Filter>5 - Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Asset_private.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Core.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Core_private.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Debug.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Game.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Game_private.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Input.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Input_private.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Label.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\State.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\TypesCore.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Window.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Log.h">
+      <Filter>1 - Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Memory_.h">
+      <Filter>1 - Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Random.h">
+      <Filter>1 - Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\String_.h">
+      <Filter>1 - Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Terminal.h">
+      <Filter>1 - Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Terminal_private.h">
+      <Filter>1 - Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\TypesFramework.h">
+      <Filter>1 - Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Camera.h">
+      <Filter>3 - Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Color.h">
+      <Filter>3 - Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Color_private.h">
+      <Filter>3 - Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Font.h">
+      <Filter>3 - Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Primitive.h">
+      <Filter>3 - Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Render.h">
+      <Filter>3 - Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Render_private.h">
+      <Filter>3 - Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Texture.h">
+      <Filter>3 - Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Texture_private.h">
+      <Filter>3 - Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\TypesGraphics.h">
+      <Filter>3 - Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Maths\Box.h">
+      <Filter>4 - Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Maths\Interpolate.h">
+      <Filter>4 - Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Maths\TypesMaths.h">
+      <Filter>4 - Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Maths\Vector.h">
+      <Filter>4 - Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Physics\TypesPhysics.h">
+      <Filter>6 - Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Time_private.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Time_.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Label_private.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Draw.h">
+      <Filter>3 - Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Gui.h">
+      <Filter>3 - Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Gui_private.h">
+      <Filter>3 - Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Audio\Music.h">
+      <Filter>5 - Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Audio\Sound.h">
+      <Filter>5 - Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Audio\Audio.h">
+      <Filter>5 - Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Entity.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Data.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Maths\Maths.h">
+      <Filter>4 - Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Sprite.h">
+      <Filter>3 - Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\chipmunk.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\chipmunk_ffi.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\chipmunk_private.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\chipmunk_structs.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\chipmunk_types.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\chipmunk_unsafe.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpArbiter.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpBB.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpBody.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpConstraint.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpDampedRotarySpring.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpDampedSpring.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpGearJoint.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpGrooveJoint.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpHastySpace.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpMarch.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpPinJoint.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpPivotJoint.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpPolyline.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpPolyShape.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpRatchetJoint.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpRobust.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpRotaryLimitJoint.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpShape.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpSimpleMotor.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpSlideJoint.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpSpace.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpSpatialIndex.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpTransform.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\cpVect.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\chipmunk\prime.h">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\mattiasgustavsson\rnd.h">
+      <Filter>8 - External\mattiasgustavsson</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_framerate.h">
+      <Filter>8 - External\SDL2_gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.h">
+      <Filter>8 - External\SDL2_gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives_font.h">
+      <Filter>8 - External\SDL2_gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_imageFilter.h">
+      <Filter>8 - External\SDL2_gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_rotozoom.h">
+      <Filter>8 - External\SDL2_gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\stb\stb_image.h">
+      <Filter>8 - External\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Animation.h">
+      <Filter>3 - Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\MacOS_.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Assert_.h">
+      <Filter>1 - Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\SDL2_Includer.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Sprite_private.h">
+      <Filter>3 - Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Inline.h">
+      <Filter>1 - Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\stb\SDL_stbimage.h">
+      <Filter>8 - External\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\File_.h">
+      <Filter>1 - Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Config.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\external\rlutil.h">
+      <Filter>1 - Framework\external</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Converter_private.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Window_private.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Core\Asset_private.c">
+      <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Core.c">
+      <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Core_private.c">
+      <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Debug.c">
+      <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Game.c">
+      <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Game_private.c">
+      <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Input.c">
+      <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Input_private.c">
+      <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Label.c">
+      <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\State.c">
+      <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Window.c">
+      <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\Log.c">
+      <Filter>1 - Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\Memory_.c">
+      <Filter>1 - Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\Random.c">
+      <Filter>1 - Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\String_.c">
+      <Filter>1 - Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\Terminal.c">
+      <Filter>1 - Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\Terminal_private.c">
+      <Filter>1 - Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Camera.c">
+      <Filter>3 - Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Font.c">
+      <Filter>3 - Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Primitive.c">
+      <Filter>3 - Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Render.c">
+      <Filter>3 - Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Render_private.c">
+      <Filter>3 - Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Texture.c">
+      <Filter>3 - Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Texture_private.c">
+      <Filter>3 - Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Maths\Interpolate.c">
+      <Filter>4 - Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Raw\Error.c">
+      <Filter>7 - Raw</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Raw\Icon.c">
+      <Filter>7 - Raw</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Time_.c">
+      <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Time_private.c">
+      <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Label_private.c">
+      <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Draw.c">
+      <Filter>3 - Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Gui.c">
+      <Filter>3 - Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Gui_private.c">
+      <Filter>3 - Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Audio\Music.c">
+      <Filter>5 - Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Audio\Sound.c">
+      <Filter>5 - Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Audio\Audio.c">
+      <Filter>5 - Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Entity.c">
+      <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Data.c">
+      <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Sprite.c">
+      <Filter>3 - Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\chipmunk.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpArbiter.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpArray.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpBBTree.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpBody.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpCollision.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpConstraint.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpDampedRotarySpring.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpDampedSpring.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpGearJoint.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpGrooveJoint.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpHashSet.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpHastySpace.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpMarch.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpPinJoint.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpPivotJoint.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpPolyline.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpPolyShape.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpRatchetJoint.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpRobust.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpRotaryLimitJoint.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpShape.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpSimpleMotor.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpSlideJoint.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpSpace.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpSpaceComponent.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpSpaceDebug.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpSpaceHash.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpSpaceQuery.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpSpaceStep.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpSpatialIndex.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\chipmunk\cpSweep1D.c">
+      <Filter>8 - External\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\SDL2_gfx\SDL2_framerate.c">
+      <Filter>8 - External\SDL2_gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.c">
+      <Filter>8 - External\SDL2_gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\SDL2_gfx\SDL2_imageFilter.c">
+      <Filter>8 - External\SDL2_gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\SDL2_gfx\SDL2_rotozoom.c">
+      <Filter>8 - External\SDL2_gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Animation.c">
+      <Filter>3 - Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\MacOS_.c">
+      <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\Assert_.c">
+      <Filter>1 - Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Sprite_private.c">
+      <Filter>3 - Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\File_.c">
+      <Filter>1 - Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\external\rlutil.c">
+      <Filter>1 - Framework\external</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Config_private.c">
+      <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Window_private.c">
+      <Filter>2 - Core</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
