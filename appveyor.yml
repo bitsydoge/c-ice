@@ -5,4 +5,4 @@ build_script:
 - ps: >-
     C:\project\ICE\script\sdl2_downloader.ps1
     cmake "C:\project\ICE\CMakeLists.txt"
-    msbuild projects\Engine\Engine.vcxproj
+    msbuild Engine.vcxproj
