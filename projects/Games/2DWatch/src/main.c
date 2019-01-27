@@ -45,7 +45,7 @@ ICE_Game_Create()
 	// Entity
 
 	// Entity
-	nb = ICE_Entity_Create(ICE_State_Current, ICE_Box_New(0, 0, 375, 250));
+	ICE_ID nb = ICE_Entity_Create(ICE_State_Current, ICE_Box_New(0, 0, 375, 250));
 	ICE_Entity_SetTexture
 	(
 		ICE_Entity_Get(ICE_State_Current, 0), 
