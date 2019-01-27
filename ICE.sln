@@ -6,10 +6,19 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Games", "Games", "{650830F3-BCDE-46FF-B76F-D081CA9A0460}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2DWatch", "projects\Games\2DWatch\2DWatch.vcxproj", "{2215F685-D120-4370-9CDD-8999390B9E62}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CEAC8C68-C6B6-4756-82D0-C7DCD2C95330} = {CEAC8C68-C6B6-4756-82D0-C7DCD2C95330}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloWorld", "projects\Games\HelloWorld\HelloWorld.vcxproj", "{217CB780-8401-4280-BCDE-8599B06494C7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CEAC8C68-C6B6-4756-82D0-C7DCD2C95330} = {CEAC8C68-C6B6-4756-82D0-C7DCD2C95330}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "projects\Games\Test\Test.vcxproj", "{7A5C58EE-C34D-4D69-AB10-C30091A3F53F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CEAC8C68-C6B6-4756-82D0-C7DCD2C95330} = {CEAC8C68-C6B6-4756-82D0-C7DCD2C95330}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "projects\Engine\Engine.vcxproj", "{CEAC8C68-C6B6-4756-82D0-C7DCD2C95330}"
 EndProject
