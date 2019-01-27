@@ -7,7 +7,6 @@
 #include "../Core/TypesCore.h"
 #include "../Framework/Memory_.h"
 #include "../Framework/Log.h"
-#include "../ICE.h"
 
 extern ICE_Game GAME;
 

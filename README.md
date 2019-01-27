@@ -43,17 +43,15 @@ See the	[Trello](https://trello.com/b/HOWcrZRM/ice/)
 #include <ICE.h>
 
 #define ICE_CONFIG_TITLE "Hello World"
-#define ICE_CONFIG_WINDOW_W 840
-#define ICE_CONFIG_WINDOW_H 480
 
 ICE_Game_Create()
 {
 	ICE_Font_Load("font.ttf");
-	ICE_Index nbr = ICE_Label_Insert
+	ICE_LabelID nbr = ICE_Label_Create
 	(
-		NULL, 
-		"Hello World", 
-		ICE_Vect_Null, 
+		ICE_State_Current, 
+		"Hello World",
+		ICE_Vect_Zero,
 		50, 
 		ICE_LABELTYPE_WORLD
 	);

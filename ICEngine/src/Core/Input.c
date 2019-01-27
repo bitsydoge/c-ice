@@ -3,7 +3,8 @@
 #include "Input.h"
 
 #include "../Framework/Log.h"
-#include "../ICE.h"
+#include "../Graphics/Camera.h"
+#include "../Maths/Box.h"
 
 extern ICE_Game GAME;
 extern ICE_Core CORE;
