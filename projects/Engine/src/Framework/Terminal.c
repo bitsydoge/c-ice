@@ -38,7 +38,7 @@ void ICE_Term_Hour()
 }
 
 void ICE_Term_Wait(){
-	ICE_Log_NoReturn(ICE_LOG_INFO, "TERMINAL]::[PRESSRETURNTOCONTINUE");
+	ICE_Log_NoReturn(ICE_LOGTYPE_INFO, "TERMINAL]::[PRESSRETURNTOCONTINUE");
 	#ifdef getch
 	getch();
 	puts("");

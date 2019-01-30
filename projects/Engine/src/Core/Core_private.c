@@ -19,6 +19,7 @@
 #include <string.h>
 #include "Core.h"
 #include "../Framework/Random.h"
+#include "../External/physfs/physfs.h"
 
 ICE_Core CORE = { 0 } ;
 extern ICE_Game GAME;
@@ -34,13 +35,13 @@ int ICE_Core_Init()
 	ICE_Term_SaveColor();
 	ICE_Term_HideCursor();
 	ICE_Log_Line();
-	ICE_Log(ICE_LOG_RUNNING, "Core Init ...");
+	ICE_Log(ICE_LOGTYPE_RUNNING, "Core Init ...");
 
 	// SDL
 	if(SDL_Init(SDL_INIT_VIDEO) == 0)
-		ICE_Log(ICE_LOG_SUCCES, "Init SDL");
+		ICE_Log(ICE_LOGTYPE_SUCCES, "Init SDL");
 	else
-		ICE_Log(ICE_LOG_SUCCES, "Init SDL : %s", SDL_GetError());
+		ICE_Log(ICE_LOGTYPE_SUCCES, "Init SDL : %s", SDL_GetError());
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
 
 	// SDL_Mixer
@@ -48,15 +49,18 @@ int ICE_Core_Init()
 
 	// SDL_TTF
 	if (TTF_Init() == 0)
-		ICE_Log(ICE_LOG_SUCCES, "Init SDL_ttf");
+		ICE_Log(ICE_LOGTYPE_SUCCES, "Init SDL_ttf");
 	else
-		ICE_Log(ICE_LOG_ERROR, "Init SDL_ttf : %s", TTF_GetError());
+		ICE_Log(ICE_LOGTYPE_ERROR, "Init SDL_ttf : %s", TTF_GetError());
 	
 	// Random
 	ICE_Random_Init();
 
 	// SDL_gfx
 	ICE_Time_Init();
+
+	// Physfs
+	// PHYSFS_init(CONFIG.argv[0]);
 
 	// Path
 	char * basePath = SDL_GetBasePath();
@@ -67,7 +71,7 @@ int ICE_Core_Init()
 	SDL_free(dataPath);
 
 	// Hardware Info
-	ICE_Log(ICE_LOG_INFO, "");
+	ICE_Log(ICE_LOGTYPE_INFO, "");
 	ICE_Log_Printf("\n Platform: %s\n", SDL_GetPlatform());
 	ICE_Log_Printf(" CPU: %d CORE %d MB L1\n", SDL_GetCPUCount(), SDL_GetCPUCacheLineSize());
 	ICE_Log_Printf(" RAM: %d MB \n", SDL_GetSystemRAM());
@@ -96,7 +100,7 @@ int ICE_Core_Init()
 	ICE_Log_Printf("MacOS Resources Directory: %s\n\n", ICE_MacOS_GetResourcesDirectory());
 #endif
 	puts("");
-	ICE_Log(ICE_LOG_FINISH, "Core Init");
+	ICE_Log(ICE_LOGTYPE_FINISH, "Core Init");
 	ICE_Log_Line();
 
 	return 0;
@@ -105,17 +109,17 @@ int ICE_Core_Init()
 int ICE_Core_Quit() 
 {
 	ICE_Log_Line();
-	ICE_Log(ICE_LOG_RUNNING, "Core Quit ...");
+	ICE_Log(ICE_LOGTYPE_RUNNING, "Core Quit ...");
 	
 	// SDL
 	TTF_Quit();
-	ICE_Log(ICE_LOG_SUCCES, "Quit SDL_TTF");
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Quit SDL_TTF");
 	ICE_Audio_Close();
-	ICE_Log(ICE_LOG_SUCCES, "Quit SDL_Mixer");
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Quit SDL_Mixer");
 	SDL_Quit();
-	ICE_Log(ICE_LOG_SUCCES, "Quit SDL");
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Quit SDL");
 
-	ICE_Log(ICE_LOG_FINISH, "Core Quit");
+	ICE_Log(ICE_LOGTYPE_FINISH, "Core Quit");
 	ICE_Log_Line();
 
 #if defined(_DEBUG) && defined (_MSC_VER)

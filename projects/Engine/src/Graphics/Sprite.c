@@ -14,7 +14,7 @@ void ICE_SpriteManager_Init()
 	sprite_manager.sprite_size = ICE_DEFAULT_SPRITEMNGR_SIZE;
 	sprite_manager.sprite = ICE_Calloc(ICE_DEFAULT_SPRITEMNGR_SIZE, sizeof(ICE_Sprite));
 	ASSET.sprite_mngr = sprite_manager;
-	ICE_Log(ICE_LOG_SUCCES, "Init SpriteManager");
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Init SpriteManager");
 }
 
 void ICE_SpriteManager_Destroy()
@@ -24,7 +24,7 @@ void ICE_SpriteManager_Destroy()
 
 	ICE_Free(ASSET.sprite_mngr.sprite);
 	ASSET.sprite_mngr.sprite = NULL;
-	ICE_Log(ICE_LOG_SUCCES, "Free SpriteManager");
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Free SpriteManager");
 }
 
 /* SPRITE */
@@ -52,7 +52,7 @@ ICE_ID ICE_Sprite_Load(ICE_TextureID texture_, ICE_Vect size_frame_sprite_)
 
 	ASSET.sprite_mngr.sprite[ASSET.sprite_mngr.sprite_contain].index = ASSET.sprite_mngr.sprite_contain - 1;
 
-	ICE_Log(ICE_LOG_SUCCES, "Create Sprite %d from Texture %d <%d*%d>", ASSET.sprite_mngr.sprite_contain - 1, texture_, ASSET.sprite_mngr.sprite[ASSET.sprite_mngr.sprite_contain-1].size_w, ASSET.sprite_mngr.sprite[ASSET.sprite_mngr.sprite_contain-1].size_h);
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Create Sprite %d from Texture %d <%d*%d>", ASSET.sprite_mngr.sprite_contain - 1, texture_, ASSET.sprite_mngr.sprite[ASSET.sprite_mngr.sprite_contain-1].size_w, ASSET.sprite_mngr.sprite[ASSET.sprite_mngr.sprite_contain-1].size_h);
 
 	if (ASSET.sprite_mngr.sprite_size <= ASSET.sprite_mngr.sprite_contain) 
 	{

@@ -19,13 +19,13 @@ void ICE_Core_Main(void(*call_create)(void), void(*call_update)(void), void(*cal
 	ICE_Game_Init();
 
 	ICE_Log_Line();
-	ICE_Log(ICE_LOG_RUNNING, "Main Create ...");
+	ICE_Log(ICE_LOGTYPE_RUNNING, "Main Create ...");
 	call_create();
-	ICE_Log(ICE_LOG_FINISH, "Main Create");
+	ICE_Log(ICE_LOGTYPE_FINISH, "Main Create");
 	ICE_Log_Line(); 
 
 	ICE_Log_Line();
-	ICE_Log(ICE_LOG_RUNNING, "Main Update ...");
+	ICE_Log(ICE_LOGTYPE_RUNNING, "Main Update ...");
 	while (!CORE.window.input.quit)
 	{
 		// LOGIC HERE
@@ -51,13 +51,13 @@ void ICE_Core_Main(void(*call_create)(void), void(*call_update)(void), void(*cal
 		ICE_Render_Now();
 		ICE_Time_End();
 	}
-	ICE_Log(ICE_LOG_FINISH, "Main Update");
+	ICE_Log(ICE_LOGTYPE_FINISH, "Main Update");
 	ICE_Log_Line();
 
 	ICE_Log_Line();
-	ICE_Log(ICE_LOG_RUNNING, "Main Destroy ...");
+	ICE_Log(ICE_LOGTYPE_RUNNING, "Main Destroy ...");
 	call_destroy();
-	ICE_Log(ICE_LOG_FINISH, "Main Destroy");
+	ICE_Log(ICE_LOGTYPE_FINISH, "Main Destroy");
 	ICE_Log_Line();
 
 	ICE_Game_Quit();

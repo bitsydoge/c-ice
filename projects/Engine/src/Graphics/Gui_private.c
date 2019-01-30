@@ -23,7 +23,7 @@ void ICE_GuiManager_Init(ICE_State* state)
 
 	state->object.gui_mngr = gui_manager;
 
-	ICE_Log(ICE_LOG_SUCCES, "Create GuiManager in state", state->name);
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Create GuiManager in state", state->name);
 }
 
 void ICE_GuiManager_Destroy(ICE_State * state)
@@ -37,7 +37,7 @@ void ICE_GuiManager_Destroy(ICE_State * state)
 		ICE_Gui_Destroy(&manager->gui[i]);
 
 	ICE_Free(manager->gui);
-	ICE_Log(ICE_LOG_SUCCES, "Destroy GuiManager");
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Destroy GuiManager");
 }
 
 ICE_Gui ICE_Gui_Build(ICE_Box box, ICE_TextureID nb_texture)

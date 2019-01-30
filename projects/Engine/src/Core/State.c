@@ -105,7 +105,7 @@ void ICE_Substate_Loop()
 
 
 
-	ICE_Log(ICE_LOG_RUNNING, "Entering substate");
+	ICE_Log(ICE_LOGTYPE_RUNNING, "Entering substate");
 	
 	if (!current->isPaused)
 	{
@@ -151,7 +151,7 @@ void ICE_Substate_Loop()
 		if(current->func_OnPause != NULL)
 			current->func_OnPause();
 
-	ICE_Log(ICE_LOG_RUNNING, "Leaving substate");
+	ICE_Log(ICE_LOGTYPE_RUNNING, "Leaving substate");
 
 	ICE_Input_Reset();
 }
@@ -164,7 +164,7 @@ ICE_State * ICE_State_GetParent(ICE_State * state)
 
 	if(state->parent)
 		return state->parent;
-	ICE_Log(ICE_LOG_CRITICAL, "No Parent State");
+	ICE_Log(ICE_LOGTYPE_CRITICAL, "No Parent State");
 	return state;
 }
 

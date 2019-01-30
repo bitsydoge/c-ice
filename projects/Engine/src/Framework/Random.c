@@ -6,13 +6,36 @@
 #include "TypesFramework.h"
 #include "Log.h"
 
+#if defined(__linux__) || defined(_POSIX_VERSION)
+#include <unistd.h>
+#define GET_PID_ getpid
+#elif defined(_WIN32) || defined(_WIN64) || defined(_MSC_VER)
+#include <process.h>
+#define GETPID_ _getpid
+#endif
+
+unsigned long mix(unsigned long a, unsigned long b, unsigned long c)
+{
+    a=a-b;  a=a-c;  a=a^(c >> 13);
+    b=b-c;  b=b-a;  b=b^(a << 8);
+    c=c-a;  c=c-b;  c=c^(b >> 13);
+    a=a-b;  a=a-c;  a=a^(c >> 12);
+    b=b-c;  b=b-a;  b=b^(a << 16);
+    c=c-a;  c=c-b;  c=c^(b >> 5);
+    a=a-b;  a=a-c;  a=a^(c >> 3);
+    b=b-c;  b=b-a;  b=b^(a << 10);
+    c=c-a;  c=c-b;  c=c^(b >> 15);
+    return c;
+}
+
 void ICE_Random_Init()
 {
 	static ICE_Bool triggered = ICE_False;
 	if (!triggered)
 	{
-		srand((unsigned int)time(NULL));
-		ICE_Log(ICE_LOG_SUCCES, "Init ICE_Random");
+		const unsigned int seed = mix(clock(), time(NULL), GETPID_());
+		srand(seed);
+		ICE_Log(ICE_LOGTYPE_SUCCES, "Init ICE_Random");
 		triggered = ICE_True;
 	}
 }

@@ -19,7 +19,7 @@ ICE_FontID ICE_Font_Load(char *path)
 	for (int i = 0; i < 256; i++) {
 		ASSET.font.size[i] = TTF_OpenFont(path, i);
 		if (!ASSET.font.size[i])
-			ICE_Log(ICE_LOG_CRITICAL, "%s\n", TTF_GetError());
+			ICE_Log(ICE_LOGTYPE_CRITICAL, "%s\n", TTF_GetError());
 	}
 
 	return 0;

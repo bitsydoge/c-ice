@@ -59,7 +59,7 @@ void ICE_Window_SetIcon(char * path)
 		SDL_Surface *icon = STBIMG_Load(path);
 
 		if (icon == NULL)
-			ICE_Log(ICE_LOG_ERROR, "ICE_Window_SetIcon : %s", SDL_GetError);
+			ICE_Log(ICE_LOGTYPE_ERROR, "ICE_Window_SetIcon : %s", SDL_GetError);
 		
 		SDL_SetWindowIcon(CORE.window.handle, icon);
 		SDL_FreeSurface(icon);

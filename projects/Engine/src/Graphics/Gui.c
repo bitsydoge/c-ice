@@ -7,6 +7,7 @@
 #include "../Core/TypesCore.h"
 #include "../Framework/Memory_.h"
 #include "../Framework/Log.h"
+#include "Texture.h"
 
 extern ICE_Game GAME;
 
@@ -21,7 +22,7 @@ ICE_ID ICE_Gui_Create(ICE_State * state, const ICE_Box box, ICE_TextureID textur
 	state->object.gui_mngr.gui[state->object.gui_mngr.gui_contain] = ICE_Gui_Build(box, texture_nb);
 	state->object.gui_mngr.gui_contain++;
 
-	ICE_Log(ICE_LOG_SUCCES, "Create Gui %d ", state->object.gui_mngr.gui_contain-1);
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Create Gui %d ", state->object.gui_mngr.gui_contain-1);
 
 	// Test size to realloc more space
 	if (state->object.gui_mngr.gui_size <= state->object.gui_mngr.gui_contain) 

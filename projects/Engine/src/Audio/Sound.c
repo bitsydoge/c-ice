@@ -14,7 +14,7 @@ void ICE_SoundManager_Init()
 	soundmanager.sound_size = ICE_DEFAULT_SOUND_SIZE;
 	soundmanager.sound = ICE_Calloc(soundmanager.sound_size, sizeof(ICE_Sound));
 	ASSET.sound_mngr = soundmanager;
-	ICE_Log(ICE_LOG_SUCCES, "Init SoundManager");
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Init SoundManager");
 }
 
 void ICE_SoundManager_Destroy()
@@ -24,7 +24,7 @@ void ICE_SoundManager_Destroy()
 
 	ICE_Free(ASSET.sound_mngr.sound);
 	ASSET.sound_mngr.sound = NULL;
-	ICE_Log(ICE_LOG_SUCCES, "Free SoundManager");
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Free SoundManager");
 }
 
 /* SOUND */
@@ -43,7 +43,7 @@ ICE_ID ICE_Sound_Load(char *path_)
 {
 	ASSET.sound_mngr.sound[ASSET.sound_mngr.sound_contain] = ICE_Sound_Create(path_);
 	ASSET.sound_mngr.sound_contain++;
-	ICE_Log(ICE_LOG_SUCCES, "Load Sound %d from \"%s\"", ASSET.sound_mngr.sound_contain - 1, path_);
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Load Sound %d from \"%s\"", ASSET.sound_mngr.sound_contain - 1, path_);
 	
 	if (ASSET.sound_mngr.sound_size <= ASSET.sound_mngr.sound_contain) {
 		ICE_Sound* tmp = ICE_Realloc(ASSET.sound_mngr.sound, sizeof(ICE_Sound)*(ASSET.sound_mngr.sound_size * 2));

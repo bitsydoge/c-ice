@@ -27,31 +27,31 @@ void ICE_Log_(int nb_tab, const char* file, int line, ICE_LogTypes type, const c
 		char * type_in_string;
 		switch (type)
 		{
-		case ICE_LOG_INFO:
+		case ICE_LOGTYPE_INFO:
 			ICE_Term_SetColor(ICE_TERMCOLOR_GREY);
 			type_in_string = "<INFO__>";
 			break;
-		case ICE_LOG_SUCCES:
+		case ICE_LOGTYPE_SUCCES:
 			ICE_Term_SetColor(ICE_TERMCOLOR_LIGHTGREEN);
 			type_in_string = "<SUCCES>";
 			break;
-		case ICE_LOG_WARNING:
+		case ICE_LOGTYPE_WARNING:
 			ICE_Term_SetColor(ICE_TERMCOLOR_YELLOW);
 			type_in_string = "<WARNNI>";
 			break;
-		case ICE_LOG_ERROR:
+		case ICE_LOGTYPE_ERROR:
 			ICE_Term_SetColor(ICE_TERMCOLOR_LIGHTRED);
 			type_in_string = "<ERROR_>";
 			break;
-		case ICE_LOG_CRITICAL:
+		case ICE_LOGTYPE_CRITICAL:
 			ICE_Term_SetColor(ICE_TERMCOLOR_RED);
 			type_in_string = "<CRITIC>";
 			break;
-		case ICE_LOG_RUNNING:
+		case ICE_LOGTYPE_RUNNING:
 			ICE_Term_SetColor(ICE_TERMCOLOR_LIGHTMAGENTA);
 			type_in_string = "<RUNNIN>";
 			break;
-		case ICE_LOG_FINISH:
+		case ICE_LOGTYPE_FINISH:
 			ICE_Term_SetColor(ICE_TERMCOLOR_LIGHTBLUE);
 			type_in_string = "<FINISH>";
 			break;
@@ -77,27 +77,27 @@ void ICE_Log_NoReturn_(ICE_LogTypes type, const char * format, ...)
 
 		switch (type)
 		{
-		case ICE_LOG_SUCCES:
+		case ICE_LOGTYPE_SUCCES:
 			ICE_Term_Clock(ICE_TERMCOLOR_LIGHTCYAN);
 			ICE_Term_SetColor(ICE_TERMCOLOR_LIGHTGREEN);
 			printf("[SUCCES]");
 			break;
-		case ICE_LOG_INFO:
+		case ICE_LOGTYPE_INFO:
 			ICE_Term_Clock(ICE_TERMCOLOR_LIGHTCYAN);
 			printf("[LOG]");
 			break;
-		case ICE_LOG_WARNING:
+		case ICE_LOGTYPE_WARNING:
 			ICE_Term_Clock(ICE_TERMCOLOR_LIGHTCYAN);
 			ICE_Term_SetColor(ICE_TERMCOLOR_YELLOW);
 			printf("[WARNING]");
 			break;
-		case ICE_LOG_ERROR:
+		case ICE_LOGTYPE_ERROR:
 			ICE_Term_Clock(ICE_TERMCOLOR_LIGHTCYAN);
 			ICE_Term_SetColor(ICE_TERMCOLOR_LIGHTRED);
 
 			printf("[ERROR]");
 			break;
-		case ICE_LOG_CRITICAL:
+		case ICE_LOGTYPE_CRITICAL:
 			ICE_Term_Clock(ICE_TERMCOLOR_LIGHTCYAN);
 			ICE_Term_SetColor(ICE_TERMCOLOR_RED);
 			printf("[CRITICAL]");

@@ -26,7 +26,7 @@ void ICE_EntityManager_Init(ICE_State* state)
 
 	state->object.entity_mngr = entity_manager;
 
-	ICE_Log(ICE_LOG_SUCCES, "Init EntityManager");
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Init EntityManager");
 }
 
 void ICE_EntityManager_Destroy(ICE_State * state)
@@ -43,7 +43,7 @@ void ICE_EntityManager_Destroy(ICE_State * state)
 	}
 
 	ICE_Free(manager->entity);
-	ICE_Log(ICE_LOG_SUCCES, "Free EntityManager");
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Free EntityManager");
 }
 
 /* ENTITY */
@@ -91,7 +91,7 @@ ICE_ID ICE_Entity_Create(ICE_State * state, ICE_Box pos)
 	state->object.entity_mngr.entity[avaible_slot] = ICE_Entity_Build(pos);
 	state->object.entity_mngr.entity[avaible_slot].id = avaible_slot;
 		
-	ICE_Log(ICE_LOG_SUCCES, "Create Entity %d in state %s", avaible_slot, state->name);
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Create Entity %d in state %s", avaible_slot, state->name);
 
 	// Resize Manager
 	if (state->object.entity_mngr.entity_size <= state->object.entity_mngr.entity_contain) 
@@ -318,7 +318,7 @@ void ICE_Entity_SetSpriteFrame(ICE_Entity * entity, ICE_ID frame)
 		entity->graphics_box_render.y = size_in_h * sprite->size_h;
 	}
 	else
-		ICE_Log(ICE_LOG_ERROR, "This entity doesn't have a Sprite graphics");
+		ICE_Log(ICE_LOGTYPE_ERROR, "This entity doesn't have a Sprite graphics");
 }
 
 ICE_Sprite * ICE_Entity_GetSprite(ICE_Entity * _entity)
@@ -326,7 +326,7 @@ ICE_Sprite * ICE_Entity_GetSprite(ICE_Entity * _entity)
 	if(_entity->graphics_type == ICE_ENTITYGRAPHICSTYPES_SPRITE)
 		return ICE_Sprite_Get(_entity->graphics_index);
 
-	ICE_Log(ICE_LOG_WARNING, "This entity doesn't have Sprite graphics");
+	ICE_Log(ICE_LOGTYPE_WARNING, "This entity doesn't have Sprite graphics");
 	return NULL;
 }
 
@@ -335,7 +335,7 @@ ICE_Texture * ICE_Entity_GetTexture(ICE_Entity * _entity)
 	if(_entity->graphics_type == ICE_ENTITYGRAPHICSTYPES_TEXTURE)
 		return ICE_Texture_Get(_entity->graphics_mngr_index);
 	
-	ICE_Log(ICE_LOG_WARNING, "This entity doesn't have Texture graphics");
+	ICE_Log(ICE_LOGTYPE_WARNING, "This entity doesn't have Texture graphics");
 	return NULL;
 }
 
@@ -343,7 +343,7 @@ ICE_ID ICE_Entity_GetSpriteFrame(ICE_Entity * entity)
 {
 	if (entity->graphics_type == ICE_ENTITYGRAPHICSTYPES_SPRITE)
 		return entity->sprite_frame+1;
-	ICE_Log(ICE_LOG_ERROR, "This entity doesn't have a Sprite graphics");
+	ICE_Log(ICE_LOGTYPE_ERROR, "This entity doesn't have a Sprite graphics");
 	return 0;
 }
 

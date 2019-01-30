@@ -14,7 +14,7 @@ void ICE_MusicManager_Init()
 	musicmanager.music_size = ICE_DEFAULT_MUSIC_SIZE;
 	musicmanager.music = ICE_Calloc(musicmanager.music_size, sizeof(ICE_Music));
 	ASSET.music_mngr = musicmanager;
-	ICE_Log(ICE_LOG_SUCCES, "Init MusicManager");
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Init MusicManager");
 }
 
 void ICE_MusicManager_Destroy()
@@ -24,7 +24,7 @@ void ICE_MusicManager_Destroy()
 
 	ICE_Free(ASSET.music_mngr.music);
 	ASSET.music_mngr.music = NULL;
-	ICE_Log(ICE_LOG_SUCCES, "Free MusicManager");
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Free MusicManager");
 }
 
 // MUSIC
@@ -36,7 +36,7 @@ ICE_Music ICE_Music_Build(char *path_)
 	music.filename = ICE_String_Init(path_);
 	music.sdl_handle = Mix_LoadMUS(path_);
 	if(music.sdl_handle == NULL)
-		ICE_Log(ICE_LOG_ERROR, "Load Music : %s", Mix_GetError());
+		ICE_Log(ICE_LOGTYPE_ERROR, "Load Music : %s", Mix_GetError());
 	return music;
 }
 
@@ -45,7 +45,7 @@ ICE_MusicID ICE_Music_Load(char* path_)
 	ASSET.music_mngr.music[ASSET.music_mngr.music_contain] = ICE_Music_Build(path_);
 	ASSET.music_mngr.music_contain++;
 
-	ICE_Log(ICE_LOG_SUCCES, "Load Music %d from \"%s\"", ASSET.music_mngr.music_contain - 1, path_);
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Load Music %d from \"%s\"", ASSET.music_mngr.music_contain - 1, path_);
 
 	if (ASSET.music_mngr.music_size <= ASSET.music_mngr.music_contain) {
 		ICE_Music* tmp = ICE_Realloc(ASSET.music_mngr.music, sizeof(ICE_Music)*(ASSET.music_mngr.music_size * 2));

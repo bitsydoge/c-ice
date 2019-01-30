@@ -14,7 +14,7 @@ void ICE_Time_Init()
 {
 	SDL_initFramerate(&fps_manager_global);
 	if(SDL_setFramerate(&fps_manager_global, CONFIG.refresh_rate) == -1)
-		ICE_Log(ICE_LOG_ERROR, "SDL_Gfx -> SDL_setFramerate");
+		ICE_Log(ICE_LOGTYPE_ERROR, "SDL_Gfx -> SDL_setFramerate");
 }
 
 void ICE_Time_Start()

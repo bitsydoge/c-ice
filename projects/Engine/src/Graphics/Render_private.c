@@ -28,7 +28,7 @@ void ICE_Render_Now()
 void ICE_Render_Init()
 {
 	ICE_Log_Line();
-	ICE_Log(ICE_LOG_RUNNING, "Render init ...");
+	ICE_Log(ICE_LOGTYPE_RUNNING, "Render init ...");
 
 	// Window and Render
 	CORE.window.handle = SDL_CreateWindow(
@@ -37,26 +37,25 @@ void ICE_Render_Init()
 		SDL_WINDOWPOS_UNDEFINED,
 		CONFIG.window_w,
 		CONFIG.window_h,
-		SDL_WINDOW_OPENGL | SDL_WINDOW_HIDDEN
+	 SDL_WINDOW_HIDDEN
 	);
 
 	if (CORE.window.handle)
-		ICE_Log(ICE_LOG_SUCCES, "Window create");
+		ICE_Log(ICE_LOGTYPE_SUCCES, "Window create");
 	else
-		ICE_Log(ICE_LOG_CRITICAL, "Window create : %s", SDL_GetError());
-
+		ICE_Log(ICE_LOGTYPE_CRITICAL, "Window create : %s", SDL_GetError());
 	if(CONFIG.vsync)
 		CORE.window.render = SDL_CreateRenderer(CORE.window.handle, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	else
 		CORE.window.render = SDL_CreateRenderer(CORE.window.handle, -1, SDL_RENDERER_ACCELERATED);
 
 	if (CORE.window.render)
-		ICE_Log(ICE_LOG_SUCCES, "Render create");
+		ICE_Log(ICE_LOGTYPE_SUCCES, "Render create");
 	else
-		ICE_Log(ICE_LOG_CRITICAL, "Render create : %s", SDL_GetError());
+		ICE_Log(ICE_LOGTYPE_CRITICAL, "Render create : %s", SDL_GetError());
 
 	if (SDL_SetRenderDrawBlendMode(CORE.window.render, SDL_BLENDMODE_BLEND) == -1)
-		ICE_Log(ICE_LOG_ERROR, "SDL_SetRenderDrawBlendMode : %s", SDL_GetError());
+		ICE_Log(ICE_LOGTYPE_ERROR, "SDL_SetRenderDrawBlendMode : %s", SDL_GetError());
 
 #if defined(_DEBUG)
 	CORE.lateDrawDebug = NULL;
@@ -68,30 +67,30 @@ void ICE_Render_Init()
 
 	ICE_Render_Info();
 	
-	ICE_Log(ICE_LOG_FINISH, "Render init");
+	ICE_Log(ICE_LOGTYPE_FINISH, "Render init");
 	ICE_Log_Line();
 }
 
 void ICE_Render_Quit()
 {
 	ICE_Log_Line();
-	ICE_Log(ICE_LOG_RUNNING, "Render Quit ...");
+	ICE_Log(ICE_LOGTYPE_RUNNING, "Render Quit ...");
 
 	SDL_DestroyWindow(CORE.window.handle);
-	ICE_Log(ICE_LOG_SUCCES, "Window destroy");
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Window destroy");
 
 	SDL_DestroyRenderer(CORE.window.render);
-	ICE_Log(ICE_LOG_SUCCES, "Render destroy");
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Render destroy");
 
 
-	ICE_Log(ICE_LOG_FINISH, "Render Quit");
+	ICE_Log(ICE_LOGTYPE_FINISH, "Render Quit");
 	ICE_Log_Line();
 }
 
 #if defined(_DEBUG)
 void ICE_Render_Info()
 {
-	ICE_Log(ICE_LOG_INFO, "Render Info");
+	ICE_Log(ICE_LOGTYPE_INFO, "Render Info");
 	SDL_RendererInfo info_renderer;
 	SDL_GetRendererInfo(CORE.window.render, &info_renderer);
 	puts("");

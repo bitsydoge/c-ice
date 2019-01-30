@@ -10,18 +10,18 @@ void ICE_Audio_Init()
 
 	if (!Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)
 	{
-		ICE_Log(ICE_LOG_ERROR, "SDL_Mixer -> Mix_OpenAudio : %s", Mix_GetError());
+		ICE_Log(ICE_LOGTYPE_ERROR, "SDL_Mixer -> Mix_OpenAudio : %s", Mix_GetError());
 		error--;
 	}
 
 	if (Mix_Init(MIX_INIT_OGG) == 0)
 	{
-		ICE_Log(ICE_LOG_ERROR, "SDL_Mixer -> Mix_Init : %s", Mix_GetError());
+		ICE_Log(ICE_LOGTYPE_ERROR, "SDL_Mixer -> Mix_Init : %s", Mix_GetError());
 		error--;
 	}
 
 	if (error == 1)
-		ICE_Log(ICE_LOG_SUCCES, "Init SDL_Mixer : %d audio channels allocated", Mix_AllocateChannels(20));
+		ICE_Log(ICE_LOGTYPE_SUCCES, "Init SDL_Mixer : %d audio channels allocated", Mix_AllocateChannels(20));
 
 
 	Mix_VolumeMusic(5);

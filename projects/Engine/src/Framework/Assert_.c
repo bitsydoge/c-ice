@@ -14,7 +14,7 @@ void ICE_Assert_(const char* expr_str, int expr, const char* file, int line, con
 	{
 		ICE_Log_Line();
 		puts("");
-		ICE_Log(ICE_LOG_CRITICAL, "ASSERT");
+		ICE_Log(ICE_LOGTYPE_CRITICAL, "ASSERT");
 		printf("\n Assert Msg\t:\t");
 		ICE_Term_SetColor(ICE_TERMCOLOR_LIGHTGREEN);
 		printf("%s\n", msg);

@@ -46,5 +46,5 @@ void GAME_Projectile_Update(ICE_Entity * this_)
 
 void GAME_Projectile_Destroy(ICE_Entity * this_)
 {
-	ICE_Log(ICE_LOG_SUCCES, "Destroy Entity %d (Projectile)", ICE_Entity_GetID(this_), ICE_State_CurrentName());
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Destroy Entity %d (Projectile)", ICE_Entity_GetID(this_), ICE_State_CurrentName());
 }

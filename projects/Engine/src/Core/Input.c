@@ -36,7 +36,7 @@ ICE_Bool ICE_Input_Pressed(enum ICE_Key button)
 	}
 	else
 	{
-		ICE_Log(ICE_LOG_WARNING, "No key corresponding : %d", button);
+		ICE_Log(ICE_LOGTYPE_WARNING, "No key corresponding : %d", button);
 		return ICE_False;
 	}
 
@@ -60,7 +60,7 @@ ICE_Bool ICE_Input_OnPress(enum ICE_Key button)
 			return CORE.window.input.rightclic_OnPress;
 		}
 	}
-	ICE_Log(ICE_LOG_WARNING, "No key corresponding : %d", button);
+	ICE_Log(ICE_LOGTYPE_WARNING, "No key corresponding : %d", button);
 	return ICE_False;
 }
 
@@ -81,7 +81,7 @@ ICE_Bool ICE_Input_OnRelease(enum ICE_Key button)
 			return CORE.window.input.rightclic_OnRelease;
 		}
 	}
-	ICE_Log(ICE_LOG_WARNING, "No key corresponding : %d", button);
+	ICE_Log(ICE_LOGTYPE_WARNING, "No key corresponding : %d", button);
 	return ICE_False;
 }
 
