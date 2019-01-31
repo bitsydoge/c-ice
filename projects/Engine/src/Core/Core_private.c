@@ -19,7 +19,6 @@
 #include <string.h>
 #include "Core.h"
 #include "../Framework/Random.h"
-#include "../External/physfs/physfs.h"
 
 ICE_Core CORE = { 0 } ;
 extern ICE_Game GAME;

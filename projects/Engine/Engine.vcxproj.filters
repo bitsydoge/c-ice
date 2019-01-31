@@ -34,9 +34,6 @@
     <Filter Include="8 - External\mattiasgustavsson">
       <UniqueIdentifier>{c4611adc-db68-4710-877d-65e573e2e9a1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="8 - External\chipmunk">
-      <UniqueIdentifier>{1cab3837-eb7e-4ad2-a98f-219aebb10a7a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="1 - Framework\external">
       <UniqueIdentifier>{f80d7410-eb81-41f6-88f4-b4239d7a832d}</UniqueIdentifier>
     </Filter>
@@ -45,9 +42,6 @@
     </Filter>
     <Filter Include="9 - Ressources\bin">
       <UniqueIdentifier>{a30ef040-e600-44cd-8821-b01313a896a1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="8 - External\physfs">
-      <UniqueIdentifier>{e358b892-9121-416f-8b82-ff8e5520deb6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -196,99 +190,6 @@
     <ClInclude Include="src\Graphics\Sprite.h">
       <Filter>3 - Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="src\External\chipmunk\chipmunk.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\chipmunk_ffi.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\chipmunk_private.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\chipmunk_structs.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\chipmunk_types.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\chipmunk_unsafe.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpArbiter.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpBB.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpBody.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpConstraint.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpDampedRotarySpring.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpDampedSpring.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpGearJoint.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpGrooveJoint.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpHastySpace.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpMarch.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpPinJoint.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpPivotJoint.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpPolyline.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpPolyShape.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpRatchetJoint.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpRobust.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpRotaryLimitJoint.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpShape.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpSimpleMotor.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpSlideJoint.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpSpace.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpSpatialIndex.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpTransform.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\cpVect.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\chipmunk\prime.h">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClInclude>
     <ClInclude Include="src\External\mattiasgustavsson\rnd.h">
       <Filter>8 - External\mattiasgustavsson</Filter>
     </ClInclude>
@@ -345,27 +246,6 @@
     </ClInclude>
     <ClInclude Include="src\Core\Window_private.h">
       <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\physfs\physfs_casefolding.h">
-      <Filter>8 - External\physfs</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\physfs\physfs_internal.h">
-      <Filter>8 - External\physfs</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\physfs\physfs_lzmasdk.h">
-      <Filter>8 - External\physfs</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\physfs\physfs_miniz.h">
-      <Filter>8 - External\physfs</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\physfs\physfs_platforms.h">
-      <Filter>8 - External\physfs</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\physfs\physfs.h">
-      <Filter>8 - External\physfs</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\physfs\physfsrwops.h">
-      <Filter>8 - External\physfs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -486,102 +366,6 @@
     <ClCompile Include="src\Graphics\Sprite.c">
       <Filter>3 - Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="src\External\chipmunk\chipmunk.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpArbiter.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpArray.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpBBTree.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpBody.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpCollision.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpConstraint.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpDampedRotarySpring.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpDampedSpring.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpGearJoint.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpGrooveJoint.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpHashSet.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpHastySpace.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpMarch.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpPinJoint.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpPivotJoint.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpPolyline.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpPolyShape.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpRatchetJoint.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpRobust.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpRotaryLimitJoint.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpShape.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpSimpleMotor.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpSlideJoint.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpSpace.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpSpaceComponent.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpSpaceDebug.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpSpaceHash.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpSpaceQuery.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpSpaceStep.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpSpatialIndex.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\chipmunk\cpSweep1D.c">
-      <Filter>8 - External\chipmunk</Filter>
-    </ClCompile>
     <ClCompile Include="src\External\SDL2_gfx\SDL2_framerate.c">
       <Filter>8 - External\SDL2_gfx</Filter>
     </ClCompile>
@@ -617,69 +401,6 @@
     </ClCompile>
     <ClCompile Include="src\Core\Window_private.c">
       <Filter>2 - Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_dir.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_grp.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_hog.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_iso9660.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_mvl.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_qpak.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_slb.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_unpacked.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_vdf.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_wad.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_zip.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_byteorder.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_platform_os2.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_platform_posix.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_platform_qnx.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_platform_unix.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_platform_windows.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_unicode.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_7z.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfsrwops.c">
-      <Filter>8 - External\physfs</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

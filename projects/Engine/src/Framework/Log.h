@@ -21,12 +21,12 @@ enum ICE_LogTypes
 #if defined(_DEBUG)
 
 	#define ICE_Log_Error(FORMAT, ...) ICE_Log(ICE_LOGTYPE_ERROR, FORMAT, __VA_ARGS__ )
-	#define ICE_Log_Critical(FORMAT, ...) ICE_Log(ICE_LOGTYPE_CRITICAL, FORMAT, ...)
-	#define ICE_Log_Warning(FORMAT, ...) ICE_Log(ICE_LOGTYPE_WARNING, FORMAT, ...)
-	#define ICE_Log_Info(FORMAT, ...) ICE_Log(ICE_LOGTYPE_INFO, FORMAT, ...)
-	#define ICE_Log_Succes(FORMAT, ...) ICE_Log(ICE_LOGTYPE_SUCCES, FORMAT, ...)
-	#define ICE_Log_Running(FORMAT, ...) ICE_Log(ICE_LOGTYPE_RUNNING, FORMAT, ...)
-	#define ICE_Log_Finish(FORMAT, ...) ICE_Log(ICE_LOGTYPE_FINISH, FORMAT, ...)
+	#define ICE_Log_Critical(FORMAT, ...) ICE_Log(ICE_LOGTYPE_CRITICAL, FORMAT, __VA_ARGS__ )
+	#define ICE_Log_Warning(FORMAT, ...) ICE_Log(ICE_LOGTYPE_WARNING, FORMAT, __VA_ARGS__ )
+	#define ICE_Log_Info(FORMAT, ...) ICE_Log(ICE_LOGTYPE_INFO, FORMAT, __VA_ARGS__)
+	#define ICE_Log_Succes(FORMAT, ...) ICE_Log(ICE_LOGTYPE_SUCCES, FORMAT, __VA_ARGS__)
+	#define ICE_Log_Running(FORMAT, ...) ICE_Log(ICE_LOGTYPE_RUNNING, FORMAT, __VA_ARGS__)
+	#define ICE_Log_Finish(FORMAT, ...) ICE_Log(ICE_LOGTYPE_FINISH, FORMAT, __VA_ARGS__)
 	#define ICE_Log(TYPE, FORMAT, ...) ICE_Log_(0, __FILE__, __LINE__, TYPE, FORMAT, __VA_ARGS__)
 	void ICE_Log_(int nb_tab, const char* file, int line, ICE_LogTypes type, const char * format, ...);
 
