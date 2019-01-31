@@ -11,8 +11,9 @@ extern ICE_Config CONFIG;
 
 ICE_Game_Create()
 {
-	GAME_DATA * D = ICE_Data_Insert(ICE_State_Current, GAME_DATA);
+	ICE_DEBUG_ONLY ICE_Log_Info("Hello");
 
+	GAME_DATA * D = ICE_Data_Insert(ICE_State_Current, GAME_DATA);
 	SDL_RWops * rwops_test = SDL_RWFromConstMem(ICE_BinaryFile_space_jpg, ICE_BinaryFile_space_jpg_length);
 	D->texture_background = ICE_Texture_Load_RW(rwops_test);
 	D->texture_tileset = ICE_Texture_Load("res//img//001-SPRITESHEET");

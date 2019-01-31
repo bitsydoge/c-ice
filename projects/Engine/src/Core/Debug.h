@@ -4,6 +4,15 @@
 #include "TypesCore.h"
 #include "../Framework/Inline.h"
 
+
+#define ICE_DEBUG_COMMENT ICE_DEBUG_SLASH(/)
+#define ICE_DEBUG_SLASH(s) /##s
+#if defined(_DEBUG)
+	#define ICE_DEBUG_ONLY
+#else
+	#define ICE_DEBUG_ONLY ICE_DEBUG_COMMENT
+#endif
+
 // Get the Header and User debug mode
 ICE_INLINE ICE_Bool ICE_Debug_Get_Compiled()
 {
