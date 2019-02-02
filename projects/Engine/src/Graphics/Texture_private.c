@@ -66,7 +66,7 @@ ICE_Texture ICE_Texture_LoadFromFile(char *path)
 		SDL_Log("CRITICAL : Can't create Surface from image : %s", SDL_GetError());
 		//stbi_image_free(data);
 
-	#include "../Raw/Error.c"
+	#include "../Ressources/raw/Error.c"
 		surf = SDL_CreateRGBSurfaceFrom((void*)ice_raw_img_error.pixel_data, ice_raw_img_error.width,
 			ice_raw_img_error.height, ice_raw_img_error.bytes_per_pixel * 8, ice_raw_img_error.bytes_per_pixel*ice_raw_img_error.width,
 			rmask, gmask, bmask, amask);
@@ -120,7 +120,7 @@ ICE_Texture ICE_Texture_LoadFromFile_RW(SDL_RWops * rwops_)
 		SDL_Log("CRITICAL : Can't create Surface from image : %s", SDL_GetError());
 		//stbi_image_free(data);
 
-	#include "../Raw/Error.c"
+	#include "../Ressources/raw/Error.c"
 		surf = SDL_CreateRGBSurfaceFrom((void*)ice_raw_img_error.pixel_data, ice_raw_img_error.width,
 			ice_raw_img_error.height, ice_raw_img_error.bytes_per_pixel * 8, ice_raw_img_error.bytes_per_pixel*ice_raw_img_error.width,
 			rmask, gmask, bmask, amask);

@@ -46,4 +46,11 @@ int ICE_Window_GetW();
  */
 int ICE_Window_GetH();
 
+
+/**
+ * \brief Take a screenshot of the actual screen
+ * \param path_ Path to save screenshot
+ */
+void ICE_Window_Screenshot(ICE_StringStd path_);
+
 #endif

@@ -76,7 +76,7 @@
     <IntDir>$(SolutionDir)\build\.build\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Program Files %28x86%29\Visual Leak Detector\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Program Files %28x86%29\Visual Leak Detector\include;C:\Users\coldr\Documents\repos\ICE\external;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Program Files %28x86%29\Visual Leak Detector\lib\Win64;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\build\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\.build\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
@@ -168,7 +168,18 @@
     <ClInclude Include="src\Core\TypesCore.h" />
     <ClInclude Include="src\Core\Window.h" />
     <ClInclude Include="src\Core\Window_private.h" />
+    <ClInclude Include="src\External\cute\cute_files.h" />
+    <ClInclude Include="src\External\duktape\duktape.h" />
+    <ClInclude Include="src\External\duktape\duk_config.h" />
+    <ClInclude Include="src\External\mattiasgustavsson\hashtable.h" />
     <ClInclude Include="src\External\mattiasgustavsson\rnd.h" />
+    <ClInclude Include="src\External\physfs\physfs.h" />
+    <ClInclude Include="src\External\physfs\physfsrwops.h" />
+    <ClInclude Include="src\External\physfs\physfs_casefolding.h" />
+    <ClInclude Include="src\External\physfs\physfs_internal.h" />
+    <ClInclude Include="src\External\physfs\physfs_lzmasdk.h" />
+    <ClInclude Include="src\External\physfs\physfs_miniz.h" />
+    <ClInclude Include="src\External\physfs\physfs_platforms.h" />
     <ClInclude Include="src\External\SDL2_gfx\SDL2_framerate.h" />
     <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.h" />
     <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives_font.h" />
@@ -176,6 +187,7 @@
     <ClInclude Include="src\External\SDL2_gfx\SDL2_rotozoom.h" />
     <ClInclude Include="src\External\stb\SDL_stbimage.h" />
     <ClInclude Include="src\External\stb\stb_image.h" />
+    <ClInclude Include="src\External\tinyfiledialogs\tinyfiledialogs.h" />
     <ClInclude Include="src\Framework\Assert_.h" />
     <ClInclude Include="src\Framework\external\rlutil.h" />
     <ClInclude Include="src\Framework\File_.h" />
@@ -234,10 +246,35 @@
     <ClCompile Include="src\Core\Time_private.c" />
     <ClCompile Include="src\Core\Window.c" />
     <ClCompile Include="src\Core\Window_private.c" />
+    <ClCompile Include="src\External\duktape\duktape.c" />
+    <ClCompile Include="src\External\physfs\physfs.c" />
+    <ClCompile Include="src\External\physfs\physfsrwops.c" />
+    <ClCompile Include="src\External\physfs\physfs_archiver_7z.c" />
+    <ClCompile Include="src\External\physfs\physfs_archiver_dir.c" />
+    <ClCompile Include="src\External\physfs\physfs_archiver_grp.c" />
+    <ClCompile Include="src\External\physfs\physfs_archiver_hog.c" />
+    <ClCompile Include="src\External\physfs\physfs_archiver_iso9660.c" />
+    <ClCompile Include="src\External\physfs\physfs_archiver_mvl.c" />
+    <ClCompile Include="src\External\physfs\physfs_archiver_qpak.c" />
+    <ClCompile Include="src\External\physfs\physfs_archiver_slb.c" />
+    <ClCompile Include="src\External\physfs\physfs_archiver_unpacked.c" />
+    <ClCompile Include="src\External\physfs\physfs_archiver_vdf.c" />
+    <ClCompile Include="src\External\physfs\physfs_archiver_wad.c" />
+    <ClCompile Include="src\External\physfs\physfs_archiver_zip.c" />
+    <ClCompile Include="src\External\physfs\physfs_byteorder.c" />
+    <ClCompile Include="src\External\physfs\physfs_platform_haiku.cpp" />
+    <ClCompile Include="src\External\physfs\physfs_platform_os2.c" />
+    <ClCompile Include="src\External\physfs\physfs_platform_posix.c" />
+    <ClCompile Include="src\External\physfs\physfs_platform_qnx.c" />
+    <ClCompile Include="src\External\physfs\physfs_platform_unix.c" />
+    <ClCompile Include="src\External\physfs\physfs_platform_windows.c" />
+    <ClCompile Include="src\External\physfs\physfs_platform_winrt.cpp" />
+    <ClCompile Include="src\External\physfs\physfs_unicode.c" />
     <ClCompile Include="src\External\SDL2_gfx\SDL2_framerate.c" />
     <ClCompile Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.c" />
     <ClCompile Include="src\External\SDL2_gfx\SDL2_imageFilter.c" />
     <ClCompile Include="src\External\SDL2_gfx\SDL2_rotozoom.c" />
+    <ClCompile Include="src\External\tinyfiledialogs\tinyfiledialogs.c" />
     <ClCompile Include="src\Framework\Assert_.c" />
     <ClCompile Include="src\Framework\external\rlutil.c" />
     <ClCompile Include="src\Framework\File_.c" />
@@ -261,8 +298,9 @@
     <ClCompile Include="src\Graphics\Texture.c" />
     <ClCompile Include="src\Graphics\Texture_private.c" />
     <ClCompile Include="src\Maths\Interpolate.c" />
-    <ClCompile Include="src\Raw\Error.c" />
-    <ClCompile Include="src\Raw\Icon.c" />
+    <ClCompile Include="src\Ressources\bin\space.jpg.bin.c" />
+    <ClCompile Include="src\Ressources\raw\Error.c" />
+    <ClCompile Include="src\Ressources\raw\Icon.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

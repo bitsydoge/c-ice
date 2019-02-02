@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <stdarg.h>
 
 // Number of char per int on that platform
 static const int cpi = sizeof(int) / sizeof(ICE_Char);
@@ -42,9 +43,15 @@ int ICE_String_Contain(ICE_String string)
 }
 
 // Init a string with header int with information about the array and the string
-ICE_String ICE_String_Init(ICE_StringStd stdstring)
+ICE_String ICE_String_Init(ICE_StringStd stdstring, ...)
 {
-	const int size_string = ICE_String_STDSize(stdstring);
+	va_list args;
+	va_start(args, stdstring);
+	ICE_Char buffer[2048];
+	vsprintf(buffer, stdstring, args);
+	va_end(args);
+
+	const int size_string = ICE_String_STDSize(buffer);
 	int nb_int_to_malloc = size_string / cpi;
 
 	if (size_string % cpi != 0)
@@ -62,7 +69,7 @@ ICE_String ICE_String_Init(ICE_StringStd stdstring)
 	*contain_array = size_string;
 
 	for (int i = 0; i < size_string; i++)
-		string[i] = stdstring[i];
+		string[i] = buffer[i];
 
 	return (ICE_String)string;
 }
@@ -77,7 +84,6 @@ void ICE_String_Delete(ICE_String string)
 void ICE_String_Info(ICE_String string)
 {
 	printf("STRING : \"%s\", SIZE : %d, CONTAIN : %d \n", string, ICE_String_Size(string), ICE_String_Contain(string));
-
 }
 
 // Resize the string, it will troncate to the exact size writed (with `\0` counted) 
@@ -114,11 +120,15 @@ void ICE_String_Resize(ICE_String* ptr_string, const int size)
 	*ptr_string = ice_string;
 }
 
-void ICE_String_Set(ICE_String* ptr_string, ICE_StringStd value)
+void ICE_String_Set(ICE_String* ptr_string, ICE_StringStd value, ...)
 {
-	// Unoptimized
+	va_list args;
+	va_start(args, value);
+	ICE_Char buffer[2048];
+	vsprintf(buffer, value, args);
 	ICE_String_Delete(*ptr_string);
-	*ptr_string = ICE_String_Init(value);
+	*ptr_string = ICE_String_Init(buffer);
+	va_end(args);
 }
 
 void ICE_String_ToUpper(ICE_String string)

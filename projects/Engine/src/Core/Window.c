@@ -32,7 +32,7 @@ void ICE_Window_SetIcon(char * path)
 {
 	if (!path) 
 	{
-#include "../Raw/Icon.c"
+#include "../Ressources/raw/Icon.c"
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN
 		int shift = (ice_raw_img_icon.bytes_per_pixel == 3) ? 8 : 0;
 		Uint32 rmask = 0xff000000 >> shift;
@@ -73,4 +73,28 @@ int ICE_Window_GetW()
 int ICE_Window_GetH()
 {
 	return (int)CORE.window.h;
+}
+
+void ICE_Window_Screenshot(ICE_StringStd path_)
+{
+#if SDL_BYTEORDER == SDL_BIG_ENDIAN
+    Uint32 rmask = 0xff000000;
+    Uint32 gmask = 0x00ff0000;
+    Uint32 bmask = 0x0000ff00;
+    Uint32 amask = 0x000000ff;  
+#else
+    Uint32 rmask = 0x000000ff;
+    Uint32 gmask = 0x0000ff00;
+    Uint32 bmask = 0x00ff0000;
+    Uint32 amask = 0xff000000;
+#endif
+	SDL_Surface * surface = SDL_CreateRGBSurface(0,CORE.window.w,CORE.window.h,32,rmask,gmask,bmask,amask);
+	SDL_LockSurface(surface);
+	SDL_RenderReadPixels(CORE.window.render,NULL,surface->format->format,surface->pixels,surface->pitch);
+	if(SDL_SaveBMP(surface,path_))
+		ICE_Log_Error("Error with SDL_SaveBMP(screen_surface, \"%s\") : %s", path_, SDL_GetError());
+	else
+		ICE_Log_Succes("Screenshot created in : %s", path_);
+	SDL_UnlockSurface(surface);
+	SDL_FreeSurface(surface);
 }

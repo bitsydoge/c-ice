@@ -114,7 +114,7 @@ ICE_ID ICE_Texture_Load_RW(SDL_RWops * rwops_)
 	ASSET.texture_mngr.texture[avaible_slot] = ICE_Texture_Build_RW(rwops_);
 	ASSET.texture_mngr.texture[avaible_slot].id = avaible_slot;
 
-	ICE_Log(ICE_LOGTYPE_SUCCES, "Load Texture %d from <<<static_memory>>>", avaible_slot);
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Load Texture %d from SDL_RWops", avaible_slot);
 	
 	if (ASSET.texture_mngr.texture_size <= ASSET.texture_mngr.texture_contain) 
 	{

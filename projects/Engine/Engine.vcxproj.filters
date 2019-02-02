@@ -19,29 +19,47 @@
     <Filter Include="6 - Physics">
       <UniqueIdentifier>{6ff1e53b-7521-404b-99ba-023942d695f0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="7 - Raw">
-      <UniqueIdentifier>{e9fd9301-db3d-4b26-ad6b-9ee56e5334a6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="8 - External">
-      <UniqueIdentifier>{36c83cd6-08b4-4e5d-83e0-116134c5c3e2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="8 - External\stb">
-      <UniqueIdentifier>{8d7b282a-454f-44be-9098-b7a791f77062}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="8 - External\SDL2_gfx">
-      <UniqueIdentifier>{c592188c-f8a8-4357-a76a-4f8ce650ec45}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="8 - External\mattiasgustavsson">
-      <UniqueIdentifier>{c4611adc-db68-4710-877d-65e573e2e9a1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="1 - Framework\external">
       <UniqueIdentifier>{f80d7410-eb81-41f6-88f4-b4239d7a832d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="9 - Ressources">
+    <Filter Include="7 - Ressources">
       <UniqueIdentifier>{8d2c601d-608b-4cc2-a78e-1b13815d2cc5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="9 - Ressources\bin">
-      <UniqueIdentifier>{a30ef040-e600-44cd-8821-b01313a896a1}</UniqueIdentifier>
+    <Filter Include="7 - Ressources\bin">
+      <UniqueIdentifier>{514833a4-e892-4999-af2c-2bcec70b68b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="7 - Ressources\src">
+      <UniqueIdentifier>{ebe3c67d-f78c-4232-8ca5-a614cc5d1ede}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="7 - Ressources\raw">
+      <UniqueIdentifier>{00a12c55-0a61-4dff-9468-eac2b3b6867c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="8 - External">
+      <UniqueIdentifier>{94d1d9ef-ef18-4950-90f6-59229b802980}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="8 - External\mattiasgustavsson">
+      <UniqueIdentifier>{4c32201f-01a7-4bac-85b9-1c747ea7a41c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="8 - External\physfs">
+      <UniqueIdentifier>{a6244c55-4570-4688-a17e-0c7223aeb758}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="8 - External\stb">
+      <UniqueIdentifier>{99f2fef2-6a2c-4d3f-b9dc-37852e6a6e16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="8 - External\SDL2_gfx">
+      <UniqueIdentifier>{7ca269d0-8db9-4f24-a6aa-f5b8a3f6b7e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="8 - External\duktape">
+      <UniqueIdentifier>{149353a4-5b9d-446d-b77a-3808d87cebe2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="8 - External\chipmunk">
+      <UniqueIdentifier>{f678e61e-8cba-4b78-8f68-e71da0f56b92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="8 - External\tinyfiledialogs">
+      <UniqueIdentifier>{2ecd0a3c-f97b-4662-ba25-ead3f3262d36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="8 - External\cute">
+      <UniqueIdentifier>{d4c01f76-c22b-462f-b63b-3c85a3fbfa92}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -190,27 +208,6 @@
     <ClInclude Include="src\Graphics\Sprite.h">
       <Filter>3 - Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="src\External\mattiasgustavsson\rnd.h">
-      <Filter>8 - External\mattiasgustavsson</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\SDL2_gfx\SDL2_framerate.h">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.h">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives_font.h">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\SDL2_gfx\SDL2_imageFilter.h">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\SDL2_gfx\SDL2_rotozoom.h">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\stb\stb_image.h">
-      <Filter>8 - External\stb</Filter>
-    </ClInclude>
     <ClInclude Include="src\Graphics\Animation.h">
       <Filter>3 - Graphics</Filter>
     </ClInclude>
@@ -229,9 +226,6 @@
     <ClInclude Include="src\Framework\Inline.h">
       <Filter>1 - Framework</Filter>
     </ClInclude>
-    <ClInclude Include="src\External\stb\SDL_stbimage.h">
-      <Filter>8 - External\stb</Filter>
-    </ClInclude>
     <ClInclude Include="src\Framework\File_.h">
       <Filter>1 - Framework</Filter>
     </ClInclude>
@@ -246,6 +240,66 @@
     </ClInclude>
     <ClInclude Include="src\Core\Window_private.h">
       <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_framerate.h">
+      <Filter>8 - External\SDL2_gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.h">
+      <Filter>8 - External\SDL2_gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives_font.h">
+      <Filter>8 - External\SDL2_gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_imageFilter.h">
+      <Filter>8 - External\SDL2_gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_rotozoom.h">
+      <Filter>8 - External\SDL2_gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\stb\SDL_stbimage.h">
+      <Filter>8 - External\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\stb\stb_image.h">
+      <Filter>8 - External\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\physfs\physfs.h">
+      <Filter>8 - External\physfs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\physfs\physfs_casefolding.h">
+      <Filter>8 - External\physfs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\physfs\physfs_internal.h">
+      <Filter>8 - External\physfs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\physfs\physfs_lzmasdk.h">
+      <Filter>8 - External\physfs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\physfs\physfs_miniz.h">
+      <Filter>8 - External\physfs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\physfs\physfs_platforms.h">
+      <Filter>8 - External\physfs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\mattiasgustavsson\rnd.h">
+      <Filter>8 - External\mattiasgustavsson</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\tinyfiledialogs\tinyfiledialogs.h">
+      <Filter>8 - External\tinyfiledialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\duktape\duktape.h">
+      <Filter>8 - External\duktape</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\duktape\duk_config.h">
+      <Filter>8 - External\duktape</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\cute\cute_files.h">
+      <Filter>8 - External\cute</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\mattiasgustavsson\hashtable.h">
+      <Filter>8 - External\mattiasgustavsson</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\physfs\physfsrwops.h">
+      <Filter>8 - External\physfs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -324,12 +378,6 @@
     <ClCompile Include="src\Maths\Interpolate.c">
       <Filter>4 - Maths</Filter>
     </ClCompile>
-    <ClCompile Include="src\Raw\Error.c">
-      <Filter>7 - Raw</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Raw\Icon.c">
-      <Filter>7 - Raw</Filter>
-    </ClCompile>
     <ClCompile Include="src\Core\Time_.c">
       <Filter>2 - Core</Filter>
     </ClCompile>
@@ -366,18 +414,6 @@
     <ClCompile Include="src\Graphics\Sprite.c">
       <Filter>3 - Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="src\External\SDL2_gfx\SDL2_framerate.c">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.c">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\SDL2_gfx\SDL2_imageFilter.c">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\SDL2_gfx\SDL2_rotozoom.c">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClCompile>
     <ClCompile Include="src\Graphics\Animation.c">
       <Filter>3 - Graphics</Filter>
     </ClCompile>
@@ -401,6 +437,102 @@
     </ClCompile>
     <ClCompile Include="src\Core\Window_private.c">
       <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ressources\raw\Error.c">
+      <Filter>7 - Ressources\raw</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ressources\raw\Icon.c">
+      <Filter>7 - Ressources\raw</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ressources\bin\space.jpg.bin.c">
+      <Filter>7 - Ressources\bin</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\SDL2_gfx\SDL2_framerate.c">
+      <Filter>8 - External\SDL2_gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.c">
+      <Filter>8 - External\SDL2_gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\SDL2_gfx\SDL2_imageFilter.c">
+      <Filter>8 - External\SDL2_gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\SDL2_gfx\SDL2_rotozoom.c">
+      <Filter>8 - External\SDL2_gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs.c">
+      <Filter>8 - External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_7z.c">
+      <Filter>8 - External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_dir.c">
+      <Filter>8 - External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_grp.c">
+      <Filter>8 - External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_hog.c">
+      <Filter>8 - External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_iso9660.c">
+      <Filter>8 - External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_mvl.c">
+      <Filter>8 - External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_qpak.c">
+      <Filter>8 - External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_slb.c">
+      <Filter>8 - External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_unpacked.c">
+      <Filter>8 - External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_vdf.c">
+      <Filter>8 - External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_wad.c">
+      <Filter>8 - External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_zip.c">
+      <Filter>8 - External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_byteorder.c">
+      <Filter>8 - External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_platform_haiku.cpp">
+      <Filter>8 - External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_platform_os2.c">
+      <Filter>8 - External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_platform_posix.c">
+      <Filter>8 - External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_platform_qnx.c">
+      <Filter>8 - External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_platform_unix.c">
+      <Filter>8 - External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_platform_windows.c">
+      <Filter>8 - External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_platform_winrt.cpp">
+      <Filter>8 - External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_unicode.c">
+      <Filter>8 - External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\tinyfiledialogs\tinyfiledialogs.c">
+      <Filter>8 - External\tinyfiledialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\duktape\duktape.c">
+      <Filter>8 - External\duktape</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfsrwops.c">
+      <Filter>8 - External\physfs</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

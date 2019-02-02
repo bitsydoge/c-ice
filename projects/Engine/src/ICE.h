@@ -1,6 +1,23 @@
+/*
+        ,     \    /      ,        
+       / \    )\__/(     / \       
+      /   \  (_\  /_)   /   \      
+ ____/_____\__\@  @/___/_____\____ 
+|             |\../|              |
+|              \VV/               |
+|            COLDRAGON            |
+|_________________________________|
+ |    /\ /      \\       \ /\    | 
+ |  /   V        ))       V   \  | 
+ |/     `       //        '     \| 
+ `              V                '
+
+*/
+
 #ifndef DEF_ICE_INCLUDER_0X505050
 #define DEF_ICE_INCLUDER_0X505050
- 
+
+
 #if defined(_DEBUG) && defined (_MSC_VER) && !defined(ICE_NO_VLD)
 	#include <vld.h>
 #endif

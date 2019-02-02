@@ -33,9 +33,10 @@ int ICE_String_Contain(ICE_String string);
 /**
 * \brief Init a string with header int with information about the array and the string
 * \param stdstring String to init into ICE_String
+* \param ...
 * \return A ICE_String that need to be Delete
 */
-ICE_String ICE_String_Init(ICE_StringStd stdstring);
+ICE_String ICE_String_Init(ICE_StringStd stdstring, ...);
 
 /**
 * \brief Free everything from the string
@@ -62,8 +63,9 @@ void ICE_String_Resize(ICE_String* ptr_string, const int size);
 * \brief
 * \param ptr_string ptr to WString to edit
 * \param value New Value
+* \param ...Variables
 */
-void ICE_String_Set(ICE_String* ptr_string, ICE_StringStd value);
+void ICE_String_Set(ICE_String* ptr_string, ICE_StringStd value, ...);
 
 /**
  * \brief Set all the string to upper character
