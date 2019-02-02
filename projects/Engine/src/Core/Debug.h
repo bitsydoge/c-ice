@@ -9,9 +9,15 @@
 #define ICE_DEBUG_SLASH(s) /##s
 #if defined(_DEBUG)
 	#define ICE_DEBUG_ONLY
+	#define ICE_DEBUG_START 
+	#define ICE_DEBUG_END
 #else
 	#define ICE_DEBUG_ONLY ICE_DEBUG_COMMENT
+	#define ICE_DEBUG_START ICE_DEBUG_SLASH(*)
+	#define ICE_DEBUG_END *ICE_DEBUG_SLASH()
 #endif
+
+
 
 // Get the Header and User debug mode
 ICE_INLINE ICE_Bool ICE_Debug_Get_Compiled()

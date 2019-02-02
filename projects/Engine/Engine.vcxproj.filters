@@ -19,9 +19,6 @@
     <Filter Include="6 - Physics">
       <UniqueIdentifier>{6ff1e53b-7521-404b-99ba-023942d695f0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="1 - Framework\external">
-      <UniqueIdentifier>{f80d7410-eb81-41f6-88f4-b4239d7a832d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="7 - Ressources">
       <UniqueIdentifier>{8d2c601d-608b-4cc2-a78e-1b13815d2cc5}</UniqueIdentifier>
     </Filter>
@@ -60,6 +57,9 @@
     </Filter>
     <Filter Include="8 - External\cute">
       <UniqueIdentifier>{d4c01f76-c22b-462f-b63b-3c85a3fbfa92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="8 - External\rlutil">
+      <UniqueIdentifier>{3acd6d7d-9e20-4e86-b9dd-701dbf766fe7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -232,9 +232,6 @@
     <ClInclude Include="src\Core\Config.h">
       <Filter>2 - Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Framework\external\rlutil.h">
-      <Filter>1 - Framework\external</Filter>
-    </ClInclude>
     <ClInclude Include="src\Core\Converter_private.h">
       <Filter>2 - Core</Filter>
     </ClInclude>
@@ -300,6 +297,15 @@
     </ClInclude>
     <ClInclude Include="src\External\physfs\physfsrwops.h">
       <Filter>8 - External\physfs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\rlutil\rlutil.h">
+      <Filter>8 - External\rlutil</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Asset.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Crossplatform_.h">
+      <Filter>1 - Framework</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -429,9 +435,6 @@
     <ClCompile Include="src\Framework\File_.c">
       <Filter>1 - Framework</Filter>
     </ClCompile>
-    <ClCompile Include="src\Framework\external\rlutil.c">
-      <Filter>1 - Framework\external</Filter>
-    </ClCompile>
     <ClCompile Include="src\Core\Config_private.c">
       <Filter>2 - Core</Filter>
     </ClCompile>
@@ -533,6 +536,15 @@
     </ClCompile>
     <ClCompile Include="src\External\physfs\physfsrwops.c">
       <Filter>8 - External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\rlutil\rlutil.c">
+      <Filter>8 - External\rlutil</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Asset.c">
+      <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\Crossplatform_.c">
+      <Filter>1 - Framework</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

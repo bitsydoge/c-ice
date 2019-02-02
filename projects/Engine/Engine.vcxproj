@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -97,6 +97,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_IUP_DEBUGUI_USE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation>true</BrowseInformation>
+      <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
     <Bscmake>
       <PreserveSbr>true</PreserveSbr>
@@ -146,6 +147,7 @@
     <ClInclude Include="src\Audio\Music.h" />
     <ClInclude Include="src\Audio\Sound.h" />
     <ClInclude Include="src\Audio\TypesAudio.h" />
+    <ClInclude Include="src\Core\Asset.h" />
     <ClInclude Include="src\Core\Asset_private.h" />
     <ClInclude Include="src\Core\Config.h" />
     <ClInclude Include="src\Core\Converter_private.h" />
@@ -180,6 +182,7 @@
     <ClInclude Include="src\External\physfs\physfs_lzmasdk.h" />
     <ClInclude Include="src\External\physfs\physfs_miniz.h" />
     <ClInclude Include="src\External\physfs\physfs_platforms.h" />
+    <ClInclude Include="src\External\rlutil\rlutil.h" />
     <ClInclude Include="src\External\SDL2_gfx\SDL2_framerate.h" />
     <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.h" />
     <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives_font.h" />
@@ -189,7 +192,7 @@
     <ClInclude Include="src\External\stb\stb_image.h" />
     <ClInclude Include="src\External\tinyfiledialogs\tinyfiledialogs.h" />
     <ClInclude Include="src\Framework\Assert_.h" />
-    <ClInclude Include="src\Framework\external\rlutil.h" />
+    <ClInclude Include="src\Framework\Crossplatform_.h" />
     <ClInclude Include="src\Framework\File_.h" />
     <ClInclude Include="src\Framework\Inline.h" />
     <ClInclude Include="src\Framework\Log.h" />
@@ -227,6 +230,7 @@
     <ClCompile Include="src\Audio\Audio.c" />
     <ClCompile Include="src\Audio\Music.c" />
     <ClCompile Include="src\Audio\Sound.c" />
+    <ClCompile Include="src\Core\Asset.c" />
     <ClCompile Include="src\Core\Asset_private.c" />
     <ClCompile Include="src\Core\Config_private.c" />
     <ClCompile Include="src\Core\Core.c" />
@@ -270,13 +274,14 @@
     <ClCompile Include="src\External\physfs\physfs_platform_windows.c" />
     <ClCompile Include="src\External\physfs\physfs_platform_winrt.cpp" />
     <ClCompile Include="src\External\physfs\physfs_unicode.c" />
+    <ClCompile Include="src\External\rlutil\rlutil.c" />
     <ClCompile Include="src\External\SDL2_gfx\SDL2_framerate.c" />
     <ClCompile Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.c" />
     <ClCompile Include="src\External\SDL2_gfx\SDL2_imageFilter.c" />
     <ClCompile Include="src\External\SDL2_gfx\SDL2_rotozoom.c" />
     <ClCompile Include="src\External\tinyfiledialogs\tinyfiledialogs.c" />
     <ClCompile Include="src\Framework\Assert_.c" />
-    <ClCompile Include="src\Framework\external\rlutil.c" />
+    <ClCompile Include="src\Framework\Crossplatform_.c" />
     <ClCompile Include="src\Framework\File_.c" />
     <ClCompile Include="src\Framework\Log.c" />
     <ClCompile Include="src\Framework\Memory_.c" />

@@ -99,8 +99,8 @@ void ICE_Label_Clear(ICE_Label * label)
 
 void ICE_Label_Destroy(ICE_Label * ptr)
 {
-	ICE_String_Delete(ptr->text);
-	ICE_String_Delete(ptr->old_text);
+	ICE_String_Free(ptr->text);
+	ICE_String_Free(ptr->old_text);
 	ICE_Texture_Free(&ptr->texture);
 }
 
@@ -133,7 +133,7 @@ void ICE_Label_SetString(ICE_Label * label, ICE_StringStd format, ...)
 	ICE_Char buffer[1024];
 	vsprintf(buffer, format, args);
 
-	ICE_String_Delete(label->text);
+	ICE_String_Free(label->text);
 	label->text = ICE_String_Init(buffer);
 
 	va_end(args);

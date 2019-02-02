@@ -6,7 +6,6 @@
 #include "debug.h"
 
 #include "External/physfs/physfs.h"
-#include "External/tinyfiledialogs/tinyfiledialogs.h"
 #include "Ressources/bin/space.jpg.bin.c"
 #include "External/physfs/physfsrwops.h"
 
@@ -15,33 +14,26 @@ extern ICE_Config CONFIG;
 ICE_Game_Create()
 {	
 	GAME_DATA * D = ICE_Data_Insert(ICE_State_Current, GAME_DATA);
-
-	PHYSFS_init(CONFIG.argv[0]);
-	PHYSFS_mount("res//pak//pak1.zip", NULL, 1);
+	ICE_Asset_PackLoad("res//pak//pak1.zip");
 
 	SDL_RWops * rwops_test = SDL_RWFromConstMem(ICE_BinaryFile_space_jpg, ICE_BinaryFile_space_jpg_length);
 	D->texture_background = ICE_Texture_Load_RW(rwops_test);
 
-
 	PHYSFS_File * ph_file = PHYSFS_openRead("001-SPRITESHEET$CoLdRaGoN");
 	SDL_RWops * file = PHYSFSRWOPS_makeRWops(ph_file);
 	D->texture_tileset = ICE_Texture_Load_RW(file);
-	PHYSFS_close(ph_file);
 
-	ph_file = PHYSFS_openRead("002-ICONS$CoLdRaGoN");
-	file = PHYSFSRWOPS_makeRWops(ph_file);
-	D->texture_gui_icons = ICE_Texture_Load_RW(file);
-	PHYSFS_close(ph_file);
-	ph_file = PHYSFS_openRead("003-GUI$CoLdRaGoN");
-	file = PHYSFSRWOPS_makeRWops(ph_file);
-	D->texture_gui = ICE_Texture_Load_RW(file);
-	PHYSFS_close(ph_file);
+	//ph_file = PHYSFS_openRead("002-ICONS$CoLdRaGoN");
+	//file = PHYSFSRWOPS_makeRWops(ph_file);
+	//D->texture_gui_icons = ICE_Texture_Load_RW(file);
 
-	ph_file = PHYSFS_openRead("004-ITEMS$CoLdRaGoN");
-	file = PHYSFSRWOPS_makeRWops(ph_file);
-	D->texture_items_spritesheet = ICE_Texture_Load_RW(file);
-	PHYSFS_close(ph_file);
+	//ph_file = PHYSFS_openRead("003-GUI$CoLdRaGoN");
+	//file = PHYSFSRWOPS_makeRWops(ph_file);
+	//D->texture_gui = ICE_Texture_Load_RW(file);
 
+	//ph_file = PHYSFS_openRead("004-$CoLdRaGoN");
+	//file = PHYSFSRWOPS_makeRWops(ph_file);
+	//D->texture_items_spritesheet = ICE_Texture_Load_RW(file);
 
 	D->sprite_player = ICE_Sprite_Load(D->texture_tileset, ICE_Vect_New(64, 64));
 
@@ -61,16 +53,39 @@ ICE_Game_Create()
 
 ICE_Game_Update()
 {
-	if(ICE_Input_Pressed(ICE_KEY_PRINTSCREEN))
+	GAME_DATA * D = ICE_Data_Get(ICE_State_Current, 0);
+
+	ICE_String temp = ICE_String_Init("");
+	static ICE_Float timer_screenshot_value = 0.0;
+
+	if(ICE_Input_OnPress(ICE_KEY_K))
 	{
-		ICE_String temp = ICE_String_Init("");
-		ICE_String_Set(&temp, "screenshot_%d.bmp", ICE_Time_GetMS()); 
+		ICE_String_Set(&temp, "screenshot_%d.bmp", ICE_Time_GetMS());
 		ICE_Window_Screenshot(temp);
-		ICE_String_Delete(temp);
+		timer_screenshot_value = 3.0;
+		D->screenShotDraw = ICE_True;
+		D->screenshot_name = ICE_String_Init(temp);
 	}
+
+	if(D->screenShotDraw == ICE_True)
+	{
+		if(timer_screenshot_value > 0)
+		{
+			timer_screenshot_value -= ICE_Game_GetDelta();
+		}
+		else
+		{
+			D->screenShotDraw = ICE_False;
+			ICE_String_Destroy(&D->screenshot_name);
+		}
+	}
+
+	ICE_String_Free(temp);
 }
 
 ICE_Game_Destroy()
 {
-	PHYSFS_deinit();
+	ICE_Asset_PackUnload("res//pak//pak1.zip");
+	GAME_DATA * D = ICE_Data_Get(ICE_State_Current, 0);
+	ICE_String_Destroy(&D->screenshot_name);
 }

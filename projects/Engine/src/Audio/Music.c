@@ -62,7 +62,7 @@ void ICE_Music_Clear(ICE_ID music_)
 
 void ICE_Music_Destroy(ICE_ID music_)
 {
-	ICE_String_Delete(ASSET.music_mngr.music[music_].filename);
+	ICE_String_Free(ASSET.music_mngr.music[music_].filename);
 	Mix_FreeMusic(ASSET.music_mngr.music[music_].sdl_handle);
 }
 

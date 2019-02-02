@@ -19,6 +19,7 @@
 #include <string.h>
 #include "Core.h"
 #include "../Framework/Random.h"
+#include "../External/physfs/physfs.h"
 
 ICE_Core CORE = { 0 } ;
 extern ICE_Game GAME;
@@ -59,7 +60,10 @@ int ICE_Core_Init()
 	ICE_Time_Init();
 
 	// Physfs
-	// PHYSFS_init(CONFIG.argv[0]);
+	if(PHYSFS_init(CONFIG.argv[0]))
+		ICE_Log_Succes("PHYSFS_init() succes");
+	else
+		ICE_Log_Error("PHYSFS_init() error : %s", PHYSFS_getErrorByCode(PHYSFS_getLastErrorCode()));
 
 	// Path
 	char * basePath = SDL_GetBasePath();
@@ -117,7 +121,8 @@ int ICE_Core_Quit()
 	ICE_Log(ICE_LOGTYPE_SUCCES, "Quit SDL_Mixer");
 	SDL_Quit();
 	ICE_Log(ICE_LOGTYPE_SUCCES, "Quit SDL");
-
+	// PHYSFS
+	PHYSFS_deinit();
 	ICE_Log(ICE_LOGTYPE_FINISH, "Core Quit");
 	ICE_Log_Line();
 

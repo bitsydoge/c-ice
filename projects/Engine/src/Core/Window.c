@@ -33,6 +33,7 @@ void ICE_Window_SetIcon(char * path)
 	if (!path) 
 	{
 #include "../Ressources/raw/Icon.c"
+
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN
 		int shift = (ice_raw_img_icon.bytes_per_pixel == 3) ? 8 : 0;
 		Uint32 rmask = 0xff000000 >> shift;

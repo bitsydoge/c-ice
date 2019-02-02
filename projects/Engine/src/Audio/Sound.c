@@ -60,7 +60,7 @@ void ICE_Sound_Clear(ICE_ID sound_)
 
 void ICE_Sound_Destroy(ICE_ID sound_)
 {
-	ICE_String_Delete(ASSET.sound_mngr.sound[sound_].filename);
+	ICE_String_Free(ASSET.sound_mngr.sound[sound_].filename);
 	Mix_FreeChunk(ASSET.sound_mngr.sound[sound_].sdl_handle);
 }
 

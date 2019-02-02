@@ -43,7 +43,7 @@ void ICE_Time_End()
 	
 	fps_count[fps_actual_to_fill] = 1000.0 / (ICE_Float)elapsedMS;
 	fps_actual_to_fill++;
-	if (fps_actual_to_fill > NB_COUNT_FPS || fps_actual_to_fill < 0)
+	if (fps_actual_to_fill >= NB_COUNT_FPS || fps_actual_to_fill < 0)
 	{
 		fps_actual_to_fill = 0;
 		trigger_fpsblock = ICE_True;

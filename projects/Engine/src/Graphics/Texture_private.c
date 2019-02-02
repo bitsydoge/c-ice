@@ -114,7 +114,7 @@ ICE_Texture ICE_Texture_LoadFromFile_RW(SDL_RWops * rwops_)
 	}
 	*/
 
-	surf = STBIMG_Load_RW(rwops_, 0);
+	surf = STBIMG_Load_RW(rwops_, 1);
 
 	if (surf == NULL) {
 		SDL_Log("CRITICAL : Can't create Surface from image : %s", SDL_GetError());

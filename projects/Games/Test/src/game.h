@@ -17,6 +17,10 @@ typedef struct
 	ICE_LabelID hello_world;
 	ICE_EntityID player;
 
+
+	ICE_Bool screenShotDraw;
+	ICE_String screenshot_name;
+
 } GAME_DATA;
 
 #endif

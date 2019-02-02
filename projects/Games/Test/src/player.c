@@ -38,7 +38,7 @@ void GAME_Player_Update(ICE_Entity*  this_)
 void GAME_Player_Destroy(ICE_Entity*  this_)
 {
 	GAME_DATA_PLAYER * D_player = ICE_Entity_DataGet(this_, 0);
-	ICE_String_Delete(D_player->name);
+	ICE_String_Free(D_player->name);
 }
 
 void GAME_Player_Init()

@@ -37,7 +37,7 @@ void ICE_Game_Init()
 
 void ICE_Game_Quit()
 {
-	ICE_String_Delete(GAME.state_main.name);
+	ICE_String_Free(GAME.state_main.name);
 
 	ICE_TextureManager_Destroy();
 	ICE_SpriteManager_Destroy();

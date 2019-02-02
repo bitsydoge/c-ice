@@ -13,5 +13,5 @@ Game_Weapon Game_Weapon_Init(ICE_String name, ICE_Float damage, ICE_Float speed,
 
 void Game_Weapon_Destroy(Game_Weapon *weapon)
 {
-	ICE_String_Delete(weapon->name);
+	ICE_String_Free(weapon->name);
 }

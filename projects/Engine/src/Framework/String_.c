@@ -4,6 +4,9 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include "Assert_.h"
+#include "../Core/Debug.h"
+#include "Log.h"
 
 // Number of char per int on that platform
 static const int cpi = sizeof(int) / sizeof(ICE_Char);
@@ -47,8 +50,8 @@ ICE_String ICE_String_Init(ICE_StringStd stdstring, ...)
 {
 	va_list args;
 	va_start(args, stdstring);
-	ICE_Char buffer[2048];
-	vsprintf(buffer, stdstring, args);
+	ICE_Char buffer[8192];
+	vsnprintf(buffer, 2048, stdstring, args);
 	va_end(args);
 
 	const int size_string = ICE_String_STDSize(buffer);
@@ -74,10 +77,22 @@ ICE_String ICE_String_Init(ICE_StringStd stdstring, ...)
 	return (ICE_String)string;
 }
 
-void ICE_String_Delete(ICE_String string)
+void ICE_String_Free(ICE_String string)
 {
-	int *tmp = (int*)(string - (2 * cpi));
-	ICE_Free(tmp);
+	if(string != NULL)
+	{
+		int *tmp = (int*)(string - (2 * cpi));
+		ICE_Free(tmp);
+	}
+	else
+		ICE_Log_Warning("This string is already Freed");
+}
+
+void ICE_String_Destroy(ICE_String * string_)
+{
+	ICE_Assert(string_ != NULL, "The pointer is NULL");
+	ICE_String_Free(*string_);
+	*string_ = NULL;
 }
 
 // Draw string + header informations
@@ -126,7 +141,7 @@ void ICE_String_Set(ICE_String* ptr_string, ICE_StringStd value, ...)
 	va_start(args, value);
 	ICE_Char buffer[2048];
 	vsprintf(buffer, value, args);
-	ICE_String_Delete(*ptr_string);
+	ICE_String_Free(*ptr_string);
 	*ptr_string = ICE_String_Init(buffer);
 	va_end(args);
 }

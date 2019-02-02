@@ -232,7 +232,7 @@ static inline PHYSFS_ErrorCode errcodeFromWinApi(void)
 #define detectAvailableCDs(cb, data)
 #define deinitCDThread()
 #else
-static HANDLE detectCDThreadHandle = NULL;
+static  HANDLE detectCDThreadHandle = NULL;
 static HWND detectCDHwnd = NULL;
 static volatile DWORD drivesWithMediaBitmap = 0;
 
