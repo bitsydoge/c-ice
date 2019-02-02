@@ -1,0 +1,3 @@
+[submodule "projects\\Engine\\src\\External"]
+	path = projects\\Engine\\src\\External
+	url = https://github.com/slembcke/Chipmunk2D.git
