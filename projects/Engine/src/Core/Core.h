@@ -1,7 +1,7 @@
 #ifndef DEF_ICE_CORE
 #define DEF_ICE_CORE
 
-#define ICE_VERSION "DEV.1811.15"
+#define ICE_VERSION "DEV.1902.1"
 
 #include "../Framework/String_.h"
 #include "../Framework/Inline.h"
