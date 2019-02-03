@@ -36,6 +36,7 @@ _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
 - cute_files ( Crossplatform folder access : https://github.com/RandyGaul/cute_headers/blob/master/cute_files.h )
 - rlutil.h ( Crossplatform terminal color : https://github.com/tapio/rlutil )
 - chipmunk2d ( Physics : https://github.com/slembcke/Chipmunk2D )
+- duktape ( Embeddable Javascript engine : https://duktape.org/ )
 
 ## TODO :
 See the	[Trello](https://trello.com/b/HOWcrZRM/ice/)
