@@ -14,7 +14,7 @@ ICE_Game_Create()
 	// Data to save object ID
 	GAME_DATA * D = ICE_Data_Insert(ICE_State_Current, GAME_DATA);
 
-	// Pack Load
+	// Pack Load (from memory built from
 	ICE_Asset_LoadPackFromEmbedded(pak1_bin_zip);
 
 	// Texture Load

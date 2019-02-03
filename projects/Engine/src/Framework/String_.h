@@ -33,12 +33,20 @@ int ICE_String_Size(ICE_String string);
 int ICE_String_Contain(ICE_String string);
 
 /**
-* \brief Init a string with header int with information about the array and the string
+* \brief Init a string with information about (contain and size) on the left on the memory of the returned ptr (Use a static buffer)
 * \param stdstring String to init into ICE_String
 * \param ...
 * \return A ICE_String that need to be Delete
 */
 ICE_String ICE_String_Init(ICE_StringStd stdstring, ...);
+
+/**
+* \brief Init a string with information about (contain and size) on the left on the memory of the returned ptr (Use vasprintf to allocat the exact size) (Slower)
+* \param stdstring String to init into ICE_String
+* \param ...
+* \return A ICE_String that need to be Delete
+*/
+ICE_String ICE_String_Init2(ICE_StringStd stdstring, ...);
 
 /**
 * \brief Free everything from the string
@@ -68,12 +76,20 @@ void ICE_String_Resize(ICE_String* ptr_string, const int size);
 
 
 /**
-* \brief
+* \brief Change the value of the string (Use static buffer)
 * \param ptr_string ptr to WString to edit
 * \param value New Value
-* \param ...Variables
+* \param ... variables
 */
 void ICE_String_Set(ICE_String* ptr_string, ICE_StringStd value, ...);
+
+/**
+* \brief Change the value of the string (Use vasprintf to allocat the exact size) (Slower)
+* \param ptr_string ptr to WString to edit
+* \param value New Value
+* \param ... variables
+*/
+void ICE_String_Set2(ICE_String* ptr_string, ICE_StringStd value, ...);
 
 /**
  * \brief Set all the string to upper character

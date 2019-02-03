@@ -2,11 +2,10 @@
 #include "Memory_.h"
 #include <stdio.h>
 #include <ctype.h>
-#include <stdlib.h>
 #include <stdarg.h>
 #include "Assert_.h"
-#include "../Core/Debug.h"
 #include "Log.h"
+#include "Crossplatform_.h"
 
 // Number of char per int on that platform
 static const int cpi = sizeof(int) / sizeof(ICE_Char);
@@ -50,8 +49,8 @@ ICE_String ICE_String_Init(ICE_StringStd stdstring, ...)
 {
 	va_list args;
 	va_start(args, stdstring);
-	ICE_Char buffer[8192];
-	vsnprintf(buffer, 2048, stdstring, args);
+	ICE_Char buffer[ICE_STRING_MAX_BUFFER_SIZE];
+	vsnprintf(buffer, ICE_STRING_MAX_BUFFER_SIZE, stdstring, args);
 	va_end(args);
 
 	const int size_string = ICE_String_STDSize(buffer);
@@ -74,7 +73,39 @@ ICE_String ICE_String_Init(ICE_StringStd stdstring, ...)
 	for (int i = 0; i < size_string; i++)
 		string[i] = buffer[i];
 
-	return (ICE_String)string;
+	return string;
+}
+
+ICE_String ICE_String_Init2(ICE_StringStd stdstring, ...)
+{
+	va_list args;
+	va_start(args, stdstring);
+	ICE_StringStd buffer;
+	ICE_Crossplat_vasprintf(&buffer, stdstring, args);
+	va_end(args);
+
+	const int size_string = ICE_String_STDSize(buffer);
+	int nb_int_to_malloc = size_string / cpi;
+
+	if (size_string % cpi != 0)
+		nb_int_to_malloc++;
+
+	nb_int_to_malloc += 2;
+
+	int * tmp = (int*)ICE_Malloc(sizeof(int)*nb_int_to_malloc);
+	ICE_Char* string = (ICE_Char*)(tmp + 2);
+
+	int* size_array = (int*)(string - (2 * cpi));
+	int* contain_array = (int*)(string - (1 * cpi));
+
+	*size_array = (nb_int_to_malloc - 2) * cpi;
+	*contain_array = size_string;
+
+	for (int i = 0; i < size_string; i++)
+		string[i] = buffer[i];
+
+	ICE_Free(buffer);
+	return string;
 }
 
 void ICE_String_Free(ICE_String string)
@@ -139,10 +170,22 @@ void ICE_String_Set(ICE_String* ptr_string, ICE_StringStd value, ...)
 {
 	va_list args;
 	va_start(args, value);
-	ICE_Char buffer[2048];
-	vsprintf(buffer, value, args);
+	ICE_Char buffer[ICE_STRING_MAX_BUFFER_SIZE];
+	vsnprintf(buffer, ICE_STRING_MAX_BUFFER_SIZE, value, args);
 	ICE_String_Free(*ptr_string);
 	*ptr_string = ICE_String_Init(buffer);
+	va_end(args);
+}
+
+void ICE_String_Set2(ICE_String* ptr_string, ICE_StringStd value, ...)
+{
+	va_list args;
+	va_start(args, value);
+	ICE_StringStd buffer;
+	ICE_Crossplat_vasprintf(&buffer, value, args);
+	ICE_String_Free(*ptr_string);
+	*ptr_string = ICE_String_Init(buffer);
+	ICE_Free(buffer);
 	va_end(args);
 }
 
