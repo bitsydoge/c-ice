@@ -307,6 +307,9 @@
     <ClInclude Include="src\Framework\Crossplatform_.h">
       <Filter>1 - Framework</Filter>
     </ClInclude>
+    <ClInclude Include="src\External\stb\stb_image_write.h">
+      <Filter>8 - External\stb</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Asset_private.c">

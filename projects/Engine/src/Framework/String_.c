@@ -152,15 +152,15 @@ void ICE_String_ToUpper(ICE_String string)
 		string[i] = toupper(string[i]);
 }
 
-ICE_String ICE_String_GetExtension(ICE_StringStd string)
+ICE_String ICE_String_GetExtension(ICE_StringStd string_)
 {
-	ICE_StringStd ex = strrchr(string, '.');
-	if (!ex || ex == string)
+	ICE_StringStd ex = strrchr(string_, '.');
+	if (!ex || ex == string_)
 	{
-		free(ex);
+		//free(ex);
 		return ICE_String_Init("");
 	}
 	ICE_String string_returned = ICE_String_Init(ex + 1);
-	free(ex);
+	//free(ex);
 	return string_returned;
 }

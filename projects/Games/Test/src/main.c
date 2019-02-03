@@ -60,7 +60,7 @@ ICE_Game_Update()
 
 	if(ICE_Input_OnPress(ICE_KEY_K))
 	{
-		ICE_String_Set(&temp, "screenshot_%d.bmp", ICE_Time_GetMS());
+		ICE_String_Set(&temp, "screenshot_%d.jpg", ICE_Time_GetMS());
 		ICE_Window_Screenshot(temp);
 		timer_screenshot_value = 3.0;
 		D->screenShotDraw = ICE_True;

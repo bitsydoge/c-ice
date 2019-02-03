@@ -84,10 +84,10 @@ void ICE_String_ToUpper(ICE_String string);
 /**
  * \brief Return a string containing the extention of a path/file (ex "file.ext" will return ext)
  * you need to ICE_String_Free the returning string but the input string can be a ICE_String or a ICE_StringStd
- * \param string String to get the extention from, it can be any kind of ICE_String
+ * \param string_ String to get the extention from, it can be any kind of ICE_String
  * \return 
  */
-ICE_String ICE_String_GetExtension(ICE_StringStd string);
+ICE_String ICE_String_GetExtension(ICE_StringStd string_);
 
 
 #endif
