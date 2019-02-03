@@ -31,12 +31,11 @@ _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
 - stb_image ( Image decode : https://github.com/nothings/stb )
 - stb_image_write ( Image save : https://github.com/nothings/stb )
 - SDL_stbimage ( stb_image SDL integration : https://github.com/DanielGibson/Snippets/)
-- rlutil.h ( Crossplatform terminal color : https://github.com/tapio/rlutil )
 - SDL2_gfx ( AA primitives : https://sourceforge.net/projects/sdl2gfx/ )
-- rnd.h ( Random algorithm : https://github.com/mattiasgustavsson/libs )
-- chipmunk2d ( Physics : https://github.com/slembcke/Chipmunk2D )
 - PhysFS ( Abstract acces to archives : https://icculus.org/physfs/ )
 - cute_files ( Crossplatform folder access : https://github.com/RandyGaul/cute_headers/blob/master/cute_files.h )
+- rlutil.h ( Crossplatform terminal color : https://github.com/tapio/rlutil )
+- chipmunk2d ( Physics : https://github.com/slembcke/Chipmunk2D )
 
 ## TODO :
 See the	[Trello](https://trello.com/b/HOWcrZRM/ice/)
