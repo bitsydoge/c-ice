@@ -21,7 +21,7 @@ ICE_Game_Create()
 	D->texture_tileset = ICE_Texture_Load("res://001-SPRITESHEET$CoLdRaGoN");
 	D->texture_gui_icons = ICE_Texture_Load("res://002-ICONS$CoLdRaGoN");
 	D->texture_gui = ICE_Texture_Load("res://003-GUI$CoLdRaGoN");
-	D->texture_items_spritesheet = ICE_Texture_Load("res://004-ITEMS$CoLdRaGoN");
+	D->texture_items_spritesheet = ICE_Texture_Load("res://004-ITEMS");
 	D->texture_background = ICE_Texture_Load("res://005-BACKGROUND$CoLdRaGoN");
 
 	// Sprite Load
