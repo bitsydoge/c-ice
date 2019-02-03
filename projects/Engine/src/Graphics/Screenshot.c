@@ -386,6 +386,7 @@ void ICE_Screenshot(ICE_StringStd path_to_save_, ICE_StringStd filetype)
 void ICE_Screenshot_Custom(ICE_StringStd path_)
 {
 	P_ICE_Image_Saver_Data* data_thread = P_ICE_Image_Saver_Data_Create(path_);
+	ICE_Log_Succes("Screenshot saved in : %s", path_);
 	// Create the thread
 	SDL_Thread* saver = SDL_CreateThread(P_ICE_Thread_Image_Saver, "ICE Image Saver", data_thread);
 	SDL_DetachThread(saver);

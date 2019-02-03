@@ -59,9 +59,10 @@ ICE_Game_Update()
 
 		timer_screenshot_value = 3.0;
 		D->screenShotDraw = ICE_True;
-		D->screenshot_name = ICE_String_Init("Screenshot taken ! %ld", ICE_Time_GetMS());
-	}
 
+		if(D->screenshot_name == 0)
+			D->screenshot_name = ICE_String_Init("Screenshot taken ! %ld", ICE_Time_GetMS());
+	}
 	if(D->screenShotDraw == ICE_True)
 	{
 		if(timer_screenshot_value > 0)
