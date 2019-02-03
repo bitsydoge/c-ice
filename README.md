@@ -18,7 +18,7 @@ _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
 
 **Tools** :
 
-- Terminal Color : Crossplatform terminal color.
+- bin2c : Convert file to static array in C to load them from the binary
 
 ## Dependancy : 
 
