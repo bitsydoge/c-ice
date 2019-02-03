@@ -10,7 +10,7 @@ void ICE_Free(void* _Block);
 #if defined(_DEBUG)
 size_t ICE_ThingToFree();
 #else
-#define ICE_ThingToFree();
+#define ICE_ThingToFree()
 #endif
 
 #endif

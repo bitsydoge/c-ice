@@ -310,6 +310,12 @@
     <ClInclude Include="src\External\stb\stb_image_write.h">
       <Filter>8 - External\stb</Filter>
     </ClInclude>
+    <ClInclude Include="src\Graphics\Screenshot.h">
+      <Filter>3 - Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Macrotools.h">
+      <Filter>1 - Framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Asset_private.c">
@@ -548,6 +554,12 @@
     </ClCompile>
     <ClCompile Include="src\Framework\Crossplatform_.c">
       <Filter>1 - Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Screenshot.c">
+      <Filter>3 - Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ressources\bin\pak1.bin.c">
+      <Filter>7 - Ressources\bin</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

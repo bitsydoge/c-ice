@@ -62,6 +62,7 @@
 #include "Graphics/Texture.h"
 #include "Graphics/Sprite.h"
 #include "Graphics/Gui.h"
+#include "Graphics/Screenshot.h"
 
 // Audio
 

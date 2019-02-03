@@ -5,44 +5,40 @@
 #include "player.h"
 #include "debug.h"
 
-#include "External/physfs/physfs.h"
 #include "Ressources/bin/space.jpg.bin.c"
-#include "External/physfs/physfsrwops.h"
+#include "Ressources/bin/pak1.bin.c"
 
 extern ICE_Config CONFIG;
 
 ICE_Game_Create()
-{	
+{
+	// Data to save object ID
 	GAME_DATA * D = ICE_Data_Insert(ICE_State_Current, GAME_DATA);
-	ICE_Asset_PackLoad("res//pak//pak1.zip");
 
-	SDL_RWops * rwops_test = SDL_RWFromConstMem(ICE_BinaryFile_space_jpg, ICE_BinaryFile_space_jpg_length);
-	D->texture_background = ICE_Texture_Load_RW(rwops_test);
+	// Pack Load
+	ICE_Asset_LoadPackFromEmbedded(pak1_bin_zip);
 
-	PHYSFS_File * ph_file = PHYSFS_openRead("001-SPRITESHEET$CoLdRaGoN");
-	SDL_RWops * file = PHYSFSRWOPS_makeRWops(ph_file);
-	D->texture_tileset = ICE_Texture_Load_RW(file);
+	// Texture Load
+	D->texture_tileset = ICE_Texture_Load("res://001-SPRITESHEET$CoLdRaGoN");
+	D->texture_gui_icons = ICE_Texture_Load("res://002-ICONS$CoLdRaGoN");
+	D->texture_gui = ICE_Texture_Load("res://003-GUI$CoLdRaGoN");
+	D->texture_items_spritesheet = ICE_Texture_Load("res://004-ITEMS$CoLdRaGoN");
+	D->texture_background = ICE_Texture_Load("res://005-BACKGROUND$CoLdRaGoN");
 
-	//ph_file = PHYSFS_openRead("002-ICONS$CoLdRaGoN");
-	//file = PHYSFSRWOPS_makeRWops(ph_file);
-	//D->texture_gui_icons = ICE_Texture_Load_RW(file);
-
-	//ph_file = PHYSFS_openRead("003-GUI$CoLdRaGoN");
-	//file = PHYSFSRWOPS_makeRWops(ph_file);
-	//D->texture_gui = ICE_Texture_Load_RW(file);
-
-	//ph_file = PHYSFS_openRead("004-$CoLdRaGoN");
-	//file = PHYSFSRWOPS_makeRWops(ph_file);
-	//D->texture_items_spritesheet = ICE_Texture_Load_RW(file);
-
+	// Sprite Load
 	D->sprite_player = ICE_Sprite_Load(D->texture_tileset, ICE_Vect_New(64, 64));
 
+	// Sound & Music Load
 	D->main_theme = ICE_Music_Load("res//snd//001-MUSIC");
 	D->explosion = ICE_Sound_Load("res//snd//001-SOUND");
+	
+	// Font Load
 	D->font = ICE_Font_Load("res//ttf//001-FONT");
 
+	// GUI Create
 	D->rectangle = ICE_Gui_Create(NULL, ICE_Box_New(0, 0, 0, 50), D->texture_gui);
 
+	// Background create
 	ICE_Entity_SetTexture(ICE_Entity_Get(NULL, ICE_Entity_Create(NULL, ICE_Box_New(0, 0, 1920, 1080))), D->texture_background);
 
 	ICE_Debug_CallbackDraw(GAME_Debug_LateDraw);
@@ -60,11 +56,11 @@ ICE_Game_Update()
 
 	if(ICE_Input_OnPress(ICE_KEY_K))
 	{
-		ICE_String_Set(&temp, "screenshot_%d.jpg", ICE_Time_GetMS());
-		ICE_Window_Screenshot(temp);
+		ICE_Screenshot(NULL, "png");
+
 		timer_screenshot_value = 3.0;
 		D->screenShotDraw = ICE_True;
-		D->screenshot_name = ICE_String_Init(temp);
+		D->screenshot_name = ICE_String_Init("Screenshot taken ! %ld", ICE_Time_GetMS());
 	}
 
 	if(D->screenShotDraw == ICE_True)

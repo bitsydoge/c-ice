@@ -14,6 +14,7 @@
 #include "TypesGraphics.h"
 #include "../Maths/TypesMaths.h"
 #include "../Core/Converter_private.h"
+#include "../Framework/Log.h"
 
 extern ICE_Game GAME;
 extern ICE_Core CORE;
@@ -30,94 +31,12 @@ ICE_Uint32 static const bmask = 0x00ff0000;
 ICE_Uint32 static const amask = 0xff000000;
 #endif
 
-ICE_Texture ICE_Texture_LoadFromFile(char *path)
-{
-	SDL_Surface* surf;
-	/*
-	int req_format = STBI_rgb_alpha;
-	int width, height, orig_format;
-	unsigned char* data = stbi_load(path, &width, &height, &orig_format, req_format);
-	if (data == NULL) {
-		SDL_Log("ERROR : Can't load image : %s", stbi_failure_reason());
-		surf = NULL;
-	}
-	else {
-		int depth, pitch;
-		ICE_Uint32 pixel_format;
-		if (req_format == STBI_rgb) {
-			depth = 24;
-			pitch = 3 * width;
-			pixel_format = SDL_PIXELFORMAT_RGB24;
-		}
-		else {
-			depth = 32;
-			pitch = 4 * width;
-			pixel_format = SDL_PIXELFORMAT_RGBA32;
-		}
-
-		surf = SDL_CreateRGBSurfaceWithFormatFrom((void*)data, width, height,
-			depth, pitch, pixel_format);
-	}
-	*/
-
-	surf = STBIMG_Load(path);
-
-	if (surf == NULL) {
-		SDL_Log("CRITICAL : Can't create Surface from image : %s", SDL_GetError());
-		//stbi_image_free(data);
-
-	#include "../Ressources/raw/Error.c"
-		surf = SDL_CreateRGBSurfaceFrom((void*)ice_raw_img_error.pixel_data, ice_raw_img_error.width,
-			ice_raw_img_error.height, ice_raw_img_error.bytes_per_pixel * 8, ice_raw_img_error.bytes_per_pixel*ice_raw_img_error.width,
-			rmask, gmask, bmask, amask);
-	}
-
-
-	ICE_Texture text = {0};
-	text.handle = SDL_CreateTextureFromSurface(CORE.window.render, surf);
-	if (text.handle == NULL)
-		SDL_Log("CRITICAL : Can't create Texture from Surface \"%s\" : %s \n", path, SDL_GetError());
-	text.w = surf->w; text.h = surf->h;
-
-	SDL_FreeSurface(surf);
-	//stbi_image_free(data);
-	return text;
-}
-
 ICE_Texture ICE_Texture_LoadFromFile_RW(SDL_RWops * rwops_)
 {
-		SDL_Surface* surf;
-	/*
-	int req_format = STBI_rgb_alpha;
-	int width, height, orig_format;
-	unsigned char* data = stbi_load(path, &width, &height, &orig_format, req_format);
-	if (data == NULL) {
-		SDL_Log("ERROR : Can't load image : %s", stbi_failure_reason());
-		surf = NULL;
-	}
-	else {
-		int depth, pitch;
-		ICE_Uint32 pixel_format;
-		if (req_format == STBI_rgb) {
-			depth = 24;
-			pitch = 3 * width;
-			pixel_format = SDL_PIXELFORMAT_RGB24;
-		}
-		else {
-			depth = 32;
-			pitch = 4 * width;
-			pixel_format = SDL_PIXELFORMAT_RGBA32;
-		}
-
-		surf = SDL_CreateRGBSurfaceWithFormatFrom((void*)data, width, height,
-			depth, pitch, pixel_format);
-	}
-	*/
-
-	surf = STBIMG_Load_RW(rwops_, 1);
-
-	if (surf == NULL) {
-		SDL_Log("CRITICAL : Can't create Surface from image : %s", SDL_GetError());
+	SDL_Surface* surf = STBIMG_Load_RW(rwops_, 1);
+	if (surf == NULL) 
+	{
+		ICE_Log_Critical("Can't create Surface from image : %s", SDL_GetError());
 		//stbi_image_free(data);
 
 	#include "../Ressources/raw/Error.c"
@@ -126,15 +45,16 @@ ICE_Texture ICE_Texture_LoadFromFile_RW(SDL_RWops * rwops_)
 			rmask, gmask, bmask, amask);
 	}
 
-
 	ICE_Texture text = {0};
-	text.handle = SDL_CreateTextureFromSurface(CORE.window.render, surf);
-	if (text.handle == NULL)
-		SDL_Log("CRITICAL : Can't create Texture from Surface <<<static_memory>>> : %s \n", SDL_GetError());
-	text.w = surf->w; text.h = surf->h;
 
+	text.handle = SDL_CreateTextureFromSurface(CORE.window.render, surf);
+
+	if (text.handle == NULL)
+		ICE_Log_Critical("Can't create Texture from Surface : %s \n", SDL_GetError());
+	
+	text.w = surf->w; text.h = surf->h;
+	
 	SDL_FreeSurface(surf);
-	//stbi_image_free(data);
 	return text;
 }
 
