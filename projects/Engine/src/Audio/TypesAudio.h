@@ -8,17 +8,14 @@
 
 #ifndef ICE_BOOL_DEFINED
 #define ICE_BOOL_DEFINED
-/**
-* \brief A special bool that can be equal to 0(ICE_False) 1(ICE_True)
-*/
-	typedef _Bool ICE_Bool;
-	#define ICE_True 1
-	#define ICE_TRUE 1
-	#define ICE_true 1
-	#define ICE_False 0
-	#define ICE_FALSE 0
-	#define ICE_false 0
-
+typedef _Bool ICE_Bool;
+#define ICE_True 1
+#define ICE_TRUE 1
+#define ICE_true 1
+#define ICE_False 0
+#define ICE_FALSE 0
+#define ICE_false 0
+#define ICE_BOOL_BITFIELD(S) ICE_Bool S : 1
 #endif
 
 #ifndef ICE_FLOAT_DEFINED

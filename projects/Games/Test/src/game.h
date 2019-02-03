@@ -18,7 +18,7 @@ typedef struct
 	ICE_EntityID player;
 
 
-	ICE_Bool screenShotDraw;
+	ICE_Bool screenShotDraw : 1;
 	ICE_String screenshot_name;
 
 } GAME_DATA;
