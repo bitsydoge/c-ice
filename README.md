@@ -11,10 +11,10 @@ _A simple Game Engine with basic Camera, Entity, Texture, Audio, Map ..._
 
 **Supported Format :** 
 
-- Image : JPG, PNG, BMP ... ( And everything stb_image support )
-- Sound : OGG, WAV ... ( And everything SDL_mixer support )
-- Font  : TTF ... ( And everything SDL_ttf support )
-- Zip   : ZIP, 7Z ... ( And everything PhysFS support ) 
+- Image   : JPG, PNG, BMP ... ( And everything stb_image support )
+- Sound   : OGG, WAV ... ( And everything SDL_mixer support )
+- Font    : TTF ... ( And everything SDL_ttf support )
+- Archive : ZIP, 7Z ... ( And everything PhysFS support ) 
 
 **Tools** :
 
