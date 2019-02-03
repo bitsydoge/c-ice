@@ -5,7 +5,6 @@
 #include "player.h"
 #include "debug.h"
 
-#include "Ressources/bin/space.jpg.bin.c"
 #include "Ressources/bin/pak1.bin.c"
 
 extern ICE_Config CONFIG;

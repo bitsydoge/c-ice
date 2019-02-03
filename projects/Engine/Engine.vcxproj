@@ -194,7 +194,6 @@
     <ClInclude Include="src\External\stb\SDL_stbimage.h" />
     <ClInclude Include="src\External\stb\stb_image.h" />
     <ClInclude Include="src\External\stb\stb_image_write.h" />
-    <ClInclude Include="src\External\tinyfiledialogs\tinyfiledialogs.h" />
     <ClInclude Include="src\Framework\Assert_.h" />
     <ClInclude Include="src\Framework\Crossplatform_.h" />
     <ClInclude Include="src\Framework\File_.h" />
@@ -285,7 +284,6 @@
     <ClCompile Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.c" />
     <ClCompile Include="src\External\SDL2_gfx\SDL2_imageFilter.c" />
     <ClCompile Include="src\External\SDL2_gfx\SDL2_rotozoom.c" />
-    <ClCompile Include="src\External\tinyfiledialogs\tinyfiledialogs.c" />
     <ClCompile Include="src\Framework\Assert_.c" />
     <ClCompile Include="src\Framework\Crossplatform_.c" />
     <ClCompile Include="src\Framework\File_.c" />

@@ -52,9 +52,6 @@
     <Filter Include="8 - External\chipmunk">
       <UniqueIdentifier>{f678e61e-8cba-4b78-8f68-e71da0f56b92}</UniqueIdentifier>
     </Filter>
-    <Filter Include="8 - External\tinyfiledialogs">
-      <UniqueIdentifier>{2ecd0a3c-f97b-4662-ba25-ead3f3262d36}</UniqueIdentifier>
-    </Filter>
     <Filter Include="8 - External\cute">
       <UniqueIdentifier>{d4c01f76-c22b-462f-b63b-3c85a3fbfa92}</UniqueIdentifier>
     </Filter>
@@ -279,9 +276,6 @@
     </ClInclude>
     <ClInclude Include="src\External\mattiasgustavsson\rnd.h">
       <Filter>8 - External\mattiasgustavsson</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\tinyfiledialogs\tinyfiledialogs.h">
-      <Filter>8 - External\tinyfiledialogs</Filter>
     </ClInclude>
     <ClInclude Include="src\External\duktape\duktape.h">
       <Filter>8 - External\duktape</Filter>
@@ -536,9 +530,6 @@
     </ClCompile>
     <ClCompile Include="src\External\physfs\physfs_unicode.c">
       <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\tinyfiledialogs\tinyfiledialogs.c">
-      <Filter>8 - External\tinyfiledialogs</Filter>
     </ClCompile>
     <ClCompile Include="src\External\duktape\duktape.c">
       <Filter>8 - External\duktape</Filter>

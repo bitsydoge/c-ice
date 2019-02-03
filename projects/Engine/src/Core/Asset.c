@@ -8,7 +8,7 @@ void ICE_Asset_PackLoad(ICE_StringStd path_)
 	PHYSFS_mount(path_, NULL, 1);
 }
 
-void ICE_Asset_PackLoadFromMem_(const void * buffer, ICE_Uint64 lenght, ICE_StringStd dir_name)
+void ICE_Asset_LoadPackFromEmbedded__(const void * buffer, ICE_Uint64 lenght, ICE_StringStd dir_name)
 {
 	PHYSFS_mountMemory(buffer, lenght, NULL, dir_name, NULL, 1);
 }
