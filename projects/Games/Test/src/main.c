@@ -6,16 +6,17 @@
 #include "debug.h"
 
 #include "Ressources/bin/pak1.bin.c"
-
-extern ICE_Config CONFIG;
+#include "Ressources/bin/space.jpg.bin.c"
 
 ICE_Game_Create()
 {
-	// Data to save object ID
+	// Data 
 	GAME_DATA * D = ICE_Data_Insert(ICE_State_Current, GAME_DATA);
 
-	// Pack Load (from memory built from
-	ICE_Asset_LoadPackFromEmbedded(pak1_bin_zip);
+	// Pack Load
+	ICE_AssetPak_Load_MEM(pak1_bin_zip);
+	ICE_Texture_Load_MEM(ICE_BinaryFile_space_jpg);
+	ICE_Music_Load_MEM(ICE_BinaryFile_space_jpg);
 
 	// Texture Load
 	D->texture_tileset = ICE_Texture_Load("res://001-SPRITESHEET$CoLdRaGoN");
@@ -81,7 +82,7 @@ ICE_Game_Update()
 
 ICE_Game_Destroy()
 {
-	ICE_Asset_PackUnload("res//pak//pak1.zip");
+	ICE_AssetPak_Unload("res//pak//pak1.zip");
 	GAME_DATA * D = ICE_Data_Get(ICE_State_Current, 0);
 	ICE_String_Destroy(&D->screenshot_name);
 }

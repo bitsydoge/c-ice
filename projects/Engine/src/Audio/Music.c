@@ -3,10 +3,15 @@
 #include "../Core/TypesCore.h"
 #include "../Framework/Memory_.h"
 #include "../Framework/Log.h"
+#include "../External/physfs/physfs.h"
+#include "../External/physfs/physfsrwops.h"
+#include "../Core/Asset.h"
 
 extern ICE_Asset ASSET;
 
-// MANAGER
+ICE_ID last_loaded_music = (ICE_ID)-1;
+
+/* MANAGER */
 
 void ICE_MusicManager_Init()
 {
@@ -27,25 +32,52 @@ void ICE_MusicManager_Destroy()
 	ICE_Log(ICE_LOGTYPE_SUCCES, "Free MusicManager");
 }
 
-// MUSIC
+/* MUSIC */
 
-ICE_Music ICE_Music_Build(char *path_)
+ICE_TextureID ICE_Music_GetLastLoaded()
 {
-	ICE_Music music;
+	return last_loaded_music;
+}
+
+ICE_MusicID ICE_Music_Load(char* path_)
+{
+	SDL_RWops * ops = NULL;
+
+	if(ICE_AssetPak_isPathFromPak(path_))
+	{
+		PHYSFS_File * ph_file = PHYSFS_openRead(path_ + 6);
+		ops = PHYSFSRWOPS_makeRWops(ph_file);
+	}
+	else
+	{
+		ops = SDL_RWFromFile(path_, "rb");
+	}
+
+	ICE_ID temp_id = ICE_Music_Load_RW(ops);
+
+	if(temp_id != (ICE_ID)-1)
+		ICE_Log_Succes("Music loaded from path : ID(%ld), Path(\"%s\")",temp_id, path_);
+	else
+		ICE_Log_Error("Music didn't loaded from file : %s", path_);
+
+	return temp_id;
+}
+
+
+ICE_Music ICE_Music_Build_RW(SDL_RWops * ops)
+{
+	ICE_Music music = {0};
 	// Assigne
-	music.filename = ICE_String_Init(path_);
-	music.sdl_handle = Mix_LoadMUS(path_);
+	music.sdl_handle = Mix_LoadMUS_RW(ops, 1);
 	if(music.sdl_handle == NULL)
 		ICE_Log(ICE_LOGTYPE_ERROR, "Load Music : %s", Mix_GetError());
 	return music;
 }
 
-ICE_MusicID ICE_Music_Load(char* path_)
+ICE_MusicID ICE_Music_Load_RW(SDL_RWops * ops)
 {
-	ASSET.music_mngr.music[ASSET.music_mngr.music_contain] = ICE_Music_Build(path_);
+	ASSET.music_mngr.music[ASSET.music_mngr.music_contain] = ICE_Music_Build_RW(ops);
 	ASSET.music_mngr.music_contain++;
-
-	ICE_Log(ICE_LOGTYPE_SUCCES, "Load Music %d from \"%s\"", ASSET.music_mngr.music_contain - 1, path_);
 
 	if (ASSET.music_mngr.music_size <= ASSET.music_mngr.music_contain) {
 		ICE_Music* tmp = ICE_Realloc(ASSET.music_mngr.music, sizeof(ICE_Music)*(ASSET.music_mngr.music_size * 2));
@@ -54,6 +86,7 @@ ICE_MusicID ICE_Music_Load(char* path_)
 	}
 	return ASSET.music_mngr.music_contain - 1;
 }
+
 
 void ICE_Music_Clear(ICE_ID music_)
 {

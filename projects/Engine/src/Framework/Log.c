@@ -17,6 +17,15 @@ void ICE_Log_Line()
 	printf("\n");
 }
 
+void ICE_Log_printf(const char* format, ...)
+{
+	va_list args;
+	va_start(args, format);
+	vprintf(format, args);
+	printf("\n");
+	va_end(args);
+}
+
 void ICE_Log_(int nb_tab, const char* file, int line, ICE_LogTypes type, const char * format, ...)
 {
 		va_list args;

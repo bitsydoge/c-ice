@@ -46,7 +46,7 @@ ICE_ID ICE_Texture_Load(ICE_StringStd path_)
 {
 	SDL_RWops * ops = NULL;
 
-	if(ICE_Asset_StringPathLoadFromPack(path_))
+	if(ICE_AssetPak_isPathFromPak(path_))
 	{
 		PHYSFS_File * ph_file = PHYSFS_openRead(path_ + 6);
 		ops = PHYSFSRWOPS_makeRWops(ph_file);
@@ -59,7 +59,7 @@ ICE_ID ICE_Texture_Load(ICE_StringStd path_)
 	ICE_ID temp_id = ICE_Texture_Load_RW(ops);
 
 	if(temp_id != (ICE_ID)-1)
-		ICE_Log_Succes("Texture number %ld loaded from file : %s",temp_id, path_);
+		ICE_Log_Succes("Texture loaded from path : ID(%ld), Path(\"%s\")",temp_id, path_);
 	else
 		ICE_Log_Error("Texture didn't loaded from file : %s", path_);
 

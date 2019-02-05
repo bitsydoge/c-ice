@@ -37,6 +37,8 @@ enum ICE_LogTypes
 	
 	void ICE_Log_Line();
 
+
+	void ICE_Log_printf(const char * format, ...);
 #else
 	#define ICE_Log_Error(FORMAT, ...) 
 	#define ICE_Log_Critical(FORMAT, ...) 
