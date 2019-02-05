@@ -94,26 +94,26 @@ void ICE_Render_Info()
 	SDL_RendererInfo info_renderer;
 	SDL_GetRendererInfo(CORE.window.render, &info_renderer);
 	puts("");
-	ICE_Log_Printf(" Renderer : %s \n", info_renderer.name);
-	ICE_Log_Printf(" Max Texture Size : %dx%d\n", info_renderer.max_texture_width, info_renderer.max_texture_height);
-	ICE_Log_Printf(" Renderer option : \n");
+	ICE_Log_printf(" Renderer : %s \n", info_renderer.name);
+	ICE_Log_printf(" Max Texture Size : %dx%d\n", info_renderer.max_texture_width, info_renderer.max_texture_height);
+	ICE_Log_printf(" Renderer option : \n");
 	if (info_renderer.flags |= SDL_RENDERER_ACCELERATED)
-		ICE_Log_Printf("  - Accelerated\n");
+		ICE_Log_printf("  - Accelerated\n");
 	if (info_renderer.flags |= SDL_RENDERER_SOFTWARE)
-		ICE_Log_Printf("  - Software\n");
+		ICE_Log_printf("  - Software\n");
 	if (info_renderer.flags |= SDL_RENDERER_PRESENTVSYNC)
-		ICE_Log_Printf("  - VSYNC\n");
+		ICE_Log_printf("  - VSYNC\n");
 	if (info_renderer.flags |= SDL_RENDERER_TARGETTEXTURE)
-		ICE_Log_Printf("  - Target Texture\n");
+		ICE_Log_printf("  - Target Texture\n");
 
 	int display_index = SDL_GetWindowDisplayIndex(CORE.window.handle);
-	ICE_Log_Printf(" Window on Screen : %d", display_index);
+	ICE_Log_printf(" Window on Screen : %d", display_index);
 	int screen_count = SDL_GetNumVideoDisplays();
 	for(int i = 0; i < screen_count; i++)
 	{
 		SDL_Rect screen_size;
 		SDL_GetDisplayBounds(i, &screen_size);
-		ICE_Log_Printf(" Screen %d : %d x %d\n", i, screen_size.w, screen_size.h);
+		ICE_Log_printf(" Screen %d : %d x %d\n", i, screen_size.w, screen_size.h);
 	}
 	puts("");
 }

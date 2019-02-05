@@ -27,7 +27,7 @@ void ICE_LabelManager_Init(ICE_State* state)
 
 	state->object.label_mngr = text_manager;
 
-	ICE_Log(ICE_LOGTYPE_SUCCES, "Create LabelManager in state %s", state->name);
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Create LabelManager", state->name);
 }
 
 void ICE_LabelManager_Destroy(ICE_State * state)
@@ -39,7 +39,7 @@ void ICE_LabelManager_Destroy(ICE_State * state)
 		ICE_Label_Destroy(&state->object.label_mngr.label[i]);
 
 	ICE_Free(state->object.label_mngr.label);
-	ICE_Log(ICE_LOGTYPE_SUCCES, "Free LabelManager in state %s", state->name);
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Destroy LabelManager");
 }
 
 /* LABEL */

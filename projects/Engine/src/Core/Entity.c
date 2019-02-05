@@ -26,7 +26,7 @@ void ICE_EntityManager_Init(ICE_State* state)
 
 	state->object.entity_mngr = entity_manager;
 
-	ICE_Log(ICE_LOGTYPE_SUCCES, "Init EntityManager");
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Create EntityManager");
 }
 
 void ICE_EntityManager_Destroy(ICE_State * state)
@@ -43,7 +43,7 @@ void ICE_EntityManager_Destroy(ICE_State * state)
 	}
 
 	ICE_Free(manager->entity);
-	ICE_Log(ICE_LOGTYPE_SUCCES, "Free EntityManager");
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Destroy EntityManager");
 }
 
 /* ENTITY */

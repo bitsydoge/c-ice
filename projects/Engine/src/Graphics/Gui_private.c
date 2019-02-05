@@ -23,7 +23,7 @@ void ICE_GuiManager_Init(ICE_State* state)
 
 	state->object.gui_mngr = gui_manager;
 
-	ICE_Log(ICE_LOGTYPE_SUCCES, "Create GuiManager in state", state->name);
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Create GuiManager");
 }
 
 void ICE_GuiManager_Destroy(ICE_State * state)

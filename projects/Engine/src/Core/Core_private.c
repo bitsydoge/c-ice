@@ -75,32 +75,48 @@ int ICE_Core_Init()
 
 	// Hardware Info
 	ICE_Log(ICE_LOGTYPE_INFO, "");
-	ICE_Log_Printf("\n Platform: %s\n", SDL_GetPlatform());
-	ICE_Log_Printf(" CPU: %d CORE %d MB L1\n", SDL_GetCPUCount(), SDL_GetCPUCacheLineSize());
-	ICE_Log_Printf(" RAM: %d MB \n", SDL_GetSystemRAM());
-	ICE_Log_Printf(" Screen Count : %d\n\n", SDL_GetNumVideoDisplays());
-	ICE_Log_Printf(" ICE Compiled : %s\n", ICE_Core_GetCompiledVersion());
-	ICE_Log_Printf(" ICE Linked : %s\n", ICE_Core_GetLinkedVersion());
-	// SDL_TTF Version print
-	const SDL_version *link_version_ttf = TTF_Linked_Version();
-	ICE_Log_Printf(" Compiled: %d.%d.%d\n", SDL_TTF_MAJOR_VERSION, SDL_TTF_MINOR_VERSION, SDL_TTF_PATCHLEVEL);
-	ICE_Log_Printf(" Linked: %d.%d.%d\n", link_version_ttf->major, link_version_ttf->minor, link_version_ttf->patch);
-	// SDL_Mixer Version print
-	const SDL_version *link_version_mixer = Mix_Linked_Version();
-	ICE_Log_Printf(" Compiled: %d.%d.%d\n", SDL_MIXER_MAJOR_VERSION, SDL_MIXER_MINOR_VERSION, SDL_MIXER_PATCHLEVEL);
-	ICE_Log_Printf(" Linked: %d.%d.%d\n", link_version_mixer->major, link_version_mixer->minor, link_version_mixer->patch);
+	ICE_Log_printf("\n Platform: %s\n", SDL_GetPlatform());
+	ICE_Log_printf(" CPU: %d CORE %d MB L1\n", SDL_GetCPUCount(), SDL_GetCPUCacheLineSize());
+	ICE_Log_printf(" RAM: %d MB \n", SDL_GetSystemRAM());
+	ICE_Log_printf(" Screen Count : %d\n\n", SDL_GetNumVideoDisplays());
+	
+	// ICE Version
+	ICE_Log_printf(" ICE Compiled : %s\n", ICE_Core_GetCompiledVersion());
+	ICE_Log_printf(" ICE Linked : %s\n\n", ICE_Core_GetLinkedVersion());
+	
 	// SDL Version print
-	ICE_Log_Printf(" Compiled: %d.%d.%d\n", SDL_MAJOR_VERSION, SDL_MINOR_VERSION, SDL_PATCHLEVEL);
+	ICE_Log_printf(" SDL Version : \n");
+	ICE_Log_printf(" Compiled: %d.%d.%d\n", SDL_MAJOR_VERSION, SDL_MINOR_VERSION, SDL_PATCHLEVEL);
 	SDL_version linked;
 	SDL_GetVersion(&linked);
-	ICE_Log_Printf(" Linked: %d.%d.%d\n\n", linked.major, linked.minor, linked.patch);
-	// SDL
-	ICE_Log_Printf(" Execution Path: %s\n", CORE.basePath);
-	ICE_Log_Printf(" Data Path: %s\n", CORE.dataPath);
+	ICE_Log_printf(" Linked: %d.%d.%d\n", linked.major, linked.minor, linked.patch);
+	
+	// SDL_TTF Version print
+	const SDL_version *link_version_ttf = TTF_Linked_Version();
+	ICE_Log_printf(" SDL_ttf Version : \n");
+	ICE_Log_printf(" Compiled: %d.%d.%d\n", SDL_TTF_MAJOR_VERSION, SDL_TTF_MINOR_VERSION, SDL_TTF_PATCHLEVEL);
+	ICE_Log_printf(" Linked: %d.%d.%d\n", link_version_ttf->major, link_version_ttf->minor, link_version_ttf->patch);
+	
+	// SDL_Mixer Version print
+	const SDL_version *link_version_mixer = Mix_Linked_Version();
+	ICE_Log_printf(" SDL_mixer Version : \n");
+	ICE_Log_printf(" Compiled: %d.%d.%d\n", SDL_MIXER_MAJOR_VERSION, SDL_MIXER_MINOR_VERSION, SDL_MIXER_PATCHLEVEL);
+	ICE_Log_printf(" Linked: %d.%d.%d\n\n", link_version_mixer->major, link_version_mixer->minor, link_version_mixer->patch);
+
+	// PhysFS Version
+	PHYSFS_Version link_version_physf;
+	PHYSFS_getLinkedVersion(&link_version_physf);
+	ICE_Log_printf(" PhysFS Version : \n");
+	ICE_Log_printf(" Compiled: %d.%d.%d\n", PHYSFS_VER_MAJOR, PHYSFS_VER_MINOR, PHYSFS_VER_PATCH);
+	ICE_Log_printf(" Linked: %d.%d.%d\n\n", link_version_physf.major, link_version_physf.minor, link_version_physf.patch);
+
+	// SDL path
+	ICE_Log_printf(" Execution Path: %s\n", CORE.basePath);
+	ICE_Log_printf(" Data Path: %s\n", CORE.dataPath);
 
 #if defined(__APPLE__)
 	//ICE_MacOS_SetWorkingDirectory(SDL_GetBasePath());
-	ICE_Log_Printf("MacOS Resources Directory: %s\n\n", ICE_MacOS_GetResourcesDirectory());
+	ICE_Log_printf("MacOS Resources Directory: %s\n\n", ICE_MacOS_GetResourcesDirectory());
 #endif
 	puts("");
 	ICE_Log(ICE_LOGTYPE_FINISH, "Core Init");
