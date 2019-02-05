@@ -53,15 +53,15 @@ void ICE_Free(void* _Block)
 }
 
 #if defined(_DEBUG)
-size_t ICE_ThingToFree()
+size_t ICE_Memory_NbFreeToDo()
 {
 	if(_thing_to_free_ > 0)
 	{
-		ICE_Log(ICE_LOGTYPE_ERROR, "There is %d heap to free", _thing_to_free_);
+		ICE_Log(ICE_LOGTYPE_ERROR, "There is %d heap(s) to free", _thing_to_free_);
 	}
 	else
 	{
-		ICE_Log(ICE_LOGTYPE_SUCCES, "Everything has been free");
+		ICE_Log(ICE_LOGTYPE_SUCCES, "No heaps to free");
 	}
 	return _thing_to_free_;
 }

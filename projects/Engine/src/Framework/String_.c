@@ -222,3 +222,15 @@ ICE_Bool ICE_String_StartWith(ICE_StringStd full, ICE_StringStd start)
 	}
 	return ICE_False;
 }
+
+int ICE_String_Cmp(ICE_StringStd a, ICE_StringStd b)
+{
+	if(strcmp(a, b) != 0)
+		return ICE_False;
+	return ICE_True;
+}
+
+int ICE_String_CPI()
+{
+	return cpi;
+}

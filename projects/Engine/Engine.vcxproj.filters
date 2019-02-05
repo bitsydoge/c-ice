@@ -310,6 +310,9 @@
     <ClInclude Include="src\Framework\Macrotools.h">
       <Filter>1 - Framework</Filter>
     </ClInclude>
+    <ClInclude Include="src\Framework\UnitTest.h">
+      <Filter>1 - Framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Asset_private.c">
@@ -551,6 +554,9 @@
     </ClCompile>
     <ClCompile Include="src\Ressources\bin\pak1.bin.c">
       <Filter>7 - Ressources\bin</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\UnitTest.c">
+      <Filter>1 - Framework</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

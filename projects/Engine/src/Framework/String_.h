@@ -108,5 +108,12 @@ void ICE_String_ToUpper(ICE_String string);
 ICE_String ICE_String_GetExtension(ICE_StringStd string_);
 
 ICE_Bool ICE_String_StartWith(ICE_StringStd full, ICE_StringStd start);
+
+int ICE_String_Cmp(ICE_StringStd a, ICE_StringStd b);
+
+// Return number character per int value
+int ICE_String_CPI();
+
+
 #endif
 
