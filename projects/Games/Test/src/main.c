@@ -10,32 +10,6 @@
 
 ICE_Game_Create()
 {
-	ICE_Log_Line();
-	ICE_Log_Info("TEST !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
-
-	ICE_Log_Info
-	(
-		"Test 1 : %s // Test 2 : %s // Test 3 : %s // Test 4 : %s", 
-		ICE_String_StartWith("Hello world !", "Hell") ICE_LOG_TRUEFALSE,
-		ICE_String_StartWith("He", "Hell") ICE_LOG_TRUEFALSE,
-		ICE_String_StartWith("Hello world !", "Camembert!") ICE_LOG_TRUEFALSE,
-		ICE_String_StartWith("res://", "res://") ICE_LOG_TRUEFALSE
-	);
-
-
-
-
-
-	ICE_Log_Info("TEST !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-	ICE_Log_Line();
-
-
-
-
-
-
-
 	// Data 
 	GAME_DATA * D = ICE_Data_Insert(ICE_State_Current, GAME_DATA);
 
