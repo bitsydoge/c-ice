@@ -1,5 +1,6 @@
 ﻿#ifndef DEF_ICE_LOG
 #define DEF_ICE_LOG
+#include "Macrotools.h"
 
 /**
  * \brief Different log types and how they are showed
@@ -19,6 +20,8 @@ enum ICE_LogTypes
 }; typedef enum ICE_LogTypes ICE_LogTypes;
 
 #if defined(_DEBUG)
+	/// Use in log or other va_args thing : ICE_Log("Is that true ? : %s", ICE_LOG_TRUEFALSE(myBool))
+	#define ICE_LOG_TRUEFALSE(X) X?ICE_MACROTOOLS_STRINGIZE(True):ICE_MACROTOOLS_STRINGIZE(False)
 
 	#define ICE_Log_Error(FORMAT, ...) ICE_Log(ICE_LOGTYPE_ERROR, FORMAT, __VA_ARGS__ )
 	#define ICE_Log_Critical(FORMAT, ...) ICE_Log(ICE_LOGTYPE_CRITICAL, FORMAT, __VA_ARGS__ )
@@ -32,8 +35,6 @@ enum ICE_LogTypes
 
 	#define ICE_Log_NoReturn(TYPE, FORMAT, ...) ICE_Log_NoReturn_(__FILE__, __LINE__, TYPE, FORMAT, __VA_ARGS__)
 	void ICE_Log_NoReturn_(const char* file, int line, ICE_LogTypes type, const char * format, ...);
-
-	#define ICE_Log_Printf(A, ...) printf(A, __VA_ARGS__)
 	
 	void ICE_Log_Line();
 
@@ -50,7 +51,7 @@ enum ICE_LogTypes
 	#define ICE_Log(...)
 	#define ICE_Log_NoReturn(...)
 	#define ICE_Log_Line()	
-	#define ICE_Log_Printf(...)
+	#define ICE_Log_printf(...)
 #endif
 
 

@@ -6,6 +6,7 @@
 #include "Assert_.h"
 #include "Log.h"
 #include "Crossplatform_.h"
+#include "TypesFramework.h"
 
 // Number of char per int on that platform
 static const int cpi = sizeof(int) / sizeof(ICE_Char);
@@ -189,6 +190,8 @@ void ICE_String_Set2(ICE_String* ptr_string, ICE_StringStd value, ...)
 	va_end(args);
 }
 
+// TOOLS
+
 void ICE_String_ToUpper(ICE_String string)
 {
 	for (int i = 0; i < ICE_String_Contain(string); i++)
@@ -206,4 +209,16 @@ ICE_String ICE_String_GetExtension(ICE_StringStd string_)
 	ICE_String string_returned = ICE_String_Init(ex + 1);
 	//free(ex);
 	return string_returned;
+}
+
+ICE_Bool ICE_String_StartWith(ICE_StringStd full, ICE_StringStd start)
+{
+	if(ICE_String_STDSize(full) >= ICE_String_STDSize(start))
+	{
+		for(int i = 0; i < ICE_String_STDSize(start)-1; i++)
+			if(start[i] != full[i])
+				return ICE_False;
+		return ICE_True;
+	}
+	return ICE_False;
 }

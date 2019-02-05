@@ -10,6 +10,32 @@
 
 ICE_Game_Create()
 {
+	ICE_Log_Line();
+	ICE_Log_Info("TEST !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+
+	ICE_Log_Info
+	(
+		"Test 1 : %s // Test 2 : %s // Test 3 : %s // Test 4 : %s", 
+		ICE_String_StartWith("Hello world !", "Hell") ICE_LOG_TRUEFALSE,
+		ICE_String_StartWith("He", "Hell") ICE_LOG_TRUEFALSE,
+		ICE_String_StartWith("Hello world !", "Camembert!") ICE_LOG_TRUEFALSE,
+		ICE_String_StartWith("res://", "res://") ICE_LOG_TRUEFALSE
+	);
+
+
+
+
+
+	ICE_Log_Info("TEST !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+	ICE_Log_Line();
+
+
+
+
+
+
+
 	// Data 
 	GAME_DATA * D = ICE_Data_Insert(ICE_State_Current, GAME_DATA);
 
@@ -17,7 +43,7 @@ ICE_Game_Create()
 	ICE_AssetPak_Load_MEM(pak1_bin_zip);
 	ICE_Texture_Load_MEM(ICE_BinaryFile_space_jpg);
 	ICE_Music_Load_MEM(ICE_BinaryFile_space_jpg);
-
+	
 	// Texture Load
 	D->texture_tileset = ICE_Texture_Load("res://001-SPRITESHEET$CoLdRaGoN");
 	D->texture_gui_icons = ICE_Texture_Load("res://002-ICONS$CoLdRaGoN");

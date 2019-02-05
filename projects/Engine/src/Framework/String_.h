@@ -1,6 +1,8 @@
 #ifndef DEF_ICE_DYNSTRING
 #define DEF_ICE_DYNSTRING
 
+#include "TypesFramework.h"
+
 typedef char ICE_Char;
 
 typedef ICE_Char* ICE_String;
@@ -105,6 +107,6 @@ void ICE_String_ToUpper(ICE_String string);
  */
 ICE_String ICE_String_GetExtension(ICE_StringStd string_);
 
-
+ICE_Bool ICE_String_StartWith(ICE_StringStd full, ICE_StringStd start);
 #endif
 
