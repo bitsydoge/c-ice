@@ -453,9 +453,6 @@
     <ClCompile Include="src\Ressources\raw\Icon.c">
       <Filter>7 - Ressources\raw</Filter>
     </ClCompile>
-    <ClCompile Include="src\Ressources\bin\space.jpg.bin.c">
-      <Filter>7 - Ressources\bin</Filter>
-    </ClCompile>
     <ClCompile Include="src\External\SDL2_gfx\SDL2_framerate.c">
       <Filter>8 - External\SDL2_gfx</Filter>
     </ClCompile>
@@ -552,11 +549,11 @@
     <ClCompile Include="src\Graphics\Screenshot.c">
       <Filter>3 - Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="src\Ressources\bin\pak1.bin.c">
-      <Filter>7 - Ressources\bin</Filter>
-    </ClCompile>
     <ClCompile Include="src\Framework\UnitTest.c">
       <Filter>1 - Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ressources\bin\err512_png.c">
+      <Filter>7 - Ressources\bin</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

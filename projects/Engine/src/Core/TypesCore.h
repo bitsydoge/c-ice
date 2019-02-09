@@ -378,6 +378,8 @@ struct ICE_Asset
 	ICE_Font font;
 	// Texture
 	ICE_TextureManager texture_mngr;
+	ICE_Texture texture_error;
+
 	// Sprite
 	ICE_SpriteManager sprite_mngr;
 

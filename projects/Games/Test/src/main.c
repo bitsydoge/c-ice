@@ -5,18 +5,13 @@
 #include "player.h"
 #include "debug.h"
 
-#include "Ressources/bin/pak1.bin.c"
-#include "Ressources/bin/space.jpg.bin.c"
-
 ICE_Game_Create()
 {
 	// Data 
 	GAME_DATA * D = ICE_Data_Insert(ICE_State_Current, GAME_DATA);
 
 	// Pack Load
-	ICE_AssetPak_Load_MEM(pak1_bin_zip);
-	ICE_Texture_Load_MEM(ICE_BinaryFile_space_jpg);
-	ICE_Music_Load_MEM(ICE_BinaryFile_space_jpg);
+	ICE_AssetPak_Load("res\\pak\\pak1.zip");
 	
 	// Texture Load
 	D->texture_tileset = ICE_Texture_Load("res://001-SPRITESHEET$CoLdRaGoN");
@@ -41,10 +36,14 @@ ICE_Game_Create()
 	// Background create
 	ICE_Entity_SetTexture(ICE_Entity_Get(NULL, ICE_Entity_Create(NULL, ICE_Box_New(0, 0, 1920, 1080))), D->texture_background);
 
-	ICE_Debug_CallbackDraw(GAME_Debug_LateDraw);
+	// Music Start
 	ICE_Music_Play(0, 0.05);
-
+	
+	// Player Init
 	GAME_Player_Init();
+
+	// Debug Init
+	ICE_Debug_CallbackDraw(GAME_Debug_LateDraw);
 }
 
 ICE_Game_Update()

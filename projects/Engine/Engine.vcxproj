@@ -310,8 +310,7 @@
     <ClCompile Include="src\Graphics\Texture.c" />
     <ClCompile Include="src\Graphics\Texture_private.c" />
     <ClCompile Include="src\Maths\Interpolate.c" />
-    <ClCompile Include="src\Ressources\bin\pak1.bin.c" />
-    <ClCompile Include="src\Ressources\bin\space.jpg.bin.c" />
+    <ClCompile Include="src\Ressources\bin\err512_png.c" />
     <ClCompile Include="src\Ressources\raw\Error.c" />
     <ClCompile Include="src\Ressources\raw\Icon.c" />
   </ItemGroup>
