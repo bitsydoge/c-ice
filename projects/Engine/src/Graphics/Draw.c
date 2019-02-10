@@ -6,12 +6,17 @@
 #include "../Graphics/Camera.h"
 #include "Gui_private.h"
 #include "Texture_private.h"
-#include "Sprite.h"
-#include "../Core/Converter_private.h"
-#include "../ICE.h"
 
 extern ICE_Game GAME;
 extern ICE_Asset ASSET;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//									LABEL DRAW
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void ICE_Draw_LabelWorld()
 {
@@ -87,93 +92,137 @@ void ICE_Draw_LabelScreen() {
 		}
 }
 
-void ICE_Draw_Gui()
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//									GUI DRAW
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void ICE_Draw_Gui(ICE_GuiID id_)
 {
 	ICE_State * current = GAME.current;
-
-		for (ICE_ID j = 0; j < current->object.gui_mngr.gui_contain; j++)
-		{
-			if (current->object.gui_mngr.gui[j].active && current->object.gui_mngr.gui[j].have_texture_defined)
-			{
-				if (
-					!ICE_Box_CompareSize(current->object.gui_mngr.gui[j].box, current->object.gui_mngr.gui[j].old_box) ||
-					current->object.gui_mngr.gui[j].texturemanager_index != current->object.gui_mngr.gui[j].old_texturemanager_index ||
-					current->object.gui_mngr.gui[j].texture_index != current->object.gui_mngr.gui[j].old_texture_index)
-				{
-					ICE_Gui_UpdateTexture(current, j);
-
-					current->object.gui_mngr.gui[j].old_texturemanager_index = current->object.gui_mngr.gui[j].texturemanager_index;
-					current->object.gui_mngr.gui[j].old_texture_index = current->object.gui_mngr.gui[j].texture_index;
-					current->object.gui_mngr.gui[j].old_box = current->object.gui_mngr.gui[j].box;
-				}
-				if(current->object.gui_mngr.gui[j].texture_index != (ICE_TextureID)-1)
-					ICE_Texture_RenderEx(&current->object.gui_mngr.gui[j].texture_cache, NULL, &current->object.gui_mngr.gui[j].box, 0);
-				else
-					ICE_Texture_RenderEx(&current->object.gui_mngr.gui[j].texture_cache, NULL, &current->object.gui_mngr.gui[j].box, 0);
-			}
-		}
+	if (!ICE_Box_CompareSize(current->object.gui_mngr.gui[id_].box, current->object.gui_mngr.gui[id_].old_box) ||
+		current->object.gui_mngr.gui[id_].texturemanager_index != current->object.gui_mngr.gui[id_].old_texturemanager_index ||
+		current->object.gui_mngr.gui[id_].texture_index != current->object.gui_mngr.gui[id_].old_texture_index)
+	{
+		ICE_Gui_UpdateTexture(current, id_);
+		current->object.gui_mngr.gui[id_].old_texturemanager_index = current->object.gui_mngr.gui[id_].texturemanager_index;
+		current->object.gui_mngr.gui[id_].old_texture_index = current->object.gui_mngr.gui[id_].texture_index;
+		current->object.gui_mngr.gui[id_].old_box = current->object.gui_mngr.gui[id_].box;
+	}
+	if(current->object.gui_mngr.gui[id_].texture_index != (ICE_TextureID)-1)
+		ICE_Texture_RenderEx(&current->object.gui_mngr.gui[id_].texture_cache, NULL, &current->object.gui_mngr.gui[id_].box, 0);
+	else
+		ICE_Texture_RenderEx(&ASSET.texture_error, NULL, &current->object.gui_mngr.gui[id_].box, 0);
 }
 
-void ICE_Draw_Entity()
+void ICE_Draw_AllGui()
 {
 	ICE_State * current = GAME.current;
+	for (ICE_ID j = 0; j < current->object.gui_mngr.gui_contain; j++)
+	{
+		if(current->object.gui_mngr.gui[j].active && current->object.gui_mngr.gui[j].have_texture_defined)
+			ICE_Draw_Gui(j);
+	}
+}
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//									ENTITY DRAW
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void ICE_Draw_Entity_Texture(ICE_TextureID id_)
+{
+	ICE_State * current = GAME.current;
+	ICE_Box rect = ICE_Camera_WorldScreen
+	(
+		ICE_Box_New
+		(
+			current->object.entity_mngr.entity[id_].x,
+			current->object.entity_mngr.entity[id_].y,
+			current->object.entity_mngr.entity[id_].w,
+			current->object.entity_mngr.entity[id_].h
+		)
+	);
+
+	ICE_Texture_RenderEx2 // Draw Texture or Error Texture
+	(
+		current->object.entity_mngr.entity[id_].graphics_index != (ICE_TextureID)-1 ? ICE_Texture_Get(current->object.entity_mngr.entity[id_].graphics_index) : &ASSET.texture_error, // trinaire
+		NULL,
+		&rect,
+		current->object.entity_mngr.entity[id_].angle
+	);
+}
+
+void ICE_Draw_Entity_Sprite(ICE_TextureID id_)
+{
+	ICE_State * current = GAME.current;
+	ICE_Box rect = ICE_Camera_WorldScreen(ICE_Box_New
+		(current->object.entity_mngr.entity[id_].x,
+		current->object.entity_mngr.entity[id_].y,
+		current->object.entity_mngr.entity[id_].w,
+		current->object.entity_mngr.entity[id_].h));
+
+	if(current->object.entity_mngr.entity[id_].graphics_index != (ICE_TextureID)-1)
+	{
+		ICE_Texture_RenderEx2
+		(
+			ICE_Texture_Get(ASSET.sprite_mngr.sprite[current->object.entity_mngr.entity[id_].graphics_index].texture_index),
+			&current->object.entity_mngr.entity[id_].graphics_box_render,
+			&rect,
+			current->object.entity_mngr.entity[id_].angle
+		);
+	}
+	else
+	{
+		ICE_Texture_RenderEx2
+		(
+			&ASSET.texture_error,
+			NULL,
+			&rect,
+			current->object.entity_mngr.entity[id_].angle
+		);
+	}
+}
+
+void ICE_Draw_Entity_Text(ICE_TextureID id_)
+{
+	ICE_State * current = GAME.current;
+}
+
+void ICE_Draw_Entity(ICE_TextureID id_)
+{
+	ICE_State * current = GAME.current;
+	// With just texture
+	if (current->object.entity_mngr.entity[id_].graphics_type == ICE_ENTITYGRAPHICSTYPES_TEXTURE)
+	{
+		ICE_Draw_Entity_Texture(id_);
+	}
+
+	// With a sprite
+	if (current->object.entity_mngr.entity[id_].graphics_type == ICE_ENTITYGRAPHICSTYPES_SPRITE)
+	{
+		ICE_Draw_Entity_Sprite(id_);
+	}
+
+	// With a Label
+	if (current->object.entity_mngr.entity[id_].graphics_type == ICE_ENTITYGRAPHICSTYPES_TEXT)
+	{
+		ICE_Draw_Entity_Text(id_);
+	}
+}
+
+void ICE_Draw_AllEntity()
+{
+	ICE_State * current = GAME.current;
 	for (ICE_ID j = 0; j < current->object.entity_mngr.entity_contain; j++)
 	{
-		// With just texture
-		if (current->object.entity_mngr.entity[j].graphics_type == ICE_ENTITYGRAPHICSTYPES_TEXTURE && current->object.entity_mngr.entity[j].active)
-		{
-
-			ICE_Box rect = ICE_Camera_WorldScreen
-			(
-				ICE_Box_New
-				(
-					current->object.entity_mngr.entity[j].x,
-					current->object.entity_mngr.entity[j].y,
-					current->object.entity_mngr.entity[j].w,
-					current->object.entity_mngr.entity[j].h
-				)
-			);
-
-			ICE_Texture_RenderEx2 // DRAW ERROR OR THE GOOD ONE
-			(
-				current->object.entity_mngr.entity[j].graphics_index != (ICE_TextureID)-1 ? ICE_Texture_Get(current->object.entity_mngr.entity[j].graphics_index) : &ASSET.texture_error,
-				NULL,
-				&rect,
-				current->object.entity_mngr.entity[j].angle
-			);
-		}
-
-		// With a sprite
-		if (current->object.entity_mngr.entity[j].graphics_type == ICE_ENTITYGRAPHICSTYPES_SPRITE && current->object.entity_mngr.entity[j].active)
-		{
-			ICE_Box rect = ICE_Camera_WorldScreen(ICE_Box_New(
-			current->object.entity_mngr.entity[j].x,
-			current->object.entity_mngr.entity[j].y,
-			current->object.entity_mngr.entity[j].w,
-			current->object.entity_mngr.entity[j].h));
-
-			if(current->object.entity_mngr.entity[j].graphics_index != (ICE_TextureID)-1)
-			{
-				ICE_Texture_RenderEx2
-				(
-					ICE_Texture_Get(ASSET.sprite_mngr.sprite[current->object.entity_mngr.entity[j].graphics_index].texture_index),
-					&current->object.entity_mngr.entity[j].graphics_box_render,
-					&rect,
-					current->object.entity_mngr.entity[j].angle
-				);
-			}
-			else
-			{
-				ICE_Texture_RenderEx2
-				(
-					&ASSET.texture_error,
-					NULL,
-					&rect,
-					current->object.entity_mngr.entity[j].angle
-				);
-			}
-		}
+		if(current->object.entity_mngr.entity[j].active)
+			ICE_Draw_Entity(j);
 	}
-			// With a label
 }
