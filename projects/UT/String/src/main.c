@@ -86,6 +86,7 @@ int ICE_UT_MAIN()
 					remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset \
 					sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like \
 					Aldus PageMaker including versions of Lorem Ipsum.");
+
 		ICE_UT_EQUAL(ICE_String_Contain(test9), 603);
 		ICE_String_Destroy(&test9);
 	}

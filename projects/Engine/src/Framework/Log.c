@@ -78,7 +78,7 @@ void ICE_Log_(int nb_tab, const char* file, int line, ICE_LogTypes type, const c
 		va_end(args);
 }
 
-void ICE_Log_NoReturn_(ICE_LogTypes type, const char * format, ...)
+void ICE_Log_NoReturn_(const char* file, int line, ICE_LogTypes type, const char * format, ...)
 {
 		va_list args;
 		va_start(args, format);
