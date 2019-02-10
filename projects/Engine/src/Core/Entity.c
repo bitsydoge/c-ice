@@ -293,29 +293,40 @@ void ICE_Entity_Scale(ICE_Entity * entity, ICE_Float scale)
 
 void ICE_Entity_SetSprite(ICE_Entity * entity_, ICE_ID sprite_)
 {
-	ICE_Sprite * sprite = ICE_Sprite_Get(sprite_);
-	entity_->graphics_type = ICE_ENTITYGRAPHICSTYPES_SPRITE;
-	entity_->graphics_index = sprite->index;
-	entity_->sprite_frame = 0;
-	entity_->graphics_box_render.x = 0;
-	entity_->graphics_box_render.y = 0;
-	entity_->graphics_box_render.w = sprite->size_w;
-	entity_->graphics_box_render.h = sprite->size_h;
+	if(sprite_ != (ICE_SpriteID)-1)
+	{
+		ICE_Sprite * sprite = ICE_Sprite_Get(sprite_);
+		entity_->graphics_type = ICE_ENTITYGRAPHICSTYPES_SPRITE;
+		entity_->graphics_index = sprite->index;
+		entity_->sprite_frame = 0;
+		entity_->graphics_box_render.x = 0;
+		entity_->graphics_box_render.y = 0;
+		entity_->graphics_box_render.w = sprite->size_w;
+		entity_->graphics_box_render.h = sprite->size_h;
+	}
+	else
+	{
+		entity_->graphics_type = ICE_ENTITYGRAPHICSTYPES_SPRITE;
+		entity_->graphics_index = (ICE_SpriteID)-1;
+	}
 }
 
 void ICE_Entity_SetSpriteFrame(ICE_Entity * entity, ICE_ID frame)
 {
 	if (entity->graphics_type == ICE_ENTITYGRAPHICSTYPES_SPRITE)
 	{
-		ICE_Sprite * sprite = ICE_Sprite_Get(entity->graphics_index);
-		frame--;
-		entity->sprite_frame = frame;
+		if(entity->graphics_index != (ICE_TextureID)-1)
+		{
+			ICE_Sprite * sprite = ICE_Sprite_Get(entity->graphics_index);
+			frame--;
+			entity->sprite_frame = frame;
 
-		const ICE_ID size_in_w = (frame) % sprite->number_frame_w;
-		const ICE_ID size_in_h = (frame) / sprite->number_frame_w;
+			const ICE_ID size_in_w = (frame) % sprite->number_frame_w;
+			const ICE_ID size_in_h = (frame) / sprite->number_frame_w;
 
-		entity->graphics_box_render.x = size_in_w * sprite->size_w;
-		entity->graphics_box_render.y = size_in_h * sprite->size_h;
+			entity->graphics_box_render.x = size_in_w * sprite->size_w;
+			entity->graphics_box_render.y = size_in_h * sprite->size_h;
+		}
 	}
 	else
 		ICE_Log(ICE_LOGTYPE_ERROR, "This entity doesn't have a Sprite graphics");

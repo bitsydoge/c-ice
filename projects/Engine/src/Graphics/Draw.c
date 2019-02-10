@@ -22,7 +22,8 @@ void ICE_Draw_LabelWorld()
 			if (current->object.label_mngr.label[j].active)
 			{
 				if (
-				    strcmp(current->object.label_mngr.label[j].text, current->object.label_mngr.label[j].old_text) ||
+				    strcmp(current->object.label_mngr.label[j].text, current->object.label_mngr.label[j].old_text) != 0
+				    ||
 					current->object.label_mngr.label[j].size != current->object.label_mngr.label[j].old_size ||
 					current->object.label_mngr.label[j].color != current->object.label_mngr.label[j].old_color ||
 					current->object.label_mngr.label->wrap_width != current->object.label_mngr.label->wrap_width_old
@@ -45,7 +46,7 @@ void ICE_Draw_LabelWorld()
 				);
  
 				if (current->object.label_mngr.label[j].labelType)
-					ICE_Texture_RenderExCentered(&current->object.label_mngr.label[j].texture, NULL, (ICE_Box[]) { ICE_Camera_WorldScreen(box) }, current->object.label_mngr.label[j].angle);
+					ICE_Texture_RenderEx2(&current->object.label_mngr.label[j].texture, NULL, (ICE_Box[]) { ICE_Camera_WorldScreen(box) }, current->object.label_mngr.label[j].angle);
 			}
 		}
 
@@ -58,7 +59,8 @@ void ICE_Draw_LabelScreen() {
 			if (current->object.label_mngr.label[j].active)
 			{
 				if (
-					strcmp(current->object.label_mngr.label[j].text, current->object.label_mngr.label[j].old_text) ||
+					strcmp(current->object.label_mngr.label[j].text, current->object.label_mngr.label[j].old_text) != 0
+					||
 					current->object.label_mngr.label[j].size != current->object.label_mngr.label[j].old_size ||
 					current->object.label_mngr.label[j].color != current->object.label_mngr.label[j].old_color
 					)
@@ -93,7 +95,6 @@ void ICE_Draw_Gui()
 		{
 			if (current->object.gui_mngr.gui[j].active && current->object.gui_mngr.gui[j].have_texture_defined)
 			{
-
 				if (
 					!ICE_Box_CompareSize(current->object.gui_mngr.gui[j].box, current->object.gui_mngr.gui[j].old_box) ||
 					current->object.gui_mngr.gui[j].texturemanager_index != current->object.gui_mngr.gui[j].old_texturemanager_index ||
@@ -105,7 +106,10 @@ void ICE_Draw_Gui()
 					current->object.gui_mngr.gui[j].old_texture_index = current->object.gui_mngr.gui[j].texture_index;
 					current->object.gui_mngr.gui[j].old_box = current->object.gui_mngr.gui[j].box;
 				}
-				ICE_Texture_RenderEx(&current->object.gui_mngr.gui[j].texture_cache, NULL, &current->object.gui_mngr.gui[j].box, 0);
+				if(current->object.gui_mngr.gui[j].texture_index != (ICE_TextureID)-1)
+					ICE_Texture_RenderEx(&current->object.gui_mngr.gui[j].texture_cache, NULL, &current->object.gui_mngr.gui[j].box, 0);
+				else
+					ICE_Texture_RenderEx(&current->object.gui_mngr.gui[j].texture_cache, NULL, &current->object.gui_mngr.gui[j].box, 0);
 			}
 		}
 }
@@ -119,6 +123,7 @@ void ICE_Draw_Entity()
 		// With just texture
 		if (current->object.entity_mngr.entity[j].graphics_type == ICE_ENTITYGRAPHICSTYPES_TEXTURE && current->object.entity_mngr.entity[j].active)
 		{
+
 			ICE_Box rect = ICE_Camera_WorldScreen
 			(
 				ICE_Box_New
@@ -130,9 +135,9 @@ void ICE_Draw_Entity()
 				)
 			);
 
-			ICE_Texture_RenderExCentered
+			ICE_Texture_RenderEx2 // DRAW ERROR OR THE GOOD ONE
 			(
-				ICE_Texture_Get(current->object.entity_mngr.entity[j].graphics_index),
+				current->object.entity_mngr.entity[j].graphics_index != (ICE_TextureID)-1 ? ICE_Texture_Get(current->object.entity_mngr.entity[j].graphics_index) : &ASSET.texture_error,
 				NULL,
 				&rect,
 				current->object.entity_mngr.entity[j].angle
@@ -143,18 +148,31 @@ void ICE_Draw_Entity()
 		if (current->object.entity_mngr.entity[j].graphics_type == ICE_ENTITYGRAPHICSTYPES_SPRITE && current->object.entity_mngr.entity[j].active)
 		{
 			ICE_Box rect = ICE_Camera_WorldScreen(ICE_Box_New(
-				current->object.entity_mngr.entity[j].x,
-				current->object.entity_mngr.entity[j].y,
-				current->object.entity_mngr.entity[j].w,
-				current->object.entity_mngr.entity[j].h));
+			current->object.entity_mngr.entity[j].x,
+			current->object.entity_mngr.entity[j].y,
+			current->object.entity_mngr.entity[j].w,
+			current->object.entity_mngr.entity[j].h));
 
-			ICE_Texture_RenderExCentered
-			(
-				ICE_Texture_Get(ASSET.sprite_mngr.sprite[current->object.entity_mngr.entity[j].graphics_index].texture_index),
-				&current->object.entity_mngr.entity[j].graphics_box_render,
-				&rect,
-				current->object.entity_mngr.entity[j].angle
-			);
+			if(current->object.entity_mngr.entity[j].graphics_index != (ICE_TextureID)-1)
+			{
+				ICE_Texture_RenderEx2
+				(
+					ICE_Texture_Get(ASSET.sprite_mngr.sprite[current->object.entity_mngr.entity[j].graphics_index].texture_index),
+					&current->object.entity_mngr.entity[j].graphics_box_render,
+					&rect,
+					current->object.entity_mngr.entity[j].angle
+				);
+			}
+			else
+			{
+				ICE_Texture_RenderEx2
+				(
+					&ASSET.texture_error,
+					NULL,
+					&rect,
+					current->object.entity_mngr.entity[j].angle
+				);
+			}
 		}
 	}
 			// With a label

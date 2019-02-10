@@ -11,7 +11,7 @@ ICE_Game_Create()
 	GAME_DATA * D = ICE_Data_Insert(ICE_State_Current, GAME_DATA);
 
 	// Pack Load
-	ICE_AssetPak_Load("res\\pak\\pak1.zip");
+	ICE_AssetPak_Load("res\\pak\\p0ak1.zip");
 	
 	// Texture Load
 	D->texture_tileset = ICE_Texture_Load("res://001-SPRITESHEET$CoLdRaGoN");

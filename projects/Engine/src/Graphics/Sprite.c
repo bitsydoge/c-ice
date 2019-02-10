@@ -32,8 +32,12 @@ void ICE_SpriteManager_Destroy()
 ICE_Sprite ICE_Sprite_Build(ICE_TextureID texture_, ICE_Vect size_frame_sprite_)
 {
 	ICE_Sprite sprite = { 0 };
-	ICE_Texture * texture_get = &ASSET.texture_mngr.texture[texture_];
-	
+	ICE_Texture * texture_get = NULL;
+	if(texture_ != (ICE_TextureID)-1)
+		texture_get = &ASSET.texture_mngr.texture[texture_];
+	else
+		texture_get = &ASSET.texture_error;
+
 	sprite.exist = ICE_True;
 	sprite.have_texture_defined = ICE_True;
 	sprite.texture_index = texture_;
@@ -47,20 +51,24 @@ ICE_Sprite ICE_Sprite_Build(ICE_TextureID texture_, ICE_Vect size_frame_sprite_)
 
 ICE_ID ICE_Sprite_Load(ICE_TextureID texture_, ICE_Vect size_frame_sprite_)
 {
-	ASSET.sprite_mngr.sprite[ASSET.sprite_mngr.sprite_contain] = ICE_Sprite_Build(texture_, size_frame_sprite_);
-	ASSET.sprite_mngr.sprite_contain++;
-
-	ASSET.sprite_mngr.sprite[ASSET.sprite_mngr.sprite_contain].index = ASSET.sprite_mngr.sprite_contain - 1;
-
-	ICE_Log(ICE_LOGTYPE_SUCCES, "Create Sprite %d from Texture %d <%d*%d>", ASSET.sprite_mngr.sprite_contain - 1, texture_, ASSET.sprite_mngr.sprite[ASSET.sprite_mngr.sprite_contain-1].size_w, ASSET.sprite_mngr.sprite[ASSET.sprite_mngr.sprite_contain-1].size_h);
-
-	if (ASSET.sprite_mngr.sprite_size <= ASSET.sprite_mngr.sprite_contain) 
+	if(texture_ != (ICE_TextureID)-1)
 	{
-		ASSET.sprite_mngr.sprite = ICE_Realloc(ASSET.sprite_mngr.sprite, sizeof(ICE_Sprite)*(ASSET.sprite_mngr.sprite_size * 2));;
-		ASSET.sprite_mngr.sprite_size *= 2;
-	}
+		ASSET.sprite_mngr.sprite[ASSET.sprite_mngr.sprite_contain] = ICE_Sprite_Build(texture_, size_frame_sprite_);;
+		ASSET.sprite_mngr.sprite_contain++;
 
-	return ASSET.sprite_mngr.sprite_contain - 1;
+		ASSET.sprite_mngr.sprite[ASSET.sprite_mngr.sprite_contain].index = ASSET.sprite_mngr.sprite_contain - 1;
+
+		ICE_Log(ICE_LOGTYPE_SUCCES, "Create Sprite %d from Texture %d <%d*%d>", ASSET.sprite_mngr.sprite_contain - 1, texture_, ASSET.sprite_mngr.sprite[ASSET.sprite_mngr.sprite_contain-1].size_w, ASSET.sprite_mngr.sprite[ASSET.sprite_mngr.sprite_contain-1].size_h);
+
+		if (ASSET.sprite_mngr.sprite_size <= ASSET.sprite_mngr.sprite_contain) 
+		{
+			ASSET.sprite_mngr.sprite = ICE_Realloc(ASSET.sprite_mngr.sprite, sizeof(ICE_Sprite)*(ASSET.sprite_mngr.sprite_size * 2));;
+			ASSET.sprite_mngr.sprite_size *= 2;
+		}
+
+		return ASSET.sprite_mngr.sprite_contain - 1;
+	}
+	return (ICE_SpriteID)-1;
 }
 
 void ICE_Sprite_Clear(ICE_SpriteID sprite_)

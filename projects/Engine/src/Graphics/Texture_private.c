@@ -33,29 +33,31 @@ ICE_Uint32 static const amask = 0xff000000;
 
 ICE_Texture ICE_Texture_LoadFromFile_RW(SDL_RWops * rwops_)
 {
+	ICE_Texture text = {0};
 	SDL_Surface* surf = STBIMG_Load_RW(rwops_, 1);
 	if (surf == NULL) 
 	{
 		ICE_Log_Critical("Can't create Surface from image : %s", SDL_GetError());
 		//stbi_image_free(data);
 
-	#include "../Ressources/raw/Error.c"
-		surf = SDL_CreateRGBSurfaceFrom((void*)ice_raw_img_error.pixel_data, ice_raw_img_error.width,
-			ice_raw_img_error.height, ice_raw_img_error.bytes_per_pixel * 8, ice_raw_img_error.bytes_per_pixel*ice_raw_img_error.width,
-			rmask, gmask, bmask, amask);
+	//#include "../Ressources/raw/Error.c"
+	//	surf = SDL_CreateRGBSurfaceFrom((void*)ice_raw_img_error.pixel_data, ice_raw_img_error.width,
+	//		ice_raw_img_error.height, ice_raw_img_error.bytes_per_pixel * 8, ice_raw_img_error.bytes_per_pixel*ice_raw_img_error.width,
+	//		rmask, gmask, bmask, amask);
+		return text;
 	}
-
-	ICE_Texture text = {0};
-
-	text.handle = SDL_CreateTextureFromSurface(CORE.window.render, surf);
-
-	if (text.handle == NULL)
-		ICE_Log_Critical("Can't create Texture from Surface : %s \n", SDL_GetError());
+	else
+	{
+		text.handle = SDL_CreateTextureFromSurface(CORE.window.render, surf);
+		if (text.handle == NULL)
+			ICE_Log_Critical("Can't create Texture from Surface : %s \n", SDL_GetError());
+		text.w = surf->w; text.h = surf->h;
+		SDL_FreeSurface(surf);
+		return text;
+	}
 	
-	text.w = surf->w; text.h = surf->h;
+
 	
-	SDL_FreeSurface(surf);
-	return text;
 }
 
 int ICE_Texture_RenderEx(const ICE_Texture *texture, ICE_Box* src, ICE_Box* dst, const ICE_Float angle) {
@@ -79,7 +81,7 @@ int ICE_Texture_RenderEx(const ICE_Texture *texture, ICE_Box* src, ICE_Box* dst,
 	return SDL_RenderCopyEx(CORE.window.render, texture->handle, &s_src, &s_dst, angle, NULL, SDL_FLIP_NONE);
 }
 
-int ICE_Texture_RenderExCentered(const ICE_Texture* tex, ICE_Box* src, ICE_Box* dst, const ICE_Float angle)
+int ICE_Texture_RenderEx2(const ICE_Texture* tex, ICE_Box* src, ICE_Box* dst, const ICE_Float angle)
 {
 	if (!src && dst)
 	{

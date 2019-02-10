@@ -9,7 +9,7 @@
 
 extern ICE_Game GAME;
 extern ICE_Core CORE;
-
+extern ICE_Asset ASSET;
 /* GUIMANAGER */
 
 void ICE_GuiManager_Init(ICE_State* state)
@@ -71,7 +71,10 @@ void ICE_Gui_UpdateTexture(ICE_State* state_, ICE_ID gui)
 	// TYPE DRAW
 
 	if(state_->object.gui_mngr.gui[gui].type == ICE_GUITYPE_RECTANGLE)
-		ICE_Gui_Rect(ICE_Texture_Get(state_->object.gui_mngr.gui[gui].texture_index), box2);
+		if(state_->object.gui_mngr.gui[gui].texture_index == (ICE_TextureID)-1)
+			ICE_Gui_Rect(&ASSET.texture_error, box2);
+		else
+			ICE_Gui_Rect(ICE_Texture_Get(state_->object.gui_mngr.gui[gui].texture_index), box2);
 
 	if (state_->object.gui_mngr.gui[gui].type == ICE_GUITYPE_IMAGE)
 		ICE_Texture_RenderEx(

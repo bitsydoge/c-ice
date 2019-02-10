@@ -79,37 +79,42 @@ ICE_Texture ICE_Texture_Build_RW(SDL_RWops * rwops_)
 
 ICE_ID ICE_Texture_Load_RW(SDL_RWops * rwops_) 
 {
-	ICE_EntityID avaible_slot = 0;
-	ICE_Bool no_avaible_slot = ICE_False;
-
-	for (ICE_EntityID i = 0; i < ASSET.texture_mngr.texture_contain; i++)
+	ICE_Texture temp = ICE_Texture_Build_RW(rwops_);
+	if(temp.handle)
 	{
-		if (ASSET.texture_mngr.texture[i].exist == ICE_False)
+		ICE_EntityID avaible_slot = 0;
+		ICE_Bool no_avaible_slot = ICE_False;
+
+		for (ICE_EntityID i = 0; i < ASSET.texture_mngr.texture_contain; i++)
 		{
-			avaible_slot = i;
-			no_avaible_slot = ICE_True;
-			break;
+			if (ASSET.texture_mngr.texture[i].exist == ICE_False)
+			{
+				avaible_slot = i;
+				no_avaible_slot = ICE_True;
+				break;
+			}
 		}
-	}
-	if (!no_avaible_slot)
-	{
-		avaible_slot = ASSET.texture_mngr.texture_contain;
-		ASSET.texture_mngr.texture_contain++;
-	}
+		if (!no_avaible_slot)
+		{
+			avaible_slot = ASSET.texture_mngr.texture_contain;
+			ASSET.texture_mngr.texture_contain++;
+		}
 
-	ASSET.texture_mngr.texture[avaible_slot] = ICE_Texture_Build_RW(rwops_);
-	ASSET.texture_mngr.texture[avaible_slot].id = avaible_slot;
+		ASSET.texture_mngr.texture[avaible_slot] = temp;
+		ASSET.texture_mngr.texture[avaible_slot].id = avaible_slot;
 
-	//ICE_Log(ICE_LOGTYPE_SUCCES, "Load Texture %d succes", avaible_slot);
-	
-	if (ASSET.texture_mngr.texture_size <= ASSET.texture_mngr.texture_contain) 
-	{
-		ASSET.texture_mngr.texture = ICE_Realloc(ASSET.texture_mngr.texture, sizeof(ICE_Texture)*(ASSET.texture_mngr.texture_size * 2));
-		ASSET.texture_mngr.texture_size *= 2;
+		//ICE_Log(ICE_LOGTYPE_SUCCES, "Load Texture %d succes", avaible_slot);
+		
+		if (ASSET.texture_mngr.texture_size <= ASSET.texture_mngr.texture_contain) 
+		{
+			ASSET.texture_mngr.texture = ICE_Realloc(ASSET.texture_mngr.texture, sizeof(ICE_Texture)*(ASSET.texture_mngr.texture_size * 2));
+			ASSET.texture_mngr.texture_size *= 2;
+		}
+
+		last_loaded_texture = avaible_slot;
+		return avaible_slot;
 	}
-
-	last_loaded_texture = avaible_slot;
-	return avaible_slot;
+	return (ICE_TextureID)-1; // ERROR ID
 }
 
 void ICE_Texture_Destroy(ICE_ID texture_) 
