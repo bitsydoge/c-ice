@@ -379,6 +379,7 @@ struct ICE_Asset
 	// Texture
 	ICE_TextureManager texture_mngr;
 	ICE_Texture texture_error;
+	ICE_Texture texture_gui_default;
 
 	// Sprite
 	ICE_SpriteManager sprite_mngr;

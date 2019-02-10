@@ -31,7 +31,7 @@ ICE_Game_Create()
 	D->font = ICE_Font_Load("res//ttf//001-FONT");
 
 	// GUI Create
-	D->rectangle = ICE_Gui_Create(NULL, ICE_Box_New(0, 0, 0, 50), D->texture_gui);
+	D->rectangle = ICE_Gui_Create(NULL, ICE_Box_New(0, 0, 0, 64), (ICE_TextureID)-1);
 
 	// Background create
 	ICE_Entity_SetTexture(ICE_Entity_Get(NULL, ICE_Entity_Create(NULL, ICE_Box_New(0, 0, 1920, 1080))), D->texture_background);

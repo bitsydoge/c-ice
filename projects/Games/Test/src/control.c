@@ -8,7 +8,7 @@ void GAME_Control()
 	GAME_DATA * D = ICE_Data_Get(NULL, 0);
 	ICE_Entity * player = ICE_Entity_Get(NULL, D->player);
 	GAME_DATA_PLAYER * D_player = ICE_Entity_DataGet(player, 0);
-	ICE_Gui_SetSize(ICE_Gui_Get(NULL, D->rectangle), ICE_Vect_New(ICE_Window_GetW(), 50));
+	ICE_Gui_SetSize(ICE_Gui_Get(NULL, D->rectangle), ICE_Vect_New(ICE_Window_GetW(), 64));
 	if (ICE_Entity_GetSpriteFrame(player) == D_player->frame_down)
 	{
 		D_player->dx = 0;

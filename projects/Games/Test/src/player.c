@@ -31,8 +31,6 @@ void GAME_Player_Update(ICE_Entity*  this_)
 	ICE_Label_SetPos(ICE_Label_Get(NULL, D->hello_world), vect);
 	
 	GAME_Control();
-
-
 }
 
 void GAME_Player_Destroy(ICE_Entity*  this_)

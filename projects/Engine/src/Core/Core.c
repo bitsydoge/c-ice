@@ -38,6 +38,7 @@ void ICE_Core_Main(void(*call_create)(void), void(*call_update)(void), void(*cal
 		// RENDER HERE
 		ICE_Render_SetColor(GAME.current->background);
 		ICE_Render_Clear();
+
 		ICE_Draw_AllEntity();
 		ICE_Draw_LabelWorld();
 		ICE_Draw_AllGui();

@@ -113,7 +113,8 @@ typedef struct
 typedef enum
 {
 	ICE_GUITYPE_RECTANGLE,
-	ICE_GUITYPE_IMAGE
+	ICE_GUITYPE_IMAGE,
+	ICE_GUITYPE_TEXT
 
 } ICE_GuiType;
 

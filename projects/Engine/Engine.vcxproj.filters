@@ -555,5 +555,11 @@
     <ClCompile Include="src\Ressources\bin\err512_png.c">
       <Filter>7 - Ressources\bin</Filter>
     </ClCompile>
+    <ClCompile Include="src\Ressources\bin\err1024_png.c">
+      <Filter>7 - Ressources\bin</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ressources\bin\gui64_png.c">
+      <Filter>7 - Ressources\bin</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

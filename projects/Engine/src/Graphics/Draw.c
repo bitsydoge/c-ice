@@ -112,10 +112,7 @@ void ICE_Draw_Gui(ICE_GuiID id_)
 		current->object.gui_mngr.gui[id_].old_texture_index = current->object.gui_mngr.gui[id_].texture_index;
 		current->object.gui_mngr.gui[id_].old_box = current->object.gui_mngr.gui[id_].box;
 	}
-	if(current->object.gui_mngr.gui[id_].texture_index != (ICE_TextureID)-1)
-		ICE_Texture_RenderEx(&current->object.gui_mngr.gui[id_].texture_cache, NULL, &current->object.gui_mngr.gui[id_].box, 0);
-	else
-		ICE_Texture_RenderEx(&ASSET.texture_error, NULL, &current->object.gui_mngr.gui[id_].box, 0);
+	ICE_Texture_RenderEx(&current->object.gui_mngr.gui[id_].texture_cache, NULL, &current->object.gui_mngr.gui[id_].box, 0);
 }
 
 void ICE_Draw_AllGui()
@@ -123,7 +120,7 @@ void ICE_Draw_AllGui()
 	ICE_State * current = GAME.current;
 	for (ICE_ID j = 0; j < current->object.gui_mngr.gui_contain; j++)
 	{
-		if(current->object.gui_mngr.gui[j].active && current->object.gui_mngr.gui[j].have_texture_defined)
+		if(current->object.gui_mngr.gui[j].active)
 			ICE_Draw_Gui(j);
 	}
 }
@@ -210,11 +207,13 @@ void ICE_Draw_Entity(ICE_TextureID id_)
 		ICE_Draw_Entity_Sprite(id_);
 	}
 
-	// With a Label
+	// With a Text
 	if (current->object.entity_mngr.entity[id_].graphics_type == ICE_ENTITYGRAPHICSTYPES_TEXT)
 	{
 		ICE_Draw_Entity_Text(id_);
 	}
+
+	// With a Primitive
 }
 
 void ICE_Draw_AllEntity()
