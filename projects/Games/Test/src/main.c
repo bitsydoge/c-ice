@@ -11,7 +11,7 @@ ICE_Game_Create()
 	GAME_DATA * D = ICE_Data_Insert(ICE_State_Current, GAME_DATA);
 
 	// Pack Load
-	ICE_AssetPak_Load("res\\pak\\p0ak1.zip");
+	ICE_AssetPak_Load("res\\pak\\pak1.zip");
 	
 	// Texture Load
 	D->texture_tileset = ICE_Texture_Load("res://001-SPRITESHEET$CoLdRaGoN");
@@ -31,7 +31,7 @@ ICE_Game_Create()
 	D->font = ICE_Font_Load("res//ttf//001-FONT");
 
 	// GUI Create
-	D->rectangle = ICE_Gui_Create(NULL, ICE_Box_New(0, 0, 0, 64), (ICE_TextureID)-1);
+	D->rectangle = ICE_Gui_Create(NULL, ICE_Box_New(0, 0, 0, 64), D->texture_gui);
 
 	// Background create
 	ICE_Entity_SetTexture(ICE_Entity_Get(NULL, ICE_Entity_Create(NULL, ICE_Box_New(0, 0, 1920, 1080))), D->texture_background);
