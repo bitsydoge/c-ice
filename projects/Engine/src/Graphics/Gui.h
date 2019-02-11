@@ -9,8 +9,8 @@
 
 /* GUI */
 
-ICE_ID ICE_Gui_Create(ICE_State * state, const ICE_Box box, ICE_TextureID texture_nb);
-void ICE_Gui_Clear(ICE_Gui * label);
+ICE_ID ICE_Gui_Create(ICE_State * state_, const ICE_Box box_, ICE_GuiType types_);
+void ICE_Gui_Clear(ICE_Gui * label_);
 void ICE_Gui_Destroy(ICE_Gui * ptr);
 
 /* GUI GET */

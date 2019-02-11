@@ -31,7 +31,7 @@ ICE_Game_Create()
 	D->font = ICE_Font_Load("res//ttf//001-FONT");
 
 	// GUI Create
-	D->rectangle = ICE_Gui_Create(NULL, ICE_Box_New(0, 0, 0, 64), D->texture_gui);
+	D->rectangle = ICE_Gui_Create(NULL, ICE_Box_New(0, 0, 0, 64), ICE_GUITYPE_9PATCH);
 
 	// Background create
 	ICE_Entity_SetTexture(ICE_Entity_Get(NULL, ICE_Entity_Create(NULL, ICE_Box_New(0, 0, 1920, 1080))), D->texture_background);
@@ -52,6 +52,13 @@ ICE_Game_Update()
 
 	ICE_String temp = ICE_String_Init("");
 	static ICE_Float timer_screenshot_value = 0.0;
+
+	if(ICE_Input_OnPress(ICE_KEY_L))
+	{
+		ICE_EntityID entity_temp = ICE_Entity_Create(ICE_State_Current, ICE_Box_New(ICE_Random_Int(-500, 500), ICE_Random_Int(-500, 500), 64, 64));
+		ICE_Entity_SetSprite(ICE_Entity_Get(NULL, entity_temp), D->sprite_player); // Set Sprite to Entity
+		ICE_Entity_SetSpriteFrame(ICE_Entity_Get(NULL, entity_temp), 10); // Select Frame
+	}
 
 	if(ICE_Input_OnPress(ICE_KEY_K))
 	{

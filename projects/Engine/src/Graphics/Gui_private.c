@@ -40,20 +40,16 @@ void ICE_GuiManager_Destroy(ICE_State * state)
 	ICE_Log(ICE_LOGTYPE_SUCCES, "Destroy GuiManager");
 }
 
-ICE_Gui ICE_Gui_Build(ICE_Box box, ICE_TextureID nb_texture)
+ICE_Gui ICE_Gui_Build(ICE_Box box_, ICE_GuiType types_)
 {
 	ICE_Gui gui = { 0 };
 
-	gui.type = ICE_GUITYPE_9PATCH;
-
-	if(nb_texture == (ICE_TextureID)-1)
-		gui.have_texture_defined = ICE_False;
-	else
-		gui.have_texture_defined = ICE_True;
-
+	gui.type = types_;
+	
 	gui.active = ICE_True;
-	gui.box = box;
-	gui.texture_index = nb_texture;
+	gui.box = box_;
+	gui.texture_index = (ICE_TextureID)-1;
+	gui.have_texture_defined = ICE_False;
 
 	return gui;
 }

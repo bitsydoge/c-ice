@@ -13,34 +13,34 @@ extern ICE_Game GAME;
 
 /* GUI */
 
-ICE_ID ICE_Gui_Create(ICE_State * state, const ICE_Box box, ICE_TextureID texture_nb)
+ICE_ID ICE_Gui_Create(ICE_State * state_, const ICE_Box box_, ICE_GuiType types_)
 {
-	if (!state)
-		state = GAME.current;
+	if (!state_)
+		state_ = GAME.current;
 
 	// Insert label in array
-	state->object.gui_mngr.gui[state->object.gui_mngr.gui_contain] = ICE_Gui_Build(box, texture_nb);
-	state->object.gui_mngr.gui_contain++;
+	state_->object.gui_mngr.gui[state_->object.gui_mngr.gui_contain] = ICE_Gui_Build(box_, types_);
+	state_->object.gui_mngr.gui_contain++;
 
-	ICE_Log(ICE_LOGTYPE_SUCCES, "Create Gui %d ", state->object.gui_mngr.gui_contain-1);
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Create Gui %d ", state_->object.gui_mngr.gui_contain-1);
 
 	// Test size to realloc more space
-	if (state->object.gui_mngr.gui_size <= state->object.gui_mngr.gui_contain) 
+	if (state_->object.gui_mngr.gui_size <= state_->object.gui_mngr.gui_contain) 
 	{
-		ICE_Gui* tmp = ICE_Realloc(state->object.gui_mngr.gui, sizeof(ICE_Gui)*(state->object.gui_mngr.gui_size * 2));
-		state->object.gui_mngr.gui = tmp;
-		state->object.gui_mngr.gui_size *= 2;
+		ICE_Gui* tmp = ICE_Realloc(state_->object.gui_mngr.gui, sizeof(ICE_Gui)*(state_->object.gui_mngr.gui_size * 2));
+		state_->object.gui_mngr.gui = tmp;
+		state_->object.gui_mngr.gui_size *= 2;
 	}
 
-	ICE_Gui_UpdateTexture(state, state->object.gui_mngr.gui_contain - 1);
-	return state->object.gui_mngr.gui_contain - 1;
+	ICE_Gui_UpdateTexture(state_, state_->object.gui_mngr.gui_contain - 1);
+	return state_->object.gui_mngr.gui_contain - 1;
 }
 
-void ICE_Gui_Clear(ICE_Gui * label)
+void ICE_Gui_Clear(ICE_Gui * label_)
 {
-	ICE_Texture temp = label->texture_cache;
-	memset(label, 0, sizeof(ICE_Gui)); 
-	label->texture_cache = temp;
+	ICE_Texture temp = label_->texture_cache;
+	memset(label_, 0, sizeof(ICE_Gui)); 
+	label_->texture_cache = temp;
 }
 void ICE_Gui_Destroy(ICE_Gui * ptr)
 {
@@ -87,3 +87,4 @@ void ICE_Gui_SetType(ICE_Gui * gui, ICE_GuiType type)
 {
 	gui->type = type;
 }
+
