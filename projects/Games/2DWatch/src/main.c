@@ -53,8 +53,8 @@ ICE_Game_Create()
 	);
 
 	// Gui
-	nb = ICE_Gui_Create(ICE_State_Current, ICE_Box_New(0, 0, ICE_Window_GetW(), 50), );
-	nb = ICE_Gui_Create(ICE_State_Current, ICE_Box_New(0, 0, 50, 70), );
+	nb = ICE_Gui_Create(ICE_State_Current, ICE_Box_New(0, 0, ICE_Window_GetW(), 50), ICE_GUITYPE_9PATCH);
+	nb = ICE_Gui_Create(ICE_State_Current, ICE_Box_New(0, 0, 50, 70), ICE_GUITYPE_9PATCH);
 	ICE_Gui_SetType(ICE_Gui_Get(ICE_State_Current, nb), ICE_GUITYPE_IMAGE);
 
 	// 1

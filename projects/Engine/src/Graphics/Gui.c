@@ -59,11 +59,10 @@ ICE_Gui * ICE_Gui_Get(ICE_State *state, ICE_GuiID gui)
 
 /* GUI SET */
 
-void ICE_Gui_SetTexture(ICE_Gui * gui, int texture_man, int texture)
+void ICE_Gui_SetTexture(ICE_Gui * gui_ptr_, int texture_id_)
 {
-	gui->texture_index = texture;
-	gui->texturemanager_index = texture_man;
-	gui->have_texture_defined = ICE_True;
+	gui_ptr_->texture_index = texture_id_;
+	gui_ptr_->have_texture_defined = ICE_True;
 }
 
 void ICE_Gui_SetBox(ICE_Gui * gui, ICE_Box box)

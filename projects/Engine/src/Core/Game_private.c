@@ -46,6 +46,8 @@ void ICE_Game_Quit()
 {
 	ICE_String_Free(GAME.state_main.name);
 
+	ICE_Texture_DefaultAllFree();
+
 	ICE_TextureManager_Destroy();
 	ICE_SpriteManager_Destroy();
 	ICE_SoundManager_Destroy();

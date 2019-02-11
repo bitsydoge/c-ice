@@ -32,6 +32,9 @@ ICE_Game_Create()
 
 	// GUI Create
 	D->rectangle = ICE_Gui_Create(NULL, ICE_Box_New(0, 0, 0, 64), ICE_GUITYPE_9PATCH);
+	ICE_Gui_SetTexture(ICE_Gui_Get(NULL, D->rectangle), D->texture_gui);
+
+
 
 	// Background create
 	ICE_Entity_SetTexture(ICE_Entity_Get(NULL, ICE_Entity_Create(NULL, ICE_Box_New(0, 0, 1920, 1080))), D->texture_background);

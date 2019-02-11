@@ -104,11 +104,9 @@ void ICE_Draw_Gui_9patch(ICE_GuiID id_)
 {
 	ICE_State * current = GAME.current;
 	if (!ICE_Box_CompareSize(current->object.gui_mngr.gui[id_].box, current->object.gui_mngr.gui[id_].old_box) ||
-		current->object.gui_mngr.gui[id_].texturemanager_index != current->object.gui_mngr.gui[id_].old_texturemanager_index ||
 		current->object.gui_mngr.gui[id_].texture_index != current->object.gui_mngr.gui[id_].old_texture_index)
 	{
 		ICE_Gui_UpdateTexture(current, id_);
-		current->object.gui_mngr.gui[id_].old_texturemanager_index = current->object.gui_mngr.gui[id_].texturemanager_index;
 		current->object.gui_mngr.gui[id_].old_texture_index = current->object.gui_mngr.gui[id_].texture_index;
 		current->object.gui_mngr.gui[id_].old_box = current->object.gui_mngr.gui[id_].box;
 	}

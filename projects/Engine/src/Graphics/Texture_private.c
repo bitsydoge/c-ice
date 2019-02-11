@@ -15,6 +15,7 @@
 #include "../Maths/TypesMaths.h"
 #include "../Core/Converter_private.h"
 #include "../Framework/Log.h"
+#include "../ICE.h"
 
 extern ICE_Game GAME;
 extern ICE_Core CORE;
@@ -114,6 +115,22 @@ void ICE_Texture_ErrorInit()
 
 void ICE_Texture_DefaultGuiInit()
 {
-	#include "../Ressources/bin/gui64_png.c"
-	ASSET.texture_gui_default = ICE_Texture_LoadFromFile_RW(SDL_RWFromMem(ICE_Ressource_gui64_png, ICE_Ressource_gui64_png_length));
+	#include "../Ressources/bin/gui27_png.c"
+	ASSET.texture_gui_default = ICE_Texture_LoadFromFile_RW(SDL_RWFromMem(ICE_Ressource_gui27_png, ICE_Ressource_gui27_png_length));
+}
+
+void ICE_Texture_DefaultGuiFree()
+{
+	ICE_Texture_Free(&ASSET.texture_gui_default);
+}
+
+void ICE_Texture_ErrorFree()
+{
+	ICE_Texture_Free(&ASSET.texture_error);
+}
+
+void ICE_Texture_DefaultAllFree()
+{
+	ICE_Texture_DefaultGuiFree();
+	ICE_Texture_ErrorFree();
 }

@@ -60,6 +60,7 @@ void ICE_Window_SetIcon(char * path)
 	}
 	else
 	{
+
 		SDL_Surface *icon = STBIMG_Load(path);
 
 		if (icon == NULL)

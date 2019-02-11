@@ -312,7 +312,8 @@
     <ClCompile Include="src\Maths\Interpolate.c" />
     <ClCompile Include="src\Ressources\bin\err1024_png.c" />
     <ClCompile Include="src\Ressources\bin\err512_png.c" />
-    <ClCompile Include="src\Ressources\bin\gui64_png.c" />
+    <ClCompile Include="src\Ressources\bin\gui27_png.c" />
+    <ClCompile Include="src\Ressources\bin\logo_png.c" />
     <ClCompile Include="src\Ressources\raw\Error.c" />
     <ClCompile Include="src\Ressources\raw\Icon.c" />
   </ItemGroup>

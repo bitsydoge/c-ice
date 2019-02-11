@@ -19,7 +19,7 @@ ICE_Gui * ICE_Gui_Get(ICE_State *state, ICE_GuiID gui);
 
 /* GUI SET */
 
-void ICE_Gui_SetTexture(ICE_Gui * gui, int texture_man, int texture);
+void ICE_Gui_SetTexture(ICE_Gui * gui_ptr_, int texture_id_);
 void ICE_Gui_SetBox(ICE_Gui * gui, ICE_Box box);
 void ICE_Gui_SetPos(ICE_Gui * gui, ICE_Vect pos);
 void ICE_Gui_SetSize(ICE_Gui * gui, ICE_Vect vect);

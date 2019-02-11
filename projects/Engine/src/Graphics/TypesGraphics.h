@@ -126,8 +126,6 @@ typedef struct
 	ICE_BOOL_BITFIELD(have_texture_defined);
 	ICE_ID texture_index;
 	ICE_ID old_texture_index;
-	ICE_ID texturemanager_index;
-	ICE_ID old_texturemanager_index;
 	ICE_Box box;
 	ICE_Box old_box;
 

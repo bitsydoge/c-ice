@@ -10,5 +10,8 @@ ICE_Texture ICE_Texture_LoadFromFile(char *path);
 ICE_Texture ICE_Texture_LoadFromFile_RW(SDL_RWops * rwops_);
 void ICE_Texture_ErrorInit();
 void ICE_Texture_DefaultGuiInit();
+void ICE_Texture_DefaultGuiFree();
+void ICE_Texture_ErrorFree();
+void ICE_Texture_DefaultAllFree();
 
 #endif
