@@ -44,7 +44,7 @@ ICE_Gui ICE_Gui_Build(ICE_Box box, ICE_TextureID nb_texture)
 {
 	ICE_Gui gui = { 0 };
 
-	gui.type = ICE_GUITYPE_RECTANGLE;
+	gui.type = ICE_GUITYPE_9PATCH;
 
 	if(nb_texture == (ICE_TextureID)-1)
 		gui.have_texture_defined = ICE_False;
@@ -73,7 +73,7 @@ void ICE_Gui_UpdateTexture(ICE_State* state_, ICE_ID gui)
 	box2.x = 0; box2.y = 0;
 
 	// TYPE DRAW
-	if(state_->object.gui_mngr.gui[gui].type == ICE_GUITYPE_RECTANGLE)
+	if(state_->object.gui_mngr.gui[gui].type == ICE_GUITYPE_9PATCH)
 		if(state_->object.gui_mngr.gui[gui].texture_index == (ICE_TextureID)-1 || !state_->object.gui_mngr.gui[gui].have_texture_defined)
 			ICE_Gui_Rect(&ASSET.texture_gui_default, box2);
 		else
