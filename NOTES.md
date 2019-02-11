@@ -1,4 +1,23 @@
 ﻿Notes are in FRENCH *terrible noise*
+ 
+ 
+ 
+ Priorité : 
+ - PhysFS pour tous les objets.
+ - Check error de load
+ - Font par defaut engine
+ - Array de font
+ - Remove des Label et les implémenté sur les Entity et Gui
+ - GUI REFONTE !
+ - Splashscreen custom
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ //////////////////////////////////
 
 
 
