@@ -171,6 +171,7 @@
     <ClInclude Include="src\Core\Time_.h" />
     <ClInclude Include="src\Core\Time_private.h" />
     <ClInclude Include="src\Core\TypesCore.h" />
+    <ClInclude Include="src\Core\Version.h" />
     <ClInclude Include="src\Core\Window.h" />
     <ClInclude Include="src\Core\Window_private.h" />
     <ClInclude Include="src\External\cute\cute_files.h" />
@@ -254,6 +255,7 @@
     <ClCompile Include="src\Core\State.c" />
     <ClCompile Include="src\Core\Time_.c" />
     <ClCompile Include="src\Core\Time_private.c" />
+    <ClCompile Include="src\Core\Version.c" />
     <ClCompile Include="src\Core\Window.c" />
     <ClCompile Include="src\Core\Window_private.c" />
     <ClCompile Include="src\External\duktape\duktape.c" />

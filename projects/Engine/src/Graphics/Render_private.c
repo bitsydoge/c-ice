@@ -5,9 +5,13 @@
 #include "../Core/Window.h"
 #include "../Core/Window_private.h"
 #include <stdio.h>
+#include "../ICE.h"
+#include "Texture_private.h"
 
 extern ICE_Core CORE;
 extern ICE_Config CONFIG;
+extern ICE_Asset ASSET;
+
 int ICE_Render_SetColor(const ICE_Color rgba_hex) {
 	const int r = rgba_hex >> 24 & 255;
 	const int g = rgba_hex >> 16 & 255;
@@ -23,6 +27,14 @@ int ICE_Render_Clear()
 void ICE_Render_Now() 
 {
 	SDL_RenderPresent(CORE.window.render);
+}
+
+void ICE_Render_SplashScreen()
+{
+	ICE_Render_SetColor(ICE_Color_New(0,0,0));
+	ICE_Render_Clear();
+	ICE_Texture_RenderEx2(&ASSET.texture_logo, NULL, (ICE_Box[]){ICE_Box_New(CONFIG.window_w/2, CONFIG.window_h/2, ASSET.texture_logo.w, ASSET.texture_logo.h)}, 0);
+	ICE_Render_Now();
 }
 
 void ICE_Render_Init()
@@ -64,6 +76,9 @@ void ICE_Render_Init()
 	CORE.window.w = (ICE_Float)CONFIG.window_w; CORE.window.h = (ICE_Float)CONFIG.window_h;
 
 	ICE_Window_Config();
+
+	ICE_Texture_LogoInit();
+	ICE_Render_SplashScreen();
 
 	ICE_Render_Info();
 	

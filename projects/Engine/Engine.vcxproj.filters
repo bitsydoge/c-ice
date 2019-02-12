@@ -313,6 +313,9 @@
     <ClInclude Include="src\Framework\UnitTest.h">
       <Filter>1 - Framework</Filter>
     </ClInclude>
+    <ClInclude Include="src\Core\Version.h">
+      <Filter>2 - Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Asset_private.c">
@@ -563,6 +566,9 @@
     </ClCompile>
     <ClCompile Include="src\Ressources\bin\logo_png.c">
       <Filter>7 - Ressources\bin</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Version.c">
+      <Filter>2 - Core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

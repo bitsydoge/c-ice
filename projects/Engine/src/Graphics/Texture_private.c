@@ -119,6 +119,12 @@ void ICE_Texture_DefaultGuiInit()
 	ASSET.texture_gui_default = ICE_Texture_LoadFromFile_RW(SDL_RWFromMem(ICE_Ressource_gui27_png, ICE_Ressource_gui27_png_length));
 }
 
+void ICE_Texture_LogoInit()
+{
+	#include "../Ressources/bin/logo_png.c"
+	ASSET.texture_logo = ICE_Texture_LoadFromFile_RW(SDL_RWFromMem(ICE_Ressource_logo_png, ICE_Ressource_logo_png_length));
+}
+
 void ICE_Texture_DefaultGuiFree()
 {
 	ICE_Texture_Free(&ASSET.texture_gui_default);
@@ -129,8 +135,14 @@ void ICE_Texture_ErrorFree()
 	ICE_Texture_Free(&ASSET.texture_error);
 }
 
+void ICE_Texture_LogoFree()
+{
+	ICE_Texture_Free(&ASSET.texture_error);
+}
+
 void ICE_Texture_DefaultAllFree()
 {
 	ICE_Texture_DefaultGuiFree();
 	ICE_Texture_ErrorFree();
+	ICE_Texture_LogoFree();
 }

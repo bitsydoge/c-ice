@@ -21,6 +21,8 @@ int ICE_Render_Clear();
 */
 void ICE_Render_Now();
 
+void ICE_Render_SplashScreen();
+
 #if defined(_DEBUG)
 void ICE_Render_Info();
 #else

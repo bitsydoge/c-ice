@@ -9,7 +9,10 @@ int ICE_Texture_RenderEx2(const ICE_Texture* tex, ICE_Box* src, ICE_Box* dst, co
 ICE_Texture ICE_Texture_LoadFromFile(char *path);
 ICE_Texture ICE_Texture_LoadFromFile_RW(SDL_RWops * rwops_);
 void ICE_Texture_ErrorInit();
+void ICE_Texture_LogoInit();
 void ICE_Texture_DefaultGuiInit();
+
+void ICE_Texture_LogoFree();
 void ICE_Texture_DefaultGuiFree();
 void ICE_Texture_ErrorFree();
 void ICE_Texture_DefaultAllFree();

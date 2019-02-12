@@ -1,11 +1,6 @@
 #ifndef DEF_ICE_CORE
 #define DEF_ICE_CORE
 
-#define ICE_VERSION "DEV.1902.1"
-
-#include "../Framework/String_.h"
-#include "../Framework/Inline.h"
-
 #define ICE_Game_Update() void ICE_User_Update(void)
 #define ICE_Game_Destroy() void ICE_User_Destroy(void)
 #define ICE_Game_Create() void ICE_User_Create(void);\
@@ -33,10 +28,5 @@
 	void ICE_User_Create(void)
 
 void ICE_Core_Main(void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void));
-ICE_StringStd ICE_Core_GetLinkedVersion();
-ICE_INLINE ICE_StringStd ICE_Core_GetCompiledVersion()
-{
-	return ICE_VERSION;
-}
 
 #endif

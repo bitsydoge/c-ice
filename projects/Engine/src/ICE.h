@@ -49,6 +49,7 @@
 #include "Core/Data.h"
 #include "Core/Entity.h"
 #include "Core/MacOS_.h"
+#include "Core/Version.h"
 
 // Graphics
 

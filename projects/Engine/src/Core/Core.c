@@ -65,8 +65,3 @@ void ICE_Core_Main(void(*call_create)(void), void(*call_update)(void), void(*cal
 	ICE_Render_Quit();
 	ICE_Core_Quit();
 }
-
-ICE_StringStd ICE_Core_GetLinkedVersion()
-{
-	return ICE_VERSION;
-}
