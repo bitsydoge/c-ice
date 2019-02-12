@@ -319,6 +319,11 @@
     <ClCompile Include="src\Ressources\raw\Error.c" />
     <ClCompile Include="src\Ressources\raw\Icon.c" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\LICENSE.md" />
+    <None Include="..\..\NOTES.md" />
+    <None Include="..\..\README.md" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -571,4 +571,9 @@
       <Filter>2 - Core</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\NOTES.md" />
+    <None Include="..\..\README.md" />
+    <None Include="..\..\LICENSE.md" />
+  </ItemGroup>
 </Project>
