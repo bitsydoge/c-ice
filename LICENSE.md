@@ -20,5 +20,5 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Every code included in an "External" / "external" folder or with a special 
-mention, is not attached to this licence condition but to the licence with it or in it.
+Every code included in "External" / "external" folder or with a special 
+mention, is not attached to this licence but to it's own licence.
