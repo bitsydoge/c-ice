@@ -5,7 +5,8 @@
 
 #include "TypesCore.h"
 
-#define ICE_State_Current 0
+/// Current State
+#define ICE_State_Current NULL 
 
 ICE_State ICE_State_Create(void(*func_create)(void), void(*func_update)(void), void(*func_destroy)(void));
 void ICE_State_Change(ICE_State * state);

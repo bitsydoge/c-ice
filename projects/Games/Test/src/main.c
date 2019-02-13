@@ -5,7 +5,7 @@
 #include "player.h"
 #include "debug.h"
 
-ICE_Game_Create()
+void ICE_Game_Create()
 {
 	// Data 
 	GAME_DATA * D = ICE_Data_Insert(ICE_State_Current, GAME_DATA);
@@ -47,7 +47,7 @@ ICE_Game_Create()
 	ICE_Debug_CallbackDraw(GAME_Debug_LateDraw);
 }
 
-ICE_Game_Update()
+void ICE_Game_Update()
 {
 	GAME_DATA * D = ICE_Data_Get(ICE_State_Current, 0);
 
@@ -87,7 +87,7 @@ ICE_Game_Update()
 	ICE_String_Free(temp);
 }
 
-ICE_Game_Destroy()
+void ICE_Game_Destroy()
 {
 	ICE_AssetPak_Unload("res//pak//pak1.zip");
 	GAME_DATA * D = ICE_Data_Get(ICE_State_Current, 0);

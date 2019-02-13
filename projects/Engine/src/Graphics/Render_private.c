@@ -35,6 +35,7 @@ void ICE_Render_SplashScreen()
 	ICE_Render_Clear();
 	ICE_Texture_RenderEx2(&ASSET.texture_logo, NULL, (ICE_Box[]){ICE_Box_New(CONFIG.window_w/2, CONFIG.window_h/2, ASSET.texture_logo.w, ASSET.texture_logo.h)}, 0);
 	ICE_Render_Now();
+
 }
 
 void ICE_Render_Init()
@@ -74,10 +75,11 @@ void ICE_Render_Init()
 #endif
 
 	CORE.window.w = (ICE_Float)CONFIG.window_w; CORE.window.h = (ICE_Float)CONFIG.window_h;
+	
+	ICE_Texture_LogoInit();
 
 	ICE_Window_Config();
 
-	ICE_Texture_LogoInit();
 	ICE_Render_SplashScreen();
 
 	ICE_Render_Info();

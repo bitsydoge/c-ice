@@ -1,11 +1,11 @@
 #ifndef DEF_ICE_CORE
 #define DEF_ICE_CORE
 
-#define ICE_Game_Update() void ICE_User_Update(void)
-#define ICE_Game_Destroy() void ICE_User_Destroy(void)
-#define ICE_Game_Create() void ICE_User_Create(void);\
-	ICE_Game_Update();\
-	ICE_Game_Destroy();\
+#define ICE_Game_Update() ICE_User_Update(void)
+#define ICE_Game_Destroy() ICE_User_Destroy(void)
+#define ICE_Game_Create() ICE_User_Create(void);\
+	void ICE_Game_Update();\
+	void ICE_Game_Destroy();\
 	extern ICE_Config CONFIG;\
 	int main(int argc, char ** argv)\
 	{\
