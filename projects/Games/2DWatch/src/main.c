@@ -19,7 +19,7 @@ enum
 #define ICE_CONFIG_WINDOW_W 800
 #define ICE_CONFIG_WINDOW_H 480
 
-ICE_Game_Create()
+void ICE_Game_Create()
 {
 	// Texture
 	ICE_Texture_Load("res//img//pic.png");
@@ -88,7 +88,7 @@ void Screen_Update()
 	ICE_Entity_AddAngle(ICE_Entity_Get(NULL, 0), 50 * ICE_Game_GetDelta());
 }
 
-ICE_Game_Update()
+void ICE_Game_Update()
 {
 	Screen_Update();
 
@@ -117,7 +117,7 @@ ICE_Game_Update()
 		ICE_Camera_SetPos(ICE_Vect_New(0, 0));
 }
 
-ICE_Game_Destroy()
+void ICE_Game_Destroy()
 {
 	DATA1 * data = ICE_Data_Get(NULL, 0);
 	ICE_State_Destroy(&data->inventory);

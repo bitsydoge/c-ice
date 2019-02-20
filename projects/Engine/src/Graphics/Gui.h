@@ -16,6 +16,7 @@ void ICE_Gui_Destroy(ICE_Gui * ptr);
 /* GUI GET */
 
 ICE_Gui * ICE_Gui_Get(ICE_State *state, ICE_GuiID gui);
+ICE_Box ICE_Gui_GetBox(ICE_Gui * gui);
 
 /* GUI SET */
 
@@ -24,4 +25,5 @@ void ICE_Gui_SetBox(ICE_Gui * gui, ICE_Box box);
 void ICE_Gui_SetPos(ICE_Gui * gui, ICE_Vect pos);
 void ICE_Gui_SetSize(ICE_Gui * gui, ICE_Vect vect);
 void ICE_Gui_SetType(ICE_Gui * gui, ICE_GuiType type);
+
 #endif

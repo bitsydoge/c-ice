@@ -48,6 +48,7 @@ ICE_Gui ICE_Gui_Build(ICE_Box box_, ICE_GuiType types_)
 	
 	gui.active = ICE_True;
 	gui.box = box_;
+
 	gui.texture_index = (ICE_TextureID)-1;
 	gui.have_texture_defined = ICE_False;
 
@@ -76,12 +77,25 @@ void ICE_Gui_UpdateTexture(ICE_State* state_, ICE_ID gui)
 			ICE_Gui_Rect(ICE_Texture_Get(state_->object.gui_mngr.gui[gui].texture_index), box2);
 
 	if (state_->object.gui_mngr.gui[gui].type == ICE_GUITYPE_IMAGE)
-		ICE_Texture_RenderEx(
-			ICE_Texture_Get(state_->object.gui_mngr.gui[gui].texture_index),
-			NULL,
-			&state_->object.gui_mngr.gui[gui].box,
-			0
-		);
+	{
+		if(state_->object.gui_mngr.gui[gui].texture_index == (ICE_TextureID)-1 || !state_->object.gui_mngr.gui[gui].have_texture_defined)
+			ICE_Texture_RenderEx
+			(
+				&ASSET.texture_error,
+				NULL,
+				&box2,
+				0
+			);
+		else
+			ICE_Texture_RenderEx
+			(
+				ICE_Texture_Get(state_->object.gui_mngr.gui[gui].texture_index),
+				NULL,
+				&box2,
+				0
+			);
+	}
+		
 	
 	SDL_SetRenderTarget(CORE.window.render, NULL);
 	if (state_->object.gui_mngr.gui[gui].texture_cache.handle)

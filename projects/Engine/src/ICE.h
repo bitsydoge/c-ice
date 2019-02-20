@@ -18,7 +18,7 @@
 #define DEF_ICE_INCLUDER_0X505050
 
 #if defined(_DEBUG) && defined (_MSC_VER) && !defined(ICE_NO_VLD)
-	#include <vld.h>
+	//#include <vld.h>
 #endif
 
 // Framework
@@ -83,6 +83,7 @@
 // Physics
 
 #include "Physics/TypesPhysics.h"
+#include "Physics/Basic_Collision.h"
 
 // 
 

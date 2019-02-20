@@ -284,7 +284,9 @@ void ICE_Input_Reset();
 
 int ICE_Input_MouseX();
 int ICE_Input_MouseY();
+ICE_Vect ICE_Input_MouseVector();
 int ICE_Input_MouseX_World();
 int ICE_Input_MouseY_World();
+ICE_Vect ICE_Input_MouseVector_World();
 
 #endif

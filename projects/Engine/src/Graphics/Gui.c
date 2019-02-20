@@ -57,6 +57,11 @@ ICE_Gui * ICE_Gui_Get(ICE_State *state, ICE_GuiID gui)
 	return &state->object.gui_mngr.gui[gui];
 }
 
+ICE_Box ICE_Gui_GetBox(ICE_Gui * gui)
+{
+	return gui->box;
+}
+
 /* GUI SET */
 
 void ICE_Gui_SetTexture(ICE_Gui * gui_ptr_, int texture_id_)

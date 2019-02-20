@@ -316,6 +316,9 @@
     <ClInclude Include="src\Core\Version.h">
       <Filter>2 - Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Physics\Basic_Collision.h">
+      <Filter>6 - Physics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Asset_private.c">
@@ -569,6 +572,9 @@
     </ClCompile>
     <ClCompile Include="src\Core\Version.c">
       <Filter>2 - Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Physics\Basic_Collision.c">
+      <Filter>6 - Physics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

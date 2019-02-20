@@ -231,6 +231,7 @@
     <ClInclude Include="src\Maths\Maths.h" />
     <ClInclude Include="src\Maths\TypesMaths.h" />
     <ClInclude Include="src\Maths\Vector.h" />
+    <ClInclude Include="src\Physics\Basic_Collision.h" />
     <ClInclude Include="src\Physics\TypesPhysics.h" />
   </ItemGroup>
   <ItemGroup>
@@ -312,6 +313,7 @@
     <ClCompile Include="src\Graphics\Texture.c" />
     <ClCompile Include="src\Graphics\Texture_private.c" />
     <ClCompile Include="src\Maths\Interpolate.c" />
+    <ClCompile Include="src\Physics\Basic_Collision.c" />
     <ClCompile Include="src\Ressources\bin\err1024_png.c" />
     <ClCompile Include="src\Ressources\bin\err512_png.c" />
     <ClCompile Include="src\Ressources\bin\gui27_png.c" />

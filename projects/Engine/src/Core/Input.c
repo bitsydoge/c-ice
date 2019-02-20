@@ -5,6 +5,7 @@
 #include "../Framework/Log.h"
 #include "../Graphics/Camera.h"
 #include "../Maths/Box.h"
+#include "../Maths/Vector.h"
 
 extern ICE_Game GAME;
 extern ICE_Core CORE;
@@ -95,6 +96,11 @@ int ICE_Input_MouseY()
 	return CORE.window.input.mousey;
 }
 
+ICE_Vect ICE_Input_MouseVector()
+{
+	return ICE_Vect_New(CORE.window.input.mousex, CORE.window.input.mousey);
+}
+
 int ICE_Input_MouseX_World()
 {
 	ICE_Box translating  = ICE_Camera_ScreenWorld(ICE_Box_New(CORE.window.input.mousex, CORE.window.input.mousey,1, 1));
@@ -105,6 +111,12 @@ int ICE_Input_MouseY_World()
 {
 	ICE_Box translating = ICE_Camera_ScreenWorld(ICE_Box_New(CORE.window.input.mousex, CORE.window.input.mousey, 1, 1));
 	return (int)translating.y;
+}
+
+ICE_Vect ICE_Input_MouseVector_World()
+{
+	ICE_Box translating  = ICE_Camera_ScreenWorld(ICE_Box_New(CORE.window.input.mousex, CORE.window.input.mousey,1, 1));
+	return ICE_Vect_New(translating.x, translating.y);
 }
 
 void ICE_Input_Quit()

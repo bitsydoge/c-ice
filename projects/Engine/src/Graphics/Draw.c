@@ -116,7 +116,16 @@ void ICE_Draw_Gui_9patch(ICE_GuiID id_)
 void ICE_Draw_Gui_Image(ICE_GuiID id_)
 {
 	ICE_State * current = GAME.current;
-	
+
+	if (!ICE_Box_CompareSize(current->object.gui_mngr.gui[id_].box, current->object.gui_mngr.gui[id_].old_box) ||
+		current->object.gui_mngr.gui[id_].texture_index != current->object.gui_mngr.gui[id_].old_texture_index)
+	{
+		ICE_Gui_UpdateTexture(current, id_);
+		current->object.gui_mngr.gui[id_].old_texture_index = current->object.gui_mngr.gui[id_].texture_index;
+		current->object.gui_mngr.gui[id_].old_box = current->object.gui_mngr.gui[id_].box;
+	}
+
+	ICE_Texture_RenderEx(&current->object.gui_mngr.gui[id_].texture_cache, NULL, &current->object.gui_mngr.gui[id_].box, 0);
 }
 
 void ICE_Draw_Gui_Label(ICE_GuiID id_)
@@ -128,11 +137,21 @@ void ICE_Draw_Gui_Label(ICE_GuiID id_)
 void ICE_Draw_Gui(ICE_GuiID id_)
 {
 	ICE_State * current = GAME.current;
-	if(current->object.gui_mngr.gui[id_].type == ICE_GUITYPE_9PATCH)
+
+	switch(current->object.gui_mngr.gui[id_].type)
 	{
-		 ICE_Draw_Gui_9patch(id_);
+		case ICE_GUITYPE_9PATCH:
+			ICE_Draw_Gui_9patch(id_);
+		break;
+		case ICE_GUITYPE_IMAGE:
+			ICE_Draw_Gui_Image(id_);
+		break;
+		case ICE_GUITYPE_LABEL:
+			ICE_Draw_Gui_Label(id_);
+		break;
+		default:
+		break;
 	}
-	
 }
 
 void ICE_Draw_AllGui()
@@ -212,28 +231,31 @@ void ICE_Draw_Entity_Label(ICE_TextureID id_)
 	ICE_State * current = GAME.current;
 }
 
+void ICE_Draw_Entity_Primitives(ICE_TextureID id_)
+{
+	ICE_State * current = GAME.current;
+}
+
 void ICE_Draw_Entity(ICE_TextureID id_)
 {
 	ICE_State * current = GAME.current;
-	// With just texture
-	if (current->object.entity_mngr.entity[id_].graphics_type == ICE_ENTITYGRAPHICSTYPES_TEXTURE)
+	switch(current->object.entity_mngr.entity[id_].graphics_type)
 	{
-		ICE_Draw_Entity_Texture(id_);
+		case ICE_ENTITYGRAPHICSTYPES_TEXTURE:
+			ICE_Draw_Entity_Texture(id_);
+		break;
+		case ICE_ENTITYGRAPHICSTYPES_SPRITE:
+			ICE_Draw_Entity_Sprite(id_);
+		break;
+		case ICE_ENTITYGRAPHICSTYPES_LABEL:
+			ICE_Draw_Entity_Label(id_);
+		break;
+		case ICE_ENTITYGRAPHICSTYPES_PRIMITIVES:
+			ICE_Draw_Entity_Primitives(id_);
+		break;
+		default:
+		break;
 	}
-
-	// With a sprite
-	if (current->object.entity_mngr.entity[id_].graphics_type == ICE_ENTITYGRAPHICSTYPES_SPRITE)
-	{
-		ICE_Draw_Entity_Sprite(id_);
-	}
-
-	// With a Text
-	if (current->object.entity_mngr.entity[id_].graphics_type == ICE_ENTITYGRAPHICSTYPES_TEXT)
-	{
-		ICE_Draw_Entity_Label(id_);
-	}
-
-	// With a Primitive
 }
 
 void ICE_Draw_AllEntity()

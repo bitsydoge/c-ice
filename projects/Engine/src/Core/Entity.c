@@ -379,7 +379,8 @@ void ICE_Entity_FunctionUpdate(ICE_State * state)
 			{           
 				if (!state->object.entity_mngr.entity[i].alreadyRunnedCreate)
 				{
-					state->object.entity_mngr.entity[i].func_create(&state->object.entity_mngr.entity[i]);
+					if(state->object.entity_mngr.entity[i].func_create != NULL)
+						state->object.entity_mngr.entity[i].func_create(&state->object.entity_mngr.entity[i]);
 					state->object.entity_mngr.entity[i].alreadyRunnedCreate = ICE_True;
 				}
 				else
@@ -468,6 +469,11 @@ void ICE_Entity_DataDestroyAll(ICE_Entity * entity_)
 }
 
 ICE_EntityID ICE_Entity_GetID(ICE_Entity * entity_)
+{
+	return entity_->id;
+}
+
+ICE_EntityID ICE_Entity_GetAngle(ICE_Entity * entity_)
 {
 	return entity_->id;
 }
