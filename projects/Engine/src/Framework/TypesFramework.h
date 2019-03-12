@@ -1,7 +1,6 @@
 #ifndef DEF_ICE_TYPESFRAMEWORK
 #define DEF_ICE_TYPESFRAMEWORK
 
-#include <stddef.h>
 #include <stdint.h>
 
 #ifndef ICE_BOOL_DEFINED
@@ -40,6 +39,8 @@ typedef uint16_t ICE_Uint16;
 typedef uint32_t ICE_Uint32;
 typedef uint64_t ICE_Uint64;
 #endif
+
+
 
 #endif
 

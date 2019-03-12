@@ -25,7 +25,7 @@
 #define _INCLUDE_PHYSFSRWOPS_H_
 
 #include "physfs.h"
-#include "../../Core/SDL2_Includer.h"
+#include "../../Engine/SDL2_Includer.h"
 #include ICE_INCLUDE_SDL2
 
 #ifdef __cplusplus

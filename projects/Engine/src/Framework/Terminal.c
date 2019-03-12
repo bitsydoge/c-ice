@@ -47,4 +47,14 @@ void ICE_Term_Wait(){
 	#endif
 }
 
+void ICE_Term_SaveColor()
+{
+	saveDefaultColor();
+}
+
+void ICE_Term_HideCursor()
+{
+	hidecursor();
+}
+
 #endif

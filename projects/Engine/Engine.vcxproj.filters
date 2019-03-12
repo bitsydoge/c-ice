@@ -1,585 +1,368 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="1 - Framework">
-      <UniqueIdentifier>{a8631434-0cd9-4cbd-8b74-e20e92612dc9}</UniqueIdentifier>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{3ef4602a-01e7-4b53-85df-5196b98e90df}</UniqueIdentifier>
     </Filter>
-    <Filter Include="2 - Core">
-      <UniqueIdentifier>{168370c5-3986-4c02-b4e1-491595f06b82}</UniqueIdentifier>
+    <Filter Include="Framework">
+      <UniqueIdentifier>{7ab03b40-da09-4e1e-9cdb-ef89257d50bf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="3 - Graphics">
-      <UniqueIdentifier>{c4de349e-a88f-446e-a759-630d70ad9b2f}</UniqueIdentifier>
+    <Filter Include="External">
+      <UniqueIdentifier>{d311732a-29dc-49af-b9bb-b9e99d55f26a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="4 - Maths">
-      <UniqueIdentifier>{02dfc310-3a03-4719-91c3-198866493c09}</UniqueIdentifier>
+    <Filter Include="External\rlutil">
+      <UniqueIdentifier>{f3e81e59-27d5-4290-ba8a-e27e56f9e5c1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="5 - Audio">
-      <UniqueIdentifier>{d86cf02c-314e-4279-97f8-c49efe518c7c}</UniqueIdentifier>
+    <Filter Include="External\physfs">
+      <UniqueIdentifier>{de689eeb-243c-4658-8c5b-306dc218873d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="6 - Physics">
-      <UniqueIdentifier>{6ff1e53b-7521-404b-99ba-023942d695f0}</UniqueIdentifier>
+    <Filter Include="External\stb">
+      <UniqueIdentifier>{0f3b9440-9e01-4782-805a-f98124e9ee1e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="7 - Ressources">
-      <UniqueIdentifier>{8d2c601d-608b-4cc2-a78e-1b13815d2cc5}</UniqueIdentifier>
+    <Filter Include="Ressources">
+      <UniqueIdentifier>{e3868e68-971c-4e32-b03b-c8018ae1aabb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="7 - Ressources\bin">
-      <UniqueIdentifier>{514833a4-e892-4999-af2c-2bcec70b68b7}</UniqueIdentifier>
+    <Filter Include="Ressources\bin">
+      <UniqueIdentifier>{06af62b4-6be0-421c-9dc3-f2127ada1be8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="7 - Ressources\src">
-      <UniqueIdentifier>{ebe3c67d-f78c-4232-8ca5-a614cc5d1ede}</UniqueIdentifier>
+    <Filter Include="Ressources\raw">
+      <UniqueIdentifier>{ae8ce301-23df-470a-85a6-701962145174}</UniqueIdentifier>
     </Filter>
-    <Filter Include="7 - Ressources\raw">
-      <UniqueIdentifier>{00a12c55-0a61-4dff-9468-eac2b3b6867c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="8 - External">
-      <UniqueIdentifier>{94d1d9ef-ef18-4950-90f6-59229b802980}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="8 - External\mattiasgustavsson">
-      <UniqueIdentifier>{4c32201f-01a7-4bac-85b9-1c747ea7a41c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="8 - External\physfs">
-      <UniqueIdentifier>{a6244c55-4570-4688-a17e-0c7223aeb758}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="8 - External\stb">
-      <UniqueIdentifier>{99f2fef2-6a2c-4d3f-b9dc-37852e6a6e16}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="8 - External\SDL2_gfx">
-      <UniqueIdentifier>{7ca269d0-8db9-4f24-a6aa-f5b8a3f6b7e4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="8 - External\duktape">
-      <UniqueIdentifier>{149353a4-5b9d-446d-b77a-3808d87cebe2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="8 - External\chipmunk">
-      <UniqueIdentifier>{f678e61e-8cba-4b78-8f68-e71da0f56b92}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="8 - External\cute">
-      <UniqueIdentifier>{d4c01f76-c22b-462f-b63b-3c85a3fbfa92}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="8 - External\rlutil">
-      <UniqueIdentifier>{3acd6d7d-9e20-4e86-b9dd-701dbf766fe7}</UniqueIdentifier>
+    <Filter Include="Ressources\src">
+      <UniqueIdentifier>{bc892f65-5dae-45be-abfc-710c1fd5a2f7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\ICE.h" />
-    <ClInclude Include="src\Audio\TypesAudio.h">
-      <Filter>5 - Audio</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Asset_private.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Core.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Core_private.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Debug.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Game.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Game_private.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Input.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Input_private.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Label.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\State.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\TypesCore.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Window.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Framework\Log.h">
-      <Filter>1 - Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Framework\Memory_.h">
-      <Filter>1 - Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Framework\Random.h">
-      <Filter>1 - Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Framework\String_.h">
-      <Filter>1 - Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Framework\Terminal.h">
-      <Filter>1 - Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Framework\Terminal_private.h">
-      <Filter>1 - Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Framework\TypesFramework.h">
-      <Filter>1 - Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Camera.h">
-      <Filter>3 - Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Color.h">
-      <Filter>3 - Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Color_private.h">
-      <Filter>3 - Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Font.h">
-      <Filter>3 - Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Primitive.h">
-      <Filter>3 - Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Render.h">
-      <Filter>3 - Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Render_private.h">
-      <Filter>3 - Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Texture.h">
-      <Filter>3 - Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Texture_private.h">
-      <Filter>3 - Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\TypesGraphics.h">
-      <Filter>3 - Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Maths\Box.h">
-      <Filter>4 - Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Maths\Interpolate.h">
-      <Filter>4 - Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Maths\TypesMaths.h">
-      <Filter>4 - Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Maths\Vector.h">
-      <Filter>4 - Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Physics\TypesPhysics.h">
-      <Filter>6 - Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Time_private.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Time_.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Label_private.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Draw.h">
-      <Filter>3 - Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Gui.h">
-      <Filter>3 - Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Gui_private.h">
-      <Filter>3 - Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Audio\Music.h">
-      <Filter>5 - Audio</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Audio\Sound.h">
-      <Filter>5 - Audio</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Audio\Audio.h">
-      <Filter>5 - Audio</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Entity.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Data.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Maths\Maths.h">
-      <Filter>4 - Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Sprite.h">
-      <Filter>3 - Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Animation.h">
-      <Filter>3 - Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\MacOS_.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Framework\Assert_.h">
-      <Filter>1 - Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\SDL2_Includer.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Sprite_private.h">
-      <Filter>3 - Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Framework\Inline.h">
-      <Filter>1 - Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Framework\File_.h">
-      <Filter>1 - Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Config.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Converter_private.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Window_private.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\SDL2_gfx\SDL2_framerate.h">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.h">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives_font.h">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\SDL2_gfx\SDL2_imageFilter.h">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\SDL2_gfx\SDL2_rotozoom.h">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\stb\SDL_stbimage.h">
-      <Filter>8 - External\stb</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\stb\stb_image.h">
-      <Filter>8 - External\stb</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\physfs\physfs.h">
-      <Filter>8 - External\physfs</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\physfs\physfs_casefolding.h">
-      <Filter>8 - External\physfs</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\physfs\physfs_internal.h">
-      <Filter>8 - External\physfs</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\physfs\physfs_lzmasdk.h">
-      <Filter>8 - External\physfs</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\physfs\physfs_miniz.h">
-      <Filter>8 - External\physfs</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\physfs\physfs_platforms.h">
-      <Filter>8 - External\physfs</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\mattiasgustavsson\rnd.h">
-      <Filter>8 - External\mattiasgustavsson</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\duktape\duktape.h">
-      <Filter>8 - External\duktape</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\duktape\duk_config.h">
-      <Filter>8 - External\duktape</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\cute\cute_files.h">
-      <Filter>8 - External\cute</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\mattiasgustavsson\hashtable.h">
-      <Filter>8 - External\mattiasgustavsson</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\physfs\physfsrwops.h">
-      <Filter>8 - External\physfs</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\rlutil\rlutil.h">
-      <Filter>8 - External\rlutil</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Asset.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Framework\Crossplatform_.h">
-      <Filter>1 - Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\stb\stb_image_write.h">
-      <Filter>8 - External\stb</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics\Screenshot.h">
-      <Filter>3 - Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Framework\Macrotools.h">
-      <Filter>1 - Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Framework\UnitTest.h">
-      <Filter>1 - Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Version.h">
-      <Filter>2 - Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Physics\Basic_Collision.h">
-      <Filter>6 - Physics</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\Core\Asset_private.c">
-      <Filter>2 - Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\Core.c">
-      <Filter>2 - Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\Core_private.c">
-      <Filter>2 - Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\Debug.c">
-      <Filter>2 - Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\Game.c">
-      <Filter>2 - Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\Game_private.c">
-      <Filter>2 - Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\Input.c">
-      <Filter>2 - Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\Input_private.c">
-      <Filter>2 - Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\Label.c">
-      <Filter>2 - Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\State.c">
-      <Filter>2 - Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\Window.c">
-      <Filter>2 - Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Framework\Log.c">
-      <Filter>1 - Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Framework\Memory_.c">
-      <Filter>1 - Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Framework\Random.c">
-      <Filter>1 - Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Framework\String_.c">
-      <Filter>1 - Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Framework\Terminal.c">
-      <Filter>1 - Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Framework\Terminal_private.c">
-      <Filter>1 - Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Camera.c">
-      <Filter>3 - Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Font.c">
-      <Filter>3 - Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Primitive.c">
-      <Filter>3 - Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Render.c">
-      <Filter>3 - Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Render_private.c">
-      <Filter>3 - Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Texture.c">
-      <Filter>3 - Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Texture_private.c">
-      <Filter>3 - Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Maths\Interpolate.c">
-      <Filter>4 - Maths</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\Time_.c">
-      <Filter>2 - Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\Time_private.c">
-      <Filter>2 - Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\Label_private.c">
-      <Filter>2 - Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Draw.c">
-      <Filter>3 - Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Gui.c">
-      <Filter>3 - Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Gui_private.c">
-      <Filter>3 - Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Audio\Music.c">
-      <Filter>5 - Audio</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Audio\Sound.c">
-      <Filter>5 - Audio</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Audio\Audio.c">
-      <Filter>5 - Audio</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\Entity.c">
-      <Filter>2 - Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\Data.c">
-      <Filter>2 - Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Sprite.c">
-      <Filter>3 - Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Animation.c">
-      <Filter>3 - Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\MacOS_.c">
-      <Filter>2 - Core</Filter>
-    </ClCompile>
     <ClCompile Include="src\Framework\Assert_.c">
-      <Filter>1 - Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Sprite_private.c">
-      <Filter>3 - Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Framework\File_.c">
-      <Filter>1 - Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\Config_private.c">
-      <Filter>2 - Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\Window_private.c">
-      <Filter>2 - Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Ressources\raw\Error.c">
-      <Filter>7 - Ressources\raw</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Ressources\raw\Icon.c">
-      <Filter>7 - Ressources\raw</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\SDL2_gfx\SDL2_framerate.c">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.c">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\SDL2_gfx\SDL2_imageFilter.c">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\SDL2_gfx\SDL2_rotozoom.c">
-      <Filter>8 - External\SDL2_gfx</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_7z.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_dir.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_grp.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_hog.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_iso9660.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_mvl.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_qpak.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_slb.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_unpacked.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_vdf.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_wad.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_archiver_zip.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_byteorder.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_platform_haiku.cpp">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_platform_os2.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_platform_posix.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_platform_qnx.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_platform_unix.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_platform_windows.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_platform_winrt.cpp">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfs_unicode.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\duktape\duktape.c">
-      <Filter>8 - External\duktape</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\physfs\physfsrwops.c">
-      <Filter>8 - External\physfs</Filter>
-    </ClCompile>
-    <ClCompile Include="src\External\rlutil\rlutil.c">
-      <Filter>8 - External\rlutil</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\Asset.c">
-      <Filter>2 - Core</Filter>
+      <Filter>Framework</Filter>
     </ClCompile>
     <ClCompile Include="src\Framework\Crossplatform_.c">
-      <Filter>1 - Framework</Filter>
+      <Filter>Framework</Filter>
     </ClCompile>
-    <ClCompile Include="src\Graphics\Screenshot.c">
-      <Filter>3 - Graphics</Filter>
+    <ClCompile Include="src\Framework\File_.c">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\Log.c">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\Memory_.c">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\Random.c">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\String_.c">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\Terminal.c">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\Terminal_private.c">
+      <Filter>Framework</Filter>
     </ClCompile>
     <ClCompile Include="src\Framework\UnitTest.c">
-      <Filter>1 - Framework</Filter>
+      <Filter>Framework</Filter>
     </ClCompile>
-    <ClCompile Include="src\Ressources\bin\err512_png.c">
-      <Filter>7 - Ressources\bin</Filter>
+    <ClCompile Include="src\External\rlutil\rlutil.c">
+      <Filter>External\rlutil</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs.c">
+      <Filter>External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_7z.c">
+      <Filter>External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_dir.c">
+      <Filter>External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_grp.c">
+      <Filter>External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_hog.c">
+      <Filter>External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_iso9660.c">
+      <Filter>External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_mvl.c">
+      <Filter>External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_qpak.c">
+      <Filter>External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_slb.c">
+      <Filter>External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_unpacked.c">
+      <Filter>External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_vdf.c">
+      <Filter>External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_wad.c">
+      <Filter>External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_archiver_zip.c">
+      <Filter>External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_byteorder.c">
+      <Filter>External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_platform_haiku.cpp">
+      <Filter>External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_platform_os2.c">
+      <Filter>External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_platform_posix.c">
+      <Filter>External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_platform_qnx.c">
+      <Filter>External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_platform_unix.c">
+      <Filter>External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_platform_windows.c">
+      <Filter>External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_platform_winrt.cpp">
+      <Filter>External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfs_unicode.c">
+      <Filter>External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\physfs\physfsrwops.c">
+      <Filter>External\physfs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Control2D.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Entity.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Graphics2D.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Interpolate.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Label.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Physics2D.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Texture.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\TextureManager.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Version.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Pack.c">
+      <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="src\Ressources\bin\err1024_png.c">
-      <Filter>7 - Ressources\bin</Filter>
+      <Filter>Ressources\bin</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ressources\bin\err512_png.c">
+      <Filter>Ressources\bin</Filter>
     </ClCompile>
     <ClCompile Include="src\Ressources\bin\gui27_png.c">
-      <Filter>7 - Ressources\bin</Filter>
+      <Filter>Ressources\bin</Filter>
     </ClCompile>
     <ClCompile Include="src\Ressources\bin\logo_png.c">
-      <Filter>7 - Ressources\bin</Filter>
+      <Filter>Ressources\bin</Filter>
     </ClCompile>
-    <ClCompile Include="src\Core\Version.c">
-      <Filter>2 - Core</Filter>
+    <ClCompile Include="src\Ressources\raw\Error.c">
+      <Filter>Ressources\raw</Filter>
     </ClCompile>
-    <ClCompile Include="src\Physics\Basic_Collision.c">
-      <Filter>6 - Physics</Filter>
+    <ClCompile Include="src\Ressources\raw\Icon.c">
+      <Filter>Ressources\raw</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Input.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Render.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Window.c">
+      <Filter>Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\NOTES.md" />
-    <None Include="..\..\README.md" />
-    <None Include="..\..\LICENSE.md" />
+    <ClInclude Include="src\Framework\Assert_.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Crossplatform_.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\File_.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Inline.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Log.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Macrotools.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Memory_.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Random.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\String_.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Terminal.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\Terminal_private.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\UnitTest.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\TypesFramework.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\rlutil\rlutil.h">
+      <Filter>External\rlutil</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\physfs\physfs.h">
+      <Filter>External\physfs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\physfs\physfs_casefolding.h">
+      <Filter>External\physfs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\physfs\physfs_internal.h">
+      <Filter>External\physfs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\physfs\physfs_lzmasdk.h">
+      <Filter>External\physfs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\physfs\physfs_miniz.h">
+      <Filter>External\physfs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\physfs\physfs_platforms.h">
+      <Filter>External\physfs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\physfs\physfsrwops.h">
+      <Filter>External\physfs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Box.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Color.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Color_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Control2D.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Control2D_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Entity.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Entity_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Graphics2D.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Graphics2D_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Input_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Interpolate.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Label.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Label_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Maths.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Physics2D.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Physics2D_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\SDL2_Includer.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Texture.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Texture_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\TextureManager.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\TypesCore.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Vector.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Version.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\TextureManager_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\stb\SDL_stbimage.h">
+      <Filter>External\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\stb\stb_image.h">
+      <Filter>External\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\stb\stb_image_write.h">
+      <Filter>External\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Pack.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Pack_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Input.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Render.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Render_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Window.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Window_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\External\physfs\physfs_platform_apple.m">
+      <Filter>External\physfs</Filter>
+    </None>
   </ItemGroup>
 </Project>

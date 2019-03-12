@@ -1,6 +1,0 @@
-﻿#ifndef ICE_GUARD_SPRITE_PRIVATE
-#define ICE_GUARD_SPRITE_PRIVATE
-
-
-
-#endif
