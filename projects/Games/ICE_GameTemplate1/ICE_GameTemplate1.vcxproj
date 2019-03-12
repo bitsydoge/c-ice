@@ -166,10 +166,12 @@
   <ItemGroup>
     <ClCompile Include="src\button.c" />
     <ClCompile Include="src\main.c" />
+    <ClCompile Include="src\skull.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\button.h" />
     <ClInclude Include="src\config.h" />
+    <ClInclude Include="src\skull.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

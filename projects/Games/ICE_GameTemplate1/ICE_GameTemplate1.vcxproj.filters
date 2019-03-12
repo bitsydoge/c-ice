@@ -13,12 +13,18 @@
     <ClCompile Include="src\button.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\skull.c">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\config.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\button.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\skull.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

@@ -53,7 +53,7 @@ void ICE_Game_Update()
 
 	ICE_String temp = ICE_String_Init("");
 	static ICE_Float timer_screenshot_value = 0.0;
-
+	
 	if(ICE_Input_OnPress(ICE_KEY_L))
 	{
 		ICE_EntityID entity_temp = ICE_Entity_Create(ICE_State_Current, ICE_Box_New(ICE_Random_Int(-500, 500), ICE_Random_Int(-500, 500), 64, 64));
