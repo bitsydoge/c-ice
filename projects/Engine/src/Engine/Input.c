@@ -102,19 +102,19 @@ ICE_Vect ICE_Input_MouseVector()
 
 int ICE_Input_MouseX_World()
 {
-	ICE_Box translating = { 0 };// = ICE_Camera_ScreenWorld(ICE_Box_New(OBJ_INPUT.mousex, OBJ_INPUT.mousey, 1, 1));
+	ICE_Vect translating = { 0 };// = ICE_Camera_ScreenWorld(ICE_Box_New(OBJ_INPUT.mousex, OBJ_INPUT.mousey, 1, 1));
 	return (int)translating.x;
 }
 
 int ICE_Input_MouseY_World()
 {
-	ICE_Box translating = { 0 };// = ICE_Camera_ScreenWorld(ICE_Box_New(OBJ_INPUT.mousex, OBJ_INPUT.mousey, 1, 1));
+	ICE_Vect translating = { 0 };// = ICE_Camera_ScreenWorld(ICE_Box_New(OBJ_INPUT.mousex, OBJ_INPUT.mousey, 1, 1));
 	return (int)translating.y;
 }
 
 ICE_Vect ICE_Input_MouseVector_World()
 {
-	ICE_Box translating = {0};// = ICE_Camera_ScreenWorld(ICE_Box_New(OBJ_INPUT.mousex, OBJ_INPUT.mousey, 1, 1));
+	ICE_Vect translating = {0};// = ICE_Camera_ScreenWorld(ICE_Box_New(OBJ_INPUT.mousex, OBJ_INPUT.mousey, 1, 1));
 	return ICE_Vect_New(translating.x, translating.y);
 }
 

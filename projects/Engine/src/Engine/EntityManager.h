@@ -1,0 +1,6 @@
+﻿#ifndef DEF_ICE_ENTITYMANAGER_H
+#define DEF_ICE_ENTITYMANAGER_H
+
+
+
+#endif

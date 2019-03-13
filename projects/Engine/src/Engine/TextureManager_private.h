@@ -4,6 +4,8 @@
 #include "TextureManager.h"
 #include "Texture.h"
 
+#define ICE_DEFAULT_TEXTUREMNGR_SIZE 4
+
 /**
  * \brief Texture Manager
  */

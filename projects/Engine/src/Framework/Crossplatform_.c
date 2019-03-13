@@ -20,7 +20,7 @@ int vscprintf(const char *format, va_list ap)
 
 #ifdef _MSC_VER
 
-int ICE_Crossplat_vasprintf(char **strp, const char *format, va_list ap)
+int ICE_Xplat_vasprintf(char **strp, const char *format, va_list ap)
 {
     int len = vscprintf(format, ap);
     if (len == -1)
@@ -37,11 +37,11 @@ int ICE_Crossplat_vasprintf(char **strp, const char *format, va_list ap)
     return retval;
 }
 
-int ICE_Crossplat_asprintf(char **strp, const char *format, ...)
+int ICE_Xplat_asprintf(char **strp, const char *format, ...)
 {
     va_list ap;
     va_start(ap, format);
-    int retval = ICE_Crossplat_vasprintf(strp, format, ap);
+    int retval = ICE_Xplat_vasprintf(strp, format, ap);
     va_end(ap);
     return retval;
 }

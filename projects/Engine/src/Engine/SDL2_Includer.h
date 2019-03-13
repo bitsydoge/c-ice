@@ -1,5 +1,5 @@
-﻿#ifndef ICE_SDL2_INCLUDER
-#define ICE_SDL2_INCLUDER
+﻿#ifndef ICE_SDL2_INCLUDER_H
+#define ICE_SDL2_INCLUDER_H
 
 // If I need to edit SDL path location easly with include
 

@@ -82,7 +82,7 @@ ICE_String ICE_String_Init2(ICE_StringStd stdstring, ...)
 	va_list args;
 	va_start(args, stdstring);
 	ICE_StringStd buffer;
-	ICE_Crossplat_vasprintf(&buffer, stdstring, args);
+	ICE_Xplat_vasprintf(&buffer, stdstring, args);
 	va_end(args);
 
 	const int size_string = ICE_String_STDSize(buffer);
@@ -183,7 +183,7 @@ void ICE_String_Set2(ICE_String* ptr_string, ICE_StringStd value, ...)
 	va_list args;
 	va_start(args, value);
 	ICE_StringStd buffer;
-	ICE_Crossplat_vasprintf(&buffer, value, args);
+	ICE_Xplat_vasprintf(&buffer, value, args);
 	ICE_String_Free(*ptr_string);
 	*ptr_string = ICE_String_Init(buffer);
 	ICE_Free(buffer);

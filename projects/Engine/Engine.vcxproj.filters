@@ -19,17 +19,14 @@
     <Filter Include="External\stb">
       <UniqueIdentifier>{0f3b9440-9e01-4782-805a-f98124e9ee1e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Ressources">
+    <Filter Include="Resources">
       <UniqueIdentifier>{e3868e68-971c-4e32-b03b-c8018ae1aabb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Ressources\bin">
+    <Filter Include="Resources\bin">
       <UniqueIdentifier>{06af62b4-6be0-421c-9dc3-f2127ada1be8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Ressources\raw">
+    <Filter Include="Resources\raw">
       <UniqueIdentifier>{ae8ce301-23df-470a-85a6-701962145174}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ressources\src">
-      <UniqueIdentifier>{bc892f65-5dae-45be-abfc-710c1fd5a2f7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -165,31 +162,58 @@
     <ClCompile Include="src\Engine\Pack.c">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="src\Ressources\bin\err1024_png.c">
-      <Filter>Ressources\bin</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Ressources\bin\err512_png.c">
-      <Filter>Ressources\bin</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Ressources\bin\gui27_png.c">
-      <Filter>Ressources\bin</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Ressources\bin\logo_png.c">
-      <Filter>Ressources\bin</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Ressources\raw\Error.c">
-      <Filter>Ressources\raw</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Ressources\raw\Icon.c">
-      <Filter>Ressources\raw</Filter>
-    </ClCompile>
     <ClCompile Include="src\Engine\Input.c">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="src\Engine\Render.c">
+    <ClCompile Include="src\Engine\Collision_Basic.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Renderer.c">
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\Window.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Resources.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Timer.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\EntityManager.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Camera.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Scene.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Framework\MacOS_.c">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ressources\bin\err1024_png.c">
+      <Filter>Resources\bin</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ressources\bin\err512_png.c">
+      <Filter>Resources\bin</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ressources\bin\gui27_png.c">
+      <Filter>Resources\bin</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ressources\bin\logo_png.c">
+      <Filter>Resources\bin</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ressources\raw\Error.c">
+      <Filter>Resources\raw</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ressources\raw\Icon.c">
+      <Filter>Resources\raw</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Data.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Time_.c">
       <Filter>Engine</Filter>
     </ClCompile>
   </ItemGroup>
@@ -261,9 +285,6 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Color.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Color_private.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Control2D.h">
@@ -347,16 +368,55 @@
     <ClInclude Include="src\Engine\Input.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Render.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Render_private.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="src\Engine\Window.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Window_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Collision_Basic.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\SDL2_Converter_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Renderer.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Renderer_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Resources_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Timer.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\EntityManager.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\EntityManager_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Camera.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Camera_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Scene.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Scene_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\MacOS_.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Data.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Time_.h">
       <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>

@@ -19,17 +19,25 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Engine\Camera.c" />
+    <ClCompile Include="src\Engine\Collision_Basic.c" />
     <ClCompile Include="src\Engine\Control2D.c" />
+    <ClCompile Include="src\Engine\Data.c" />
     <ClCompile Include="src\Engine\Entity.c" />
+    <ClCompile Include="src\Engine\EntityManager.c" />
     <ClCompile Include="src\Engine\Graphics2D.c" />
     <ClCompile Include="src\Engine\Input.c" />
     <ClCompile Include="src\Engine\Interpolate.c" />
     <ClCompile Include="src\Engine\Label.c" />
     <ClCompile Include="src\Engine\Pack.c" />
     <ClCompile Include="src\Engine\Physics2D.c" />
-    <ClCompile Include="src\Engine\Render.c" />
+    <ClCompile Include="src\Engine\Renderer.c" />
+    <ClCompile Include="src\Engine\Resources.c" />
+    <ClCompile Include="src\Engine\Scene.c" />
     <ClCompile Include="src\Engine\Texture.c" />
     <ClCompile Include="src\Engine\TextureManager.c" />
+    <ClCompile Include="src\Engine\Timer.c" />
+    <ClCompile Include="src\Engine\Time_.c" />
     <ClCompile Include="src\Engine\Version.c" />
     <ClCompile Include="src\Engine\Window.c" />
     <ClCompile Include="src\External\physfs\physfs.c" />
@@ -60,6 +68,7 @@
     <ClCompile Include="src\Framework\Crossplatform_.c" />
     <ClCompile Include="src\Framework\File_.c" />
     <ClCompile Include="src\Framework\Log.c" />
+    <ClCompile Include="src\Framework\MacOS_.c" />
     <ClCompile Include="src\Framework\Memory_.c" />
     <ClCompile Include="src\Framework\Random.c" />
     <ClCompile Include="src\Framework\String_.c" />
@@ -75,11 +84,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Engine\Box.h" />
+    <ClInclude Include="src\Engine\Camera.h" />
+    <ClInclude Include="src\Engine\Camera_private.h" />
+    <ClInclude Include="src\Engine\Collision_Basic.h" />
     <ClInclude Include="src\Engine\Color.h" />
-    <ClInclude Include="src\Engine\Color_private.h" />
     <ClInclude Include="src\Engine\Control2D.h" />
     <ClInclude Include="src\Engine\Control2D_private.h" />
+    <ClInclude Include="src\Engine\Data.h" />
     <ClInclude Include="src\Engine\Entity.h" />
+    <ClInclude Include="src\Engine\EntityManager.h" />
+    <ClInclude Include="src\Engine\EntityManager_private.h" />
     <ClInclude Include="src\Engine\Entity_private.h" />
     <ClInclude Include="src\Engine\Graphics2D.h" />
     <ClInclude Include="src\Engine\Graphics2D_private.h" />
@@ -93,13 +107,19 @@
     <ClInclude Include="src\Engine\Pack_private.h" />
     <ClInclude Include="src\Engine\Physics2D.h" />
     <ClInclude Include="src\Engine\Physics2D_private.h" />
-    <ClInclude Include="src\Engine\Render.h" />
-    <ClInclude Include="src\Engine\Render_private.h" />
+    <ClInclude Include="src\Engine\Renderer.h" />
+    <ClInclude Include="src\Engine\Renderer_private.h" />
+    <ClInclude Include="src\Engine\Resources_private.h" />
+    <ClInclude Include="src\Engine\Scene.h" />
+    <ClInclude Include="src\Engine\Scene_private.h" />
+    <ClInclude Include="src\Engine\SDL2_Converter_private.h" />
     <ClInclude Include="src\Engine\SDL2_Includer.h" />
     <ClInclude Include="src\Engine\Texture.h" />
     <ClInclude Include="src\Engine\TextureManager.h" />
     <ClInclude Include="src\Engine\TextureManager_private.h" />
     <ClInclude Include="src\Engine\Texture_private.h" />
+    <ClInclude Include="src\Engine\Timer.h" />
+    <ClInclude Include="src\Engine\Time_.h" />
     <ClInclude Include="src\Engine\TypesCore.h" />
     <ClInclude Include="src\Engine\Vector.h" />
     <ClInclude Include="src\Engine\Version.h" />
@@ -121,6 +141,7 @@
     <ClInclude Include="src\Framework\File_.h" />
     <ClInclude Include="src\Framework\Inline.h" />
     <ClInclude Include="src\Framework\Log.h" />
+    <ClInclude Include="src\Framework\MacOS_.h" />
     <ClInclude Include="src\Framework\Macrotools.h" />
     <ClInclude Include="src\Framework\Memory_.h" />
     <ClInclude Include="src\Framework\Random.h" />
