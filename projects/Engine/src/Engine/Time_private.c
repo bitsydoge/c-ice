@@ -1,19 +1,19 @@
 #include "Time_private.h"
-#include "TypesCore.h"
+#include "Types.h"
 
 #include "../External/SDL2_gfx/SDL2_framerate.h"
 #include "../Framework/Log.h"
 
-extern ICE_Game GAME;
-extern ICE_Core CORE;
-extern ICE_Config CONFIG;
-
 FPSmanager fps_manager_global;
+
+#include "Config_private.h"
+#include "GlobalData_private.h"
+ICE_GLOBALDATA_CONFIG
 
 void ICE_Time_Init()
 {
 	SDL_initFramerate(&fps_manager_global);
-	if(SDL_setFramerate(&fps_manager_global, CONFIG.refresh_rate) == -1)
+	if(SDL_setFramerate(&fps_manager_global, ICE_GLOBJ_CONFIG.refresh_rate) == -1)
 		ICE_Log(ICE_LOGTYPE_ERROR, "SDL_Gfx -> SDL_setFramerate");
 }
 
@@ -38,8 +38,8 @@ void ICE_Time_End()
 	static double fps_count[NB_COUNT_FPS];
 	static int fps_actual_to_fill = 0;
 	static ICE_Bool trigger_fpsblock = ICE_False;
-	Uint32 elapsedMS = SDL_framerateDelay(&fps_manager_global);
-	CORE.time.delta = (ICE_Float) elapsedMS / 1000.0;
+	ICE_Uint32 elapsedMS = SDL_framerateDelay(&fps_manager_global);
+	//CORE.time.delta = (ICE_Float) elapsedMS / 1000.0;
 	
 	fps_count[fps_actual_to_fill] = 1000.0 / (ICE_Float)elapsedMS;
 	fps_actual_to_fill++;
@@ -57,7 +57,7 @@ void ICE_Time_End()
 		ICE_Float somme = 0;
 		for (int i = 0; i < NB_COUNT_FPS; i++)
 			somme += fps_count[i];
-		CORE.time.fps = (ICE_Float)somme / NB_COUNT_FPS;
+		//CORE.time.fps = (ICE_Float)somme / NB_COUNT_FPS;
 		time_to_refresh = 0;
 	}
 	

@@ -9,7 +9,7 @@ extern ICE_Renderer ICE_GLOBJ_RENDERER;
 void ICE_Texture_ErrorInit()
 {
 	SDL_RendererInfo info_renderer;
-	SDL_GetRendererInfo(ICE_GLOBJ_RENDERER.render, &info_renderer);
+	SDL_GetRendererInfo(ICE_GLOBJ_RENDERER.handle, &info_renderer);
 	if (info_renderer.max_texture_width >= 1024 && info_renderer.max_texture_height >= 1024)
 	{
 #include "../Ressources/bin/err1024_png.c"

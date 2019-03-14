@@ -28,6 +28,9 @@
     <Filter Include="Resources\raw">
       <UniqueIdentifier>{ae8ce301-23df-470a-85a6-701962145174}</UniqueIdentifier>
     </Filter>
+    <Filter Include="External\SDL_gfx">
+      <UniqueIdentifier>{7b333ddf-6af8-48ef-a4de-f72896fd4ecf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Framework\Assert_.c">
@@ -132,63 +135,6 @@
     <ClCompile Include="src\External\physfs\physfsrwops.c">
       <Filter>External\physfs</Filter>
     </ClCompile>
-    <ClCompile Include="src\Engine\Control2D.c">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Entity.c">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Graphics2D.c">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Interpolate.c">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Label.c">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Physics2D.c">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Texture.c">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\TextureManager.c">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Version.c">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Pack.c">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Input.c">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Collision_Basic.c">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Renderer.c">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Window.c">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Resources.c">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Timer.c">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\EntityManager.c">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Camera.c">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Scene.c">
-      <Filter>Engine</Filter>
-    </ClCompile>
     <ClCompile Include="src\Framework\MacOS_.c">
       <Filter>Framework</Filter>
     </ClCompile>
@@ -210,10 +156,109 @@
     <ClCompile Include="src\Ressources\raw\Icon.c">
       <Filter>Resources\raw</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_framerate.c">
+      <Filter>External\SDL_gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_gfxPrimitives.c">
+      <Filter>External\SDL_gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_imageFilter.c">
+      <Filter>External\SDL_gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_rotozoom.c">
+      <Filter>External\SDL_gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Audio.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Camera.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Collision_Basic.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Config.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Control2D.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Core.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
     <ClCompile Include="src\Engine\Data.c">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="src\Engine\Entity.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\EntityManager.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Graphics2D.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Input.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Interpolate.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Label.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Music.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\MusicManager.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Pack.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Physics2D.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Renderer.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Resources.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Scene.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Sound.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\SoundManager.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Texture.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\TextureManager.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
     <ClCompile Include="src\Engine\Time_.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Time_private.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Timer.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Version.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Window.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Debug.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Game.c">
       <Filter>Engine</Filter>
     </ClCompile>
   </ItemGroup>
@@ -278,10 +323,61 @@
     <ClInclude Include="src\External\physfs\physfsrwops.h">
       <Filter>External\physfs</Filter>
     </ClInclude>
+    <ClInclude Include="src\External\stb\SDL_stbimage.h">
+      <Filter>External\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\stb\stb_image.h">
+      <Filter>External\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\stb\stb_image_write.h">
+      <Filter>External\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\MacOS_.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\BasicTypes.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_framerate.h">
+      <Filter>External\SDL_gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_gfxPrimitives.h">
+      <Filter>External\SDL_gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_gfxPrimitives_font.h">
+      <Filter>External\SDL_gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_imageFilter.h">
+      <Filter>External\SDL_gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_rotozoom.h">
+      <Filter>External\SDL_gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Audio.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Audio_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
     <ClInclude Include="src\Engine\Box.h">
       <Filter>Engine</Filter>
     </ClInclude>
+    <ClInclude Include="src\Engine\Camera.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Camera_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Collision_Basic.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
     <ClInclude Include="src\Engine\Color.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Config.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Config_private.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Control2D.h">
@@ -290,16 +386,34 @@
     <ClInclude Include="src\Engine\Control2D_private.h">
       <Filter>Engine</Filter>
     </ClInclude>
+    <ClInclude Include="src\Engine\Core.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Core_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Data.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
     <ClInclude Include="src\Engine\Entity.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Entity_private.h">
       <Filter>Engine</Filter>
     </ClInclude>
+    <ClInclude Include="src\Engine\EntityManager.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\EntityManager_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
     <ClInclude Include="src\Engine\Graphics2D.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Graphics2D_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Input.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Input_private.h">
@@ -317,41 +431,17 @@
     <ClInclude Include="src\Engine\Maths.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Physics2D.h">
+    <ClInclude Include="src\Engine\Music.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Physics2D_private.h">
+    <ClInclude Include="src\Engine\Music_private.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\SDL2_Includer.h">
+    <ClInclude Include="src\Engine\MusicManager.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Texture.h">
+    <ClInclude Include="src\Engine\MusicManager_private.h">
       <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Texture_private.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\TextureManager.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Vector.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Version.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\TextureManager_private.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\stb\SDL_stbimage.h">
-      <Filter>External\stb</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\stb\stb_image.h">
-      <Filter>External\stb</Filter>
-    </ClInclude>
-    <ClInclude Include="src\External\stb\stb_image_write.h">
-      <Filter>External\stb</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Pack.h">
       <Filter>Engine</Filter>
@@ -359,19 +449,10 @@
     <ClInclude Include="src\Engine\Pack_private.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Input.h">
+    <ClInclude Include="src\Engine\Physics2D.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Window.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Window_private.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Collision_Basic.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\SDL2_Converter_private.h">
+    <ClInclude Include="src\Engine\Physics2D_private.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Renderer.h">
@@ -383,41 +464,77 @@
     <ClInclude Include="src\Engine\Resources_private.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Timer.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\EntityManager.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\EntityManager_private.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Camera.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Camera_private.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="src\Engine\Scene.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Scene_private.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="src\Framework\MacOS_.h">
-      <Filter>Framework</Filter>
+    <ClInclude Include="src\Engine\SDL2_Converter_private.h">
+      <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Data.h">
+    <ClInclude Include="src\Engine\SDL2_Includer.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Sound.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Sound_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\SoundManager.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\SoundManager_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Texture.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Texture_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\TextureManager.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\TextureManager_private.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Time_.h">
       <Filter>Engine</Filter>
     </ClInclude>
+    <ClInclude Include="src\Engine\Time_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Timer.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
     <ClInclude Include="src\Engine\Types.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="src\Framework\BasicTypes.h">
-      <Filter>Framework</Filter>
+    <ClInclude Include="src\Engine\Vector.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Version.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Window.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Window_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Debug.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\GlobalData_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Game.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Game_private.h">
+      <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

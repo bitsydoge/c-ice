@@ -155,7 +155,7 @@ ICE_Texture ICE_Texture_LoadFromFile_RW(SDL_RWops* rwops_)
 	}
 	else
 	{
-		text.handle = SDL_CreateTextureFromSurface(ICE_GLOBJ_RENDERER.render, surf);
+		text.handle = SDL_CreateTextureFromSurface(ICE_GLOBJ_RENDERER.handle, surf);
 		if (text.handle == NULL)
 			ICE_Log_Critical("Can't create Texture from Surface : %s \n", SDL_GetError());
 		text.w = surf->w; text.h = surf->h;
@@ -169,20 +169,20 @@ int ICE_Texture_RenderEx(const ICE_Texture * texture, ICE_Box * src, ICE_Box * d
 	if (!src && dst)
 	{
 		SDL_Rect s_dst = ICE_Convert_BoxToSDL(dst);
-		return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.render, texture->handle, NULL, &s_dst, angle, NULL, SDL_FLIP_NONE);
+		return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.handle, texture->handle, NULL, &s_dst, angle, NULL, SDL_FLIP_NONE);
 	}
 	if (src && !dst)
 	{
 		SDL_Rect s_src = ICE_Convert_BoxToSDL(src);
-		return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.render, texture->handle, &s_src, NULL, angle, NULL, SDL_FLIP_NONE);
+		return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.handle, texture->handle, &s_src, NULL, angle, NULL, SDL_FLIP_NONE);
 	}
 	if (!src && !dst)
 	{
-		return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.render, texture->handle, NULL, NULL, angle, NULL, SDL_FLIP_NONE);
+		return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.handle, texture->handle, NULL, NULL, angle, NULL, SDL_FLIP_NONE);
 	}
 	SDL_Rect s_dst = ICE_Convert_BoxToSDL(dst);
 	SDL_Rect s_src = ICE_Convert_BoxToSDL(src);
-	return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.render, texture->handle, &s_src, &s_dst, angle, NULL, SDL_FLIP_NONE);
+	return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.handle, texture->handle, &s_src, &s_dst, angle, NULL, SDL_FLIP_NONE);
 }
 
 int ICE_Texture_RenderEx2(const ICE_Texture * tex, ICE_Box * src, ICE_Box * dst, const ICE_Float angle)
@@ -191,19 +191,19 @@ int ICE_Texture_RenderEx2(const ICE_Texture * tex, ICE_Box * src, ICE_Box * dst,
 	{
 		SDL_Rect s_dst = ICE_Convert_BoxToSDL(dst);
 		s_dst.x -= s_dst.w / 2; s_dst.y -= s_dst.h / 2;
-		return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.render, tex->handle, NULL, &s_dst, angle, NULL, SDL_FLIP_NONE);
+		return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.handle, tex->handle, NULL, &s_dst, angle, NULL, SDL_FLIP_NONE);
 	}
 	if (src && !dst)
 	{
 		SDL_Rect s_src = ICE_Convert_BoxToSDL(src);
-		return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.render, tex->handle, &s_src, NULL, angle, NULL, SDL_FLIP_NONE);
+		return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.handle, tex->handle, &s_src, NULL, angle, NULL, SDL_FLIP_NONE);
 	}
 	if (!src && !dst)
 	{
-		return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.render, tex->handle, NULL, NULL, angle, NULL, SDL_FLIP_NONE);
+		return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.handle, tex->handle, NULL, NULL, angle, NULL, SDL_FLIP_NONE);
 	}
 	SDL_Rect s_dst = ICE_Convert_BoxToSDL(dst);
 	s_dst.x -= s_dst.w / 2; s_dst.y -= s_dst.h / 2;
 	SDL_Rect s_src = ICE_Convert_BoxToSDL(src);
-	return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.render, tex->handle, &s_src, &s_dst, angle, NULL, SDL_FLIP_NONE);
+	return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.handle, tex->handle, &s_src, &s_dst, angle, NULL, SDL_FLIP_NONE);
 }

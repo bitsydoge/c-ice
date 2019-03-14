@@ -1,3 +1,3 @@
 ﻿#include "Window_private.h"
 
-ICE_Window WINDOW = {0};
+ICE_Window ICE_GLOBJ_WINDOW = {0};

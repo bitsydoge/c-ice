@@ -15,8 +15,8 @@ struct ICE_Scene
 	void					(*func_update)(void);
 	void					(*func_destroy)(void);
 
-	void					(*func_OnResume)(void);
 	void					(*func_OnPause)(void);
+	void					(*func_OnResume)(void);
 
 	// Camera
 	ICE_Camera				camera;
@@ -34,7 +34,7 @@ struct ICE_Scene
 	ICE_ID					data_nb;
 	void**					data;
 
-	ICE_Color				background;
+	ICE_Color				background_color;
 
 	struct ICE_Scene *		parent;
 

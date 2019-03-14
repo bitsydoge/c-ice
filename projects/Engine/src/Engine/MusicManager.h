@@ -1,0 +1,6 @@
+﻿#ifndef DEF_ICE_MUSICMANAGER_H
+#define DEF_ICE_MUSICMANAGER_H
+
+
+
+#endif
