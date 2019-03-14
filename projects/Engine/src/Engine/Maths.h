@@ -3,7 +3,7 @@
 
 #include <math.h>
 #include "../Framework/Inline.h"
-#include "../Framework/TypesFramework.h"
+#include "../Framework/BasicTypes.h"
 
 /// Move point to an other point from a r distance in float
 ICE_INLINE void ICE_Maths_MoveFromAngle(ICE_Float *x, ICE_Float *y, const ICE_Float angle, const ICE_Float r) {

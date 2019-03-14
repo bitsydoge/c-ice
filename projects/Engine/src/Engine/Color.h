@@ -2,7 +2,7 @@
 #define DEF_ICE_COLOR
 
 #include "../Framework/Inline.h"
-#include "../Framework/TypesFramework.h"
+#include "../Framework/BasicTypes.h"
 
 /**
  * \brief Color in the Engine, it's a uint32_t for 8 bits per value (R, G, B, A)

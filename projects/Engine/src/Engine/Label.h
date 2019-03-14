@@ -10,6 +10,7 @@ struct ICE_Label
 	ICE_Color color;
 	int size;
 	int warp_size;
+
 }; typedef struct ICE_Label ICE_Label;
 
 

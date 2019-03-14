@@ -1,7 +1,7 @@
 #ifndef DEF_ICE_DYNSTRING
 #define DEF_ICE_DYNSTRING
 
-#include "TypesFramework.h"
+#include "BasicTypes.h"
 
 typedef char ICE_Char;
 

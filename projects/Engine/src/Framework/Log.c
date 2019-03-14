@@ -3,7 +3,7 @@
 #if defined(_DEBUG)
 
 #include "Terminal.h"
-#include "TypesFramework.h"
+#include "BasicTypes.h"
 #include "../External/rlutil/rlutil.h"
 
 #include <stdarg.h>

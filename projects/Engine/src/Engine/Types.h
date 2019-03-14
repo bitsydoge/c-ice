@@ -1,7 +1,7 @@
 ﻿#ifndef DEF_ICE_TYPESCORE
 #define DEF_ICE_TYPESCORE
 
-#include "../Framework/TypesFramework.h"
+#include "../Framework/BasicTypes.h"
 
 // Typedef
 // --------------------------------------

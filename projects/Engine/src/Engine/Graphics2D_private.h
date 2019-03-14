@@ -1,9 +1,9 @@
 ﻿#ifndef DEF_ICE_GRAPHICS2D_PRIVATE_H
 #define DEF_ICE_GRAPHICS2D_PRIVATE_H
 
-#include "../Framework/TypesFramework.h"
+#include "../Framework/BasicTypes.h"
 
-#include "TypesCore.h"
+#include "Types.h"
 #include "Vector.h"
 #include "Color.h"
 #include "Label.h"

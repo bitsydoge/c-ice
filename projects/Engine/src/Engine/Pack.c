@@ -1,5 +1,7 @@
-﻿#include "../Framework/String_.h"
+﻿#include "../Framework/BasicTypes.h"
+#include "../Framework/String_.h"
 #include "../External/physfs/physfs.h"
+#include <stddef.h>
 
 void ICE_Pack_Load(ICE_StringStd path_)
 {

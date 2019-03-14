@@ -120,7 +120,7 @@
     <ClInclude Include="src\Engine\Texture_private.h" />
     <ClInclude Include="src\Engine\Timer.h" />
     <ClInclude Include="src\Engine\Time_.h" />
-    <ClInclude Include="src\Engine\TypesCore.h" />
+    <ClInclude Include="src\Engine\Types.h" />
     <ClInclude Include="src\Engine\Vector.h" />
     <ClInclude Include="src\Engine\Version.h" />
     <ClInclude Include="src\Engine\Window.h" />
@@ -148,7 +148,7 @@
     <ClInclude Include="src\Framework\String_.h" />
     <ClInclude Include="src\Framework\Terminal.h" />
     <ClInclude Include="src\Framework\Terminal_private.h" />
-    <ClInclude Include="src\Framework\TypesFramework.h" />
+    <ClInclude Include="src\Framework\BasicTypes.h" />
     <ClInclude Include="src\Framework\UnitTest.h" />
   </ItemGroup>
   <ItemGroup>

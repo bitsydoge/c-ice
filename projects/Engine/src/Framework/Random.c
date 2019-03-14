@@ -3,7 +3,7 @@
 #include <time.h>
 #include <stdlib.h>
 
-#include "TypesFramework.h"
+#include "BasicTypes.h"
 #include "Log.h"
 
 #if defined(__linux__) || defined(_POSIX_VERSION)

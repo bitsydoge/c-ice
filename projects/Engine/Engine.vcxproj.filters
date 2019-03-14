@@ -254,9 +254,6 @@
     <ClInclude Include="src\Framework\UnitTest.h">
       <Filter>Framework</Filter>
     </ClInclude>
-    <ClInclude Include="src\Framework\TypesFramework.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
     <ClInclude Include="src\External\rlutil\rlutil.h">
       <Filter>External\rlutil</Filter>
     </ClInclude>
@@ -338,9 +335,6 @@
     <ClInclude Include="src\Engine\TextureManager.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\TypesCore.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="src\Engine\Vector.h">
       <Filter>Engine</Filter>
     </ClInclude>
@@ -418,6 +412,12 @@
     </ClInclude>
     <ClInclude Include="src\Engine\Time_.h">
       <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Types.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\BasicTypes.h">
+      <Filter>Framework</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

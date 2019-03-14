@@ -8,7 +8,7 @@
 #include "../External/stb/SDL_stbimage.h"
 
 #include "Pack.h"
-#include "TypesCore.h"
+#include "Types.h"
 #include "TextureManager_private.h"
 
 #include "Renderer_private.h"

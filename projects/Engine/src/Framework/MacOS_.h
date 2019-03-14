@@ -5,7 +5,7 @@
 #ifndef ICE_MACOS_H
 #define ICE_MACOS_H
 
-#include "../Framework/TypesFramework.h"
+#include "BasicTypes.h"
 #include "../Framework/String_.h"
 
 #if defined(__APPLE__)

@@ -1,7 +1,7 @@
 ﻿#ifndef DEF_ICE_INPUT
 #define DEF_ICE_INPUT
 
-#include "../Framework/TypesFramework.h"
+#include "../Framework/BasicTypes.h"
 #include "Vector.h"
 
 /**

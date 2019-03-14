@@ -15,4 +15,7 @@ struct ICE_EntityManager
 
 #define ICE_DEFAULT_ENTITY_MNGR_SIZE 4
 
+void ICE_EntityManager_Init(ICE_EntityManager* entitymanager_);
+void ICE_EntityManager_Destroy(ICE_EntityManager* entitymanager_);
+
 #endif

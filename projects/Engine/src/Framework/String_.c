@@ -6,7 +6,7 @@
 #include "Assert_.h"
 #include "Log.h"
 #include "Crossplatform_.h"
-#include "TypesFramework.h"
+#include "BasicTypes.h"
 
 // Number of char per int on that platform
 static const int cpi = sizeof(int) / sizeof(ICE_Char);

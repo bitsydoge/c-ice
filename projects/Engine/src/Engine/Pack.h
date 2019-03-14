@@ -2,7 +2,8 @@
 #define DEF_ICE_PACK
 
 #include "../Framework/String_.h"
-#include "../Framework/TypesFramework.h"
+#include "../Framework/BasicTypes.h"
+#include "Types.h"
 #include "../Framework/Macrotools.h"
 
 // Pack Loader/Unloader

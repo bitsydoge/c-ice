@@ -2,7 +2,7 @@
 #define DEF_ICE_VECTOR_H
 
 #include <math.h>
-#include "../Framework/TypesFramework.h"
+#include "../Framework/BasicTypes.h"
 #include "../Framework/Inline.h"
 
 /**

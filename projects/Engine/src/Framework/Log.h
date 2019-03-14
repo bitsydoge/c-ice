@@ -1,5 +1,6 @@
 ﻿#ifndef DEF_ICE_LOG
 #define DEF_ICE_LOG
+
 #include "Macrotools.h"
 
 /**

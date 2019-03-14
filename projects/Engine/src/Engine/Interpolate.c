@@ -26,7 +26,7 @@
 
 #include <math.h>
 
-#include "../Framework/TypesFramework.h"
+#include "../Framework/BasicTypes.h"
 
 static const double Pi = 3.14159265358979323846264338328;
 static const double Pi_2 = 3.14159265358979323846264338328 * 2;

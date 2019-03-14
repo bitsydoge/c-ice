@@ -3,7 +3,7 @@
 
 #include "Control2D.h"
 
-#include "../Framework/TypesFramework.h"
+#include "../Framework/BasicTypes.h"
 
 struct ICE_Control2D
 {

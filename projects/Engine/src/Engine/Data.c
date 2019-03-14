@@ -4,7 +4,7 @@
 #include "../Framework/Assert_.h"
 #include "../Framework/Memory_.h"
 
-#include "TypesCore.h"
+#include "Types.h"
 #include "Scene_private.h"
 
 extern ICE_Scene* ICE_GLOBJ_SCENE_CURRENT;

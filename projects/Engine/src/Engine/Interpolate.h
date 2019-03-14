@@ -26,7 +26,7 @@
 #ifndef DEF_ICE_INTERPOLATE
 #define DEF_ICE_INTERPOLATE
 
-#include "../Framework/TypesFramework.h"
+#include "../Framework/BasicTypes.h"
 
 /**
  * \brief 

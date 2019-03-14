@@ -1,7 +1,7 @@
 ﻿#ifndef DEF_ICE_TIMER_PRIVATE
 #define DEF_ICE_TIMER_PRIVATE
 
-#include "../Framework/TypesFramework.h"
+#include "../Framework/BasicTypes.h"
 
 struct ICE_Timer
 {

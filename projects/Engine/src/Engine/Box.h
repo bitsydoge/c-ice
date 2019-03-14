@@ -2,7 +2,7 @@
 #define DEF_ICE_BOX
 
 #include "../Framework/Inline.h"
-#include "../Framework/TypesFramework.h"
+#include "../Framework/BasicTypes.h"
 #include "Vector.h"
 
 /**

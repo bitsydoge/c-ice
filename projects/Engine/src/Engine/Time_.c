@@ -1,7 +1,9 @@
 ﻿#include "Time_.h"
+
+#include "../Framework/BasicTypes.h"
 #include <time.h>
 
-ICE_Uint64 ICE_Time_GetMS() 
+ICE_Float ICE_Time_GetMS() 
 {
 	return (ICE_Float)clock();
 }

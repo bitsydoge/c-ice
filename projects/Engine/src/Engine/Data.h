@@ -2,7 +2,7 @@
 #define DEF_ICE_DATA
 
 #include "Scene_private.h"
-#include "TypesCore.h"
+#include "Types.h"
 
 #define ICE_Data_Insert(STATE, DATATYPE) ICE_Data_Insert_(STATE, sizeof(DATATYPE))
 

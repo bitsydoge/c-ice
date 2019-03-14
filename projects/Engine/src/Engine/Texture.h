@@ -2,8 +2,9 @@
 #define DEF_ICE_TEXTURE
 
 #include "../Framework/String_.h"
-#include "TypesCore.h"
+#include "Types.h"
 #include <SDL2/SDL.h>
+#include "../Framework/BasicTypes.h"
 
 /**
  * \brief Texture struct handling sdl texture

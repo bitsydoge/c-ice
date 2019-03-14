@@ -1,7 +1,7 @@
 ﻿#ifndef DEF_ICE_CAMERA_PRIVATE_H
 #define DEF_ICE_CAMERA_PRIVATE_H
 
-#include "../Framework/TypesFramework.h"
+#include "../Framework/BasicTypes.h"
 
 struct ICE_Camera
 {

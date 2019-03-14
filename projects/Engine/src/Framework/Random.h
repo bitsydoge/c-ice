@@ -1,7 +1,7 @@
 ﻿#ifndef DEF_ICE_RANDOM
 #define DEF_ICE_RANDOM
 
-#include "TypesFramework.h"
+#include "BasicTypes.h"
 
 /**
  * \brief Init the random system

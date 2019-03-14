@@ -1,6 +1,7 @@
 ﻿#include "Timer.h"
 
 #include <SDL2/SDL.h>
+#include "../Framework/BasicTypes.h"
 
 void ICE_Timer_Start(ICE_Timer * timer_)
 {
