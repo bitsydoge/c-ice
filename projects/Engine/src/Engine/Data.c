@@ -10,15 +10,15 @@
 extern ICE_Scene* ICE_GLOBJ_SCENE_CURRENT;
 
 // Make a Data and create a pointer in the GAME->data array (return the pointer created)
-void* ICE_Data_Insert_(ICE_Scene * state, ICE_DataID _size)
+void* ICE_Data_Insert_(ICE_Scene * scene_, ICE_DataID size_)
 {
-	if (!state)
-		state = ICE_GLOBJ_SCENE_CURRENT;
+	if (!scene_)
+		scene_ = ICE_GLOBJ_SCENE_CURRENT;
 
-	state->data_nb++;
-	state->data = ICE_Realloc(state->data, sizeof(void*)*(state->data_nb));
-	state->data[state->data_nb - 1] = ICE_Calloc(1, _size);
-	void * _pointer = state->data[state->data_nb - 1];
+	scene_->data_nb++;
+	scene_->data = ICE_Realloc(scene_->data, sizeof(void*)*(scene_->data_nb));
+	scene_->data[scene_->data_nb - 1] = ICE_Calloc(1, size_);
+	void * _pointer = scene_->data[scene_->data_nb - 1];
 	return _pointer;
 }
 

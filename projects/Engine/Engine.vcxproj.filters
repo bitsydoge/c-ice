@@ -243,9 +243,6 @@
     <ClCompile Include="src\Engine\Time_.c">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="src\Engine\Time_private.c">
-      <Filter>Engine</Filter>
-    </ClCompile>
     <ClCompile Include="src\Engine\Timer.c">
       <Filter>Engine</Filter>
     </ClCompile>
@@ -259,6 +256,9 @@
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\Game.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Screenshot.c">
       <Filter>Engine</Filter>
     </ClCompile>
   </ItemGroup>
@@ -534,6 +534,9 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Game_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Screenshot.h">
       <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>

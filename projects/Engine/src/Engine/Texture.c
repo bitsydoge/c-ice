@@ -4,6 +4,7 @@
 #include "../Framework/Memory_.h"
 
 #include "../External/physfs/physfsrwops.h"
+
 #define SDL_STBIMAGE_IMPLEMENTATION 1
 #include "../External/stb/SDL_stbimage.h"
 

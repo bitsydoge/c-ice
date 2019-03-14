@@ -11,6 +11,7 @@
 #include "Audio_private.h"
 #include "Config_private.h"
 #include "Renderer_private.h"
+#include "Game_private.h"
 
 #include "Version.h"
 
@@ -23,66 +24,55 @@
 #include ICE_INCLUDE_SDL2_MIXER
 
 #include "GlobalData_private.h"
+#include "MusicManager_private.h"
+#include "Sound.h"
+#include "Resources_private.h"
+#include "Data.h"
 ICE_GLOBALDATA_INPUT
 ICE_GLOBALDATA_SCENE_CURRENT
+ICE_GLOBALDATA_SCENE_MAIN
 ICE_GLOBALDATA_CONFIG
 
 #if defined(_DEBUG)
 ICE_GLOBALDATA_DEBUG_LATEDRAW
 #endif
 
+#include "Scene.h"
+
 void ICE_Core_Main(void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void))
 {
+	///////////////////////////////////////
+	// ENGINE INIT
 	ICE_Core_Init();
 	ICE_Renderer_Init();
-	//ICE_Game_Init();
+	/////////////////////////////////////
 
-	ICE_Log_Line();
-	ICE_Log(ICE_LOGTYPE_RUNNING, "Main Create ...");
-	call_create();
-	ICE_Log(ICE_LOGTYPE_FINISH, "Main Create");
-	ICE_Log_Line(); 
+	// SCENE INIT
+	ICE_GLOBJ_SCENE_MAIN = ICE_Scene_Init(call_create, call_update, call_destroy, NULL, "Main");
+	ICE_GLOBJ_SCENE_CURRENT = &ICE_GLOBJ_SCENE_MAIN;
 
-	ICE_Log_Line();
-	ICE_Log(ICE_LOGTYPE_RUNNING, "Main Update ...");
+	// ASSET MANAGER INIT
+	ICE_TextureManager_Init();
+	//ICE_SpriteManager_Init();
+	ICE_SoundManager_Init();
+	ICE_MusicManager_Init();
 
-	while (!ICE_GLOBJ_INPUT.quit)
-	{
-		// LOGIC HERE
-		ICE_Time_Start();
-		ICE_Input_Return();
+	// Main Loop
+	ICE_Scene_Run(&ICE_GLOBJ_SCENE_MAIN);
 
-		//ICE_Entity_FunctionUpdate(NULL);
-		call_update();
+	// ASSET MANAGER DESTROY
+	ICE_TextureManager_Destroy();
+	//ICE_SpriteManager_Destroy();
+	ICE_SoundManager_Destroy();
+	ICE_MusicManager_Destroy();
+	ICE_Data_DestroyAll(&ICE_GLOBJ_SCENE_MAIN);
 
-		// RENDER HERE
-		//ICE_Render_SetColor(ICE_GLOBJ_SCENE_CURRENT->background_color);
-		//ICE_Render_Clear();
+	// SCENE DESTROY
+	ICE_Scene_Destroy(&ICE_GLOBJ_SCENE_MAIN);
 
-		//ICE_Draw_AllEntity();
-		//ICE_Draw_LabelWorld();
-		//ICE_Draw_AllGui();
-		//ICE_Draw_LabelScreen();
-
-#if defined(_DEBUG)
-		if (ICE_GLOBJ_DEBUG_LATEDRAW)
-			ICE_GLOBJ_DEBUG_LATEDRAW();
-#endif
-
-		//ICE_Render_Now();
-		ICE_Time_End();
-	}
-	ICE_Log(ICE_LOGTYPE_FINISH, "Main Update");
-	ICE_Log_Line();
-
-	ICE_Log_Line();
-	ICE_Log(ICE_LOGTYPE_RUNNING, "Main Destroy ...");
-	call_destroy();
-	ICE_Log(ICE_LOGTYPE_FINISH, "Main Destroy");
-	ICE_Log_Line();
-
-	//ICE_Game_Quit();
-	//ICE_Render_Quit();
+	//////////////////////////////////////
+	// ENGINE DESTROY
+	ICE_Renderer_Quit();
 	ICE_Core_Quit();
 }
 
@@ -179,6 +169,7 @@ int ICE_Core_Init()
 	//ICE_MacOS_SetWorkingDirectory(SDL_GetBasePath());
 	ICE_Log_printf("MacOS Resources Directory: %s\n\n", ICE_MacOS_GetResourcesDirectory());
 #endif
+
 	puts("");
 	ICE_Log(ICE_LOGTYPE_FINISH, "Core Init");
 	ICE_Log_Line();

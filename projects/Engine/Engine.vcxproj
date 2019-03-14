@@ -45,13 +45,13 @@
     <ClCompile Include="src\Engine\Renderer.c" />
     <ClCompile Include="src\Engine\Resources.c" />
     <ClCompile Include="src\Engine\Scene.c" />
+    <ClCompile Include="src\Engine\Screenshot.c" />
     <ClCompile Include="src\Engine\Sound.c" />
     <ClCompile Include="src\Engine\SoundManager.c" />
     <ClCompile Include="src\Engine\Texture.c" />
     <ClCompile Include="src\Engine\TextureManager.c" />
     <ClCompile Include="src\Engine\Timer.c" />
     <ClCompile Include="src\Engine\Time_.c" />
-    <ClCompile Include="src\Engine\Time_private.c" />
     <ClCompile Include="src\Engine\Version.c" />
     <ClCompile Include="src\Engine\Window.c" />
     <ClCompile Include="src\External\physfs\physfs.c" />
@@ -145,6 +145,7 @@
     <ClInclude Include="src\Engine\Resources_private.h" />
     <ClInclude Include="src\Engine\Scene.h" />
     <ClInclude Include="src\Engine\Scene_private.h" />
+    <ClInclude Include="src\Engine\Screenshot.h" />
     <ClInclude Include="src\Engine\SDL2_Converter_private.h" />
     <ClInclude Include="src\Engine\SDL2_Includer.h" />
     <ClInclude Include="src\Engine\Sound.h" />

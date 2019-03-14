@@ -1,7 +1,8 @@
 ﻿#ifndef DEF_ICE_GAME
 #define DEF_ICE_GAME
 
-#include "TypesCore.h"
+#include "../Framework/String_.h"
+#include "Types.h"
 
 /**
  * \brief Get the value of time between last frame

@@ -7,6 +7,8 @@
 
 struct ICE_Scene
 {
+	ICE_String				name;
+
 	ICE_Bool				quit;
 	ICE_Bool				isPaused;
 	ICE_Bool				isFree;
@@ -39,5 +41,10 @@ struct ICE_Scene
 	struct ICE_Scene *		parent;
 
 }; typedef struct ICE_Scene ICE_Scene;
+
+
+ICE_Scene ICE_Scene_Init(void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void), ICE_Scene* parent_, ICE_StringStd name_);
+void ICE_Scene_Destroy(ICE_Scene* scene_);
+void ICE_Scene_Run(ICE_Scene* scene_);
 
 #endif

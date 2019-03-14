@@ -12,7 +12,6 @@ struct ICE_Render
 
 }; typedef struct ICE_Render ICE_Renderer;
 
-void ICE_Render_Color(const ICE_Color rgba_hex);
 int ICE_Renderer_SetColor(const ICE_Color rgba_hex);
 int ICE_Renderer_Clear();
 void ICE_Renderer_Now();

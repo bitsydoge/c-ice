@@ -13,4 +13,7 @@ struct ICE_MusicManager
 
 }; typedef struct ICE_MusicManager ICE_MusicManager;
 
+void ICE_MusicManager_Init();
+void ICE_MusicManager_Destroy();
+
 #endif

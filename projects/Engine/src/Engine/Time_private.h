@@ -1,6 +1,14 @@
 ﻿#ifndef DEF_ICE_TIME_PRIVATE
 #define DEF_ICE_TIME_PRIVATE
 
+struct ICE_Time 
+{
+
+	ICE_Float fps;
+	ICE_Float delta;
+
+}; typedef struct ICE_Time ICE_Time;
+
 /**
  * \brief Init everything related to time
  */

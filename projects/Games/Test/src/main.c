@@ -5,13 +5,27 @@
 #include "player.h"
 #include "debug.h"
 
+
+#include "Engine/Data.h"
+#include "Engine/Pack.h"
+#include "Engine/Music.h"
+#include "Engine/Sound.h"
+#include "Engine/Box.h"
+#include "Engine/Entity.h"
+#include "Engine/Debug.h"
+#include "Engine/Input.h"
+#include "Framework/Random.h"
+#include "Engine/Time_.h"
+#include "Engine/Game.h"
+#include "Engine/Screenshot.h"
+
 void ICE_Game_Create()
 {
 	// Data 
-	GAME_DATA * D = ICE_Data_Insert(ICE_State_Current, GAME_DATA);
+	GAME_DATA * D = ICE_Data_Insert(NULL, GAME_DATA);
 
 	// Pack Load
-	ICE_AssetPak_Load("res\\pak\\pak1.zip");
+	ICE_Pack_Load("res\\pak\\pak1.zip");
 	
 	// Texture Load
 	D->texture_tileset = ICE_Texture_Load("res://001-SPRITESHEET$CoLdRaGoN");
@@ -89,7 +103,7 @@ void ICE_Game_Update()
 
 void ICE_Game_Destroy()
 {
-	ICE_AssetPak_Unload("res//pak//pak1.zip");
-	GAME_DATA * D = ICE_Data_Get(ICE_State_Current, 0);
+	ICE_Pack_Unload("res//pak//pak1.zip");
+	GAME_DATA * D = ICE_Data_Get(NULL, 0);
 	ICE_String_Destroy(&D->screenshot_name);
 }

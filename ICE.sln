@@ -39,6 +39,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ICE_GameTemplate1", "projec
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ICE_GameTemplate2", "projects\Games\ICE_GameTemplate2\ICE_GameTemplate2.vcxproj", "{4218E676-6B8D-446B-8350-863A6AB8BB28}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CEAC8C68-C6B6-4756-82D0-C7DCD2C95330} = {CEAC8C68-C6B6-4756-82D0-C7DCD2C95330}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

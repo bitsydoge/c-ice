@@ -10,9 +10,6 @@
 #include <SDL2/SDL.h>
 #include "Music_private.h"
 
-void ICE_MusicManager_Init();
-void ICE_MusicManager_Destroy();
-
 #define ICE_Music_Load_MEM(S) ICE_Music_Load_RW(SDL_RWFromConstMem(S, S##_length));\
 	if(ICE_Music_GetLastLoaded() != (ICE_ID)-1)\
 		ICE_Log_Succes(ICE_MACROTOOLS_STRINGIZE(Music loaded from memory ID(%ld)\n Token(##S##)), ICE_Music_GetLastLoaded());\

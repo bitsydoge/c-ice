@@ -3,7 +3,7 @@
 
 #include "../Framework/BasicTypes.h"
 
-ICE_Float ICE_Time_GetMS();
+ICE_Uint64 ICE_Time_GetMS();
 ICE_Float ICE_Time_GetS();
 
 #endif

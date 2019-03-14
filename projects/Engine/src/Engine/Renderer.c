@@ -90,11 +90,11 @@ void ICE_Renderer_Init()
 
 	ICE_Texture_LogoInit();
 
-	//ICE_Window_Config();
+	ICE_Window_Config();
 
 	ICE_Renderer_SplashScreen();
 
-	//ICE_Renderer_Info();
+	ICE_Renderer_Info();
 
 	ICE_Log(ICE_LOGTYPE_FINISH, "Render init");
 	ICE_Log_Line();
@@ -102,6 +102,8 @@ void ICE_Renderer_Init()
 
 void ICE_Renderer_Quit()
 {
+	ICE_Texture_DefaultAllFree();
+
 	ICE_Log_Line();
 	ICE_Log(ICE_LOGTYPE_RUNNING, "Render Quit ...");
 
