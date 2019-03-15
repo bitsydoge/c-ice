@@ -5,8 +5,8 @@
 #include "Entity_private.h"
 #include "Scene_private.h"
 
-ICE_Entity ICE_Entity_Build(ICE_Box pos);
-ICE_ID ICE_Entity_Create(ICE_Scene* scene_, ICE_Box pos);
+ICE_Entity ICE_Entity_Build(ICE_Vect vect_);
+ICE_ID ICE_Entity_Create(ICE_Scene* scene_, ICE_Vect vect_);
 void ICE_Entity_Clear(ICE_Entity* entity);
 void ICE_Entity_Destroy(ICE_Entity* ptr);
 void* ICE_Entity_DataAdd_(ICE_Entity* entity_, ICE_ID size_);

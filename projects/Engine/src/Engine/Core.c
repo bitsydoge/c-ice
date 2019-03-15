@@ -38,6 +38,7 @@ ICE_GLOBALDATA_DEBUG_LATEDRAW
 #endif
 
 #include "Scene.h"
+#include "Asset_private.h"
 
 void ICE_Core_Main(void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void))
 {
@@ -45,33 +46,18 @@ void ICE_Core_Main(void(*call_create)(void), void(*call_update)(void), void(*cal
 	// ENGINE INIT
 	ICE_Core_Init();
 	ICE_Renderer_Init();
-	/////////////////////////////////////
+	ICE_Asset_Init();
 
-	// SCENE INIT
 	ICE_GLOBJ_SCENE_MAIN = ICE_Scene_Init(call_create, call_update, call_destroy, NULL, "Main");
 	ICE_GLOBJ_SCENE_CURRENT = &ICE_GLOBJ_SCENE_MAIN;
+	//
 
-	// ASSET MANAGER INIT
-	ICE_TextureManager_Init();
-	//ICE_SpriteManager_Init();
-	ICE_SoundManager_Init();
-	ICE_MusicManager_Init();
-
-	// Main Loop
 	ICE_Scene_Run(&ICE_GLOBJ_SCENE_MAIN);
 
-	// ASSET MANAGER DESTROY
-	ICE_TextureManager_Destroy();
-	//ICE_SpriteManager_Destroy();
-	ICE_SoundManager_Destroy();
-	ICE_MusicManager_Destroy();
-	ICE_Data_DestroyAll(&ICE_GLOBJ_SCENE_MAIN);
-
-	// SCENE DESTROY
+	//
 	ICE_Scene_Destroy(&ICE_GLOBJ_SCENE_MAIN);
 
-	//////////////////////////////////////
-	// ENGINE DESTROY
+	ICE_Asset_Destroy();
 	ICE_Renderer_Quit();
 	ICE_Core_Quit();
 }
@@ -119,8 +105,8 @@ int ICE_Core_Init()
 	// Path
 	char* basePath = SDL_GetBasePath();
 	char* dataPath = SDL_GetPrefPath(ICE_GLOBJ_CONFIG.editor_name, ICE_GLOBJ_CONFIG.product_name);
-	//strcpy(CORE.basePath, basePath);
-	//strcpy(CORE.dataPath, dataPath);
+	//TODO//strcpy(CORE.basePath, basePath);
+	//TODO//strcpy(CORE.dataPath, dataPath);
 	SDL_free(basePath);
 	SDL_free(dataPath);
 
@@ -162,8 +148,8 @@ int ICE_Core_Init()
 	ICE_Log_printf(" Linked: %d.%d.%d\n\n", link_version_physf.major, link_version_physf.minor, link_version_physf.patch);
 
 	// SDL path
-	//ICE_Log_printf(" Execution Path: %s\n", CORE.basePath);
-	//ICE_Log_printf(" Data Path: %s\n", CORE.dataPath);
+	//TODO//ICE_Log_printf(" Execution Path: %s\n", CORE.basePath);
+	//TODO//ICE_Log_printf(" Data Path: %s\n", CORE.dataPath);
 
 #if defined(__APPLE__)
 	//ICE_MacOS_SetWorkingDirectory(SDL_GetBasePath());

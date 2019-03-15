@@ -1,5 +1,9 @@
 ﻿#include <ICE.h>
 #include "Framework/UnitTest.h"
+#include "Framework/Log.h"
+#include "Framework/BasicTypes.h"
+#include "Framework/String_.h"
+#include "Framework/Memory_.h"
 
 int ICE_UT_MAIN()
 {

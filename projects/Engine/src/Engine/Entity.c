@@ -14,7 +14,7 @@
 
 extern ICE_Scene* ICE_GLOBJ_SCENE_CURRENT;
 
-ICE_Entity ICE_Entity_Build(ICE_Box pos)
+ICE_Entity ICE_Entity_Build(ICE_Vect vect_)
 {
 	ICE_Entity entity = { 0 };
 
@@ -22,13 +22,13 @@ ICE_Entity ICE_Entity_Build(ICE_Box pos)
 	entity.control.isActive = ICE_True;
 	entity.timestamp = SDL_GetTicks();
 
-	entity.control.x = pos.x;
-	entity.control.y = pos.y;
+	entity.control.x = vect_.x;
+	entity.control.y = vect_.y;
 
 	return entity;
 }
 
-ICE_ID ICE_Entity_Create(ICE_Scene* scene_, ICE_Box pos)
+ICE_ID ICE_Entity_Create(ICE_Scene* scene_, ICE_Vect vect_)
 {
 	if (!scene_)
 		scene_ = ICE_GLOBJ_SCENE_CURRENT;
@@ -52,7 +52,7 @@ ICE_ID ICE_Entity_Create(ICE_Scene* scene_, ICE_Box pos)
 	}
 
 
-	scene_->entity_mngr.entity[avaible_slot] = ICE_Entity_Build(pos);
+	scene_->entity_mngr.entity[avaible_slot] = ICE_Entity_Build(vect_);
 	scene_->entity_mngr.entity[avaible_slot].id = avaible_slot;
 
 	ICE_Log(ICE_LOGTYPE_SUCCES, "Create Entity %d in scene", avaible_slot);

@@ -67,5 +67,11 @@ struct ICE_Graphics2D_Data_Label
 
 }; typedef struct ICE_Graphics2D_Data_Label ICE_Graphics2D_Data_Label;
 
+struct ICE_Graphics2D_Data_Primitive
+{
+	int dummies;
+
+}; typedef struct ICE_Graphics2D_Data_Primitive ICE_Graphics2D_Data_Primitive;
+
 
 #endif

@@ -1,0 +1,6 @@
+﻿#ifndef DEF_ICE_FONTMANAGER_PRIVATE_H
+#define DEF_ICE_FONTMANAGER_PRIVATE_H
+
+
+
+#endif

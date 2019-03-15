@@ -59,17 +59,17 @@ void ICE_Scene_Run(ICE_Scene * scene_)
 		ICE_Time_Start();
 		ICE_Input_Return();
 
-		//ICE_Entity_FunctionUpdate(NULL);
+		//TODO//ICE_Entity_FunctionUpdate(NULL);
 		scene_->func_update();
 
 		// RENDER HERE
 		ICE_Renderer_SetColor(ICE_GLOBJ_SCENE_CURRENT->background_color);
 		ICE_Renderer_Clear();
 
-		//ICE_Draw_AllEntity();
-		//ICE_Draw_LabelWorld();
-		//ICE_Draw_AllGui();
-		//ICE_Draw_LabelScreen();
+		//TODO//ICE_Draw_AllEntity();
+		//TODO//ICE_Draw_LabelWorld();
+		//TODO//ICE_Draw_AllGui();
+		//TODO//ICE_Draw_LabelScreen();
 
 #if defined(_DEBUG)
 		if (ICE_GLOBJ_DEBUG_LATEDRAW)

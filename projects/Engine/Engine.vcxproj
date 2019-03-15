@@ -23,6 +23,7 @@
     <ClCompile Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_gfxPrimitives.c" />
     <ClCompile Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_imageFilter.c" />
     <ClCompile Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_rotozoom.c" />
+    <ClCompile Include="src\Engine\Asset.c" />
     <ClCompile Include="src\Engine\Audio.c" />
     <ClCompile Include="src\Engine\Camera.c" />
     <ClCompile Include="src\Engine\Collision_Basic.c" />
@@ -31,8 +32,11 @@
     <ClCompile Include="src\Engine\Core.c" />
     <ClCompile Include="src\Engine\Data.c" />
     <ClCompile Include="src\Engine\Debug.c" />
+    <ClCompile Include="src\Engine\Draw.c" />
     <ClCompile Include="src\Engine\Entity.c" />
     <ClCompile Include="src\Engine\EntityManager.c" />
+    <ClCompile Include="src\Engine\Font.c" />
+    <ClCompile Include="src\Engine\FontManager.c" />
     <ClCompile Include="src\Engine\Game.c" />
     <ClCompile Include="src\Engine\Graphics2D.c" />
     <ClCompile Include="src\Engine\Input.c" />
@@ -102,6 +106,8 @@
     <ClInclude Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_gfxPrimitives_font.h" />
     <ClInclude Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_imageFilter.h" />
     <ClInclude Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_rotozoom.h" />
+    <ClInclude Include="src\Engine\Asset.h" />
+    <ClInclude Include="src\Engine\Asset_private.h" />
     <ClInclude Include="src\Engine\Audio.h" />
     <ClInclude Include="src\Engine\Audio_private.h" />
     <ClInclude Include="src\Engine\Box.h" />
@@ -117,10 +123,16 @@
     <ClInclude Include="src\Engine\Core_private.h" />
     <ClInclude Include="src\Engine\Data.h" />
     <ClInclude Include="src\Engine\Debug.h" />
+    <ClInclude Include="src\Engine\Draw.h" />
+    <ClInclude Include="src\Engine\Draw_private.h" />
     <ClInclude Include="src\Engine\Entity.h" />
     <ClInclude Include="src\Engine\EntityManager.h" />
     <ClInclude Include="src\Engine\EntityManager_private.h" />
     <ClInclude Include="src\Engine\Entity_private.h" />
+    <ClInclude Include="src\Engine\Font.h" />
+    <ClInclude Include="src\Engine\FontManager.h" />
+    <ClInclude Include="src\Engine\FontManager_private.h" />
+    <ClInclude Include="src\Engine\Font_private.h" />
     <ClInclude Include="src\Engine\Game.h" />
     <ClInclude Include="src\Engine\Game_private.h" />
     <ClInclude Include="src\Engine\GlobalData_private.h" />
