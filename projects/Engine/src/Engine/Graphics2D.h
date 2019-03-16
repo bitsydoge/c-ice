@@ -24,7 +24,6 @@ typedef struct ICE_Graphics2D ICE_Graphics2D;
 // ------------------------------------------------------------------------------------- //
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-struct ICE_Graphics2D ICE_Graphics2D_Build();
 void ICE_Graphics2D_Destroy(ICE_Graphics2D* graphics2d_);
 void ICE_Graphics2D_SetType(ICE_Graphics2D* graphics2d_, ICE_Graphics2D_Types types_);
 void ICE_Graphics2D_SetData_Texture(ICE_Graphics2D* graphics2d_, ICE_TextureID texture_id_);

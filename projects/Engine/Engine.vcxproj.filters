@@ -589,5 +589,8 @@
     <None Include="src\External\physfs\physfs_platform_apple.m">
       <Filter>External\physfs</Filter>
     </None>
+    <None Include="..\..\NOTES.md" />
+    <None Include="..\..\README.md" />
+    <None Include="TEMPLATE.md" />
   </ItemGroup>
 </Project>

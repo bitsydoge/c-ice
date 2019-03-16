@@ -2,8 +2,11 @@
 #define DEF_ICE_SCENE_PRIVATE_H
 
 #include "Color.h"
+
+#include "Camera.h"
 #include "Camera_private.h"
 #include "EntityManager_private.h"
+#include "Scene.h"
 
 struct ICE_Scene
 {
@@ -37,7 +40,7 @@ struct ICE_Scene
 
 	struct ICE_Scene *		parent;
 
-}; typedef struct ICE_Scene ICE_Scene;
+};
 
 
 ICE_Scene ICE_Scene_Init(void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void), ICE_Scene* parent_, ICE_StringStd name_);

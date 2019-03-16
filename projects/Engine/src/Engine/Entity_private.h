@@ -32,6 +32,6 @@ struct ICE_Entity
 
 };
 
-
+struct ICE_Entity ICE_Entity_Build(ICE_Vect vect_);
 
 #endif

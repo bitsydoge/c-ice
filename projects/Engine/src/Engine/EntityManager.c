@@ -24,7 +24,7 @@ void ICE_EntityManager_Destroy(ICE_EntityManager* entitymanager_)
 	for (ICE_ID i = 0; i < entitymanager_->entity_contain; i++)
 	{
 		//Free everything to free in Entity
-		ICE_Entity_Destroy(&entitymanager_->entity[i]);
+		ICE_Entity_Destroy(entitymanager_->entity[i].id);
 	}
 
 	ICE_Free(entitymanager_->entity);

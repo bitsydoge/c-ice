@@ -4,8 +4,13 @@
 #include "Vector.h"
 #include "Box.h"
 
-#include "Scene_private.h"
+typedef struct ICE_Camera ICE_Camera;
 
+///////////////////////////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------- //
+// --------------------------------    Set       --------------------------------------- //
+// ------------------------------------------------------------------------------------- //
+///////////////////////////////////////////////////////////////////////////////////////////
 
 /**
  * \brief Set Camera position to a Vector
@@ -24,27 +29,47 @@ void ICE_Camera_MovePos(ICE_Vect vect, ICE_Float r);
  * \brief Shift Camera position by a vector
  * \param Dvect Vector to add
  */
-void ICE_Camera_ShiftPos(ICE_Vect Dvect);
+void ICE_Camera_ShiftPos(ICE_Vect delta_);
 
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------- //
+// --------------------------------    Get       --------------------------------------- //
+// ------------------------------------------------------------------------------------- //
+///////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * \brief Return a Vector with Camera Coordinate
+ * \return
+ */
+ICE_Vect ICE_Camera_PositionGet();
+
+ICE_Float ICE_Camera_PositionGetX();
+
+ICE_Float ICE_Camera_PositionGetY();
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------- //
+// --------------------------------    Converter    ------------------------------------ //
+// ------------------------------------------------------------------------------------- //
+///////////////////////////////////////////////////////////////////////////////////////////
 
 /**
  * \brief Convert a ICE_Box in World Coordinate to Screen Coordinate
  * \param rect Box in World Coordinate to convert
  * \return Box in Screen Coordinate
  */
-ICE_Box ICE_Camera_WorldScreen(ICE_Box rect);
+ICE_Box ICE_Camera_World_to_Screen(ICE_Box rect);
 
 /**
 * \brief Convert a ICE_Box in Screen Coordinate to World Coordinate
 * \param rect Box in Screen Coordinate to convert
 * \return Box in World Coordinate
 */
-ICE_Box ICE_Camera_ScreenWorld(ICE_Box rect);
+ICE_Box ICE_Camera_Screen_to_World(ICE_Box rect);
 
-/**
- * \brief Return a Vector with Camera Coordinate
- * \return 
- */
-ICE_Vect ICE_Camera_GetPos(ICE_Scene* state_);
+
 
 #endif

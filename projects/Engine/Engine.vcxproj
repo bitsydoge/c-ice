@@ -206,7 +206,10 @@
     <ClInclude Include="src\Framework\UnitTest.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\NOTES.md" />
+    <None Include="..\..\README.md" />
     <None Include="src\External\physfs\physfs_platform_apple.m" />
+    <None Include="TEMPLATE.md" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

@@ -4,7 +4,7 @@
 #include "Scene_private.h"
 #include "Types.h"
 
-#define ICE_Data_Insert(STATE, DATATYPE) ICE_Data_Insert_(STATE, sizeof(DATATYPE))
+#define ICE_Data_Insert(SCENE, DATATYPE) ICE_Data_Insert_(SCENE, sizeof(DATATYPE))
 
 void* ICE_Data_Insert_(ICE_Scene* scene_, ICE_DataID size_);
 void* ICE_Data_Get(ICE_Scene* scene_, ICE_ID data_nb_);

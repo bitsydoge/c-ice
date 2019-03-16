@@ -7,6 +7,6 @@ struct ICE_Camera
 {
 	ICE_Float x, y;
 
-}; typedef struct ICE_Camera ICE_Camera;
+};
 
 #endif

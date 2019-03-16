@@ -49,7 +49,7 @@ void ICE_Debug_DrawCoordinate()
 		char coo[20];
 		ICE_Box coordinate = { ICE_GLOBJ_INPUT.mousex, ICE_GLOBJ_INPUT.mousey };
 		if (ICE_GLOBJ_INPUT.leftclic_pressed)
-			coordinate = ICE_Camera_ScreenWorld(coordinate);
+			coordinate = ICE_Camera_Screen_to_World(coordinate);
 		sprintf(coo, "%0.0f, %0.0f", coordinate.x, coordinate.y);
 
 		const ICE_Vect vect = { ICE_GLOBJ_INPUT.mousex + 10, ICE_GLOBJ_INPUT.mousey + 10 };

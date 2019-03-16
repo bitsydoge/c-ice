@@ -8,22 +8,33 @@
 
 typedef struct ICE_Entity ICE_Entity;
 
-ICE_Entity ICE_Entity_Build(ICE_Vect vect_);
+///////////////////////////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------- //
+// -------------------------------- Management  ---------------------------------------- //
+// ------------------------------------------------------------------------------------- //
+///////////////////////////////////////////////////////////////////////////////////////////
+
 ICE_ID ICE_Entity_Create(ICE_Vect vect_);
-void ICE_Entity_Clear(ICE_Entity* entity);
-void ICE_Entity_Destroy(ICE_Entity* ptr);
+void ICE_Entity_Destroy(ICE_EntityID entity_id_);
 
-// Data
+///////////////////////////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------- //
+// -------------------------------- Data ----------------------------------------------- //
+// ------------------------------------------------------------------------------------- //
+///////////////////////////////////////////////////////////////////////////////////////////
 
-void* ICE_Entity_DataAdd_(ICE_Entity* entity_, ICE_ID size_);
-void* ICE_Entity_DataGet(ICE_Entity* entity_, ICE_DataID id_data_);
-void ICE_Entity_DataDestroy(ICE_Entity* entity_, ICE_DataID id_data_);
-void ICE_Entity_DataDestroyAll(ICE_Entity* entity_);
+void* ICE_Entity_DataAdd_(ICE_EntityID entity_id_, ICE_ID size_);
+void* ICE_Entity_DataGet(ICE_EntityID entity_id_, ICE_DataID id_data_);
+void ICE_Entity_DataDestroy(ICE_EntityID entity_id_, ICE_DataID id_data_);
+void ICE_Entity_DataDestroyAll(ICE_EntityID entity_id_);
 
-// Graphics2D
+///////////////////////////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------- //
+// -------------------------------- GetComponent --------------------------------------- //
+// ------------------------------------------------------------------------------------- //
+///////////////////////////////////////////////////////////////////////////////////////////
+
 ICE_Graphics2D* ICE_Entity_GetGraphics2D(ICE_EntityID entity_id_);
-
-// Control2D
 ICE_Control2D* ICE_Entity_GetControl2D(ICE_EntityID entity_id_);
 
 #endif
