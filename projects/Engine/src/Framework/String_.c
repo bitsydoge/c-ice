@@ -122,7 +122,7 @@ void ICE_String_Free(ICE_String string)
 
 void ICE_String_Destroy(ICE_String * string_)
 {
-	ICE_Assert(string_ != NULL, "The pointer is NULL");
+	//ICE_Assert(string_ != NULL, "The pointer is NULL");
 	ICE_String_Free(*string_);
 	*string_ = NULL;
 }

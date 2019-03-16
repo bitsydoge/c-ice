@@ -22,6 +22,8 @@ struct ICE_Control2D
 	ICE_Float				y_polar_shift_move;
 	ICE_Float				polar_distance_r_r;
 
-}; typedef struct ICE_Control2D ICE_Control2D;
+};
+
+struct ICE_Control2D ICE_Control2D_Build(ICE_Vect position_);
 
 #endif

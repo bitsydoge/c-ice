@@ -9,40 +9,23 @@
 #include "Label.h"
 #include "Texture_private.h"
 
-enum ICE_Graphics2D_Types
-{
-	ICE_GRAPHICS2D_TYPES_NONE = 0,
-	ICE_GRAPHICS2D_TYPES_TEXTURE = 1,
-	ICE_GRAPHICS2D_TYPES_SPRITE = 2,
-	ICE_GRAPHICS2D_TYPES_LABEL = 3,
-	ICE_GRAPHICS2D_TYPES_PRIMITIVE = 4
+#include "Graphics2D.h"
 
-}; typedef enum ICE_Graphics2D_Types ICE_Graphics2D_Types;
-
-struct ICE_Graphics2D_Control
+struct ICE_Graphics2D
 {
 	ICE_Bool isVisible; // PROCESS GRAPHICS ?
+
+	ICE_Graphics2D_Types type;
+	void* data;
+
 	ICE_Float rotation; // Graphics Rotation
 	ICE_Float scale_w, scale_h; // Graphics only, scale
 	ICE_Vect anchor_position, anchor_rotation; //
 
-}; typedef struct ICE_Graphics2D_Control ICE_Graphics2D_Control;
+	ICE_Color modulation_color; // rgb
+	ICE_Float modulation_transparency; // 0-1
 
-struct ICE_Graphics2D_Modulator
-{
-	ICE_Color color; // rgb
-	ICE_Float transparency; // 0-1
-
-}; typedef struct ICE_Graphics2D_Modulator ICE_Graphics2D_Modulator;
-
-struct ICE_Graphics2D
-{
-	ICE_Graphics2D_Types type;
-	void* data;
-	ICE_Graphics2D_Control control;
-	ICE_Graphics2D_Modulator modulator;
-
-}; typedef struct ICE_Graphics2D ICE_Graphics2D;
+};
 
 struct ICE_Graphics2D_Data_Texture
 {
@@ -73,5 +56,32 @@ struct ICE_Graphics2D_Data_Primitive
 
 }; typedef struct ICE_Graphics2D_Data_Primitive ICE_Graphics2D_Data_Primitive;
 
+///////////////////////////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------- //
+// -------------------------------- Graphics2D ----------------------------------------- //
+// ------------------------------------------------------------------------------------- //
+///////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------- //
+// -------------------------------- Graphics2D Data ------------------------------------ //
+// ------------------------------------------------------------------------------------- //
+///////////////////////////////////////////////////////////////////////////////////////////
+
+// ---------------------------------------   Init    ----------------------------------- //
+
+ICE_Graphics2D_Data_Texture* ICE_Graphics2D_Data_Texture_Init();
+ICE_Graphics2D_Data_Sprite* ICE_Graphics2D_Data_Sprite_Init();
+ICE_Graphics2D_Data_Label* ICE_Graphics2D_Data_Label_Init();
+ICE_Graphics2D_Data_Primitive* ICE_Graphics2D_Data_Primitive_Init();
+
+// ---------------------------------------   Destroy   ----------------------------------- //
+
+void ICE_Graphics2D_Data_Texture_Destroy(ICE_Graphics2D_Data_Texture* data_);
+void ICE_Graphics2D_Data_Sprite_Destroy(ICE_Graphics2D_Data_Sprite* data_);
+void ICE_Graphics2D_Data_Label_Destroy(ICE_Graphics2D_Data_Label* data_);
+void ICE_Graphics2D_Data_Primitive_Destroy(ICE_Graphics2D_Data_Primitive* data_);
 
 #endif

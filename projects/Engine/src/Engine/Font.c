@@ -72,8 +72,6 @@ ICE_Font ICE_Font_Build_RW(SDL_RWops * rwops_)
 		SDL_RWseek(rwops_, offset, RW_SEEK_SET);
 		if (font_temp.size[i] == NULL)
 			ICE_Log(ICE_LOGTYPE_CRITICAL, "ICE_Font : Size : %d, %s", i, TTF_GetError());
-		else
-			ICE_Log(ICE_LOGTYPE_SUCCES, "ICE_Font : Size : %d", i);
 	}
 
 	//SDL_RWclose(rwops_);

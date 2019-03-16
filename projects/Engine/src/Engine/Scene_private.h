@@ -23,11 +23,8 @@ struct ICE_Scene
 	// Camera
 	ICE_Camera				camera;
 
-	// Label
-	// ICE_LabelManager 	label_mngr;
-
 	// Gui
-	// ICE_GuiManager	gui_mngr;
+	// ICE_GuiManager		gui_mngr;
 
 	// Entity
 	ICE_EntityManager		entity_mngr;

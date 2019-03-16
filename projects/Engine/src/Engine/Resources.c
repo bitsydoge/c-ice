@@ -6,7 +6,13 @@
 #include "Font.h"
 
 ICE_Resources ICE_GLOBJ_RESOURCES = { 0 };
-extern ICE_Renderer ICE_GLOBJ_RENDERER;
+
+#include "GlobalData_private.h"
+ICE_GLOBALDATA_RENDERER
+#include "FontManager_private.h"
+ICE_GLOBALDATA_FONTMANAGER
+
+
 
 void ICE_Resources_TextureLogoInit()
 {

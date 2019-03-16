@@ -9,7 +9,7 @@ struct ICE_EntityManager
 	
 	ICE_ID			entity_size;
 	ICE_ID			entity_contain;
-	ICE_Entity*		entity;
+	struct ICE_Entity *		entity;
 
 }; typedef struct ICE_EntityManager ICE_EntityManager;
 

@@ -3,6 +3,16 @@
 #include "button.h"
 #include "skull.h"
 
+#include "Engine/Texture.h"
+#include "Engine/Entity.h"
+#include "Framework/Random.h"
+#include "Engine/Window_private.h"
+#include "Framework/Log.h"
+#include "Engine/Debug.h"
+#include "Engine/Renderer.h"
+#include "Engine/Font.h"
+#include "Engine/Input.h"
+
 ICE_TextureID texture_frame_main;
 ICE_GuiID gui_frame_main;
 

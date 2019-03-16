@@ -39,7 +39,8 @@ ICE_GLOBALDATA_FONTMANAGER
 
 void(*ICE_GLOBJ_DEBUG_LATEDRAW)() = NULL;
 
-
+ICE_Color font_color_background_set = 0xFF0000FF;
+ICE_Color font_color_foreground_set = 0xFFFFFFFF;
 
 void ICE_Debug_DrawCoordinate()
 {
@@ -70,10 +71,6 @@ void ICE_Debug_TitleFps()
 	ICE_Window_SetTitle(buffer);
 }
 
-
-ICE_Color font_color_background_set = 0xFF0000FF;
-ICE_Color font_color_foreground_set = 0xFFFFFFFF;
-
 void ICE_Debug_FontSetColorBg(int r, int g, int b)
 {
 		font_color_background_set = ICE_Color_New(r,g,b);
@@ -91,9 +88,18 @@ void ICE_Debug_FontDraw(int y, const char* format, ...)
 	va_start(args, format);
 	vsprintf(buffer, format, args);
 	int size = (int)((ICE_Float)ICE_Window_GetH() / 50.0);
+	
 	if (size < 12)
 		size = 12;
-	SDL_Surface *surf = TTF_RenderText_Shaded(ICE_GLOBJ_FONTMANAGER.font_array[ICE_GLOBJ_RESOURCES.font_default].size[size], buffer, ICE_Color_ToSdl(font_color_foreground_set), ICE_Color_ToSdl(font_color_background_set));
+
+	SDL_Surface *surf = TTF_RenderText_Shaded(
+		ICE_GLOBJ_FONTMANAGER.font_array[ICE_GLOBJ_RESOURCES.font_default].size[size], 
+		buffer, 
+		ICE_Color_ToSdl(font_color_foreground_set), 
+		ICE_Color_ToSdl(font_color_background_set)
+	
+	);
+
 	SDL_Rect rect; rect.x = 0; rect.y = surf->h * y;
 	rect.w = surf->w; rect.h = surf->h;
 	SDL_Texture *texture = SDL_CreateTextureFromSurface(ICE_GLOBJ_RENDERER.handle, surf);

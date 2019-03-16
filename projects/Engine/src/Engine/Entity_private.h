@@ -14,10 +14,10 @@ struct ICE_Entity
 	ICE_Bool		exist;
 
 	// Control
-	ICE_Control2D	control;
+	struct ICE_Control2D	control2d;
 
 	// Graphics
-	ICE_Graphics2D	graphics;
+	struct ICE_Graphics2D	graphics2d;
 
 	// Logic
 	void			(*func_create)(ICE_EntityID);
@@ -30,7 +30,7 @@ struct ICE_Entity
 	// Physics
 	ICE_Physics2D	physics;
 
-}; typedef struct ICE_Entity ICE_Entity;
+};
 
 
 
