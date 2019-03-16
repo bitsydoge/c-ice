@@ -4,7 +4,7 @@
 #include "../Framework/Inline.h"
 #include "../Framework/String_.h"
 
-#define ICE_VERSION "DEV.1902.1"
+#define ICE_VERSION "NXT.1903.1"
 
 ICE_StringStd ICE_Core_GetLinkedVersion();
 ICE_INLINE ICE_StringStd ICE_Core_GetCompiledVersion()

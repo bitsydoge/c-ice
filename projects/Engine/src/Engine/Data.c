@@ -10,26 +10,26 @@
 extern ICE_Scene* ICE_GLOBJ_SCENE_CURRENT;
 
 // Make a Data and create a pointer in the GAME->data array (return the pointer created)
-void* ICE_Data_Insert_(ICE_DataID size_)
+ICE_DataID ICE_Data_Insert(ICE_Size size_use_sizeof_)
 {
 	ICE_Scene * scene_ = ICE_GLOBJ_SCENE_CURRENT;
 
 	scene_->data_nb++;
 	scene_->data = ICE_Realloc(scene_->data, sizeof(void*)*(scene_->data_nb));
-	scene_->data[scene_->data_nb - 1] = ICE_Calloc(1, size_);
+	scene_->data[scene_->data_nb - 1] = ICE_Calloc(1, size_use_sizeof_);
 	void * _pointer = scene_->data[scene_->data_nb - 1];
-	return _pointer;
+	return scene_->data_nb - 1;
 }
 
 /// Return pointer to a Data
-void* ICE_Data_Get(ICE_ID data_nb_)
+void* ICE_Data_Get(ICE_DataID data_id_)
 {
 	ICE_Scene* scene_ = ICE_GLOBJ_SCENE_CURRENT;
 
 	void * _pointer;
 
-	if (data_nb_ <= scene_->data_nb)
-		_pointer = scene_->data[data_nb_];
+	if (data_id_ <= scene_->data_nb)
+		_pointer = scene_->data[data_id_];
 
 	////////////////////////////////////////////
 	//                                        //
@@ -49,14 +49,14 @@ void* ICE_Data_Get(ICE_ID data_nb_)
 }
 
 /// Destroy a Data
-void ICE_Data_Destroy(ICE_ID nb_data)
+void ICE_Data_Destroy(ICE_DataID data_id_)
 {
 	ICE_Scene* scene_ = ICE_GLOBJ_SCENE_CURRENT;
 
 	void * _pointer;
 
-	if (nb_data <= scene_->data_nb)
-		_pointer = scene_->data[nb_data];
+	if (data_id_ <= scene_->data_nb)
+		_pointer = scene_->data[data_id_];
 
 	////////////////////////////////////////////
 	//                                        //

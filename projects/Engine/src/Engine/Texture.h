@@ -3,8 +3,6 @@
 
 #include "../Framework/String_.h"
 #include "Types.h"
-#include <SDL2/SDL.h>
-#include "../Framework/BasicTypes.h"
 #include "Vector.h"
 #include "IO_private.h"
 

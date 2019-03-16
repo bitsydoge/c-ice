@@ -1,7 +1,7 @@
 ﻿#ifndef DEF_ICE_FONT
 #define DEF_ICE_FONT
 
-#include "Font_private.h"
+#include "Types.h"
 #include "Vector.h"
 #include "Color.h"
 #include "../Framework/String_.h"

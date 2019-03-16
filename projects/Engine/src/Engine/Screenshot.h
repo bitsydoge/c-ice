@@ -1,5 +1,5 @@
-﻿#ifndef DEF_ICE_SCREENSHOT
-#define DEF_ICE_SCREENSHOT
+﻿#ifndef DEF_ICE_SCREENSHOT_H
+#define DEF_ICE_SCREENSHOT_H
 
 #include "../Framework/String_.h"
 

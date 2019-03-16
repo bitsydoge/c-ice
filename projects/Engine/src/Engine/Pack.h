@@ -3,8 +3,6 @@
 
 #include "../Framework/String_.h"
 #include "../Framework/BasicTypes.h"
-#include "Types.h"
-#include "../Framework/Macrotools.h"
 
 // Pack Loader/Unloader
 #define ICE_Pack_Load_MEM(S) ICE_Pack_Load_MEM__(S, S##_length, ICE_MACROTOOLS_STRINGIZE(FROMMEMORY_##S));
