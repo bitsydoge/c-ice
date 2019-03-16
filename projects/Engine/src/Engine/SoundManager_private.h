@@ -1,6 +1,7 @@
 ﻿#ifndef DEF_ICE_SOUNDMANAGER_PRIVATE_H
 #define DEF_ICE_SOUNDMANAGER_PRIVATE_H
 
+#include "SoundManager.h"
 #include "Sound_private.h"
 
 #define ICE_DEFAULT_SOUND_SIZE 4
@@ -13,6 +14,9 @@ struct ICE_SoundManager
 	unsigned short sound_contain;
 	ICE_Sound * sound;
 
-}; typedef struct ICE_SoundManager ICE_SoundManager;
+}; 
+
+void ICE_SoundManager_Init();
+void ICE_SoundManager_Destroy();
 
 #endif

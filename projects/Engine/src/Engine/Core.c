@@ -9,7 +9,7 @@
 #include "Input_private.h"
 #include "Scene_private.h"
 #include "Audio_private.h"
-#include "Config_private.h"
+#include "Config.h"
 #include "Renderer_private.h"
 #include "Game_private.h"
 

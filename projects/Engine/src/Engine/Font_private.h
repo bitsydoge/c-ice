@@ -14,4 +14,6 @@ struct ICE_Font
 
 }; typedef struct ICE_Font ICE_Font;
 
+ICE_Font ICE_Font_Build_RW(SDL_RWops* rwops_);
+
 #endif

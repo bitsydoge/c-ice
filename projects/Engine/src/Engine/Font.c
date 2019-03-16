@@ -11,6 +11,8 @@
 #include "../External/physfs/physfs.h"
 #include "../External/physfs/physfsrwops.h"
 
+#include "IO_private.h"
+
 // SDL
 #include "SDL2_Includer.h"
 #include ICE_INCLUDE_SDL2_TTF
@@ -74,14 +76,13 @@ ICE_Font ICE_Font_Build_RW(SDL_RWops * rwops_)
 			ICE_Log(ICE_LOGTYPE_CRITICAL, "ICE_Font : Size : %d, %s", i, TTF_GetError());
 	}
 
-	//SDL_RWclose(rwops_);
 	return font_temp;
 }
 
-ICE_ID ICE_Font_Load_RW(SDL_RWops * rwops_)
+ICE_FontID ICE_Font_Load_RW(ICE_IO * rwops_)
 {
-	ICE_Font temp = ICE_Font_Build_RW(rwops_);
-
+	ICE_Font temp = ICE_Font_Build_RW(rwops_->sdl2);
+	ICE_IO_Destroy(rwops_);
 	if (1) // ICE_Font error check
 	{
 		ICE_FontID avaible_slot = 0;
@@ -120,7 +121,7 @@ ICE_ID ICE_Font_Load_RW(SDL_RWops * rwops_)
 	return (ICE_FontID)-1; // ERROR ID
 }
 
-void ICE_Font_Destroy(ICE_ID font_)
+void ICE_Font_Destroy(ICE_FontID font_)
 {
 	ICE_GLOBJ_FONTMANAGER.font_array[font_].exist = ICE_False;
 
@@ -135,7 +136,7 @@ void ICE_Font_Destroy(ICE_ID font_)
 
 
 #if defined(_DEBUG)
-void ICE_Font_Draw(char* text, ICE_Vect vect, ICE_Color fg, ICE_Color bg) 
+void ICE_Font_Draw(ICE_StringStd text, ICE_Vect vect, ICE_Color fg, ICE_Color bg) 
 {
 	int size = (int)((ICE_Float)ICE_Window_GetH() / 50.0);
 	if (size < 12)

@@ -5,8 +5,6 @@
 
 ICE_SoundManager ICE_GLOBJ_SOUNDMANAGER = { 0 };
 
-/* SOUNDMANAGER */
-
 void ICE_SoundManager_Init()
 {
 	ICE_SoundManager soundmanager = { 0 };

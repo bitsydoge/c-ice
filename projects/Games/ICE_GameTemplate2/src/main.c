@@ -6,6 +6,7 @@
 #include "Engine/Input.h"
 #include "Engine/Screenshot.h"
 #include "Engine/Texture.h"
+#include "Framework/Log.h"
 
 #define ICE_CONFIG_WINDOW_H 720
 #define ICE_CONFIG_WINDOW_W 1280
@@ -18,6 +19,21 @@ void Debug_Draw()
 
 ICE_EntityID entity = 0;
 ICE_TextureID texture = 0;
+
+void Test_Create(ICE_EntityID this_)
+{
+	ICE_Log_Info("I'm here the ENTITY !");
+}
+
+void Test_Update(ICE_EntityID this_)
+{
+	ICE_Log_Info("I'm still here the ENTITY !");
+}
+
+void Test_Destroy(ICE_EntityID this_)
+{
+	ICE_Log_Info("I'm no more here the ENTITY :(");
+}
 
 void ICE_Game_Create()
 {
@@ -33,6 +49,8 @@ void ICE_Game_Create()
 	ICE_Graphics2D_SetData_Texture(graphics2d, texture);
 	ICE_Graphics2D_SetScale(graphics2d, ICE_Vect_New(2, 1));
 
+	ICE_Entity_FunctionSet(entity, Test_Create, Test_Update, Test_Destroy);
+
 }
 
 void ICE_Game_Update()
@@ -40,6 +58,10 @@ void ICE_Game_Update()
 	if (ICE_Input_OnPress(ICE_KEY_K))
 	{
 		ICE_Screenshot(NULL, "png");
+	}
+	if(ICE_Input_OnPress(ICE_KEY_J))
+	{
+		ICE_Entity_Destroy(0);
 	}
 }
 

@@ -81,7 +81,7 @@ ICE_Float ICE_Camera_PositionGetY()
 // ------------------------------------------------------------------------------------- //
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-ICE_Box ICE_Camera_WorldScreen(ICE_Box rect)
+ICE_Box ICE_Camera_World_to_Screen(ICE_Box rect)
 {
 	ICE_Box rect2 = {
 		(ICE_GLOBJ_WINDOW.w / 2) + rect.x - ICE_GLOBJ_SCENE_CURRENT->camera.x,
@@ -92,7 +92,7 @@ ICE_Box ICE_Camera_WorldScreen(ICE_Box rect)
 	return rect2;
 }
 
-ICE_Box ICE_Camera_ScreenWorld(ICE_Box rect)
+ICE_Box ICE_Camera_Screen_to_World(ICE_Box rect)
 {
 	ICE_Box rect2 = {
 		-ICE_GLOBJ_WINDOW.w / 2 + ICE_GLOBJ_SCENE_CURRENT->camera.x + rect.x,

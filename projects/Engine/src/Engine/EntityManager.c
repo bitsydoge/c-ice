@@ -30,3 +30,30 @@ void ICE_EntityManager_Destroy(ICE_EntityManager* entitymanager_)
 	ICE_Free(entitymanager_->entity);
 	ICE_Log(ICE_LOGTYPE_SUCCES, "Destroy EntityManager");
 }
+
+void ICE_EntityManager_FunctionUpdate()
+{
+	ICE_Scene * scene = ICE_GLOBJ_SCENE_CURRENT;
+
+	for (ICE_ID i = 0; i < scene->entity_mngr.entity_contain; i++)
+	{
+		if (scene->entity_mngr.entity[i].exist)
+		{
+			if (scene->entity_mngr.entity[i].control2d.isActive)
+			{
+				if(scene->entity_mngr.entity[i].func_create != NULL || scene->entity_mngr.entity[i].func_update != NULL)
+				{
+					if (scene->entity_mngr.entity[i].func_create != NULL)
+					{
+						scene->entity_mngr.entity[i].func_create(scene->entity_mngr.entity[i].id);
+						scene->entity_mngr.entity[i].func_create = NULL;
+					}
+					else
+					{
+						scene->entity_mngr.entity[i].func_update(scene->entity_mngr.entity[i].id);
+					}
+				}
+			}
+		}
+	}
+}

@@ -279,6 +279,9 @@
     <ClCompile Include="src\Resources\bin\logo_png.c">
       <Filter>Resources\bin</Filter>
     </ClCompile>
+    <ClCompile Include="src\Engine\IO.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Framework\Assert_.h">
@@ -393,9 +396,6 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Config.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\Config_private.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Control2D.h">
@@ -582,6 +582,15 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Primitive.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\IO.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\IO_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\ConfigDefault.h">
       <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>

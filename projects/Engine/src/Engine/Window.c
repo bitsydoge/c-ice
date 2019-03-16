@@ -7,7 +7,7 @@ ICE_Window ICE_GLOBJ_WINDOW = {0};
 
 #include "GlobalData_private.h"
 ICE_GLOBALDATA_WINDOW
-#include "Config_private.h"
+#include "Config.h"
 ICE_GLOBALDATA_CONFIG
 
 void ICE_Window_Config()

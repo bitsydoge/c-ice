@@ -1,17 +1,27 @@
-﻿#ifndef DEF_ICE_CONFIG
-#define DEF_ICE_CONFIG
+﻿#ifndef DEF_ICE_CONFIG_H
+#define DEF_ICE_CONFIG_H
 
-#define ICE_CONFIG_WINDOW_W 640
-#define ICE_CONFIG_WINDOW_H 480
-#define ICE_CONFIG_TITLE "ICE"
-// 0 = nope, 1 = fullscreen, 2 = windowed fullscreen
-#define ICE_CONFIG_FULLSCREEN 0
-#define ICE_CONFIG_RESIZABLE 0
-#define ICE_CONFIG_EDITORNAME "ice"
-#define ICE_CONFIG_PRODUCTNAME "engine"
-#define ICE_CONFIG_VSYNC 1
-#define ICE_CONFIG_REFRESHRATE 144
-#define ICE_CONFIG_WINDOW_ICON 0
-#define ICE_CONFIG_GAME_VERSION "Prototype"
+#include "../Framework/String_.h"
+
+struct ICE_Config
+{
+	unsigned int window_w, window_h;
+
+	unsigned int refresh_rate;
+
+	ICE_Uint8 fullscreen;
+	ICE_Bool resizable;
+	ICE_Bool vsync;
+
+	ICE_StringStd editor_name;
+	ICE_StringStd product_name;
+	ICE_StringStd title;
+	ICE_StringStd window_icon;
+	ICE_StringStd game_version;
+
+	int argc;
+	char** argv;
+
+}; typedef struct ICE_Config ICE_Config;
 
 #endif

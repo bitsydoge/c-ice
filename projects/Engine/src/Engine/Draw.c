@@ -1,14 +1,21 @@
 ﻿#include "Draw_private.h"
+#include "Texture.h"
+#include "Box.h"
+#include "Scene_private.h"
+#include "TextureManager_private.h"
+#include "Camera.h"
+#include "Graphics2D.h"
 
+#include "GlobalData_private.h"
+ICE_GLOBALDATA_SCENE_CURRENT
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//									LABEL DRAW
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------- //
+// --------------------------------    LabelDraw    ------------------------------------ //
+// ------------------------------------------------------------------------------------- //
+///////////////////////////////////////////////////////////////////////////////////////////
 
+/*
 void ICE_Draw_LabelWorld()
 {
 	ICE_State* current = GAME.current;
@@ -82,15 +89,17 @@ void ICE_Draw_LabelScreen() {
 		}
 	}
 }
+*/
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//									GUI DRAW
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------- //
+// --------------------------------    GuiDraw      ------------------------------------ //
+// ------------------------------------------------------------------------------------- //
+///////////////////////////////////////////////////////////////////////////////////////////
+
+/*
 void ICE_Draw_Gui_9patch(ICE_GuiID id_)
 {
 	ICE_State* current = GAME.current;
@@ -154,107 +163,63 @@ void ICE_Draw_AllGui()
 			ICE_Draw_Gui(j);
 	}
 }
+*/
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//									ENTITY DRAW
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void ICE_Draw_Entity_Texture(ICE_TextureID id_)
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------- //
+// --------------------------------    EntityDraw   ------------------------------------ //
+// ------------------------------------------------------------------------------------- //
+///////////////////////////////////////////////////////////////////////////////////////////
+
+void ICE_Draw_Graphics2D_Texture(ICE_Graphics2D* graphics2d_, ICE_Control2D* control2d_)
 {
-	ICE_State* current = GAME.current;
-	ICE_Box rect = ICE_Camera_WorldScreen
-	(
-		ICE_Box_New
-		(
-			current->object.entity_mngr.entity[id_].x,
-			current->object.entity_mngr.entity[id_].y,
-			current->object.entity_mngr.entity[id_].w,
-			current->object.entity_mngr.entity[id_].h
-		)
-	);
 
-	ICE_Texture_RenderEx2 // Draw Texture or Error Texture
-	(
-		current->object.entity_mngr.entity[id_].graphics_index != (ICE_TextureID)-1 ? ICE_Texture_Get(current->object.entity_mngr.entity[id_].graphics_index) : &ASSET.texture_error, // trinaire
-		NULL,
-		&rect,
-		current->object.entity_mngr.entity[id_].angle
-	);
 }
 
-void ICE_Draw_Entity_Sprite(ICE_TextureID id_)
+void ICE_Draw_Graphics2D_Sprite(ICE_Graphics2D* graphics2d_, ICE_Control2D* control2d_)
 {
-	ICE_State* current = GAME.current;
-	ICE_Box rect = ICE_Camera_WorldScreen(ICE_Box_New
-	(current->object.entity_mngr.entity[id_].x,
-		current->object.entity_mngr.entity[id_].y,
-		current->object.entity_mngr.entity[id_].w,
-		current->object.entity_mngr.entity[id_].h));
 
-	if (current->object.entity_mngr.entity[id_].graphics_index != (ICE_TextureID)-1)
+}
+
+void ICE_Draw_Graphics2D_Label(ICE_Graphics2D* graphics2d_, ICE_Control2D* control2d_)
+{
+	
+}
+
+void ICE_Draw_Graphics2D_Primitive(ICE_Graphics2D* graphics2d_, ICE_Control2D* control2d_)
+{
+	
+}
+
+void ICE_Draw_Entity(ICE_Graphics2D * graphics2d_, ICE_Control2D * control2d_)
+{
+	switch (graphics2d_->type)
 	{
-		ICE_Texture_RenderEx2
-		(
-			ICE_Texture_Get(ASSET.sprite_mngr.sprite[current->object.entity_mngr.entity[id_].graphics_index].texture_index),
-			&current->object.entity_mngr.entity[id_].graphics_box_render,
-			&rect,
-			current->object.entity_mngr.entity[id_].angle
-		);
-	}
-	else
-	{
-		ICE_Texture_RenderEx2
-		(
-			&ASSET.texture_error,
-			NULL,
-			&rect,
-			current->object.entity_mngr.entity[id_].angle
-		);
-	}
-}
-
-void ICE_Draw_Entity_Label(ICE_TextureID id_)
-{
-	ICE_State* current = GAME.current;
-}
-
-void ICE_Draw_Entity_Primitives(ICE_TextureID id_)
-{
-	ICE_State* current = GAME.current;
-}
-
-void ICE_Draw_Entity(ICE_TextureID id_)
-{
-	ICE_State* current = GAME.current;
-	switch (current->object.entity_mngr.entity[id_].graphics_type)
-	{
-	case ICE_ENTITYGRAPHICSTYPES_TEXTURE:
-		ICE_Draw_Entity_Texture(id_);
+	case ICE_GRAPHICS2D_TYPES_TEXTURE:
+		ICE_Draw_Graphics2D_Texture(graphics2d_, control2d_);
 		break;
-	case ICE_ENTITYGRAPHICSTYPES_SPRITE:
-		ICE_Draw_Entity_Sprite(id_);
+	case ICE_GRAPHICS2D_TYPES_SPRITE:
+		ICE_Draw_Graphics2D_Sprite(graphics2d_, control2d_);
 		break;
-	case ICE_ENTITYGRAPHICSTYPES_LABEL:
-		ICE_Draw_Entity_Label(id_);
+	case ICE_GRAPHICS2D_TYPES_LABEL:
+		ICE_Draw_Graphics2D_Label(graphics2d_, control2d_);
 		break;
-	case ICE_ENTITYGRAPHICSTYPES_PRIMITIVES:
-		ICE_Draw_Entity_Primitives(id_);
+	case ICE_GRAPHICS2D_TYPES_PRIMITIVE:
+		ICE_Draw_Graphics2D_Primitive(graphics2d_, control2d_);
 		break;
 	default:
 		break;
 	}
 }
 
-void ICE_Draw_AllEntity()
+void ICE_Draw_EntityAll()
 {
-	ICE_State* current = GAME.current;
-	for (ICE_ID j = 0; j < current->object.entity_mngr.entity_contain; j++)
+	ICE_Scene * current = ICE_GLOBJ_SCENE_CURRENT;
+	for (ICE_ID j = 0; j < current->entity_mngr.entity_contain; j++)
 	{
-		if (current->object.entity_mngr.entity[j].active)
-			ICE_Draw_Entity(j);
+		if (current->entity_mngr.entity[j].exist && current->entity_mngr.entity[j].control2d.isActive && current->entity_mngr.entity[j].graphics2d.isVisible)
+			ICE_Draw_Entity(&current->entity_mngr.entity[j].graphics2d, &current->entity_mngr.entity[j].control2d);
 	}
 }

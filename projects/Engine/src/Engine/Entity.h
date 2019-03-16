@@ -37,4 +37,12 @@ void ICE_Entity_DataDestroyAll(ICE_EntityID entity_id_);
 ICE_Graphics2D* ICE_Entity_GetGraphics2D(ICE_EntityID entity_id_);
 ICE_Control2D* ICE_Entity_GetControl2D(ICE_EntityID entity_id_);
 
+///////////////////////////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------- //
+// -------------------------------- EntityFunction  ------------------------------------ //
+// ------------------------------------------------------------------------------------- //
+///////////////////////////////////////////////////////////////////////////////////////////
+
+void ICE_Entity_FunctionSet(ICE_EntityID entity_id_, void(*call_create)(ICE_EntityID), void(*call_update)(ICE_EntityID), void(*call_destroy)(ICE_EntityID));
+
 #endif

@@ -7,7 +7,7 @@
 #include "../External/SDL2_gfx/SDL2_framerate.h"
 #include "../Framework/Log.h"
 
-#include "Config_private.h"
+#include "Config.h"
 
 #include "GlobalData_private.h"
 #include <time.h>

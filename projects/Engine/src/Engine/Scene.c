@@ -3,11 +3,12 @@
 #include "Time_private.h"
 #include "Input_private.h"
 #include "Renderer_private.h"
+#include "Draw_private.h"
+#include "EntityManager_private.h"
+#include "Data.h"
 
 ICE_Scene ICE_GLOBJ_SCENE_MAIN = {0};
 ICE_Scene * ICE_GLOBJ_SCENE_CURRENT = NULL;
-
-#include "EntityManager_private.h"
 
 #include "GlobalData_private.h"
 ICE_GLOBALDATA_INPUT
@@ -33,40 +34,39 @@ ICE_Scene ICE_Scene_Init(void(*call_create)(void), void(*call_update)(void), voi
 
 void ICE_Scene_Destroy(ICE_Scene * scene_)
 {
+	ICE_EntityManager_Destroy(&scene_->entity_mngr);
+	ICE_Data_DestroyAll();
 	ICE_String_Free(scene_->name);
-
 	scene_->func_create = NULL;
 	scene_->func_update = NULL;
 	scene_->func_destroy = NULL;
 	scene_->parent = NULL;
-
-	ICE_EntityManager_Destroy(&scene_->entity_mngr);
 }
 
 void ICE_Scene_Run(ICE_Scene * scene_)
 {
 	ICE_Log_Line();
-	ICE_Log(ICE_LOGTYPE_RUNNING, "Create ...");
+	ICE_Log(ICE_LOGTYPE_RUNNING, "Create : %s ...", scene_->name);
 	scene_->func_create();
-	ICE_Log(ICE_LOGTYPE_FINISH, "Create");
+	ICE_Log(ICE_LOGTYPE_FINISH, "Create : %s", scene_->name);
 	ICE_Log_Line();
 	
 	ICE_Log_Line();
-	ICE_Log(ICE_LOGTYPE_RUNNING, "Update ...");
+	ICE_Log(ICE_LOGTYPE_RUNNING, "Update : %s ...", scene_->name);
 	while (!ICE_GLOBJ_INPUT.quit)
 	{
 		// LOGIC HERE
 		ICE_Time_Start();
 		ICE_Input_Return();
 
-		//TODO//ICE_Entity_FunctionUpdate(NULL);
+		ICE_EntityManager_FunctionUpdate();
 		scene_->func_update();
 
 		// RENDER HERE
 		ICE_Renderer_SetColor(ICE_GLOBJ_SCENE_CURRENT->background_color);
 		ICE_Renderer_Clear();
 
-		//TODO//ICE_Draw_AllEntity();
+		ICE_Draw_EntityAll();
 		//TODO//ICE_Draw_LabelWorld();
 		//TODO//ICE_Draw_AllGui();
 		//TODO//ICE_Draw_LabelScreen();
@@ -79,12 +79,12 @@ void ICE_Scene_Run(ICE_Scene * scene_)
 		ICE_Renderer_Now();
 		ICE_Time_End();
 	}
-	ICE_Log(ICE_LOGTYPE_FINISH, "Update");
+	ICE_Log(ICE_LOGTYPE_FINISH, "Update : %s", scene_->name);
 	ICE_Log_Line();
 
 	ICE_Log_Line();
-	ICE_Log(ICE_LOGTYPE_RUNNING, "Destroy ...");
+	ICE_Log(ICE_LOGTYPE_RUNNING, "Destroy : %s ...", scene_->name);
 	scene_->func_destroy();
-	ICE_Log(ICE_LOGTYPE_FINISH, "Destroy");
+	ICE_Log(ICE_LOGTYPE_FINISH, "Destroy : %s", scene_->name);
 	ICE_Log_Line();
 }

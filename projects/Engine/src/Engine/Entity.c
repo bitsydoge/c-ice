@@ -194,6 +194,8 @@ void ICE_Entity_DataDestroyAll(ICE_EntityID entity_id_)
 }
 
 
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 // ------------------------------------------------------------------------------------- //
 // -------------------------------- GetComponent  -------------------------------------- //
@@ -208,4 +210,19 @@ ICE_Graphics2D* ICE_Entity_GetGraphics2D(ICE_EntityID entity_id_)
 ICE_Control2D* ICE_Entity_GetControl2D(ICE_EntityID entity_id_)
 {
 	return &ICE_GLOBJ_SCENE_CURRENT->entity_mngr.entity[entity_id_].control2d;
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------- //
+// -------------------------------- EntityFunction  ------------------------------------ //
+// ------------------------------------------------------------------------------------- //
+///////////////////////////////////////////////////////////////////////////////////////////
+
+void ICE_Entity_FunctionSet(ICE_EntityID entity_id_, void(*call_create)(ICE_EntityID), void(*call_update)(ICE_EntityID), void(*call_destroy)(ICE_EntityID))
+{
+	ICE_GLOBJ_SCENE_CURRENT->entity_mngr.entity[entity_id_].func_create = call_create;
+	ICE_GLOBJ_SCENE_CURRENT->entity_mngr.entity[entity_id_].func_update = call_update;
+	ICE_GLOBJ_SCENE_CURRENT->entity_mngr.entity[entity_id_].func_destroy = call_destroy;
 }

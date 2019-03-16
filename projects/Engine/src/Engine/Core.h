@@ -2,7 +2,7 @@
 #define DEF_ICE_CORE
 
 #include "Config.h"
-#include "Config_private.h"
+#include "ConfigDefault.h"
 
 #define ICE_Game_Update() ICE_User_Update(void)
 #define ICE_Game_Destroy() ICE_User_Destroy(void)

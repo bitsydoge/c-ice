@@ -3,7 +3,7 @@
 #include "Texture.h"
 #include "Sound.h"
 
-#include "Config_private.h"
+#include "Config.h"
 #include "Scene_private.h"
 #include "Time_private.h"
 #include "GlobalData_private.h"

@@ -5,6 +5,8 @@
 
 #include "../External/physfs/physfsrwops.h"
 
+#include "IO_private.h"
+
 #define SDL_STBIMAGE_IMPLEMENTATION 1
 #include "../External/stb/SDL_stbimage.h"
 
@@ -24,25 +26,29 @@ extern ICE_Resources ICE_GLOBJ_RESOURCES;
 
 ICE_ID last_loaded_texture = (ICE_ID)-1;
 
-/* TEXTURE */
+///////////////////////////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------- //
+// ------------------------------------     PUBLIC      -------------------------------- //
+// ------------------------------------------------------------------------------------- //
+///////////////////////////////////////////////////////////////////////////////////////////
 
 ICE_TextureID ICE_Texture_GetLastLoaded()
 {
 	return last_loaded_texture;
 }
 
-ICE_ID ICE_Texture_Load(ICE_StringStd path_) 
+ICE_TextureID ICE_Texture_Load(ICE_StringStd path_) 
 {
-	SDL_RWops * ops = NULL;
+	ICE_IO * ops = NULL;
 
 	if(ICE_Pack_isPathFromPak(path_))
 	{
 		PHYSFS_File * ph_file = PHYSFS_openRead(path_ + 6);
-		ops = PHYSFSRWOPS_makeRWops(ph_file);
+		ops = ICE_IO_MakeFromSDL2(PHYSFSRWOPS_makeRWops(ph_file));
 	}
 	else
 	{
-		ops = SDL_RWFromFile(path_, "rb");
+		ops = ICE_IO_MakeFromSDL2(SDL_RWFromFile(path_, "rb"));
 	}
 
 	ICE_ID temp_id = ICE_Texture_Load_RW(ops);
@@ -55,18 +61,7 @@ ICE_ID ICE_Texture_Load(ICE_StringStd path_)
 	return temp_id;
 }
 
-ICE_Texture ICE_Texture_Build_RW(SDL_RWops * rwops_)
-{
-	ICE_Texture texture_temp = ICE_Texture_LoadFromFile_RW(rwops_);
-	texture_temp.exist = 1;
-	int w, h;
-	SDL_QueryTexture(texture_temp.handle, NULL, NULL, &w, &h);
-	texture_temp.w = w; texture_temp.h = h;
-	SDL_SetTextureBlendMode(texture_temp.handle, SDL_BLENDMODE_BLEND);
-	return texture_temp;
-}
-
-ICE_ID ICE_Texture_Load_RW(SDL_RWops * rwops_) 
+ICE_TextureID ICE_Texture_Load_RW(ICE_IO* rwops_) 
 {
 	ICE_Texture temp = ICE_Texture_Build_RW(rwops_);
 	if(temp.handle)
@@ -106,32 +101,36 @@ ICE_ID ICE_Texture_Load_RW(SDL_RWops * rwops_)
 	return (ICE_TextureID)-1; // ERROR ID
 }
 
-void ICE_Texture_Destroy(ICE_ID texture_) 
+void ICE_Texture_Destroy(ICE_TextureID texture_) 
 {
 	ICE_GLOBJ_TEXTUREMANAGER.texture[texture_].exist = ICE_False;
 	SDL_DestroyTexture(ICE_GLOBJ_TEXTUREMANAGER.texture[texture_].handle);
 	ICE_Log(ICE_LOGTYPE_SUCCES, "Destroy Texture %d", texture_);
 }
 
-void ICE_Texture_Free(ICE_Texture * texture_)
+ICE_Vect ICE_Texture_GetSize(ICE_TextureID texture_)
 {
-	SDL_DestroyTexture(texture_->handle);
+	return ICE_Vect_New((ICE_Float)ICE_GLOBJ_TEXTUREMANAGER.texture[texture_].w, (ICE_Float)ICE_GLOBJ_TEXTUREMANAGER.texture[texture_].h);
 }
 
-unsigned int ICE_Texture_GetW(ICE_ID texture_)
+unsigned int ICE_Texture_GetWidth(ICE_TextureID texture_)
 {
 	return ICE_GLOBJ_TEXTUREMANAGER.texture[texture_].w;
 }
 
-unsigned int ICE_Texture_GetH(ICE_ID texture_)
+unsigned int ICE_Texture_GetHeight(ICE_TextureID texture_)
 {
 	return ICE_GLOBJ_TEXTUREMANAGER.texture[texture_].h;
 }
 
-ICE_Texture * ICE_Texture_Get(ICE_ID texture_)
-{
-	return &ICE_GLOBJ_TEXTUREMANAGER.texture[texture_];
-}
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------- //
+// ------------------------------------     PRIVATE     -------------------------------- //
+// ------------------------------------------------------------------------------------- //
+///////////////////////////////////////////////////////////////////////////////////////////
 
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN
 ICE_Uint32 static const rmask = 0xff000000;
@@ -145,10 +144,11 @@ ICE_Uint32 static const bmask = 0x00ff0000;
 ICE_Uint32 static const amask = 0xff000000;
 #endif
 
-ICE_Texture ICE_Texture_LoadFromFile_RW(SDL_RWops* rwops_)
+ICE_Texture ICE_Texture_LoadFromFile_RW(ICE_IO* rwops_)
 {
 	ICE_Texture text = { 0 };
-	SDL_Surface* surf = STBIMG_Load_RW(rwops_, 1);
+	SDL_Surface* surf = STBIMG_Load_RW(rwops_->sdl2, 1);
+	ICE_IO_Destroy(rwops_);
 	if (surf == NULL)
 	{
 		ICE_Log_Critical("Can't create Surface from image : %s", SDL_GetError());
@@ -163,6 +163,17 @@ ICE_Texture ICE_Texture_LoadFromFile_RW(SDL_RWops* rwops_)
 		SDL_FreeSurface(surf);
 		return text;
 	}
+}
+
+ICE_Texture ICE_Texture_Build_RW(ICE_IO* rwops_)
+{
+	ICE_Texture texture_temp = ICE_Texture_LoadFromFile_RW(rwops_);
+	texture_temp.exist = 1;
+	int w, h;
+	SDL_QueryTexture(texture_temp.handle, NULL, NULL, &w, &h);
+	texture_temp.w = w; texture_temp.h = h;
+	SDL_SetTextureBlendMode(texture_temp.handle, SDL_BLENDMODE_BLEND);
+	return texture_temp;
 }
 
 int ICE_Texture_RenderEx(const ICE_Texture * texture, ICE_Box * src, ICE_Box * dst, const ICE_Float angle) {
@@ -207,4 +218,14 @@ int ICE_Texture_RenderEx2(const ICE_Texture * tex, ICE_Box * src, ICE_Box * dst,
 	s_dst.x -= s_dst.w / 2; s_dst.y -= s_dst.h / 2;
 	SDL_Rect s_src = ICE_Convert_BoxToSDL(src);
 	return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.handle, tex->handle, &s_src, &s_dst, angle, NULL, SDL_FLIP_NONE);
+}
+
+ICE_Texture * ICE_Texture_Get(ICE_ID texture_)
+{
+	return &ICE_GLOBJ_TEXTUREMANAGER.texture[texture_];
+}
+
+void ICE_Texture_Free(ICE_Texture* texture_)
+{
+	SDL_DestroyTexture(texture_->handle);
 }

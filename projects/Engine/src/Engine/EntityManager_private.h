@@ -17,5 +17,6 @@ struct ICE_EntityManager
 
 void ICE_EntityManager_Init(ICE_EntityManager* entitymanager_);
 void ICE_EntityManager_Destroy(ICE_EntityManager* entitymanager_);
+void ICE_EntityManager_FunctionUpdate();
 
 #endif

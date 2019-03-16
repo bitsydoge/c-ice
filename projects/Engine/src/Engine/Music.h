@@ -7,10 +7,10 @@
 #include "Types.h"
 #include "../Framework/Macrotools.h"
 
-#include <SDL2/SDL.h>
-#include "Music_private.h"
+#include "IO.h"
+#include "Config.h"
 
-#define ICE_Music_Load_MEM(S) ICE_Music_Load_RW(SDL_RWFromConstMem(S, S##_length));\
+#define ICE_Music_Load_MEM(S) ICE_Music_Load_RW(ICE_IO_FromConstMem(S, S##_length));\
 	if(ICE_Music_GetLastLoaded() != (ICE_ID)-1)\
 		ICE_Log_Succes(ICE_MACROTOOLS_STRINGIZE(Music loaded from memory ID(%ld)\n Token(##S##)), ICE_Music_GetLastLoaded());\
 	else\
@@ -18,17 +18,15 @@
 
 // MUSIC
 ICE_MusicID ICE_Music_GetLastLoaded();
-ICE_MusicID ICE_Music_Load(char* path);
-ICE_Music ICE_Music_Build_RW(SDL_RWops * ops);
-ICE_MusicID ICE_Music_Load_RW(SDL_RWops * ops);
+ICE_MusicID ICE_Music_Load(ICE_StringStd path);
+ICE_MusicID ICE_Music_Load_RW(ICE_IO* ops);
 
-void ICE_Music_Clear(ICE_ID music_);
-void ICE_Music_Destroy(ICE_ID music_);
-ICE_Music* ICE_Music_Get(ICE_ID music_);
+void ICE_Music_Clear(ICE_MusicID music_);
+void ICE_Music_Destroy(ICE_MusicID music_);
 
 // PLAY
 
-int ICE_Music_Play(ICE_ID music_, ICE_Float volume_);
+int ICE_Music_Play(ICE_MusicID music_, ICE_Float volume_);
 void ICE_Music_Pause();
 void ICE_Music_Resume();
 

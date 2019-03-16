@@ -7,6 +7,8 @@
 #include "MusicManager_private.h"
 #include "Pack.h"
 
+#include "IO_private.h"
+
 ICE_ID last_loaded_music = (ICE_ID)-1;
 
 #include "GlobalData_private.h"
@@ -19,18 +21,18 @@ ICE_TextureID ICE_Music_GetLastLoaded()
 	return last_loaded_music;
 }
 
-ICE_MusicID ICE_Music_Load(char* path_)
+ICE_MusicID ICE_Music_Load(ICE_StringStd path_)
 {
-	SDL_RWops * ops = NULL;
+	ICE_IO * ops = NULL;
 
 	if(ICE_Pack_isPathFromPak(path_))
 	{
 		PHYSFS_File * ph_file = PHYSFS_openRead(path_ + 6);
-		ops = PHYSFSRWOPS_makeRWops(ph_file);
+		ops = ICE_IO_MakeFromSDL2(PHYSFSRWOPS_makeRWops(ph_file));
 	}
 	else
 	{
-		ops = SDL_RWFromFile(path_, "rb");
+		ops = ICE_IO_MakeFromSDL2(SDL_RWFromFile(path_, "rb"));
 	}
 
 	ICE_ID temp_id = ICE_Music_Load_RW(ops);
@@ -54,9 +56,11 @@ ICE_Music ICE_Music_Build_RW(SDL_RWops * ops)
 	return music;
 }
 
-ICE_MusicID ICE_Music_Load_RW(SDL_RWops * ops)
+ICE_MusicID ICE_Music_Load_RW(ICE_IO* ops)
 {
-	ICE_GLOBJ_MUSICMANAGER.music[ICE_GLOBJ_MUSICMANAGER.music_contain] = ICE_Music_Build_RW(ops);
+	ICE_GLOBJ_MUSICMANAGER.music[ICE_GLOBJ_MUSICMANAGER.music_contain] = ICE_Music_Build_RW(ops->sdl2);
+	ICE_IO_Destroy(ops);
+
 	ICE_GLOBJ_MUSICMANAGER.music_contain++;
 
 	if (ICE_GLOBJ_MUSICMANAGER.music_size <= ICE_GLOBJ_MUSICMANAGER.music_contain) {
@@ -68,12 +72,12 @@ ICE_MusicID ICE_Music_Load_RW(SDL_RWops * ops)
 }
 
 
-void ICE_Music_Clear(ICE_ID music_)
+void ICE_Music_Clear(ICE_MusicID music_)
 {
 	memset(ICE_GLOBJ_MUSICMANAGER.music, 0, sizeof(ICE_Music));
 }
 
-void ICE_Music_Destroy(ICE_ID music_)
+void ICE_Music_Destroy(ICE_MusicID music_)
 {
 	ICE_String_Free(ICE_GLOBJ_MUSICMANAGER.music[music_].filename);
 	Mix_FreeMusic(ICE_GLOBJ_MUSICMANAGER.music[music_].sdl_handle);
@@ -81,7 +85,7 @@ void ICE_Music_Destroy(ICE_ID music_)
 
 // PLAY
 
-int ICE_Music_Play(ICE_ID music_, ICE_Float volume_)
+int ICE_Music_Play(ICE_MusicID music_, ICE_Float volume_)
 {
 	if (ICE_GLOBJ_MUSICMANAGER.music[music_].sdl_handle != NULL) 
 	{

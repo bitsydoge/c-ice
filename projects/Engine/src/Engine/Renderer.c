@@ -7,7 +7,7 @@
 
 #include "Scene_private.h"
 #include "Resources_private.h"
-#include "Config_private.h"
+#include "Config.h"
 #include "Window_private.h"
 #include "GlobalData_private.h"
 
@@ -86,7 +86,7 @@ void ICE_Renderer_Init()
 	ICE_GLOBJ_DEBUG_LATEDRAW = NULL;
 #endif
 
-	ICE_GLOBJ_WINDOW.w = (ICE_Float)ICE_GLOBJ_CONFIG.window_w; ICE_GLOBJ_WINDOW.h = (ICE_Float)ICE_GLOBJ_CONFIG.window_h;
+	ICE_GLOBJ_WINDOW.w = ICE_GLOBJ_CONFIG.window_w; ICE_GLOBJ_WINDOW.h = ICE_GLOBJ_CONFIG.window_h;
 
 	ICE_Resources_TextureLogoInit();
 
@@ -119,6 +119,7 @@ void ICE_Renderer_Quit()
 }
 
 #if defined(_DEBUG)
+
 void ICE_Renderer_Info()
 {
 	ICE_Log(ICE_LOGTYPE_INFO, "Render Info");

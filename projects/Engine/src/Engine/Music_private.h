@@ -14,5 +14,7 @@ struct ICE_Music
 
 }; typedef struct ICE_Music ICE_Music;
 
+ICE_Music ICE_Music_Build_RW(SDL_RWops* ops);
+ICE_Music* ICE_Music_Get(ICE_ID music_);
 
 #endif

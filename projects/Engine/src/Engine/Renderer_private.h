@@ -10,7 +10,7 @@ struct ICE_Render
 {
 	SDL_Renderer* handle;
 
-}; typedef struct ICE_Render ICE_Renderer;
+};
 
 int ICE_Renderer_SetColor(const ICE_Color rgba_hex);
 int ICE_Renderer_Clear();

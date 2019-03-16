@@ -41,6 +41,7 @@
     <ClCompile Include="src\Engine\Graphics2D.c" />
     <ClCompile Include="src\Engine\Input.c" />
     <ClCompile Include="src\Engine\Interpolate.c" />
+    <ClCompile Include="src\Engine\IO.c" />
     <ClCompile Include="src\Engine\Label.c" />
     <ClCompile Include="src\Engine\Music.c" />
     <ClCompile Include="src\Engine\MusicManager.c" />
@@ -118,7 +119,7 @@
     <ClInclude Include="src\Engine\Collision_Basic.h" />
     <ClInclude Include="src\Engine\Color.h" />
     <ClInclude Include="src\Engine\Config.h" />
-    <ClInclude Include="src\Engine\Config_private.h" />
+    <ClInclude Include="src\Engine\ConfigDefault.h" />
     <ClInclude Include="src\Engine\Control2D.h" />
     <ClInclude Include="src\Engine\Control2D_private.h" />
     <ClInclude Include="src\Engine\Core.h" />
@@ -143,6 +144,8 @@
     <ClInclude Include="src\Engine\Input.h" />
     <ClInclude Include="src\Engine\Input_private.h" />
     <ClInclude Include="src\Engine\Interpolate.h" />
+    <ClInclude Include="src\Engine\IO.h" />
+    <ClInclude Include="src\Engine\IO_private.h" />
     <ClInclude Include="src\Engine\Label.h" />
     <ClInclude Include="src\Engine\Label_private.h" />
     <ClInclude Include="src\Engine\Maths.h" />
