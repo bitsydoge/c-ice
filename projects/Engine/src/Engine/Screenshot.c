@@ -310,8 +310,6 @@ int P_ICE_Thread_Image_Saver(void* data_)
 		stbi_write_jpg(data->filepath, data->w, data->h, data->BytesPerPixel, data->data_pixels, 100);
 	else if (SDL_strcmp(extension, "TGA") != 0)
 		stbi_write_tga(data->filepath, data->w, data->h, data->BytesPerPixel, data->data_pixels);
-	else if (SDL_strcmp(extension, "HDR") != 0)
-		stbi_write_hdr(data->filepath, data->w, data->h, data->BytesPerPixel, data->data_pixels);
 	else if (SDL_strcmp(extension, "BMP") != 0)
 		stbi_write_bmp(data->filepath, data->w, data->h, data->BytesPerPixel, data->data_pixels);
 	else
@@ -363,7 +361,7 @@ P_ICE_Image_Saver_Data* P_ICE_Image_Saver_Data_Create(ICE_StringStd path_)
 	data_thread->h = surface->h;
 	data_thread->pitch = surface->pitch;
 	data_thread->data_pixels = ICE_Malloc(sizeof(unsigned char) * data_thread->pitch * data_thread->h);
-	memcpy(data_thread->data_pixels, surface->pixels, data_thread->h * data_thread->pitch);
+	memcpy(data_thread->data_pixels, surface->pixels, data_thread->pitch * data_thread->h);
 
 	return data_thread;
 }

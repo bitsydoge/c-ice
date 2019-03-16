@@ -79,7 +79,7 @@ void ICE_Time_End()
 
 ICE_Uint64 ICE_Time_GetMS()
 {
-	return (ICE_Float)clock();
+	return (ICE_Uint64)clock();
 }
 
 ICE_Float ICE_Time_GetS()

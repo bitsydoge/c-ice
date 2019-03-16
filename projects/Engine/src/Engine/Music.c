@@ -90,7 +90,7 @@ int ICE_Music_Play(ICE_MusicID music_, ICE_Float volume_)
 	if (ICE_GLOBJ_MUSICMANAGER.music[music_].sdl_handle != NULL) 
 	{
 		Mix_PlayMusic(ICE_GLOBJ_MUSICMANAGER.music[music_].sdl_handle, -1);
-		Mix_VolumeMusic(volume_*128);
+		Mix_VolumeMusic((int)volume_*128);
 		return 1;
 	}
 	return -1;

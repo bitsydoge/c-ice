@@ -34,14 +34,14 @@ int ICE_String_STDSize(ICE_StringStd string)
 // Return size of the array of a ICE_String (dont work on std wchar_t*) (it's multiple of int)
 int ICE_String_Size(ICE_String string)
 {
-	int *tmp = (int*)(string - cpi * 2);
+	int *tmp = (int*)(string - 2 * cpi);
 	return tmp[0];
 }
 
 // Return size of the string (if there is 5 letter there is 6 wchar_t with the `\0`)
 int ICE_String_Contain(ICE_String string)
 {
-	int *tmp = (int*)(string - cpi * 2);
+	int *tmp = (int*)(string - 2 * cpi);
 	return tmp[1];
 }
 
@@ -65,7 +65,7 @@ ICE_String ICE_String_Init(ICE_StringStd stdstring, ...)
 	int * tmp = (int*)ICE_Malloc(sizeof(int)*nb_int_to_malloc);
 	ICE_Char* string = (ICE_Char*)(tmp + 2);
 
-	int* size_array = (int*)(string - (2 * cpi));
+	int* size_array = (int*)(string - (cpi * 2));
 	int* contain_array = (int*)(string - (1 * cpi));
 
 	*size_array = (nb_int_to_malloc - 2) * cpi;
@@ -96,7 +96,7 @@ ICE_String ICE_String_Init2(ICE_StringStd stdstring, ...)
 	int * tmp = (int*)ICE_Malloc(sizeof(int)*nb_int_to_malloc);
 	ICE_Char* string = (ICE_Char*)(tmp + 2);
 
-	int* size_array = (int*)(string - (2 * cpi));
+	int* size_array = (int*)(string - (cpi * 2));
 	int* contain_array = (int*)(string - (1 * cpi));
 
 	*size_array = (nb_int_to_malloc - 2) * cpi;
@@ -113,7 +113,7 @@ void ICE_String_Free(ICE_String string)
 {
 	if(string != NULL)
 	{
-		int *tmp = (int*)(string - (2 * cpi));
+		int *tmp = (int*)(string - (cpi * 2));
 		ICE_Free(tmp);
 	}
 	else
@@ -139,7 +139,7 @@ void ICE_String_Resize(ICE_String* ptr_string, const int size)
 {
 	ICE_String ice_string = *ptr_string;
 
-	int *tmp = (int*)(ice_string - (2 * cpi));
+	int *tmp = (int*)(ice_string - (cpi * 2));
 
 	int contain_array = tmp[1];
 
@@ -157,7 +157,7 @@ void ICE_String_Resize(ICE_String* ptr_string, const int size)
 	else
 		bool_tronc = 0;
 
-	tmp = (int*)ICE_Realloc(tmp, sizeof(int)*(2 + nb_int_to_realloc));
+	tmp = (int*)ICE_Realloc(tmp, sizeof(int)*(nb_int_to_realloc + 2));
 	tmp[0] = nb_int_to_realloc * cpi;
 	tmp[1] = bool_tronc ? size : contain_array;
 	ice_string = (ICE_Char*)(tmp + 2);

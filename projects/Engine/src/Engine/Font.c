@@ -40,21 +40,21 @@ ICE_FontID ICE_Font_GetLastLoaded()
 
 ICE_FontID ICE_Font_Load(ICE_StringStd path_)
 {
-	SDL_RWops* ops = NULL;
+	ICE_IO* ops = NULL;
 
 	if (ICE_Pack_isPathFromPak(path_))
 	{
 		PHYSFS_File* ph_file = PHYSFS_openRead(path_ + 6);
-		ops = PHYSFSRWOPS_makeRWops(ph_file);
+		ops = ICE_IO_MakeFromSDL2(PHYSFSRWOPS_makeRWops(ph_file));
 	}
 	else
 	{
-		ops = SDL_RWFromFile(path_, "rb");
+		ops = ICE_IO_MakeFromSDL2(SDL_RWFromFile(path_, "rb"));
 	}
 
-	ICE_ID temp_id = ICE_Font_Load_RW(ops);
+	ICE_FontID temp_id = ICE_Font_Load_RW(ops);
 
-	if (temp_id != (ICE_ID)-1)
+	if (temp_id != (ICE_FontID)-1)
 		ICE_Log_Succes("Font loaded from path : ID(%ld), Path(\"%s\")", temp_id, path_);
 	else
 		ICE_Log_Error("Font didn't loaded from file : %s", path_);
