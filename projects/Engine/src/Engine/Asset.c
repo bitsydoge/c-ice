@@ -1,13 +1,12 @@
 ﻿#include "MusicManager_private.h"
-#include "Sound.h"
 #include "TextureManager_private.h"
-#include "Data.h"
 
 #include "FontManager_private.h"
 #include "SoundManager_private.h"
+#include "Resources_private.h"
 
 #include "GlobalData_private.h"
-#include "Resources_private.h"
+#include "Scene_private.h"
 ICE_GLOBALDATA_SCENE_MAIN
 
 void ICE_Asset_Init()

@@ -165,7 +165,7 @@
     <ClInclude Include="src\Engine\Scene_private.h" />
     <ClInclude Include="src\Engine\Screenshot.h" />
     <ClInclude Include="src\Engine\SDL2_Converter_private.h" />
-    <ClInclude Include="src\Engine\SDL2_Includer.h" />
+    <ClInclude Include="src\Engine\SDL2_Includer_private.h" />
     <ClInclude Include="src\Engine\Sound.h" />
     <ClInclude Include="src\Engine\SoundManager.h" />
     <ClInclude Include="src\Engine\SoundManager_private.h" />
@@ -207,6 +207,7 @@
     <ClInclude Include="src\Framework\Terminal_private.h" />
     <ClInclude Include="src\Framework\BasicTypes.h" />
     <ClInclude Include="src\Framework\UnitTest.h" />
+    <ClInclude Include="src\ICE.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\NOTES.md" />

@@ -3,7 +3,7 @@
 
 #include "Types.h"
 
-#include "SDL2_Includer.h"
+#include "SDL2_Includer_private.h"
 #include ICE_INCLUDE_SDL2_TTF
 
 struct ICE_Font

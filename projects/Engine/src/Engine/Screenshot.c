@@ -2,7 +2,7 @@
 #include "../Framework/BasicTypes.h"
 #include "../Framework/Memory_.h"
 
-#include "SDL2_Includer.h"
+#include "SDL2_Includer_private.h"
 #include ICE_INCLUDE_SDL2
 
 #define STB_IMAGE_WRITE_IMPLEMENTATION

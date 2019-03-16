@@ -1,7 +1,7 @@
 ﻿#ifndef DEF_ICE_MUSIC_PRIVATE_H
 #define DEF_ICE_MUSIC_PRIVATE_H
 
-#include "SDL2_Includer.h"
+#include "SDL2_Includer_private.h"
 #include ICE_INCLUDE_SDL2_MIXER
 
 #include "../Framework/String_.h"
