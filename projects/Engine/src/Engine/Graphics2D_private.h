@@ -7,7 +7,7 @@
 #include "Vector.h"
 #include "Color.h"
 #include "Label.h"
-#include "Texture.h"
+#include "Texture_private.h"
 
 enum ICE_Graphics2D_Types
 {

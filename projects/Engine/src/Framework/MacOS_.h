@@ -6,7 +6,7 @@
 #define ICE_MACOS_H
 
 #include "BasicTypes.h"
-#include "../Framework/String_.h"
+#include "String_.h"
 
 #if defined(__APPLE__)
 #include <unistd.h>

@@ -1,7 +1,8 @@
 ﻿#ifndef DEF_ICE_RESOURCES_PRIVATE_H
 #define DEF_ICE_RESOURCES_PRIVATE_H
 
-#include "Texture.h"
+#include "Texture_private.h"
+#include "Font_private.h"
 
 struct ICE_Resources
 {
@@ -9,15 +10,20 @@ struct ICE_Resources
 	ICE_Texture texture_error;
 	ICE_Texture texture_gui_default;
 	ICE_Texture texture_logo;
+	ICE_FontID font_default;
 
 }; typedef struct ICE_Resources ICE_Resources;
 
-void ICE_Texture_ErrorInit();
-void ICE_Texture_LogoInit();
-void ICE_Texture_DefaultGuiInit();
-void ICE_Texture_LogoFree();
-void ICE_Texture_DefaultGuiFree();
-void ICE_Texture_ErrorFree();
-void ICE_Texture_DefaultAllFree();
+void ICE_Resources_TextureLogoInit();
+void ICE_Resources_TextureErrorInit();
+void ICE_Resources_TextureDefaultGuiInit();
+void ICE_Resources_FontDefault();
+
+///////////////////////////////////////////////////////
+
+void ICE_Resources_TextureDefaultGuiFree();
+void ICE_Resources_TextureErrorFree();
+void ICE_Resources_TextureLogoFree();
+void ICE_Resources_FreeAll();
 
 #endif

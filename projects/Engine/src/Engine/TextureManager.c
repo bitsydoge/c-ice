@@ -2,6 +2,7 @@
 
 #include "../Framework/Log.h"
 #include "../Framework/Memory_.h"
+#include "Texture_private.h"
 
 ICE_TextureManager ICE_GLOBJ_TEXTUREMANAGER = {0};
 

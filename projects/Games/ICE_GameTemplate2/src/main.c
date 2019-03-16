@@ -4,15 +4,18 @@
 #include "Engine/Screenshot.h"
 #include "Engine/Texture.h"
 #include "Engine/Entity.h"
+#include "Engine/Debug.h"
 
 
-ICE_TextureID texture_test;
+void Debug_Draw()
+{
+	ICE_Debug_DrawFps(2);
+}
 
 void ICE_Game_Create()
 {
 	ICE_Render_Color(ICE_Color_New(50, 70, 150));
-	texture_test = ICE_Texture_Load("res\\woodenui\\frame_c2_01.png");
-	ICE_Entity_Create(NULL, ICE_Vect_New(50, 50));
+	ICE_Debug_CallbackDraw(Debug_Draw);
 }
 
 void ICE_Game_Update()

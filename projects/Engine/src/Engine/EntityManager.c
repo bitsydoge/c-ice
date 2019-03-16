@@ -15,7 +15,7 @@ void ICE_EntityManager_Init(ICE_EntityManager* entitymanager_)
 
 	*entitymanager_ = entity_manager;
 
-	ICE_Log(ICE_LOGTYPE_SUCCES, "Create entitymanager_");
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Create EntityManager");
 }
 
 void ICE_EntityManager_Destroy(ICE_EntityManager* entitymanager_)

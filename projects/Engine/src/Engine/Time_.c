@@ -48,7 +48,7 @@ void ICE_Time_End()
 	static int fps_actual_to_fill = 0;
 	static ICE_Bool trigger_fpsblock = ICE_False;
 	ICE_Uint32 elapsedMS = SDL_framerateDelay(&fps_manager_global);
-	//CORE.time.delta = (ICE_Float) elapsedMS / 1000.0;
+	ICE_GLOBJ_TIME.delta = (ICE_Float) elapsedMS / 1000.0;
 
 	fps_count[fps_actual_to_fill] = 1000.0 / (ICE_Float)elapsedMS;
 	fps_actual_to_fill++;
@@ -66,7 +66,7 @@ void ICE_Time_End()
 		ICE_Float somme = 0;
 		for (int i = 0; i < NB_COUNT_FPS; i++)
 			somme += fps_count[i];
-		//CORE.time.fps = (ICE_Float)somme / NB_COUNT_FPS;
+		ICE_GLOBJ_TIME.fps = (ICE_Float)somme / NB_COUNT_FPS;
 		time_to_refresh = 0;
 	}
 

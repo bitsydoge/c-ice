@@ -46,6 +46,7 @@
     <ClCompile Include="src\Engine\MusicManager.c" />
     <ClCompile Include="src\Engine\Pack.c" />
     <ClCompile Include="src\Engine\Physics2D.c" />
+    <ClCompile Include="src\Engine\Primitive.c" />
     <ClCompile Include="src\Engine\Renderer.c" />
     <ClCompile Include="src\Engine\Resources.c" />
     <ClCompile Include="src\Engine\Scene.c" />
@@ -93,12 +94,13 @@
     <ClCompile Include="src\Framework\Terminal.c" />
     <ClCompile Include="src\Framework\Terminal_private.c" />
     <ClCompile Include="src\Framework\UnitTest.c" />
-    <ClCompile Include="src\Ressources\bin\err1024_png.c" />
-    <ClCompile Include="src\Ressources\bin\err512_png.c" />
-    <ClCompile Include="src\Ressources\bin\gui27_png.c" />
-    <ClCompile Include="src\Ressources\bin\logo_png.c" />
-    <ClCompile Include="src\Ressources\raw\Error.c" />
-    <ClCompile Include="src\Ressources\raw\Icon.c" />
+    <ClCompile Include="src\Resources\bin\err1024_png.c" />
+    <ClCompile Include="src\Resources\bin\err512_png.c" />
+    <ClCompile Include="src\Resources\bin\font_ttf.c" />
+    <ClCompile Include="src\Resources\bin\gui27_png.c" />
+    <ClCompile Include="src\Resources\bin\logo_png.c" />
+    <ClCompile Include="src\Resources\raw\Error.c" />
+    <ClCompile Include="src\Resources\raw\Icon.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_framerate.h" />
@@ -152,6 +154,7 @@
     <ClInclude Include="src\Engine\Pack_private.h" />
     <ClInclude Include="src\Engine\Physics2D.h" />
     <ClInclude Include="src\Engine\Physics2D_private.h" />
+    <ClInclude Include="src\Engine\Primitive.h" />
     <ClInclude Include="src\Engine\Renderer.h" />
     <ClInclude Include="src\Engine\Renderer_private.h" />
     <ClInclude Include="src\Engine\Resources_private.h" />

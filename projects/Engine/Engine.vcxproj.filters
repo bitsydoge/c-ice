@@ -138,24 +138,6 @@
     <ClCompile Include="src\Framework\MacOS_.c">
       <Filter>Framework</Filter>
     </ClCompile>
-    <ClCompile Include="src\Ressources\bin\err1024_png.c">
-      <Filter>Resources\bin</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Ressources\bin\err512_png.c">
-      <Filter>Resources\bin</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Ressources\bin\gui27_png.c">
-      <Filter>Resources\bin</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Ressources\bin\logo_png.c">
-      <Filter>Resources\bin</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Ressources\raw\Error.c">
-      <Filter>Resources\raw</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Ressources\raw\Icon.c">
-      <Filter>Resources\raw</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_framerate.c">
       <Filter>External\SDL_gfx</Filter>
     </ClCompile>
@@ -272,6 +254,30 @@
     </ClCompile>
     <ClCompile Include="src\Engine\Asset.c">
       <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Primitive.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Resources\raw\Error.c">
+      <Filter>Resources\raw</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Resources\raw\Icon.c">
+      <Filter>Resources\raw</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Resources\bin\err512_png.c">
+      <Filter>Resources\bin</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Resources\bin\err1024_png.c">
+      <Filter>Resources\bin</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Resources\bin\font_ttf.c">
+      <Filter>Resources\bin</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Resources\bin\gui27_png.c">
+      <Filter>Resources\bin</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Resources\bin\logo_png.c">
+      <Filter>Resources\bin</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -573,6 +579,9 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Asset.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Primitive.h">
       <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>

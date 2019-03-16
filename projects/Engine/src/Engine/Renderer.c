@@ -88,7 +88,7 @@ void ICE_Renderer_Init()
 
 	ICE_GLOBJ_WINDOW.w = (ICE_Float)ICE_GLOBJ_CONFIG.window_w; ICE_GLOBJ_WINDOW.h = (ICE_Float)ICE_GLOBJ_CONFIG.window_h;
 
-	ICE_Texture_LogoInit();
+	ICE_Resources_TextureLogoInit();
 
 	ICE_Window_Config();
 
@@ -102,7 +102,7 @@ void ICE_Renderer_Init()
 
 void ICE_Renderer_Quit()
 {
-	ICE_Texture_DefaultAllFree();
+	ICE_Resources_FreeAll();
 
 	ICE_Log_Line();
 	ICE_Log(ICE_LOGTYPE_RUNNING, "Render Quit ...");

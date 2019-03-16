@@ -2,5 +2,4 @@
 #define DEF_ICE_TEXTUREMANAGER_H
 
 
-
 #endif

@@ -55,7 +55,7 @@ void ICE_Window_SetIcon(char* path)
 {
 	if (!path)
 	{
-#include "../Ressources/raw/Icon.c"
+#include "../Resources/raw/Icon.c"
 
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN
 		int shift = (ice_raw_img_icon.bytes_per_pixel == 3) ? 8 : 0;
