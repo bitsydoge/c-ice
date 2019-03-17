@@ -240,8 +240,8 @@ ICE_Vect ICE_Draw_Entity_GenerateGraphSize(ICE_Graphics2D * graphics2d_)
 		generated_size.y = 0;
 		break;
 	case ICE_GRAPHICS2D_TYPES_TEXTURE: 
-		generated_size.x = ICE_Texture_Get(((ICE_Graphics2D_Data_Texture*)graphics2d_->data)->texture_id)->h;
-		generated_size.y = ICE_Texture_Get(((ICE_Graphics2D_Data_Texture*)graphics2d_->data)->texture_id)->w;
+		generated_size.x = ICE_Texture_Get(((ICE_Graphics2D_Data_Texture*)graphics2d_->data)->texture_id)->w;
+		generated_size.y = ICE_Texture_Get(((ICE_Graphics2D_Data_Texture*)graphics2d_->data)->texture_id)->h;
 		break;
 	case ICE_GRAPHICS2D_TYPES_SPRITE: 
 		//TODO//generated_size.x = ICE_Sprite_Get(((ICE_Graphics2D_Data_Sprite*)graphics2d_->data)->sprite_id)->frame_h;
@@ -264,7 +264,7 @@ struct ICE_Draw_EntityFinal ICE_Draw_Entity_GenerateFinal(ICE_Entity * entity_)
 	ICE_Vect graphics_size = ICE_Draw_Entity_GenerateGraphSize(&entity_->graphics2d);
 	final_draw.rotation = fmod(entity_->control2d.rotation + entity_->graphics2d.rotation, 360.0);
 	final_draw.dst.x = entity_->control2d.x * ICE_Camera_GetScaleW() - (graphics_size.x * entity_->graphics2d.anchor_position.x * entity_->control2d.scale_w * entity_->graphics2d.scale_w * ICE_Camera_GetScaleW());
-	final_draw.dst.y = entity_->control2d.y * ICE_Camera_GetScaleW() - (graphics_size.y * entity_->graphics2d.anchor_position.y * entity_->control2d.scale_h * entity_->graphics2d.scale_h * ICE_Camera_GetScaleH());
+	final_draw.dst.y = entity_->control2d.y * ICE_Camera_GetScaleH() - (graphics_size.y * entity_->graphics2d.anchor_position.y * entity_->control2d.scale_h * entity_->graphics2d.scale_h * ICE_Camera_GetScaleH());
 	final_draw.dst.w = graphics_size.x * entity_->control2d.scale_w * entity_->graphics2d.scale_w * ICE_Camera_GetScaleW();
 	final_draw.dst.h = graphics_size.y * entity_->control2d.scale_h * entity_->graphics2d.scale_h * ICE_Camera_GetScaleH();
 	final_draw.graphics2d_data = entity_->graphics2d.data;

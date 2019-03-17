@@ -1,12 +1,10 @@
 ﻿#include "Engine/Core.h"
-#include "Engine/Control2D.h"
 #include "Engine/Entity.h"
 #include "Engine/Debug.h"
 #include "Engine/Renderer.h"
 #include "Engine/Input.h"
 #include "Engine/Screenshot.h"
 #include "Engine/Texture.h"
-#include "Framework/Log.h"
 #include "Engine/Camera.h"
 #include "Engine/Game.h"
 
@@ -23,6 +21,7 @@ void Debug_Draw()
 
 ICE_EntityID entity = 0;
 ICE_TextureID texture = 0;
+ICE_TextureID texture2 = 0;
 
 void ICE_Game_Create()
 {
@@ -30,8 +29,15 @@ void ICE_Game_Create()
 	ICE_Debug_CallbackDraw(Debug_Draw);
 
 	texture = ICE_Texture_Load("res\\entity.png");
+	texture2 = ICE_Texture_Load("res\\space.jpg");
 
 	ICE_Graphics2D* graphics2d;
+
+	entity = ICE_Entity_Create(ICE_Vect_New(0, 0));
+	graphics2d = ICE_Entity_GetGraphics2D(entity);
+	ICE_Graphics2D_SetType(graphics2d, ICE_GRAPHICS2D_TYPES_TEXTURE);
+	ICE_Graphics2D_SetData_Texture(graphics2d, texture2);
+
 	entity = ICE_Entity_Create(ICE_Vect_New(0, 0));
 	graphics2d = ICE_Entity_GetGraphics2D(entity);
 	ICE_Graphics2D_SetType(graphics2d, ICE_GRAPHICS2D_TYPES_TEXTURE);
@@ -77,19 +83,19 @@ void ICE_Game_Update()
 		ICE_Camera_AddScale(temp);
 	}
 
-	if(ICE_Input_Pressed(ICE_KEY_KP_8))
+	if(ICE_Input_Pressed(ICE_KEY_UP))
 	{
 		ICE_Camera_AddPositionY(-1 + ICE_Game_GetDelta());
 	}
-	if (ICE_Input_Pressed(ICE_KEY_KP_2))
+	if (ICE_Input_Pressed(ICE_KEY_DOWN))
 	{
 		ICE_Camera_AddPositionY(1 + ICE_Game_GetDelta());
 	}
-	if (ICE_Input_Pressed(ICE_KEY_KP_4))
+	if (ICE_Input_Pressed(ICE_KEY_LEFT))
 	{
 		ICE_Camera_AddPositionX(-1 + ICE_Game_GetDelta());
 	}
-	if (ICE_Input_Pressed(ICE_KEY_KP_6))
+	if (ICE_Input_Pressed(ICE_KEY_RIGHT))
 	{
 		ICE_Camera_AddPositionX(1 + ICE_Game_GetDelta());
 	}
