@@ -32,7 +32,7 @@ void ICE_Game_Create()
 	ICE_Render_Color(ICE_Color_New(50, 70, 150));
 	ICE_Debug_CallbackDraw(Debug_Draw);
 
-	texture = ICE_Texture_Load("res\\entity_test.png");
+	texture = ICE_Texture_Load("res\\entity.png");
 	texture2 = ICE_Texture_Load("res\\space.jpg");
 
 	ICE_Graphics2D * graphics2d;
@@ -41,7 +41,6 @@ void ICE_Game_Create()
 	entity_test = ICE_Entity_Create(ICE_Vect_New(0, 0));
 	graphics2d = ICE_Entity_GetGraphics2D(entity_test);
 	control2d = ICE_Entity_GetControl2D(entity_test);
-
 	ICE_Graphics2D_SetType(graphics2d, ICE_GRAPHICS2D_TYPES_TEXTURE);
 	ICE_Graphics2D_SetData_Texture(graphics2d, texture2);
 	ICE_Graphics2D_SetData_Texture(graphics2d, texture2);
@@ -49,29 +48,39 @@ void ICE_Game_Create()
 
 	entity_test = ICE_Entity_Create(ICE_Vect_New(0, 0));
 	graphics2d = ICE_Entity_GetGraphics2D(entity_test);
+	control2d = ICE_Entity_GetControl2D(entity_test);
 	ICE_Graphics2D_SetType(graphics2d, ICE_GRAPHICS2D_TYPES_TEXTURE);
 	ICE_Graphics2D_SetData_Texture(graphics2d, texture);
+	ICE_Control2D_SetRotation(control2d, ICE_Random_Float() * 360.00);
 
 	entity_test = ICE_Entity_Create(ICE_Vect_New(100, 100));
 	graphics2d = ICE_Entity_GetGraphics2D(entity_test);
+	control2d = ICE_Entity_GetControl2D(entity_test);
 	ICE_Graphics2D_SetType(graphics2d, ICE_GRAPHICS2D_TYPES_TEXTURE);
 	ICE_Graphics2D_SetData_Texture(graphics2d, texture);
+	ICE_Control2D_SetRotation(control2d, ICE_Random_Float() * 360.00);
 
 	entity_test = ICE_Entity_Create(ICE_Vect_New(-100, -100));
 	graphics2d = ICE_Entity_GetGraphics2D(entity_test);
+	control2d = ICE_Entity_GetControl2D(entity_test);
 	ICE_Graphics2D_SetType(graphics2d, ICE_GRAPHICS2D_TYPES_TEXTURE);
 	ICE_Graphics2D_SetData_Texture(graphics2d, texture);
 	ICE_Graphics2D_SetScale(graphics2d, ICE_Vect_New(1.5, 0.8));
+	ICE_Control2D_SetRotation(control2d, ICE_Random_Float() * 360.00);
 
 	entity_test = ICE_Entity_Create(ICE_Vect_New(100, -100));
 	graphics2d = ICE_Entity_GetGraphics2D(entity_test);
+	control2d = ICE_Entity_GetControl2D(entity_test);
 	ICE_Graphics2D_SetType(graphics2d, ICE_GRAPHICS2D_TYPES_TEXTURE);
 	ICE_Graphics2D_SetData_Texture(graphics2d, texture);
+	ICE_Control2D_SetRotation(control2d, ICE_Random_Float() * 360.00);
 
 	entity_test = ICE_Entity_Create(ICE_Vect_New(-100, 100));
 	graphics2d = ICE_Entity_GetGraphics2D(entity_test);
+	control2d = ICE_Entity_GetControl2D(entity_test);
 	ICE_Graphics2D_SetType(graphics2d, ICE_GRAPHICS2D_TYPES_TEXTURE);
 	ICE_Graphics2D_SetData_Texture(graphics2d, texture);
+	ICE_Control2D_SetRotation(control2d, ICE_Random_Float() * 360.00);
 }
 
 void ICE_Game_Update()
