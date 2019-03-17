@@ -60,6 +60,11 @@ void ICE_Debug_FontSetColorFg(int r, int g, int b);
 void ICE_Debug_FontDraw(int y, const char* format, ...);
 
 /**
+ * \brief
+ */
+void ICE_Debug_CameraDraw();
+
+/**
  * \brief Basic control for camera (WQSD, ARROW)
  */
 void ICE_Debug_CameraControl();

@@ -258,7 +258,7 @@ ICE_Vect ICE_Draw_Entity_GenerateGraphSize(ICE_Graphics2D * graphics2d_)
 	return generated_size;
 }
 
-struct ICE_Draw_EntityFinal ICE_Draw_Entity_GenerateFinal(ICE_Entity * entity_)
+struct ICE_Draw_EntityFinal ICE_Draw_Entity_GenerateFinal(ICE_Entity* entity_)
 {
 	struct ICE_Draw_EntityFinal final_draw = { 0 };
 	ICE_Vect graphics_size = ICE_Draw_Entity_GenerateGraphSize(&entity_->graphics2d);

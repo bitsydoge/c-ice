@@ -176,8 +176,8 @@ ICE_Box ICE_Camera_World_to_Screen(ICE_Box rect)
 {
 	ICE_Box rect2 = 
 	{
-		(ICE_GLOBJ_WINDOW.w / 2) + rect.x - ICE_GLOBJ_SCENE_CURRENT->camera.x,
-		(ICE_GLOBJ_WINDOW.h / 2) + rect.y - ICE_GLOBJ_SCENE_CURRENT->camera.y,
+		((ICE_Window_GetW() / 2) + rect.x - ICE_Camera_GetPositionX()) ,
+		((ICE_Window_GetH() / 2) + rect.y - ICE_Camera_GetPositionY()) ,
 		rect.w,
 		rect.h
 	};
@@ -188,8 +188,8 @@ ICE_Box ICE_Camera_Screen_to_World(ICE_Box rect)
 {
 	ICE_Box rect2 = 
 	{
-		-ICE_GLOBJ_WINDOW.w / 2 + ICE_GLOBJ_SCENE_CURRENT->camera.x + rect.x,
-		-ICE_GLOBJ_WINDOW.h / 2 + ICE_GLOBJ_SCENE_CURRENT->camera.y + rect.y,
+		(-ICE_Window_GetW() / 2 + ICE_Camera_GetPositionX() + rect.x) / ICE_Camera_GetScaleW(),
+		(-ICE_Window_GetH() / 2 + ICE_Camera_GetPositionY() + rect.y) / ICE_Camera_GetScaleH(),
 		rect.w,
 		rect.h
 	};

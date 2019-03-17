@@ -1,4 +1,5 @@
 ﻿#include "../Framework/BasicTypes.h"
+#include "Primitive.h"
 
 ICE_Bool ICE_Debug_Get_Linked()
 {
@@ -47,10 +48,14 @@ void ICE_Debug_DrawCoordinate()
 	if (SDL_GetMouseFocus())
 	{
 		char coo[20];
-		ICE_Box coordinate = { ICE_GLOBJ_INPUT.mousex, ICE_GLOBJ_INPUT.mousey };
+		ICE_Vect coordinate_vect = { ICE_GLOBJ_INPUT.mousex, ICE_GLOBJ_INPUT.mousey };
 		if (ICE_GLOBJ_INPUT.leftclic_pressed)
-			coordinate = ICE_Camera_Screen_to_World(coordinate);
-		sprintf(coo, "%0.0f, %0.0f", coordinate.x, coordinate.y);
+		{
+			ICE_Box coordinate_box = ICE_Camera_Screen_to_World(ICE_Box_New(coordinate_vect.x, coordinate_vect.y, 0,0));
+			coordinate_vect = ICE_Vect_New(coordinate_box.x, coordinate_box.y);
+		}
+			
+		sprintf(coo, "%0.0f, %0.0f", coordinate_vect.x, coordinate_vect.y);
 
 		const ICE_Vect vect = { ICE_GLOBJ_INPUT.mousex + 10, ICE_GLOBJ_INPUT.mousey + 10 };
 		ICE_Font_Draw(coo, vect, ICE_Color_New(255,255,255), ICE_Color_New(0,0,0));
@@ -111,6 +116,12 @@ void ICE_Debug_FontDraw(int y, const char* format, ...)
 
 void ICE_Debug_CameraControl()
 {
+	if (ICE_Input_Pressed(ICE_KEY_KP_PLUS))
+		ICE_Camera_AddScale(ICE_Vect_Scale(ICE_Vect_Scale(ICE_Camera_GetScale(), 1), ICE_Game_GetDelta()));
+	if (ICE_Input_Pressed(ICE_KEY_KP_MINUS))
+		ICE_Camera_AddScale(ICE_Vect_Scale(ICE_Vect_Scale(ICE_Camera_GetScale(), -1), ICE_Game_GetDelta()));
+	if (ICE_Input_Pressed(ICE_KEY_KP_ENTER))
+		ICE_Camera_SetScale(ICE_Vect_New(1, 1));
 	if (ICE_Input_Pressed(ICE_KEY_W))
 		ICE_Camera_AddPosition(ICE_Vect_New(0, -1000 * ICE_Game_GetDelta()));
 	if (ICE_Input_Pressed(ICE_KEY_S))
@@ -123,6 +134,17 @@ void ICE_Debug_CameraControl()
 		ICE_Camera_MoveTo(ICE_Vect_Zero, 1000 * ICE_Game_GetDelta());
 }
 
+void ICE_Debug_CameraDraw()
+{
+	char coo[96];
+	sprintf(coo, "Camera [ Pos(%0.2f, %0.2f) Scale(%0.2f, %0.2f) ]", ICE_Camera_GetPositionX(), ICE_Camera_GetPositionY(), ICE_Camera_GetScaleW(), ICE_Camera_GetScaleH());
+
+	const ICE_Vect vect = { ICE_Window_GetW()/2, 0};
+	ICE_Font_Draw(coo, vect, ICE_Color_New(255, 255, 255), ICE_Color_New(0, 0, 0));
+
+	ICE_Draw_Line(ICE_Vect_New(ICE_Window_GetW() / 2, 0), ICE_Vect_New(ICE_Window_GetW() / 2, ICE_Window_GetH()), ICE_Color_New(255, 0, 0));
+	ICE_Draw_Line(ICE_Vect_New(0, ICE_Window_GetH() / 2), ICE_Vect_New(ICE_Window_GetW(), ICE_Window_GetH() / 2), ICE_Color_New(255, 0, 0));
+}
 
 void ICE_Debug_CallbackDraw(void(*callback)())
 {
