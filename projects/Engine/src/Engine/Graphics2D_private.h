@@ -18,6 +18,8 @@ struct ICE_Graphics2D
 	ICE_Graphics2D_Types type;
 	void* data;
 
+	int z_order;
+
 	ICE_Float rotation; // Graphics Rotation
 	ICE_Float scale_w, scale_h; // Graphics only, scale
 	ICE_Vect anchor_position, anchor_rotation; //
@@ -62,7 +64,7 @@ struct ICE_Graphics2D_Data_Primitive
 // ------------------------------------------------------------------------------------- //
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-struct ICE_Graphics2D ICE_Graphics2D_Build();
+ICE_Graphics2D ICE_Graphics2D_Build();
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 // ------------------------------------------------------------------------------------- //

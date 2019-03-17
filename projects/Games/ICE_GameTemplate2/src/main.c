@@ -41,16 +41,15 @@ void ICE_Game_Create()
 	ICE_Debug_CallbackDraw(Debug_Draw);
 
 	texture = ICE_Texture_Load("res\\entity.png");
+
 	entity = ICE_Entity_Create(ICE_Vect_New(0, 0));
-	ICE_Control2D * control2d = ICE_Entity_GetControl2D(entity);
+	ICE_Entity_FunctionSet(entity, Test_Create, Test_Update, Test_Destroy);
+	ICE_Control2D* control2d = ICE_Entity_GetControl2D(entity);
 	ICE_Control2D_PositionShift(control2d, 50, 25);
-	ICE_Graphics2D * graphics2d = ICE_Entity_GetGraphics2D(entity);
+	ICE_Graphics2D* graphics2d = ICE_Entity_GetGraphics2D(entity);
 	ICE_Graphics2D_SetType(graphics2d, ICE_GRAPHICS2D_TYPES_TEXTURE);
 	ICE_Graphics2D_SetData_Texture(graphics2d, texture);
 	ICE_Graphics2D_SetScale(graphics2d, ICE_Vect_New(2, 1));
-
-	ICE_Entity_FunctionSet(entity, Test_Create, Test_Update, Test_Destroy);
-
 }
 
 void ICE_Game_Update()

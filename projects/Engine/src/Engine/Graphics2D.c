@@ -70,7 +70,7 @@ void ICE_Graphics2D_Data_Primitive_Destroy(ICE_Graphics2D_Data_Primitive* data_)
 
 struct ICE_Graphics2D ICE_Graphics2D_Build()
 {
-	struct ICE_Graphics2D temp = { 1, ICE_GRAPHICS2D_TYPES_NONE, NULL, 0, 1,1, ICE_Vect_New(0.5,0.5), ICE_Vect_New(0.5,0.5), ICE_Color_New(0,0,0),1 };
+	struct ICE_Graphics2D temp = { 1, ICE_GRAPHICS2D_TYPES_NONE, NULL, 1, 1,1, 1, ICE_Vect_New(0.5,0.5), ICE_Vect_New(0.5,0.5), ICE_Color_New(0,0,0),1 };
 	return temp;
 }
 
@@ -218,6 +218,11 @@ void ICE_Graphics2D_SetAnchorRotation(ICE_Graphics2D* graphics2d_, ICE_Vect anch
 	graphics2d_->anchor_position = anchor_rotation_;
 }
 
+void ICE_Graphics2D_SetZ_Order(ICE_Graphics2D* graphics2d_, int z_order_)
+{
+	graphics2d_->z_order = z_order_;
+}
+
 // ---------------------------------------   Get     ----------------------------------- //
 
 ICE_Bool ICE_Graphics2D_GetVisibility(ICE_Graphics2D* graphics2d_)
@@ -253,4 +258,9 @@ ICE_Vect ICE_Graphics2D_GetAnchorPosition(ICE_Graphics2D* graphics2d_)
 ICE_Vect ICE_Graphics2D_GetAnchorRotation(ICE_Graphics2D* graphics2d_)
 {
 	return graphics2d_->anchor_rotation;
+}
+
+int ICE_Graphics2D_GetZ_Order(ICE_Graphics2D* graphics2d_)
+{
+	return graphics2d_->z_order = 1;
 }
