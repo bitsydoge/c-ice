@@ -7,6 +7,8 @@
 #include "Engine/Screenshot.h"
 #include "Engine/Texture.h"
 #include "Framework/Log.h"
+#include "Engine/Camera.h"
+#include "Engine/Game.h"
 
 #define ICE_CONFIG_WINDOW_H 720
 #define ICE_CONFIG_WINDOW_W 1280
@@ -15,25 +17,12 @@
 void Debug_Draw()
 {
 	ICE_Debug_DrawFps(2);
+	ICE_Debug_DrawCoordinate();
+
 }
 
 ICE_EntityID entity = 0;
 ICE_TextureID texture = 0;
-
-void Test_Create(ICE_EntityID this_)
-{
-	ICE_Log_Info("I'm here the ENTITY !");
-}
-
-void Test_Update(ICE_EntityID this_)
-{
-	ICE_Log_Info("I'm still here the ENTITY !");
-}
-
-void Test_Destroy(ICE_EntityID this_)
-{
-	ICE_Log_Info("I'm no more here the ENTITY :(");
-}
 
 void ICE_Game_Create()
 {
@@ -42,14 +31,32 @@ void ICE_Game_Create()
 
 	texture = ICE_Texture_Load("res\\entity.png");
 
+	ICE_Graphics2D* graphics2d;
 	entity = ICE_Entity_Create(ICE_Vect_New(0, 0));
-	ICE_Entity_FunctionSet(entity, Test_Create, Test_Update, Test_Destroy);
-	ICE_Control2D* control2d = ICE_Entity_GetControl2D(entity);
-	ICE_Control2D_PositionShift(control2d, 50, 25);
-	ICE_Graphics2D* graphics2d = ICE_Entity_GetGraphics2D(entity);
+	graphics2d = ICE_Entity_GetGraphics2D(entity);
 	ICE_Graphics2D_SetType(graphics2d, ICE_GRAPHICS2D_TYPES_TEXTURE);
 	ICE_Graphics2D_SetData_Texture(graphics2d, texture);
-	ICE_Graphics2D_SetScale(graphics2d, ICE_Vect_New(2, 1));
+
+	entity = ICE_Entity_Create(ICE_Vect_New(100, 100));
+	graphics2d = ICE_Entity_GetGraphics2D(entity);
+	ICE_Graphics2D_SetType(graphics2d, ICE_GRAPHICS2D_TYPES_TEXTURE);
+	ICE_Graphics2D_SetData_Texture(graphics2d, texture);
+
+	entity = ICE_Entity_Create(ICE_Vect_New(-100, -100));
+	graphics2d = ICE_Entity_GetGraphics2D(entity);
+	ICE_Graphics2D_SetType(graphics2d, ICE_GRAPHICS2D_TYPES_TEXTURE);
+	ICE_Graphics2D_SetData_Texture(graphics2d, texture);
+	ICE_Graphics2D_SetScale(graphics2d, ICE_Vect_New(1.5, 0.8));
+
+	entity = ICE_Entity_Create(ICE_Vect_New(100, -100));
+	graphics2d = ICE_Entity_GetGraphics2D(entity);
+	ICE_Graphics2D_SetType(graphics2d, ICE_GRAPHICS2D_TYPES_TEXTURE);
+	ICE_Graphics2D_SetData_Texture(graphics2d, texture);
+
+	entity = ICE_Entity_Create(ICE_Vect_New(-100, 100));
+	graphics2d = ICE_Entity_GetGraphics2D(entity);
+	ICE_Graphics2D_SetType(graphics2d, ICE_GRAPHICS2D_TYPES_TEXTURE);
+	ICE_Graphics2D_SetData_Texture(graphics2d, texture);
 }
 
 void ICE_Game_Update()
@@ -58,9 +65,33 @@ void ICE_Game_Update()
 	{
 		ICE_Screenshot(NULL, "png");
 	}
-	if(ICE_Input_OnPress(ICE_KEY_J))
+
+	if(ICE_Input_Pressed(ICE_KEY_KP_PLUS))
 	{
-		ICE_Entity_Destroy(0);
+		ICE_Vect temp = ICE_Vect_Scale(ICE_Vect_Scale(ICE_Camera_GetScale(), 1), ICE_Game_GetDelta());
+		ICE_Camera_AddScale(temp);
+	}
+	if (ICE_Input_Pressed(ICE_KEY_KP_MINUS))
+	{
+		ICE_Vect temp = ICE_Vect_Scale(ICE_Vect_Scale(ICE_Camera_GetScale(), -1), ICE_Game_GetDelta());
+		ICE_Camera_AddScale(temp);
+	}
+
+	if(ICE_Input_Pressed(ICE_KEY_KP_8))
+	{
+		ICE_Camera_AddPositionY(-1 + ICE_Game_GetDelta());
+	}
+	if (ICE_Input_Pressed(ICE_KEY_KP_2))
+	{
+		ICE_Camera_AddPositionY(1 + ICE_Game_GetDelta());
+	}
+	if (ICE_Input_Pressed(ICE_KEY_KP_4))
+	{
+		ICE_Camera_AddPositionX(-1 + ICE_Game_GetDelta());
+	}
+	if (ICE_Input_Pressed(ICE_KEY_KP_6))
+	{
+		ICE_Camera_AddPositionX(1 + ICE_Game_GetDelta());
 	}
 }
 

@@ -114,7 +114,7 @@ void ICE_Game_Update()
 		ICE_Label_SetPos(ICE_Label_Get(NULL, 0), ICE_Vect_New(0, 0));
 	}
 	if (ICE_Input_Pressed(ICE_KEY_RETURN))
-		ICE_Camera_SetPos(ICE_Vect_New(0, 0));
+		ICE_Camera_SetPosition(ICE_Vect_New(0, 0));
 }
 
 void ICE_Game_Destroy()

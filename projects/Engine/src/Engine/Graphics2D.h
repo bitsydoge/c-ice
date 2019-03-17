@@ -39,7 +39,7 @@ void ICE_Graphics2D_SetData_Primitive(ICE_Graphics2D* graphics2d_);
 
 // ---------------------------------------   Set     ----------------------------------- //
 void ICE_Graphics2D_SetVisibility(ICE_Graphics2D* graphics2d_, ICE_Bool isVisible_);
-void ICE_Graphics2D_SetRotation(ICE_Graphics2D* graphics2d_, ICE_Bool rotation_angle_);
+void ICE_Graphics2D_SetRotation(ICE_Graphics2D* graphics2d_, ICE_Float rotation_angle_);
 void ICE_Graphics2D_SetScale(ICE_Graphics2D* graphics2d_, ICE_Vect scale_);
 void ICE_Graphics2D_SetScaleW(ICE_Graphics2D* graphics2d_, ICE_Float scale_w_);
 void ICE_Graphics2D_SetScaleH(ICE_Graphics2D* graphics2d_, ICE_Float scale_h_);

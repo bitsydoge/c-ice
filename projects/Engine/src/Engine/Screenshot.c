@@ -292,6 +292,7 @@ typedef struct
 	int w, h;
 	ICE_Uint8 BytesPerPixel;
 	int pitch;
+
 } P_ICE_Image_Saver_Data;
 
 int P_ICE_Thread_Image_Saver(void* data_)

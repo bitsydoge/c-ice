@@ -10,6 +10,11 @@ ICE_GLOBALDATA_WINDOW
 #include "Config.h"
 ICE_GLOBALDATA_CONFIG
 
+ICE_Window * ICE_Window_Get()
+{
+	return &ICE_GLOBJ_WINDOW;
+}
+
 void ICE_Window_Config()
 {
 	if (ICE_GLOBJ_CONFIG.resizable)

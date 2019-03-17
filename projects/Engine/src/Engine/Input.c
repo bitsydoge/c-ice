@@ -6,6 +6,7 @@
 #include "../Framework/Log.h"
 #include "Box.h"
 #include <SDL2/SDL.h>
+#include "Window_private.h"
 
 ICE_Input ICE_GLOBJ_INPUT = {0};
 
@@ -234,8 +235,8 @@ void ICE_Input_Return()
 				ICE_GLOBJ_INPUT.focus = 0;
 				break;
 			case SDL_WINDOWEVENT_RESIZED:
-				//CORE.window.w = event.window.data1;
-				//CORE.window.h = event.window.data2;
+				ICE_Window_Get()->w = event.window.data1;
+				ICE_Window_Get()->h = event.window.data2;
 				break;
 			default:
 				break;

@@ -7,6 +7,9 @@
 #include "Graphics2D.h"
 
 #include "GlobalData_private.h"
+#include "Entity.h"
+#include "Collision_Basic.h"
+#include "Window.h"
 ICE_GLOBALDATA_SCENE_CURRENT
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -173,53 +176,111 @@ void ICE_Draw_AllGui()
 // ------------------------------------------------------------------------------------- //
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-void ICE_Draw_Graphics2D_Texture(ICE_Graphics2D* graphics2d_, ICE_Control2D* control2d_)
+struct ICE_Draw_EntityFinal
+{
+	ICE_Float rotation;
+	ICE_Box dst;
+	int z_order;
+
+	ICE_Graphics2D_Types graphics2d_type;
+	void* graphics2d_data;
+};
+
+void ICE_Draw_Graphics2D_Texture(struct ICE_Draw_EntityFinal * entity_processed_)
+{
+	ICE_Graphics2D_Data_Texture* graphics_2d_data = entity_processed_->graphics2d_data;
+	if(ICE_Collision_Box_Box(ICE_Box_New(0, 0, ICE_Window_GetW(), ICE_Window_GetH()), entity_processed_->dst))
+		ICE_Texture_RenderEx(ICE_Texture_Get(graphics_2d_data->texture_id), NULL, &entity_processed_->dst, entity_processed_->rotation);
+}
+
+void ICE_Draw_Graphics2D_Sprite(struct ICE_Draw_EntityFinal * entity_processed_)
 {
 
 }
 
-void ICE_Draw_Graphics2D_Sprite(ICE_Graphics2D* graphics2d_, ICE_Control2D* control2d_)
-{
-
-}
-
-void ICE_Draw_Graphics2D_Label(ICE_Graphics2D* graphics2d_, ICE_Control2D* control2d_)
+void ICE_Draw_Graphics2D_Label(struct ICE_Draw_EntityFinal * entity_processed_)
 {
 	
 }
 
-void ICE_Draw_Graphics2D_Primitive(ICE_Graphics2D* graphics2d_, ICE_Control2D* control2d_)
+void ICE_Draw_Graphics2D_Primitive(struct ICE_Draw_EntityFinal * entity_processed_)
 {
 	
 }
 
-void ICE_Draw_Entity(ICE_Graphics2D * graphics2d_, ICE_Control2D * control2d_)
+void ICE_Draw_Entity(struct ICE_Draw_EntityFinal * entity_processed_)
 {
-	switch (graphics2d_->type)
+	switch (entity_processed_->graphics2d_type)
 	{
 	case ICE_GRAPHICS2D_TYPES_TEXTURE:
-		ICE_Draw_Graphics2D_Texture(graphics2d_, control2d_);
+		ICE_Draw_Graphics2D_Texture(entity_processed_);
 		break;
 	case ICE_GRAPHICS2D_TYPES_SPRITE:
-		ICE_Draw_Graphics2D_Sprite(graphics2d_, control2d_);
+		ICE_Draw_Graphics2D_Sprite(entity_processed_);
 		break;
 	case ICE_GRAPHICS2D_TYPES_LABEL:
-		ICE_Draw_Graphics2D_Label(graphics2d_, control2d_);
+		ICE_Draw_Graphics2D_Label(entity_processed_);
 		break;
 	case ICE_GRAPHICS2D_TYPES_PRIMITIVE:
-		ICE_Draw_Graphics2D_Primitive(graphics2d_, control2d_);
+		ICE_Draw_Graphics2D_Primitive(entity_processed_);
 		break;
 	default:
 		break;
 	}
 }
 
+ICE_Vect ICE_Draw_Entity_GenerateGraphSize(ICE_Graphics2D * graphics2d_)
+{
+	ICE_Vect generated_size = { 0 };
+
+	switch(graphics2d_->type)
+	{
+	case ICE_GRAPHICS2D_TYPES_NONE: 
+		generated_size.x = 0;
+		generated_size.y = 0;
+		break;
+	case ICE_GRAPHICS2D_TYPES_TEXTURE: 
+		generated_size.x = ICE_Texture_Get(((ICE_Graphics2D_Data_Texture*)graphics2d_->data)->texture_id)->h;
+		generated_size.y = ICE_Texture_Get(((ICE_Graphics2D_Data_Texture*)graphics2d_->data)->texture_id)->w;
+		break;
+	case ICE_GRAPHICS2D_TYPES_SPRITE: 
+		//TODO//generated_size.x = ICE_Sprite_Get(((ICE_Graphics2D_Data_Sprite*)graphics2d_->data)->sprite_id)->frame_h;
+		//TODO//generated_size.y = ICE_Sprite_Get(((ICE_Graphics2D_Data_Sprite*)graphics2d_->data)->sprite_id)->frame_w;
+		break;
+	case ICE_GRAPHICS2D_TYPES_LABEL: 
+		//TODO//
+		break;
+	case ICE_GRAPHICS2D_TYPES_PRIMITIVE: 
+		//TODO//
+		break;
+	}
+
+	return generated_size;
+}
+
+struct ICE_Draw_EntityFinal ICE_Draw_Entity_GenerateFinal(ICE_Entity * entity_)
+{
+	struct ICE_Draw_EntityFinal final_draw = { 0 };
+	ICE_Vect graphics_size = ICE_Draw_Entity_GenerateGraphSize(&entity_->graphics2d);
+	final_draw.rotation = fmod(entity_->control2d.rotation + entity_->graphics2d.rotation, 360.0);
+	final_draw.dst.x = entity_->control2d.x * ICE_Camera_GetScaleW() - (graphics_size.x * entity_->graphics2d.anchor_position.x * entity_->control2d.scale_w * entity_->graphics2d.scale_w * ICE_Camera_GetScaleW());
+	final_draw.dst.y = entity_->control2d.y * ICE_Camera_GetScaleW() - (graphics_size.y * entity_->graphics2d.anchor_position.y * entity_->control2d.scale_h * entity_->graphics2d.scale_h * ICE_Camera_GetScaleH());
+	final_draw.dst.w = graphics_size.x * entity_->control2d.scale_w * entity_->graphics2d.scale_w * ICE_Camera_GetScaleW();
+	final_draw.dst.h = graphics_size.y * entity_->control2d.scale_h * entity_->graphics2d.scale_h * ICE_Camera_GetScaleH();
+	final_draw.graphics2d_data = entity_->graphics2d.data;
+	final_draw.graphics2d_type = entity_->graphics2d.type;
+
+	final_draw.dst = ICE_Camera_World_to_Screen(final_draw.dst);
+
+	return final_draw;
+}
+
 void ICE_Draw_EntityAll()
 {
-	ICE_Scene * current = ICE_GLOBJ_SCENE_CURRENT;
+	ICE_Scene* current = ICE_GLOBJ_SCENE_CURRENT;
 	for (ICE_ID j = 0; j < current->entity_mngr.entity_contain; j++)
 	{
 		if (current->entity_mngr.entity[j].exist && current->entity_mngr.entity[j].control2d.isActive && current->entity_mngr.entity[j].graphics2d.isVisible)
-			ICE_Draw_Entity(&current->entity_mngr.entity[j].graphics2d, &current->entity_mngr.entity[j].control2d);
+			ICE_Draw_Entity((struct ICE_Draw_EntityFinal[]) { ICE_Draw_Entity_GenerateFinal(&current->entity_mngr.entity[j]) });
 	}
 }

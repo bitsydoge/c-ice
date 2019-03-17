@@ -16,7 +16,7 @@
 
 #ifndef DEF_GUARD_ICE_H
 #define DEF_GUARD_ICE_H
-
+/*
 // -----------------------------------  FRAMEWORK   ------------------------------------ //
 #include "Framework/BasicTypes.h"
 #include "Framework/Assert_.h"
@@ -68,5 +68,5 @@
 #include "Engine/Vector.h"
 #include "Engine/Version.h"
 #include "Engine/Window.h"
-
+*/
 #endif

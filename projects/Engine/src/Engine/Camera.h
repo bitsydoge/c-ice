@@ -6,30 +6,36 @@
 
 typedef struct ICE_Camera ICE_Camera;
 
+
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 // ------------------------------------------------------------------------------------- //
 // --------------------------------    Set       --------------------------------------- //
 // ------------------------------------------------------------------------------------- //
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-/**
- * \brief Set Camera position to a Vector
- * \param vect New Camera position
- */
-void ICE_Camera_SetPos(ICE_Vect vect);
+// --------------------------------    Position  --------------------------------------- //
+void ICE_Camera_SetPosition(ICE_Vect new_position_);
+void ICE_Camera_SetPositionX(ICE_Float new_position_y);
+void ICE_Camera_SetPositionY(ICE_Float new_position_y);
+void ICE_Camera_MoveTo(ICE_Vect position_to_move_, ICE_Float value_to_move_);
+void ICE_Camera_AddPosition(ICE_Vect add_to_position_);
+void ICE_Camera_AddPositionX(ICE_Float add_to_position_x_);
+void ICE_Camera_AddPositionY(ICE_Float add_to_position_y_);
 
-/**
- * \brief Move Camera to a coordinate and move it by a value R
- * \param vect Coordinate where Camera go
- * \param r Value/Distance to move the camera
- */
-void ICE_Camera_MovePos(ICE_Vect vect, ICE_Float r);
+// --------------------------------    Scale     --------------------------------------- //
+void ICE_Camera_SetScale(ICE_Vect scale_);
+void ICE_Camera_SetScaleW(ICE_Float scale_w_);
+void ICE_Camera_SetScaleH(ICE_Float scale_h_);
+void ICE_Camera_AddScale(ICE_Vect add_scale_);
+void ICE_Camera_AddScaleW(ICE_Float add_scale_w_);
+void ICE_Camera_AddScaleH(ICE_Float add_scale_h_);
+void ICE_Camera_MultiplyScaleW(ICE_Float multiply_scale_w_);
+void ICE_Camera_MultiplyScaleH(ICE_Float multiply_scale_h_);
+void ICE_Camera_MultiplyScale(ICE_Float multiply_scale_);
 
-/**
- * \brief Shift Camera position by a vector
- * \param Dvect Vector to add
- */
-void ICE_Camera_ShiftPos(ICE_Vect delta_);
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -42,11 +48,13 @@ void ICE_Camera_ShiftPos(ICE_Vect delta_);
  * \brief Return a Vector with Camera Coordinate
  * \return
  */
-ICE_Vect ICE_Camera_PositionGet();
+ICE_Vect ICE_Camera_GetPosition();
+ICE_Float ICE_Camera_GetPositionX();
+ICE_Float ICE_Camera_GetPositionY();
+ICE_Vect ICE_Camera_GetScale();
+ICE_Float ICE_Camera_GetScaleW();
+ICE_Float ICE_Camera_GetScaleH();
 
-ICE_Float ICE_Camera_PositionGetX();
-
-ICE_Float ICE_Camera_PositionGetY();
 
 
 

@@ -7,8 +7,9 @@ struct ICE_EntityManager
 {
 	ICE_Bool		isFree;
 	
-	ICE_ID			entity_size;
-	ICE_ID			entity_contain;
+	ICE_Size		entity_size;
+	ICE_Size		entity_contain;
+	ICE_Size		entity_total;
 	struct ICE_Entity *		entity;
 
 }; typedef struct ICE_EntityManager ICE_EntityManager;

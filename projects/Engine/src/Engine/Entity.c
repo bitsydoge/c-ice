@@ -61,6 +61,8 @@ ICE_ID ICE_Entity_Create(ICE_Vect vect_)
 
 	scene_->entity_mngr.entity[avaible_slot] = ICE_Entity_Build(vect_);
 	scene_->entity_mngr.entity[avaible_slot].id = avaible_slot;
+	scene_->entity_mngr.entity_total++;
+
 
 	ICE_Log(ICE_LOGTYPE_SUCCES, "Create Entity : ID(%d), Pos(%d, %d), Scene(\"%s\")", avaible_slot, vect_.x, vect_.y, ICE_GLOBJ_SCENE_CURRENT->name);
 
@@ -96,6 +98,7 @@ void ICE_Entity_Destroy(ICE_EntityID entity_id_)
 		entity_ptr->func_update = NULL;
 		entity_ptr->func_destroy = NULL;
 		entity_ptr->exist = ICE_False;
+		ICE_GLOBJ_SCENE_CURRENT->entity_mngr.entity_total--;
 	}
 }
 

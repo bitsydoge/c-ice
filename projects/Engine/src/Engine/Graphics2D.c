@@ -70,7 +70,7 @@ void ICE_Graphics2D_Data_Primitive_Destroy(ICE_Graphics2D_Data_Primitive* data_)
 
 struct ICE_Graphics2D ICE_Graphics2D_Build()
 {
-	struct ICE_Graphics2D temp = { 1, ICE_GRAPHICS2D_TYPES_NONE, NULL, 1, 1,1, 1, ICE_Vect_New(0.5,0.5), ICE_Vect_New(0.5,0.5), ICE_Color_New(0,0,0),1 };
+	struct ICE_Graphics2D temp = { 1, ICE_GRAPHICS2D_TYPES_NONE, NULL, 1, 0,1, 1, ICE_Vect_New(0.5,0.5), ICE_Vect_New(0.5,0.5), ICE_Color_New(0,0,0),1 };
 	return temp;
 }
 
@@ -187,9 +187,14 @@ void ICE_Graphics2D_SetVisibility(ICE_Graphics2D* graphics2d_, ICE_Bool isVisibl
 	graphics2d_->isVisible = isVisible_;
 }
 
-void ICE_Graphics2D_SetRotation(ICE_Graphics2D* graphics2d_, ICE_Bool rotation_angle_)
+void ICE_Graphics2D_SetRotation(ICE_Graphics2D* graphics2d_, ICE_Float rotation_angle_)
 {
-	graphics2d_->rotation = rotation_angle_;
+	graphics2d_->rotation = fmod(rotation_angle_, 360.00);
+}
+
+void ICE_Graphics2D_AddRotation(ICE_Graphics2D* graphics2d_, ICE_Float rotation_angle_to_add_)
+{
+	graphics2d_->rotation = fmod(graphics2d_->rotation + rotation_angle_to_add_, 360.00);
 }
 
 void ICE_Graphics2D_SetScale(ICE_Graphics2D* graphics2d_, ICE_Vect scale_)

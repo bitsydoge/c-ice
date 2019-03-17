@@ -22,6 +22,9 @@ ICE_Scene ICE_Scene_Init(void(*call_create)(void), void(*call_update)(void), voi
 
 	scene.name = ICE_String_Init(name_);
 
+	scene.camera.scale_w = 1.0;
+	scene.camera.scale_h = 1.0;
+
 	scene.func_create = call_create;
 	scene.func_update = call_update;
 	scene.func_destroy = call_destroy;

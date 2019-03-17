@@ -6,6 +6,7 @@
 struct ICE_Camera
 {
 	ICE_Float x, y;
+	ICE_Float scale_w, scale_h;
 
 };
 

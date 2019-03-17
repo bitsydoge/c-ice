@@ -51,29 +51,29 @@ void ICE_Control2D_Active(ICE_Control2D* control2d_, ICE_Bool isActive_)
 
 // ------------------------------------- Position ------------------------------------------- //
 
-void ICE_Control2D_PositionSet(ICE_Control2D* control2d_, ICE_Float x, ICE_Float y)
+void ICE_Control2D_SetPosition(ICE_Control2D* control2d_, ICE_Float x, ICE_Float y)
 {
 	control2d_->x = x;
 	control2d_->y = y;
 }
 
-void ICE_Control2D_PositionSetX(ICE_Control2D* control2d_, ICE_Float x)
+void ICE_Control2D_SetPositionX(ICE_Control2D* control2d_, ICE_Float x)
 {
 	control2d_->x = x;
 }
 
-void ICE_Control2D_PositionSetY(ICE_Control2D* control2d_, ICE_Float y)
+void ICE_Control2D_SetPositionY(ICE_Control2D* control2d_, ICE_Float y)
 {
 	control2d_->y = y;
 }
 
-void ICE_Control2D_PositionShift(ICE_Control2D* control2d_, ICE_Float value_to_shift_x_, ICE_Float value_to_shift_y_)
+void ICE_Control2D_ShiftPosition(ICE_Control2D* control2d_, ICE_Float value_to_shift_x_, ICE_Float value_to_shift_y_)
 {
 	control2d_->x += value_to_shift_x_;
 	control2d_->y += value_to_shift_y_;
 }
 
-void ICE_Control2D_PositionMove(ICE_Control2D * control2d_, ICE_Vect vect_pos_, ICE_Float value_to_move_)
+void ICE_Control2D_MovePosition(ICE_Control2D * control2d_, ICE_Vect vect_pos_, ICE_Float value_to_move_)
 {
 #ifdef _POLAR_MOVEMENT_TYPE_1
 
@@ -131,18 +131,15 @@ void ICE_Control2D_PositionMove(ICE_Control2D * control2d_, ICE_Vect vect_pos_, 
 
 // ------------------------------------- Rotation ------------------------------------------- //
 
-void ICE_Control2D_RotationSet(ICE_Control2D * control2d_, ICE_Float angle)
+void ICE_Control2D_SetRotation(ICE_Control2D * control2d_, ICE_Float angle_)
 {
-	control2d_->rotation = angle;
+
+	control2d_->rotation = fmod(angle_, 360.00);
 }
 
-void ICE_Control2D_RotationAdd(ICE_Control2D * control2d_, ICE_Float angle)
+void ICE_Control2D_AddRotation(ICE_Control2D * control2d_, ICE_Float angle_)
 {
-	control2d_->rotation += angle;
-	if (control2d_->rotation >= 360)
-		control2d_->rotation = 0;
-	if (control2d_->rotation < 0)
-		control2d_->rotation = 0;
+	control2d_->rotation = fmod(control2d_->rotation + angle_, 360.0);
 }
 
 void ICE_Control2D_LookAt(ICE_Control2D* control2d_, ICE_Vect pos)
@@ -163,34 +160,34 @@ void ICE_Control2D_LookAt(ICE_Control2D* control2d_, ICE_Vect pos)
 
 // ------------------------------------- Scale ------------------------------------------- //
 
-void ICE_Control2D_ScaleSet(ICE_Control2D * control2D_, ICE_Vect scale_)
+void ICE_Control2D_SetScale(ICE_Control2D * control2D_, ICE_Vect scale_)
 {
 	control2D_->scale_h = scale_.y;
 	control2D_->scale_w = scale_.x;
 }
 
-void ICE_Control2D_ScaleSetW(ICE_Control2D* control2D_, ICE_Float scale_w_)
+void ICE_Control2D_SetScaleW(ICE_Control2D* control2D_, ICE_Float scale_w_)
 {
 	control2D_->scale_w = scale_w_;
 }
 
-void ICE_Control2D_ScaleSetH(ICE_Control2D* control2D_, ICE_Float scale_h_)
+void ICE_Control2D_SetScaleH(ICE_Control2D* control2D_, ICE_Float scale_h_)
 {
 	control2D_->scale_h = scale_h_;
 }
 
-void ICE_Control2D_ScaleMultiply(ICE_Control2D* control2d_, ICE_Float coef_)
+void ICE_Control2D_MultiplyScale(ICE_Control2D* control2d_, ICE_Float coef_)
 {
 	control2d_->scale_w = control2d_->scale_w * coef_;
 	control2d_->scale_h = control2d_->scale_h * coef_;
 }
 
-void ICE_Control2D_ScaleMultiplyW(ICE_Control2D* control2d_, ICE_Float coef_w_)
+void ICE_Control2D_MultiplyScaleW(ICE_Control2D* control2d_, ICE_Float coef_w_)
 {
 	control2d_->scale_w = control2d_->scale_w * coef_w_;
 }
 
-void ICE_Control2D_ScaleMultiplyH(ICE_Control2D* control2d_, ICE_Float coef_h_)
+void ICE_Control2D_MultiplyScaleH(ICE_Control2D* control2d_, ICE_Float coef_h_)
 {
 	control2d_->scale_h = control2d_->scale_h * coef_h_;
 }
@@ -206,7 +203,7 @@ void ICE_Control2D_ScaleMultiplyH(ICE_Control2D* control2d_, ICE_Float coef_h_)
 
 // ------------------------------------- Active ------------------------------------------- //
 
-ICE_Bool ICE_Control2D_ActiveGet(ICE_Control2D* control2d_)
+ICE_Bool ICE_Control2D_GetActive(ICE_Control2D* control2d_)
 {
 	return control2d_->isActive;
 }
@@ -215,17 +212,17 @@ ICE_Bool ICE_Control2D_ActiveGet(ICE_Control2D* control2d_)
 
 // ------------------------------------- Position ------------------------------------------- //
 
-ICE_Vect ICE_Control2D_PositionGet(ICE_Control2D* control2D_)
+ICE_Vect ICE_Control2D_GetPosition(ICE_Control2D* control2D_)
 {
 	return ICE_Vect_New(control2D_->x, control2D_->y);
 }
 
-ICE_Float ICE_Control2D_PositionGetX(ICE_Control2D* control2D_)
+ICE_Float ICE_Control2D_GetPositionX(ICE_Control2D* control2D_)
 {
 	return control2D_->x;
 }
 
-ICE_Float ICE_Control2D_PositionGetY(ICE_Control2D* control2D_)
+ICE_Float ICE_Control2D_GetPositionY(ICE_Control2D* control2D_)
 {
 	return control2D_->y;
 }
@@ -236,7 +233,7 @@ ICE_Float ICE_Control2D_PositionGetY(ICE_Control2D* control2D_)
 
 // ------------------------------------- Rotation ------------------------------------------- //
 
-ICE_Float ICE_Control2D_RotationGet(ICE_Control2D* control2D_)
+ICE_Float ICE_Control2D_GetRotation(ICE_Control2D* control2D_)
 {
 	return control2D_->rotation;
 }
@@ -246,17 +243,17 @@ ICE_Float ICE_Control2D_RotationGet(ICE_Control2D* control2D_)
 
 // ------------------------------------- Scale ------------------------------------------- //
 
-ICE_Vect ICE_Control2D_ScaleGet(ICE_Control2D * control2D_)
+ICE_Vect ICE_Control2D_GetScale(ICE_Control2D * control2D_)
 {
 	return ICE_Vect_New(control2D_->scale_w, control2D_->scale_h);
 }
 
-ICE_Float ICE_Control2D_ScaleGetW(ICE_Control2D* control2D_)
+ICE_Float ICE_Control2D_GetScaleW(ICE_Control2D* control2D_)
 {
 	return control2D_->scale_w;
 }
 
-ICE_Float ICE_Control2D_ScaleGetH(ICE_Control2D* control2D_)
+ICE_Float ICE_Control2D_GetScaleH(ICE_Control2D* control2D_)
 {
 	return control2D_->scale_h;
 }

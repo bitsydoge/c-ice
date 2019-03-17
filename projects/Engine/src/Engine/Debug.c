@@ -112,15 +112,15 @@ void ICE_Debug_FontDraw(int y, const char* format, ...)
 void ICE_Debug_CameraControl()
 {
 	if (ICE_Input_Pressed(ICE_KEY_W))
-		ICE_Camera_ShiftPos(ICE_Vect_New(0, -1000 * ICE_Game_GetDelta()));
+		ICE_Camera_AddPosition(ICE_Vect_New(0, -1000 * ICE_Game_GetDelta()));
 	if (ICE_Input_Pressed(ICE_KEY_S))
-		ICE_Camera_ShiftPos(ICE_Vect_New(0, 1000 * ICE_Game_GetDelta()));
+		ICE_Camera_AddPosition(ICE_Vect_New(0, 1000 * ICE_Game_GetDelta()));
 	if (ICE_Input_Pressed(ICE_KEY_A))
-		ICE_Camera_ShiftPos(ICE_Vect_New(-1000 * ICE_Game_GetDelta(), 0));
+		ICE_Camera_AddPosition(ICE_Vect_New(-1000 * ICE_Game_GetDelta(), 0));
 	if (ICE_Input_Pressed(ICE_KEY_D))
-		ICE_Camera_ShiftPos(ICE_Vect_New(1000 * ICE_Game_GetDelta(), 0));
+		ICE_Camera_AddPosition(ICE_Vect_New(1000 * ICE_Game_GetDelta(), 0));
 	if (ICE_Input_Pressed(ICE_KEY_SPACE))
-		ICE_Camera_MovePos(ICE_Vect_Zero, 1000 * ICE_Game_GetDelta());
+		ICE_Camera_MoveTo(ICE_Vect_Zero, 1000 * ICE_Game_GetDelta());
 }
 
 
