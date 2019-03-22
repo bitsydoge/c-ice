@@ -9,7 +9,7 @@
 
 ICE_FontID ICE_Font_GetLastLoaded();
 ICE_FontID ICE_Font_Load(ICE_StringStd path_);
-ICE_FontID ICE_Font_Load_RW(ICE_IO * rwops_);
+ICE_FontID ICE_Font_Load_RW(ICE_IO rwops_);
 void ICE_Font_Destroy(ICE_FontID font_);
 
 #if defined(_DEBUG)

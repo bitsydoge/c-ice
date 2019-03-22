@@ -39,16 +39,16 @@ ICE_TextureID ICE_Texture_GetLastLoaded()
 
 ICE_TextureID ICE_Texture_Load(ICE_StringStd path_) 
 {
-	ICE_IO * ops = NULL;
+	ICE_IO ops = NULL;
 
 	if(ICE_Pack_isPathFromPak(path_))
 	{
 		PHYSFS_File * ph_file = PHYSFS_openRead(path_ + 6);
-		ops = ICE_IO_MakeFromSDL2(PHYSFSRWOPS_makeRWops(ph_file));
+		ops = (ICE_IO)ICE_IO_MakeFromSDL2((void*)PHYSFSRWOPS_makeRWops(ph_file));
 	}
 	else
 	{
-		ops = ICE_IO_MakeFromSDL2(SDL_RWFromFile(path_, "rb"));
+		ops = (ICE_IO)ICE_IO_MakeFromSDL2((void*)SDL_RWFromFile(path_, "rb"));
 	}
 
 	ICE_ID temp_id = ICE_Texture_Load_RW(ops);
@@ -61,7 +61,7 @@ ICE_TextureID ICE_Texture_Load(ICE_StringStd path_)
 	return temp_id;
 }
 
-ICE_TextureID ICE_Texture_Load_RW(ICE_IO* rwops_) 
+ICE_TextureID ICE_Texture_Load_RW(ICE_IO rwops_) 
 {
 	ICE_Texture temp = ICE_Texture_Build_RW(rwops_);
 	if(temp.handle)
@@ -144,11 +144,10 @@ ICE_Uint32 static const bmask = 0x00ff0000;
 ICE_Uint32 static const amask = 0xff000000;
 #endif
 
-ICE_Texture ICE_Texture_LoadFromFile_RW(ICE_IO* rwops_)
+ICE_Texture ICE_Texture_LoadFromFile_RW(ICE_IO rwops_)
 {
 	ICE_Texture text = { 0 };
-	SDL_Surface* surf = STBIMG_Load_RW(rwops_->sdl2, 1);
-	ICE_IO_Destroy(rwops_);
+	SDL_Surface* surf = STBIMG_Load_RW((SDL_RWops*)rwops_, 1);
 	if (surf == NULL)
 	{
 		ICE_Log_Critical("Can't create Surface from image : %s", SDL_GetError());

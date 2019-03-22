@@ -19,7 +19,7 @@
 // MUSIC
 ICE_MusicID ICE_Music_GetLastLoaded();
 ICE_MusicID ICE_Music_Load(ICE_StringStd path);
-ICE_MusicID ICE_Music_Load_RW(ICE_IO* ops);
+ICE_MusicID ICE_Music_Load_RW(ICE_IO ops);
 
 void ICE_Music_Clear(ICE_MusicID music_);
 void ICE_Music_Destroy(ICE_MusicID music_);

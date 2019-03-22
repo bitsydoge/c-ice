@@ -23,16 +23,16 @@ ICE_TextureID ICE_Music_GetLastLoaded()
 
 ICE_MusicID ICE_Music_Load(ICE_StringStd path_)
 {
-	ICE_IO * ops = NULL;
+	ICE_IO ops = NULL;
 
 	if(ICE_Pack_isPathFromPak(path_))
 	{
 		PHYSFS_File * ph_file = PHYSFS_openRead(path_ + 6);
-		ops = ICE_IO_MakeFromSDL2(PHYSFSRWOPS_makeRWops(ph_file));
+		ops = (ICE_IO)ICE_IO_MakeFromSDL2((void*)PHYSFSRWOPS_makeRWops(ph_file));
 	}
 	else
 	{
-		ops = ICE_IO_MakeFromSDL2(SDL_RWFromFile(path_, "rb"));
+		ops = (ICE_IO)ICE_IO_MakeFromSDL2((void*)SDL_RWFromFile(path_, "rb"));
 	}
 
 	ICE_ID temp_id = ICE_Music_Load_RW(ops);
@@ -46,20 +46,19 @@ ICE_MusicID ICE_Music_Load(ICE_StringStd path_)
 }
 
 
-ICE_Music ICE_Music_Build_RW(SDL_RWops * ops)
+ICE_Music ICE_Music_Build_RW(ICE_IO ops)
 {
 	ICE_Music music = {0};
 	// Assigne
-	music.sdl_handle = Mix_LoadMUS_RW(ops, 1);
+	music.sdl_handle = Mix_LoadMUS_RW((SDL_RWops*)ops, 1);
 	if(music.sdl_handle == NULL)
 		ICE_Log(ICE_LOGTYPE_ERROR, "Load Music : %s", Mix_GetError());
 	return music;
 }
 
-ICE_MusicID ICE_Music_Load_RW(ICE_IO* ops)
+ICE_MusicID ICE_Music_Load_RW(ICE_IO ops)
 {
-	ICE_GLOBJ_MUSICMANAGER.music[ICE_GLOBJ_MUSICMANAGER.music_contain] = ICE_Music_Build_RW(ops->sdl2);
-	ICE_IO_Destroy(ops);
+	ICE_GLOBJ_MUSICMANAGER.music[ICE_GLOBJ_MUSICMANAGER.music_contain] = ICE_Music_Build_RW(ops);
 
 	ICE_GLOBJ_MUSICMANAGER.music_contain++;
 

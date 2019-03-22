@@ -5,6 +5,7 @@
 #include ICE_INCLUDE_SDL2_MIXER
 
 #include "../Framework/String_.h"
+#include "IO.h"
 
 struct ICE_Music
 {
@@ -14,7 +15,7 @@ struct ICE_Music
 
 }; typedef struct ICE_Music ICE_Music;
 
-ICE_Music ICE_Music_Build_RW(SDL_RWops* ops);
+ICE_Music ICE_Music_Build_RW(ICE_IO ops);
 ICE_Music* ICE_Music_Get(ICE_ID music_);
 
 #endif

@@ -26,9 +26,6 @@ ICE_TextureID texture2 = 0;
 
 void ICE_Game_Create()
 {
-	SDL_Cursor * cursor = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_IBEAM);//init_system_cursor(arrow);
-	SDL_SetCursor(cursor);
-
 	ICE_Render_Color(ICE_Color_New(50, 70, 150));
 	ICE_Debug_CallbackDraw(Debug_Draw);
 

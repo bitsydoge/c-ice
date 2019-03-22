@@ -40,16 +40,16 @@ ICE_FontID ICE_Font_GetLastLoaded()
 
 ICE_FontID ICE_Font_Load(ICE_StringStd path_)
 {
-	ICE_IO* ops = NULL;
+	ICE_IO ops = NULL;
 
 	if (ICE_Pack_isPathFromPak(path_))
 	{
 		PHYSFS_File* ph_file = PHYSFS_openRead(path_ + 6);
-		ops = ICE_IO_MakeFromSDL2(PHYSFSRWOPS_makeRWops(ph_file));
+		ops = (ICE_IO)ICE_IO_MakeFromSDL2((void*)PHYSFSRWOPS_makeRWops(ph_file));
 	}
 	else
 	{
-		ops = ICE_IO_MakeFromSDL2(SDL_RWFromFile(path_, "rb"));
+		ops = (ICE_IO)ICE_IO_MakeFromSDL2((void*)SDL_RWFromFile(path_, "rb"));
 	}
 
 	ICE_FontID temp_id = ICE_Font_Load_RW(ops);
@@ -62,16 +62,16 @@ ICE_FontID ICE_Font_Load(ICE_StringStd path_)
 	return temp_id;
 }
 
-ICE_Font ICE_Font_Build_RW(SDL_RWops * rwops_)
+ICE_Font ICE_Font_Build_RW(ICE_IO rwops_)
 {
 	ICE_Font font_temp = { 0 };
 
 	font_temp.exist = 1;
 	for (int i = 0; i < 256; i++)
 	{
-		Sint64 offset = SDL_RWtell(rwops_);
+		Sint64 offset = SDL_RWtell((SDL_RWops*)rwops_);
 		font_temp.size[i] = TTF_OpenFontRW(rwops_, 0, i);
-		SDL_RWseek(rwops_, offset, RW_SEEK_SET);
+		SDL_RWseek((SDL_RWops*)rwops_, offset, RW_SEEK_SET);
 		if (font_temp.size[i] == NULL)
 			ICE_Log(ICE_LOGTYPE_CRITICAL, "ICE_Font : Size : %d, %s", i, TTF_GetError());
 	}
@@ -79,10 +79,9 @@ ICE_Font ICE_Font_Build_RW(SDL_RWops * rwops_)
 	return font_temp;
 }
 
-ICE_FontID ICE_Font_Load_RW(ICE_IO * rwops_)
+ICE_FontID ICE_Font_Load_RW(ICE_IO rwops_)
 {
-	ICE_Font temp = ICE_Font_Build_RW(rwops_->sdl2);
-	ICE_IO_Destroy(rwops_);
+	ICE_Font temp = ICE_Font_Build_RW(rwops_);
 	if (1) // ICE_Font error check
 	{
 		ICE_FontID avaible_slot = 0;
