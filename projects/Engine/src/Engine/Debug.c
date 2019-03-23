@@ -1,5 +1,14 @@
 ﻿#include "../Framework/BasicTypes.h"
 #include "Primitive.h"
+#include "Window.h"
+#include "Input_private.h"
+#include "Time_private.h"
+
+#include "SDL2_Includer_private.h"
+#include ICE_INCLUDE_SDL2_TTF
+#include "FontManager_private.h"
+#include "Resources_private.h"
+#include "Renderer_private.h"
 
 ICE_Bool ICE_Debug_Get_Linked()
 {
@@ -24,21 +33,12 @@ ICE_Bool ICE_Debug_Get_Linked()
 #include "Camera.h"
 #include <stdio.h>
 
-#include "GlobalData_private.h"
-#include "Window_private.h"
-ICE_GLOBALDATA_WINDOW
-#include "Renderer_private.h"
-ICE_GLOBALDATA_RENDERER
-#include "Input_private.h"
-ICE_GLOBALDATA_INPUT
-#include "Time_private.h"
-ICE_GLOBALDATA_TIME
-#include "Resources_private.h"
-ICE_GLOBALDATA_RESOURCES
-#include "FontManager_private.h"
-ICE_GLOBALDATA_FONTMANAGER
-
 void(*ICE_GLOBJ_DEBUG_LATEDRAW)() = NULL;
+
+void (*ICE_Debug_LateDraw_Get())()
+{
+	return ICE_GLOBJ_DEBUG_LATEDRAW;
+}
 
 ICE_Color font_color_background_set = 0xFF0000FF;
 ICE_Color font_color_foreground_set = 0xFFFFFFFF;
@@ -48,8 +48,8 @@ void ICE_Debug_DrawCoordinate()
 	if (SDL_GetMouseFocus())
 	{
 		char coo[20];
-		ICE_Vect coordinate_vect = { ICE_GLOBJ_INPUT.mousex, ICE_GLOBJ_INPUT.mousey };
-		if (ICE_GLOBJ_INPUT.leftclic_pressed)
+		ICE_Vect coordinate_vect = { ICE_Input_GetPtr()->mousex, ICE_Input_GetPtr()->mousey };
+		if (ICE_Input_GetPtr()->leftclic_pressed)
 		{
 			ICE_Box coordinate_box = ICE_Camera_Screen_to_World(ICE_Box_New(coordinate_vect.x, coordinate_vect.y, 0,0));
 			coordinate_vect = ICE_Vect_New(coordinate_box.x, coordinate_box.y);
@@ -57,7 +57,7 @@ void ICE_Debug_DrawCoordinate()
 			
 		sprintf(coo, "%0.0f, %0.0f", coordinate_vect.x, coordinate_vect.y);
 
-		const ICE_Vect vect = { ICE_GLOBJ_INPUT.mousex + 10, ICE_GLOBJ_INPUT.mousey + 10 };
+		const ICE_Vect vect = { ICE_Input_GetPtr()->mousex + 10, ICE_Input_GetPtr()->mousey + 10 };
 		ICE_Font_Draw(coo, vect, ICE_Color_New(255,255,255), ICE_Color_New(0,0,0));
 	}
 }
@@ -65,14 +65,14 @@ void ICE_Debug_DrawCoordinate()
 void ICE_Debug_DrawFps(int y_pos)
 {
 	char gh[20];
-	sprintf(gh, " FPS : [%.0f] ", ICE_GLOBJ_TIME.fps);
+	sprintf(gh, " FPS : [%.0f] ", ICE_Time_GetPtr()->fps);
 	ICE_Debug_FontDraw(y_pos, gh);
 }
 
 void ICE_Debug_TitleFps()
 {
 	char buffer[20];
-	sprintf(buffer, "FPS : [%.0f]", ICE_GLOBJ_TIME.fps);
+	sprintf(buffer, "FPS : [%.0f]", ICE_Time_GetPtr()->fps);
 	ICE_Window_SetTitle(buffer);
 }
 
@@ -98,7 +98,7 @@ void ICE_Debug_FontDraw(int y, const char* format, ...)
 		size = 12;
 
 	SDL_Surface *surf = TTF_RenderText_Shaded(
-		ICE_GLOBJ_FONTMANAGER.font_array[ICE_GLOBJ_RESOURCES.font_default].size[size], 
+		ICE_FontManager_GetPtr()->font_array[ICE_Resources_Get()->font_default].size[size],
 		buffer, 
 		ICE_Color_ToSdl(font_color_foreground_set), 
 		ICE_Color_ToSdl(font_color_background_set)
@@ -107,8 +107,8 @@ void ICE_Debug_FontDraw(int y, const char* format, ...)
 
 	SDL_Rect rect; rect.x = 0; rect.y = surf->h * y;
 	rect.w = surf->w; rect.h = surf->h;
-	SDL_Texture *texture = SDL_CreateTextureFromSurface(ICE_GLOBJ_RENDERER.handle, surf);
-	SDL_RenderCopy(ICE_GLOBJ_RENDERER.handle, texture, NULL, &rect);
+	SDL_Texture *texture = SDL_CreateTextureFromSurface(ICE_Renderer_GetPtr()->handle, surf);
+	SDL_RenderCopy(ICE_Renderer_GetPtr()->handle, texture, NULL, &rect);
 	SDL_FreeSurface(surf);
 	SDL_DestroyTexture(texture);
 	va_end(args);

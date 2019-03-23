@@ -6,12 +6,13 @@
 #include <SDL2/SDL.h>
 #include "Color.h"
 
-struct ICE_Render
+struct ICE_Renderer
 {
 	SDL_Renderer* handle;
 
 };
 
+ICE_Renderer* ICE_Renderer_GetPtr();
 int ICE_Renderer_SetColor(const ICE_Color rgba_hex);
 int ICE_Renderer_Clear();
 void ICE_Renderer_Now();

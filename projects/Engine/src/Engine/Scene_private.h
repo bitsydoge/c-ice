@@ -42,6 +42,9 @@ struct ICE_Scene
 
 };
 
+ICE_Scene* ICE_Scene_GetMain();
+ICE_Scene* ICE_Scene_GetCurrent();
+void ICE_Scene_SetCurrent(ICE_Scene* current_);
 
 ICE_Scene ICE_Scene_Init(void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void), ICE_Scene* parent_, ICE_StringStd name_);
 void ICE_Scene_Destroy(ICE_Scene* scene_);

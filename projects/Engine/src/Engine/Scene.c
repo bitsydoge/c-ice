@@ -6,15 +6,25 @@
 #include "Draw_private.h"
 #include "EntityManager_private.h"
 #include "Data.h"
+#include "Debug.h"
 
 ICE_Scene ICE_GLOBJ_SCENE_MAIN = {0};
 ICE_Scene * ICE_GLOBJ_SCENE_CURRENT = NULL;
 
-#include "GlobalData_private.h"
-ICE_GLOBALDATA_INPUT
-ICE_GLOBALDATA_SCENE_CURRENT
-ICE_GLOBALDATA_SCENE_MAIN
-ICE_GLOBALDATA_DEBUG_LATEDRAW
+ICE_Scene * ICE_Scene_GetMain()
+{
+	return &ICE_GLOBJ_SCENE_MAIN;
+}
+
+ICE_Scene * ICE_Scene_GetCurrent()
+{
+	return ICE_GLOBJ_SCENE_CURRENT;
+}
+
+void ICE_Scene_SetCurrent(ICE_Scene * current_)
+{
+	ICE_GLOBJ_SCENE_CURRENT = current_;
+}
 
 ICE_Scene ICE_Scene_Init(void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void), ICE_Scene * parent_, ICE_StringStd name_)
 {
@@ -56,7 +66,7 @@ void ICE_Scene_Run(ICE_Scene * scene_)
 	
 	ICE_Log_Line();
 	ICE_Log(ICE_LOGTYPE_RUNNING, "Update : %s ...", scene_->name);
-	while (!ICE_GLOBJ_INPUT.quit)
+	while (!ICE_Input_GetPtr()->quit)
 	{
 		// LOGIC HERE
 		ICE_Time_Start();
@@ -75,8 +85,8 @@ void ICE_Scene_Run(ICE_Scene * scene_)
 		//TODO//ICE_Draw_LabelScreen();
 
 #if defined(_DEBUG)
-		if (ICE_GLOBJ_DEBUG_LATEDRAW)
-			ICE_GLOBJ_DEBUG_LATEDRAW();
+		if (ICE_Debug_LateDraw_Get())
+			ICE_Debug_LateDraw_Get()();
 #endif
 
 		ICE_Renderer_Now();

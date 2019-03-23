@@ -1,29 +1,24 @@
 ﻿#include "Window_private.h"
 #include "../External/stb/SDL_stbimage.h"
 #include "../Framework/Log.h"
+#include "Config.h"
 
 ICE_Window ICE_GLOBJ_WINDOW = {0};
 
-
-#include "GlobalData_private.h"
-ICE_GLOBALDATA_WINDOW
-#include "Config.h"
-ICE_GLOBALDATA_CONFIG
-
-ICE_Window * ICE_Window_Get()
+ICE_Window * ICE_Window_GetPtr()
 {
 	return &ICE_GLOBJ_WINDOW;
 }
 
 void ICE_Window_Config()
 {
-	if (ICE_GLOBJ_CONFIG.resizable)
+	if (ICE_Config_GetPtr()->resizable)
 		ICE_Window_SetResizable(1);
 
-	if (ICE_GLOBJ_CONFIG.fullscreen == 1)
+	if (ICE_Config_GetPtr()->fullscreen == 1)
 		ICE_Window_SetFullscreen(SDL_WINDOW_FULLSCREEN);
 
-	if (ICE_GLOBJ_CONFIG.fullscreen == 2)
+	if (ICE_Config_GetPtr()->fullscreen == 2)
 	{
 		int display_index = SDL_GetWindowDisplayIndex(ICE_GLOBJ_WINDOW.handle);
 		SDL_Rect screen_size;
@@ -31,7 +26,7 @@ void ICE_Window_Config()
 		ICE_Window_SetSize(screen_size.w, screen_size.h);
 		ICE_Window_SetFullscreen(SDL_WINDOW_FULLSCREEN_DESKTOP);
 	}
-	ICE_Window_SetIcon(ICE_GLOBJ_CONFIG.window_icon);
+	ICE_Window_SetIcon(ICE_Config_GetPtr()->window_icon);
 	SDL_ShowWindow(ICE_GLOBJ_WINDOW.handle);
 }
 

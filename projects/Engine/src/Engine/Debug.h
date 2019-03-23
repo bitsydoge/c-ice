@@ -14,6 +14,8 @@ ICE_INLINE ICE_Bool ICE_Debug_Get_Compiled()
 #endif
 }
 
+void (*ICE_Debug_LateDraw_Get())();
+
 // Get the Library Debug
 ICE_Bool ICE_Debug_Get_Linked();
 

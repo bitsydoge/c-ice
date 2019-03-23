@@ -30,6 +30,8 @@ struct ICE_Input
 
 }; typedef struct ICE_Input ICE_Input;
 
+ICE_Input* ICE_Input_GetPtr();
+
 /**
  * \brief Where SDL_Event are made and update the input structure of the engine
  */

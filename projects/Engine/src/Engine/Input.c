@@ -10,6 +10,11 @@
 
 ICE_Input ICE_GLOBJ_INPUT = {0};
 
+ICE_Input * ICE_Input_GetPtr()
+{
+	return &ICE_GLOBJ_INPUT;
+}
+
 ICE_Bool ICE_Input_Pressed(enum ICE_Key button)
 {
 	if (button < 512)
@@ -235,8 +240,8 @@ void ICE_Input_Return()
 				ICE_GLOBJ_INPUT.focus = 0;
 				break;
 			case SDL_WINDOWEVENT_RESIZED:
-				ICE_Window_Get()->w = event.window.data1;
-				ICE_Window_Get()->h = event.window.data2;
+				ICE_Window_GetPtr()->w = event.window.data1;
+				ICE_Window_GetPtr()->h = event.window.data2;
 				break;
 			default:
 				break;

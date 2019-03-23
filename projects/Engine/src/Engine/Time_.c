@@ -9,11 +9,14 @@
 
 #include "Config.h"
 
-#include "GlobalData_private.h"
 #include <time.h>
-ICE_GLOBALDATA_CONFIG
 
 ICE_Time ICE_GLOBJ_TIME = { 0 };
+
+ICE_Time * ICE_Time_GetPtr()
+{
+	return &ICE_GLOBJ_TIME;
+}
 
 ///////////// PRIVATE
 
@@ -22,7 +25,7 @@ FPSmanager fps_manager_global;
 void ICE_Time_Init()
 {
 	SDL_initFramerate(&fps_manager_global);
-	if (SDL_setFramerate(&fps_manager_global, ICE_GLOBJ_CONFIG.refresh_rate) == -1)
+	if (SDL_setFramerate(&fps_manager_global, ICE_Config_GetPtr()->refresh_rate) == -1)
 		ICE_Log(ICE_LOGTYPE_ERROR, "SDL_Gfx -> SDL_setFramerate");
 }
 

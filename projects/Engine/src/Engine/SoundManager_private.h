@@ -16,6 +16,8 @@ struct ICE_SoundManager
 
 }; 
 
+ICE_SoundManager* ICE_SoundManager_GetPtr();
+
 void ICE_SoundManager_Init();
 void ICE_SoundManager_Destroy();
 

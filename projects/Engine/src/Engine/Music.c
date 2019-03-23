@@ -11,9 +11,6 @@
 
 ICE_ID last_loaded_music = (ICE_ID)-1;
 
-#include "GlobalData_private.h"
-ICE_GLOBALDATA_MUSICMANAGER
-
 /* MUSIC */
 
 ICE_TextureID ICE_Music_GetLastLoaded()
@@ -58,37 +55,37 @@ ICE_Music ICE_Music_Build_RW(ICE_IO ops)
 
 ICE_MusicID ICE_Music_Load_RW(ICE_IO ops)
 {
-	ICE_GLOBJ_MUSICMANAGER.music[ICE_GLOBJ_MUSICMANAGER.music_contain] = ICE_Music_Build_RW(ops);
+	ICE_MusicManager_GetPtr()->music[ICE_MusicManager_GetPtr()->music_contain] = ICE_Music_Build_RW(ops);
 
-	ICE_GLOBJ_MUSICMANAGER.music_contain++;
+	ICE_MusicManager_GetPtr()->music_contain++;
 
-	if (ICE_GLOBJ_MUSICMANAGER.music_size <= ICE_GLOBJ_MUSICMANAGER.music_contain) {
-		ICE_Music* tmp = ICE_Realloc(ICE_GLOBJ_MUSICMANAGER.music, sizeof(ICE_Music)*(ICE_GLOBJ_MUSICMANAGER.music_size * 2));
-		ICE_GLOBJ_MUSICMANAGER.music = tmp;
-		ICE_GLOBJ_MUSICMANAGER.music_size *= 2;
+	if (ICE_MusicManager_GetPtr()->music_size <= ICE_MusicManager_GetPtr()->music_contain) {
+		ICE_Music* tmp = ICE_Realloc(ICE_MusicManager_GetPtr()->music, sizeof(ICE_Music)*(ICE_MusicManager_GetPtr()->music_size * 2));
+		ICE_MusicManager_GetPtr()->music = tmp;
+		ICE_MusicManager_GetPtr()->music_size *= 2;
 	}
-	return ICE_GLOBJ_MUSICMANAGER.music_contain - 1;
+	return ICE_MusicManager_GetPtr()->music_contain - 1;
 }
 
 
 void ICE_Music_Clear(ICE_MusicID music_)
 {
-	memset(ICE_GLOBJ_MUSICMANAGER.music, 0, sizeof(ICE_Music));
+	memset(ICE_MusicManager_GetPtr()->music, 0, sizeof(ICE_Music));
 }
 
 void ICE_Music_Destroy(ICE_MusicID music_)
 {
-	ICE_String_Free(ICE_GLOBJ_MUSICMANAGER.music[music_].filename);
-	Mix_FreeMusic(ICE_GLOBJ_MUSICMANAGER.music[music_].sdl_handle);
+	ICE_String_Free(ICE_MusicManager_GetPtr()->music[music_].filename);
+	Mix_FreeMusic(ICE_MusicManager_GetPtr()->music[music_].sdl_handle);
 }
 
 // PLAY
 
 int ICE_Music_Play(ICE_MusicID music_, ICE_Float volume_)
 {
-	if (ICE_GLOBJ_MUSICMANAGER.music[music_].sdl_handle != NULL) 
+	if (ICE_MusicManager_GetPtr()->music[music_].sdl_handle != NULL) 
 	{
-		Mix_PlayMusic(ICE_GLOBJ_MUSICMANAGER.music[music_].sdl_handle, -1);
+		Mix_PlayMusic(ICE_MusicManager_GetPtr()->music[music_].sdl_handle, -1);
 		Mix_VolumeMusic((int)volume_*128);
 		return 1;
 	}
@@ -107,5 +104,5 @@ void ICE_Music_Resume()
 
 ICE_Music* ICE_Music_Get(ICE_ID music_)
 {
-	return &ICE_GLOBJ_MUSICMANAGER.music[music_];
+	return &ICE_MusicManager_GetPtr()->music[music_];
 }

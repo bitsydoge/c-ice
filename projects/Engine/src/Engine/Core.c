@@ -23,18 +23,13 @@
 #include ICE_INCLUDE_SDL2_TTF
 #include ICE_INCLUDE_SDL2_MIXER
 
-#include "GlobalData_private.h"
 #include "MusicManager_private.h"
 #include "Sound.h"
 #include "Resources_private.h"
 #include "Data.h"
-ICE_GLOBALDATA_INPUT
-ICE_GLOBALDATA_SCENE_CURRENT
-ICE_GLOBALDATA_SCENE_MAIN
-ICE_GLOBALDATA_CONFIG
 
 #if defined(_DEBUG)
-ICE_GLOBALDATA_DEBUG_LATEDRAW
+
 #endif
 
 #include "Scene.h"
@@ -48,14 +43,14 @@ void ICE_Core_Main(void(*call_create)(void), void(*call_update)(void), void(*cal
 	ICE_Renderer_Init();
 	ICE_Asset_Init();
 
-	ICE_GLOBJ_SCENE_MAIN = ICE_Scene_Init(call_create, call_update, call_destroy, NULL, "Main");
-	ICE_GLOBJ_SCENE_CURRENT = &ICE_GLOBJ_SCENE_MAIN;
+	 *ICE_Scene_GetMain() = ICE_Scene_Init(call_create, call_update, call_destroy, NULL, "Main");
+	 ICE_Scene_SetCurrent(ICE_Scene_GetMain());
 	//
 
-	ICE_Scene_Run(&ICE_GLOBJ_SCENE_MAIN);
+	ICE_Scene_Run(ICE_Scene_GetMain());
 
 	//
-	ICE_Scene_Destroy(&ICE_GLOBJ_SCENE_MAIN);
+	ICE_Scene_Destroy(ICE_Scene_GetMain());
 
 	ICE_Asset_Destroy();
 	ICE_Renderer_Quit();
@@ -97,14 +92,14 @@ int ICE_Core_Init()
 	ICE_Time_Init();
 
 	// Physfs
-	if (PHYSFS_init(ICE_GLOBJ_CONFIG.argv[0]))
+	if (PHYSFS_init(ICE_Config_GetPtr()->argv[0]))
 		ICE_Log_Succes("PHYSFS_init() succes");
 	else
 		ICE_Log_Error("PHYSFS_init() error : %s", PHYSFS_getErrorByCode(PHYSFS_getLastErrorCode()));
 
 	// Path
 	char* basePath = SDL_GetBasePath();
-	char* dataPath = SDL_GetPrefPath(ICE_GLOBJ_CONFIG.editor_name, ICE_GLOBJ_CONFIG.product_name);
+	char* dataPath = SDL_GetPrefPath(ICE_Config_GetPtr()->editor_name, ICE_Config_GetPtr()->product_name);
 	//TODO//strcpy(CORE.basePath, basePath);
 	//TODO//strcpy(CORE.dataPath, dataPath);
 	SDL_free(basePath);

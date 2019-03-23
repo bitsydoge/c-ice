@@ -5,8 +5,6 @@
 #include "../Framework/Log.h"
 #include "Entity.h"
 
-extern ICE_Scene* ICE_GLOBJ_SCENE_CURRENT;
-
 void ICE_EntityManager_Init(ICE_EntityManager* entitymanager_)
 {
 	ICE_EntityManager entity_manager = { 0 };
@@ -33,7 +31,7 @@ void ICE_EntityManager_Destroy(ICE_EntityManager* entitymanager_)
 
 void ICE_EntityManager_FunctionUpdate()
 {
-	ICE_Scene * scene = ICE_GLOBJ_SCENE_CURRENT;
+	ICE_Scene * scene = ICE_Scene_GetCurrent();
 
 	for (ICE_ID i = 0; i < scene->entity_mngr.entity_contain; i++)
 	{

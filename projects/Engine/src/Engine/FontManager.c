@@ -5,6 +5,11 @@
 
 ICE_FontManager ICE_GLOBJ_FONTMANAGER = {0};
 
+ICE_FontManager * ICE_FontManager_GetPtr()
+{
+	return &ICE_GLOBJ_FONTMANAGER;
+}
+
 void ICE_FontManager_Init()
 {
 	ICE_FontManager font_manager = { 0 };

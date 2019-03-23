@@ -6,11 +6,9 @@
 #include "Camera.h"
 #include "Graphics2D.h"
 
-#include "GlobalData_private.h"
 #include "Entity.h"
 #include "Collision_Basic.h"
 #include "Window.h"
-ICE_GLOBALDATA_SCENE_CURRENT
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 // ------------------------------------------------------------------------------------- //
@@ -277,7 +275,7 @@ struct ICE_Draw_EntityFinal ICE_Draw_Entity_GenerateFinal(ICE_Entity* entity_)
 
 void ICE_Draw_EntityAll()
 {
-	ICE_Scene* current = ICE_GLOBJ_SCENE_CURRENT;
+	ICE_Scene* current = ICE_Scene_GetCurrent();
 	for (ICE_ID j = 0; j < current->entity_mngr.entity_contain; j++)
 	{
 		if (current->entity_mngr.entity[j].exist && current->entity_mngr.entity[j].control2d.isActive && current->entity_mngr.entity[j].graphics2d.isVisible)

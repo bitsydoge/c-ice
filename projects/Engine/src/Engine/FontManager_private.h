@@ -15,6 +15,7 @@ struct ICE_FontManager
 
 #define ICE_DEFAULT_FONT_MNGR_SIZE 4
 
+ICE_FontManager* ICE_FontManager_GetPtr();
 void ICE_FontManager_Init();
 void ICE_FontManager_Destroy();
 

@@ -7,12 +7,10 @@
 #include "Types.h"
 #include "Scene_private.h"
 
-extern ICE_Scene* ICE_GLOBJ_SCENE_CURRENT;
-
 // Make a Data and create a pointer in the GAME->data array (return the pointer created)
 ICE_DataID ICE_Data_Insert(ICE_Size size_use_sizeof_)
 {
-	ICE_Scene * scene_ = ICE_GLOBJ_SCENE_CURRENT;
+	ICE_Scene * scene_ = ICE_Scene_GetCurrent();
 
 	scene_->data_nb++;
 	scene_->data = ICE_Realloc(scene_->data, sizeof(void*)*(scene_->data_nb));
@@ -24,7 +22,7 @@ ICE_DataID ICE_Data_Insert(ICE_Size size_use_sizeof_)
 /// Return pointer to a Data
 void* ICE_Data_Get(ICE_DataID data_id_)
 {
-	ICE_Scene* scene_ = ICE_GLOBJ_SCENE_CURRENT;
+	ICE_Scene* scene_ = ICE_Scene_GetCurrent();
 
 	void * _pointer;
 
@@ -51,7 +49,7 @@ void* ICE_Data_Get(ICE_DataID data_id_)
 /// Destroy a Data
 void ICE_Data_Destroy(ICE_DataID data_id_)
 {
-	ICE_Scene* scene_ = ICE_GLOBJ_SCENE_CURRENT;
+	ICE_Scene* scene_ = ICE_Scene_GetCurrent();
 
 	void * _pointer;
 
@@ -77,7 +75,7 @@ void ICE_Data_Destroy(ICE_DataID data_id_)
 
 void ICE_Data_DestroyAll()
 {
-	ICE_Scene* scene_ = ICE_GLOBJ_SCENE_CURRENT;
+	ICE_Scene* scene_ = ICE_Scene_GetCurrent();
 
 	for (ICE_ID i = 0; i < scene_->data_nb; i++)
 	{

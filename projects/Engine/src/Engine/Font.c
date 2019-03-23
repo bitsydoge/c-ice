@@ -16,17 +16,12 @@
 // SDL
 #include "SDL2_Includer_private.h"
 #include ICE_INCLUDE_SDL2_TTF
-
-// GLOBAL OBJ
-#include "GlobalData_private.h"
-#include "Renderer_private.h"
-#include "../Framework/Memory_.h"
-#include "Window_private.h"
-ICE_GLOBALDATA_RENDERER
+#include "Font_private.h"
 #include "FontManager_private.h"
-ICE_GLOBALDATA_FONTMANAGER
+#include "../Framework/Memory_.h"
+#include "Renderer_private.h"
 #include "Resources_private.h"
-ICE_GLOBALDATA_RESOURCES
+#include "Window.h"
 
 
 ICE_FontID last_loaded_font = (ICE_FontID)-1;
@@ -87,9 +82,9 @@ ICE_FontID ICE_Font_Load_RW(ICE_IO rwops_)
 		ICE_FontID avaible_slot = 0;
 		ICE_Bool no_avaible_slot = ICE_False;
 
-		for (ICE_FontID i = 0; i < ICE_GLOBJ_FONTMANAGER.font_contain; i++)
+		for (ICE_FontID i = 0; i < ICE_FontManager_GetPtr()->font_contain; i++)
 		{
-			if (ICE_GLOBJ_FONTMANAGER.font_array[i].exist == ICE_False)
+			if (ICE_FontManager_GetPtr()->font_array[i].exist == ICE_False)
 			{
 				avaible_slot = i;
 				no_avaible_slot = ICE_True;
@@ -98,19 +93,19 @@ ICE_FontID ICE_Font_Load_RW(ICE_IO rwops_)
 		}
 		if (!no_avaible_slot)
 		{
-			avaible_slot = ICE_GLOBJ_FONTMANAGER.font_contain;
-			ICE_GLOBJ_FONTMANAGER.font_contain++;
+			avaible_slot = ICE_FontManager_GetPtr()->font_contain;
+			ICE_FontManager_GetPtr()->font_contain++;
 		}
 
-		ICE_GLOBJ_FONTMANAGER.font_array[avaible_slot] = temp;
-		ICE_GLOBJ_FONTMANAGER.font_array[avaible_slot].id = avaible_slot;
+		ICE_FontManager_GetPtr()->font_array[avaible_slot] = temp;
+		ICE_FontManager_GetPtr()->font_array[avaible_slot].id = avaible_slot;
 
 		//ICE_Log(ICE_LOGTYPE_SUCCES, "Load Font %d succes", avaible_slot);
 
-		if (ICE_GLOBJ_FONTMANAGER.font_size <= ICE_GLOBJ_FONTMANAGER.font_contain)
+		if (ICE_FontManager_GetPtr()->font_size <= ICE_FontManager_GetPtr()->font_contain)
 		{
-			ICE_GLOBJ_FONTMANAGER.font_array = ICE_Realloc(ICE_GLOBJ_FONTMANAGER.font_array, sizeof(ICE_Font) * (ICE_GLOBJ_FONTMANAGER.font_size * 2));
-			ICE_GLOBJ_FONTMANAGER.font_size *= 2;
+			ICE_FontManager_GetPtr()->font_array = ICE_Realloc(ICE_FontManager_GetPtr()->font_array, sizeof(ICE_Font) * (ICE_FontManager_GetPtr()->font_size * 2));
+			ICE_FontManager_GetPtr()->font_size *= 2;
 		}
 
 		last_loaded_font = avaible_slot;
@@ -122,11 +117,11 @@ ICE_FontID ICE_Font_Load_RW(ICE_IO rwops_)
 
 void ICE_Font_Destroy(ICE_FontID font_)
 {
-	ICE_GLOBJ_FONTMANAGER.font_array[font_].exist = ICE_False;
+	ICE_FontManager_GetPtr()->font_array[font_].exist = ICE_False;
 
 	for(int i = 0; i < 256; i++)
 	{
-		TTF_CloseFont(ICE_GLOBJ_FONTMANAGER.font_array[font_].size[i]);
+		TTF_CloseFont(ICE_FontManager_GetPtr()->font_array[font_].size[i]);
 	}
 	
 
@@ -140,11 +135,11 @@ void ICE_Font_Draw(ICE_StringStd text, ICE_Vect vect, ICE_Color fg, ICE_Color bg
 	int size = (int)((ICE_Float)ICE_Window_GetH() / 50.0);
 	if (size < 12)
 		size = 12;
-	SDL_Surface *surf = TTF_RenderText_Shaded(ICE_GLOBJ_FONTMANAGER.font_array[ICE_GLOBJ_RESOURCES.font_default].size[size], text, ICE_Color_ToSdl(fg), ICE_Color_ToSdl(bg));
+	SDL_Surface *surf = TTF_RenderText_Shaded(ICE_FontManager_GetPtr()->font_array[ICE_Resources_Get()->font_default].size[size], text, ICE_Color_ToSdl(fg), ICE_Color_ToSdl(bg));
 	SDL_Rect rect; rect.x = (int)vect.x; rect.y = (int)vect.y;
 	rect.w = surf->w; rect.h = surf->h;
-	SDL_Texture *texture = SDL_CreateTextureFromSurface(ICE_GLOBJ_RENDERER.handle, surf);
-	SDL_RenderCopy(ICE_GLOBJ_RENDERER.handle, texture, NULL, &rect);
+	SDL_Texture *texture = SDL_CreateTextureFromSurface(ICE_Renderer_GetPtr()->handle, surf);
+	SDL_RenderCopy(ICE_Renderer_GetPtr()->handle, texture, NULL, &rect);
 	SDL_FreeSurface(surf);
 	SDL_DestroyTexture(texture);
 }

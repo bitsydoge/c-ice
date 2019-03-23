@@ -54,6 +54,7 @@
     <ClCompile Include="src\Engine\Screenshot.c" />
     <ClCompile Include="src\Engine\Sound.c" />
     <ClCompile Include="src\Engine\SoundManager.c" />
+    <ClCompile Include="src\Engine\Tag.c" />
     <ClCompile Include="src\Engine\Texture.c" />
     <ClCompile Include="src\Engine\TextureManager.c" />
     <ClCompile Include="src\Engine\Timer.c" />
@@ -138,7 +139,6 @@
     <ClInclude Include="src\Engine\Font_private.h" />
     <ClInclude Include="src\Engine\Game.h" />
     <ClInclude Include="src\Engine\Game_private.h" />
-    <ClInclude Include="src\Engine\GlobalData_private.h" />
     <ClInclude Include="src\Engine\Graphics2D.h" />
     <ClInclude Include="src\Engine\Graphics2D_private.h" />
     <ClInclude Include="src\Engine\Input.h" />
@@ -170,6 +170,8 @@
     <ClInclude Include="src\Engine\SoundManager.h" />
     <ClInclude Include="src\Engine\SoundManager_private.h" />
     <ClInclude Include="src\Engine\Sound_private.h" />
+    <ClInclude Include="src\Engine\Tag.h" />
+    <ClInclude Include="src\Engine\Tag_private.h" />
     <ClInclude Include="src\Engine\Texture.h" />
     <ClInclude Include="src\Engine\TextureManager.h" />
     <ClInclude Include="src\Engine\TextureManager_private.h" />
@@ -182,6 +184,7 @@
     <ClInclude Include="src\Engine\Version.h" />
     <ClInclude Include="src\Engine\Window.h" />
     <ClInclude Include="src\Engine\Window_private.h" />
+    <ClInclude Include="src\External\libs\strpool.h" />
     <ClInclude Include="src\External\physfs\physfs.h" />
     <ClInclude Include="src\External\physfs\physfsrwops.h" />
     <ClInclude Include="src\External\physfs\physfs_casefolding.h" />

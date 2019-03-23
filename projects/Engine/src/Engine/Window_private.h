@@ -14,7 +14,8 @@ struct ICE_Window
 	SDL_Window* handle;
 };
 
-ICE_Window* ICE_Window_Get();
+ICE_Window* ICE_Window_GetPtr();
+
 void ICE_Window_Config();
 
 #endif

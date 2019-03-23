@@ -8,6 +8,11 @@ ICE_TextureManager ICE_GLOBJ_TEXTUREMANAGER = {0};
 
 /* TEXTUREMANAGER */
 
+ICE_TextureManager * ICE_TextureManager_GetPtr()
+{
+	return &ICE_GLOBJ_TEXTUREMANAGER;
+}
+
 void ICE_TextureManager_Init()
 {
 	ICE_TextureManager texture_manager = { 0 };

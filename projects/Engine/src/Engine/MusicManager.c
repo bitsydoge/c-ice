@@ -5,6 +5,11 @@
 
 ICE_MusicManager ICE_GLOBJ_MUSICMANAGER = { 0 };
 
+ICE_MusicManager * ICE_MusicManager_GetPtr()
+{
+	return &ICE_GLOBJ_MUSICMANAGER;
+}
+
 /* MANAGER */
 
 void ICE_MusicManager_Init()

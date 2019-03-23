@@ -14,6 +14,8 @@ struct ICE_Resources
 
 }; typedef struct ICE_Resources ICE_Resources;
 
+ICE_Resources* ICE_Resources_Get();
+
 void ICE_Resources_TextureLogoInit();
 void ICE_Resources_TextureErrorInit();
 void ICE_Resources_TextureDefaultGuiInit();

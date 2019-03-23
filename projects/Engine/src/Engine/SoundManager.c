@@ -5,6 +5,11 @@
 
 ICE_SoundManager ICE_GLOBJ_SOUNDMANAGER = { 0 };
 
+ICE_SoundManager * ICE_SoundManager_GetPtr()
+{
+	return &ICE_GLOBJ_SOUNDMANAGER;
+}
+
 void ICE_SoundManager_Init()
 {
 	ICE_SoundManager soundmanager = { 0 };

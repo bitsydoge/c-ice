@@ -9,16 +9,11 @@
 #include "../External/stb/stb_image_write.h"
 #include "../Framework/Log.h"
 
-#include "Types.h"
-#include <stdio.h>
+#include "Renderer_private.h"
 #include <time.h>
 #include "Time_.h"
-
-#include "GlobalData_private.h"
-#include "Renderer_private.h"
-ICE_GLOBALDATA_RENDERER
 #include "Window_private.h"
-ICE_GLOBALDATA_WINDOW
+
 
 // QOGHQSPOGHQSGHMSQLKGHMQSXVJNZS%MOZIH¨%ZBN% THIS IS HOW I FEEL AFTER TRYING TO DO A MULTI THREADED SCREENSHOT SAVER ! 
 // First try and multi thread suck 
@@ -342,14 +337,14 @@ P_ICE_Image_Saver_Data* P_ICE_Image_Saver_Data_Create(ICE_StringStd path_)
 #endif
 
 	// Get the screen surface
-	SDL_Surface* surface = SDL_CreateRGBSurface(0, ICE_GLOBJ_WINDOW.w, ICE_GLOBJ_WINDOW.h, 32, rmask, gmask, bmask, amask);
+	SDL_Surface* surface = SDL_CreateRGBSurface(0, ICE_Window_GetPtr()->w, ICE_Window_GetPtr()->h, 32, rmask, gmask, bmask, amask);
 	if (surface == NULL || surface->w < 1 || surface->h < 1)
 	{
 		ICE_Log_Error("%s : Error (file : %s, line : %d)", __FUNCTION__, __FILE__, __LINE__);
 		return NULL;
 	}
 	SDL_LockSurface(surface);
-	SDL_RenderReadPixels(ICE_GLOBJ_RENDERER.handle, NULL, surface->format->format, surface->pixels, surface->pitch);
+	SDL_RenderReadPixels(ICE_Renderer_GetPtr()->handle, NULL, surface->format->format, surface->pixels, surface->pitch);
 	SDL_UnlockSurface(surface);
 
 	// Malloc data ptr

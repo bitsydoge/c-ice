@@ -19,6 +19,8 @@ struct ICE_TextureManager
 };
 typedef struct ICE_TextureManager ICE_TextureManager;
 
+ICE_TextureManager* ICE_TextureManager_GetPtr();
+
 void ICE_TextureManager_Init();
 void ICE_TextureManager_Destroy();
 

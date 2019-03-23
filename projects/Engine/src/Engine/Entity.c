@@ -10,7 +10,6 @@
 
 
 #include "Scene_private.h"
-extern ICE_Scene* ICE_GLOBJ_SCENE_CURRENT;
 
 
 #include "Graphics2D_private.h"
@@ -38,7 +37,7 @@ ICE_Entity ICE_Entity_Build(ICE_Vect vect_)
 ICE_ID ICE_Entity_Create(ICE_Vect vect_)
 {
 	//if (!scene_)
-	ICE_Scene * scene_ = ICE_GLOBJ_SCENE_CURRENT;
+	ICE_Scene * scene_ = ICE_Scene_GetCurrent();
 
 	ICE_EntityID avaible_slot = 0;
 	ICE_Bool no_avaible_slot = ICE_False;
@@ -64,7 +63,7 @@ ICE_ID ICE_Entity_Create(ICE_Vect vect_)
 	scene_->entity_mngr.entity_total++;
 
 
-	ICE_Log(ICE_LOGTYPE_SUCCES, "Create Entity : ID(%d), Pos(%d, %d), Scene(\"%s\")", avaible_slot, vect_.x, vect_.y, ICE_GLOBJ_SCENE_CURRENT->name);
+	ICE_Log(ICE_LOGTYPE_SUCCES, "Create Entity : ID(%d), Pos(%d, %d), Scene(\"%s\")", avaible_slot, vect_.x, vect_.y, ICE_Scene_GetCurrent()->name);
 
 	// Resize Manager
 	if (scene_->entity_mngr.entity_size <= scene_->entity_mngr.entity_contain)
@@ -79,7 +78,7 @@ ICE_ID ICE_Entity_Create(ICE_Vect vect_)
 
 void ICE_Entity_Destroy(ICE_EntityID entity_id_)
 {
-	ICE_Entity * entity_ptr = &ICE_GLOBJ_SCENE_CURRENT->entity_mngr.entity[entity_id_];
+	ICE_Entity * entity_ptr = &ICE_Scene_GetCurrent()->entity_mngr.entity[entity_id_];
 
 	if (entity_ptr->exist)
 	{
@@ -98,7 +97,7 @@ void ICE_Entity_Destroy(ICE_EntityID entity_id_)
 		entity_ptr->func_update = NULL;
 		entity_ptr->func_destroy = NULL;
 		entity_ptr->exist = ICE_False;
-		ICE_GLOBJ_SCENE_CURRENT->entity_mngr.entity_total--;
+		ICE_Scene_GetCurrent()->entity_mngr.entity_total--;
 	}
 }
 
@@ -113,7 +112,7 @@ void ICE_Entity_Destroy(ICE_EntityID entity_id_)
 
 void* ICE_Entity_DataAdd_(ICE_EntityID entity_id_, ICE_ID size_)
 {
-	ICE_Entity* entity_ptr = &ICE_GLOBJ_SCENE_CURRENT->entity_mngr.entity[entity_id_];
+	ICE_Entity* entity_ptr = &ICE_Scene_GetCurrent()->entity_mngr.entity[entity_id_];
 
 	entity_ptr->data_nb++;
 	entity_ptr->data = ICE_Realloc(entity_ptr->data, sizeof(void*) * (entity_ptr->data_nb));
@@ -125,7 +124,7 @@ void* ICE_Entity_DataAdd_(ICE_EntityID entity_id_, ICE_ID size_)
 
 void* ICE_Entity_DataGet(ICE_EntityID entity_id_, ICE_DataID id_data_)
 {
-	ICE_Entity* entity_ptr = &ICE_GLOBJ_SCENE_CURRENT->entity_mngr.entity[entity_id_];
+	ICE_Entity* entity_ptr = &ICE_Scene_GetCurrent()->entity_mngr.entity[entity_id_];
 
 
 	void* _pointer;
@@ -152,7 +151,7 @@ void* ICE_Entity_DataGet(ICE_EntityID entity_id_, ICE_DataID id_data_)
 
 void ICE_Entity_DataDestroy(ICE_EntityID entity_id_, ICE_DataID id_data_)
 {
-	ICE_Entity* entity_ptr = &ICE_GLOBJ_SCENE_CURRENT->entity_mngr.entity[entity_id_];
+	ICE_Entity* entity_ptr = &ICE_Scene_GetCurrent()->entity_mngr.entity[entity_id_];
 
 	void* _pointer;
 
@@ -178,7 +177,7 @@ void ICE_Entity_DataDestroy(ICE_EntityID entity_id_, ICE_DataID id_data_)
 
 void ICE_Entity_DataDestroyAll(ICE_EntityID entity_id_)
 {
-	ICE_Entity* entity_ptr = &ICE_GLOBJ_SCENE_CURRENT->entity_mngr.entity[entity_id_];
+	ICE_Entity* entity_ptr = &ICE_Scene_GetCurrent()->entity_mngr.entity[entity_id_];
 
 	for (ICE_ID i = 0; i < entity_ptr->data_nb; i++)
 	{
@@ -207,12 +206,12 @@ void ICE_Entity_DataDestroyAll(ICE_EntityID entity_id_)
 
 ICE_Graphics2D* ICE_Entity_GetGraphics2D(ICE_EntityID entity_id_)
 {
-	return &ICE_GLOBJ_SCENE_CURRENT->entity_mngr.entity[entity_id_].graphics2d;
+	return &ICE_Scene_GetCurrent()->entity_mngr.entity[entity_id_].graphics2d;
 }
 
 ICE_Control2D* ICE_Entity_GetControl2D(ICE_EntityID entity_id_)
 {
-	return &ICE_GLOBJ_SCENE_CURRENT->entity_mngr.entity[entity_id_].control2d;
+	return &ICE_Scene_GetCurrent()->entity_mngr.entity[entity_id_].control2d;
 }
 
 
@@ -225,7 +224,7 @@ ICE_Control2D* ICE_Entity_GetControl2D(ICE_EntityID entity_id_)
 
 void ICE_Entity_FunctionSet(ICE_EntityID entity_id_, void(*call_create)(ICE_EntityID), void(*call_update)(ICE_EntityID), void(*call_destroy)(ICE_EntityID))
 {
-	ICE_GLOBJ_SCENE_CURRENT->entity_mngr.entity[entity_id_].func_create = call_create;
-	ICE_GLOBJ_SCENE_CURRENT->entity_mngr.entity[entity_id_].func_update = call_update;
-	ICE_GLOBJ_SCENE_CURRENT->entity_mngr.entity[entity_id_].func_destroy = call_destroy;
+	ICE_Scene_GetCurrent()->entity_mngr.entity[entity_id_].func_create = call_create;
+	ICE_Scene_GetCurrent()->entity_mngr.entity[entity_id_].func_update = call_update;
+	ICE_Scene_GetCurrent()->entity_mngr.entity[entity_id_].func_destroy = call_destroy;
 }

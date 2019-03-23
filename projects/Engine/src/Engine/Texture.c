@@ -19,10 +19,6 @@
 #include "Resources_private.h"
 #include "SDL2_Converter_private.h"
 
-extern ICE_TextureManager ICE_GLOBJ_TEXTUREMANAGER;
-extern ICE_Window ICE_GLOBJ_WINDOW;
-extern ICE_Renderer ICE_GLOBJ_RENDERER;
-extern ICE_Resources ICE_GLOBJ_RESOURCES;
 
 ICE_ID last_loaded_texture = (ICE_ID)-1;
 
@@ -69,9 +65,9 @@ ICE_TextureID ICE_Texture_Load_RW(ICE_IO rwops_)
 		ICE_EntityID avaible_slot = 0;
 		ICE_Bool no_avaible_slot = ICE_False;
 
-		for (ICE_EntityID i = 0; i < ICE_GLOBJ_TEXTUREMANAGER.texture_contain; i++)
+		for (ICE_EntityID i = 0; i < ICE_TextureManager_GetPtr()->texture_contain; i++)
 		{
-			if (ICE_GLOBJ_TEXTUREMANAGER.texture[i].exist == ICE_False)
+			if (ICE_TextureManager_GetPtr()->texture[i].exist == ICE_False)
 			{
 				avaible_slot = i;
 				no_avaible_slot = ICE_True;
@@ -80,19 +76,19 @@ ICE_TextureID ICE_Texture_Load_RW(ICE_IO rwops_)
 		}
 		if (!no_avaible_slot)
 		{
-			avaible_slot = ICE_GLOBJ_TEXTUREMANAGER.texture_contain;
-			ICE_GLOBJ_TEXTUREMANAGER.texture_contain++;
+			avaible_slot = ICE_TextureManager_GetPtr()->texture_contain;
+			ICE_TextureManager_GetPtr()->texture_contain++;
 		}
 
-		ICE_GLOBJ_TEXTUREMANAGER.texture[avaible_slot] = temp;
-		ICE_GLOBJ_TEXTUREMANAGER.texture[avaible_slot].id = avaible_slot;
+		ICE_TextureManager_GetPtr()->texture[avaible_slot] = temp;
+		ICE_TextureManager_GetPtr()->texture[avaible_slot].id = avaible_slot;
 
 		//ICE_Log(ICE_LOGTYPE_SUCCES, "Load Texture %d succes", avaible_slot);
 		
-		if (ICE_GLOBJ_TEXTUREMANAGER.texture_size <= ICE_GLOBJ_TEXTUREMANAGER.texture_contain) 
+		if (ICE_TextureManager_GetPtr()->texture_size <= ICE_TextureManager_GetPtr()->texture_contain) 
 		{
-			ICE_GLOBJ_TEXTUREMANAGER.texture = ICE_Realloc(ICE_GLOBJ_TEXTUREMANAGER.texture, sizeof(ICE_Texture)*(ICE_GLOBJ_TEXTUREMANAGER.texture_size * 2));
-			ICE_GLOBJ_TEXTUREMANAGER.texture_size *= 2;
+			ICE_TextureManager_GetPtr()->texture = ICE_Realloc(ICE_TextureManager_GetPtr()->texture, sizeof(ICE_Texture)*(ICE_TextureManager_GetPtr()->texture_size * 2));
+			ICE_TextureManager_GetPtr()->texture_size *= 2;
 		}
 
 		last_loaded_texture = avaible_slot;
@@ -103,24 +99,24 @@ ICE_TextureID ICE_Texture_Load_RW(ICE_IO rwops_)
 
 void ICE_Texture_Destroy(ICE_TextureID texture_) 
 {
-	ICE_GLOBJ_TEXTUREMANAGER.texture[texture_].exist = ICE_False;
-	SDL_DestroyTexture(ICE_GLOBJ_TEXTUREMANAGER.texture[texture_].handle);
+	ICE_TextureManager_GetPtr()->texture[texture_].exist = ICE_False;
+	SDL_DestroyTexture(ICE_TextureManager_GetPtr()->texture[texture_].handle);
 	ICE_Log(ICE_LOGTYPE_SUCCES, "Destroy Texture %d", texture_);
 }
 
 ICE_Vect ICE_Texture_GetSize(ICE_TextureID texture_)
 {
-	return ICE_Vect_New((ICE_Float)ICE_GLOBJ_TEXTUREMANAGER.texture[texture_].w, (ICE_Float)ICE_GLOBJ_TEXTUREMANAGER.texture[texture_].h);
+	return ICE_Vect_New((ICE_Float)ICE_TextureManager_GetPtr()->texture[texture_].w, (ICE_Float)ICE_TextureManager_GetPtr()->texture[texture_].h);
 }
 
 unsigned int ICE_Texture_GetWidth(ICE_TextureID texture_)
 {
-	return ICE_GLOBJ_TEXTUREMANAGER.texture[texture_].w;
+	return ICE_TextureManager_GetPtr()->texture[texture_].w;
 }
 
 unsigned int ICE_Texture_GetHeight(ICE_TextureID texture_)
 {
-	return ICE_GLOBJ_TEXTUREMANAGER.texture[texture_].h;
+	return ICE_TextureManager_GetPtr()->texture[texture_].h;
 }
 
 
@@ -155,7 +151,7 @@ ICE_Texture ICE_Texture_LoadFromFile_RW(ICE_IO rwops_)
 	}
 	else
 	{
-		text.handle = SDL_CreateTextureFromSurface(ICE_GLOBJ_RENDERER.handle, surf);
+		text.handle = SDL_CreateTextureFromSurface(ICE_Renderer_GetPtr()->handle, surf);
 		if (text.handle == NULL)
 			ICE_Log_Critical("Can't create Texture from Surface : %s \n", SDL_GetError());
 		text.w = surf->w; text.h = surf->h;
@@ -180,20 +176,20 @@ int ICE_Texture_RenderEx(const ICE_Texture * texture, ICE_Box * src, ICE_Box * d
 	if (!src && dst)
 	{
 		SDL_Rect s_dst = ICE_Convert_BoxToSDL(dst);
-		return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.handle, texture->handle, NULL, &s_dst, angle, NULL, SDL_FLIP_NONE);
+		return SDL_RenderCopyEx(ICE_Renderer_GetPtr()->handle, texture->handle, NULL, &s_dst, angle, NULL, SDL_FLIP_NONE);
 	}
 	if (src && !dst)
 	{
 		SDL_Rect s_src = ICE_Convert_BoxToSDL(src);
-		return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.handle, texture->handle, &s_src, NULL, angle, NULL, SDL_FLIP_NONE);
+		return SDL_RenderCopyEx(ICE_Renderer_GetPtr()->handle, texture->handle, &s_src, NULL, angle, NULL, SDL_FLIP_NONE);
 	}
 	if (!src && !dst)
 	{
-		return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.handle, texture->handle, NULL, NULL, angle, NULL, SDL_FLIP_NONE);
+		return SDL_RenderCopyEx(ICE_Renderer_GetPtr()->handle, texture->handle, NULL, NULL, angle, NULL, SDL_FLIP_NONE);
 	}
 	SDL_Rect s_dst = ICE_Convert_BoxToSDL(dst);
 	SDL_Rect s_src = ICE_Convert_BoxToSDL(src);
-	return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.handle, texture->handle, &s_src, &s_dst, angle, NULL, SDL_FLIP_NONE);
+	return SDL_RenderCopyEx(ICE_Renderer_GetPtr()->handle, texture->handle, &s_src, &s_dst, angle, NULL, SDL_FLIP_NONE);
 }
 
 int ICE_Texture_RenderEx2(const ICE_Texture * tex, ICE_Box * src, ICE_Box * dst, const ICE_Float angle)
@@ -202,26 +198,26 @@ int ICE_Texture_RenderEx2(const ICE_Texture * tex, ICE_Box * src, ICE_Box * dst,
 	{
 		SDL_Rect s_dst = ICE_Convert_BoxToSDL(dst);
 		s_dst.x -= s_dst.w / 2; s_dst.y -= s_dst.h / 2;
-		return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.handle, tex->handle, NULL, &s_dst, angle, NULL, SDL_FLIP_NONE);
+		return SDL_RenderCopyEx(ICE_Renderer_GetPtr()->handle, tex->handle, NULL, &s_dst, angle, NULL, SDL_FLIP_NONE);
 	}
 	if (src && !dst)
 	{
 		SDL_Rect s_src = ICE_Convert_BoxToSDL(src);
-		return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.handle, tex->handle, &s_src, NULL, angle, NULL, SDL_FLIP_NONE);
+		return SDL_RenderCopyEx(ICE_Renderer_GetPtr()->handle, tex->handle, &s_src, NULL, angle, NULL, SDL_FLIP_NONE);
 	}
 	if (!src && !dst)
 	{
-		return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.handle, tex->handle, NULL, NULL, angle, NULL, SDL_FLIP_NONE);
+		return SDL_RenderCopyEx(ICE_Renderer_GetPtr()->handle, tex->handle, NULL, NULL, angle, NULL, SDL_FLIP_NONE);
 	}
 	SDL_Rect s_dst = ICE_Convert_BoxToSDL(dst);
 	s_dst.x -= s_dst.w / 2; s_dst.y -= s_dst.h / 2;
 	SDL_Rect s_src = ICE_Convert_BoxToSDL(src);
-	return SDL_RenderCopyEx(ICE_GLOBJ_RENDERER.handle, tex->handle, &s_src, &s_dst, angle, NULL, SDL_FLIP_NONE);
+	return SDL_RenderCopyEx(ICE_Renderer_GetPtr()->handle, tex->handle, &s_src, &s_dst, angle, NULL, SDL_FLIP_NONE);
 }
 
 ICE_Texture * ICE_Texture_Get(ICE_ID texture_)
 {
-	return &ICE_GLOBJ_TEXTUREMANAGER.texture[texture_];
+	return &ICE_TextureManager_GetPtr()->texture[texture_];
 }
 
 void ICE_Texture_Free(ICE_Texture* texture_)

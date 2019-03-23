@@ -3,7 +3,7 @@
 
 #include "Color.h"
 
-typedef struct ICE_Render ICE_Renderer;
+typedef struct ICE_Renderer ICE_Renderer;
 
 void ICE_Render_Color(const ICE_Color rgba_hex);
 

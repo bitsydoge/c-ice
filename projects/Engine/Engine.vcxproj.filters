@@ -31,6 +31,9 @@
     <Filter Include="External\SDL_gfx">
       <UniqueIdentifier>{7b333ddf-6af8-48ef-a4de-f72896fd4ecf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="External\libs">
+      <UniqueIdentifier>{fc6028c0-e032-4464-b8e2-25e57018ce4e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Framework\Assert_.c">
@@ -280,6 +283,9 @@
       <Filter>Resources\bin</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\IO.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Tag.c">
       <Filter>Engine</Filter>
     </ClCompile>
   </ItemGroup>
@@ -542,9 +548,6 @@
     <ClInclude Include="src\Engine\Debug.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\GlobalData_private.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="src\Engine\Game.h">
       <Filter>Engine</Filter>
     </ClInclude>
@@ -593,6 +596,15 @@
     <ClInclude Include="src\ICE.h" />
     <ClInclude Include="src\Engine\SDL2_Includer_private.h">
       <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Tag.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Tag_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\libs\strpool.h">
+      <Filter>External\libs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

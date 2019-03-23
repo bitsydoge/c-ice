@@ -7,10 +7,10 @@
 
 ICE_Resources ICE_GLOBJ_RESOURCES = { 0 };
 
-#include "GlobalData_private.h"
-ICE_GLOBALDATA_RENDERER
-#include "FontManager_private.h"
-ICE_GLOBALDATA_FONTMANAGER
+ICE_Resources * ICE_Resources_Get()
+{
+	return &ICE_GLOBJ_RESOURCES;
+}
 
 
 
@@ -23,7 +23,7 @@ void ICE_Resources_TextureLogoInit()
 void ICE_Resources_TextureErrorInit()
 {
 	SDL_RendererInfo info_renderer;
-	SDL_GetRendererInfo(ICE_GLOBJ_RENDERER.handle, &info_renderer);
+	SDL_GetRendererInfo(ICE_Renderer_GetPtr()->handle, &info_renderer);
 	if (info_renderer.max_texture_width >= 1024 && info_renderer.max_texture_height >= 1024)
 	{
 #include "../Resources/bin/err1024_png.c"

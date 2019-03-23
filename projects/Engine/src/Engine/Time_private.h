@@ -9,6 +9,8 @@ struct ICE_Time
 
 }; typedef struct ICE_Time ICE_Time;
 
+ICE_Time* ICE_Time_GetPtr();
+
 /**
  * \brief Init everything related to time
  */

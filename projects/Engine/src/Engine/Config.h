@@ -24,4 +24,6 @@ struct ICE_Config
 
 }; typedef struct ICE_Config ICE_Config;
 
+ICE_Config* ICE_Config_GetPtr();
+
 #endif
