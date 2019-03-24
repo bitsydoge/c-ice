@@ -70,7 +70,7 @@ void ICE_Graphics2D_Data_Primitive_Destroy(ICE_Graphics2D_Data_Primitive* data_)
 
 struct ICE_Graphics2D ICE_Graphics2D_Build()
 {
-	struct ICE_Graphics2D temp = { 1, ICE_GRAPHICS2D_TYPES_NONE, NULL, 1, 0,1, 1, ICE_Vect_New(0.5,0.5), ICE_Vect_New(0.5,0.5), ICE_Color_New(0,0,0),1 };
+	struct ICE_Graphics2D temp = { 1, ICE_GRAPHICS2D_TYPES_NONE, NULL, 1, 0,1, 1, ICE_Vect2D_New(0.5,0.5), ICE_Vect2D_New(0.5,0.5), ICE_Color_New(0,0,0),1 };
 	return temp;
 }
 
@@ -197,7 +197,7 @@ void ICE_Graphics2D_AddRotation(ICE_Graphics2D* graphics2d_, ICE_Float rotation_
 	graphics2d_->rotation = fmod(graphics2d_->rotation + rotation_angle_to_add_, 360.00);
 }
 
-void ICE_Graphics2D_SetScale(ICE_Graphics2D* graphics2d_, ICE_Vect scale_)
+void ICE_Graphics2D_SetScale(ICE_Graphics2D* graphics2d_, ICE_Vect2D scale_)
 {
 	graphics2d_->scale_h = scale_.y;
 	graphics2d_->scale_w = scale_.x;
@@ -213,12 +213,12 @@ void ICE_Graphics2D_SetScaleH(ICE_Graphics2D* graphics2d_, ICE_Float scale_h_)
 	graphics2d_->scale_h = scale_h_;
 }
 
-void ICE_Graphics2D_SetAnchorPostion(ICE_Graphics2D * graphics2d_, ICE_Vect anchor_postion_)
+void ICE_Graphics2D_SetAnchorPostion(ICE_Graphics2D * graphics2d_, ICE_Vect2D anchor_postion_)
 {
 	graphics2d_->anchor_position = anchor_postion_;
 }
 
-void ICE_Graphics2D_SetAnchorRotation(ICE_Graphics2D* graphics2d_, ICE_Vect anchor_rotation_)
+void ICE_Graphics2D_SetAnchorRotation(ICE_Graphics2D* graphics2d_, ICE_Vect2D anchor_rotation_)
 {
 	graphics2d_->anchor_position = anchor_rotation_;
 }
@@ -240,9 +240,9 @@ ICE_Float ICE_Graphics2D_GetRotation(ICE_Graphics2D* graphics2d_)
 	return graphics2d_->rotation;
 }
 
-ICE_Vect ICE_Graphics2D_GetScale(ICE_Graphics2D* graphics2d_)
+ICE_Vect2D ICE_Graphics2D_GetScale(ICE_Graphics2D* graphics2d_)
 {
-	return ICE_Vect_New(graphics2d_->scale_w, graphics2d_->scale_h);
+	return ICE_Vect2D_New(graphics2d_->scale_w, graphics2d_->scale_h);
 }
 
 ICE_Float ICE_Graphics2D_GetScaleW(ICE_Graphics2D* graphics2d_)
@@ -255,12 +255,12 @@ ICE_Float ICE_Graphics2D_GetScaleH(ICE_Graphics2D* graphics2d_)
 	return graphics2d_->scale_h;
 }
 
-ICE_Vect ICE_Graphics2D_GetAnchorPosition(ICE_Graphics2D* graphics2d_)
+ICE_Vect2D ICE_Graphics2D_GetAnchorPosition(ICE_Graphics2D* graphics2d_)
 {
 	return graphics2d_->anchor_position;
 }
 
-ICE_Vect ICE_Graphics2D_GetAnchorRotation(ICE_Graphics2D* graphics2d_)
+ICE_Vect2D ICE_Graphics2D_GetAnchorRotation(ICE_Graphics2D* graphics2d_)
 {
 	return graphics2d_->anchor_rotation;
 }

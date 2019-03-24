@@ -6,7 +6,7 @@
 #include "Graphics2D_private.h"
 #include "Physics2D_private.h"
 #include "Tag_private.h"
-#include "TagComponent_private.h"
+#include "TagList_private.h"
 
 struct ICE_Entity
 {
@@ -34,10 +34,10 @@ struct ICE_Entity
 	ICE_Physics2D	physics;
 
 	// Tag
-	ICE_TagComponent tag_component;
+	ICE_TagList tag_component;
 
 };
 
-struct ICE_Entity ICE_Entity_Build(ICE_Vect vect_);
+struct ICE_Entity ICE_Entity_Build(ICE_Vect2D vect_);
 
 #endif

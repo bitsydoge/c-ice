@@ -24,7 +24,7 @@ struct ICE_Control2D
 
 };
 
-struct ICE_Control2D ICE_Control2D_Build(ICE_Vect position_);
+struct ICE_Control2D ICE_Control2D_Build(ICE_Vect2D position_);
 void ICE_Control2D_Destroy(ICE_Control2D * control2d_);
 
 #endif

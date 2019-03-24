@@ -4,7 +4,7 @@
 #include "Types.h"
 #include "../Framework/String_.h"
 #include "Color.h"
-#include "Vector.h"
+#include "Vect2D.h"
 
 enum ICE_Graphics2D_Types
 {
@@ -40,18 +40,18 @@ void ICE_Graphics2D_SetData_Primitive(ICE_Graphics2D* graphics2d_);
 // ---------------------------------------   Set     ----------------------------------- //
 void ICE_Graphics2D_SetVisibility(ICE_Graphics2D* graphics2d_, ICE_Bool isVisible_);
 void ICE_Graphics2D_SetRotation(ICE_Graphics2D* graphics2d_, ICE_Float rotation_angle_);
-void ICE_Graphics2D_SetScale(ICE_Graphics2D* graphics2d_, ICE_Vect scale_);
+void ICE_Graphics2D_SetScale(ICE_Graphics2D* graphics2d_, ICE_Vect2D scale_);
 void ICE_Graphics2D_SetScaleW(ICE_Graphics2D* graphics2d_, ICE_Float scale_w_);
 void ICE_Graphics2D_SetScaleH(ICE_Graphics2D* graphics2d_, ICE_Float scale_h_);
-void ICE_Graphics2D_SetAnchorPostion(ICE_Graphics2D* graphics2d_, ICE_Vect anchor_postion_);
-void ICE_Graphics2D_SetAnchorRotation(ICE_Graphics2D* graphics2d_, ICE_Vect anchor_rotation_);
+void ICE_Graphics2D_SetAnchorPostion(ICE_Graphics2D* graphics2d_, ICE_Vect2D anchor_postion_);
+void ICE_Graphics2D_SetAnchorRotation(ICE_Graphics2D* graphics2d_, ICE_Vect2D anchor_rotation_);
 // -------------------------------------     Get     ----------------------------------- //
 ICE_Bool ICE_Graphics2D_GetVisibility(ICE_Graphics2D* graphics2d_);
 ICE_Float ICE_Graphics2D_GetRotation(ICE_Graphics2D* graphics2d_);
-ICE_Vect ICE_Graphics2D_GetScale(ICE_Graphics2D* graphics2d_);
+ICE_Vect2D ICE_Graphics2D_GetScale(ICE_Graphics2D* graphics2d_);
 ICE_Float ICE_Graphics2D_GetScaleW(ICE_Graphics2D* graphics2d_);
 ICE_Float ICE_Graphics2D_GetScaleH(ICE_Graphics2D* graphics2d_);
-ICE_Vect ICE_Graphics2D_GetAnchorPosition(ICE_Graphics2D* graphics2d_);
-ICE_Vect ICE_Graphics2D_GetAnchorRotation(ICE_Graphics2D* graphics2d_);
+ICE_Vect2D ICE_Graphics2D_GetAnchorPosition(ICE_Graphics2D* graphics2d_);
+ICE_Vect2D ICE_Graphics2D_GetAnchorRotation(ICE_Graphics2D* graphics2d_);
 
 #endif

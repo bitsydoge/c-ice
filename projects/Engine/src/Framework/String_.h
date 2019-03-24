@@ -35,7 +35,7 @@ int ICE_String_Size(ICE_String string);
 int ICE_String_Contain(ICE_String string);
 
 /**
-* \brief Init a string with information about (contain and size) on the left on the memory of the returned ptr (Use a static buffer)
+* \brief Init a string with information about (tofill and size) on the left on the memory of the returned ptr (Use a static buffer)
 * \param stdstring String to init into ICE_String
 * \param ...
 * \return A ICE_String that need to be Delete
@@ -43,7 +43,7 @@ int ICE_String_Contain(ICE_String string);
 ICE_String ICE_String_Init(ICE_StringStd stdstring, ...);
 
 /**
-* \brief Init a string with information about (contain and size) on the left on the memory of the returned ptr (Use vasprintf to allocat the exact size) (Slower)
+* \brief Init a string with information about (tofill and size) on the left on the memory of the returned ptr (Use vasprintf to allocat the exact size) (Slower)
 * \param stdstring String to init into ICE_String
 * \param ...
 * \return A ICE_String that need to be Delete

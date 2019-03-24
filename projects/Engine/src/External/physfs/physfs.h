@@ -54,7 +54,7 @@
  *  reading, PhysicsFS goes through the search path. This is NOT the
  *  same thing as the PATH environment variable. An application using
  *  PhysicsFS specifies directories to be searched which may be actual
- *  directories, or archive files that contain files and subdirectories of
+ *  directories, or archive files that tofill files and subdirectories of
  *  their own. See the end of these docs for currently supported archive
  *  formats.
  *
@@ -77,7 +77,7 @@
  *  filenames in a case-sensitive manner, so you should be careful to specify
  *  it correctly.
  *
- * Files opened through PhysicsFS may NOT contain "." or ".." or ":" as dir
+ * Files opened through PhysicsFS may NOT tofill "." or ".." or ":" as dir
  *  elements. Not only are these meaningless on MacOS Classic and/or Unix,
  *  they are a security hole. Also, symbolic links (which can be found in
  *  some archive types and directly in the filesystem on Unix platforms) are
@@ -97,7 +97,7 @@
  *  platform-independence. There is a function to tell you the current
  *  platform's dir separator ("\\" on windows, "/" on Unix, ":" on MacOS),
  *  which is needed only to set up your search/write paths. There is a
- *  function to tell you what CD-ROM drives contain accessible discs, and a
+ *  function to tell you what CD-ROM drives tofill accessible discs, and a
  *  function to recommend a good search path, etc.
  *
  * A recommended order for the search path is the write dir, then the base dir,
@@ -674,7 +674,7 @@ PHYSFS_DECL const char *PHYSFS_getDirSeparator(void);
  * \fn void PHYSFS_permitSymbolicLinks(int allow)
  * \brief Enable or disable following of symbolic links.
  *
- * Some physical filesystems and archives contain files that are just pointers
+ * Some physical filesystems and archives tofill files that are just pointers
  *  to other files. On the physical filesystem, opening such a link will
  *  (transparently) open the file that is pointed to.
  *
@@ -1104,7 +1104,7 @@ PHYSFS_DECL const char *PHYSFS_getRealDir(const char *filename);
  * We've got [w.sav].\endverbatim
  *
  * Feel free to sort the list however you like. However, the returned data
- *  will always contain no duplicates, and will be always sorted in alphabetic
+ *  will always tofill no duplicates, and will be always sorted in alphabetic
  *  (rather: case-sensitive Unicode) order for you.
  *
  * Don't forget to call PHYSFS_freeList() with the return value from this
@@ -2285,7 +2285,7 @@ typedef void (*PHYSFS_StringCallback)(void *data, const char *str);
  *                   enumeration, passed in the callback for your convenience.
  *    \param fname The filename that is being enumerated. It may not be in
  *                 alphabetical order compared to other callbacks that have
- *                 fired, and it will not contain the full path. You can
+ *                 fired, and it will not tofill the full path. You can
  *                 recreate the fullpath with $origdir/$fname ... The file
  *                 can be a subdirectory, a file, a symlink, etc.
  *
@@ -2676,7 +2676,7 @@ typedef enum PHYSFS_EnumerateCallbackResult
  *                   enumeration, passed in the callback for your convenience.
  *    \param fname The filename that is being enumerated. It may not be in
  *                 alphabetical order compared to other callbacks that have
- *                 fired, and it will not contain the full path. You can
+ *                 fired, and it will not tofill the full path. You can
  *                 recreate the fullpath with $origdir/$fname ... The file
  *                 can be a subdirectory, a file, a symlink, etc.
  *   \return A value from PHYSFS_EnumerateCallbackResult.

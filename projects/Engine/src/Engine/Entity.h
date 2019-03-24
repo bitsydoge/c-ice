@@ -1,13 +1,10 @@
 ﻿#ifndef DEF_ICE_ENTITY_H
 #define DEF_ICE_ENTITY_H
 
-#include "Box.h"
 #include "Types.h"
 #include "Graphics2D.h"
 #include "Control2D.h"
-#include "EntityManager.h"
-#include "Tag.h"
-#include "TagComponent.h"
+#include "TagList.h"
 
 typedef struct ICE_Entity ICE_Entity;
 
@@ -17,7 +14,7 @@ typedef struct ICE_Entity ICE_Entity;
 // ------------------------------------------------------------------------------------- //
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-ICE_ID ICE_Entity_Create(ICE_Vect vect_);
+ICE_ID ICE_Entity_Create(ICE_Vect2D vect_);
 void ICE_Entity_Destroy(ICE_EntityID entity_id_);
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -39,7 +36,7 @@ void ICE_Entity_DataDestroyAll(ICE_EntityID entity_id_);
 
 ICE_Graphics2D* ICE_Entity_GetGraphics2D(ICE_EntityID entity_id_);
 ICE_Control2D* ICE_Entity_GetControl2D(ICE_EntityID entity_id_);
-ICE_TagComponent* ICE_Entity_GetTagComponent(ICE_EntityID entity_id_);
+ICE_TagList* ICE_Entity_GetTagList(ICE_EntityID entity_id_);
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 // ------------------------------------------------------------------------------------- //

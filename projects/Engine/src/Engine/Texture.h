@@ -3,7 +3,7 @@
 
 #include "../Framework/String_.h"
 #include "Types.h"
-#include "Vector.h"
+#include "Vect2D.h"
 #include "IO.h"
 #define ICE_DEFAULT_TEXTUREMNGR_SIZE 4
 
@@ -23,7 +23,7 @@ ICE_TextureID ICE_Texture_GetLastLoaded();
 ICE_TextureID ICE_Texture_Load(ICE_StringStd path_);
 ICE_TextureID ICE_Texture_Load_RW(ICE_IO rwops_);
 void ICE_Texture_Destroy(ICE_TextureID texture_);
-ICE_Vect ICE_Texture_GetSize(ICE_TextureID texture_);
+ICE_Vect2D ICE_Texture_GetSize(ICE_TextureID texture_);
 unsigned int ICE_Texture_GetWidth(ICE_TextureID texture_);
 unsigned int ICE_Texture_GetHeight(ICE_TextureID texture_);
 

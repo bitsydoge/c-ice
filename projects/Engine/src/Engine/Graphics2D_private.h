@@ -4,7 +4,7 @@
 #include "../Framework/BasicTypes.h"
 
 #include "Types.h"
-#include "Vector.h"
+#include "Vect2D.h"
 #include "Color.h"
 #include "Label.h"
 #include "Texture_private.h"
@@ -22,7 +22,7 @@ struct ICE_Graphics2D
 
 	ICE_Float rotation; // Graphics Rotation
 	ICE_Float scale_w, scale_h; // Graphics only, scale
-	ICE_Vect anchor_position, anchor_rotation; //
+	ICE_Vect2D anchor_position, anchor_rotation; //
 
 	ICE_Color modulation_color; // rgb
 	ICE_Float modulation_transparency; // 0-1

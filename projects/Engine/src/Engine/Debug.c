@@ -48,16 +48,16 @@ void ICE_Debug_DrawCoordinate()
 	if (SDL_GetMouseFocus())
 	{
 		char coo[20];
-		ICE_Vect coordinate_vect = { ICE_Input_GetPtr()->mousex, ICE_Input_GetPtr()->mousey };
+		ICE_Vect2D coordinate_vect = { ICE_Input_GetPtr()->mousex, ICE_Input_GetPtr()->mousey };
 		if (ICE_Input_GetPtr()->leftclic_pressed)
 		{
 			ICE_Box coordinate_box = ICE_Camera_Screen_to_World(ICE_Box_New(coordinate_vect.x, coordinate_vect.y, 0,0));
-			coordinate_vect = ICE_Vect_New(coordinate_box.x, coordinate_box.y);
+			coordinate_vect = ICE_Vect2D_New(coordinate_box.x, coordinate_box.y);
 		}
 			
 		sprintf(coo, "%0.0f, %0.0f", coordinate_vect.x, coordinate_vect.y);
 
-		const ICE_Vect vect = { ICE_Input_GetPtr()->mousex + 10, ICE_Input_GetPtr()->mousey + 10 };
+		const ICE_Vect2D vect = { ICE_Input_GetPtr()->mousex + 10, ICE_Input_GetPtr()->mousey + 10 };
 		ICE_Font_Draw(coo, vect, ICE_Color_New(255,255,255), ICE_Color_New(0,0,0));
 	}
 }
@@ -117,21 +117,21 @@ void ICE_Debug_FontDraw(int y, const char* format, ...)
 void ICE_Debug_CameraControl()
 {
 	if (ICE_Input_Pressed(ICE_KEY_KP_PLUS))
-		ICE_Camera_AddScale(ICE_Vect_Scale(ICE_Vect_Scale(ICE_Camera_GetScale(), 1), ICE_Game_GetDelta()));
+		ICE_Camera_AddScale(ICE_Vect2D_Scale(ICE_Vect2D_Scale(ICE_Camera_GetScale(), 1), ICE_Game_GetDelta()));
 	if (ICE_Input_Pressed(ICE_KEY_KP_MINUS))
-		ICE_Camera_AddScale(ICE_Vect_Scale(ICE_Vect_Scale(ICE_Camera_GetScale(), -1), ICE_Game_GetDelta()));
+		ICE_Camera_AddScale(ICE_Vect2D_Scale(ICE_Vect2D_Scale(ICE_Camera_GetScale(), -1), ICE_Game_GetDelta()));
 	if (ICE_Input_Pressed(ICE_KEY_KP_ENTER))
-		ICE_Camera_SetScale(ICE_Vect_New(1, 1));
+		ICE_Camera_SetScale(ICE_Vect2D_New(1, 1));
 	if (ICE_Input_Pressed(ICE_KEY_W))
-		ICE_Camera_AddPosition(ICE_Vect_New(0, -1000 * ICE_Game_GetDelta()));
+		ICE_Camera_AddPosition(ICE_Vect2D_New(0, -1000 * ICE_Game_GetDelta()));
 	if (ICE_Input_Pressed(ICE_KEY_S))
-		ICE_Camera_AddPosition(ICE_Vect_New(0, 1000 * ICE_Game_GetDelta()));
+		ICE_Camera_AddPosition(ICE_Vect2D_New(0, 1000 * ICE_Game_GetDelta()));
 	if (ICE_Input_Pressed(ICE_KEY_A))
-		ICE_Camera_AddPosition(ICE_Vect_New(-1000 * ICE_Game_GetDelta(), 0));
+		ICE_Camera_AddPosition(ICE_Vect2D_New(-1000 * ICE_Game_GetDelta(), 0));
 	if (ICE_Input_Pressed(ICE_KEY_D))
-		ICE_Camera_AddPosition(ICE_Vect_New(1000 * ICE_Game_GetDelta(), 0));
+		ICE_Camera_AddPosition(ICE_Vect2D_New(1000 * ICE_Game_GetDelta(), 0));
 	if (ICE_Input_Pressed(ICE_KEY_SPACE))
-		ICE_Camera_MoveTo(ICE_Vect_Zero, 1000 * ICE_Game_GetDelta());
+		ICE_Camera_MoveTo(ICE_Vect2D_Zero, 1000 * ICE_Game_GetDelta());
 }
 
 void ICE_Debug_CameraDraw()
@@ -139,11 +139,11 @@ void ICE_Debug_CameraDraw()
 	char coo[96];
 	sprintf(coo, "Camera [ Pos(%0.2f, %0.2f) Scale(%0.2f, %0.2f) ]", ICE_Camera_GetPositionX(), ICE_Camera_GetPositionY(), ICE_Camera_GetScaleW(), ICE_Camera_GetScaleH());
 
-	const ICE_Vect vect = { ICE_Window_GetW()/2, 0};
+	const ICE_Vect2D vect = { ICE_Window_GetW()/2, 0};
 	ICE_Font_Draw(coo, vect, ICE_Color_New(255, 255, 255), ICE_Color_New(0, 0, 0));
 
-	ICE_Draw_Line(ICE_Vect_New(ICE_Window_GetW() / 2, 0), ICE_Vect_New(ICE_Window_GetW() / 2, ICE_Window_GetH()), ICE_Color_New(255, 0, 0));
-	ICE_Draw_Line(ICE_Vect_New(0, ICE_Window_GetH() / 2), ICE_Vect_New(ICE_Window_GetW(), ICE_Window_GetH() / 2), ICE_Color_New(255, 0, 0));
+	ICE_Draw_Line(ICE_Vect2D_New(ICE_Window_GetW() / 2, 0), ICE_Vect2D_New(ICE_Window_GetW() / 2, ICE_Window_GetH()), ICE_Color_New(255, 0, 0));
+	ICE_Draw_Line(ICE_Vect2D_New(0, ICE_Window_GetH() / 2), ICE_Vect2D_New(ICE_Window_GetW(), ICE_Window_GetH() / 2), ICE_Color_New(255, 0, 0));
 }
 
 void ICE_Debug_CallbackDraw(void(*callback)())

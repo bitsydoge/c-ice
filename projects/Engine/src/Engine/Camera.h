@@ -1,7 +1,7 @@
 ﻿#ifndef DEF_ICE_CAMERA_H
 #define DEF_ICE_CAMERA_H
 
-#include "Vector.h"
+#include "Vect2D.h"
 #include "Box.h"
 
 typedef struct ICE_Camera ICE_Camera;
@@ -16,19 +16,19 @@ typedef struct ICE_Camera ICE_Camera;
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 // --------------------------------    Position  --------------------------------------- //
-void ICE_Camera_SetPosition(ICE_Vect new_position_);
+void ICE_Camera_SetPosition(ICE_Vect2D new_position_);
 void ICE_Camera_SetPositionX(ICE_Float new_position_y);
 void ICE_Camera_SetPositionY(ICE_Float new_position_y);
-void ICE_Camera_MoveTo(ICE_Vect position_to_move_, ICE_Float value_to_move_);
-void ICE_Camera_AddPosition(ICE_Vect add_to_position_);
+void ICE_Camera_MoveTo(ICE_Vect2D position_to_move_, ICE_Float value_to_move_);
+void ICE_Camera_AddPosition(ICE_Vect2D add_to_position_);
 void ICE_Camera_AddPositionX(ICE_Float add_to_position_x_);
 void ICE_Camera_AddPositionY(ICE_Float add_to_position_y_);
 
 // --------------------------------    Scale     --------------------------------------- //
-void ICE_Camera_SetScale(ICE_Vect scale_);
+void ICE_Camera_SetScale(ICE_Vect2D scale_);
 void ICE_Camera_SetScaleW(ICE_Float scale_w_);
 void ICE_Camera_SetScaleH(ICE_Float scale_h_);
-void ICE_Camera_AddScale(ICE_Vect add_scale_);
+void ICE_Camera_AddScale(ICE_Vect2D add_scale_);
 void ICE_Camera_AddScaleW(ICE_Float add_scale_w_);
 void ICE_Camera_AddScaleH(ICE_Float add_scale_h_);
 void ICE_Camera_MultiplyScaleW(ICE_Float multiply_scale_w_);
@@ -48,10 +48,10 @@ void ICE_Camera_MultiplyScale(ICE_Float multiply_scale_);
  * \brief Return a Vector with Camera Coordinate
  * \return
  */
-ICE_Vect ICE_Camera_GetPosition();
+ICE_Vect2D ICE_Camera_GetPosition();
 ICE_Float ICE_Camera_GetPositionX();
 ICE_Float ICE_Camera_GetPositionY();
-ICE_Vect ICE_Camera_GetScale();
+ICE_Vect2D ICE_Camera_GetScale();
 ICE_Float ICE_Camera_GetScaleW();
 ICE_Float ICE_Camera_GetScaleH();
 

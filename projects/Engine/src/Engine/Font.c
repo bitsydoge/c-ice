@@ -3,7 +3,7 @@
 #include "../Framework/Log.h"
 
 #include "Types.h"
-#include "Vector.h"
+#include "Vect2D.h"
 #include "Color.h"
 #include "Pack.h"
 #include "SDL2_Converter_private.h"
@@ -130,7 +130,7 @@ void ICE_Font_Destroy(ICE_FontID font_)
 
 
 #if defined(_DEBUG)
-void ICE_Font_Draw(ICE_StringStd text, ICE_Vect vect, ICE_Color fg, ICE_Color bg) 
+void ICE_Font_Draw(ICE_StringStd text, ICE_Vect2D vect, ICE_Color fg, ICE_Color bg)
 {
 	int size = (int)((ICE_Float)ICE_Window_GetH() / 50.0);
 	if (size < 12)

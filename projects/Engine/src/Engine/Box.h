@@ -3,7 +3,7 @@
 
 #include "../Framework/Inline.h"
 #include "../Framework/BasicTypes.h"
-#include "Vector.h"
+#include "Vect2D.h"
 
 /**
  * \brief Box (or Rectangle)
@@ -90,7 +90,7 @@ ICE_INLINE ICE_Bool ICE_Box_ComparePos(ICE_Box box1, ICE_Box box2)
  * \param box The Box to change position
  * \param vect The Vector that is the new position
  */
-ICE_INLINE void ICE_Box_SetPos(ICE_Box *box, ICE_Vect vect)
+ICE_INLINE void ICE_Box_SetPos(ICE_Box *box, ICE_Vect2D vect)
 {
 	box->x = vect.x; box->y = vect.y;
 

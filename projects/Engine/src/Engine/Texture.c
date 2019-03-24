@@ -104,9 +104,9 @@ void ICE_Texture_Destroy(ICE_TextureID texture_)
 	ICE_Log(ICE_LOGTYPE_SUCCES, "Destroy Texture %d", texture_);
 }
 
-ICE_Vect ICE_Texture_GetSize(ICE_TextureID texture_)
+ICE_Vect2D ICE_Texture_GetSize(ICE_TextureID texture_)
 {
-	return ICE_Vect_New((ICE_Float)ICE_TextureManager_GetPtr()->texture[texture_].w, (ICE_Float)ICE_TextureManager_GetPtr()->texture[texture_].h);
+	return ICE_Vect2D_New((ICE_Float)ICE_TextureManager_GetPtr()->texture[texture_].w, (ICE_Float)ICE_TextureManager_GetPtr()->texture[texture_].h);
 }
 
 unsigned int ICE_Texture_GetWidth(ICE_TextureID texture_)

@@ -1,7 +1,7 @@
 ﻿#ifndef DEF_ICE_PRIMITIVE
 #define DEF_ICE_PRIMITIVE
 
-#include "Vector.h"
+#include "Vect2D.h"
 #include "Color.h"
 #include "Box.h"
 
@@ -12,7 +12,7 @@
  * \param color Color of the pixel
  * \return 1
  */
-int ICE_Draw_Point(const ICE_Vect vect, const ICE_Color color);
+int ICE_Draw_Point(const ICE_Vect2D vect, const ICE_Color color);
 
 
 /**
@@ -22,7 +22,7 @@ int ICE_Draw_Point(const ICE_Vect vect, const ICE_Color color);
  * \param color Color of the line
  * \return 0
  */
-int ICE_Draw_Line(const ICE_Vect vect1, const ICE_Vect vect2, const ICE_Color color);
+int ICE_Draw_Line(const ICE_Vect2D vect1, const ICE_Vect2D vect2, const ICE_Color color);
 
 /**
  * \brief Draw a rectangle of pixel on the screen with a defined color

@@ -227,9 +227,9 @@ void ICE_Draw_Entity(struct ICE_Draw_EntityFinal * entity_processed_)
 	}
 }
 
-ICE_Vect ICE_Draw_Entity_GenerateGraphSize(ICE_Graphics2D * graphics2d_)
+ICE_Vect2D ICE_Draw_Entity_GenerateGraphSize(ICE_Graphics2D * graphics2d_)
 {
-	ICE_Vect generated_size = { 0 };
+	ICE_Vect2D generated_size = { 0 };
 
 	switch(graphics2d_->type)
 	{
@@ -259,7 +259,7 @@ ICE_Vect ICE_Draw_Entity_GenerateGraphSize(ICE_Graphics2D * graphics2d_)
 struct ICE_Draw_EntityFinal ICE_Draw_Entity_GenerateFinal(ICE_Entity* entity_)
 {
 	struct ICE_Draw_EntityFinal final_draw = { 0 };
-	ICE_Vect graphics_size = ICE_Draw_Entity_GenerateGraphSize(&entity_->graphics2d);
+	ICE_Vect2D graphics_size = ICE_Draw_Entity_GenerateGraphSize(&entity_->graphics2d);
 	final_draw.rotation = fmod(entity_->control2d.rotation + entity_->graphics2d.rotation, 360.0);
 	final_draw.dst.x = entity_->control2d.x * ICE_Camera_GetScaleW() - (graphics_size.x * entity_->graphics2d.anchor_position.x * entity_->control2d.scale_w * entity_->graphics2d.scale_w * ICE_Camera_GetScaleW());
 	final_draw.dst.y = entity_->control2d.y * ICE_Camera_GetScaleH() - (graphics_size.y * entity_->graphics2d.anchor_position.y * entity_->control2d.scale_h * entity_->graphics2d.scale_h * ICE_Camera_GetScaleH());
@@ -275,7 +275,7 @@ struct ICE_Draw_EntityFinal ICE_Draw_Entity_GenerateFinal(ICE_Entity* entity_)
 
 void ICE_Draw_EntityAll()
 {
-	ICE_Scene* current = ICE_Scene_GetCurrent();
+	ICE_Scene * current = ICE_Scene_GetCurrent();
 	for (ICE_ID j = 0; j < current->entity_mngr.entity_contain; j++)
 	{
 		if (current->entity_mngr.entity[j].exist && current->entity_mngr.entity[j].control2d.isActive && current->entity_mngr.entity[j].graphics2d.isVisible)

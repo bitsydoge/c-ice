@@ -14,8 +14,7 @@
 
 #include "Graphics2D_private.h"
 #include "Control2D_private.h"
-#include "Tag.h"
-#include "TagComponent.h"
+#include "TagList.h"
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -24,7 +23,7 @@
 // ------------------------------------------------------------------------------------- //
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-ICE_Entity ICE_Entity_Build(ICE_Vect vect_)
+ICE_Entity ICE_Entity_Build(ICE_Vect2D vect_)
 {
 	ICE_Entity entity = { 0 };
 
@@ -34,12 +33,12 @@ ICE_Entity ICE_Entity_Build(ICE_Vect vect_)
 	// Component
 	entity.control2d = ICE_Control2D_Build(vect_);
 	entity.graphics2d = ICE_Graphics2D_Build();
-	entity.tag_component = ICE_TagComponent_Init();
+	entity.tag_component = ICE_TagList_Init();
 
 	return entity;
 }
 
-ICE_ID ICE_Entity_Create(ICE_Vect vect_)
+ICE_ID ICE_Entity_Create(ICE_Vect2D vect_)
 {
 	ICE_Scene * scene_ = ICE_Scene_GetCurrent();
 
@@ -96,7 +95,7 @@ void ICE_Entity_Destroy(ICE_EntityID entity_id_)
 		ICE_Graphics2D_Destroy(&entity_ptr->graphics2d);
 		entity_ptr->graphics2d.type = ICE_GRAPHICS2D_TYPES_NONE;
 		ICE_Control2D_Destroy(&entity_ptr->control2d);
-		ICE_TagComponent_Destroy(&entity_ptr->tag_component);
+		ICE_TagList_Destroy(&entity_ptr->tag_component);
 
 		entity_ptr->func_create = NULL;
 		entity_ptr->func_update = NULL;
@@ -219,7 +218,7 @@ ICE_Control2D* ICE_Entity_GetControl2D(ICE_EntityID entity_id_)
 	return &ICE_Scene_GetCurrent()->entity_mngr.entity[entity_id_].control2d;
 }
 
-ICE_TagComponent * ICE_Entity_GetTagComponent(ICE_EntityID entity_id_)
+ICE_TagList * ICE_Entity_GetTagList(ICE_EntityID entity_id_)
 {
 	return &ICE_Scene_GetCurrent()->entity_mngr.entity[entity_id_].tag_component;
 }

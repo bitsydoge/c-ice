@@ -55,7 +55,7 @@
     <ClCompile Include="src\Engine\Sound.c" />
     <ClCompile Include="src\Engine\SoundManager.c" />
     <ClCompile Include="src\Engine\Tag.c" />
-    <ClCompile Include="src\Engine\TagComponent.c" />
+    <ClCompile Include="src\Engine\TagList.c" />
     <ClCompile Include="src\Engine\TagManager.c" />
     <ClCompile Include="src\Engine\Texture.c" />
     <ClCompile Include="src\Engine\TextureManager.c" />
@@ -173,8 +173,8 @@
     <ClInclude Include="src\Engine\SoundManager_private.h" />
     <ClInclude Include="src\Engine\Sound_private.h" />
     <ClInclude Include="src\Engine\Tag.h" />
-    <ClInclude Include="src\Engine\TagComponent.h" />
-    <ClInclude Include="src\Engine\TagComponent_private.h" />
+    <ClInclude Include="src\Engine\TagList.h" />
+    <ClInclude Include="src\Engine\TagList_private.h" />
     <ClInclude Include="src\Engine\TagManager.h" />
     <ClInclude Include="src\Engine\TagManager_private.h" />
     <ClInclude Include="src\Engine\Tag_private.h" />
@@ -186,7 +186,7 @@
     <ClInclude Include="src\Engine\Time_.h" />
     <ClInclude Include="src\Engine\Time_private.h" />
     <ClInclude Include="src\Engine\Types.h" />
-    <ClInclude Include="src\Engine\Vector.h" />
+    <ClInclude Include="src\Engine\Vect2D.h" />
     <ClInclude Include="src\Engine\Version.h" />
     <ClInclude Include="src\Engine\Window.h" />
     <ClInclude Include="src\Engine\Window_private.h" />

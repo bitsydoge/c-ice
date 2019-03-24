@@ -1,12 +1,12 @@
 ﻿#include "Control2D_private.h"
 
-#include "Vector.h"
+#include "Vect2D.h"
 #include "Maths.h"
 #include "Color.h"
 
 #define _POLAR_MOVEMENT_TYPE_1
 
-struct ICE_Control2D ICE_Control2D_Build(ICE_Vect position_)
+struct ICE_Control2D ICE_Control2D_Build(ICE_Vect2D position_)
 {
 	struct ICE_Control2D temp = 
 	{ 
@@ -73,7 +73,7 @@ void ICE_Control2D_ShiftPosition(ICE_Control2D* control2d_, ICE_Float value_to_s
 	control2d_->y += value_to_shift_y_;
 }
 
-void ICE_Control2D_MovePosition(ICE_Control2D * control2d_, ICE_Vect vect_pos_, ICE_Float value_to_move_)
+void ICE_Control2D_MovePosition(ICE_Control2D * control2d_, ICE_Vect2D vect_pos_, ICE_Float value_to_move_)
 {
 #ifdef _POLAR_MOVEMENT_TYPE_1
 
@@ -142,7 +142,7 @@ void ICE_Control2D_AddRotation(ICE_Control2D * control2d_, ICE_Float angle_)
 	control2d_->rotation = fmod(control2d_->rotation + angle_, 360.0);
 }
 
-void ICE_Control2D_LookAt(ICE_Control2D* control2d_, ICE_Vect pos)
+void ICE_Control2D_LookAt(ICE_Control2D* control2d_, ICE_Vect2D pos)
 {
 	const ICE_Float result = ICE_Maths_AngleCalculatDegree
 	(
@@ -160,7 +160,7 @@ void ICE_Control2D_LookAt(ICE_Control2D* control2d_, ICE_Vect pos)
 
 // ------------------------------------- Scale ------------------------------------------- //
 
-void ICE_Control2D_SetScale(ICE_Control2D * control2D_, ICE_Vect scale_)
+void ICE_Control2D_SetScale(ICE_Control2D * control2D_, ICE_Vect2D scale_)
 {
 	control2D_->scale_h = scale_.y;
 	control2D_->scale_w = scale_.x;
@@ -212,9 +212,9 @@ ICE_Bool ICE_Control2D_GetActive(ICE_Control2D* control2d_)
 
 // ------------------------------------- Position ------------------------------------------- //
 
-ICE_Vect ICE_Control2D_GetPosition(ICE_Control2D* control2D_)
+ICE_Vect2D ICE_Control2D_GetPosition(ICE_Control2D* control2D_)
 {
-	return ICE_Vect_New(control2D_->x, control2D_->y);
+	return ICE_Vect2D_New(control2D_->x, control2D_->y);
 }
 
 ICE_Float ICE_Control2D_GetPositionX(ICE_Control2D* control2D_)
@@ -243,9 +243,9 @@ ICE_Float ICE_Control2D_GetRotation(ICE_Control2D* control2D_)
 
 // ------------------------------------- Scale ------------------------------------------- //
 
-ICE_Vect ICE_Control2D_GetScale(ICE_Control2D * control2D_)
+ICE_Vect2D ICE_Control2D_GetScale(ICE_Control2D * control2D_)
 {
-	return ICE_Vect_New(control2D_->scale_w, control2D_->scale_h);
+	return ICE_Vect2D_New(control2D_->scale_w, control2D_->scale_h);
 }
 
 ICE_Float ICE_Control2D_GetScaleW(ICE_Control2D* control2D_)

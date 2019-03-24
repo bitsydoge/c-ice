@@ -101,27 +101,27 @@ int ICE_Input_MouseY()
 	return ICE_GLOBJ_INPUT.mousey;
 }
 
-ICE_Vect ICE_Input_MouseVector()
+ICE_Vect2D ICE_Input_MouseVector()
 {
-	return ICE_Vect_New(ICE_GLOBJ_INPUT.mousex, ICE_GLOBJ_INPUT.mousey);
+	return ICE_Vect2D_New(ICE_GLOBJ_INPUT.mousex, ICE_GLOBJ_INPUT.mousey);
 }
 
 int ICE_Input_MouseX_World()
 {
-	ICE_Vect translating = { 0 };// = ICE_Camera_Screen_to_World(ICE_Box_New(ICE_GLOBJ_INPUT.mousex, ICE_GLOBJ_INPUT.mousey, 1, 1));
+	ICE_Vect2D translating = { 0 };// = ICE_Camera_Screen_to_World(ICE_Box_New(ICE_GLOBJ_INPUT.mousex, ICE_GLOBJ_INPUT.mousey, 1, 1));
 	return (int)translating.x;
 }
 
 int ICE_Input_MouseY_World()
 {
-	ICE_Vect translating = { 0 };// = ICE_Camera_Screen_to_World(ICE_Box_New(ICE_GLOBJ_INPUT.mousex, ICE_GLOBJ_INPUT.mousey, 1, 1));
+	ICE_Vect2D translating = { 0 };// = ICE_Camera_Screen_to_World(ICE_Box_New(ICE_GLOBJ_INPUT.mousex, ICE_GLOBJ_INPUT.mousey, 1, 1));
 	return (int)translating.y;
 }
 
-ICE_Vect ICE_Input_MouseVector_World()
+ICE_Vect2D ICE_Input_MouseVector_World()
 {
-	ICE_Vect translating = {0};// = ICE_Camera_Screen_to_World(ICE_Box_New(ICE_GLOBJ_INPUT.mousex, ICE_GLOBJ_INPUT.mousey, 1, 1));
-	return ICE_Vect_New(translating.x, translating.y);
+	ICE_Vect2D translating = {0};// = ICE_Camera_Screen_to_World(ICE_Box_New(ICE_GLOBJ_INPUT.mousex, ICE_GLOBJ_INPUT.mousey, 1, 1));
+	return ICE_Vect2D_New(translating.x, translating.y);
 }
 
 void ICE_Input_Quit()

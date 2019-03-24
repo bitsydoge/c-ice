@@ -21,7 +21,7 @@ void ICE_Pack_Unload(ICE_StringStd path_);
 ICE_Bool ICE_Pack_FileExist(ICE_StringStd path_);
 
 /**
- * \brief Return ICE_True if the path contain res:// and point something in pak. ICE_False if not
+ * \brief Return ICE_True if the path tofill res:// and point something in pak. ICE_False if not
  * \param path_ string to check
  * \return
  */

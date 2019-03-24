@@ -39,10 +39,10 @@ ICE_INLINE SDL_Rect ICE_Convert_BoxToSDL(ICE_Box* box)
 	SDL_Rect sdl = { 0 };
 	if (box)
 	{
-		sdl.x = (int)box->x;
-		sdl.y = (int)box->y;
-		sdl.w = (int)box->w;
-		sdl.h = (int)box->h;
+		sdl.x = (int)(box->x);
+		sdl.y = (int)(box->y);
+		sdl.w = (int)(box->w);
+		sdl.h = (int)(box->h);
 	}
 
 	return sdl;

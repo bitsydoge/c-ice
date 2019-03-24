@@ -105,6 +105,6 @@ void ICE_Game_Update()
 void ICE_Game_Destroy()
 {
 	ICE_Pack_Unload("res//pak//pak1.zip");
-	GAME_DATA * D = ICE_Data_Get(NULL, 0);
+	GAME_DATA * D = ICE_Data_Get(0);
 	ICE_String_Destroy(&D->screenshot_name);
 }

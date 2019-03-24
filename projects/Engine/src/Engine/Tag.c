@@ -43,6 +43,7 @@ ICE_Tag* ICE_Tag_Get(ICE_TagID tag_id_)
 
 void ICE_Tag_Destroy(ICE_TagID tag_id_)
 {
+	ICE_Log_Succes("Tag %s (%d) destroyed", ICE_Tag_GetName(tag_id_), tag_id_);
 	ICE_String_Destroy(&ICE_Tag_Get(tag_id_)->name);
 	ICE_Tag_Get(tag_id_)->id = 0;
 	strpool_discard(&ICE_TagManager_Get()->pool, ICE_Tag_Get(tag_id_)->strpool_id);

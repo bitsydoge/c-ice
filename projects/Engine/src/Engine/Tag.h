@@ -5,6 +5,7 @@
 
 typedef struct ICE_Tag ICE_Tag;
 
+void ICE_Tag_Destroy(ICE_TagID tag_id_);
 ICE_TagID ICE_Tag_Create(ICE_StringStd tag_name_);
 ICE_Char const* ICE_Tag_GetName(ICE_TagID tag_id_);
 int ICE_Tag_GetLenght(ICE_TagID tag_id_);
