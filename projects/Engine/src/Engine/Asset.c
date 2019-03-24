@@ -22,6 +22,8 @@ void ICE_Asset_Init()
 
 void ICE_Asset_Destroy()
 {
+	ICE_Resources_FreeAll();
+
 	ICE_TextureManager_Destroy();
 	ICE_FontManager_Destroy();
 	ICE_SoundManager_Destroy();

@@ -97,7 +97,7 @@ void ICE_Renderer_Init()
 
 void ICE_Renderer_Quit()
 {
-	ICE_Resources_FreeAll();
+
 
 	ICE_Log_Line();
 	ICE_Log(ICE_LOGTYPE_RUNNING, "Render Quit ...");
