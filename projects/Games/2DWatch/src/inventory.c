@@ -1,12 +1,14 @@
-﻿#include <ICE.h>
-#include "inventory.h"
+﻿#include "inventory.h"
 #include "data.h"
+#include "Engine/Renderer.h"
+#include "Engine/Data.h"
+#include "Engine/Debug.h"
 
 void inventory_create()
 {
 	ICE_Render_Color(ICE_Color_New(50, 50, 50));
-	DATA1 * data = ICE_Data_Get(ICE_State_GetParent(NULL), 0);
-	ICE_ID nb = ICE_Label_Create
+	DATA1 * data = ICE_Data_Get(0);
+	/*ICE_ID nb = ICE_Label_Create
 	(
 		NULL, 
 		"", 
@@ -34,14 +36,14 @@ void inventory_create()
 			ICE_Label_GetHeight(ICE_Label_Get(NULL, nb) + 2)
 		),
 		ICE_GUITYPE_9PATCH
-	);
+	);*/
 }
 
 void inventory_update()
 {
 	ICE_Debug_DrawFps(5);
 
-	ICE_Label_SetPos(ICE_Label_Get(NULL, 0), ICE_Vect_New(ICE_Input_MouseX() + 15, ICE_Input_MouseY() - 10));
+	/*ICE_Label_SetPos(ICE_Label_Get(NULL, 0), ICE_Vect_New(ICE_Input_MouseX() + 15, ICE_Input_MouseY() - 10));
 	DATA1 * data = ICE_Data_Get(ICE_State_GetParent(NULL), 0);
 	ICE_Gui_SetSize
 	(
@@ -61,11 +63,11 @@ void inventory_update()
 			ICE_Label_GetX(ICE_Label_Get(NULL, 0)) - 5,
 			ICE_Label_GetY(ICE_Label_Get(NULL, 0))
 		)
-	);
+	);*/
 	ICE_Debug_CameraControl();
 
-	if (ICE_Input_Pressed(ICE_KEY_ESCAPE))
-		ICE_State_Pause();
+	/*if (ICE_Input_Pressed(ICE_KEY_ESCAPE))
+		ICE_State_Pause();*/
 }
 
 void inventory_destroy()

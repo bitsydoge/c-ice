@@ -1,4 +1,5 @@
 ﻿#include "weapon.h"
+#include "Framework/String_.h"
 
 Game_Weapon Game_Weapon_Init(ICE_String name, ICE_Float damage, ICE_Float speed, ICE_Float weight)
 {

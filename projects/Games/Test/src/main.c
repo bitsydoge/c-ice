@@ -18,6 +18,7 @@
 #include "Engine/Time_.h"
 #include "Engine/Game.h"
 #include "Engine/Screenshot.h"
+#include "Engine/Texture.h"
 
 void ICE_Game_Create()
 {

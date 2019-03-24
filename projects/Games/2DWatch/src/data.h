@@ -6,7 +6,7 @@
 struct DATA1
 {
 	int					life, speed;
-	ICE_State			inventory;
+	//ICE_State			inventory;
 	Game_Weapon			current_weapon;
 
 }; typedef struct DATA1 DATA1;

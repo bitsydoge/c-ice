@@ -1,7 +1,7 @@
 ﻿#ifndef DEF_GAME_WEAPON
 #define DEF_GAME_WEAPON
 
-#include <ICE.h>
+#include "Framework/String_.h"
 
 struct Game_Weapon
 {
