@@ -5,6 +5,9 @@
 #include "Types.h"
 #include "Graphics2D.h"
 #include "Control2D.h"
+#include "EntityManager.h"
+#include "Tag.h"
+#include "TagComponent.h"
 
 typedef struct ICE_Entity ICE_Entity;
 
@@ -36,6 +39,7 @@ void ICE_Entity_DataDestroyAll(ICE_EntityID entity_id_);
 
 ICE_Graphics2D* ICE_Entity_GetGraphics2D(ICE_EntityID entity_id_);
 ICE_Control2D* ICE_Entity_GetControl2D(ICE_EntityID entity_id_);
+ICE_TagComponent* ICE_Entity_GetTagComponent(ICE_EntityID entity_id_);
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 // ------------------------------------------------------------------------------------- //

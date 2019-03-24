@@ -7,43 +7,62 @@
 #if defined(_DEBUG)
 size_t _thing_to_free_ = 0;
 #endif
-void* ICE_Malloc(size_t _Size)
+void* ICE_Malloc(size_t size_)
 {
-	void* ptr = malloc(_Size);
+	void* ptr = malloc(size_);
+#if defined(_DEBUG)
 	if (ptr == NULL)
 	{
-		ICE_Log(ICE_LOGTYPE_CRITICAL, "Memory]::[Malloc]::[Failed");
+		ICE_Log(ICE_LOGTYPE_CRITICAL, "(Malloc) Failed to allocate memory");
 		ICE_Assert(ptr != NULL, "(Malloc) Failed to allocate memory");
 	}
-#if defined(_DEBUG)
 	_thing_to_free_++;
 #endif
 	return ptr;
 }
 
-void* ICE_Calloc(size_t _Nb_Elem, size_t _Size)
+void* ICE_Calloc(size_t nb_elem_, size_t size_)
 {
-	void* ptr = calloc(_Nb_Elem, _Size);
+	void* ptr = calloc(nb_elem_, size_);
+#if defined(_DEBUG)
 	if (ptr == NULL)
 	{
-		ICE_Log(ICE_LOGTYPE_CRITICAL, "Memory]::[Calloc]::[Failed");
+		ICE_Log(ICE_LOGTYPE_CRITICAL, "(Calloc) Failed to allocate memory");
 		ICE_Assert(ptr != NULL, "(Calloc) Failed to allocate memory");
 	}
-#if defined(_DEBUG)
 	_thing_to_free_++;
 #endif
 	return ptr;
 }
 
-void* ICE_Realloc(void* _Block, size_t _Size)
+void* ICE_Realloc(void* block_, size_t size_)
 {
-	void* ptr = realloc(_Block, _Size);
+	void* ptr = realloc(block_, size_);
+#if defined(_DEBUG)
 	if (ptr == NULL)
 	{
-		ICE_Log(ICE_LOGTYPE_CRITICAL, "Memory]::[Realloc]::[Failed");
+		ICE_Log(ICE_LOGTYPE_CRITICAL, "(Realloc) Failed to reallocate memory");
 		ICE_Assert(ptr != NULL, "(Realloc) Failed to reallocate memory");
 	}
+#endif
 	return ptr;
+}
+
+void* ICE_ReallocZero(void* Bloc_, size_t oldSize_, size_t newSize_) 
+{
+	void* pNew = realloc(Bloc_, newSize_);
+	if (newSize_ > oldSize_ && pNew) 
+	{
+		size_t diff = newSize_ - oldSize_;
+		void* pStart = ((char*)pNew) + oldSize_;
+		memset(pStart, 0, diff);
+	}
+	else
+	{
+		ICE_Log_Critical("(ReallocZero) Failed to reallocate memory");
+		ICE_Assert(pNew != NULL, "(ReallocZero) Failed to reallocate memory");
+	}
+	return pNew;
 }
 
 void ICE_Free(void* _Block)

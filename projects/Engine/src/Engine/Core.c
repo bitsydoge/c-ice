@@ -23,20 +23,15 @@
 #include ICE_INCLUDE_SDL2_TTF
 #include ICE_INCLUDE_SDL2_MIXER
 
-#include "MusicManager_private.h"
-#include "Sound.h"
-#include "Resources_private.h"
-#include "Data.h"
-
 #if defined(_DEBUG)
 
 #endif
 
-#include "Scene.h"
 #include "Asset_private.h"
 
 void ICE_Core_Main(void(*call_create)(void), void(*call_update)(void), void(*call_destroy)(void))
 {
+	SDL_SetMainReady();
 	///////////////////////////////////////
 	// ENGINE INIT
 	ICE_Core_Init();
@@ -170,6 +165,7 @@ int ICE_Core_Quit()
 	ICE_Log(ICE_LOGTYPE_SUCCES, "Quit SDL_Mixer");
 	SDL_Quit();
 	ICE_Log(ICE_LOGTYPE_SUCCES, "Quit SDL");
+	
 	// PHYSFS
 	PHYSFS_deinit();
 	ICE_Log(ICE_LOGTYPE_FINISH, "Core Quit");

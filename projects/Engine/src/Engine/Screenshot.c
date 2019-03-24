@@ -120,7 +120,7 @@
 //	}
 //	else // No space avaible avaible
 //	{
-//		// Set the tofill to the first case of the new allocated memory
+//		// Set the contain to the first case of the new allocated memory
 //		image_saver_data_array_tofill = image_saver_data_array_size;
 //		// Make the array twice bigger
 //		image_saver_data_array_size *=2;

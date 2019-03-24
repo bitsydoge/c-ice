@@ -288,6 +288,12 @@
     <ClCompile Include="src\Engine\Tag.c">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="src\Engine\TagComponent.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\TagManager.c">
+      <Filter>Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Framework\Assert_.h">
@@ -605,6 +611,18 @@
     </ClInclude>
     <ClInclude Include="src\External\libs\strpool.h">
       <Filter>External\libs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\TagComponent.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\TagComponent_private.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\TagManager.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\TagManager_private.h">
+      <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

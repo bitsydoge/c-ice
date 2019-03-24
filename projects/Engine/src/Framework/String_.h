@@ -18,7 +18,7 @@ typedef ICE_Char* ICE_StringStd;
 * \param string String evaluated
 * \return Size of the string
 */
-int ICE_String_STDSize(ICE_StringStd string);
+int ICE_StringStd_Size(ICE_StringStd string);
 
 /**
 * \brief Return size of the array of a ICE_String (dont work on std char*) (it's multiple of int)

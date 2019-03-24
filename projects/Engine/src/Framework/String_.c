@@ -16,7 +16,7 @@ static const int cpi = sizeof(int) / sizeof(ICE_Char);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Return size of a standard string (work on ICE_String too)
-int ICE_String_STDSize(ICE_StringStd string)
+int ICE_StringStd_Size(ICE_StringStd string)
 {
 	ICE_Char actual; int size_string = 0;
 	if (string)
@@ -54,7 +54,7 @@ ICE_String ICE_String_Init(ICE_StringStd stdstring, ...)
 	vsnprintf(buffer, ICE_STRING_MAX_BUFFER_SIZE, stdstring, args);
 	va_end(args);
 
-	const int size_string = ICE_String_STDSize(buffer);
+	const int size_string = ICE_StringStd_Size(buffer);
 	int nb_int_to_malloc = size_string / cpi;
 
 	if (size_string % cpi != 0)
@@ -85,7 +85,7 @@ ICE_String ICE_String_Init2(ICE_StringStd stdstring, ...)
 	ICE_Xplat_vasprintf(&buffer, stdstring, args);
 	va_end(args);
 
-	const int size_string = ICE_String_STDSize(buffer);
+	const int size_string = ICE_StringStd_Size(buffer);
 	int nb_int_to_malloc = size_string / cpi;
 
 	if (size_string % cpi != 0)
@@ -213,9 +213,9 @@ ICE_String ICE_String_GetExtension(ICE_StringStd string_)
 
 ICE_Bool ICE_String_StartWith(ICE_StringStd full, ICE_StringStd start)
 {
-	if(ICE_String_STDSize(full) >= ICE_String_STDSize(start))
+	if(ICE_StringStd_Size(full) >= ICE_StringStd_Size(start))
 	{
-		for(int i = 0; i < ICE_String_STDSize(start)-1; i++)
+		for(int i = 0; i < ICE_StringStd_Size(start)-1; i++)
 			if(start[i] != full[i])
 				return ICE_False;
 		return ICE_True;

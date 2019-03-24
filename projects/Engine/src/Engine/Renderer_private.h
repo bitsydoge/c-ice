@@ -21,6 +21,8 @@ void ICE_Renderer_Init();
 void ICE_Renderer_Quit();
 #if defined(_DEBUG)
 void ICE_Renderer_Info();
+#else
+#define ICE_Renderer_Info()
 #endif
 
 #endif

@@ -14,13 +14,12 @@ ICE_INLINE ICE_Bool ICE_Debug_Get_Compiled()
 #endif
 }
 
-void (*ICE_Debug_LateDraw_Get())();
-
 // Get the Library Debug
 ICE_Bool ICE_Debug_Get_Linked();
 
 #if defined(_DEBUG)
 
+void (*ICE_Debug_LateDraw_Get())();
 /**
  * \brief Draw the mouse coordinate
  */
@@ -79,14 +78,16 @@ void ICE_Debug_CameraControl();
 void ICE_Debug_CallbackDraw(void(*callback)());
 
 #else
-#define ICE_Debug_DrawCoordinate();
-#define ICE_Debug_DrawFps(...);
-#define ICE_Debug_TitleFps();
-#define ICE_Debug_FontSetColorBg(...);
-#define ICE_Debug_FontSetColorFg(...);
-#define ICE_Debug_FontDraw(...);
-#define ICE_Debug_CameraControl();
-#define ICE_Debug_CallbackDraw(...);
+
+#define ICE_Debug_DrawCoordinate()
+#define ICE_Debug_DrawFps(...)
+#define ICE_Debug_TitleFps()
+#define ICE_Debug_FontSetColorBg(...)
+#define ICE_Debug_FontSetColorFg(...)
+#define ICE_Debug_FontDraw(...)
+#define ICE_Debug_CameraControl()
+#define ICE_Debug_CallbackDraw(...)
+#define ICE_Debug_CameraDraw()
 #endif
 
 #endif

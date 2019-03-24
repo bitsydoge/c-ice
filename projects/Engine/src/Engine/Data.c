@@ -8,7 +8,7 @@
 #include "Scene_private.h"
 
 // Make a Data and create a pointer in the GAME->data array (return the pointer created)
-ICE_DataID ICE_Data_Insert(ICE_Size size_use_sizeof_)
+ICE_DataID ICE_Data_Add(ICE_Size size_use_sizeof_)
 {
 	ICE_Scene * scene_ = ICE_Scene_GetCurrent();
 

@@ -5,6 +5,8 @@
 #include "Control2D_private.h"
 #include "Graphics2D_private.h"
 #include "Physics2D_private.h"
+#include "Tag_private.h"
+#include "TagComponent_private.h"
 
 struct ICE_Entity
 {
@@ -24,11 +26,15 @@ struct ICE_Entity
 	void			(*func_update)(ICE_EntityID);
 	void			(*func_destroy)(ICE_EntityID);
 
+	// Data
 	ICE_DataID		data_nb;
 	void** data;
 
 	// Physics
 	ICE_Physics2D	physics;
+
+	// Tag
+	ICE_TagComponent tag_component;
 
 };
 

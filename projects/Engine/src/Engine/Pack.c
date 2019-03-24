@@ -25,7 +25,7 @@ ICE_Bool ICE_Pack_FileExist(ICE_StringStd path_)
 
 ICE_Bool ICE_Pack_isPathFromPak(ICE_StringStd path_)
 {
-	if (ICE_String_STDSize(path_) > 7)
+	if (ICE_StringStd_Size(path_) > 7)
 	{
 		if (path_[0] == 'r')
 			if (path_[1] == 'e')

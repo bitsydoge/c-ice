@@ -13,6 +13,8 @@ before you include this file in *one* C/C++ file to create the implementation.
 #ifndef strpool_h
 #define strpool_h
 
+#include <stddef.h>
+
 #ifndef STRPOOL_U32
     #define STRPOOL_U32 unsigned int
 #endif
@@ -445,7 +447,7 @@ struct strpool_t
         #define _CRT_NONSTDC_NO_DEPRECATE 
         #define _CRT_SECURE_NO_WARNINGS
         #include <string.h>
-        #define STRPOOL_STRNICMP( s1, s2, len ) ( strnicmp( s1, s2, len ) )
+        #define STRPOOL_STRNICMP( s1, s2, len ) ( _strnicmp( s1, s2, len ) )
     #else
         #include <string.h>
         #define STRPOOL_STRNICMP( s1, s2, len ) ( strncasecmp( s1, s2, len ) )        

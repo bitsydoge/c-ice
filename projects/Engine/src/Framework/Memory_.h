@@ -3,9 +3,10 @@
 
 #include <string.h>
 
-void* ICE_Malloc(size_t _Size);
-void* ICE_Calloc(size_t _Nb_Elem, size_t _Size);
-void* ICE_Realloc(void* _Block, size_t _Size);
+void* ICE_Malloc(size_t size_);
+void* ICE_Calloc(size_t nb_elem_, size_t size_);
+void* ICE_Realloc(void* block_, size_t size_);
+void* ICE_ReallocZero(void* Bloc_, size_t oldSize_, size_t newSize_);
 void ICE_Free(void* _Block);
 #if defined(_DEBUG)
 size_t ICE_Memory_NbFreeToDo();

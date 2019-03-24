@@ -14,6 +14,8 @@
 
 #include "Graphics2D_private.h"
 #include "Control2D_private.h"
+#include "Tag.h"
+#include "TagComponent.h"
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -27,16 +29,18 @@ ICE_Entity ICE_Entity_Build(ICE_Vect vect_)
 	ICE_Entity entity = { 0 };
 
 	entity.exist = ICE_True;
+	entity.timestamp = SDL_GetTicks();
+
+	// Component
 	entity.control2d = ICE_Control2D_Build(vect_);
 	entity.graphics2d = ICE_Graphics2D_Build();
-	entity.timestamp = SDL_GetTicks();
+	entity.tag_component = ICE_TagComponent_Init();
 
 	return entity;
 }
 
 ICE_ID ICE_Entity_Create(ICE_Vect vect_)
 {
-	//if (!scene_)
 	ICE_Scene * scene_ = ICE_Scene_GetCurrent();
 
 	ICE_EntityID avaible_slot = 0;
@@ -92,6 +96,7 @@ void ICE_Entity_Destroy(ICE_EntityID entity_id_)
 		ICE_Graphics2D_Destroy(&entity_ptr->graphics2d);
 		entity_ptr->graphics2d.type = ICE_GRAPHICS2D_TYPES_NONE;
 		ICE_Control2D_Destroy(&entity_ptr->control2d);
+		ICE_TagComponent_Destroy(&entity_ptr->tag_component);
 
 		entity_ptr->func_create = NULL;
 		entity_ptr->func_update = NULL;
@@ -214,7 +219,10 @@ ICE_Control2D* ICE_Entity_GetControl2D(ICE_EntityID entity_id_)
 	return &ICE_Scene_GetCurrent()->entity_mngr.entity[entity_id_].control2d;
 }
 
-
+ICE_TagComponent * ICE_Entity_GetTagComponent(ICE_EntityID entity_id_)
+{
+	return &ICE_Scene_GetCurrent()->entity_mngr.entity[entity_id_].tag_component;
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 // ------------------------------------------------------------------------------------- //

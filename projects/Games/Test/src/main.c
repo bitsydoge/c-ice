@@ -22,7 +22,7 @@
 void ICE_Game_Create()
 {
 	// Data 
-	GAME_DATA * D = ICE_Data_Insert(NULL, GAME_DATA);
+	GAME_DATA * D = ICE_Data_Add(NULL, GAME_DATA);
 
 	// Pack Load
 	ICE_Pack_Load("res\\pak\\pak1.zip");

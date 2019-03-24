@@ -9,7 +9,7 @@ int ICE_UT_MAIN()
 {
 	// ICE_String_Contain() and ICE_String_SizeSTD() and ICE_String_Free()
 	ICE_StringStd test0 = "Je suis une phrase tous ce qu'il y a de banale";
-	ICE_UT_EQUAL(ICE_String_STDSize(test0), 47);
+	ICE_UT_EQUAL(ICE_StringStd_Size(test0), 47);
 	test0 = ICE_String_Init(test0);
 	ICE_UT_EQUAL(ICE_String_Contain(test0), 47);
 	ICE_String_Free(test0); test0 = NULL;
@@ -78,7 +78,7 @@ int ICE_UT_MAIN()
 	ICE_String test8 = ICE_String_Init("Hello World !");
 	ICE_UT_COMPARE(ICE_String_Size(test8)%ICE_String_CPI(), ==, 0);
 	ICE_String_Resize(&test8, 200);
-	ICE_UT_COMPARE(ICE_String_Size(test8), !=, ICE_String_STDSize("Hello World !"));
+	ICE_UT_COMPARE(ICE_String_Size(test8), !=, ICE_StringStd_Size("Hello World !"));
 	ICE_String_Destroy(&test8);
 
 	ICE_UT_LOOP(5000)

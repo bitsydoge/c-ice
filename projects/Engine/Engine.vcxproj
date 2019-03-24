@@ -55,6 +55,8 @@
     <ClCompile Include="src\Engine\Sound.c" />
     <ClCompile Include="src\Engine\SoundManager.c" />
     <ClCompile Include="src\Engine\Tag.c" />
+    <ClCompile Include="src\Engine\TagComponent.c" />
+    <ClCompile Include="src\Engine\TagManager.c" />
     <ClCompile Include="src\Engine\Texture.c" />
     <ClCompile Include="src\Engine\TextureManager.c" />
     <ClCompile Include="src\Engine\Timer.c" />
@@ -171,6 +173,10 @@
     <ClInclude Include="src\Engine\SoundManager_private.h" />
     <ClInclude Include="src\Engine\Sound_private.h" />
     <ClInclude Include="src\Engine\Tag.h" />
+    <ClInclude Include="src\Engine\TagComponent.h" />
+    <ClInclude Include="src\Engine\TagComponent_private.h" />
+    <ClInclude Include="src\Engine\TagManager.h" />
+    <ClInclude Include="src\Engine\TagManager_private.h" />
     <ClInclude Include="src\Engine\Tag_private.h" />
     <ClInclude Include="src\Engine\Texture.h" />
     <ClInclude Include="src\Engine\TextureManager.h" />

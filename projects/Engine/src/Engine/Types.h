@@ -22,6 +22,8 @@ typedef ICE_ID ICE_MusicID;
 
 typedef ICE_ID ICE_DataID;
 
+typedef ICE_ID ICE_TagID;
+
 
 #endif
 
