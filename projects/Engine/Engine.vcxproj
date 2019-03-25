@@ -19,10 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_framerate.c" />
-    <ClCompile Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_gfxPrimitives.c" />
-    <ClCompile Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_imageFilter.c" />
-    <ClCompile Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_rotozoom.c" />
     <ClCompile Include="src\Engine\Asset.c" />
     <ClCompile Include="src\Engine\Audio.c" />
     <ClCompile Include="src\Engine\Camera.c" />
@@ -87,6 +83,10 @@
     <ClCompile Include="src\External\physfs\physfs_platform_winrt.cpp" />
     <ClCompile Include="src\External\physfs\physfs_unicode.c" />
     <ClCompile Include="src\External\rlutil\rlutil.c" />
+    <ClCompile Include="src\External\SDL2_gfx\SDL2_framerate.c" />
+    <ClCompile Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.c" />
+    <ClCompile Include="src\External\SDL2_gfx\SDL2_imageFilter.c" />
+    <ClCompile Include="src\External\SDL2_gfx\SDL2_rotozoom.c" />
     <ClCompile Include="src\Framework\Assert_.c" />
     <ClCompile Include="src\Framework\Crossplatform_.c" />
     <ClCompile Include="src\Framework\File_.c" />
@@ -107,11 +107,6 @@
     <ClCompile Include="src\Resources\raw\Icon.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_framerate.h" />
-    <ClInclude Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_gfxPrimitives.h" />
-    <ClInclude Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_gfxPrimitives_font.h" />
-    <ClInclude Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_imageFilter.h" />
-    <ClInclude Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_rotozoom.h" />
     <ClInclude Include="src\Engine\Asset.h" />
     <ClInclude Include="src\Engine\Asset_private.h" />
     <ClInclude Include="src\Engine\Audio.h" />
@@ -199,6 +194,11 @@
     <ClInclude Include="src\External\physfs\physfs_miniz.h" />
     <ClInclude Include="src\External\physfs\physfs_platforms.h" />
     <ClInclude Include="src\External\rlutil\rlutil.h" />
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_framerate.h" />
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.h" />
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives_font.h" />
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_imageFilter.h" />
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_rotozoom.h" />
     <ClInclude Include="src\External\stb\SDL_stbimage.h" />
     <ClInclude Include="src\External\stb\stb_image.h" />
     <ClInclude Include="src\External\stb\stb_image_write.h" />

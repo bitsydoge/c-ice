@@ -35,7 +35,7 @@ Andreas Schiffler -- aschiffler at ferzkopp dot net
 #define M_PI	3.1415926535897932384626433832795
 #endif
 
-#include "../../Core/SDL2_Includer.h"
+#include "../../Engine/SDL2_Includer_private.h"
 #include ICE_INCLUDE_SDL2
 
 /* Set up for C function definitions, even when using C++ */

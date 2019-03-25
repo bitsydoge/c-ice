@@ -141,18 +141,6 @@
     <ClCompile Include="src\Framework\MacOS_.c">
       <Filter>Framework</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_framerate.c">
-      <Filter>External\SDL_gfx</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_gfxPrimitives.c">
-      <Filter>External\SDL_gfx</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_imageFilter.c">
-      <Filter>External\SDL_gfx</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_rotozoom.c">
-      <Filter>External\SDL_gfx</Filter>
-    </ClCompile>
     <ClCompile Include="src\Engine\Audio.c">
       <Filter>Engine</Filter>
     </ClCompile>
@@ -294,6 +282,18 @@
     <ClCompile Include="src\Engine\TagList.c">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="src\External\SDL2_gfx\SDL2_framerate.c">
+      <Filter>External\SDL_gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.c">
+      <Filter>External\SDL_gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\SDL2_gfx\SDL2_imageFilter.c">
+      <Filter>External\SDL_gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\External\SDL2_gfx\SDL2_rotozoom.c">
+      <Filter>External\SDL_gfx</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Framework\Assert_.h">
@@ -370,21 +370,6 @@
     </ClInclude>
     <ClInclude Include="src\Framework\BasicTypes.h">
       <Filter>Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_framerate.h">
-      <Filter>External\SDL_gfx</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_gfxPrimitives.h">
-      <Filter>External\SDL_gfx</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_gfxPrimitives_font.h">
-      <Filter>External\SDL_gfx</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_imageFilter.h">
-      <Filter>External\SDL_gfx</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\ICE-master\projects\Engine\src\External\SDL2_gfx\SDL2_rotozoom.h">
-      <Filter>External\SDL_gfx</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Audio.h">
       <Filter>Engine</Filter>
@@ -623,6 +608,21 @@
     </ClInclude>
     <ClInclude Include="src\Engine\Vect2D.h">
       <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_framerate.h">
+      <Filter>External\SDL_gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives.h">
+      <Filter>External\SDL_gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_gfxPrimitives_font.h">
+      <Filter>External\SDL_gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_imageFilter.h">
+      <Filter>External\SDL_gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="src\External\SDL2_gfx\SDL2_rotozoom.h">
+      <Filter>External\SDL_gfx</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
