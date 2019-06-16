@@ -1,5 +1,5 @@
 //
-// Created by ***REMOVED*** on 30/07/2018.
+// Created by Coldragon on 30/07/2018.
 //
 
 #include "MacOS_.h"

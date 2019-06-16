@@ -20,7 +20,7 @@
 *    distribution.
 */
 
-/* Code can have been altered by ***REMOVED*** for integrating it */
+/* Code can have been altered by WARLUS Dylan for integrating it */
 
 
 #ifndef DEF_ICE_INTERPOLATE

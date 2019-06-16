@@ -39,7 +39,6 @@ struct ICE_Scene
 	ICE_Color				background_color;
 
 	struct ICE_Scene *		parent;
-
 };
 
 ICE_Scene* ICE_Scene_GetMain();

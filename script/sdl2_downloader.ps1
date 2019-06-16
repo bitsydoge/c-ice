@@ -1,6 +1,6 @@
 # =======================================================
 # NAME: sdl2_downloader.ps1
-# AUTHOR: ***REMOVED***
+# AUTHOR: WARLUS Dylan
 # DATE: 30/07/2018
 #
 # VERSION 1

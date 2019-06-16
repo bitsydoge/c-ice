@@ -14,7 +14,7 @@ void GAME_Player_Create(ICE_Entity*  this_)
 	D_player->frame_left = 82;
 	D_player->frame_right = 79;
 	D_player->size_text = 25;
-	D_player->name = ICE_String_Init("***REMOVED***");
+	D_player->name = ICE_String_Init("Coldragon");
 	
 	ICE_Entity_SetSprite(ICE_Entity_Get(NULL, D->player), D->sprite_player); // Set Sprite to Entity
 	ICE_Entity_SetSpriteFrame(ICE_Entity_Get(NULL, D->player), D_player->frame_down); // Select Frame
