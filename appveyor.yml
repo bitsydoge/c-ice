@@ -1,8 +1,0 @@
-version: 1.0.{build}
-image: Visual Studio 2017
-clone_folder: C:\project\ICE
-build_script:
-- ps: >-
-    C:\project\ICE\script\sdl2_downloader.ps1
-    cmake "C:\project\ICE\CMakeLists.txt"
-    msbuild Engine.vcxproj

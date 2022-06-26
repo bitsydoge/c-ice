@@ -1,7 +1,3 @@
-[![AppVeyor Status](https://ci.appveyor.com/api/projects/status/403d2539ebdvglj7?svg=true)](https://ci.appveyor.com/project/coldragon/ice) Windows
-
-[![Travus CI Status](https://travis-ci.org/***REMOVED***/ICE.svg?branch=master)](https://travis-ci.org/***REMOVED***/ICE) Linux & MacOS 
-
 # ICE : Indie "C" Engine
 <img alt="ICE Logo" src="logo/logo_hq.png" width=20% height=20%> 
 
